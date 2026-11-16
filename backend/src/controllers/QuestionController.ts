@@ -32,6 +32,17 @@ const batchSchema = z.object({
   studentClass: z.enum(['11', '12', 'Dropper']).default('12'),
   count: z.number().int().min(1).max(200).default(10),
   mode: z.enum(['practice', 'ai']).default('practice'),
+  questionTypes: z.object({
+    mcq_single: z.number().int().min(0).optional(),
+    mcq_multi: z.number().int().min(0).optional(),
+    integer: z.number().int().min(0).optional(),
+    matrix_match: z.number().int().min(0).optional(),
+  }).optional(),
+  difficultyDistribution: z.object({
+    beginner: z.number().min(0).max(100).optional(),
+    intermediate: z.number().min(0).max(100).optional(),
+    advanced: z.number().min(0).max(100).optional(),
+  }).optional(),
 });
 
 const bankStatsQuerySchema = z.object({
@@ -97,7 +108,7 @@ export class QuestionController {
         throw new AppError(400, body.error.errors[0]?.message ?? 'Invalid parameters');
       }
 
-      const { selections, difficulty, examType, studentClass, count, mode } = body.data;
+      const { selections, difficulty, examType, studentClass, count, mode, questionTypes, difficultyDistribution } = body.data;
       for (const { subject, topic } of selections) {
         this.validateTopicSelection(subject, topic, examType, studentClass);
       }
@@ -109,6 +120,8 @@ export class QuestionController {
             difficulty,
             examType,
             count,
+            questionTypes,
+            difficultyDistribution,
           )
         : await this.questionService.getQuestionBatch(
             req.user!.userId,
@@ -117,6 +130,8 @@ export class QuestionController {
             examType,
             studentClass,
             count,
+            questionTypes,
+            difficultyDistribution,
           );
 
       const safe = questions.map(({ answer: _, explanation: __, ...q }) => q);

@@ -8,7 +8,8 @@ import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import type { Question, AnswerResult, Subject, TopicProgress, PaperSet } from '@/types';
 import type { SplitTopics } from '@/lib/api';
-import type { AppState, WizardStep, DiffOption, MarkingScheme, StoredResult } from './shared';
+import type { AppState, WizardStep, DiffOption, MarkingScheme, StoredResult, QuestionTypeCounts, DifficultyDistribution } from './shared';
+import { getDefaultQuestionTypes } from './shared';
 import type { PracticeExamConfig } from './examConfig';
 import { SessionReview } from './SessionReview';
 import { SubjectStep } from './SubjectStep';
@@ -64,8 +65,24 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   const [questionCount, setQuestionCount] = useState<number | 'custom'>(10);
   const [customCount, setCustomCount] = useState('');
   const [difficulty, setDifficulty] = useState<DiffOption>('mixed');
+  const [difficultyMode, setDifficultyMode] = useState<'preset' | 'custom'>('preset');
+  const [difficultyDistribution, setDifficultyDistribution] = useState<DifficultyDistribution>({
+    beginner: 30,
+    intermediate: 30,
+    advanced: 40,
+  });
   const [examType, setExamType] = useState<'Main' | 'Advanced'>('Main');
   const [markingScheme, setMarkingScheme] = useState<MarkingScheme>('jee_main');
+  const [questionTypeCounts, setQuestionTypeCounts] = useState<QuestionTypeCounts>(() =>
+    getDefaultQuestionTypes(10, 'Main', config.exam === 'NEET'),
+  );
+
+  useEffect(() => {
+    const count = questionCount === 'custom'
+      ? Math.max(1, Math.min(parseInt(customCount, 10) || 10, config.maxPerSubject))
+      : questionCount;
+    setQuestionTypeCounts(getDefaultQuestionTypes(count, examType, config.exam === 'NEET'));
+  }, [questionCount, customCount, examType, config.exam, config.maxPerSubject]);
 
   /* ── Topics (fetched from API) ── */
   const [topicsByClass, setTopicsByClass] = useState<SplitTopics | null>(null);
@@ -379,6 +396,8 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
         examType: isNeet ? 'NEET' : examType,
         studentClass: batchClass,
         count,
+        questionTypes: questionTypeCounts,
+        difficultyDistribution: difficultyMode === 'custom' || difficulty === 'mixed' ? difficultyDistribution : undefined,
       });
 
       clearInterval(msgInterval);
@@ -402,7 +421,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
       setAppState('wizard');
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedSubjects, selectedTopics, questionCount, customCount, difficulty, examType, batchClass, isNeet, config]);
+  }, [selectedSubjects, selectedTopics, questionCount, customCount, difficulty, difficultyMode, difficultyDistribution, questionTypeCounts, examType, batchClass, isNeet, config]);
 
   // Keep the active question dot in view within the horizontal palette
   useEffect(() => {
@@ -585,6 +604,12 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                 onCustomCount={setCustomCount}
                 difficulty={difficulty}
                 onDifficulty={setDifficulty}
+                difficultyMode={difficultyMode}
+                onDifficultyMode={setDifficultyMode}
+                difficultyDistribution={difficultyDistribution}
+                onDifficultyDistribution={setDifficultyDistribution}
+                questionTypeCounts={questionTypeCounts}
+                onQuestionTypeCounts={setQuestionTypeCounts}
                 examType={examType}
                 onExamType={setExamType}
                 markingScheme={markingScheme}
@@ -620,16 +645,26 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
               >
                 Continue
               </button>
-            ) : !config.hasPapers ? (
-              <button type="button" className="btn btn-primary btn-lg" onClick={startExam}>
-                Start practice
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-              </button>
             ) : showPapers ? null : (
-              <button type="button" className="btn btn-primary btn-lg" onClick={() => loadPapers(1)}>
-                Find papers
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-              </button>
+              <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+                {config.hasPapers && (
+                  <button
+                    type="button"
+                    className="btn btn-outline btn-lg"
+                    onClick={() => loadPapers(1)}
+                  >
+                    Browse papers
+                  </button>
+                )}
+                <button
+                  type="button"
+                  className="btn btn-primary btn-lg"
+                  onClick={startExam}
+                >
+                  Start practice
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                </button>
+              </div>
             )}
           </div>
         </div>

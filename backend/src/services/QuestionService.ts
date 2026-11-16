@@ -17,6 +17,8 @@ import {
   normalizeBankExamType,
   pickQuestionType,
   randomDifficulty,
+  planDifficultySlots,
+  planQuestionTypeSlots,
 } from '../utils/questionUtils';
 import {
   JEE_TOPICS_BY_CLASS,
@@ -25,6 +27,8 @@ import {
   type ExamType,
   type GeneratedQuestion,
   type QuestionType,
+  type QuestionTypeCounts,
+  type DifficultyDistribution,
   type StudentClass,
   type Subject,
 } from '../types/index';
@@ -122,6 +126,13 @@ export class QuestionService {
       );
     }
 
+    if (candidates.length === 0 && forceType) {
+      candidates = await this.questions.findMany(
+        { topic, subject, examType: bankExamType, questionType: forceType, ...batchExclude, validatedAt: { not: null }, mockOnly: false },
+        poolSize,
+      );
+    }
+
     if (candidates.length === 0) {
       candidates = await this.questions.findMany(
         { topic, subject, examType: bankExamType, ...batchExclude, validatedAt: { not: null }, mockOnly: false },
@@ -151,6 +162,8 @@ export class QuestionService {
     difficulty: Difficulty | 'mixed',
     examType: ExamType,
     count: number,
+    questionTypeCounts?: QuestionTypeCounts,
+    difficultyDistribution?: DifficultyDistribution,
   ): Promise<Question[]> {
     const subjectGroups = new Map<Subject, string[]>();
     for (const { subject, topic } of selections) {
@@ -168,22 +181,25 @@ export class QuestionService {
     const numSubjects = subjectGroups.size;
     const perSubject = numSubjects > 0 ? Math.floor(count / numSubjects) : count;
 
-    const overPlan: Array<{ subject: Subject; topic: string; diff: Difficulty }> = [];
+    const overPlan: Array<{ subject: Subject; topic: string; diff: Difficulty; type?: QuestionType }> = [];
     for (const [subject, topics] of subjectGroups) {
       const slots = Math.ceil(perSubject * 1.2);
       const allocatedTopics = distributeTopicSlots(topics, slots);
-      for (const topic of allocatedTopics) {
+      const allocatedDiffs = planDifficultySlots(slots, difficulty, difficultyDistribution);
+      const allocatedTypes = planQuestionTypeSlots(slots, questionTypeCounts, examType);
+      for (let i = 0; i < slots; i++) {
         overPlan.push({
           subject,
-          topic,
-          diff: difficulty === 'mixed' ? randomDifficulty() : difficulty,
+          topic: allocatedTopics[i] ?? topics[0]!,
+          diff: allocatedDiffs[i] ?? (difficulty === 'mixed' ? randomDifficulty() : difficulty),
+          type: allocatedTypes[i],
         });
       }
     }
 
-    const keyGroups = new Map<string, Array<{ subject: Subject; topic: string; diff: Difficulty }>>();
+    const keyGroups = new Map<string, Array<{ subject: Subject; topic: string; diff: Difficulty; type?: QuestionType }>>();
     for (const slot of overPlan) {
-      const key = `${slot.subject}:${slot.topic}:${slot.diff}`;
+      const key = `${slot.subject}:${slot.topic}:${slot.diff}:${slot.type ?? 'any'}`;
       if (!keyGroups.has(key)) keyGroups.set(key, []);
       keyGroups.get(key)!.push(slot);
     }
@@ -191,13 +207,13 @@ export class QuestionService {
     const settled = await settleWithLimit([...keyGroups.values()], FANOUT_CONCURRENCY, async (slots) => {
       const group: Question[] = [];
       const excludeIds: string[] = [];
-      for (const { subject, topic, diff } of slots) {
+      for (const { subject, topic, diff, type } of slots) {
         try {
-          const q = await this.getPracticeQuestion(userId, subject, topic, diff, examType, excludeIds);
+          const q = await this.getPracticeQuestion(userId, subject, topic, diff, examType, excludeIds, type);
           excludeIds.push(q.id);
           group.push(q);
         } catch (err) {
-          logger.warn({ err, topic, subject }, '[practice] slot skipped');
+          logger.warn({ err, topic, subject, type }, '[practice] slot skipped');
         }
       }
       return group;
@@ -442,10 +458,12 @@ export class QuestionService {
     examType: ExamType,
     studentClass: StudentClass,
     count: number,
+    questionTypeCounts?: QuestionTypeCounts,
+    difficultyDistribution?: DifficultyDistribution,
   ): Promise<Question[]> {
     if (!this.deepSeek.isAvailable()) {
       logger.info({ count, subjects: selections.length }, '[ai-batch] Circuit open — delegating to practice bank');
-      return this.getPracticeQuestionBatch(userId, selections, difficulty, examType, count);
+      return this.getPracticeQuestionBatch(userId, selections, difficulty, examType, count, questionTypeCounts, difficultyDistribution);
     }
 
     const subjectGroups = new Map<Subject, string[]>();
@@ -457,22 +475,25 @@ export class QuestionService {
     const numSubjects = subjectGroups.size;
     const perSubject = numSubjects > 0 ? Math.floor(count / numSubjects) : count;
 
-    const overPlan: Array<{ subject: Subject; topic: string; diff: Difficulty }> = [];
+    const overPlan: Array<{ subject: Subject; topic: string; diff: Difficulty; type?: QuestionType }> = [];
     for (const [subject, topics] of subjectGroups) {
       const slots = Math.ceil(perSubject * 1.2);
       const allocatedTopics = distributeTopicSlots(topics, slots);
-      for (const topic of allocatedTopics) {
+      const allocatedDiffs = planDifficultySlots(slots, difficulty, difficultyDistribution);
+      const allocatedTypes = planQuestionTypeSlots(slots, questionTypeCounts, examType);
+      for (let i = 0; i < slots; i++) {
         overPlan.push({
           subject,
-          topic,
-          diff: difficulty === 'mixed' ? randomDifficulty() : difficulty,
+          topic: allocatedTopics[i] ?? topics[0]!,
+          diff: allocatedDiffs[i] ?? (difficulty === 'mixed' ? randomDifficulty() : difficulty),
+          type: allocatedTypes[i],
         });
       }
     }
 
-    const keyGroups = new Map<string, Array<{ subject: Subject; topic: string; diff: Difficulty }>>();
+    const keyGroups = new Map<string, Array<{ subject: Subject; topic: string; diff: Difficulty; type?: QuestionType }>>();
     for (const slot of overPlan) {
-      const key = `${slot.subject}:${slot.topic}:${slot.diff}`;
+      const key = `${slot.subject}:${slot.topic}:${slot.diff}:${slot.type ?? 'any'}`;
       if (!keyGroups.has(key)) keyGroups.set(key, []);
       keyGroups.get(key)!.push(slot);
     }
@@ -480,13 +501,13 @@ export class QuestionService {
     const groupSettled = await settleWithLimit([...keyGroups.values()], FANOUT_CONCURRENCY, async (slots) => {
       const groupQuestions: Question[] = [];
       const excludeIds: string[] = [];
-      for (const { subject, topic, diff } of slots) {
+      for (const { subject, topic, diff, type } of slots) {
         try {
-          const q = await this.getNextQuestion(userId, subject, topic, diff, examType, studentClass, excludeIds);
+          const q = await this.getNextQuestion(userId, subject, topic, diff, examType, studentClass, excludeIds, type);
           excludeIds.push(q.id);
           groupQuestions.push(q);
         } catch (err) {
-          logger.warn({ err, topic, subject }, '[ai] slot skipped');
+          logger.warn({ err, topic, subject, type }, '[ai] slot skipped');
         }
       }
       return groupQuestions;

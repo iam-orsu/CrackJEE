@@ -1,10 +1,109 @@
 import { MOCK_CONSTANTS } from '../config/constants';
-import type { Difficulty, ExamType, QuestionType } from '../types/index';
+import type { Difficulty, ExamType, QuestionType, DifficultyDistribution, QuestionTypeCounts } from '../types/index';
 
 const DIFFICULTIES: Difficulty[] = ['beginner', 'intermediate', 'advanced'];
 
 export function randomDifficulty(): Difficulty {
   return DIFFICULTIES[Math.floor(Math.random() * DIFFICULTIES.length)] as Difficulty;
+}
+
+export function planDifficultySlots(
+  totalSlots: number,
+  difficulty: Difficulty | 'mixed',
+  distribution?: DifficultyDistribution,
+): Difficulty[] {
+  if (totalSlots <= 0) return [];
+
+  if (distribution) {
+    const bPct = Math.max(0, distribution.beginner ?? 0);
+    const iPct = Math.max(0, distribution.intermediate ?? 0);
+    const aPct = Math.max(0, distribution.advanced ?? 0);
+    const totalPct = bPct + iPct + aPct;
+
+    if (totalPct > 0) {
+      let bCount = Math.round((bPct / totalPct) * totalSlots);
+      let iCount = Math.round((iPct / totalPct) * totalSlots);
+      let aCount = totalSlots - bCount - iCount;
+
+      if (aCount < 0) {
+        if (bCount + aCount >= 0) {
+          bCount += aCount;
+        } else {
+          iCount += aCount;
+        }
+        aCount = 0;
+      }
+
+      const list: Difficulty[] = [
+        ...Array(Math.max(0, bCount)).fill('beginner'),
+        ...Array(Math.max(0, iCount)).fill('intermediate'),
+        ...Array(Math.max(0, aCount)).fill('advanced'),
+      ];
+      return fisherYatesShuffle(list);
+    }
+  }
+
+  if (difficulty !== 'mixed') {
+    return Array(totalSlots).fill(difficulty);
+  }
+
+  const bCount = Math.floor(totalSlots / 3);
+  const iCount = Math.floor(totalSlots / 3);
+  const aCount = totalSlots - bCount - iCount;
+
+  return fisherYatesShuffle([
+    ...Array(bCount).fill('beginner'),
+    ...Array(iCount).fill('intermediate'),
+    ...Array(aCount).fill('advanced'),
+  ]);
+}
+
+export function planQuestionTypeSlots(
+  totalSlots: number,
+  questionTypeCounts?: QuestionTypeCounts,
+  examType?: ExamType,
+): Array<QuestionType | undefined> {
+  if (totalSlots <= 0) return [];
+
+  if (questionTypeCounts) {
+    const s = Math.max(0, questionTypeCounts.mcq_single ?? 0);
+    const m = Math.max(0, questionTypeCounts.mcq_multi ?? 0);
+    const i = Math.max(0, questionTypeCounts.integer ?? 0);
+    const mat = Math.max(0, questionTypeCounts.matrix_match ?? 0);
+    const sum = s + m + i + mat;
+
+    if (sum > 0) {
+      if (sum === totalSlots) {
+        return fisherYatesShuffle([
+          ...Array(s).fill('mcq_single'),
+          ...Array(m).fill('mcq_multi'),
+          ...Array(i).fill('integer'),
+          ...Array(mat).fill('matrix_match'),
+        ]);
+      }
+
+      let sCount = Math.round((s / sum) * totalSlots);
+      let mCount = Math.round((m / sum) * totalSlots);
+      let iCount = Math.round((i / sum) * totalSlots);
+      let matCount = totalSlots - sCount - mCount - iCount;
+
+      while (matCount < 0) {
+        if (sCount > 0) sCount--;
+        else if (iCount > 0) iCount--;
+        else if (mCount > 0) mCount--;
+        matCount++;
+      }
+
+      return fisherYatesShuffle([
+        ...Array(Math.max(0, sCount)).fill('mcq_single'),
+        ...Array(Math.max(0, mCount)).fill('mcq_multi'),
+        ...Array(Math.max(0, iCount)).fill('integer'),
+        ...Array(Math.max(0, matCount)).fill('matrix_match'),
+      ]);
+    }
+  }
+
+  return Array(totalSlots).fill(undefined);
 }
 
 export function pickQuestionType(examType: ExamType): QuestionType {

@@ -111,6 +111,17 @@ export const api = {
       examType: string;
       studentClass: string;
       count: number;
+      questionTypes?: {
+        mcq_single?: number;
+        mcq_multi?: number;
+        integer?: number;
+        matrix_match?: number;
+      };
+      difficultyDistribution?: {
+        beginner?: number;
+        intermediate?: number;
+        advanced?: number;
+      };
     }) => request<import('@/types').Question[]>('/questions/batch', {
       method: 'POST',
       body: JSON.stringify(body),

@@ -22,6 +22,45 @@ export type DiffOption = 'beginner' | 'intermediate' | 'advanced' | 'mixed';
 export type MarkingScheme = 'standard' | 'jee_main' | 'jee_advanced';
 export type StoredResult = AnswerResult & { selectedAnswer: string };
 
+export type QuestionTypeKey = 'mcq_single' | 'mcq_multi' | 'integer' | 'matrix_match';
+
+export interface QuestionTypeCounts {
+  mcq_single: number;
+  mcq_multi: number;
+  integer: number;
+  matrix_match: number;
+}
+
+export interface DifficultyDistribution {
+  beginner: number;     // % e.g. 30
+  intermediate: number; // % e.g. 30
+  advanced: number;     // % e.g. 40
+}
+
+export function getDefaultQuestionTypes(
+  count: number,
+  examType: 'Main' | 'Advanced',
+  isNeet: boolean,
+): QuestionTypeCounts {
+  if (isNeet) {
+    const matrix = Math.max(1, Math.round(count * 0.2));
+    const single = Math.max(0, count - matrix);
+    return { mcq_single: single, integer: 0, matrix_match: matrix, mcq_multi: 0 };
+  }
+  if (examType === 'Advanced') {
+    const matrix = Math.max(1, Math.round(count * 0.2));
+    const integer = Math.max(1, Math.round(count * 0.2));
+    const multi = Math.max(1, Math.round(count * 0.2));
+    const single = Math.max(0, count - matrix - integer - multi);
+    return { mcq_single: single, integer, matrix_match: matrix, mcq_multi: multi };
+  }
+  // JEE Main
+  const matrix = Math.max(1, Math.round(count * 0.2));
+  const integer = Math.max(1, Math.round(count * 0.2));
+  const single = Math.max(0, count - matrix - integer);
+  return { mcq_single: single, integer, matrix_match: matrix, mcq_multi: 0 };
+}
+
 export const SUBJECTS_FOR_PAPERS: Subject[] = ['Physics', 'Chemistry', 'Mathematics'];
 export const DIFFICULTY_LABELS: Array<[string, string]> = [
   ['beginner', 'easy'],

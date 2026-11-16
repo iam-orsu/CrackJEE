@@ -5,6 +5,13 @@ export type Difficulty = 'beginner' | 'intermediate' | 'advanced';
 export type ExamType = 'Main' | 'Advanced' | 'Both' | 'NEET';
 export type StudentClass = '11' | '12' | 'Dropper';
 export type QuestionType = 'mcq_single' | 'mcq_multi' | 'integer' | 'matrix_match';
+export type QuestionTypeCounts = Partial<Record<QuestionType, number>>;
+
+export interface DifficultyDistribution {
+  beginner?: number;
+  intermediate?: number;
+  advanced?: number;
+}
 export const NEET_SUBJECTS: Subject[] = ['Physics', 'Chemistry', 'Botany', 'Zoology'];
 
 export interface AuthPayload {
