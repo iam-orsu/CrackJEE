@@ -133,6 +133,7 @@ export default function FacultyPage() {
     advanced: 40,
   });
   const [questionCount, setQuestionCount] = useState(75);
+  const [questionCountStr, setQuestionCountStr] = useState('75');
   const [questionType, setQuestionType] = useState<FacultyQuestionTypePref>('auto');
 
   const totalDifficultyPct = useMemo(() => {
@@ -211,7 +212,9 @@ export default function FacultyPage() {
   async function handleExamTypeChange(nextExam: FacultyExamType) {
     setExamType(nextExam);
     setTopicSearch('');
-    setQuestionCount(DEFAULT_COUNT[nextExam]);
+    const defaultCnt = DEFAULT_COUNT[nextExam];
+    setQuestionCount(defaultCnt);
+    setQuestionCountStr(String(defaultCnt));
     if (nextExam === 'Advanced') {
       setDifficulty('advanced');
       setQuestionType('auto');
@@ -346,6 +349,7 @@ export default function FacultyPage() {
 
   function applyPresetAcrossTopics(total: number) {
     setQuestionCount(total);
+    setQuestionCountStr(String(total));
     if (selections.length === 0) return;
     const n = selections.length;
     const perTopic = Math.max(1, Math.floor(total / n));
@@ -391,6 +395,11 @@ export default function FacultyPage() {
 
   async function handleCreatePaper(e: React.FormEvent) {
     e.preventDefault();
+    const parsedCount = parseInt(questionCountStr, 10);
+    const activeCount = !isNaN(parsedCount) && parsedCount >= 1 && parsedCount <= 180 ? parsedCount : questionCount;
+    if (activeCount !== questionCount) {
+      setQuestionCount(activeCount);
+    }
     if (selections.length === 0) {
       setError('Select at least one subject & topic before generating.');
       return;
@@ -824,11 +833,30 @@ export default function FacultyPage() {
                           min={1}
                           max={180}
                           className={styles.input}
-                          value={questionCount}
+                          placeholder="e.g. 75"
+                          value={questionCountStr}
                           onChange={(e) => {
-                            const val = Math.max(1, Math.min(180, Number(e.target.value) || 1));
-                            setQuestionCount(val);
-                            applyPresetAcrossTopics(val);
+                            const raw = e.target.value;
+                            setQuestionCountStr(raw);
+                            if (raw.trim() === '') return;
+                            const parsed = parseInt(raw, 10);
+                            if (!isNaN(parsed) && parsed >= 1 && parsed <= 180) {
+                              setQuestionCount(parsed);
+                            }
+                          }}
+                          onBlur={() => {
+                            const parsed = parseInt(questionCountStr, 10);
+                            if (questionCountStr.trim() === '' || isNaN(parsed) || parsed < 1) {
+                              const fallback = questionCount >= 1 ? questionCount : (DEFAULT_COUNT[examType] || 75);
+                              setQuestionCount(fallback);
+                              setQuestionCountStr(String(fallback));
+                            } else if (parsed > 180) {
+                              setQuestionCount(180);
+                              setQuestionCountStr('180');
+                            } else {
+                              setQuestionCount(parsed);
+                              setQuestionCountStr(String(parsed));
+                            }
                           }}
                           required
                         />
@@ -840,6 +868,7 @@ export default function FacultyPage() {
                               className={`${styles.presetBtn} ${questionCount === p.count ? styles.presetBtnActive : ''}`}
                               onClick={() => {
                                 setQuestionCount(p.count);
+                                setQuestionCountStr(String(p.count));
                                 applyPresetAcrossTopics(p.count);
                               }}
                             >
