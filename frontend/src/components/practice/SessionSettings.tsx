@@ -70,6 +70,9 @@ export function SessionSettings({
   const updateTypeCount = (key: keyof QuestionTypeCounts, delta: number) => {
     onQuestionTypeCounts((prev) => {
       const current = prev[key] || 0;
+      if (delta > 0 && totalAllocatedTypes >= perSubjectCount) {
+        return prev;
+      }
       const next = Math.max(0, current + delta);
       return { ...prev, [key]: next };
     });
@@ -78,7 +81,7 @@ export function SessionSettings({
   const setDirectTypeCount = (key: keyof QuestionTypeCounts, value: number) => {
     onQuestionTypeCounts((prev) => ({
       ...prev,
-      [key]: Math.max(0, Math.min(perSubjectCount, isNaN(value) ? 0 : value)),
+      [key]: Math.max(0, isNaN(value) ? 0 : value),
     }));
   };
 
@@ -91,7 +94,7 @@ export function SessionSettings({
         // Add remaining to single choice
         next.mcq_single = (next.mcq_single || 0) + typeDiff;
       } else {
-        // Reduce from types starting with single choice
+        // Reduce from types starting with single choice, then numerical, then matrix
         let toRemove = Math.abs(typeDiff);
         if ((next.mcq_single || 0) >= toRemove) {
           next.mcq_single = (next.mcq_single || 0) - toRemove;
@@ -232,12 +235,16 @@ export function SessionSettings({
                 fontWeight: 600,
                 padding: '3px 10px',
                 borderRadius: 'var(--radius-full)',
-                background: typeDiff === 0 ? 'var(--green-50)' : 'var(--amber-50)',
-                color: typeDiff === 0 ? 'var(--green-600)' : 'var(--amber-600)',
-                border: `1px solid ${typeDiff === 0 ? 'var(--green-100)' : 'var(--amber-100)'}`,
+                background: typeDiff === 0 ? 'var(--green-50)' : typeDiff < 0 ? 'var(--red-50)' : 'var(--amber-50)',
+                color: typeDiff === 0 ? 'var(--green-600)' : typeDiff < 0 ? 'var(--red-600)' : 'var(--amber-600)',
+                border: `1px solid ${typeDiff === 0 ? 'var(--green-100)' : typeDiff < 0 ? 'var(--red-100)' : 'var(--amber-100)'}`,
               }}
             >
-              {typeDiff === 0 ? `✓ ${totalAllocatedTypes}/${perSubjectCount} matched` : `${totalAllocatedTypes}/${perSubjectCount} (${typeDiff > 0 ? `+${typeDiff} needed` : `${typeDiff} over`})`}
+              {typeDiff === 0
+                ? `✓ ${totalAllocatedTypes}/${perSubjectCount} matched`
+                : typeDiff < 0
+                ? `⚠️ ${totalAllocatedTypes}/${perSubjectCount} (${Math.abs(typeDiff)} over!)`
+                : `⚠️ ${totalAllocatedTypes}/${perSubjectCount} (${typeDiff} needed)`}
             </span>
             {typeDiff !== 0 && (
               <button
@@ -259,6 +266,39 @@ export function SessionSettings({
             )}
           </div>
         </div>
+
+        {/* Warning Banner if types are over-allocated or under-allocated */}
+        {typeDiff !== 0 && (
+          <div
+            className={`badge ${typeDiff < 0 ? 'badge-red' : 'badge-amber'}`}
+            style={{
+              padding: '10px 14px',
+              borderRadius: 8,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: 12,
+              marginBottom: 12,
+              fontSize: 13,
+              fontWeight: 500,
+            }}
+          >
+            <span>
+              ⚠️ <strong>{typeDiff < 0 ? 'Question limit exceeded' : 'Questions under-allocated'}:</strong>{' '}
+              {typeDiff < 0
+                ? `You have allocated ${totalAllocatedTypes} questions, which is ${Math.abs(typeDiff)} more than the ${perSubjectCount} per subject required. Please reduce question counts or click Auto-balance.`
+                : `You have allocated ${totalAllocatedTypes} of ${perSubjectCount} questions (${typeDiff} more needed). Please add questions or click Auto-balance.`}
+            </span>
+            <button
+              type="button"
+              className="btn btn-sm btn-primary"
+              style={{ whiteSpace: 'nowrap', fontSize: 11, padding: '4px 10px' }}
+              onClick={handleAutoBalanceTypes}
+            >
+              Auto-balance to {perSubjectCount}
+            </button>
+          </div>
+        )}
 
         {/* Quick type presets */}
         <div className="pill-group" style={{ marginBottom: 14 }}>
@@ -304,12 +344,13 @@ export function SessionSettings({
           <div
             style={{
               background: 'var(--white)',
-              border: '1.5px solid var(--gray-200)',
+              border: typeDiff < 0 ? '1.5px solid var(--red-600)' : '1.5px solid var(--gray-200)',
               borderRadius: 'var(--radius-lg)',
               padding: '12px 14px',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
+              transition: 'border-color 0.2s ease',
             }}
           >
             <div style={{ marginBottom: 8 }}>
@@ -341,6 +382,7 @@ export function SessionSettings({
                 type="button"
                 className="btn btn-ghost"
                 style={{ width: 28, height: 28, padding: 0, borderRadius: 6, fontSize: 16, border: '1px solid var(--gray-200)' }}
+                disabled={totalAllocatedTypes >= perSubjectCount}
                 onClick={() => updateTypeCount('mcq_single', 1)}
               >
                 +
@@ -353,12 +395,13 @@ export function SessionSettings({
             <div
               style={{
                 background: 'var(--white)',
-                border: '1.5px solid var(--gray-200)',
+                border: typeDiff < 0 ? '1.5px solid var(--red-600)' : '1.5px solid var(--gray-200)',
                 borderRadius: 'var(--radius-lg)',
                 padding: '12px 14px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
+                transition: 'border-color 0.2s ease',
               }}
             >
               <div style={{ marginBottom: 8 }}>
@@ -390,6 +433,7 @@ export function SessionSettings({
                   type="button"
                   className="btn btn-ghost"
                   style={{ width: 28, height: 28, padding: 0, borderRadius: 6, fontSize: 16, border: '1px solid var(--gray-200)' }}
+                  disabled={totalAllocatedTypes >= perSubjectCount}
                   onClick={() => updateTypeCount('integer', 1)}
                 >
                   +
@@ -402,12 +446,13 @@ export function SessionSettings({
           <div
             style={{
               background: 'var(--white)',
-              border: '1.5px solid var(--gray-200)',
+              border: typeDiff < 0 ? '1.5px solid var(--red-600)' : '1.5px solid var(--gray-200)',
               borderRadius: 'var(--radius-lg)',
               padding: '12px 14px',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
+              transition: 'border-color 0.2s ease',
             }}
           >
             <div style={{ marginBottom: 8 }}>
@@ -439,6 +484,7 @@ export function SessionSettings({
                 type="button"
                 className="btn btn-ghost"
                 style={{ width: 28, height: 28, padding: 0, borderRadius: 6, fontSize: 16, border: '1px solid var(--gray-200)' }}
+                disabled={totalAllocatedTypes >= perSubjectCount}
                 onClick={() => updateTypeCount('matrix_match', 1)}
               >
                 +
@@ -451,12 +497,13 @@ export function SessionSettings({
             <div
               style={{
                 background: 'var(--white)',
-                border: '1.5px solid var(--gray-200)',
+                border: typeDiff < 0 ? '1.5px solid var(--red-600)' : '1.5px solid var(--gray-200)',
                 borderRadius: 'var(--radius-lg)',
                 padding: '12px 14px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
+                transition: 'border-color 0.2s ease',
               }}
             >
               <div style={{ marginBottom: 8 }}>
@@ -488,6 +535,7 @@ export function SessionSettings({
                   type="button"
                   className="btn btn-ghost"
                   style={{ width: 28, height: 28, padding: 0, borderRadius: 6, fontSize: 16, border: '1px solid var(--gray-200)' }}
+                  disabled={totalAllocatedTypes >= perSubjectCount}
                   onClick={() => updateTypeCount('mcq_multi', 1)}
                 >
                   +
@@ -515,12 +563,12 @@ export function SessionSettings({
                   fontWeight: 600,
                   padding: '3px 10px',
                   borderRadius: 'var(--radius-full)',
-                  background: totalPct === 100 ? 'var(--green-50)' : 'var(--amber-50)',
-                  color: totalPct === 100 ? 'var(--green-600)' : 'var(--amber-600)',
-                  border: `1px solid ${totalPct === 100 ? 'var(--green-100)' : 'var(--amber-100)'}`,
+                  background: totalPct === 100 ? 'var(--green-50)' : totalPct > 100 ? 'var(--red-50)' : 'var(--amber-50)',
+                  color: totalPct === 100 ? 'var(--green-600)' : totalPct > 100 ? 'var(--red-600)' : 'var(--amber-600)',
+                  border: `1px solid ${totalPct === 100 ? 'var(--green-100)' : totalPct > 100 ? 'var(--red-100)' : 'var(--amber-100)'}`,
                 }}
               >
-                {totalPct === 100 ? '✓ Total: 100%' : `Total: ${totalPct}% (${100 - totalPct > 0 ? `+${100 - totalPct}%` : `${100 - totalPct}%`})`}
+                {totalPct === 100 ? '✓ Total: 100%' : totalPct > 100 ? `⚠️ Total: ${totalPct}% (${totalPct - 100}% over!)` : `⚠️ Total: ${totalPct}% (${100 - totalPct}% needed)`}
               </span>
               {totalPct !== 100 && (
                 <button
@@ -543,6 +591,39 @@ export function SessionSettings({
             </div>
           )}
         </div>
+
+        {/* Warning Banner if difficulty percentages do not equal 100% */}
+        {difficultyMode === 'custom' && totalPct !== 100 && (
+          <div
+            className={`badge ${totalPct > 100 ? 'badge-red' : 'badge-amber'}`}
+            style={{
+              padding: '10px 14px',
+              borderRadius: 8,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: 12,
+              marginBottom: 12,
+              fontSize: 13,
+              fontWeight: 500,
+            }}
+          >
+            <span>
+              ⚠️ <strong>Difficulty percentage mismatch:</strong> Total must equal exactly 100% (currently {totalPct}%).{' '}
+              {totalPct > 100
+                ? `Please reduce percentages by ${totalPct - 100}% or click Normalize to 100%.`
+                : `Please increase percentages by ${100 - totalPct}% or click Normalize to 100%.`}
+            </span>
+            <button
+              type="button"
+              className="btn btn-sm btn-primary"
+              style={{ whiteSpace: 'nowrap', fontSize: 11, padding: '4px 10px' }}
+              onClick={handleNormalizePercentages}
+            >
+              Normalize to 100%
+            </button>
+          </div>
+        )}
 
         {/* Main Difficulty Pills */}
         <div className="pill-group" style={{ marginBottom: 12 }}>
@@ -590,15 +671,16 @@ export function SessionSettings({
           </button>
         </div>
 
-        {/* Percentage Sliders and Quick Presets (when Custom % is selected or Mixed) */}
+        {/* Percentage Sliders and Quick Presets (when Custom % is selected) */}
         {difficultyMode === 'custom' && (
           <div
             style={{
               background: 'var(--gray-50)',
-              border: '1px solid var(--gray-200)',
+              border: totalPct !== 100 ? '1.5px solid var(--red-600)' : '1px solid var(--gray-200)',
               borderRadius: 'var(--radius-xl)',
               padding: 16,
               marginTop: 10,
+              transition: 'border-color 0.2s ease',
             }}
           >
             {/* Quick Distribution Presets */}

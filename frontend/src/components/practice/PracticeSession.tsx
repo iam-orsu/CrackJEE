@@ -329,6 +329,35 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
 
   /* ─── Paper row: preview papers, then claim the chosen one (JEE) ── */
   async function loadPapers(page: number) {
+    const perSubject = resolvedCount();
+    const allocatedTypes =
+      (questionTypeCounts.mcq_single || 0) +
+      (questionTypeCounts.integer || 0) +
+      (questionTypeCounts.matrix_match || 0) +
+      (!isNeet && examType === 'Advanced' ? (questionTypeCounts.mcq_multi || 0) : 0);
+
+    if (allocatedTypes !== perSubject) {
+      setLoadError(
+        allocatedTypes > perSubject
+          ? `Question limit exceeded: you have allocated ${allocatedTypes} questions, but the session is set to ${perSubject} per subject. Please reduce question counts or click Auto-balance.`
+          : `Questions under-allocated: you have allocated ${allocatedTypes} of ${perSubject} questions. Please add ${perSubject - allocatedTypes} more question(s) or click Auto-balance.`,
+      );
+      return;
+    }
+
+    if (difficultyMode === 'custom') {
+      const totalPct =
+        (difficultyDistribution.beginner || 0) +
+        (difficultyDistribution.intermediate || 0) +
+        (difficultyDistribution.advanced || 0);
+      if (totalPct !== 100) {
+        setLoadError(
+          `Difficulty percentage mismatch: total is ${totalPct}% (must equal exactly 100%). Please adjust percentages or click Normalize to 100%.`,
+        );
+        return;
+      }
+    }
+
     setShowPapers(true);
     setPapersLoading(true);
     setPapersError('');
@@ -376,6 +405,35 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
 
   /* ─── Start exam (fetch batch) ────────────────────────── */
   const startExam = useCallback(async () => {
+    const perSubject = resolvedCount();
+    const allocatedTypes =
+      (questionTypeCounts.mcq_single || 0) +
+      (questionTypeCounts.integer || 0) +
+      (questionTypeCounts.matrix_match || 0) +
+      (!isNeet && examType === 'Advanced' ? (questionTypeCounts.mcq_multi || 0) : 0);
+
+    if (allocatedTypes !== perSubject) {
+      setLoadError(
+        allocatedTypes > perSubject
+          ? `Question limit exceeded: you have allocated ${allocatedTypes} questions, but the session is set to ${perSubject} per subject. Please reduce question counts or click Auto-balance.`
+          : `Questions under-allocated: you have allocated ${allocatedTypes} of ${perSubject} questions per subject. Please add ${perSubject - allocatedTypes} more question(s) or click Auto-balance.`,
+      );
+      return;
+    }
+
+    if (difficultyMode === 'custom') {
+      const totalPct =
+        (difficultyDistribution.beginner || 0) +
+        (difficultyDistribution.intermediate || 0) +
+        (difficultyDistribution.advanced || 0);
+      if (totalPct !== 100) {
+        setLoadError(
+          `Difficulty percentage mismatch: total is ${totalPct}% (must equal exactly 100%). Please adjust percentages or click Normalize to 100%.`,
+        );
+        return;
+      }
+    }
+
     enterFullscreen();
     setAppState('loading');
     setLoadMsgIdx(0);
@@ -387,7 +445,6 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
 
     try {
       const selections = buildSelections();
-      const perSubject = resolvedCount();
       const count = perSubject * selectedSubjects.size;
 
       const batch = await api.questions.batch({
@@ -556,6 +613,39 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
               </div>
             )}
 
+            {loadError && (
+              <div
+                className="badge badge-red"
+                style={{
+                  padding: '12px 16px',
+                  borderRadius: 'var(--radius-lg)',
+                  marginBottom: 16,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  gap: 12,
+                  fontSize: 13,
+                  fontWeight: 600,
+                }}
+              >
+                <span>⚠️ {loadError}</span>
+                <button
+                  type="button"
+                  onClick={() => setLoadError('')}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    fontSize: 16,
+                    cursor: 'pointer',
+                    color: 'var(--red-600)',
+                    lineHeight: 1,
+                  }}
+                >
+                  ✕
+                </button>
+              </div>
+            )}
+
             <Steps step={wizardStep} labels={['Subjects', 'Topics', showPapers ? 'Papers' : 'Settings']} />
 
             {wizardStep === 1 && (
@@ -646,24 +736,73 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                 Continue
               </button>
             ) : showPapers ? null : (
-              <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-                {config.hasPapers && (
-                  <button
-                    type="button"
-                    className="btn btn-outline btn-lg"
-                    onClick={() => loadPapers(1)}
-                  >
-                    Browse papers
-                  </button>
-                )}
-                <button
-                  type="button"
-                  className="btn btn-primary btn-lg"
-                  onClick={startExam}
-                >
-                  Start practice
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-                </button>
+              <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
+                {(() => {
+                  const perSubject = resolvedCount();
+                  const totalAllocatedTypes =
+                    (questionTypeCounts.mcq_single || 0) +
+                    (questionTypeCounts.integer || 0) +
+                    (questionTypeCounts.matrix_match || 0) +
+                    (!isNeet && examType === 'Advanced' ? (questionTypeCounts.mcq_multi || 0) : 0);
+                  const isTypeCountValid = totalAllocatedTypes === perSubject;
+
+                  const totalDifficultyPct =
+                    (difficultyDistribution.beginner || 0) +
+                    (difficultyDistribution.intermediate || 0) +
+                    (difficultyDistribution.advanced || 0);
+                  const isDifficultyValid = difficultyMode !== 'custom' || totalDifficultyPct === 100;
+
+                  const canStartSession = isTypeCountValid && isDifficultyValid;
+
+                  return (
+                    <>
+                      {!canStartSession && (
+                        <span
+                          style={{
+                            fontSize: 12,
+                            color: 'var(--red-600)',
+                            fontWeight: 600,
+                            background: 'var(--red-50)',
+                            padding: '6px 12px',
+                            borderRadius: 'var(--radius-full)',
+                            border: '1px solid var(--red-100)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 4,
+                          }}
+                        >
+                          ⚠️ {!isTypeCountValid && !isDifficultyValid
+                            ? `Adjust question types (${totalAllocatedTypes}/${perSubject}) and difficulty (${totalDifficultyPct}%/100%)`
+                            : !isTypeCountValid
+                            ? totalAllocatedTypes > perSubject
+                              ? `Question count exceeded (${totalAllocatedTypes}/${perSubject}). Reduce values to proceed.`
+                              : `Question count under-allocated (${totalAllocatedTypes}/${perSubject}). Add values to proceed.`
+                            : `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`}
+                        </span>
+                      )}
+                      {config.hasPapers && (
+                        <button
+                          type="button"
+                          className="btn btn-outline btn-lg"
+                          disabled={!canStartSession}
+                          onClick={() => loadPapers(1)}
+                        >
+                          Browse papers
+                        </button>
+                      )}
+                      <button
+                        type="button"
+                        className="btn btn-primary btn-lg"
+                        disabled={!canStartSession}
+                        onClick={startExam}
+                        style={!canStartSession ? { opacity: 0.5, cursor: 'not-allowed' } : undefined}
+                      >
+                        Start practice
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                      </button>
+                    </>
+                  );
+                })()}
               </div>
             )}
           </div>
