@@ -17,17 +17,32 @@ async function main(): Promise<void> {
   loadDotEnv();
 
   const dataDir = path.resolve(__dirname, '../../../data/jee');
-  const matrixFile = path.join(dataDir, 'matrix_math_questions.json');
   const masterFile = path.join(dataDir, 'jee_master_questions.json');
 
-  if (!fs.existsSync(matrixFile)) {
-    throw new Error(`Matrix questions file not found: ${matrixFile}`);
+  // Accept specific file from CLI or check default matrix files
+  const argFile = process.argv[2];
+  const candidateFiles = argFile
+    ? [path.resolve(process.cwd(), argFile)]
+    : [
+        path.join(dataDir, 'matrix_math_questions.json'),
+        path.join(dataDir, 'matrix_physics_questions.json'),
+      ].filter((f) => fs.existsSync(f));
+
+  if (candidateFiles.length === 0) {
+    throw new Error(`No matrix questions file found to embed in: ${dataDir}`);
   }
 
-  const rawMatrix = fs.readFileSync(matrixFile, 'utf8');
-  const matrixQuestions = JSON.parse(rawMatrix);
+  let allMatrixQuestions: any[] = [];
+  for (const file of candidateFiles) {
+    const raw = fs.readFileSync(file, 'utf8');
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed)) {
+      console.log(`[embed] Loaded ${parsed.length} matrix match questions from ${file}`);
+      allMatrixQuestions = allMatrixQuestions.concat(parsed);
+    }
+  }
 
-  console.log(`[embed] Loaded ${matrixQuestions.length} matrix match questions from ${matrixFile}`);
+  const matrixQuestions = allMatrixQuestions;
 
   if (!Array.isArray(matrixQuestions) || matrixQuestions.length === 0) {
     console.log('[embed] No matrix questions to embed. Exiting.');
@@ -97,9 +112,9 @@ async function main(): Promise<void> {
   }
 
   const finalCount = await database.client.question.count({
-    where: { questionType: 'matrix_match', subject: 'Mathematics' },
+    where: { questionType: 'matrix_match' },
   });
-  console.log(`[embed] Done! Newly inserted: ${insertedTotal}. Total Mathematics matrix_match in DB: ${finalCount}`);
+  console.log(`[embed] Done! Newly inserted: ${insertedTotal}. Total matrix_match in DB: ${finalCount}`);
 }
 
 main()
