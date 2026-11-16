@@ -213,6 +213,7 @@ model FacultyPaper {
   paperCode     String?  @unique
   facultyId     String
   title         String
+  organization  String?
   examType      String
   difficulty    String   @default("intermediate")
   questionCount Int

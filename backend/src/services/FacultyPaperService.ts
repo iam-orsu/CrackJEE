@@ -5,10 +5,11 @@ import {
 } from '../repositories/FacultyRepository';
 import { QuestionRepository } from '../repositories/QuestionRepository';
 import { deepSeekService } from './DeepSeekService';
-import type { DiagramTemplate, Difficulty, QuestionType, Subject } from '../types/index';
+import type { DiagramTemplate, Difficulty, QuestionType, Subject, DifficultyDistribution } from '../types/index';
 import { AppError } from '../utils/AppError';
 import { isValidDiagramTemplate, hasBalancedMathDelimiters, normalizeFacultyAnswer } from '../utils/facultyPrompts';
 import { logger } from '../utils/logger';
+import { planDifficultySlots } from '../utils/questionUtils';
 
 export type FacultyExamType = 'Main' | 'Advanced' | 'NEET';
 export type FacultyDifficulty = Difficulty | 'mixed';
@@ -16,8 +17,10 @@ export type FacultyQuestionTypePref = 'auto' | QuestionType;
 
 export interface CreateFacultyPaperInput {
   title?: string;
+  organization?: string;
   examType: FacultyExamType;
   difficulty: FacultyDifficulty;
+  difficultyDistribution?: DifficultyDistribution;
   questionCount: number;
   questionType?: FacultyQuestionTypePref;
   selections: FacultyPaperSelection[];
@@ -114,6 +117,18 @@ function buildPaperSlots(input: CreateFacultyPaperInput): PaperSlot[] {
     (s) => (s.mcqCount ?? 0) > 0 || (s.integerCount ?? 0) > 0 || (s.multiCount ?? 0) > 0 || (s.matrixCount ?? 0) > 0,
   );
 
+  const totalCount = hasGranularCounts
+    ? sortedSelections.reduce(
+        (acc, s) => acc + (s.mcqCount ?? 0) + (s.multiCount ?? 0) + (s.integerCount ?? 0) + (s.matrixCount ?? 0),
+        0,
+      )
+    : input.questionCount;
+
+  const plannedDifficulties =
+    input.examType === 'Advanced'
+      ? Array(totalCount).fill('advanced' as Difficulty)
+      : planDifficultySlots(totalCount, input.difficulty, input.difficultyDistribution);
+
   const slots: PaperSlot[] = [];
   let number = 1;
 
@@ -130,7 +145,7 @@ function buildPaperSlots(input: CreateFacultyPaperInput): PaperSlot[] {
           number,
           subject: sel.subject,
           topic: sel.topic,
-          difficulty: resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
+          difficulty: plannedDifficulties[number - 1] ?? resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
           questionType: 'mcq_single',
         });
         number++;
@@ -142,7 +157,7 @@ function buildPaperSlots(input: CreateFacultyPaperInput): PaperSlot[] {
           number,
           subject: sel.subject,
           topic: sel.topic,
-          difficulty: resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
+          difficulty: plannedDifficulties[number - 1] ?? resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
           questionType: 'mcq_multi',
         });
         number++;
@@ -154,7 +169,7 @@ function buildPaperSlots(input: CreateFacultyPaperInput): PaperSlot[] {
           number,
           subject: sel.subject,
           topic: sel.topic,
-          difficulty: resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
+          difficulty: plannedDifficulties[number - 1] ?? resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
           questionType: 'integer',
         });
         number++;
@@ -166,7 +181,7 @@ function buildPaperSlots(input: CreateFacultyPaperInput): PaperSlot[] {
           number,
           subject: sel.subject,
           topic: sel.topic,
-          difficulty: resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
+          difficulty: plannedDifficulties[number - 1] ?? resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
           questionType: 'matrix_match',
         });
         number++;
@@ -189,7 +204,7 @@ function buildPaperSlots(input: CreateFacultyPaperInput): PaperSlot[] {
         number,
         subject: sel.subject,
         topic: sel.topic,
-        difficulty: resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
+        difficulty: plannedDifficulties[number - 1] ?? resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
         questionType: resolveSlotQuestionType(input.examType, pref, i, countForSelection),
       });
       number++;
@@ -239,6 +254,7 @@ export class FacultyPaperService {
     const paper = await this.facultyRepo.createPaper({
       facultyId,
       title,
+      organization: input.organization?.trim() || null,
       examType: input.examType,
       difficulty: effectiveDifficulty,
       questionCount: effectiveQuestionCount,
@@ -583,6 +599,7 @@ export class FacultyPaperService {
             number: slot.number,
             subject: slot.subject,
             topic: slot.topic,
+            difficulty: slot.difficulty,
             questionType: slot.questionType,
             questionText: generated.question,
             options: generated.options,
@@ -647,6 +664,7 @@ export class FacultyPaperService {
       number: slot.number,
       subject: slot.subject,
       topic: slot.topic,
+      difficulty: slot.difficulty,
       questionType: row.questionType as QuestionType,
       questionText: row.questionText,
       options: Array.isArray(row.options) ? (row.options as string[]) : [],

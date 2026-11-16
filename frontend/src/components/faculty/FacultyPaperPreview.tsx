@@ -528,6 +528,11 @@ export function FacultyPaperPreview({
 
       <div className={styles.previewHeader}>
         <div>
+          {paper.organization && (
+            <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--brand, #0f2b48)', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 2 }}>
+              🏛️ {paper.organization}
+            </div>
+          )}
           <div className={styles.paperCardTop}>
             <span className={styles.paperCodeBadge}>{paper.paperCode}</span>
             <h2 className={styles.title} style={{ fontSize: 18 }}>{paper.title}</h2>

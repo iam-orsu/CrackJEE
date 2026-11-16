@@ -167,6 +167,11 @@ function FacultyPrintContent() {
 
       <main className={styles.printSheet}>
         <header className={styles.printHeader}>
+          {paper.organization && (
+            <div style={{ fontSize: 20, fontWeight: 800, letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--brand, #0f2b48)', marginBottom: 6 }}>
+              {paper.organization}
+            </div>
+          )}
           <h1 className={styles.printTitle}>{paper.title}</h1>
           <div className={styles.printSubRow}>
             <span><strong>Paper ID:</strong> {paper.paperCode}</span>

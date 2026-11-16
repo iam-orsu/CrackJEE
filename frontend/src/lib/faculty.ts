@@ -28,6 +28,7 @@ export interface FacultyPaperItem {
   number: number;
   subject: 'Physics' | 'Chemistry' | 'Mathematics' | 'Botany' | 'Zoology';
   topic: string;
+  difficulty?: FacultyDifficulty;
   questionType: FacultyQuestionType;
   questionText: string;
   options: string[];
@@ -42,6 +43,7 @@ export interface FacultyPaperSummary {
   id: string;
   paperCode: string;
   title: string;
+  organization?: string | null;
   examType: FacultyExamType;
   difficulty: FacultyDifficulty;
   questionCount: number;
@@ -111,8 +113,10 @@ export async function facultyListPapers() {
 
 export async function facultyCreatePaper(input: {
   title?: string;
+  organization?: string;
   examType: FacultyExamType;
   difficulty: FacultyDifficulty;
+  difficultyDistribution?: { beginner: number; intermediate: number; advanced: number };
   questionCount: number;
   questionType?: FacultyQuestionTypePref;
   selections: FacultyPaperSelection[];

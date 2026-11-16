@@ -119,10 +119,52 @@ export default function FacultyPage() {
   // Builder state (JEE Main defaults to 75 per NTA 2025-2026 pattern)
   const [builderOpen, setBuilderOpen] = useState(false);
   const [title, setTitle] = useState('');
+  const [organization, setOrganization] = useState('');
   const [examType, setExamType] = useState<FacultyExamType>('Main');
   const [difficulty, setDifficulty] = useState<FacultyDifficulty>('intermediate');
+  const [difficultyMode, setDifficultyMode] = useState<'preset' | 'custom'>('preset');
+  const [difficultyDistribution, setDifficultyDistribution] = useState<{
+    beginner: number;
+    intermediate: number;
+    advanced: number;
+  }>({
+    beginner: 20,
+    intermediate: 40,
+    advanced: 40,
+  });
   const [questionCount, setQuestionCount] = useState(75);
   const [questionType, setQuestionType] = useState<FacultyQuestionTypePref>('auto');
+
+  const totalDifficultyPct = useMemo(() => {
+    return (
+      (difficultyDistribution.beginner || 0) +
+      (difficultyDistribution.intermediate || 0) +
+      (difficultyDistribution.advanced || 0)
+    );
+  }, [difficultyDistribution]);
+
+  function handleNormalizePercentages() {
+    const b = difficultyDistribution.beginner || 0;
+    const i = difficultyDistribution.intermediate || 0;
+    const a = difficultyDistribution.advanced || 0;
+    const sum = b + i + a;
+    if (sum === 0) {
+      setDifficultyDistribution({ beginner: 20, intermediate: 40, advanced: 40 });
+      return;
+    }
+    const newB = Math.round((b / sum) * 100);
+    const newI = Math.round((i / sum) * 100);
+    const newA = 100 - newB - newI;
+    setDifficultyDistribution({ beginner: newB, intermediate: newI, advanced: newA });
+  }
+
+  function applyDifficultyPreset(b: number, i: number, a: number) {
+    setDifficultyDistribution({ beginner: b, intermediate: i, advanced: a });
+  }
+
+  function getDifficultyCountForPct(pct: number) {
+    return Math.round((pct / 100) * questionCount);
+  }
 
   const [subjects, setSubjects] = useState<string[]>(['Physics', 'Chemistry', 'Mathematics']);
   const [topicsBySubject, setTopicsBySubject] = useState<Record<string, string[]>>({});
@@ -275,6 +317,11 @@ export default function FacultyPage() {
     field: 'mcqCount' | 'integerCount' | 'multiCount' | 'matrixCount',
     delta: number,
   ) {
+    if (delta > 0 && totalCalculatedCount >= questionCount) {
+      setError(`Cannot add more questions: total configured (${totalCalculatedCount}) already reaches or exceeds Question Count (${questionCount}). Reduce other topics or increase Question Count.`);
+      return;
+    }
+    setError('');
     setSelections((prev) =>
       prev.map((s) => {
         if (s.subject !== subject || s.topic !== topic) return s;
@@ -348,13 +395,24 @@ export default function FacultyPage() {
       setError('Select at least one subject & topic before generating.');
       return;
     }
-    const finalCount = totalCalculatedCount > 0 ? totalCalculatedCount : questionCount;
-    if (finalCount === 0) {
+    if (totalCalculatedCount === 0) {
       setError('Please configure at least 1 question across your selected topics.');
       return;
     }
-    if (finalCount > 180) {
+    if (totalCalculatedCount > 180) {
       setError('Total paper question count cannot exceed 180 questions.');
+      return;
+    }
+    if (totalCalculatedCount !== questionCount) {
+      setError(
+        totalCalculatedCount > questionCount
+          ? `Total questions configured in topics (${totalCalculatedCount}) exceeds Question Count (${questionCount}). Please reduce ${totalCalculatedCount - questionCount} question(s) from topics or adjust Question Count to match.`
+          : `Total questions configured in topics (${totalCalculatedCount}) does not match target Question Count (${questionCount}). Please add ${questionCount - totalCalculatedCount} more question(s) or click "Auto-match".`
+      );
+      return;
+    }
+    if (examType !== 'Advanced' && difficultyMode === 'custom' && totalDifficultyPct !== 100) {
+      setError(`Difficulty percentage total must equal 100% (currently ${totalDifficultyPct}%). Click "Normalize to 100%" or adjust sliders.`);
       return;
     }
 
@@ -363,9 +421,11 @@ export default function FacultyPage() {
     try {
       const res = await facultyCreatePaper({
         title: title.trim() || undefined,
+        organization: organization.trim() || undefined,
         examType,
-        difficulty: examType === 'Advanced' ? 'advanced' : difficulty,
-        questionCount: finalCount,
+        difficulty: examType === 'Advanced' ? 'advanced' : difficultyMode === 'custom' ? 'mixed' : difficulty,
+        difficultyDistribution: examType !== 'Advanced' && difficultyMode === 'custom' ? difficultyDistribution : undefined,
+        questionCount,
         questionType,
         selections,
       });
@@ -496,6 +556,20 @@ export default function FacultyPage() {
                       />
                     </div>
 
+                    <div className={styles.field}>
+                      <label className={styles.label} htmlFor="paper-org">
+                        College / Organization Name <span style={{ fontWeight: 400, color: 'var(--muted, #64748b)' }}>(optional)</span>
+                      </label>
+                      <input
+                        id="paper-org"
+                        className={styles.input}
+                        placeholder="Enter college or organization name"
+                        value={organization}
+                        onChange={(e) => setOrganization(e.target.value)}
+                        maxLength={120}
+                      />
+                    </div>
+
                     <div className={styles.row2}>
                       <div className={styles.field}>
                         <label className={styles.label} htmlFor="paper-exam">Exam Pattern</label>
@@ -512,7 +586,40 @@ export default function FacultyPage() {
                       </div>
 
                       <div className={styles.field}>
-                        <label className={styles.label} htmlFor="paper-diff">Cognitive Rigor</label>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+                          <label className={styles.label} htmlFor="paper-diff">Cognitive Rigor</label>
+                          {examType !== 'Advanced' && (
+                            <div style={{ display: 'flex', gap: 4 }}>
+                              <button
+                                type="button"
+                                className={styles.presetBtn}
+                                style={{
+                                  fontSize: 10,
+                                  padding: '2px 7px',
+                                  background: difficultyMode === 'preset' ? 'var(--brand, #0f2b48)' : 'var(--surface-2, #f1f5f9)',
+                                  color: difficultyMode === 'preset' ? '#ffffff' : 'var(--ink-2, #334155)',
+                                }}
+                                onClick={() => setDifficultyMode('preset')}
+                              >
+                                Presets
+                              </button>
+                              <button
+                                type="button"
+                                className={styles.presetBtn}
+                                style={{
+                                  fontSize: 10,
+                                  padding: '2px 7px',
+                                  background: difficultyMode === 'custom' ? 'var(--brand, #0f2b48)' : 'var(--surface-2, #f1f5f9)',
+                                  color: difficultyMode === 'custom' ? '#ffffff' : 'var(--ink-2, #334155)',
+                                }}
+                                onClick={() => setDifficultyMode('custom')}
+                              >
+                                Custom %
+                              </button>
+                            </div>
+                          )}
+                        </div>
+
                         {examType === 'Advanced' ? (
                           <>
                             <input
@@ -523,7 +630,7 @@ export default function FacultyPage() {
                             />
                             <div className={styles.strictHint}>Locked to IIT JEE Advanced multi-concept rigor</div>
                           </>
-                        ) : (
+                        ) : difficultyMode === 'preset' ? (
                           <select
                             id="paper-diff"
                             className={styles.select}
@@ -535,6 +642,173 @@ export default function FacultyPage() {
                             <option value="advanced">Advanced (Rank-Decider)</option>
                             <option value="mixed">Mixed (Balanced)</option>
                           </select>
+                        ) : (
+                          <div style={{ background: 'var(--surface-2, #f8fafc)', border: '1px solid var(--border, #e2e8f0)', borderRadius: 8, padding: '10px 12px' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8, flexWrap: 'wrap', gap: 6 }}>
+                              <span
+                                style={{
+                                  fontSize: 11,
+                                  fontWeight: 700,
+                                  padding: '2px 8px',
+                                  borderRadius: 999,
+                                  background: totalDifficultyPct === 100 ? '#ecfdf5' : totalDifficultyPct > 100 ? '#fef2f2' : '#fffbeb',
+                                  color: totalDifficultyPct === 100 ? '#047857' : totalDifficultyPct > 100 ? '#b91c1c' : '#b45309',
+                                  border: `1px solid ${totalDifficultyPct === 100 ? '#a7f3d0' : totalDifficultyPct > 100 ? '#fecaca' : '#fde68a'}`,
+                                }}
+                              >
+                                {totalDifficultyPct === 100
+                                  ? '✓ Total: 100%'
+                                  : totalDifficultyPct > 100
+                                  ? `⚠️ Total: ${totalDifficultyPct}% (${totalDifficultyPct - 100}% over)`
+                                  : `⚠️ Total: ${totalDifficultyPct}% (${100 - totalDifficultyPct}% needed)`}
+                              </span>
+                              {totalDifficultyPct !== 100 && (
+                                <button
+                                  type="button"
+                                  onClick={handleNormalizePercentages}
+                                  className={styles.btn}
+                                  style={{ fontSize: 10, padding: '2px 6px' }}
+                                >
+                                  Normalize to 100%
+                                </button>
+                              )}
+                            </div>
+
+                            {/* Preset Buttons */}
+                            <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', marginBottom: 10 }}>
+                              <button
+                                type="button"
+                                className={styles.presetBtn}
+                                style={{
+                                  fontSize: 10,
+                                  padding: '2px 6px',
+                                  background: difficultyDistribution.beginner === 30 && difficultyDistribution.intermediate === 30 && difficultyDistribution.advanced === 40 ? 'var(--brand, #0f2b48)' : '#ffffff',
+                                  color: difficultyDistribution.beginner === 30 && difficultyDistribution.intermediate === 30 && difficultyDistribution.advanced === 40 ? '#ffffff' : 'inherit',
+                                }}
+                                onClick={() => applyDifficultyPreset(30, 30, 40)}
+                              >
+                                30/30/40
+                              </button>
+                              <button
+                                type="button"
+                                className={styles.presetBtn}
+                                style={{
+                                  fontSize: 10,
+                                  padding: '2px 6px',
+                                  background: difficultyDistribution.beginner === 34 && difficultyDistribution.intermediate === 33 && difficultyDistribution.advanced === 33 ? 'var(--brand, #0f2b48)' : '#ffffff',
+                                  color: difficultyDistribution.beginner === 34 && difficultyDistribution.intermediate === 33 && difficultyDistribution.advanced === 33 ? '#ffffff' : 'inherit',
+                                }}
+                                onClick={() => applyDifficultyPreset(34, 33, 33)}
+                              >
+                                34/33/33
+                              </button>
+                              <button
+                                type="button"
+                                className={styles.presetBtn}
+                                style={{
+                                  fontSize: 10,
+                                  padding: '2px 6px',
+                                  background: difficultyDistribution.beginner === 50 && difficultyDistribution.intermediate === 30 && difficultyDistribution.advanced === 20 ? 'var(--brand, #0f2b48)' : '#ffffff',
+                                  color: difficultyDistribution.beginner === 50 && difficultyDistribution.intermediate === 30 && difficultyDistribution.advanced === 20 ? '#ffffff' : 'inherit',
+                                }}
+                                onClick={() => applyDifficultyPreset(50, 30, 20)}
+                              >
+                                50/30/20
+                              </button>
+                              <button
+                                type="button"
+                                className={styles.presetBtn}
+                                style={{
+                                  fontSize: 10,
+                                  padding: '2px 6px',
+                                  background: difficultyDistribution.beginner === 20 && difficultyDistribution.intermediate === 40 && difficultyDistribution.advanced === 40 ? 'var(--brand, #0f2b48)' : '#ffffff',
+                                  color: difficultyDistribution.beginner === 20 && difficultyDistribution.intermediate === 40 && difficultyDistribution.advanced === 40 ? '#ffffff' : 'inherit',
+                                }}
+                                onClick={() => applyDifficultyPreset(20, 40, 40)}
+                              >
+                                20/40/40
+                              </button>
+                            </div>
+
+                            {/* Multi-segment Visual Bar */}
+                            <div style={{ height: 6, width: '100%', borderRadius: 3, background: '#e2e8f0', display: 'flex', overflow: 'hidden', marginBottom: 10 }}>
+                              <div
+                                title={`Easy: ${difficultyDistribution.beginner || 0}%`}
+                                style={{
+                                  width: `${((difficultyDistribution.beginner || 0) / (totalDifficultyPct || 100)) * 100}%`,
+                                  background: '#22c55e',
+                                  transition: 'width 0.2s ease',
+                                }}
+                              />
+                              <div
+                                title={`Medium: ${difficultyDistribution.intermediate || 0}%`}
+                                style={{
+                                  width: `${((difficultyDistribution.intermediate || 0) / (totalDifficultyPct || 100)) * 100}%`,
+                                  background: '#eab308',
+                                  transition: 'width 0.2s ease',
+                                }}
+                              />
+                              <div
+                                title={`Hard: ${difficultyDistribution.advanced || 0}%`}
+                                style={{
+                                  width: `${((difficultyDistribution.advanced || 0) / (totalDifficultyPct || 100)) * 100}%`,
+                                  background: '#ef4444',
+                                  transition: 'width 0.2s ease',
+                                }}
+                              />
+                            </div>
+
+                            {/* 3 Slider Rows */}
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                              {/* Easy */}
+                              <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 11 }}>
+                                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#22c55e' }} />
+                                <span style={{ width: 90, fontWeight: 600 }}>Easy (~{getDifficultyCountForPct(difficultyDistribution.beginner || 0)}Q):</span>
+                                <input
+                                  type="range"
+                                  min={0}
+                                  max={100}
+                                  step={5}
+                                  value={difficultyDistribution.beginner || 0}
+                                  onChange={(e) => setDifficultyDistribution((prev) => ({ ...prev, beginner: parseInt(e.target.value, 10) }))}
+                                  style={{ flex: 1, accentColor: '#22c55e', height: 4 }}
+                                />
+                                <span style={{ width: 34, textAlign: 'right', fontWeight: 700 }}>{difficultyDistribution.beginner || 0}%</span>
+                              </div>
+
+                              {/* Medium */}
+                              <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 11 }}>
+                                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#eab308' }} />
+                                <span style={{ width: 90, fontWeight: 600 }}>Medium (~{getDifficultyCountForPct(difficultyDistribution.intermediate || 0)}Q):</span>
+                                <input
+                                  type="range"
+                                  min={0}
+                                  max={100}
+                                  step={5}
+                                  value={difficultyDistribution.intermediate || 0}
+                                  onChange={(e) => setDifficultyDistribution((prev) => ({ ...prev, intermediate: parseInt(e.target.value, 10) }))}
+                                  style={{ flex: 1, accentColor: '#eab308', height: 4 }}
+                                />
+                                <span style={{ width: 34, textAlign: 'right', fontWeight: 700 }}>{difficultyDistribution.intermediate || 0}%</span>
+                              </div>
+
+                              {/* Hard */}
+                              <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 11 }}>
+                                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#ef4444' }} />
+                                <span style={{ width: 90, fontWeight: 600 }}>Hard (~{getDifficultyCountForPct(difficultyDistribution.advanced || 0)}Q):</span>
+                                <input
+                                  type="range"
+                                  min={0}
+                                  max={100}
+                                  step={5}
+                                  value={difficultyDistribution.advanced || 0}
+                                  onChange={(e) => setDifficultyDistribution((prev) => ({ ...prev, advanced: parseInt(e.target.value, 10) }))}
+                                  style={{ flex: 1, accentColor: '#ef4444', height: 4 }}
+                                />
+                                <span style={{ width: 34, textAlign: 'right', fontWeight: 700 }}>{difficultyDistribution.advanced || 0}%</span>
+                              </div>
+                            </div>
+                          </div>
                         )}
                       </div>
                     </div>
@@ -542,7 +816,7 @@ export default function FacultyPage() {
                     <div className={styles.row2}>
                       <div className={styles.field}>
                         <label className={styles.label} htmlFor="paper-count">
-                          Question Count {totalCalculatedCount > 0 ? `(${totalCalculatedCount} total from topics)` : '(1–180)'}
+                          Question Count (1–180)
                         </label>
                         <input
                           id="paper-count"
@@ -550,9 +824,10 @@ export default function FacultyPage() {
                           min={1}
                           max={180}
                           className={styles.input}
-                          value={totalCalculatedCount > 0 ? totalCalculatedCount : questionCount}
+                          value={questionCount}
                           onChange={(e) => {
                             const val = Math.max(1, Math.min(180, Number(e.target.value) || 1));
+                            setQuestionCount(val);
                             applyPresetAcrossTopics(val);
                           }}
                           required
@@ -562,8 +837,11 @@ export default function FacultyPage() {
                             <button
                               key={p.count}
                               type="button"
-                              className={`${styles.presetBtn} ${(totalCalculatedCount > 0 ? totalCalculatedCount : questionCount) === p.count ? styles.presetBtnActive : ''}`}
-                              onClick={() => applyPresetAcrossTopics(p.count)}
+                              className={`${styles.presetBtn} ${questionCount === p.count ? styles.presetBtnActive : ''}`}
+                              onClick={() => {
+                                setQuestionCount(p.count);
+                                applyPresetAcrossTopics(p.count);
+                              }}
                             >
                               {p.label}
                             </button>
@@ -694,15 +972,114 @@ export default function FacultyPage() {
 
                 {selections.length > 0 && (
                   <div className={styles.topicBreakdownWrap}>
+                    {/* Overflow / Underflow Validation Banners */}
+                    {totalCalculatedCount > questionCount && (
+                      <div
+                        style={{
+                          background: '#fef2f2',
+                          border: '1px solid #fecaca',
+                          color: '#b91c1c',
+                          padding: '10px 14px',
+                          borderRadius: 8,
+                          marginBottom: 12,
+                          fontSize: 13,
+                          fontWeight: 500,
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                          gap: 12,
+                        }}
+                      >
+                        <span>
+                          ⚠️ <strong>Topic questions overflow:</strong> You have configured {totalCalculatedCount} questions across topics, but Question Count is {questionCount}. Please reduce {totalCalculatedCount - questionCount} question(s) or click Auto-match.
+                        </span>
+                        <button
+                          type="button"
+                          className={styles.btnPrimary}
+                          style={{ fontSize: 11, padding: '4px 10px', whiteSpace: 'nowrap' }}
+                          onClick={() => applyPresetAcrossTopics(questionCount)}
+                        >
+                          ⚡ Auto-match to {questionCount}
+                        </button>
+                      </div>
+                    )}
+
+                    {totalCalculatedCount < questionCount && (
+                      <div
+                        style={{
+                          background: '#fffbeb',
+                          border: '1px solid #fde68a',
+                          color: '#b45309',
+                          padding: '10px 14px',
+                          borderRadius: 8,
+                          marginBottom: 12,
+                          fontSize: 13,
+                          fontWeight: 500,
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                          gap: 12,
+                        }}
+                      >
+                        <span>
+                          ⚠️ <strong>Topic questions underflow:</strong> You have configured {totalCalculatedCount} questions, but target Question Count is {questionCount}. Please add {questionCount - totalCalculatedCount} more question(s) or click Auto-match.
+                        </span>
+                        <button
+                          type="button"
+                          className={styles.btnPrimary}
+                          style={{ fontSize: 11, padding: '4px 10px', whiteSpace: 'nowrap' }}
+                          onClick={() => applyPresetAcrossTopics(questionCount)}
+                        >
+                          ⚡ Auto-match to {questionCount}
+                        </button>
+                      </div>
+                    )}
+
                     <div className={styles.topicBreakdownHeader}>
                       <div className={styles.topicBreakdownTitle}>
                         <span>Selected Topics &amp; Question Mix</span>
-                        <span className={styles.topicBreakdownBadge}>
-                          {totalCalculatedCount} Questions Configured
+                        <span
+                          className={styles.topicBreakdownBadge}
+                          style={{
+                            background:
+                              totalCalculatedCount === questionCount
+                                ? '#ecfdf5'
+                                : totalCalculatedCount > questionCount
+                                ? '#fef2f2'
+                                : '#fffbeb',
+                            color:
+                              totalCalculatedCount === questionCount
+                                ? '#047857'
+                                : totalCalculatedCount > questionCount
+                                ? '#b91c1c'
+                                : '#b45309',
+                            border: `1px solid ${
+                              totalCalculatedCount === questionCount
+                                ? '#a7f3d0'
+                                : totalCalculatedCount > questionCount
+                                ? '#fecaca'
+                                : '#fde68a'
+                            }`,
+                          }}
+                        >
+                          {totalCalculatedCount === questionCount
+                            ? `✓ ${totalCalculatedCount} / ${questionCount} Questions Configured`
+                            : totalCalculatedCount > questionCount
+                            ? `⚠️ ${totalCalculatedCount} / ${questionCount} (Overflow: reduce ${totalCalculatedCount - questionCount})`
+                            : `⚠️ ${totalCalculatedCount} / ${questionCount} (${questionCount - totalCalculatedCount} needed)`}
                         </span>
                       </div>
 
                       <div className={styles.batchPresetsRow}>
+                        <button
+                          type="button"
+                          className={styles.presetBtn}
+                          style={{ background: 'var(--brand, #0f2b48)', color: '#ffffff', fontWeight: 600 }}
+                          onClick={() => applyPresetAcrossTopics(questionCount)}
+                          title={`Auto-distribute exactly ${questionCount} questions across all selected topics`}
+                        >
+                          ⚡ Auto-match ({questionCount} Qs)
+                        </button>
                         <span className={styles.batchPresetLabel}>Set all to:</span>
                         {examType === 'NEET' ? (
                           <>
@@ -985,11 +1362,22 @@ export default function FacultyPage() {
                   <button
                     type="submit"
                     className={styles.btnPrimary}
-                    disabled={creating || selections.length === 0 || (selections.length > 0 && totalCalculatedCount === 0)}
+                    disabled={
+                      creating ||
+                      selections.length === 0 ||
+                      (selections.length > 0 && totalCalculatedCount !== questionCount) ||
+                      (examType !== 'Advanced' && difficultyMode === 'custom' && totalDifficultyPct !== 100)
+                    }
                   >
                     {creating
                       ? 'Starting generation…'
-                      : `Generate ${totalCalculatedCount > 0 ? totalCalculatedCount : questionCount}-Question Verified Paper`}
+                      : selections.length > 0 && totalCalculatedCount > questionCount
+                      ? `Overflow: Reduce ${totalCalculatedCount - questionCount} Q(s) in Topics`
+                      : selections.length > 0 && totalCalculatedCount < questionCount
+                      ? `Add ${questionCount - totalCalculatedCount} more Q(s) to match ${questionCount}`
+                      : examType !== 'Advanced' && difficultyMode === 'custom' && totalDifficultyPct !== 100
+                      ? `Normalize % to 100% (currently ${totalDifficultyPct}%)`
+                      : `Generate ${questionCount}-Question Verified Paper`}
                   </button>
                 </div>
               </form>
@@ -1018,6 +1406,11 @@ export default function FacultyPage() {
                         <div className={styles.paperCardLeft}>
                           <div className={styles.paperCardTop}>
                             <span className={styles.paperCodeBadge}>{p.paperCode}</span>
+                            {p.organization && (
+                              <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--brand, #0f2b48)', background: 'var(--surface-2, #f1f5f9)', padding: '1px 6px', borderRadius: 4 }}>
+                                🏛️ {p.organization}
+                              </span>
+                            )}
                             <span className={styles.paperStackTitle}>{p.title}</span>
                           </div>
                           <div className={styles.paperCardMeta}>

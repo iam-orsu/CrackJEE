@@ -1,6 +1,6 @@
 import type { Prisma } from '@prisma/client';
 import { database } from '../config/database';
-import type { DiagramTemplate, QuestionType, Subject } from '../types/index';
+import type { DiagramTemplate, Difficulty, QuestionType, Subject } from '../types/index';
 
 export interface FacultyPaperSelection {
   subject: Subject;
@@ -15,6 +15,7 @@ export interface FacultyPaperItem {
   number: number;
   subject: Subject;
   topic: string;
+  difficulty?: Difficulty;
   questionType: QuestionType;
   questionText: string;
   options: string[];
@@ -77,6 +78,7 @@ export class FacultyRepository {
   public async createPaper(data: {
     facultyId: string;
     title: string;
+    organization?: string | null;
     examType: string;
     difficulty: string;
     questionCount: number;
@@ -92,6 +94,7 @@ export class FacultyRepository {
         paperCode,
         facultyId: data.facultyId,
         title: data.title.trim(),
+        organization: data.organization ? data.organization.trim() : null,
         examType: data.examType,
         difficulty: data.difficulty,
         questionCount: data.questionCount,
@@ -116,6 +119,7 @@ export class FacultyRepository {
         id: true,
         paperCode: true,
         title: true,
+        organization: true,
         examType: true,
         difficulty: true,
         questionCount: true,

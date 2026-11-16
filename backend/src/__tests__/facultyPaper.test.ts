@@ -221,6 +221,65 @@ describe('FacultyPaperService slot allocation and rules', () => {
     assert.equal(savedTitle, 'NEET-UG Botany Test');
     assert.equal(paper.paperCode, 'FP-223333');
   });
+
+  it('saves optional organization name and allocates difficulty slots matching custom difficultyDistribution percentages', async () => {
+    let createdInput: any = null;
+    let savedSlots: any[] = [];
+    const fakeRepo: any = {
+      createPaper: async (data: any) => {
+        createdInput = data;
+        return {
+          id: 'test-paper-custom-diff',
+          paperCode: 'FP-CUSTOM',
+          facultyId: data.facultyId,
+          title: data.title,
+          organization: data.organization,
+          examType: data.examType,
+          difficulty: data.difficulty,
+          questionCount: data.questionCount,
+          selections: data.selections,
+          items: [],
+          status: 'ready',
+          verifiedCount: 0,
+        };
+      },
+      updatePaperState: async (_id: string, update: any) => {
+        if (update.items) savedSlots = update.items;
+      },
+    };
+
+    const fallbackQuestions: any[] = Array.from({ length: 10 }, (_, i) => ({
+      id: `q${i + 1}`,
+      questionText: `Q${i + 1}`,
+      questionType: 'mcq_single',
+      options: ['A', 'B', 'C', 'D'],
+      answer: 'A',
+      explanation: 'exp',
+    }));
+    const fakeQRepo: any = {
+      findFacultyFallbackQuestions: async () => fallbackQuestions,
+    };
+
+    const service = new FacultyPaperService(fakeRepo, fakeQRepo);
+    await service.startPaper('faculty-123', {
+      title: 'Weekly Test 1',
+      organization: 'Department of Science',
+      examType: 'Main',
+      difficulty: 'mixed',
+      difficultyDistribution: { beginner: 50, intermediate: 30, advanced: 20 },
+      questionCount: 10,
+      selections: [{ subject: 'Physics', topic: 'Kinematics', mcqCount: 10 }],
+    });
+
+    await service.waitForActiveGenerations();
+
+    assert.equal(createdInput.organization, 'Department of Science');
+    assert.equal(savedSlots.length, 10);
+    // 50% beginner = 5, 30% intermediate = 3, 20% advanced = 2
+    assert.equal(savedSlots.filter((s: any) => s.difficulty === 'beginner').length, 5);
+    assert.equal(savedSlots.filter((s: any) => s.difficulty === 'intermediate').length, 3);
+    assert.equal(savedSlots.filter((s: any) => s.difficulty === 'advanced').length, 2);
+  });
 });
 
 describe('FacultyPaperService editing, mutating, and error guards', () => {

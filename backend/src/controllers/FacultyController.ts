@@ -26,8 +26,16 @@ const selectionSchema = z.object({
 
 const createPaperSchema = z.object({
   title: z.string().trim().max(120).optional(),
+  organization: z.string().trim().max(120).optional(),
   examType: z.enum(['Main', 'Advanced', 'NEET']),
   difficulty: z.enum(['beginner', 'intermediate', 'advanced', 'mixed']),
+  difficultyDistribution: z
+    .object({
+      beginner: z.number().min(0).max(100),
+      intermediate: z.number().min(0).max(100),
+      advanced: z.number().min(0).max(100),
+    })
+    .optional(),
   questionCount: z.number().int().min(1).max(180),
   questionType: z.enum(['auto', 'mcq_single', 'mcq_multi', 'integer', 'matrix_match']).optional(),
   selections: z.array(selectionSchema).min(1).max(60),
@@ -163,8 +171,10 @@ export class FacultyController {
 
       const paper = await this.paperService.startPaper(req.faculty!.facultyId, {
         title: parsed.data.title,
+        organization: parsed.data.organization,
         examType: parsed.data.examType,
         difficulty: parsed.data.difficulty,
+        difficultyDistribution: parsed.data.difficultyDistribution,
         questionCount: parsed.data.questionCount,
         questionType: parsed.data.questionType,
         selections: validSelections,
