@@ -24,6 +24,18 @@ const selectionSchema = z.object({
   integerCount: z.number().int().min(0).max(180).optional(),
   multiCount: z.number().int().min(0).max(180).optional(),
   matrixCount: z.number().int().min(0).max(180).optional(),
+  mcqEasy: z.number().int().min(0).max(180).optional(),
+  mcqMedium: z.number().int().min(0).max(180).optional(),
+  mcqHard: z.number().int().min(0).max(180).optional(),
+  integerEasy: z.number().int().min(0).max(180).optional(),
+  integerMedium: z.number().int().min(0).max(180).optional(),
+  integerHard: z.number().int().min(0).max(180).optional(),
+  multiEasy: z.number().int().min(0).max(180).optional(),
+  multiMedium: z.number().int().min(0).max(180).optional(),
+  multiHard: z.number().int().min(0).max(180).optional(),
+  matrixEasy: z.number().int().min(0).max(180).optional(),
+  matrixMedium: z.number().int().min(0).max(180).optional(),
+  matrixHard: z.number().int().min(0).max(180).optional(),
 });
 
 const createPaperSchema = z.object({

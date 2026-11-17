@@ -114,14 +114,33 @@ function buildPaperSlots(input: CreateFacultyPaperInput): PaperSlot[] {
   );
 
   const hasGranularCounts = sortedSelections.some(
-    (s) => (s.mcqCount ?? 0) > 0 || (s.integerCount ?? 0) > 0 || (s.multiCount ?? 0) > 0 || (s.matrixCount ?? 0) > 0,
+    (s) =>
+      (s.mcqCount ?? 0) > 0 ||
+      (s.integerCount ?? 0) > 0 ||
+      (s.multiCount ?? 0) > 0 ||
+      (s.matrixCount ?? 0) > 0 ||
+      (s.mcqEasy ?? 0) > 0 ||
+      (s.mcqMedium ?? 0) > 0 ||
+      (s.mcqHard ?? 0) > 0 ||
+      (s.integerEasy ?? 0) > 0 ||
+      (s.integerMedium ?? 0) > 0 ||
+      (s.integerHard ?? 0) > 0 ||
+      (s.multiEasy ?? 0) > 0 ||
+      (s.multiMedium ?? 0) > 0 ||
+      (s.multiHard ?? 0) > 0 ||
+      (s.matrixEasy ?? 0) > 0 ||
+      (s.matrixMedium ?? 0) > 0 ||
+      (s.matrixHard ?? 0) > 0,
   );
 
   const totalCount = hasGranularCounts
-    ? sortedSelections.reduce(
-        (acc, s) => acc + (s.mcqCount ?? 0) + (s.multiCount ?? 0) + (s.integerCount ?? 0) + (s.matrixCount ?? 0),
-        0,
-      )
+    ? sortedSelections.reduce((acc, s) => {
+        const mcq = (s.mcqEasy ?? 0) + (s.mcqMedium ?? 0) + (s.mcqHard ?? 0) || (s.mcqCount ?? 0);
+        const multi = (s.multiEasy ?? 0) + (s.multiMedium ?? 0) + (s.multiHard ?? 0) || (s.multiCount ?? 0);
+        const integer = (s.integerEasy ?? 0) + (s.integerMedium ?? 0) + (s.integerHard ?? 0) || (s.integerCount ?? 0);
+        const matrix = (s.matrixEasy ?? 0) + (s.matrixMedium ?? 0) + (s.matrixHard ?? 0) || (s.matrixCount ?? 0);
+        return acc + mcq + multi + integer + matrix;
+      }, 0)
     : input.questionCount;
 
   const plannedDifficulties =
@@ -134,58 +153,69 @@ function buildPaperSlots(input: CreateFacultyPaperInput): PaperSlot[] {
 
   if (hasGranularCounts) {
     for (const sel of sortedSelections) {
-      const mcqCount = Math.max(0, sel.mcqCount ?? 0);
-      const multiCount = Math.max(0, sel.multiCount ?? 0);
-      const integerCount = Math.max(0, sel.integerCount ?? 0);
-      const matrixCount = Math.max(0, sel.matrixCount ?? 0);
+      const mcqCount = Math.max(0, (sel.mcqEasy ?? 0) + (sel.mcqMedium ?? 0) + (sel.mcqHard ?? 0) || (sel.mcqCount ?? 0));
+      const multiCount = Math.max(0, (sel.multiEasy ?? 0) + (sel.multiMedium ?? 0) + (sel.multiHard ?? 0) || (sel.multiCount ?? 0));
+      const integerCount = Math.max(0, (sel.integerEasy ?? 0) + (sel.integerMedium ?? 0) + (sel.integerHard ?? 0) || (sel.integerCount ?? 0));
+      const matrixCount = Math.max(0, (sel.matrixEasy ?? 0) + (sel.matrixMedium ?? 0) + (sel.matrixHard ?? 0) || (sel.matrixCount ?? 0));
 
-      // Single-choice MCQs
-      for (let i = 0; i < mcqCount; i++) {
-        slots.push({
-          number,
-          subject: sel.subject,
-          topic: sel.topic,
-          difficulty: plannedDifficulties[number - 1] ?? resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
-          questionType: 'mcq_single',
-        });
-        number++;
-      }
+      const pushSlotsForType = (
+        qType: QuestionType,
+        easy: number,
+        med: number,
+        hard: number,
+        fallbackTotal: number,
+      ) => {
+        if (easy > 0 || med > 0 || hard > 0) {
+          for (let i = 0; i < easy; i++) {
+            slots.push({
+              number,
+              subject: sel.subject,
+              topic: sel.topic,
+              difficulty: input.examType === 'Advanced' ? 'advanced' : 'beginner',
+              questionType: qType,
+            });
+            number++;
+          }
+          for (let i = 0; i < med; i++) {
+            slots.push({
+              number,
+              subject: sel.subject,
+              topic: sel.topic,
+              difficulty: input.examType === 'Advanced' ? 'advanced' : 'intermediate',
+              questionType: qType,
+            });
+            number++;
+          }
+          for (let i = 0; i < hard; i++) {
+            slots.push({
+              number,
+              subject: sel.subject,
+              topic: sel.topic,
+              difficulty: 'advanced',
+              questionType: qType,
+            });
+            number++;
+          }
+        } else {
+          for (let i = 0; i < fallbackTotal; i++) {
+            slots.push({
+              number,
+              subject: sel.subject,
+              topic: sel.topic,
+              difficulty:
+                plannedDifficulties[number - 1] ??
+                resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
+              questionType: qType,
+            });
+            number++;
+          }
+        }
+      };
 
-      // Multi-choice MCQs (e.g. JEE Advanced)
-      for (let i = 0; i < multiCount; i++) {
-        slots.push({
-          number,
-          subject: sel.subject,
-          topic: sel.topic,
-          difficulty: plannedDifficulties[number - 1] ?? resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
-          questionType: 'mcq_multi',
-        });
-        number++;
-      }
-
-      // Integer / Numerical
-      for (let i = 0; i < integerCount; i++) {
-        slots.push({
-          number,
-          subject: sel.subject,
-          topic: sel.topic,
-          difficulty: plannedDifficulties[number - 1] ?? resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
-          questionType: 'integer',
-        });
-        number++;
-      }
-
-      // Matrix Match / Match the List
-      for (let i = 0; i < matrixCount; i++) {
-        slots.push({
-          number,
-          subject: sel.subject,
-          topic: sel.topic,
-          difficulty: plannedDifficulties[number - 1] ?? resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
-          questionType: 'matrix_match',
-        });
-        number++;
-      }
+      pushSlotsForType('mcq_single', sel.mcqEasy ?? 0, sel.mcqMedium ?? 0, sel.mcqHard ?? 0, mcqCount);
+      pushSlotsForType('mcq_multi', sel.multiEasy ?? 0, sel.multiMedium ?? 0, sel.multiHard ?? 0, multiCount);
+      pushSlotsForType('integer', sel.integerEasy ?? 0, sel.integerMedium ?? 0, sel.integerHard ?? 0, integerCount);
+      pushSlotsForType('matrix_match', sel.matrixEasy ?? 0, sel.matrixMedium ?? 0, sel.matrixHard ?? 0, matrixCount);
     }
     return slots;
   }

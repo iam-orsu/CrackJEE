@@ -22,6 +22,18 @@ export interface FacultyPaperSelection {
   integerCount?: number;
   multiCount?: number;
   matrixCount?: number;
+  mcqEasy?: number;
+  mcqMedium?: number;
+  mcqHard?: number;
+  integerEasy?: number;
+  integerMedium?: number;
+  integerHard?: number;
+  multiEasy?: number;
+  multiMedium?: number;
+  multiHard?: number;
+  matrixEasy?: number;
+  matrixMedium?: number;
+  matrixHard?: number;
 }
 
 export interface FacultyPaperItem {

@@ -12,7 +12,6 @@ import {
   facultyLogout,
   facultyMe,
   FacultyError,
-  type FacultyDifficulty,
   type FacultyExamType,
   type FacultyPaper,
   type FacultyPaperSelection,
@@ -24,6 +23,16 @@ import { FacultyPaperPreview } from '@/components/faculty/FacultyPaperPreview';
 import { FacultyBatchesTab } from '@/components/faculty/FacultyBatchesTab';
 import { FacultyAssignmentsTab } from '@/components/faculty/FacultyAssignmentsTab';
 import { FacultyReportsTab } from '@/components/faculty/FacultyReportsTab';
+import type { Subject } from '@/types';
+import { TopicBreakdownConfig } from '@/components/practice/TopicBreakdownConfig';
+import type { TopicCustomConfig } from '@/components/practice/shared';
+import {
+  getTopicTotal,
+  createBalancedDifficulty,
+  getDefaultQuestionTypes,
+  planTopicTypeSlots,
+  MAX_TOPIC_QUESTIONS,
+} from '@/components/practice/shared';
 import styles from './faculty.module.css';
 
 const COUNT_PRESETS: Record<FacultyExamType, Array<{ count: number; label: string }>> = {
@@ -126,57 +135,43 @@ export default function FacultyPage() {
   const [title, setTitle] = useState('');
   const [organization, setOrganization] = useState('');
   const [examType, setExamType] = useState<FacultyExamType>('Main');
-  const [difficulty, setDifficulty] = useState<FacultyDifficulty>('intermediate');
-  const [difficultyMode, setDifficultyMode] = useState<'preset' | 'custom'>('preset');
-  const [difficultyDistribution, setDifficultyDistribution] = useState<{
-    beginner: number;
-    intermediate: number;
-    advanced: number;
-  }>({
-    beginner: 20,
-    intermediate: 40,
-    advanced: 40,
-  });
   const [questionCount, setQuestionCount] = useState(75);
   const [questionCountStr, setQuestionCountStr] = useState('75');
   const [questionType, setQuestionType] = useState<FacultyQuestionTypePref>('auto');
+  const [topicConfigs, setTopicConfigs] = useState<Record<string, TopicCustomConfig>>({});
 
-  const totalDifficultyPct = useMemo(() => {
-    return (
-      (difficultyDistribution.beginner || 0) +
-      (difficultyDistribution.intermediate || 0) +
-      (difficultyDistribution.advanced || 0)
-    );
-  }, [difficultyDistribution]);
-
-  function handleNormalizePercentages() {
-    const b = difficultyDistribution.beginner || 0;
-    const i = difficultyDistribution.intermediate || 0;
-    const a = difficultyDistribution.advanced || 0;
-    const sum = b + i + a;
-    if (sum === 0) {
-      setDifficultyDistribution({ beginner: 20, intermediate: 40, advanced: 40 });
-      return;
+  const selectedSubjects = useMemo(() => {
+    const set = new Set<Subject>();
+    for (const cfg of Object.values(topicConfigs)) {
+      set.add(cfg.subject);
     }
-    const newB = Math.round((b / sum) * 100);
-    const newI = Math.round((i / sum) * 100);
-    const newA = 100 - newB - newI;
-    setDifficultyDistribution({ beginner: newB, intermediate: newI, advanced: newA });
-  }
+    return set;
+  }, [topicConfigs]);
 
-  function applyDifficultyPreset(b: number, i: number, a: number) {
-    setDifficultyDistribution({ beginner: b, intermediate: i, advanced: a });
-  }
+  const selectedTopics = useMemo(() => {
+    const map: Partial<Record<Subject, Set<string>>> = {};
+    for (const cfg of Object.values(topicConfigs)) {
+      if (!map[cfg.subject]) map[cfg.subject] = new Set();
+      map[cfg.subject]!.add(cfg.topic);
+    }
+    return map;
+  }, [topicConfigs]);
 
-  function getDifficultyCountForPct(pct: number) {
-    return Math.round((pct / 100) * questionCount);
-  }
+  const selectedTopicsCount = useMemo(() => {
+    return Object.keys(topicConfigs).length;
+  }, [topicConfigs]);
+
+  const activeSubjectCount = selectedSubjects.size || 1;
+  const perSubjectTarget = Math.max(1, Math.round(questionCount / activeSubjectCount));
+
+  const totalCalculatedCount = useMemo(() => {
+    return Object.values(topicConfigs).reduce((sum, cfg) => sum + getTopicTotal(cfg), 0);
+  }, [topicConfigs]);
 
   const [subjects, setSubjects] = useState<string[]>(['Physics', 'Chemistry', 'Mathematics']);
   const [topicsBySubject, setTopicsBySubject] = useState<Record<string, string[]>>({});
   const [activeSubject, setActiveSubject] = useState('Physics');
   const [topicSearch, setTopicSearch] = useState('');
-  const [selections, setSelections] = useState<FacultyPaperSelection[]>([]);
 
   // Stacked Paper Library & Opened Paper Workspace
   const [papers, setPapers] = useState<FacultyPaperSummary[]>([]);
@@ -221,13 +216,10 @@ export default function FacultyPage() {
     setQuestionCount(defaultCnt);
     setQuestionCountStr(String(defaultCnt));
     if (nextExam === 'Advanced') {
-      setDifficulty('advanced');
       setQuestionType('auto');
     } else if (nextExam === 'NEET') {
-      setDifficulty('intermediate');
       setQuestionType('mcq_single');
     } else {
-      setDifficulty('intermediate');
       setQuestionType('auto');
     }
 
@@ -236,16 +228,15 @@ export default function FacultyPage() {
       setSubjects(res.subjects);
       setTopicsBySubject(res.topics);
       setActiveSubject(res.subjects[0] ?? 'Physics');
-      setSelections((prev) =>
-        prev
-          .filter((sel) => res.topics[sel.subject]?.includes(sel.topic))
-          .map((sel) => ({
-            ...sel,
-            mcqCount: sel.mcqCount ?? (nextExam === 'NEET' ? 5 : nextExam === 'Advanced' ? 3 : 5),
-            integerCount: nextExam === 'NEET' ? 0 : (sel.integerCount ?? 1),
-            multiCount: nextExam === 'Advanced' ? (sel.multiCount ?? 2) : 0,
-          })),
-      );
+      setTopicConfigs((prev) => {
+        const next: Record<string, TopicCustomConfig> = {};
+        for (const [key, cfg] of Object.entries(prev)) {
+          if (res.topics[cfg.subject]?.includes(cfg.topic)) {
+            next[key] = cfg;
+          }
+        }
+        return next;
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load topics');
     }
@@ -277,112 +268,172 @@ export default function FacultyPage() {
     return q ? all.filter((t) => t.toLowerCase().includes(q)) : all;
   }, [topicsBySubject, activeSubject, topicSearch]);
 
-  function toggleSelection(subject: FacultyPaperSelection['subject'], topic: string) {
-    setSelections((prev) => {
-      const exists = prev.some((s) => s.subject === subject && s.topic === topic);
-      if (exists) {
-        return prev.filter((s) => !(s.subject === subject && s.topic === topic));
-      }
-      const defaultMcq = examType === 'NEET' ? 5 : examType === 'Advanced' ? 3 : 5;
-      const defaultInt = examType === 'NEET' ? 0 : 1;
-      const defaultMulti = examType === 'Advanced' ? 2 : 0;
-      return [
-        ...prev,
-        {
+  function toggleSelection(subject: Subject, topic: string) {
+    const key = `${subject}::${topic}`;
+    setTopicConfigs((prev) => {
+      const next = { ...prev };
+      if (next[key]) {
+        delete next[key];
+      } else {
+        const isAdv = examType === 'Advanced';
+        const isNeet = examType === 'NEET';
+        const nextSubjCount = (selectedTopics[subject]?.size || 0) + 1;
+        const targetForThisTopic = Math.min(
+          MAX_TOPIC_QUESTIONS,
+          Math.max(1, Math.round(perSubjectTarget / nextSubjCount)),
+        );
+
+        const defTypes = getDefaultQuestionTypes(targetForThisTopic, isAdv ? 'Advanced' : 'Main', isNeet);
+        const typeSlots = planTopicTypeSlots(targetForThisTopic, defTypes, isAdv, isNeet);
+
+        const mcqCount = typeSlots.filter((t) => t === 'mcq_single').length;
+        const integerCount = typeSlots.filter((t) => t === 'integer').length;
+        const multiCount = typeSlots.filter((t) => t === 'mcq_multi').length;
+        const matrixCount = typeSlots.filter((t) => t === 'matrix_match').length;
+
+        next[key] = {
           subject,
           topic,
-          mcqCount: defaultMcq,
-          integerCount: defaultInt,
-          multiCount: defaultMulti,
-        },
-      ];
+          mcq: createBalancedDifficulty(mcqCount),
+          integer: createBalancedDifficulty(integerCount),
+          multi: createBalancedDifficulty(multiCount),
+          matrix: createBalancedDifficulty(matrixCount),
+        };
+      }
+      return next;
     });
   }
 
-  const totalCalculatedCount = useMemo(() => {
-    if (selections.length === 0) return 0;
-    return selections.reduce(
-      (acc, s) => acc + (s.mcqCount ?? 0) + (s.integerCount ?? 0) + (s.multiCount ?? 0) + (s.matrixCount ?? 0),
-      0,
-    );
-  }, [selections]);
+  const autoDistributeTopicsForSubject = useCallback(
+    (subj: Subject) => {
+      const topics = Array.from(selectedTopics[subj] ?? new Set<string>());
+      if (topics.length === 0) return;
 
-  function handleCountChange(
-    subject: FacultyPaperSelection['subject'],
-    topic: string,
-    field: 'mcqCount' | 'integerCount' | 'multiCount' | 'matrixCount',
-    val: number,
-  ) {
-    const clamped = Math.max(0, Math.min(100, isNaN(val) ? 0 : val));
-    setSelections((prev) =>
-      prev.map((s) => (s.subject === subject && s.topic === topic ? { ...s, [field]: clamped } : s)),
-    );
-  }
+      const perSubject = perSubjectTarget;
+      const isAdv = examType === 'Advanced';
+      const isNeet = examType === 'NEET';
 
-  function handleCountStep(
-    subject: FacultyPaperSelection['subject'],
-    topic: string,
-    field: 'mcqCount' | 'integerCount' | 'multiCount' | 'matrixCount',
-    delta: number,
-  ) {
-    if (delta > 0 && totalCalculatedCount >= questionCount) {
-      setError(`Cannot add more questions: total configured (${totalCalculatedCount}) already reaches or exceeds Question Count (${questionCount}). Reduce other topics or increase Question Count.`);
-      return;
-    }
-    setError('');
-    setSelections((prev) =>
-      prev.map((s) => {
-        if (s.subject !== subject || s.topic !== topic) return s;
-        const current = s[field] ?? 0;
-        const next = Math.max(0, Math.min(100, current + delta));
-        return { ...s, [field]: next };
-      }),
-    );
-  }
+      const k = topics.length;
+      const baseQuota = Math.floor(perSubject / k);
+      const remainder = perSubject % k;
 
-  function applyPresetToAll(mcq: number, intCount: number, multi = 0, matrix = 0) {
-    setSelections((prev) =>
-      prev.map((s) => ({
-        ...s,
-        mcqCount: mcq,
-        integerCount: examType === 'NEET' ? 0 : intCount,
-        multiCount: examType === 'Advanced' ? multi : 0,
-        matrixCount: matrix,
-      })),
-    );
-  }
+      setTopicConfigs((prev) => {
+        const next = { ...prev };
+        topics.forEach((topic, idx) => {
+          const topicCount = Math.min(MAX_TOPIC_QUESTIONS, baseQuota + (idx < remainder ? 1 : 0));
+          const defTypes = getDefaultQuestionTypes(topicCount, isAdv ? 'Advanced' : 'Main', isNeet);
+          const typeSlots = planTopicTypeSlots(topicCount, defTypes, isAdv, isNeet);
+
+          const mcqCount = typeSlots.filter((t) => t === 'mcq_single').length;
+          const integerCount = typeSlots.filter((t) => t === 'integer').length;
+          const multiCount = typeSlots.filter((t) => t === 'mcq_multi').length;
+          const matrixCount = typeSlots.filter((t) => t === 'matrix_match').length;
+
+          const key = `${subj}::${topic}`;
+          next[key] = {
+            subject: subj,
+            topic,
+            mcq: createBalancedDifficulty(mcqCount),
+            integer: createBalancedDifficulty(integerCount),
+            multi: createBalancedDifficulty(multiCount),
+            matrix: createBalancedDifficulty(matrixCount),
+          };
+        });
+        return next;
+      });
+    },
+    [selectedTopics, perSubjectTarget, examType],
+  );
+
+  const autoDistributeAllTopics = useCallback(() => {
+    const perSubject = perSubjectTarget;
+    const isAdv = examType === 'Advanced';
+    const isNeet = examType === 'NEET';
+
+    setTopicConfigs((prev) => {
+      const next = { ...prev };
+      for (const subj of selectedSubjects) {
+        const topics = Array.from(selectedTopics[subj] ?? new Set<string>());
+        if (topics.length === 0) continue;
+        const k = topics.length;
+        const baseQuota = Math.floor(perSubject / k);
+        const remainder = perSubject % k;
+
+        topics.forEach((topic, idx) => {
+          const topicCount = Math.min(MAX_TOPIC_QUESTIONS, baseQuota + (idx < remainder ? 1 : 0));
+          const defTypes = getDefaultQuestionTypes(topicCount, isAdv ? 'Advanced' : 'Main', isNeet);
+          const typeSlots = planTopicTypeSlots(topicCount, defTypes, isAdv, isNeet);
+
+          const mcqCount = typeSlots.filter((t) => t === 'mcq_single').length;
+          const integerCount = typeSlots.filter((t) => t === 'integer').length;
+          const multiCount = typeSlots.filter((t) => t === 'mcq_multi').length;
+          const matrixCount = typeSlots.filter((t) => t === 'matrix_match').length;
+
+          const key = `${subj}::${topic}`;
+          next[key] = {
+            subject: subj,
+            topic,
+            mcq: createBalancedDifficulty(mcqCount),
+            integer: createBalancedDifficulty(integerCount),
+            multi: createBalancedDifficulty(multiCount),
+            matrix: createBalancedDifficulty(matrixCount),
+          };
+        });
+      }
+      return next;
+    });
+  }, [perSubjectTarget, examType, selectedSubjects, selectedTopics]);
 
   function applyPresetAcrossTopics(total: number) {
     setQuestionCount(total);
     setQuestionCountStr(String(total));
-    if (selections.length === 0) return;
-    const n = selections.length;
-    const perTopic = Math.max(1, Math.floor(total / n));
-    setSelections((prev) =>
-      prev.map((s, idx) => {
-        const topicTotal = perTopic + (idx < total % n ? 1 : 0);
-        if (questionType === 'matrix_match') {
-          return { ...s, mcqCount: 0, integerCount: 0, multiCount: 0, matrixCount: topicTotal };
-        }
-        if (examType === 'NEET') {
-          const matrix = Math.min(s.matrixCount ?? 0, topicTotal);
-          return { ...s, mcqCount: topicTotal - matrix, integerCount: 0, multiCount: 0, matrixCount: matrix };
-        } else if (examType === 'Advanced') {
-          const matrix = Math.min(s.matrixCount ?? 0, topicTotal);
-          const rem = Math.max(0, topicTotal - matrix);
-          const multi = Math.floor(rem * 0.3);
-          const integer = Math.floor(rem * 0.3);
-          const mcq = rem - multi - integer;
-          return { ...s, mcqCount: mcq, multiCount: multi, integerCount: integer, matrixCount: matrix };
-        } else {
-          const matrix = Math.min(s.matrixCount ?? 0, topicTotal);
-          const rem = Math.max(0, topicTotal - matrix);
-          const integer = Math.max(1, Math.round(rem * 0.2));
-          const mcq = Math.max(0, rem - integer);
-          return { ...s, mcqCount: mcq, integerCount: integer, multiCount: 0, matrixCount: matrix };
-        }
-      }),
-    );
+    const entries = Object.entries(topicConfigs);
+    if (entries.length === 0) return;
+
+    const isAdv = examType === 'Advanced';
+    const isNeet = examType === 'NEET';
+    const n = entries.length;
+    const baseQuota = Math.floor(total / n);
+    const remainder = total % n;
+
+    setTopicConfigs((prev) => {
+      const next = { ...prev };
+      entries.forEach(([key, cfg], idx) => {
+        const topicTotal = Math.min(MAX_TOPIC_QUESTIONS, baseQuota + (idx < remainder ? 1 : 0));
+        const defTypes = getDefaultQuestionTypes(topicTotal, isAdv ? 'Advanced' : 'Main', isNeet);
+        const typeSlots = planTopicTypeSlots(topicTotal, defTypes, isAdv, isNeet);
+
+        const mcqCount = typeSlots.filter((t) => t === 'mcq_single').length;
+        const integerCount = typeSlots.filter((t) => t === 'integer').length;
+        const multiCount = typeSlots.filter((t) => t === 'mcq_multi').length;
+        const matrixCount = typeSlots.filter((t) => t === 'matrix_match').length;
+
+        next[key] = {
+          ...cfg,
+          mcq: createBalancedDifficulty(mcqCount),
+          integer: createBalancedDifficulty(integerCount),
+          multi: createBalancedDifficulty(multiCount),
+          matrix: createBalancedDifficulty(matrixCount),
+        };
+      });
+      return next;
+    });
+  }
+
+  function applyPresetToAll(mcq: number, intCount: number, multi = 0, matrix = 0) {
+    setTopicConfigs((prev) => {
+      const next = { ...prev };
+      for (const [key, cfg] of Object.entries(next)) {
+        next[key] = {
+          ...cfg,
+          mcq: createBalancedDifficulty(mcq),
+          integer: createBalancedDifficulty(examType === 'NEET' ? 0 : intCount),
+          multi: createBalancedDifficulty(examType === 'Advanced' ? multi : 0),
+          matrix: createBalancedDifficulty(matrix),
+        };
+      }
+      return next;
+    });
   }
 
   async function handleOpenPaper(id: string) {
@@ -405,6 +456,54 @@ export default function FacultyPage() {
     if (activeCount !== questionCount) {
       setQuestionCount(activeCount);
     }
+
+    const selections: FacultyPaperSelection[] = [];
+    for (const cfg of Object.values(topicConfigs)) {
+      const total = getTopicTotal(cfg);
+      if (total <= 0) continue;
+
+      const mcqEasy = cfg.mcq?.easy || 0;
+      const mcqMed = cfg.mcq?.medium || 0;
+      const mcqHard = cfg.mcq?.hard || 0;
+      const mcqCount = mcqEasy + mcqMed + mcqHard;
+
+      const integerEasy = cfg.integer?.easy || 0;
+      const integerMed = cfg.integer?.medium || 0;
+      const integerHard = cfg.integer?.hard || 0;
+      const integerCount = integerEasy + integerMed + integerHard;
+
+      const multiEasy = cfg.multi?.easy || 0;
+      const multiMed = cfg.multi?.medium || 0;
+      const multiHard = cfg.multi?.hard || 0;
+      const multiCount = multiEasy + multiMed + multiHard;
+
+      const matrixEasy = cfg.matrix?.easy || 0;
+      const matrixMed = cfg.matrix?.medium || 0;
+      const matrixHard = cfg.matrix?.hard || 0;
+      const matrixCount = matrixEasy + matrixMed + matrixHard;
+
+      selections.push({
+        subject: cfg.subject,
+        topic: cfg.topic,
+        mcqCount,
+        integerCount,
+        multiCount,
+        matrixCount,
+        mcqEasy,
+        mcqMedium: mcqMed,
+        mcqHard,
+        integerEasy,
+        integerMedium: integerMed,
+        integerHard,
+        multiEasy,
+        multiMedium: multiMed,
+        multiHard,
+        matrixEasy,
+        matrixMedium: matrixMed,
+        matrixHard,
+      });
+    }
+
     if (selections.length === 0) {
       setError('Select at least one subject & topic before generating.');
       return;
@@ -420,13 +519,9 @@ export default function FacultyPage() {
     if (totalCalculatedCount !== questionCount) {
       setError(
         totalCalculatedCount > questionCount
-          ? `Total questions configured in topics (${totalCalculatedCount}) exceeds Question Count (${questionCount}). Please reduce ${totalCalculatedCount - questionCount} question(s) from topics or adjust Question Count to match.`
+          ? `Total questions configured in topics (${totalCalculatedCount}) exceeds Question Count (${questionCount}). Please reduce ${totalCalculatedCount - questionCount} question(s) from topics or click "Auto-match".`
           : `Total questions configured in topics (${totalCalculatedCount}) does not match target Question Count (${questionCount}). Please add ${questionCount - totalCalculatedCount} more question(s) or click "Auto-match".`
       );
-      return;
-    }
-    if (examType !== 'Advanced' && difficultyMode === 'custom' && totalDifficultyPct !== 100) {
-      setError(`Difficulty percentage total must equal 100% (currently ${totalDifficultyPct}%). Click "Normalize to 100%" or adjust sliders.`);
       return;
     }
 
@@ -437,10 +532,9 @@ export default function FacultyPage() {
         title: title.trim() || undefined,
         organization: organization.trim() || undefined,
         examType,
-        difficulty: examType === 'Advanced' ? 'advanced' : difficultyMode === 'custom' ? 'mixed' : difficulty,
-        difficultyDistribution: examType !== 'Advanced' && difficultyMode === 'custom' ? difficultyDistribution : undefined,
+        difficulty: examType === 'Advanced' ? 'advanced' : 'mixed',
         questionCount,
-        questionType,
+        questionType: 'auto',
         selections,
       });
       const listRes = await facultyListPapers();
@@ -644,230 +738,25 @@ export default function FacultyPage() {
                       </div>
 
                       <div className={styles.field}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
-                          <label className={styles.label} htmlFor="paper-diff">Cognitive Rigor</label>
-                          {examType !== 'Advanced' && (
-                            <div style={{ display: 'flex', gap: 4 }}>
-                              <button
-                                type="button"
-                                className={styles.presetBtn}
-                                style={{
-                                  fontSize: 10,
-                                  padding: '2px 7px',
-                                  background: difficultyMode === 'preset' ? 'var(--brand, #0f2b48)' : 'var(--surface-2, #f1f5f9)',
-                                  color: difficultyMode === 'preset' ? '#ffffff' : 'var(--ink-2, #334155)',
-                                }}
-                                onClick={() => setDifficultyMode('preset')}
-                              >
-                                Presets
-                              </button>
-                              <button
-                                type="button"
-                                className={styles.presetBtn}
-                                style={{
-                                  fontSize: 10,
-                                  padding: '2px 7px',
-                                  background: difficultyMode === 'custom' ? 'var(--brand, #0f2b48)' : 'var(--surface-2, #f1f5f9)',
-                                  color: difficultyMode === 'custom' ? '#ffffff' : 'var(--ink-2, #334155)',
-                                }}
-                                onClick={() => setDifficultyMode('custom')}
-                              >
-                                Custom %
-                              </button>
-                            </div>
-                          )}
-                        </div>
-
-                        {examType === 'Advanced' ? (
-                          <>
-                            <input
-                              id="paper-diff"
-                              className={styles.input}
-                              value="Strict JEE Advanced Only"
-                              disabled
-                            />
-                            <div className={styles.strictHint}>Locked to IIT JEE Advanced multi-concept rigor</div>
-                          </>
-                        ) : difficultyMode === 'preset' ? (
-                          <select
-                            id="paper-diff"
-                            className={styles.select}
-                            value={difficulty}
-                            onChange={(e) => setDifficulty(e.target.value as FacultyDifficulty)}
-                          >
-                            <option value="beginner">Beginner (Entry Competitive)</option>
-                            <option value="intermediate">Intermediate (Standard Exam)</option>
-                            <option value="advanced">Advanced (Rank-Decider)</option>
-                            <option value="mixed">Mixed (Balanced)</option>
-                          </select>
-                        ) : (
-                          <div style={{ background: 'var(--surface-2, #f8fafc)', border: '1px solid var(--border, #e2e8f0)', borderRadius: 8, padding: '10px 12px' }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8, flexWrap: 'wrap', gap: 6 }}>
-                              <span
-                                style={{
-                                  fontSize: 11,
-                                  fontWeight: 700,
-                                  padding: '2px 8px',
-                                  borderRadius: 999,
-                                  background: totalDifficultyPct === 100 ? '#ecfdf5' : totalDifficultyPct > 100 ? '#fef2f2' : '#fffbeb',
-                                  color: totalDifficultyPct === 100 ? '#047857' : totalDifficultyPct > 100 ? '#b91c1c' : '#b45309',
-                                  border: `1px solid ${totalDifficultyPct === 100 ? '#a7f3d0' : totalDifficultyPct > 100 ? '#fecaca' : '#fde68a'}`,
-                                }}
-                              >
-                                {totalDifficultyPct === 100
-                                  ? '✓ Total: 100%'
-                                  : totalDifficultyPct > 100
-                                  ? `⚠️ Total: ${totalDifficultyPct}% (${totalDifficultyPct - 100}% over)`
-                                  : `⚠️ Total: ${totalDifficultyPct}% (${100 - totalDifficultyPct}% needed)`}
-                              </span>
-                              {totalDifficultyPct !== 100 && (
-                                <button
-                                  type="button"
-                                  onClick={handleNormalizePercentages}
-                                  className={styles.btn}
-                                  style={{ fontSize: 10, padding: '2px 6px' }}
-                                >
-                                  Normalize to 100%
-                                </button>
-                              )}
-                            </div>
-
-                            {/* Preset Buttons */}
-                            <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', marginBottom: 10 }}>
-                              <button
-                                type="button"
-                                className={styles.presetBtn}
-                                style={{
-                                  fontSize: 10,
-                                  padding: '2px 6px',
-                                  background: difficultyDistribution.beginner === 30 && difficultyDistribution.intermediate === 30 && difficultyDistribution.advanced === 40 ? 'var(--brand, #0f2b48)' : '#ffffff',
-                                  color: difficultyDistribution.beginner === 30 && difficultyDistribution.intermediate === 30 && difficultyDistribution.advanced === 40 ? '#ffffff' : 'inherit',
-                                }}
-                                onClick={() => applyDifficultyPreset(30, 30, 40)}
-                              >
-                                30/30/40
-                              </button>
-                              <button
-                                type="button"
-                                className={styles.presetBtn}
-                                style={{
-                                  fontSize: 10,
-                                  padding: '2px 6px',
-                                  background: difficultyDistribution.beginner === 34 && difficultyDistribution.intermediate === 33 && difficultyDistribution.advanced === 33 ? 'var(--brand, #0f2b48)' : '#ffffff',
-                                  color: difficultyDistribution.beginner === 34 && difficultyDistribution.intermediate === 33 && difficultyDistribution.advanced === 33 ? '#ffffff' : 'inherit',
-                                }}
-                                onClick={() => applyDifficultyPreset(34, 33, 33)}
-                              >
-                                34/33/33
-                              </button>
-                              <button
-                                type="button"
-                                className={styles.presetBtn}
-                                style={{
-                                  fontSize: 10,
-                                  padding: '2px 6px',
-                                  background: difficultyDistribution.beginner === 50 && difficultyDistribution.intermediate === 30 && difficultyDistribution.advanced === 20 ? 'var(--brand, #0f2b48)' : '#ffffff',
-                                  color: difficultyDistribution.beginner === 50 && difficultyDistribution.intermediate === 30 && difficultyDistribution.advanced === 20 ? '#ffffff' : 'inherit',
-                                }}
-                                onClick={() => applyDifficultyPreset(50, 30, 20)}
-                              >
-                                50/30/20
-                              </button>
-                              <button
-                                type="button"
-                                className={styles.presetBtn}
-                                style={{
-                                  fontSize: 10,
-                                  padding: '2px 6px',
-                                  background: difficultyDistribution.beginner === 20 && difficultyDistribution.intermediate === 40 && difficultyDistribution.advanced === 40 ? 'var(--brand, #0f2b48)' : '#ffffff',
-                                  color: difficultyDistribution.beginner === 20 && difficultyDistribution.intermediate === 40 && difficultyDistribution.advanced === 40 ? '#ffffff' : 'inherit',
-                                }}
-                                onClick={() => applyDifficultyPreset(20, 40, 40)}
-                              >
-                                20/40/40
-                              </button>
-                            </div>
-
-                            {/* Multi-segment Visual Bar */}
-                            <div style={{ height: 6, width: '100%', borderRadius: 3, background: '#e2e8f0', display: 'flex', overflow: 'hidden', marginBottom: 10 }}>
-                              <div
-                                title={`Easy: ${difficultyDistribution.beginner || 0}%`}
-                                style={{
-                                  width: `${((difficultyDistribution.beginner || 0) / (totalDifficultyPct || 100)) * 100}%`,
-                                  background: '#22c55e',
-                                  transition: 'width 0.2s ease',
-                                }}
-                              />
-                              <div
-                                title={`Medium: ${difficultyDistribution.intermediate || 0}%`}
-                                style={{
-                                  width: `${((difficultyDistribution.intermediate || 0) / (totalDifficultyPct || 100)) * 100}%`,
-                                  background: '#eab308',
-                                  transition: 'width 0.2s ease',
-                                }}
-                              />
-                              <div
-                                title={`Hard: ${difficultyDistribution.advanced || 0}%`}
-                                style={{
-                                  width: `${((difficultyDistribution.advanced || 0) / (totalDifficultyPct || 100)) * 100}%`,
-                                  background: '#ef4444',
-                                  transition: 'width 0.2s ease',
-                                }}
-                              />
-                            </div>
-
-                            {/* 3 Slider Rows */}
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                              {/* Easy */}
-                              <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 11 }}>
-                                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#22c55e' }} />
-                                <span style={{ width: 90, fontWeight: 600 }}>Easy (~{getDifficultyCountForPct(difficultyDistribution.beginner || 0)}Q):</span>
-                                <input
-                                  type="range"
-                                  min={0}
-                                  max={100}
-                                  step={5}
-                                  value={difficultyDistribution.beginner || 0}
-                                  onChange={(e) => setDifficultyDistribution((prev) => ({ ...prev, beginner: parseInt(e.target.value, 10) }))}
-                                  style={{ flex: 1, accentColor: '#22c55e', height: 4 }}
-                                />
-                                <span style={{ width: 34, textAlign: 'right', fontWeight: 700 }}>{difficultyDistribution.beginner || 0}%</span>
-                              </div>
-
-                              {/* Medium */}
-                              <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 11 }}>
-                                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#eab308' }} />
-                                <span style={{ width: 90, fontWeight: 600 }}>Medium (~{getDifficultyCountForPct(difficultyDistribution.intermediate || 0)}Q):</span>
-                                <input
-                                  type="range"
-                                  min={0}
-                                  max={100}
-                                  step={5}
-                                  value={difficultyDistribution.intermediate || 0}
-                                  onChange={(e) => setDifficultyDistribution((prev) => ({ ...prev, intermediate: parseInt(e.target.value, 10) }))}
-                                  style={{ flex: 1, accentColor: '#eab308', height: 4 }}
-                                />
-                                <span style={{ width: 34, textAlign: 'right', fontWeight: 700 }}>{difficultyDistribution.intermediate || 0}%</span>
-                              </div>
-
-                              {/* Hard */}
-                              <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 11 }}>
-                                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#ef4444' }} />
-                                <span style={{ width: 90, fontWeight: 600 }}>Hard (~{getDifficultyCountForPct(difficultyDistribution.advanced || 0)}Q):</span>
-                                <input
-                                  type="range"
-                                  min={0}
-                                  max={100}
-                                  step={5}
-                                  value={difficultyDistribution.advanced || 0}
-                                  onChange={(e) => setDifficultyDistribution((prev) => ({ ...prev, advanced: parseInt(e.target.value, 10) }))}
-                                  style={{ flex: 1, accentColor: '#ef4444', height: 4 }}
-                                />
-                                <span style={{ width: 34, textAlign: 'right', fontWeight: 700 }}>{difficultyDistribution.advanced || 0}%</span>
-                              </div>
-                            </div>
+                        <label className={styles.label}>Cognitive Rigor &amp; Question Difficulty</label>
+                        <div
+                          style={{
+                            background: 'var(--surface-2, #f8fafc)',
+                            border: '1px solid var(--border, #e2e8f0)',
+                            borderRadius: 8,
+                            padding: '10px 14px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 10,
+                            fontSize: 12,
+                            color: 'var(--ink-2, #334155)',
+                          }}
+                        >
+                          <span style={{ fontSize: 18 }}>🎯</span>
+                          <div>
+                            <strong>Granular Topic Breakdown:</strong> Configure exact quantities of <strong>Easy</strong>, <strong>Medium</strong>, and <strong>Hard</strong> questions per topic &amp; question type below using direct integer counters.
                           </div>
-                        )}
+                        </div>
                       </div>
                     </div>
 
@@ -972,13 +861,13 @@ export default function FacultyPage() {
                   <div>
                     <div className={styles.field}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <label className={styles.label}>Topics ({selections.length} selected)</label>
-                        {selections.length > 0 && (
+                        <label className={styles.label}>Topics ({selectedTopicsCount} selected)</label>
+                        {selectedTopicsCount > 0 && (
                           <button
                             type="button"
                             className={styles.btn}
                             style={{ fontSize: 11, padding: '2px 8px' }}
-                            onClick={() => setSelections([])}
+                            onClick={() => setTopicConfigs({})}
                           >
                             Clear all
                           </button>
@@ -1008,14 +897,14 @@ export default function FacultyPage() {
 
                       <div className={styles.topicBox}>
                         {visibleTopics.map((topic) => {
-                          const checked = selections.some((s) => s.subject === activeSubject && s.topic === topic);
+                          const checked = Boolean(topicConfigs[`${activeSubject}::${topic}`]);
                           return (
                             <label key={topic} className={styles.topicItem}>
                               <input
                                 type="checkbox"
                                 checked={checked}
                                 onChange={() =>
-                                  toggleSelection(activeSubject as FacultyPaperSelection['subject'], topic)
+                                  toggleSelection(activeSubject as Subject, topic)
                                 }
                               />
                               <span>{topic}</span>
@@ -1027,16 +916,16 @@ export default function FacultyPage() {
                         )}
                       </div>
 
-                      {selections.length > 0 && (
+                      {selectedTopicsCount > 0 && (
                         <div className={styles.chipList}>
-                          {selections.map((sel) => (
-                            <span key={`${sel.subject}::${sel.topic}`} className={styles.chip}>
-                              {sel.subject.slice(0, 4)}: {sel.topic}
+                          {Object.values(topicConfigs).map((cfg) => (
+                            <span key={`${cfg.subject}::${cfg.topic}`} className={styles.chip}>
+                              {cfg.subject.slice(0, 4)}: {cfg.topic} ({getTopicTotal(cfg)} Qs)
                               <button
                                 type="button"
                                 className={styles.chipRemove}
-                                aria-label={`Remove ${sel.topic}`}
-                                onClick={() => toggleSelection(sel.subject, sel.topic)}
+                                aria-label={`Remove ${cfg.topic}`}
+                                onClick={() => toggleSelection(cfg.subject, cfg.topic)}
                               >
                                 ×
                               </button>
@@ -1048,413 +937,40 @@ export default function FacultyPage() {
                   </div>
                 </div>
 
-                {selections.length > 0 && (
-                  <div className={styles.topicBreakdownWrap}>
-                    {/* Overflow / Underflow Validation Banners */}
-                    {totalCalculatedCount > questionCount && (
-                      <div
-                        style={{
-                          background: '#fef2f2',
-                          border: '1px solid #fecaca',
-                          color: '#b91c1c',
-                          padding: '10px 14px',
-                          borderRadius: 8,
-                          marginBottom: 12,
-                          fontSize: 13,
-                          fontWeight: 500,
-                          display: 'flex',
-                          justifyContent: 'space-between',
-                          alignItems: 'center',
-                          gap: 12,
-                        }}
-                      >
-                        <span>
-                          ⚠️ <strong>Topic questions overflow:</strong> You have configured {totalCalculatedCount} questions across topics, but Question Count is {questionCount}. Please reduce {totalCalculatedCount - questionCount} question(s) or click Auto-match.
-                        </span>
-                        <button
-                          type="button"
-                          className={styles.btnPrimary}
-                          style={{ fontSize: 11, padding: '4px 10px', whiteSpace: 'nowrap' }}
-                          onClick={() => applyPresetAcrossTopics(questionCount)}
-                        >
-                          ⚡ Auto-match to {questionCount}
-                        </button>
-                      </div>
-                    )}
-
-                    {totalCalculatedCount < questionCount && (
-                      <div
-                        style={{
-                          background: '#fffbeb',
-                          border: '1px solid #fde68a',
-                          color: '#b45309',
-                          padding: '10px 14px',
-                          borderRadius: 8,
-                          marginBottom: 12,
-                          fontSize: 13,
-                          fontWeight: 500,
-                          display: 'flex',
-                          justifyContent: 'space-between',
-                          alignItems: 'center',
-                          gap: 12,
-                        }}
-                      >
-                        <span>
-                          ⚠️ <strong>Topic questions underflow:</strong> You have configured {totalCalculatedCount} questions, but target Question Count is {questionCount}. Please add {questionCount - totalCalculatedCount} more question(s) or click Auto-match.
-                        </span>
-                        <button
-                          type="button"
-                          className={styles.btnPrimary}
-                          style={{ fontSize: 11, padding: '4px 10px', whiteSpace: 'nowrap' }}
-                          onClick={() => applyPresetAcrossTopics(questionCount)}
-                        >
-                          ⚡ Auto-match to {questionCount}
-                        </button>
-                      </div>
-                    )}
-
-                    <div className={styles.topicBreakdownHeader}>
-                      <div className={styles.topicBreakdownTitle}>
-                        <span>Selected Topics &amp; Question Mix</span>
-                        <span
-                          className={styles.topicBreakdownBadge}
-                          style={{
-                            background:
-                              totalCalculatedCount === questionCount
-                                ? '#ecfdf5'
-                                : totalCalculatedCount > questionCount
-                                ? '#fef2f2'
-                                : '#fffbeb',
-                            color:
-                              totalCalculatedCount === questionCount
-                                ? '#047857'
-                                : totalCalculatedCount > questionCount
-                                ? '#b91c1c'
-                                : '#b45309',
-                            border: `1px solid ${
-                              totalCalculatedCount === questionCount
-                                ? '#a7f3d0'
-                                : totalCalculatedCount > questionCount
-                                ? '#fecaca'
-                                : '#fde68a'
-                            }`,
-                          }}
-                        >
-                          {totalCalculatedCount === questionCount
-                            ? `✓ ${totalCalculatedCount} / ${questionCount} Questions Configured`
-                            : totalCalculatedCount > questionCount
-                            ? `⚠️ ${totalCalculatedCount} / ${questionCount} (Overflow: reduce ${totalCalculatedCount - questionCount})`
-                            : `⚠️ ${totalCalculatedCount} / ${questionCount} (${questionCount - totalCalculatedCount} needed)`}
-                        </span>
-                      </div>
-
-                      <div className={styles.batchPresetsRow}>
-                        <button
-                          type="button"
-                          className={styles.presetBtn}
-                          style={{ background: 'var(--brand, #0f2b48)', color: '#ffffff', fontWeight: 600 }}
-                          onClick={() => applyPresetAcrossTopics(questionCount)}
-                          title={`Auto-distribute exactly ${questionCount} questions across all selected topics`}
-                        >
-                          ⚡ Auto-match ({questionCount} Qs)
-                        </button>
-                        <span className={styles.batchPresetLabel}>Set all to:</span>
-                        {examType === 'NEET' ? (
-                          <>
-                            <button
-                              type="button"
-                              className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(5, 0, 0, 0)}
-                            >
-                              5 MCQs
-                            </button>
-                            <button
-                              type="button"
-                              className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(10, 0, 0, 0)}
-                            >
-                              10 MCQs
-                            </button>
-                            <button
-                              type="button"
-                              className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(0, 0, 0, 5)}
-                            >
-                              Matrix Match (5)
-                            </button>
-                          </>
-                        ) : examType === 'Advanced' ? (
-                          <>
-                            <button
-                              type="button"
-                              className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(3, 1, 2, 0)}
-                            >
-                              Std (3 Single + 2 Multi + 1 Int)
-                            </button>
-                            <button
-                              type="button"
-                              className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(5, 0, 0, 0)}
-                            >
-                              MCQ Only (5)
-                            </button>
-                            <button
-                              type="button"
-                              className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(0, 5, 0, 0)}
-                            >
-                              Integer Only (5)
-                            </button>
-                            <button
-                              type="button"
-                              className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(0, 0, 0, 5)}
-                            >
-                              Matrix Match (5)
-                            </button>
-                          </>
-                        ) : (
-                          <>
-                            <button
-                              type="button"
-                              className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(5, 1, 0, 0)}
-                            >
-                              Std (5 Single + 1 Int)
-                            </button>
-                            <button
-                              type="button"
-                              className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(10, 2, 0, 0)}
-                            >
-                              12 Qs (10 Single + 2 Int)
-                            </button>
-                            <button
-                              type="button"
-                              className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(5, 0, 0, 0)}
-                            >
-                              Single-Option Only (5)
-                            </button>
-                            <button
-                              type="button"
-                              className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(0, 5, 0, 0)}
-                            >
-                              Integer Only (5)
-                            </button>
-                            <button
-                              type="button"
-                              className={styles.presetBtn}
-                              onClick={() => applyPresetToAll(0, 0, 0, 5)}
-                            >
-                              Matrix Match (5)
-                            </button>
-                          </>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className={styles.topicGrid}>
-                      {selections.map((sel) => {
-                        const mcq = sel.mcqCount ?? 0;
-                        const integer = sel.integerCount ?? 0;
-                        const multi = sel.multiCount ?? 0;
-                        const matrix = sel.matrixCount ?? 0;
-                        const topicTotal = mcq + integer + multi + matrix;
-
-                        return (
-                          <div key={`${sel.subject}::${sel.topic}`} className={styles.topicConfigCard}>
-                            <div className={styles.topicCardTop}>
-                              <div className={styles.topicCardMeta}>
-                                <span className={styles.topicSubjectTag}>{sel.subject}</span>
-                                <span className={styles.topicCardName}>{sel.topic}</span>
-                              </div>
-                              <div className={styles.topicCardActions}>
-                                <span className={styles.topicCardTotalBadge}>{topicTotal} Qs</span>
-                                <button
-                                  type="button"
-                                  className={styles.topicRemoveBtn}
-                                  title={`Remove ${sel.topic}`}
-                                  onClick={() => toggleSelection(sel.subject, sel.topic)}
-                                >
-                                  ×
-                                </button>
-                              </div>
-                            </div>
-
-                            <div className={styles.typeCountersList}>
-                              {/* Single Option MCQ */}
-                              <div className={styles.counterRow}>
-                                <div className={styles.counterLabel}>
-                                  <span className={`${styles.typeDot} ${styles.typeDotMcq}`} />
-                                  <span>Single Option (MCQ)</span>
-                                </div>
-                                <div className={styles.stepperControl}>
-                                  <button
-                                    type="button"
-                                    className={styles.stepperBtn}
-                                    disabled={mcq <= 0}
-                                    onClick={() => handleCountStep(sel.subject, sel.topic, 'mcqCount', -1)}
-                                  >
-                                    −
-                                  </button>
-                                  <input
-                                    type="number"
-                                    min={0}
-                                    max={100}
-                                    className={styles.stepperInput}
-                                    value={mcq}
-                                    onChange={(e) =>
-                                      handleCountChange(sel.subject, sel.topic, 'mcqCount', parseInt(e.target.value, 10))
-                                    }
-                                  />
-                                  <button
-                                    type="button"
-                                    className={styles.stepperBtn}
-                                    onClick={() => handleCountStep(sel.subject, sel.topic, 'mcqCount', 1)}
-                                  >
-                                    +
-                                  </button>
-                                </div>
-                              </div>
-
-                              {/* Multi-correct MCQ (JEE Advanced only) */}
-                              {examType === 'Advanced' && (
-                                <div className={styles.counterRow}>
-                                  <div className={styles.counterLabel}>
-                                    <span className={`${styles.typeDot} ${styles.typeDotMulti}`} />
-                                    <span>Multi-Correct MCQ</span>
-                                  </div>
-                                  <div className={styles.stepperControl}>
-                                    <button
-                                      type="button"
-                                      className={styles.stepperBtn}
-                                      disabled={multi <= 0}
-                                      onClick={() => handleCountStep(sel.subject, sel.topic, 'multiCount', -1)}
-                                    >
-                                      −
-                                    </button>
-                                    <input
-                                      type="number"
-                                      min={0}
-                                      max={100}
-                                      className={styles.stepperInput}
-                                      value={multi}
-                                      onChange={(e) =>
-                                        handleCountChange(sel.subject, sel.topic, 'multiCount', parseInt(e.target.value, 10))
-                                      }
-                                    />
-                                    <button
-                                      type="button"
-                                      className={styles.stepperBtn}
-                                      onClick={() => handleCountStep(sel.subject, sel.topic, 'multiCount', 1)}
-                                    >
-                                      +
-                                    </button>
-                                  </div>
-                                </div>
-                              )}
-
-                              {/* Integer / Numerical (JEE Main & Advanced only) */}
-                              {examType !== 'NEET' && (
-                                <div className={styles.counterRow}>
-                                  <div className={styles.counterLabel}>
-                                    <span className={`${styles.typeDot} ${styles.typeDotInt}`} />
-                                    <span>Integer / Numerical</span>
-                                  </div>
-                                  <div className={styles.stepperControl}>
-                                    <button
-                                      type="button"
-                                      className={styles.stepperBtn}
-                                      disabled={integer <= 0}
-                                      onClick={() => handleCountStep(sel.subject, sel.topic, 'integerCount', -1)}
-                                    >
-                                      −
-                                    </button>
-                                    <input
-                                      type="number"
-                                      min={0}
-                                      max={100}
-                                      className={styles.stepperInput}
-                                      value={integer}
-                                      onChange={(e) =>
-                                        handleCountChange(sel.subject, sel.topic, 'integerCount', parseInt(e.target.value, 10))
-                                      }
-                                    />
-                                    <button
-                                      type="button"
-                                      className={styles.stepperBtn}
-                                      onClick={() => handleCountStep(sel.subject, sel.topic, 'integerCount', 1)}
-                                    >
-                                      +
-                                    </button>
-                                  </div>
-                                </div>
-                              )}
-
-                              {/* Matrix Match / Match the List */}
-                              <div className={styles.counterRow}>
-                                <div className={styles.counterLabel}>
-                                  <span className={styles.typeDot} style={{ background: '#9333ea' }} />
-                                  <span>Matrix Match (List)</span>
-                                </div>
-                                <div className={styles.stepperControl}>
-                                  <button
-                                    type="button"
-                                    className={styles.stepperBtn}
-                                    disabled={matrix <= 0}
-                                    onClick={() => handleCountStep(sel.subject, sel.topic, 'matrixCount', -1)}
-                                  >
-                                    −
-                                  </button>
-                                  <input
-                                    type="number"
-                                    min={0}
-                                    max={100}
-                                    className={styles.stepperInput}
-                                    value={matrix}
-                                    onChange={(e) =>
-                                      handleCountChange(sel.subject, sel.topic, 'matrixCount', parseInt(e.target.value, 10))
-                                    }
-                                  />
-                                  <button
-                                    type="button"
-                                    className={styles.stepperBtn}
-                                    onClick={() => handleCountStep(sel.subject, sel.topic, 'matrixCount', 1)}
-                                  >
-                                    +
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
+                {selectedTopicsCount > 0 && (
+                  <div style={{ marginTop: 20 }}>
+                    <TopicBreakdownConfig
+                      selectedSubjects={selectedSubjects}
+                      selectedTopics={selectedTopics}
+                      perSubjectCount={perSubjectTarget}
+                      isNeet={examType === 'NEET'}
+                      isAdvanced={examType === 'Advanced'}
+                      topicConfigs={topicConfigs}
+                      onTopicConfigs={setTopicConfigs}
+                      onAutoDistributeSubject={autoDistributeTopicsForSubject}
+                      onAutoDistributeAll={autoDistributeAllTopics}
+                    />
                   </div>
                 )}
 
-                <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 14 }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 24 }}>
                   <button
                     type="submit"
                     className={styles.btnPrimary}
                     disabled={
                       creating ||
-                      selections.length === 0 ||
-                      (selections.length > 0 && totalCalculatedCount !== questionCount) ||
-                      (examType !== 'Advanced' && difficultyMode === 'custom' && totalDifficultyPct !== 100)
+                      selectedTopicsCount === 0 ||
+                      totalCalculatedCount !== questionCount
                     }
                   >
                     {creating
                       ? 'Starting generation…'
-                      : selections.length > 0 && totalCalculatedCount > questionCount
+                      : selectedTopicsCount === 0
+                      ? 'Select at least 1 topic above'
+                      : totalCalculatedCount > questionCount
                       ? `Overflow: Reduce ${totalCalculatedCount - questionCount} Q(s) in Topics`
-                      : selections.length > 0 && totalCalculatedCount < questionCount
+                      : totalCalculatedCount < questionCount
                       ? `Add ${questionCount - totalCalculatedCount} more Q(s) to match ${questionCount}`
-                      : examType !== 'Advanced' && difficultyMode === 'custom' && totalDifficultyPct !== 100
-                      ? `Normalize % to 100% (currently ${totalDifficultyPct}%)`
                       : `Generate ${questionCount}-Question Verified Paper`}
                   </button>
                 </div>
