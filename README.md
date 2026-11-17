@@ -140,13 +140,13 @@ Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
 ## 🚀 Part 2: Production Deployment on Ubuntu / AWS EC2 (From Scratch)
 
-### Step 1: Install Server Packages (Node 22, Git, Nginx, MySQL, PM2, Certbot)
+### Step 1: Install Server Packages (Node 22, Git, Nginx, MySQL, PM2, Certbot, Chromium)
 
 Run on your fresh Ubuntu / Debian server:
 
 ```bash
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y curl ca-certificates git nginx mysql-server certbot python3-certbot-nginx
+sudo apt install -y curl ca-certificates git nginx mysql-server certbot python3-certbot-nginx chromium-browser
 
 # Install Node.js 22 LTS
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
@@ -156,7 +156,7 @@ sudo apt install -y nodejs
 sudo npm install -g pm2
 
 # Verify all installed tools
-node -v && npm -v && pm2 -v && nginx -v && mysql --version
+node -v && npm -v && pm2 -v && nginx -v && mysql --version && chromium-browser --version
 ```
 
 ---
@@ -251,13 +251,18 @@ npm run build
 ```
 
 > [!NOTE]
-> **Headless Linux / Ubuntu VPS — Puppeteer Requirements (PDF Generation):**  
-> On a headless Linux/Ubuntu VPS, Puppeteer may require Chromium system libraries. If PDF generation returns a missing library error on the server, run:
-> ```bash
-> cd ~/CrackJEE/backend && npx puppeteer browsers install chrome
-> # If additional system libraries are needed on Ubuntu:
-> sudo apt-get install -y ca-certificates fonts-liberation libasound2 libatk-bridge2.0-0 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgbm1 libgcc1 libglib2.0-0 libgtk-3-0 libnspr4 libnss3 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 lsb-release wget xdg-utils
-> ```
+> **Headless Linux / Ubuntu VPS — Chromium & PDF Engine Setup:**  
+> Faculty paper PDF generation uses server-side headless Chromium. On an Ubuntu / Debian VPS:
+> 1. **Install Chromium via `apt`** (this automatically resolves and installs all required Linux GUI and font dependencies without missing library errors):
+>    ```bash
+>    sudo apt update && sudo apt install -y chromium-browser
+>    ```
+> 2. **Clean Cache & Standalone Chrome (if needed):**  
+>    If you ever encounter an interrupted download or cache error, wipe the cache and install Puppeteer's pinned Chrome:
+>    ```bash
+>    rm -rf ~/.cache/puppeteer
+>    cd ~/CrackJEE/backend && npx puppeteer browsers install chrome
+>    ```
 
 ---
 
@@ -389,9 +394,10 @@ curl -s https://jeeneet.ai/health && echo ""
 | Task | Command |
 | :--- | :--- |
 | **Check PM2 process status** | `pm2 status` |
-| **View live logs** | `pm2 logs` |
+| **View live logs** | `pm2 logs` *(or `pm2 logs jeeneet-backend --lines 20`)* |
 | **Restart backend only** | `pm2 restart jeeneet-backend --update-env` |
 | **Restart frontend only** | `pm2 restart jeeneet-frontend --update-env` |
+| **Install / Fix PDF Chromium** | `sudo apt install -y chromium-browser` |
 | **Test Nginx config** | `sudo nginx -t` |
 | **Reload Nginx** | `sudo systemctl reload nginx` |
 | **Check MySQL service** | `sudo systemctl status mysql` |
