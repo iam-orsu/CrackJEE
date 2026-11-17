@@ -3,12 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import type { ExamInsights } from '@/types';
-// The insight cards live inside the dashboard page — the mock result page is the
-// only other consumer, so they stay there instead of a shared file.
+// The insight cards are shared with the dashboard, so they live in the shared
+// InsightBlocks file rather than inside the dashboard route.
 import {
   TopicList, NegativesCard, TimeByTypeCard, SectionOrderCard, CutoffCard,
   Ring, subjectTone, toneColor,
-} from '@/app/(app)/dashboard/dashboard-view';
+} from '@/components/insights/InsightBlocks';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
 import { api } from '@/lib/api';

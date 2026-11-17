@@ -1,7 +1,7 @@
 import { MathText } from '@/lib/math';
 import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchListTable';
 import { AnimatedTabs } from '@/components/ui/AnimatedTabs';
-import { subjectTone } from '@/app/(app)/dashboard/dashboard-view';
+import { subjectTone } from '@/components/insights/InsightBlocks';
 import type { MockExamQuestion, MockResultBreakdown } from '@/types';
 import { fmtQTime } from './resultHelpers';
 import { ExplanationReveal } from './ExplanationReveal';

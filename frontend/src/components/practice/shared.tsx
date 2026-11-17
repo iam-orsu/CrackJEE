@@ -34,6 +34,49 @@ export interface QuestionTypeCounts {
   matrix_match: number;
 }
 
+export interface TypeDifficultyBreakdown {
+  easy: number;
+  medium: number;
+  hard: number;
+}
+
+export const MAX_TOPIC_QUESTIONS = 75;
+
+export interface TopicCustomConfig {
+  subject: Subject;
+  topic: string;
+  mcq: TypeDifficultyBreakdown;
+  integer: TypeDifficultyBreakdown;
+  multi: TypeDifficultyBreakdown;
+  matrix: TypeDifficultyBreakdown;
+}
+
+export function createBalancedDifficulty(count: number): TypeDifficultyBreakdown {
+  if (count <= 0) return { easy: 0, medium: 0, hard: 0 };
+  if (count === 1) return { easy: 0, medium: 1, hard: 0 };
+  if (count === 2) return { easy: 1, medium: 1, hard: 0 };
+  if (count === 3) return { easy: 1, medium: 1, hard: 1 };
+  const easy = Math.max(1, Math.round(count * 0.25));
+  const hard = Math.max(1, Math.round(count * 0.35));
+  const med = Math.max(0, count - easy - hard);
+  return { easy, medium: med, hard };
+}
+
+export function getTypeTotal(t?: TypeDifficultyBreakdown): number {
+  if (!t) return 0;
+  return (t.easy || 0) + (t.medium || 0) + (t.hard || 0);
+}
+
+export function getTopicTotal(cfg?: TopicCustomConfig): number {
+  if (!cfg) return 0;
+  return (
+    getTypeTotal(cfg.mcq) +
+    getTypeTotal(cfg.integer) +
+    getTypeTotal(cfg.multi) +
+    getTypeTotal(cfg.matrix)
+  );
+}
+
 export interface DifficultyDistribution {
   beginner: number;     // % e.g. 20
   intermediate: number; // % e.g. 40
@@ -68,6 +111,77 @@ export function getDefaultQuestionTypes(
   const integer = Math.max(1, Math.round(count * 0.2));
   const single = Math.max(0, count - matrix - integer);
   return { mcq_single: single, integer, matrix_match: matrix, mcq_multi: 0 };
+}
+
+export function planTopicTypeSlots(
+  count: number,
+  types: QuestionTypeCounts,
+  isAdvanced: boolean,
+  isNeet: boolean,
+): ('mcq_single' | 'mcq_multi' | 'integer' | 'matrix_match')[] {
+  const slots: ('mcq_single' | 'mcq_multi' | 'integer' | 'matrix_match')[] = [];
+  const matrix = types.matrix_match || 0;
+  const integer = isNeet ? 0 : (types.integer || 0);
+  const multi = isAdvanced ? (types.mcq_multi || 0) : 0;
+  const single = types.mcq_single || 0;
+  const total = matrix + integer + multi + single;
+
+  if (total <= 0) {
+    const def = getDefaultQuestionTypes(count, isAdvanced ? 'Advanced' : 'Main', isNeet);
+    return planTopicTypeSlots(count, def, isAdvanced, isNeet);
+  }
+
+  const mCount = Math.round((matrix / total) * count);
+  const iCount = isNeet ? 0 : Math.round((integer / total) * count);
+  const multiCount = isAdvanced ? Math.round((multi / total) * count) : 0;
+  let sCount = Math.max(0, count - mCount - iCount - multiCount);
+
+  const currentSum = sCount + mCount + iCount + multiCount;
+  if (currentSum > count) {
+    const diff = currentSum - count;
+    sCount = Math.max(0, sCount - diff);
+  }
+
+  for (let i = 0; i < sCount; i++) slots.push('mcq_single');
+  for (let i = 0; i < iCount; i++) slots.push('integer');
+  for (let i = 0; i < multiCount; i++) slots.push('mcq_multi');
+  for (let i = 0; i < mCount; i++) slots.push('matrix_match');
+  while (slots.length < count) slots.push('mcq_single');
+  return slots.slice(0, count);
+}
+
+export function planTopicDifficultySlots(
+  count: number,
+  difficulty: DiffOption,
+  dist?: DifficultyDistribution,
+): ('beginner' | 'intermediate' | 'advanced')[] {
+  const slots: ('beginner' | 'intermediate' | 'advanced')[] = [];
+  if (difficulty === 'beginner') {
+    for (let i = 0; i < count; i++) slots.push('beginner');
+    return slots;
+  }
+  if (difficulty === 'intermediate') {
+    for (let i = 0; i < count; i++) slots.push('intermediate');
+    return slots;
+  }
+  if (difficulty === 'advanced') {
+    for (let i = 0; i < count; i++) slots.push('advanced');
+    return slots;
+  }
+  const bPct = dist?.beginner ?? 20;
+  const iPct = dist?.intermediate ?? 40;
+  const aPct = dist?.advanced ?? 40;
+  const totalPct = (bPct + iPct + aPct) || 100;
+
+  const bCount = Math.round((bPct / totalPct) * count);
+  const aCount = Math.round((aPct / totalPct) * count);
+  const iCount = Math.max(0, count - bCount - aCount);
+
+  for (let i = 0; i < bCount; i++) slots.push('beginner');
+  for (let i = 0; i < iCount; i++) slots.push('intermediate');
+  for (let i = 0; i < aCount; i++) slots.push('advanced');
+  while (slots.length < count) slots.push('intermediate');
+  return slots.slice(0, count);
 }
 
 export const SUBJECTS_FOR_PAPERS: Subject[] = ['Physics', 'Chemistry', 'Mathematics'];

@@ -3,6 +3,7 @@ import { prisma as defaultPrisma } from '../config/database';
 import { CACHE_CONSTANTS } from '../config/constants';
 import { QuestionRepository } from '../repositories/QuestionRepository';
 import { TopicRepository } from '../repositories/TopicRepository';
+import { MockExamRepository } from '../repositories/MockExamRepository';
 import { CacheService, cacheService as defaultCache } from './CacheService';
 import { DeepSeekService, deepSeekService as defaultDeepSeek } from './DeepSeekService';
 import { fillPracticeSlotsWithFallbacks, type PracticePoolCandidate } from './mockBankFill';
@@ -31,6 +32,7 @@ import {
   type DifficultyDistribution,
   type StudentClass,
   type Subject,
+  type TopicSelectionConfig,
 } from '../types/index';
 
 const BATCH_SIZE = 3;
@@ -46,6 +48,7 @@ export class QuestionService {
     private readonly cache: CacheService = defaultCache,
     private readonly deepSeek: DeepSeekService = defaultDeepSeek,
     private readonly topicRepo: TopicRepository = new TopicRepository(),
+    private readonly mockRepo: MockExamRepository = new MockExamRepository(),
   ) {}
 
   private poolCacheKey(
@@ -158,7 +161,7 @@ export class QuestionService {
 
   public async getPracticeQuestionBatch(
     userId: string,
-    selections: Array<{ subject: Subject; topic: string }>,
+    selections: TopicSelectionConfig[],
     difficulty: Difficulty | 'mixed',
     examType: ExamType,
     count: number,
@@ -181,19 +184,120 @@ export class QuestionService {
     const numSubjects = subjectGroups.size;
     const perSubject = numSubjects > 0 ? Math.floor(count / numSubjects) : count;
 
+    const hasGranularSelections = selections.some(
+      (s) =>
+        (s.count ?? 0) > 0 ||
+        (s.mcqCount ?? 0) > 0 ||
+        (s.integerCount ?? 0) > 0 ||
+        (s.multiCount ?? 0) > 0 ||
+        (s.matrixCount ?? 0) > 0 ||
+        (s.beginnerCount ?? 0) > 0 ||
+        (s.intermediateCount ?? 0) > 0 ||
+        (s.advancedCount ?? 0) > 0 ||
+        (s.mcqEasy ?? 0) > 0 || (s.mcqMedium ?? 0) > 0 || (s.mcqHard ?? 0) > 0 ||
+        (s.integerEasy ?? 0) > 0 || (s.integerMedium ?? 0) > 0 || (s.integerHard ?? 0) > 0 ||
+        (s.multiEasy ?? 0) > 0 || (s.multiMedium ?? 0) > 0 || (s.multiHard ?? 0) > 0 ||
+        (s.matrixEasy ?? 0) > 0 || (s.matrixMedium ?? 0) > 0 || (s.matrixHard ?? 0) > 0,
+    );
+
     const overPlan: Array<{ subject: Subject; topic: string; diff: Difficulty; type?: QuestionType }> = [];
-    for (const [subject, topics] of subjectGroups) {
-      const slots = Math.ceil(perSubject * 1.2);
-      const allocatedTopics = distributeTopicSlots(topics, slots);
-      const allocatedDiffs = planDifficultySlots(slots, difficulty, difficultyDistribution);
-      const allocatedTypes = planQuestionTypeSlots(slots, questionTypeCounts, examType);
-      for (let i = 0; i < slots; i++) {
-        overPlan.push({
-          subject,
-          topic: allocatedTopics[i] ?? topics[0]!,
-          diff: allocatedDiffs[i] ?? (difficulty === 'mixed' ? randomDifficulty() : difficulty),
-          type: allocatedTypes[i],
-        });
+    if (hasGranularSelections) {
+      for (const sel of selections) {
+        const hasPerTypeDiff =
+          (sel.mcqEasy ?? 0) > 0 || (sel.mcqMedium ?? 0) > 0 || (sel.mcqHard ?? 0) > 0 ||
+          (sel.integerEasy ?? 0) > 0 || (sel.integerMedium ?? 0) > 0 || (sel.integerHard ?? 0) > 0 ||
+          (sel.multiEasy ?? 0) > 0 || (sel.multiMedium ?? 0) > 0 || (sel.multiHard ?? 0) > 0 ||
+          (sel.matrixEasy ?? 0) > 0 || (sel.matrixMedium ?? 0) > 0 || (sel.matrixHard ?? 0) > 0;
+
+        if (hasPerTypeDiff) {
+          const topicExactSlots: Array<{ type: QuestionType; diff: Difficulty }> = [];
+          for (let i = 0; i < (sel.mcqEasy ?? 0); i++) topicExactSlots.push({ type: 'mcq_single', diff: 'beginner' });
+          for (let i = 0; i < (sel.mcqMedium ?? 0); i++) topicExactSlots.push({ type: 'mcq_single', diff: 'intermediate' });
+          for (let i = 0; i < (sel.mcqHard ?? 0); i++) topicExactSlots.push({ type: 'mcq_single', diff: 'advanced' });
+
+          for (let i = 0; i < (sel.integerEasy ?? 0); i++) topicExactSlots.push({ type: 'integer', diff: 'beginner' });
+          for (let i = 0; i < (sel.integerMedium ?? 0); i++) topicExactSlots.push({ type: 'integer', diff: 'intermediate' });
+          for (let i = 0; i < (sel.integerHard ?? 0); i++) topicExactSlots.push({ type: 'integer', diff: 'advanced' });
+
+          for (let i = 0; i < (sel.multiEasy ?? 0); i++) topicExactSlots.push({ type: 'mcq_multi', diff: 'beginner' });
+          for (let i = 0; i < (sel.multiMedium ?? 0); i++) topicExactSlots.push({ type: 'mcq_multi', diff: 'intermediate' });
+          for (let i = 0; i < (sel.multiHard ?? 0); i++) topicExactSlots.push({ type: 'mcq_multi', diff: 'advanced' });
+
+          for (let i = 0; i < (sel.matrixEasy ?? 0); i++) topicExactSlots.push({ type: 'matrix_match', diff: 'beginner' });
+          for (let i = 0; i < (sel.matrixMedium ?? 0); i++) topicExactSlots.push({ type: 'matrix_match', diff: 'intermediate' });
+          for (let i = 0; i < (sel.matrixHard ?? 0); i++) topicExactSlots.push({ type: 'matrix_match', diff: 'advanced' });
+
+          if (topicExactSlots.length > 0) {
+            const overSlots = Math.ceil(topicExactSlots.length * 1.2);
+            for (let i = 0; i < overSlots; i++) {
+              const s = topicExactSlots[i % topicExactSlots.length]!;
+              overPlan.push({
+                subject: sel.subject,
+                topic: sel.topic,
+                diff: s.diff,
+                type: s.type,
+              });
+            }
+            continue;
+          }
+        }
+
+        const mcq = sel.mcqCount ?? 0;
+        const integer = sel.integerCount ?? 0;
+        const multi = sel.multiCount ?? 0;
+        const matrix = sel.matrixCount ?? 0;
+        const sumTypes = mcq + integer + multi + matrix;
+        const topicTotal = sumTypes > 0 ? sumTypes : (sel.count ?? Math.max(1, Math.floor(count / selections.length)));
+
+        const topicTypes: (QuestionType | undefined)[] = [];
+        if (sumTypes > 0) {
+          for (let i = 0; i < mcq; i++) topicTypes.push('mcq_single');
+          for (let i = 0; i < integer; i++) topicTypes.push('integer');
+          for (let i = 0; i < multi; i++) topicTypes.push('mcq_multi');
+          for (let i = 0; i < matrix; i++) topicTypes.push('matrix_match');
+        } else {
+          topicTypes.push(...planQuestionTypeSlots(topicTotal, questionTypeCounts, examType));
+        }
+
+        const topicDiffs: Difficulty[] = [];
+        const b = sel.beginnerCount ?? 0;
+        const im = sel.intermediateCount ?? 0;
+        const adv = sel.advancedCount ?? 0;
+        if (b + im + adv > 0) {
+          for (let i = 0; i < b; i++) topicDiffs.push('beginner');
+          for (let i = 0; i < im; i++) topicDiffs.push('intermediate');
+          for (let i = 0; i < adv; i++) topicDiffs.push('advanced');
+          while (topicDiffs.length < topicTotal) topicDiffs.push('intermediate');
+        } else {
+          const effectiveDiff = sel.difficulty ?? difficulty;
+          const effectiveDist = sel.difficultyDistribution ?? difficultyDistribution;
+          topicDiffs.push(...planDifficultySlots(topicTotal, effectiveDiff, effectiveDist));
+        }
+
+        const overSlots = Math.ceil(topicTotal * 1.2);
+        for (let i = 0; i < overSlots; i++) {
+          overPlan.push({
+            subject: sel.subject,
+            topic: sel.topic,
+            diff: topicDiffs[i % topicDiffs.length] ?? 'intermediate',
+            type: topicTypes[i % topicTypes.length],
+          });
+        }
+      }
+    } else {
+      for (const [subject, topics] of subjectGroups) {
+        const slots = Math.ceil(perSubject * 1.2);
+        const allocatedTopics = distributeTopicSlots(topics, slots);
+        const allocatedDiffs = planDifficultySlots(slots, difficulty, difficultyDistribution);
+        const allocatedTypes = planQuestionTypeSlots(slots, questionTypeCounts, examType);
+        for (let i = 0; i < slots; i++) {
+          overPlan.push({
+            subject,
+            topic: allocatedTopics[i] ?? topics[0]!,
+            diff: allocatedDiffs[i] ?? (difficulty === 'mixed' ? randomDifficulty() : difficulty),
+            type: allocatedTypes[i],
+          });
+        }
       }
     }
 
@@ -220,32 +324,67 @@ export class QuestionService {
     });
 
     const seenIds = new Set<string>();
-    const perSubjectResults = new Map<Subject, Question[]>();
-    for (const [subject] of subjectGroups) perSubjectResults.set(subject, []);
-
-    for (const result of settled) {
-      if (result.status !== 'fulfilled') continue;
-      for (const q of result.value) {
-        if (seenIds.has(q.id)) continue;
-        const bucket = perSubjectResults.get(q.subject as Subject);
-        if (!bucket) continue;
-        seenIds.add(q.id);
-        bucket.push(q);
-      }
-    }
-
     const results: Question[] = [];
-    let addedAny = true;
-    let round = 0;
-    while (results.length < count && addedAny) {
-      addedAny = false;
-      for (const [, bucket] of perSubjectResults) {
-        if (round < bucket.length && results.length < count) {
-          results.push(bucket[round]!);
-          addedAny = true;
+
+    if (hasGranularSelections) {
+      const topicBuckets = new Map<string, Question[]>();
+      for (const result of settled) {
+        if (result.status !== 'fulfilled') continue;
+        for (const q of result.value) {
+          if (seenIds.has(q.id)) continue;
+          seenIds.add(q.id);
+          const key = `${q.subject}::${q.topic}`;
+          if (!topicBuckets.has(key)) topicBuckets.set(key, []);
+          topicBuckets.get(key)!.push(q);
         }
       }
-      round++;
+      for (const sel of selections) {
+        const key = `${sel.subject}::${sel.topic}`;
+        const questionsForTopic = topicBuckets.get(key) ?? [];
+        const mcq = sel.mcqCount ?? 0;
+        const integer = sel.integerCount ?? 0;
+        const multi = sel.multiCount ?? 0;
+        const matrix = sel.matrixCount ?? 0;
+        const target = (mcq + integer + multi + matrix) > 0 ? (mcq + integer + multi + matrix) : (sel.count ?? Math.max(1, Math.floor(count / selections.length)));
+        results.push(...questionsForTopic.slice(0, target));
+      }
+      if (results.length < count) {
+        for (const [, list] of topicBuckets) {
+          for (const q of list) {
+            if (results.length >= count) break;
+            if (!results.some((r) => r.id === q.id)) {
+              results.push(q);
+            }
+          }
+        }
+      }
+    } else {
+      const perSubjectResults = new Map<Subject, Question[]>();
+      for (const [subject] of subjectGroups) perSubjectResults.set(subject, []);
+
+      for (const result of settled) {
+        if (result.status !== 'fulfilled') continue;
+        for (const q of result.value) {
+          if (seenIds.has(q.id)) continue;
+          const bucket = perSubjectResults.get(q.subject as Subject);
+          if (!bucket) continue;
+          seenIds.add(q.id);
+          bucket.push(q);
+        }
+      }
+
+      let addedAny = true;
+      let round = 0;
+      while (results.length < count && addedAny) {
+        addedAny = false;
+        for (const [, bucket] of perSubjectResults) {
+          if (round < bucket.length && results.length < count) {
+            results.push(bucket[round]!);
+            addedAny = true;
+          }
+        }
+        round++;
+      }
     }
 
     if (results.length === 0) {
@@ -453,7 +592,7 @@ export class QuestionService {
 
   public async getQuestionBatch(
     userId: string,
-    selections: Array<{ subject: Subject; topic: string }>,
+    selections: TopicSelectionConfig[],
     difficulty: Difficulty | 'mixed',
     examType: ExamType,
     studentClass: StudentClass,
@@ -475,19 +614,120 @@ export class QuestionService {
     const numSubjects = subjectGroups.size;
     const perSubject = numSubjects > 0 ? Math.floor(count / numSubjects) : count;
 
+    const hasGranularSelections = selections.some(
+      (s) =>
+        (s.count ?? 0) > 0 ||
+        (s.mcqCount ?? 0) > 0 ||
+        (s.integerCount ?? 0) > 0 ||
+        (s.multiCount ?? 0) > 0 ||
+        (s.matrixCount ?? 0) > 0 ||
+        (s.beginnerCount ?? 0) > 0 ||
+        (s.intermediateCount ?? 0) > 0 ||
+        (s.advancedCount ?? 0) > 0 ||
+        (s.mcqEasy ?? 0) > 0 || (s.mcqMedium ?? 0) > 0 || (s.mcqHard ?? 0) > 0 ||
+        (s.integerEasy ?? 0) > 0 || (s.integerMedium ?? 0) > 0 || (s.integerHard ?? 0) > 0 ||
+        (s.multiEasy ?? 0) > 0 || (s.multiMedium ?? 0) > 0 || (s.multiHard ?? 0) > 0 ||
+        (s.matrixEasy ?? 0) > 0 || (s.matrixMedium ?? 0) > 0 || (s.matrixHard ?? 0) > 0,
+    );
+
     const overPlan: Array<{ subject: Subject; topic: string; diff: Difficulty; type?: QuestionType }> = [];
-    for (const [subject, topics] of subjectGroups) {
-      const slots = Math.ceil(perSubject * 1.2);
-      const allocatedTopics = distributeTopicSlots(topics, slots);
-      const allocatedDiffs = planDifficultySlots(slots, difficulty, difficultyDistribution);
-      const allocatedTypes = planQuestionTypeSlots(slots, questionTypeCounts, examType);
-      for (let i = 0; i < slots; i++) {
-        overPlan.push({
-          subject,
-          topic: allocatedTopics[i] ?? topics[0]!,
-          diff: allocatedDiffs[i] ?? (difficulty === 'mixed' ? randomDifficulty() : difficulty),
-          type: allocatedTypes[i],
-        });
+    if (hasGranularSelections) {
+      for (const sel of selections) {
+        const hasPerTypeDiff =
+          (sel.mcqEasy ?? 0) > 0 || (sel.mcqMedium ?? 0) > 0 || (sel.mcqHard ?? 0) > 0 ||
+          (sel.integerEasy ?? 0) > 0 || (sel.integerMedium ?? 0) > 0 || (sel.integerHard ?? 0) > 0 ||
+          (sel.multiEasy ?? 0) > 0 || (sel.multiMedium ?? 0) > 0 || (sel.multiHard ?? 0) > 0 ||
+          (sel.matrixEasy ?? 0) > 0 || (sel.matrixMedium ?? 0) > 0 || (sel.matrixHard ?? 0) > 0;
+
+        if (hasPerTypeDiff) {
+          const topicExactSlots: Array<{ type: QuestionType; diff: Difficulty }> = [];
+          for (let i = 0; i < (sel.mcqEasy ?? 0); i++) topicExactSlots.push({ type: 'mcq_single', diff: 'beginner' });
+          for (let i = 0; i < (sel.mcqMedium ?? 0); i++) topicExactSlots.push({ type: 'mcq_single', diff: 'intermediate' });
+          for (let i = 0; i < (sel.mcqHard ?? 0); i++) topicExactSlots.push({ type: 'mcq_single', diff: 'advanced' });
+
+          for (let i = 0; i < (sel.integerEasy ?? 0); i++) topicExactSlots.push({ type: 'integer', diff: 'beginner' });
+          for (let i = 0; i < (sel.integerMedium ?? 0); i++) topicExactSlots.push({ type: 'integer', diff: 'intermediate' });
+          for (let i = 0; i < (sel.integerHard ?? 0); i++) topicExactSlots.push({ type: 'integer', diff: 'advanced' });
+
+          for (let i = 0; i < (sel.multiEasy ?? 0); i++) topicExactSlots.push({ type: 'mcq_multi', diff: 'beginner' });
+          for (let i = 0; i < (sel.multiMedium ?? 0); i++) topicExactSlots.push({ type: 'mcq_multi', diff: 'intermediate' });
+          for (let i = 0; i < (sel.multiHard ?? 0); i++) topicExactSlots.push({ type: 'mcq_multi', diff: 'advanced' });
+
+          for (let i = 0; i < (sel.matrixEasy ?? 0); i++) topicExactSlots.push({ type: 'matrix_match', diff: 'beginner' });
+          for (let i = 0; i < (sel.matrixMedium ?? 0); i++) topicExactSlots.push({ type: 'matrix_match', diff: 'intermediate' });
+          for (let i = 0; i < (sel.matrixHard ?? 0); i++) topicExactSlots.push({ type: 'matrix_match', diff: 'advanced' });
+
+          if (topicExactSlots.length > 0) {
+            const overSlots = Math.ceil(topicExactSlots.length * 1.2);
+            for (let i = 0; i < overSlots; i++) {
+              const s = topicExactSlots[i % topicExactSlots.length]!;
+              overPlan.push({
+                subject: sel.subject,
+                topic: sel.topic,
+                diff: s.diff,
+                type: s.type,
+              });
+            }
+            continue;
+          }
+        }
+
+        const mcq = sel.mcqCount ?? 0;
+        const integer = sel.integerCount ?? 0;
+        const multi = sel.multiCount ?? 0;
+        const matrix = sel.matrixCount ?? 0;
+        const sumTypes = mcq + integer + multi + matrix;
+        const topicTotal = sumTypes > 0 ? sumTypes : (sel.count ?? Math.max(1, Math.floor(count / selections.length)));
+
+        const topicTypes: (QuestionType | undefined)[] = [];
+        if (sumTypes > 0) {
+          for (let i = 0; i < mcq; i++) topicTypes.push('mcq_single');
+          for (let i = 0; i < integer; i++) topicTypes.push('integer');
+          for (let i = 0; i < multi; i++) topicTypes.push('mcq_multi');
+          for (let i = 0; i < matrix; i++) topicTypes.push('matrix_match');
+        } else {
+          topicTypes.push(...planQuestionTypeSlots(topicTotal, questionTypeCounts, examType));
+        }
+
+        const topicDiffs: Difficulty[] = [];
+        const b = sel.beginnerCount ?? 0;
+        const im = sel.intermediateCount ?? 0;
+        const adv = sel.advancedCount ?? 0;
+        if (b + im + adv > 0) {
+          for (let i = 0; i < b; i++) topicDiffs.push('beginner');
+          for (let i = 0; i < im; i++) topicDiffs.push('intermediate');
+          for (let i = 0; i < adv; i++) topicDiffs.push('advanced');
+          while (topicDiffs.length < topicTotal) topicDiffs.push('intermediate');
+        } else {
+          const effectiveDiff = sel.difficulty ?? difficulty;
+          const effectiveDist = sel.difficultyDistribution ?? difficultyDistribution;
+          topicDiffs.push(...planDifficultySlots(topicTotal, effectiveDiff, effectiveDist));
+        }
+
+        const overSlots = Math.ceil(topicTotal * 1.2);
+        for (let i = 0; i < overSlots; i++) {
+          overPlan.push({
+            subject: sel.subject,
+            topic: sel.topic,
+            diff: topicDiffs[i % topicDiffs.length] ?? 'intermediate',
+            type: topicTypes[i % topicTypes.length],
+          });
+        }
+      }
+    } else {
+      for (const [subject, topics] of subjectGroups) {
+        const slots = Math.ceil(perSubject * 1.2);
+        const allocatedTopics = distributeTopicSlots(topics, slots);
+        const allocatedDiffs = planDifficultySlots(slots, difficulty, difficultyDistribution);
+        const allocatedTypes = planQuestionTypeSlots(slots, questionTypeCounts, examType);
+        for (let i = 0; i < slots; i++) {
+          overPlan.push({
+            subject,
+            topic: allocatedTopics[i] ?? topics[0]!,
+            diff: allocatedDiffs[i] ?? (difficulty === 'mixed' ? randomDifficulty() : difficulty),
+            type: allocatedTypes[i],
+          });
+        }
       }
     }
 
@@ -514,22 +754,57 @@ export class QuestionService {
     });
 
     const seenIds = new Set<string>();
-    const perSubjectResults = new Map<Subject, Question[]>();
-    for (const [subject] of subjectGroups) perSubjectResults.set(subject, []);
-
-    for (const result of groupSettled) {
-      if (result.status !== 'fulfilled') continue;
-      for (const q of result.value) {
-        if (seenIds.has(q.id)) continue;
-        const bucket = perSubjectResults.get(q.subject as Subject);
-        if (!bucket || bucket.length >= perSubject) continue;
-        seenIds.add(q.id);
-        bucket.push(q);
-      }
-    }
-
     const results: Question[] = [];
-    for (const [, bucket] of perSubjectResults) results.push(...bucket);
+
+    if (hasGranularSelections) {
+      const topicBuckets = new Map<string, Question[]>();
+      for (const result of groupSettled) {
+        if (result.status !== 'fulfilled') continue;
+        for (const q of result.value) {
+          if (seenIds.has(q.id)) continue;
+          seenIds.add(q.id);
+          const key = `${q.subject}::${q.topic}`;
+          if (!topicBuckets.has(key)) topicBuckets.set(key, []);
+          topicBuckets.get(key)!.push(q);
+        }
+      }
+      for (const sel of selections) {
+        const key = `${sel.subject}::${sel.topic}`;
+        const questionsForTopic = topicBuckets.get(key) ?? [];
+        const mcq = sel.mcqCount ?? 0;
+        const integer = sel.integerCount ?? 0;
+        const multi = sel.multiCount ?? 0;
+        const matrix = sel.matrixCount ?? 0;
+        const target = (mcq + integer + multi + matrix) > 0 ? (mcq + integer + multi + matrix) : (sel.count ?? Math.max(1, Math.floor(count / selections.length)));
+        results.push(...questionsForTopic.slice(0, target));
+      }
+      if (results.length < count) {
+        for (const [, list] of topicBuckets) {
+          for (const q of list) {
+            if (results.length >= count) break;
+            if (!results.some((r) => r.id === q.id)) {
+              results.push(q);
+            }
+          }
+        }
+      }
+    } else {
+      const perSubjectResults = new Map<Subject, Question[]>();
+      for (const [subject] of subjectGroups) perSubjectResults.set(subject, []);
+
+      for (const result of groupSettled) {
+        if (result.status !== 'fulfilled') continue;
+        for (const q of result.value) {
+          if (seenIds.has(q.id)) continue;
+          const bucket = perSubjectResults.get(q.subject as Subject);
+          if (!bucket || bucket.length >= perSubject) continue;
+          seenIds.add(q.id);
+          bucket.push(q);
+        }
+      }
+
+      for (const [, bucket] of perSubjectResults) results.push(...bucket);
+    }
 
     if (results.length === 0) {
       throw new Error('Could not generate any questions. Check your API keys and try again.');
@@ -707,7 +982,12 @@ export class QuestionService {
   public async getTieredExplanation(
     questionId: string,
     tier: 'better' | 'best',
+    userId?: string,
   ): Promise<{ tier: 'better' | 'best'; explanation: string; cached: boolean }> {
+    if (userId && (await this.mockRepo.isQuestionInActiveMock(userId, questionId))) {
+      throw new AppError(403, 'Cannot view explanation for a question in an active mock exam');
+    }
+
     const question = await this.questions.findByIdForTieredExplanation(questionId);
     if (!question) throw new AppError(404, 'Question not found');
 

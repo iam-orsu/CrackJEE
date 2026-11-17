@@ -9,6 +9,7 @@ import {
   type AuthRequest,
   type StudentClass,
   type Subject,
+  type TopicSelectionConfig,
 } from '../types/index';
 
 const nextQuestionSchema = z.object({
@@ -23,6 +24,32 @@ const nextQuestionSchema = z.object({
 const selectionSchema = z.object({
   subject: z.enum(['Mathematics', 'Physics', 'Chemistry', 'Botany', 'Zoology']),
   topic: z.string().min(1).max(100),
+  count: z.number().int().min(0).max(150).optional(),
+  mcqCount: z.number().int().min(0).max(150).optional(),
+  integerCount: z.number().int().min(0).max(150).optional(),
+  multiCount: z.number().int().min(0).max(150).optional(),
+  matrixCount: z.number().int().min(0).max(150).optional(),
+  beginnerCount: z.number().int().min(0).max(150).optional(),
+  intermediateCount: z.number().int().min(0).max(150).optional(),
+  advancedCount: z.number().int().min(0).max(150).optional(),
+  mcqEasy: z.number().int().min(0).max(150).optional(),
+  mcqMedium: z.number().int().min(0).max(150).optional(),
+  mcqHard: z.number().int().min(0).max(150).optional(),
+  integerEasy: z.number().int().min(0).max(150).optional(),
+  integerMedium: z.number().int().min(0).max(150).optional(),
+  integerHard: z.number().int().min(0).max(150).optional(),
+  multiEasy: z.number().int().min(0).max(150).optional(),
+  multiMedium: z.number().int().min(0).max(150).optional(),
+  multiHard: z.number().int().min(0).max(150).optional(),
+  matrixEasy: z.number().int().min(0).max(150).optional(),
+  matrixMedium: z.number().int().min(0).max(150).optional(),
+  matrixHard: z.number().int().min(0).max(150).optional(),
+  difficulty: z.enum(['beginner', 'intermediate', 'advanced', 'mixed']).optional(),
+  difficultyDistribution: z.object({
+    beginner: z.number().min(0).max(100).optional(),
+    intermediate: z.number().min(0).max(100).optional(),
+    advanced: z.number().min(0).max(100).optional(),
+  }).optional(),
 });
 
 const batchSchema = z.object({
@@ -30,7 +57,7 @@ const batchSchema = z.object({
   difficulty: z.enum(['beginner', 'intermediate', 'advanced', 'mixed']).default('mixed'),
   examType: z.enum(['Main', 'Advanced', 'Both', 'NEET']).default('Main'),
   studentClass: z.enum(['11', '12', 'Dropper']).default('12'),
-  count: z.number().int().min(1).max(200).default(10),
+  count: z.number().int().min(1).max(450).default(10),
   mode: z.enum(['practice', 'ai']).default('practice'),
   questionTypes: z.object({
     mcq_single: z.number().int().min(0).optional(),
@@ -113,7 +140,36 @@ export class QuestionController {
         this.validateTopicSelection(subject, topic, examType, studentClass);
       }
 
-      if (questionTypes) {
+      const hasGranularTopicCounts = selections.some(
+        (s) =>
+          (s.count ?? 0) > 0 ||
+          (s.mcqCount ?? 0) > 0 ||
+          (s.integerCount ?? 0) > 0 ||
+          (s.multiCount ?? 0) > 0 ||
+          (s.matrixCount ?? 0) > 0 ||
+          (s.mcqEasy ?? 0) > 0 || (s.mcqMedium ?? 0) > 0 || (s.mcqHard ?? 0) > 0 ||
+          (s.integerEasy ?? 0) > 0 || (s.integerMedium ?? 0) > 0 || (s.integerHard ?? 0) > 0 ||
+          (s.multiEasy ?? 0) > 0 || (s.multiMedium ?? 0) > 0 || (s.multiHard ?? 0) > 0 ||
+          (s.matrixEasy ?? 0) > 0 || (s.matrixMedium ?? 0) > 0 || (s.matrixHard ?? 0) > 0,
+      );
+
+      if (hasGranularTopicCounts) {
+        const topicTotalSum = selections.reduce((sum, s) => {
+          const mcq = (s.mcqCount ?? 0) > 0 ? s.mcqCount! : ((s.mcqEasy ?? 0) + (s.mcqMedium ?? 0) + (s.mcqHard ?? 0));
+          const integer = (s.integerCount ?? 0) > 0 ? s.integerCount! : ((s.integerEasy ?? 0) + (s.integerMedium ?? 0) + (s.integerHard ?? 0));
+          const multi = (s.multiCount ?? 0) > 0 ? s.multiCount! : ((s.multiEasy ?? 0) + (s.multiMedium ?? 0) + (s.multiHard ?? 0));
+          const matrix = (s.matrixCount ?? 0) > 0 ? s.matrixCount! : ((s.matrixEasy ?? 0) + (s.matrixMedium ?? 0) + (s.matrixHard ?? 0));
+          const typeSum = mcq + integer + multi + matrix;
+          return sum + (typeSum > 0 ? typeSum : (s.count ?? 0));
+        }, 0);
+
+        if (topicTotalSum > 0 && topicTotalSum !== count) {
+          throw new AppError(
+            400,
+            `Total questions across topic breakdown (${topicTotalSum}) does not match session question count (${count}).`,
+          );
+        }
+      } else if (questionTypes) {
         const typeSum =
           (questionTypes.mcq_single ?? 0) +
           (questionTypes.mcq_multi ?? 0) +
@@ -145,7 +201,7 @@ export class QuestionController {
       const questions = mode === 'practice'
         ? await this.questionService.getPracticeQuestionBatch(
             req.user!.userId,
-            selections as Array<{ subject: Subject; topic: string }>,
+            selections as TopicSelectionConfig[],
             difficulty,
             examType,
             count,
@@ -154,7 +210,7 @@ export class QuestionController {
           )
         : await this.questionService.getQuestionBatch(
             req.user!.userId,
-            selections as Array<{ subject: Subject; topic: string }>,
+            selections as TopicSelectionConfig[],
             difficulty,
             examType,
             studentClass,
@@ -213,7 +269,7 @@ export class QuestionController {
         throw new AppError(400, 'Tier must be either "better" or "best"');
       }
 
-      const data = await this.questionService.getTieredExplanation(id, body.data.tier);
+      const data = await this.questionService.getTieredExplanation(id, body.data.tier, req.user?.userId);
       res.json({ success: true, data });
     } catch (err) {
       next(err);

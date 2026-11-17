@@ -65,7 +65,7 @@ export const JEE_PRACTICE: PracticeExamConfig = {
   },
 
   countOptions: [5, 10, 20, 30],
-  maxPerSubject: 30,
+  maxPerSubject: 75,
 
   hasPapers: true,
 
@@ -92,7 +92,7 @@ export const NEET_PRACTICE: PracticeExamConfig = {
   },
 
   countOptions: [5, 10, 20, 30, 45],
-  maxPerSubject: 45,
+  maxPerSubject: 75,
 
   hasPapers: false,
 

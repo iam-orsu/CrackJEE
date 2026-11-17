@@ -22,6 +22,18 @@ export interface FacultyPaperSelection {
   integerCount?: number;
   multiCount?: number;
   matrixCount?: number;
+  mcqEasy?: number;
+  mcqMedium?: number;
+  mcqHard?: number;
+  integerEasy?: number;
+  integerMedium?: number;
+  integerHard?: number;
+  multiEasy?: number;
+  multiMedium?: number;
+  multiHard?: number;
+  matrixEasy?: number;
+  matrixMedium?: number;
+  matrixHard?: number;
 }
 
 export interface FacultyPaperItem {
@@ -205,4 +217,179 @@ export async function facultyAcceptDraftQuestion(
 
 export async function facultyDeletePaper(id: string) {
   return facultyFetch<Record<string, never>>(`/papers/${encodeURIComponent(id)}`, { method: 'DELETE' });
+}
+
+export interface FacultyBatch {
+  id: string;
+  name: string;
+  code: string;
+  description?: string | null;
+  createdAt: string;
+  _count?: {
+    students: number;
+    assignments: number;
+  };
+}
+
+export interface FacultyStudent {
+  id: string;
+  facultyId: string;
+  batchId: string;
+  name: string;
+  rollNumber: string;
+  email?: string | null;
+  isActive: boolean;
+  createdAt: string;
+  batch?: {
+    id: string;
+    name: string;
+    code: string;
+  };
+  _count?: {
+    examSessions: number;
+  };
+}
+
+export interface FacultyAssignmentSummary {
+  id: string;
+  title: string;
+  durationMinutes: number;
+  startTime: string | null;
+  endTime: string | null;
+  showSolutions: boolean;
+  status: string;
+  createdAt: string;
+  paper: {
+    id: string;
+    title: string;
+    examType: FacultyExamType;
+    difficulty: FacultyDifficulty;
+    questionCount: number;
+  };
+  batch: {
+    id: string;
+    name: string;
+    code: string;
+    totalStudents: number;
+  };
+  stats: {
+    totalEnrolled: number;
+    submittedCount: number;
+    inProgressCount: number;
+    avgScore: number;
+  };
+}
+
+export interface FacultyAssignmentReport {
+  assignment: {
+    id: string;
+    title: string;
+    durationMinutes: number;
+    startTime: string | null;
+    endTime: string | null;
+    showSolutions: boolean;
+    batch: { id: string; name: string; code: string };
+    paper: { id: string; title: string; examType: string; questionCount: number };
+  };
+  summary: {
+    totalEnrolled: number;
+    submittedCount: number;
+    inProgressCount: number;
+    highestScore: number;
+    lowestScore: number;
+    avgScore: number;
+  };
+  rankList: Array<{
+    rank: number;
+    studentId: string;
+    name: string;
+    rollNumber: string;
+    totalScore: number;
+    maxScore: number;
+    timeTakenSeconds: number;
+    correctCount: number;
+    incorrectCount: number;
+    unattemptedCount: number;
+    submittedAt: string | null;
+    resultBreakdown: Record<string, unknown> | null;
+  }>;
+  questionAnalytics: Array<{
+    questionNumber: number;
+    subject: string;
+    topic: string;
+    questionType: string;
+    difficulty: string;
+    correctCount: number;
+    wrongCount: number;
+    skippedCount: number;
+    accuracyPct: number;
+  }>;
+}
+
+// ── Batch API ──
+export async function facultyListBatches() {
+  return facultyFetch<{ batches: FacultyBatch[] }>('/batches');
+}
+
+export async function facultyCreateBatch(input: { name: string; code: string; description?: string }) {
+  return facultyFetch<{ batch: FacultyBatch }>('/batches', {
+    method: 'POST',
+    body: JSON.stringify(input),
+  });
+}
+
+export async function facultyDeleteBatch(id: string) {
+  return facultyFetch<Record<string, never>>(`/batches/${encodeURIComponent(id)}`, { method: 'DELETE' });
+}
+
+// ── Student API ──
+export async function facultyListStudents(batchId?: string) {
+  const query = batchId ? `?batchId=${encodeURIComponent(batchId)}` : '';
+  return facultyFetch<{ students: FacultyStudent[] }>(`/students${query}`);
+}
+
+export async function facultyCreateStudent(input: {
+  batchId: string;
+  name: string;
+  rollNumber: string;
+  email?: string;
+  password?: string;
+}) {
+  return facultyFetch<{ student: FacultyStudent; initialPassword?: string }>('/students', {
+    method: 'POST',
+    body: JSON.stringify(input),
+  });
+}
+
+export async function facultyDeleteStudent(id: string) {
+  return facultyFetch<Record<string, never>>(`/students/${encodeURIComponent(id)}`, { method: 'DELETE' });
+}
+
+// ── Exam Assignments & Reports API ──
+export async function facultyListAssignments() {
+  return facultyFetch<{ assignments: FacultyAssignmentSummary[] }>('/assignments');
+}
+
+export async function facultyCreateAssignment(input: {
+  paperId: string;
+  batchId: string;
+  title: string;
+  instructions?: string;
+  durationMinutes: number;
+  startTime?: string | null;
+  endTime?: string | null;
+  showSolutions?: boolean;
+}) {
+  return facultyFetch<{ assignment: Record<string, unknown> }>('/assignments', {
+    method: 'POST',
+    body: JSON.stringify(input),
+  });
+}
+
+export async function facultyDeleteAssignment(id: string) {
+  return facultyFetch<Record<string, never>>(`/assignments/${encodeURIComponent(id)}`, { method: 'DELETE' });
+}
+
+export async function facultyGetAssignmentReport(id: string) {
+  return facultyFetch<{ report: FacultyAssignmentReport }>(`/assignments/${encodeURIComponent(id)}/report`);
 }

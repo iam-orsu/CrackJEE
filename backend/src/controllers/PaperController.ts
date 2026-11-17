@@ -7,14 +7,31 @@ import { JEE_TOPICS, getTopicsForClass, type AuthRequest, type Subject } from '.
 const selectionSchema = z.object({
   subject: z.enum(['Mathematics', 'Physics', 'Chemistry']),
   topic: z.string().min(1).max(100),
-});
+  count: z.number().int().min(0).max(150).optional(),
+  mcqCount: z.number().int().min(0).max(150).optional(),
+  integerCount: z.number().int().min(0).max(150).optional(),
+  multiCount: z.number().int().min(0).max(150).optional(),
+  matrixCount: z.number().int().min(0).max(150).optional(),
+  mcqEasy: z.number().int().min(0).max(150).optional(),
+  mcqMedium: z.number().int().min(0).max(150).optional(),
+  mcqHard: z.number().int().min(0).max(150).optional(),
+  integerEasy: z.number().int().min(0).max(150).optional(),
+  integerMedium: z.number().int().min(0).max(150).optional(),
+  integerHard: z.number().int().min(0).max(150).optional(),
+  multiEasy: z.number().int().min(0).max(150).optional(),
+  multiMedium: z.number().int().min(0).max(150).optional(),
+  multiHard: z.number().int().min(0).max(150).optional(),
+  matrixEasy: z.number().int().min(0).max(150).optional(),
+  matrixMedium: z.number().int().min(0).max(150).optional(),
+  matrixHard: z.number().int().min(0).max(150).optional(),
+}).passthrough();
 
 const papersSchema = z.object({
   selections: z.array(selectionSchema).min(1).max(150),
   difficulty: z.enum(['beginner', 'intermediate', 'advanced', 'mixed']).default('mixed'),
   examType: z.enum(['Main', 'Advanced', 'Both']).default('Main'),
   studentClass: z.enum(['11', '12', 'Dropper']).default('12'),
-  perSubject: z.number().int().min(1).max(30).default(10),
+  perSubject: z.number().int().min(1).max(150).default(10),
   page: z.number().int().min(1).max(1000).default(1),
   questionTypes: z.object({
     mcq_single: z.number().int().min(0).optional(),
@@ -30,7 +47,7 @@ const papersSchema = z.object({
 });
 
 const claimSchema = z.object({
-  questionIds: z.array(z.string().min(1).max(64).regex(/^[a-zA-Z0-9_-]+$/)).min(1).max(150),
+  questionIds: z.array(z.string().min(1).max(64).regex(/^[a-zA-Z0-9_-]+$/)).min(1).max(500),
 });
 
 export class PaperController {

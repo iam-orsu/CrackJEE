@@ -172,4 +172,32 @@ describe('QuestionService.getTieredExplanation', () => {
       (err: unknown) => err instanceof AppError && err.statusCode === 404,
     );
   });
+
+  it('rejects with 403 if question is currently part of an active mock exam', async () => {
+    const { mockRepo, mockCache, mockDeepSeek } = makeMockDependencies({
+      id: 'q-300',
+      subject: 'Physics',
+      topic: 'Kinematics',
+      questionText: 'Active test question...',
+      options: ['A', 'B', 'C', 'D'],
+      answer: 'A',
+      explanation: 'Secret answer',
+      questionType: 'mcq_single',
+      examType: 'Main',
+      difficulty: 'intermediate',
+    });
+
+    const mockExamRepo = {
+      isQuestionInActiveMock: async (userId: string, questionId: string) => {
+        return userId === 'student-in-test' && questionId === 'q-300';
+      },
+    } as any;
+
+    const service = new QuestionService(mockRepo, mockCache, mockDeepSeek, {} as any, mockExamRepo);
+
+    await assert.rejects(
+      () => service.getTieredExplanation('q-300', 'better', 'student-in-test'),
+      (err: unknown) => err instanceof AppError && err.statusCode === 403 && err.message.includes('active mock exam'),
+    );
+  });
 });

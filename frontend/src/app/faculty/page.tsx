@@ -13,7 +13,6 @@ import {
   facultyLogout,
   facultyMe,
   FacultyError,
-  type FacultyDifficulty,
   type FacultyExamType,
   type FacultyPaper,
   type FacultyPaperSelection,
@@ -22,6 +21,19 @@ import {
   type FacultyUser,
 } from '@/lib/faculty';
 import { FacultyPaperPreview } from '@/components/faculty/FacultyPaperPreview';
+import { FacultyBatchesTab } from '@/components/faculty/FacultyBatchesTab';
+import { FacultyAssignmentsTab } from '@/components/faculty/FacultyAssignmentsTab';
+import { FacultyReportsTab } from '@/components/faculty/FacultyReportsTab';
+import type { Subject } from '@/types';
+import { TopicBreakdownConfig } from '@/components/practice/TopicBreakdownConfig';
+import type { TopicCustomConfig } from '@/components/practice/shared';
+import {
+  getTopicTotal,
+  createBalancedDifficulty,
+  getDefaultQuestionTypes,
+  planTopicTypeSlots,
+  MAX_TOPIC_QUESTIONS,
+} from '@/components/practice/shared';
 
 const COUNT_PRESETS: Record<FacultyExamType, Array<{ count: number; label: string }>> = {
   Main: [
@@ -49,93 +61,86 @@ const DEFAULT_COUNT: Record<FacultyExamType, number> = {
   NEET: 180,
 };
 
+type PortalTab = 'papers' | 'batches' | 'assignments' | 'reports';
+
+const PORTAL_TABS: Array<{ value: PortalTab; label: string }> = [
+  { value: 'papers', label: '📝 Paper Studio' },
+  { value: 'batches', label: '👥 Batches & Students' },
+  { value: 'assignments', label: '📤 Assign Exams' },
+  { value: 'reports', label: '📊 Batch Reports' },
+];
+
 type ClassValue = string | false | null | undefined;
 const cx = (...parts: ClassValue[]) => parts.filter(Boolean).join(' ');
 
-/* The builder repeats a few micro-controls a dozen times, so their classes
-   live here and every instance stays identical. */
-const MICRO_BTN = 'cursor-pointer rounded-xl border-[2px] border-[#003366]/20 px-2 py-1 text-[10.5px] font-bold transition-colors duration-150 motion-reduce:transition-none';
+/* The studio repeats a handful of surfaces and controls, so their classes live
+   here and every instance stays identical. */
+const PANEL = 'rounded-[28px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6';
+const PANEL_TITLE = 'mb-3.5 flex flex-wrap items-center justify-between gap-2.5 font-display text-[17px] font-extrabold text-[#003366]';
+const FIELD = 'mb-3.5 flex flex-col gap-1.5';
+const LABEL = 'text-[12.5px] font-extrabold text-[#003366]';
+const INPUT = 'h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none';
+const SELECT = 'h-[46px] w-full cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none';
+const BTN_PRIMARY = 'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none';
+const BTN_SECONDARY = 'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none';
+const BTN_ACCENT = 'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-accent bg-white px-3 py-1.5 text-[12.5px] font-extrabold text-accent no-underline shadow-[0_4px_0_#E2C2F0] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#E2C2F0] active:translate-y-[3px] active:shadow-[0_1px_0_#E2C2F0] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none';
+const BTN_DANGER = 'cursor-pointer rounded-xl border border-[#C8202F]/30 bg-white px-2.5 py-1.5 text-[12px] font-bold text-[#C8202F] transition-colors duration-150 hover:bg-[#FDF3F4] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none';
+const TAB_BTN = 'cursor-pointer rounded-xl border-[2px] px-3.5 py-1.5 text-[13px] font-bold transition-colors duration-150 motion-reduce:transition-none';
+const TAB_ON = 'border-transparent bg-grad text-white';
+const TAB_OFF = 'border-[#003366]/15 bg-white text-[#003366] hover:bg-ice';
+const MICRO_BTN = 'cursor-pointer rounded-xl border-[2px] border-[#003366]/20 px-2.5 py-1 text-[11.5px] font-bold transition-colors duration-150 motion-reduce:transition-none';
 const MICRO_ON = 'border-transparent bg-grad text-white';
 const MICRO_OFF = 'bg-white text-[#003366] hover:bg-ice';
-const RANGE = 'h-1 flex-1 cursor-pointer appearance-none rounded-full bg-soft/60';
-const RANGE_ROW = 'flex items-center gap-2 text-[11.5px] font-semibold text-[#003366]';
-const RANGE_LABEL = 'w-[90px] shrink-0 font-bold';
-const RANGE_VALUE = 'w-[34px] shrink-0 text-right font-extrabold tabular-nums';
-
-/* Overflow / underflow banners and the count status pill. */
-const BANNER = 'mb-3 flex flex-wrap items-center justify-between gap-3 rounded-2xl border px-3.5 py-2.5 text-[13px] font-semibold';
-const BANNER_BAD = 'border-[#FECACA] bg-[#FDF3F4] text-[#C8202F]';
-const BANNER_WARN = 'border-[#FDE68A] bg-[#FFFBEB] text-[#B45309]';
-const AUTO_MATCH_BTN = 'inline-flex shrink-0 cursor-pointer items-center justify-center gap-1.5 whitespace-nowrap rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-2.5 py-1 text-[11px] font-extrabold text-white shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none';
-
-function countPill(ok: boolean, over: boolean): string {
-  return cx(
-    'rounded-full border px-2 py-1 text-[11.5px] font-bold',
-    ok ? 'border-[#A7F3D0] bg-[#ECFDF5] text-[#047857]' : over ? 'border-[#FECACA] bg-[#FDF3F4] text-[#C8202F]' : 'border-[#FDE68A] bg-[#FFFBEB] text-[#B45309]',
-  );
-}
 
 export default function FacultyPage() {
   const router = useRouter();
   const [faculty, setFaculty] = useState<FacultyUser | null>(null);
   const [authChecked, setAuthChecked] = useState(false);
+  const [activeTab, setActiveTab] = useState<PortalTab>('papers');
+  const [selectedReportAssignmentId, setSelectedReportAssignmentId] = useState<string | null>(null);
 
   // Builder state (JEE Main defaults to 75 per NTA 2025-2026 pattern)
   const [builderOpen, setBuilderOpen] = useState(false);
   const [title, setTitle] = useState('');
   const [organization, setOrganization] = useState('');
   const [examType, setExamType] = useState<FacultyExamType>('Main');
-  const [difficulty, setDifficulty] = useState<FacultyDifficulty>('intermediate');
-  const [difficultyMode, setDifficultyMode] = useState<'preset' | 'custom'>('preset');
-  const [difficultyDistribution, setDifficultyDistribution] = useState<{
-    beginner: number;
-    intermediate: number;
-    advanced: number;
-  }>({
-    beginner: 20,
-    intermediate: 40,
-    advanced: 40,
-  });
   const [questionCount, setQuestionCount] = useState(75);
   const [questionCountStr, setQuestionCountStr] = useState('75');
   const [questionType, setQuestionType] = useState<FacultyQuestionTypePref>('auto');
+  const [topicConfigs, setTopicConfigs] = useState<Record<string, TopicCustomConfig>>({});
 
-  const totalDifficultyPct = useMemo(() => {
-    return (
-      (difficultyDistribution.beginner || 0) +
-      (difficultyDistribution.intermediate || 0) +
-      (difficultyDistribution.advanced || 0)
-    );
-  }, [difficultyDistribution]);
-
-  function handleNormalizePercentages() {
-    const b = difficultyDistribution.beginner || 0;
-    const i = difficultyDistribution.intermediate || 0;
-    const a = difficultyDistribution.advanced || 0;
-    const sum = b + i + a;
-    if (sum === 0) {
-      setDifficultyDistribution({ beginner: 20, intermediate: 40, advanced: 40 });
-      return;
+  const selectedSubjects = useMemo(() => {
+    const set = new Set<Subject>();
+    for (const cfg of Object.values(topicConfigs)) {
+      set.add(cfg.subject);
     }
-    const newB = Math.round((b / sum) * 100);
-    const newI = Math.round((i / sum) * 100);
-    const newA = 100 - newB - newI;
-    setDifficultyDistribution({ beginner: newB, intermediate: newI, advanced: newA });
-  }
+    return set;
+  }, [topicConfigs]);
 
-  function applyDifficultyPreset(b: number, i: number, a: number) {
-    setDifficultyDistribution({ beginner: b, intermediate: i, advanced: a });
-  }
+  const selectedTopics = useMemo(() => {
+    const map: Partial<Record<Subject, Set<string>>> = {};
+    for (const cfg of Object.values(topicConfigs)) {
+      if (!map[cfg.subject]) map[cfg.subject] = new Set();
+      map[cfg.subject]!.add(cfg.topic);
+    }
+    return map;
+  }, [topicConfigs]);
 
-  function getDifficultyCountForPct(pct: number) {
-    return Math.round((pct / 100) * questionCount);
-  }
+  const selectedTopicsCount = useMemo(() => {
+    return Object.keys(topicConfigs).length;
+  }, [topicConfigs]);
+
+  const activeSubjectCount = selectedSubjects.size || 1;
+  const perSubjectTarget = Math.max(1, Math.round(questionCount / activeSubjectCount));
+
+  const totalCalculatedCount = useMemo(() => {
+    return Object.values(topicConfigs).reduce((sum, cfg) => sum + getTopicTotal(cfg), 0);
+  }, [topicConfigs]);
 
   const [subjects, setSubjects] = useState<string[]>(['Physics', 'Chemistry', 'Mathematics']);
   const [topicsBySubject, setTopicsBySubject] = useState<Record<string, string[]>>({});
   const [activeSubject, setActiveSubject] = useState('Physics');
   const [topicSearch, setTopicSearch] = useState('');
-  const [selections, setSelections] = useState<FacultyPaperSelection[]>([]);
 
   // Stacked Paper Library & Opened Paper Workspace
   const [papers, setPapers] = useState<FacultyPaperSummary[]>([]);
@@ -186,13 +191,10 @@ export default function FacultyPage() {
     setQuestionCount(defaultCnt);
     setQuestionCountStr(String(defaultCnt));
     if (nextExam === 'Advanced') {
-      setDifficulty('advanced');
       setQuestionType('auto');
     } else if (nextExam === 'NEET') {
-      setDifficulty('intermediate');
       setQuestionType('mcq_single');
     } else {
-      setDifficulty('intermediate');
       setQuestionType('auto');
     }
 
@@ -201,16 +203,15 @@ export default function FacultyPage() {
       setSubjects(res.subjects);
       setTopicsBySubject(res.topics);
       setActiveSubject(res.subjects[0] ?? 'Physics');
-      setSelections((prev) =>
-        prev
-          .filter((sel) => res.topics[sel.subject]?.includes(sel.topic))
-          .map((sel) => ({
-            ...sel,
-            mcqCount: sel.mcqCount ?? (nextExam === 'NEET' ? 5 : nextExam === 'Advanced' ? 3 : 5),
-            integerCount: nextExam === 'NEET' ? 0 : (sel.integerCount ?? 1),
-            multiCount: nextExam === 'Advanced' ? (sel.multiCount ?? 2) : 0,
-          })),
-      );
+      setTopicConfigs((prev) => {
+        const next: Record<string, TopicCustomConfig> = {};
+        for (const [key, cfg] of Object.entries(prev)) {
+          if (res.topics[cfg.subject]?.includes(cfg.topic)) {
+            next[key] = cfg;
+          }
+        }
+        return next;
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load topics');
     }
@@ -242,112 +243,172 @@ export default function FacultyPage() {
     return q ? all.filter((t) => t.toLowerCase().includes(q)) : all;
   }, [topicsBySubject, activeSubject, topicSearch]);
 
-  function toggleSelection(subject: FacultyPaperSelection['subject'], topic: string) {
-    setSelections((prev) => {
-      const exists = prev.some((s) => s.subject === subject && s.topic === topic);
-      if (exists) {
-        return prev.filter((s) => !(s.subject === subject && s.topic === topic));
-      }
-      const defaultMcq = examType === 'NEET' ? 5 : examType === 'Advanced' ? 3 : 5;
-      const defaultInt = examType === 'NEET' ? 0 : 1;
-      const defaultMulti = examType === 'Advanced' ? 2 : 0;
-      return [
-        ...prev,
-        {
+  function toggleSelection(subject: Subject, topic: string) {
+    const key = `${subject}::${topic}`;
+    setTopicConfigs((prev) => {
+      const next = { ...prev };
+      if (next[key]) {
+        delete next[key];
+      } else {
+        const isAdv = examType === 'Advanced';
+        const isNeet = examType === 'NEET';
+        const nextSubjCount = (selectedTopics[subject]?.size || 0) + 1;
+        const targetForThisTopic = Math.min(
+          MAX_TOPIC_QUESTIONS,
+          Math.max(1, Math.round(perSubjectTarget / nextSubjCount)),
+        );
+
+        const defTypes = getDefaultQuestionTypes(targetForThisTopic, isAdv ? 'Advanced' : 'Main', isNeet);
+        const typeSlots = planTopicTypeSlots(targetForThisTopic, defTypes, isAdv, isNeet);
+
+        const mcqCount = typeSlots.filter((t) => t === 'mcq_single').length;
+        const integerCount = typeSlots.filter((t) => t === 'integer').length;
+        const multiCount = typeSlots.filter((t) => t === 'mcq_multi').length;
+        const matrixCount = typeSlots.filter((t) => t === 'matrix_match').length;
+
+        next[key] = {
           subject,
           topic,
-          mcqCount: defaultMcq,
-          integerCount: defaultInt,
-          multiCount: defaultMulti,
-        },
-      ];
+          mcq: createBalancedDifficulty(mcqCount),
+          integer: createBalancedDifficulty(integerCount),
+          multi: createBalancedDifficulty(multiCount),
+          matrix: createBalancedDifficulty(matrixCount),
+        };
+      }
+      return next;
     });
   }
 
-  const totalCalculatedCount = useMemo(() => {
-    if (selections.length === 0) return 0;
-    return selections.reduce(
-      (acc, s) => acc + (s.mcqCount ?? 0) + (s.integerCount ?? 0) + (s.multiCount ?? 0) + (s.matrixCount ?? 0),
-      0,
-    );
-  }, [selections]);
+  const autoDistributeTopicsForSubject = useCallback(
+    (subj: Subject) => {
+      const topics = Array.from(selectedTopics[subj] ?? new Set<string>());
+      if (topics.length === 0) return;
 
-  function handleCountChange(
-    subject: FacultyPaperSelection['subject'],
-    topic: string,
-    field: 'mcqCount' | 'integerCount' | 'multiCount' | 'matrixCount',
-    val: number,
-  ) {
-    const clamped = Math.max(0, Math.min(100, isNaN(val) ? 0 : val));
-    setSelections((prev) =>
-      prev.map((s) => (s.subject === subject && s.topic === topic ? { ...s, [field]: clamped } : s)),
-    );
-  }
+      const perSubject = perSubjectTarget;
+      const isAdv = examType === 'Advanced';
+      const isNeet = examType === 'NEET';
 
-  function handleCountStep(
-    subject: FacultyPaperSelection['subject'],
-    topic: string,
-    field: 'mcqCount' | 'integerCount' | 'multiCount' | 'matrixCount',
-    delta: number,
-  ) {
-    if (delta > 0 && totalCalculatedCount >= questionCount) {
-      setError(`Cannot add more questions: total configured (${totalCalculatedCount}) already reaches or exceeds Question Count (${questionCount}). Reduce other topics or increase Question Count.`);
-      return;
-    }
-    setError('');
-    setSelections((prev) =>
-      prev.map((s) => {
-        if (s.subject !== subject || s.topic !== topic) return s;
-        const current = s[field] ?? 0;
-        const next = Math.max(0, Math.min(100, current + delta));
-        return { ...s, [field]: next };
-      }),
-    );
-  }
+      const k = topics.length;
+      const baseQuota = Math.floor(perSubject / k);
+      const remainder = perSubject % k;
 
-  function applyPresetToAll(mcq: number, intCount: number, multi = 0, matrix = 0) {
-    setSelections((prev) =>
-      prev.map((s) => ({
-        ...s,
-        mcqCount: mcq,
-        integerCount: examType === 'NEET' ? 0 : intCount,
-        multiCount: examType === 'Advanced' ? multi : 0,
-        matrixCount: matrix,
-      })),
-    );
-  }
+      setTopicConfigs((prev) => {
+        const next = { ...prev };
+        topics.forEach((topic, idx) => {
+          const topicCount = Math.min(MAX_TOPIC_QUESTIONS, baseQuota + (idx < remainder ? 1 : 0));
+          const defTypes = getDefaultQuestionTypes(topicCount, isAdv ? 'Advanced' : 'Main', isNeet);
+          const typeSlots = planTopicTypeSlots(topicCount, defTypes, isAdv, isNeet);
+
+          const mcqCount = typeSlots.filter((t) => t === 'mcq_single').length;
+          const integerCount = typeSlots.filter((t) => t === 'integer').length;
+          const multiCount = typeSlots.filter((t) => t === 'mcq_multi').length;
+          const matrixCount = typeSlots.filter((t) => t === 'matrix_match').length;
+
+          const key = `${subj}::${topic}`;
+          next[key] = {
+            subject: subj,
+            topic,
+            mcq: createBalancedDifficulty(mcqCount),
+            integer: createBalancedDifficulty(integerCount),
+            multi: createBalancedDifficulty(multiCount),
+            matrix: createBalancedDifficulty(matrixCount),
+          };
+        });
+        return next;
+      });
+    },
+    [selectedTopics, perSubjectTarget, examType],
+  );
+
+  const autoDistributeAllTopics = useCallback(() => {
+    const perSubject = perSubjectTarget;
+    const isAdv = examType === 'Advanced';
+    const isNeet = examType === 'NEET';
+
+    setTopicConfigs((prev) => {
+      const next = { ...prev };
+      for (const subj of selectedSubjects) {
+        const topics = Array.from(selectedTopics[subj] ?? new Set<string>());
+        if (topics.length === 0) continue;
+        const k = topics.length;
+        const baseQuota = Math.floor(perSubject / k);
+        const remainder = perSubject % k;
+
+        topics.forEach((topic, idx) => {
+          const topicCount = Math.min(MAX_TOPIC_QUESTIONS, baseQuota + (idx < remainder ? 1 : 0));
+          const defTypes = getDefaultQuestionTypes(topicCount, isAdv ? 'Advanced' : 'Main', isNeet);
+          const typeSlots = planTopicTypeSlots(topicCount, defTypes, isAdv, isNeet);
+
+          const mcqCount = typeSlots.filter((t) => t === 'mcq_single').length;
+          const integerCount = typeSlots.filter((t) => t === 'integer').length;
+          const multiCount = typeSlots.filter((t) => t === 'mcq_multi').length;
+          const matrixCount = typeSlots.filter((t) => t === 'matrix_match').length;
+
+          const key = `${subj}::${topic}`;
+          next[key] = {
+            subject: subj,
+            topic,
+            mcq: createBalancedDifficulty(mcqCount),
+            integer: createBalancedDifficulty(integerCount),
+            multi: createBalancedDifficulty(multiCount),
+            matrix: createBalancedDifficulty(matrixCount),
+          };
+        });
+      }
+      return next;
+    });
+  }, [perSubjectTarget, examType, selectedSubjects, selectedTopics]);
 
   function applyPresetAcrossTopics(total: number) {
     setQuestionCount(total);
     setQuestionCountStr(String(total));
-    if (selections.length === 0) return;
-    const n = selections.length;
-    const perTopic = Math.max(1, Math.floor(total / n));
-    setSelections((prev) =>
-      prev.map((s, idx) => {
-        const topicTotal = perTopic + (idx < total % n ? 1 : 0);
-        if (questionType === 'matrix_match') {
-          return { ...s, mcqCount: 0, integerCount: 0, multiCount: 0, matrixCount: topicTotal };
-        }
-        if (examType === 'NEET') {
-          const matrix = Math.min(s.matrixCount ?? 0, topicTotal);
-          return { ...s, mcqCount: topicTotal - matrix, integerCount: 0, multiCount: 0, matrixCount: matrix };
-        } else if (examType === 'Advanced') {
-          const matrix = Math.min(s.matrixCount ?? 0, topicTotal);
-          const rem = Math.max(0, topicTotal - matrix);
-          const multi = Math.floor(rem * 0.3);
-          const integer = Math.floor(rem * 0.3);
-          const mcq = rem - multi - integer;
-          return { ...s, mcqCount: mcq, multiCount: multi, integerCount: integer, matrixCount: matrix };
-        } else {
-          const matrix = Math.min(s.matrixCount ?? 0, topicTotal);
-          const rem = Math.max(0, topicTotal - matrix);
-          const integer = Math.max(1, Math.round(rem * 0.2));
-          const mcq = Math.max(0, rem - integer);
-          return { ...s, mcqCount: mcq, integerCount: integer, multiCount: 0, matrixCount: matrix };
-        }
-      }),
-    );
+    const entries = Object.entries(topicConfigs);
+    if (entries.length === 0) return;
+
+    const isAdv = examType === 'Advanced';
+    const isNeet = examType === 'NEET';
+    const n = entries.length;
+    const baseQuota = Math.floor(total / n);
+    const remainder = total % n;
+
+    setTopicConfigs((prev) => {
+      const next = { ...prev };
+      entries.forEach(([key, cfg], idx) => {
+        const topicTotal = Math.min(MAX_TOPIC_QUESTIONS, baseQuota + (idx < remainder ? 1 : 0));
+        const defTypes = getDefaultQuestionTypes(topicTotal, isAdv ? 'Advanced' : 'Main', isNeet);
+        const typeSlots = planTopicTypeSlots(topicTotal, defTypes, isAdv, isNeet);
+
+        const mcqCount = typeSlots.filter((t) => t === 'mcq_single').length;
+        const integerCount = typeSlots.filter((t) => t === 'integer').length;
+        const multiCount = typeSlots.filter((t) => t === 'mcq_multi').length;
+        const matrixCount = typeSlots.filter((t) => t === 'matrix_match').length;
+
+        next[key] = {
+          ...cfg,
+          mcq: createBalancedDifficulty(mcqCount),
+          integer: createBalancedDifficulty(integerCount),
+          multi: createBalancedDifficulty(multiCount),
+          matrix: createBalancedDifficulty(matrixCount),
+        };
+      });
+      return next;
+    });
+  }
+
+  function applyPresetToAll(mcq: number, intCount: number, multi = 0, matrix = 0) {
+    setTopicConfigs((prev) => {
+      const next = { ...prev };
+      for (const [key, cfg] of Object.entries(next)) {
+        next[key] = {
+          ...cfg,
+          mcq: createBalancedDifficulty(mcq),
+          integer: createBalancedDifficulty(examType === 'NEET' ? 0 : intCount),
+          multi: createBalancedDifficulty(examType === 'Advanced' ? multi : 0),
+          matrix: createBalancedDifficulty(matrix),
+        };
+      }
+      return next;
+    });
   }
 
   async function handleOpenPaper(id: string) {
@@ -370,6 +431,54 @@ export default function FacultyPage() {
     if (activeCount !== questionCount) {
       setQuestionCount(activeCount);
     }
+
+    const selections: FacultyPaperSelection[] = [];
+    for (const cfg of Object.values(topicConfigs)) {
+      const total = getTopicTotal(cfg);
+      if (total <= 0) continue;
+
+      const mcqEasy = cfg.mcq?.easy || 0;
+      const mcqMed = cfg.mcq?.medium || 0;
+      const mcqHard = cfg.mcq?.hard || 0;
+      const mcqCount = mcqEasy + mcqMed + mcqHard;
+
+      const integerEasy = cfg.integer?.easy || 0;
+      const integerMed = cfg.integer?.medium || 0;
+      const integerHard = cfg.integer?.hard || 0;
+      const integerCount = integerEasy + integerMed + integerHard;
+
+      const multiEasy = cfg.multi?.easy || 0;
+      const multiMed = cfg.multi?.medium || 0;
+      const multiHard = cfg.multi?.hard || 0;
+      const multiCount = multiEasy + multiMed + multiHard;
+
+      const matrixEasy = cfg.matrix?.easy || 0;
+      const matrixMed = cfg.matrix?.medium || 0;
+      const matrixHard = cfg.matrix?.hard || 0;
+      const matrixCount = matrixEasy + matrixMed + matrixHard;
+
+      selections.push({
+        subject: cfg.subject,
+        topic: cfg.topic,
+        mcqCount,
+        integerCount,
+        multiCount,
+        matrixCount,
+        mcqEasy,
+        mcqMedium: mcqMed,
+        mcqHard,
+        integerEasy,
+        integerMedium: integerMed,
+        integerHard,
+        multiEasy,
+        multiMedium: multiMed,
+        multiHard,
+        matrixEasy,
+        matrixMedium: matrixMed,
+        matrixHard,
+      });
+    }
+
     if (selections.length === 0) {
       setError('Select at least one subject & topic before generating.');
       return;
@@ -385,13 +494,9 @@ export default function FacultyPage() {
     if (totalCalculatedCount !== questionCount) {
       setError(
         totalCalculatedCount > questionCount
-          ? `Total questions configured in topics (${totalCalculatedCount}) exceeds Question Count (${questionCount}). Please reduce ${totalCalculatedCount - questionCount} question(s) from topics or adjust Question Count to match.`
+          ? `Total questions configured in topics (${totalCalculatedCount}) exceeds Question Count (${questionCount}). Please reduce ${totalCalculatedCount - questionCount} question(s) from topics or click "Auto-match".`
           : `Total questions configured in topics (${totalCalculatedCount}) does not match target Question Count (${questionCount}). Please add ${questionCount - totalCalculatedCount} more question(s) or click "Auto-match".`
       );
-      return;
-    }
-    if (examType !== 'Advanced' && difficultyMode === 'custom' && totalDifficultyPct !== 100) {
-      setError(`Difficulty percentage total must equal 100% (currently ${totalDifficultyPct}%). Click "Normalize to 100%" or adjust sliders.`);
       return;
     }
 
@@ -402,10 +507,9 @@ export default function FacultyPage() {
         title: title.trim() || undefined,
         organization: organization.trim() || undefined,
         examType,
-        difficulty: examType === 'Advanced' ? 'advanced' : difficultyMode === 'custom' ? 'mixed' : difficulty,
-        difficultyDistribution: examType !== 'Advanced' && difficultyMode === 'custom' ? difficultyDistribution : undefined,
+        difficulty: examType === 'Advanced' ? 'advanced' : 'mixed',
         questionCount,
-        questionType,
+        questionType: 'auto',
         selections,
       });
       const listRes = await facultyListPapers();
@@ -455,7 +559,7 @@ export default function FacultyPage() {
             className="h-7 w-7 animate-spin rounded-full border-[3px] border-[#C6D2F8] border-t-[#803688] motion-reduce:animate-none"
           />
           <p className="text-[13px] font-semibold text-[#7A87A0]">
-            {authChecked ? 'Taking you to sign in…' : 'Checking faculty session…'}
+            {authChecked ? 'Taking you to sign in...' : 'Checking faculty session...'}
           </p>
         </div>
       </div>
@@ -489,11 +593,7 @@ export default function FacultyPage() {
                 <span className="max-w-[180px] truncate text-[11px] font-medium text-[#5A6B8C]">{faculty.email}</span>
               </span>
             </div>
-            <button
-              type="button"
-              className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
-              onClick={handleLogout}
-            >
+            <button type="button" className={BTN_SECONDARY} onClick={handleLogout}>
               Sign out
             </button>
           </div>
@@ -508,17 +608,28 @@ export default function FacultyPage() {
               <p className="mt-1 text-[13px] font-medium text-[#5A6B8C]">{papers.length} paper{papers.length === 1 ? '' : 's'} generated</p>
             </div>
             <div className="flex flex-wrap items-center gap-2.5">
-              {!activePaper && (
-                <button
-                  type="button"
-                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
-                  onClick={() => setBuilderOpen((v) => !v)}
-                >
+              {!activePaper && activeTab === 'papers' && (
+                <button type="button" className={BTN_PRIMARY} onClick={() => setBuilderOpen((v) => !v)}>
                   {builderOpen ? 'Close Builder' : '+ Generate New Paper'}
                 </button>
               )}
             </div>
           </header>
+
+          {!activePaper && (
+            <nav className="mb-5 flex flex-wrap gap-2">
+              {PORTAL_TABS.map((tab) => (
+                <button
+                  key={tab.value}
+                  type="button"
+                  className={cx(TAB_BTN, activeTab === tab.value ? TAB_ON : TAB_OFF)}
+                  onClick={() => setActiveTab(tab.value)}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </nav>
+          )}
 
           {error && <div className="mb-3.5 rounded-2xl border border-[#C8202F]/25 bg-[#FDF3F4] px-3.5 py-2.5 text-[13px] font-semibold text-[#C8202F]">{error}</div>}
 
@@ -545,14 +656,25 @@ export default function FacultyPage() {
               onDelete={handleDeletePaper}
               onError={setError}
             />
+          ) : activeTab === 'batches' ? (
+            <FacultyBatchesTab />
+          ) : activeTab === 'assignments' ? (
+            <FacultyAssignmentsTab
+              onViewReport={(id) => {
+                setSelectedReportAssignmentId(id);
+                setActiveTab('reports');
+              }}
+            />
+          ) : activeTab === 'reports' ? (
+            <FacultyReportsTab initialAssignmentId={selectedReportAssignmentId} />
           ) : (
             <div className="flex flex-col gap-5">
               {builderOpen && (
-                <form className="rounded-[28px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6" onSubmit={handleCreatePaper}>
-                  <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2.5 font-display text-[17px] font-extrabold text-[#003366]">
+                <form className={PANEL} onSubmit={handleCreatePaper}>
+                  <div className={PANEL_TITLE}>
                     <span>Create Verified Exam Paper</span>
                     {papers.length > 0 && (
-                      <button type="button" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" onClick={() => setBuilderOpen(false)}>
+                      <button type="button" className={BTN_SECONDARY} onClick={() => setBuilderOpen(false)}>
                         Hide
                       </button>
                     )}
@@ -560,11 +682,11 @@ export default function FacultyPage() {
 
                   <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                     <div>
-                      <div className="mb-3.5 flex flex-col gap-1.5">
-                        <label className="text-[12.5px] font-extrabold text-[#003366]" htmlFor="paper-title">Paper Title (optional, neutral)</label>
+                      <div className={FIELD}>
+                        <label className={LABEL} htmlFor="paper-title">Paper Title (optional, neutral)</label>
                         <input
                           id="paper-title"
-                          className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                          className={INPUT}
                           placeholder="e.g. Week 4 Rotational Motion & Electrochemistry"
                           value={title}
                           onChange={(e) => setTitle(e.target.value)}
@@ -572,13 +694,13 @@ export default function FacultyPage() {
                         />
                       </div>
 
-                      <div className="mb-3.5 flex flex-col gap-1.5">
-                        <label className="text-[12.5px] font-extrabold text-[#003366]" htmlFor="paper-org">
+                      <div className={FIELD}>
+                        <label className={LABEL} htmlFor="paper-org">
                           College / Organization Name <span className="font-normal text-[#5A6B8C]">(optional)</span>
                         </label>
                         <input
                           id="paper-org"
-                          className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                          className={INPUT}
                           placeholder="Enter college or organization name"
                           value={organization}
                           onChange={(e) => setOrganization(e.target.value)}
@@ -587,11 +709,11 @@ export default function FacultyPage() {
                       </div>
 
                       <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-                        <div className="mb-3.5 flex flex-col gap-1.5">
-                          <label className="text-[12.5px] font-extrabold text-[#003366]" htmlFor="paper-exam">Exam Pattern</label>
+                        <div className={FIELD}>
+                          <label className={LABEL} htmlFor="paper-exam">Exam Pattern</label>
                           <select
                             id="paper-exam"
-                            className="h-[46px] w-full cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                            className={SELECT}
                             value={examType}
                             onChange={(e) => void handleExamTypeChange(e.target.value as FacultyExamType)}
                           >
@@ -601,180 +723,20 @@ export default function FacultyPage() {
                           </select>
                         </div>
 
-                        <div className="mb-3.5 flex flex-col gap-1.5">
-                          <div className="mb-1 flex items-center justify-between">
-                            <label className="text-[12.5px] font-extrabold text-[#003366]" htmlFor="paper-diff">Cognitive Rigor</label>
-                            {examType !== 'Advanced' && (
-                              <div className="flex gap-1">
-                                <button
-                                  type="button"
-                                  className={cx(MICRO_BTN, difficultyMode === 'preset' ? MICRO_ON : MICRO_OFF)}
-                                  onClick={() => setDifficultyMode('preset')}
-                                >
-                                  Presets
-                                </button>
-                                <button
-                                  type="button"
-                                  className={cx(MICRO_BTN, difficultyMode === 'custom' ? MICRO_ON : MICRO_OFF)}
-                                  onClick={() => setDifficultyMode('custom')}
-                                >
-                                  Custom %
-                                </button>
-                              </div>
-                            )}
-                          </div>
-
-                          {examType === 'Advanced' ? (
-                            <>
-                              <input
-                                id="paper-diff"
-                                className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
-                                value="Strict JEE Advanced Only"
-                                disabled
-                              />
-                              <div className="mt-0.5 rounded-xl border border-[#FDBA74] bg-[#FFF7EC] px-2.5 py-1.5 text-[11.5px] font-bold text-[#9A5B15]">Locked to IIT JEE Advanced multi-concept rigor</div>
-                            </>
-                          ) : difficultyMode === 'preset' ? (
-                            <select
-                              id="paper-diff"
-                              className="h-[46px] w-full cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
-                              value={difficulty}
-                              onChange={(e) => setDifficulty(e.target.value as FacultyDifficulty)}
-                            >
-                              <option value="beginner">Beginner (Entry Competitive)</option>
-                              <option value="intermediate">Intermediate (Standard Exam)</option>
-                              <option value="advanced">Advanced (Rank-Decider)</option>
-                              <option value="mixed">Mixed (Balanced)</option>
-                            </select>
-                          ) : (
-                            <div className="rounded-2xl border border-[#003366]/10 bg-[#F7F9FF] px-3 py-2.5">
-                              <div className="mb-2 flex flex-wrap items-center justify-between gap-1.5">
-                                <span
-                                  className={cx(
-                                    'rounded-full border px-2 py-0.5 text-[11px] font-bold',
-                                    totalDifficultyPct === 100
-                                      ? 'border-[#A7F3D0] bg-[#ECFDF5] text-[#047857]'
-                                      : totalDifficultyPct > 100
-                                      ? 'border-[#FECACA] bg-[#FDF3F4] text-[#C8202F]'
-                                      : 'border-[#FDE68A] bg-[#FFFBEB] text-[#B45309]',
-                                  )}
-                                >
-                                  {totalDifficultyPct === 100
-                                    ? '✓ Total: 100%'
-                                    : totalDifficultyPct > 100
-                                    ? `⚠️ Total: ${totalDifficultyPct}% (${totalDifficultyPct - 100}% over)`
-                                    : `⚠️ Total: ${totalDifficultyPct}% (${100 - totalDifficultyPct}% needed)`}
-                                </span>
-                                {totalDifficultyPct !== 100 && (
-                                  <button
-                                    type="button"
-                                    onClick={handleNormalizePercentages}
-                                    className={MICRO_BTN + ' ' + MICRO_OFF}
-                                  >
-                                    Normalize to 100%
-                                  </button>
-                                )}
-                              </div>
-
-                              {/* Preset Buttons */}
-                              <div className="mb-2.5 flex flex-wrap gap-1">
-                                {([
-                                  [30, 30, 40],
-                                  [34, 33, 33],
-                                  [50, 30, 20],
-                                  [20, 40, 40],
-                                ] as const).map(([b, i, a]) => {
-                                  const on =
-                                    difficultyDistribution.beginner === b &&
-                                    difficultyDistribution.intermediate === i &&
-                                    difficultyDistribution.advanced === a;
-                                  return (
-                                    <button
-                                      key={`${b}/${i}/${a}`}
-                                      type="button"
-                                      className={cx(MICRO_BTN, on ? MICRO_ON : MICRO_OFF)}
-                                      onClick={() => applyDifficultyPreset(b, i, a)}
-                                    >
-                                      {b}/{i}/{a}
-                                    </button>
-                                  );
-                                })}
-                              </div>
-
-                              {/* Multi-segment Visual Bar */}
-                              <div className="mb-2.5 flex h-1.5 w-full overflow-hidden rounded-full bg-soft/60">
-                                <div
-                                  title={`Easy: ${difficultyDistribution.beginner || 0}%`}
-                                  className="bg-[#22C55E] transition-[width] duration-200 ease-out motion-reduce:transition-none"
-                                  style={{ width: `${((difficultyDistribution.beginner || 0) / (totalDifficultyPct || 100)) * 100}%` }}
-                                />
-                                <div
-                                  title={`Medium: ${difficultyDistribution.intermediate || 0}%`}
-                                  className="bg-[#EAB308] transition-[width] duration-200 ease-out motion-reduce:transition-none"
-                                  style={{ width: `${((difficultyDistribution.intermediate || 0) / (totalDifficultyPct || 100)) * 100}%` }}
-                                />
-                                <div
-                                  title={`Hard: ${difficultyDistribution.advanced || 0}%`}
-                                  className="bg-[#EF4444] transition-[width] duration-200 ease-out motion-reduce:transition-none"
-                                  style={{ width: `${((difficultyDistribution.advanced || 0) / (totalDifficultyPct || 100)) * 100}%` }}
-                                />
-                              </div>
-
-                              {/* 3 Slider Rows */}
-                              <div className="flex flex-col gap-1.5">
-                                <div className={RANGE_ROW}>
-                                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#22C55E]" />
-                                  <span className={RANGE_LABEL}>Easy (~{getDifficultyCountForPct(difficultyDistribution.beginner || 0)}Q):</span>
-                                  <input
-                                    type="range"
-                                    min={0}
-                                    max={100}
-                                    step={5}
-                                    value={difficultyDistribution.beginner || 0}
-                                    onChange={(e) => setDifficultyDistribution((prev) => ({ ...prev, beginner: parseInt(e.target.value, 10) }))}
-                                    className={RANGE + ' accent-[#22C55E]'}
-                                  />
-                                  <span className={RANGE_VALUE}>{difficultyDistribution.beginner || 0}%</span>
-                                </div>
-
-                                <div className={RANGE_ROW}>
-                                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#EAB308]" />
-                                  <span className={RANGE_LABEL}>Medium (~{getDifficultyCountForPct(difficultyDistribution.intermediate || 0)}Q):</span>
-                                  <input
-                                    type="range"
-                                    min={0}
-                                    max={100}
-                                    step={5}
-                                    value={difficultyDistribution.intermediate || 0}
-                                    onChange={(e) => setDifficultyDistribution((prev) => ({ ...prev, intermediate: parseInt(e.target.value, 10) }))}
-                                    className={RANGE + ' accent-[#EAB308]'}
-                                  />
-                                  <span className={RANGE_VALUE}>{difficultyDistribution.intermediate || 0}%</span>
-                                </div>
-
-                                <div className={RANGE_ROW}>
-                                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#EF4444]" />
-                                  <span className={RANGE_LABEL}>Hard (~{getDifficultyCountForPct(difficultyDistribution.advanced || 0)}Q):</span>
-                                  <input
-                                    type="range"
-                                    min={0}
-                                    max={100}
-                                    step={5}
-                                    value={difficultyDistribution.advanced || 0}
-                                    onChange={(e) => setDifficultyDistribution((prev) => ({ ...prev, advanced: parseInt(e.target.value, 10) }))}
-                                    className={RANGE + ' accent-[#EF4444]'}
-                                  />
-                                  <span className={RANGE_VALUE}>{difficultyDistribution.advanced || 0}%</span>
-                                </div>
-                              </div>
+                        <div className={FIELD}>
+                          <label className={LABEL}>Cognitive Rigor &amp; Question Difficulty</label>
+                          <div className="flex items-center gap-2.5 rounded-2xl border border-[#003366]/10 bg-[#F7F9FF] px-3.5 py-2.5 text-[12px] text-[#31407F]">
+                            <span className="text-[18px]">🎯</span>
+                            <div>
+                              <strong>Granular Topic Breakdown:</strong> Configure exact quantities of <strong>Easy</strong>, <strong>Medium</strong>, and <strong>Hard</strong> questions per topic &amp; question type below using direct integer counters.
                             </div>
-                          )}
+                          </div>
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-                        <div className="mb-3.5 flex flex-col gap-1.5">
-                          <label className="text-[12.5px] font-extrabold text-[#003366]" htmlFor="paper-count">
+                        <div className={FIELD}>
+                          <label className={LABEL} htmlFor="paper-count">
                             Question Count (1–180)
                           </label>
                           <input
@@ -782,7 +744,7 @@ export default function FacultyPage() {
                             type="number"
                             min={1}
                             max={180}
-                            className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                            className={INPUT}
                             placeholder="e.g. 75"
                             value={questionCountStr}
                             onChange={(e) => {
@@ -815,7 +777,7 @@ export default function FacultyPage() {
                               <button
                                 key={p.count}
                                 type="button"
-                                className={cx('cursor-pointer rounded-xl border-[2px] border-[#003366]/20 bg-white px-2.5 py-1 text-[11.5px] font-bold text-[#003366] transition-colors duration-150 hover:bg-ice motion-reduce:transition-none', questionCount === p.count && 'border-transparent bg-grad text-white')}
+                                className={cx(MICRO_BTN, questionCount === p.count ? MICRO_ON : MICRO_OFF)}
                                 onClick={() => {
                                   setQuestionCount(p.count);
                                   setQuestionCountStr(String(p.count));
@@ -828,11 +790,11 @@ export default function FacultyPage() {
                           </div>
                         </div>
 
-                        <div className="mb-3.5 flex flex-col gap-1.5">
-                          <label className="text-[12.5px] font-extrabold text-[#003366]" htmlFor="paper-qtype">Quick Batch Mix</label>
+                        <div className={FIELD}>
+                          <label className={LABEL} htmlFor="paper-qtype">Quick Batch Mix</label>
                           <select
                             id="paper-qtype"
-                            className="h-[46px] w-full cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                            className={SELECT}
                             value={questionType}
                             onChange={(e) => {
                               const next = e.target.value as FacultyQuestionTypePref;
@@ -871,14 +833,14 @@ export default function FacultyPage() {
                     </div>
 
                     <div>
-                      <div className="mb-3.5 flex flex-col gap-1.5">
+                      <div className={FIELD}>
                         <div className="flex items-center justify-between">
-                          <label className="text-[12.5px] font-extrabold text-[#003366]">Topics ({selections.length} selected)</label>
-                          {selections.length > 0 && (
+                          <label className={LABEL}>Topics ({selectedTopicsCount} selected)</label>
+                          {selectedTopicsCount > 0 && (
                             <button
                               type="button"
-                              className={MICRO_BTN + ' ' + MICRO_OFF}
-                              onClick={() => setSelections([])}
+                              className={cx(MICRO_BTN, MICRO_OFF)}
+                              onClick={() => setTopicConfigs({})}
                             >
                               Clear all
                             </button>
@@ -899,23 +861,21 @@ export default function FacultyPage() {
                         </div>
 
                         <input
-                          className="mb-2 h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
-                          placeholder={`Filter ${activeSubject} topics…`}
+                          className={cx(INPUT, 'mb-2')}
+                          placeholder={`Filter ${activeSubject} topics...`}
                           value={topicSearch}
                           onChange={(e) => setTopicSearch(e.target.value)}
                         />
 
                         <div className="max-h-[230px] overflow-y-auto rounded-2xl border border-[#003366]/10 bg-[#FBFCFE] p-1.5">
                           {visibleTopics.map((topic) => {
-                            const checked = selections.some((s) => s.subject === activeSubject && s.topic === topic);
+                            const checked = Boolean(topicConfigs[`${activeSubject}::${topic}`]);
                             return (
                               <label key={topic} className="flex cursor-pointer items-center gap-2 rounded-xl px-2 py-1.5 text-[12.5px] font-medium text-[#003366] transition-colors duration-150 hover:bg-ice motion-reduce:transition-none">
                                 <input
                                   type="checkbox"
                                   checked={checked}
-                                  onChange={() =>
-                                    toggleSelection(activeSubject as FacultyPaperSelection['subject'], topic)
-                                  }
+                                  onChange={() => toggleSelection(activeSubject as Subject, topic)}
                                 />
                                 <span>{topic}</span>
                               </label>
@@ -926,16 +886,16 @@ export default function FacultyPage() {
                           )}
                         </div>
 
-                        {selections.length > 0 && (
+                        {selectedTopicsCount > 0 && (
                           <div className="mt-2 flex flex-wrap gap-1.5">
-                            {selections.map((sel) => (
-                              <span key={`${sel.subject}::${sel.topic}`} className="inline-flex items-center gap-1.5 rounded-full border border-accent/25 bg-accent-50 px-2 py-0.5 text-[11.5px] font-bold text-accent">
-                                {sel.subject.slice(0, 4)}: {sel.topic}
+                            {Object.values(topicConfigs).map((cfg) => (
+                              <span key={`${cfg.subject}::${cfg.topic}`} className="inline-flex items-center gap-1.5 rounded-full border border-accent/25 bg-accent-50 px-2 py-0.5 text-[11.5px] font-bold text-accent">
+                                {cfg.subject.slice(0, 4)}: {cfg.topic} ({getTopicTotal(cfg)} Qs)
                                 <button
                                   type="button"
                                   className="cursor-pointer border-0 bg-transparent p-0 text-[13px] leading-none text-accent transition-colors duration-150 hover:text-accent-900"
-                                  aria-label={`Remove ${sel.topic}`}
-                                  onClick={() => toggleSelection(sel.subject, sel.topic)}
+                                  aria-label={`Remove ${cfg.topic}`}
+                                  onClick={() => toggleSelection(cfg.subject, cfg.topic)}
                                 >
                                   ×
                                 </button>
@@ -947,365 +907,48 @@ export default function FacultyPage() {
                     </div>
                   </div>
 
-                  {selections.length > 0 && (
-                    <div className="mt-5 flex flex-col gap-3 border-t border-[#003366]/10 pt-4">
-                      {/* Overflow / Underflow Validation Banners */}
-                      {totalCalculatedCount > questionCount && (
-                        <div className={BANNER + ' ' + BANNER_BAD}>
-                          <span>
-                            ⚠️ <strong>Topic questions overflow:</strong> You have configured {totalCalculatedCount} questions across topics, but Question Count is {questionCount}. Please reduce {totalCalculatedCount - questionCount} question(s) or click Auto-match.
-                          </span>
-                          <button
-                            type="button"
-                            className={AUTO_MATCH_BTN}
-                            onClick={() => applyPresetAcrossTopics(questionCount)}
-                          >
-                            ⚡ Auto-match to {questionCount}
-                          </button>
-                        </div>
-                      )}
-
-                      {totalCalculatedCount < questionCount && (
-                        <div className={BANNER + ' ' + BANNER_WARN}>
-                          <span>
-                            ⚠️ <strong>Topic questions underflow:</strong> You have configured {totalCalculatedCount} questions, but target Question Count is {questionCount}. Please add {questionCount - totalCalculatedCount} more question(s) or click Auto-match.
-                          </span>
-                          <button
-                            type="button"
-                            className={AUTO_MATCH_BTN}
-                            onClick={() => applyPresetAcrossTopics(questionCount)}
-                          >
-                            ⚡ Auto-match to {questionCount}
-                          </button>
-                        </div>
-                      )}
-
-                      <div className="flex flex-wrap items-center justify-between gap-2.5">
-                        <div className="flex items-center gap-2 font-display text-[15px] font-extrabold text-[#003366]">
-                          <span>Selected Topics &amp; Question Mix</span>
-                          <span className={countPill(totalCalculatedCount === questionCount, totalCalculatedCount > questionCount)}>
-                            {totalCalculatedCount === questionCount
-                              ? `✓ ${totalCalculatedCount} / ${questionCount} Questions Configured`
-                              : totalCalculatedCount > questionCount
-                              ? `⚠️ ${totalCalculatedCount} / ${questionCount} (Overflow: reduce ${totalCalculatedCount - questionCount})`
-                              : `⚠️ ${totalCalculatedCount} / ${questionCount} (${questionCount - totalCalculatedCount} needed)`}
-                          </span>
-                        </div>
-
-                        <div className="flex flex-wrap items-center gap-1.5">
-                          <button
-                            type="button"
-                            className={cx(MICRO_BTN, MICRO_ON)}
-                            onClick={() => applyPresetAcrossTopics(questionCount)}
-                            title={`Auto-distribute exactly ${questionCount} questions across all selected topics`}
-                          >
-                            ⚡ Auto-match ({questionCount} Qs)
-                          </button>
-                          <span className="text-[11.5px] font-bold text-[#5A6B8C]">Set all to:</span>
-                          {examType === 'NEET' ? (
-                            <>
-                              <button
-                                type="button"
-                                className={MICRO_BTN + ' ' + MICRO_OFF}
-                                onClick={() => applyPresetToAll(5, 0, 0, 0)}
-                              >
-                                5 MCQs
-                              </button>
-                              <button
-                                type="button"
-                                className={MICRO_BTN + ' ' + MICRO_OFF}
-                                onClick={() => applyPresetToAll(10, 0, 0, 0)}
-                              >
-                                10 MCQs
-                              </button>
-                              <button
-                                type="button"
-                                className={MICRO_BTN + ' ' + MICRO_OFF}
-                                onClick={() => applyPresetToAll(0, 0, 0, 5)}
-                              >
-                                Matrix Match (5)
-                              </button>
-                            </>
-                          ) : examType === 'Advanced' ? (
-                            <>
-                              <button
-                                type="button"
-                                className={MICRO_BTN + ' ' + MICRO_OFF}
-                                onClick={() => applyPresetToAll(3, 1, 2, 0)}
-                              >
-                                Std (3 Single + 2 Multi + 1 Int)
-                              </button>
-                              <button
-                                type="button"
-                                className={MICRO_BTN + ' ' + MICRO_OFF}
-                                onClick={() => applyPresetToAll(5, 0, 0, 0)}
-                              >
-                                MCQ Only (5)
-                              </button>
-                              <button
-                                type="button"
-                                className={MICRO_BTN + ' ' + MICRO_OFF}
-                                onClick={() => applyPresetToAll(0, 5, 0, 0)}
-                              >
-                                Integer Only (5)
-                              </button>
-                              <button
-                                type="button"
-                                className={MICRO_BTN + ' ' + MICRO_OFF}
-                                onClick={() => applyPresetToAll(0, 0, 0, 5)}
-                              >
-                                Matrix Match (5)
-                              </button>
-                            </>
-                          ) : (
-                            <>
-                              <button
-                                type="button"
-                                className={MICRO_BTN + ' ' + MICRO_OFF}
-                                onClick={() => applyPresetToAll(5, 1, 0, 0)}
-                              >
-                                Std (5 Single + 1 Int)
-                              </button>
-                              <button
-                                type="button"
-                                className={MICRO_BTN + ' ' + MICRO_OFF}
-                                onClick={() => applyPresetToAll(10, 2, 0, 0)}
-                              >
-                                12 Qs (10 Single + 2 Int)
-                              </button>
-                              <button
-                                type="button"
-                                className={MICRO_BTN + ' ' + MICRO_OFF}
-                                onClick={() => applyPresetToAll(5, 0, 0, 0)}
-                              >
-                                Single-Option Only (5)
-                              </button>
-                              <button
-                                type="button"
-                                className={MICRO_BTN + ' ' + MICRO_OFF}
-                                onClick={() => applyPresetToAll(0, 5, 0, 0)}
-                              >
-                                Integer Only (5)
-                              </button>
-                              <button
-                                type="button"
-                                className={MICRO_BTN + ' ' + MICRO_OFF}
-                                onClick={() => applyPresetToAll(0, 0, 0, 5)}
-                              >
-                                Matrix Match (5)
-                              </button>
-                            </>
-                          )}
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-3">
-                        {selections.map((sel) => {
-                          const mcq = sel.mcqCount ?? 0;
-                          const integer = sel.integerCount ?? 0;
-                          const multi = sel.multiCount ?? 0;
-                          const matrix = sel.matrixCount ?? 0;
-                          const topicTotal = mcq + integer + multi + matrix;
-
-                          return (
-                            <div key={`${sel.subject}::${sel.topic}`} className="flex flex-col gap-2.5 rounded-[22px] border border-[#003366]/10 bg-white p-3.5 shadow-[0_16px_38px_-32px_rgba(0,51,102,.45)] transition-[border-color,box-shadow] duration-150 hover:border-accent/30 motion-reduce:transition-none">
-                              <div className="flex items-start justify-between gap-2">
-                                <div className="flex flex-col gap-0.5">
-                                  <span className="text-[10px] font-extrabold uppercase tracking-[0.08em] text-[#5A6B8C]">{sel.subject}</span>
-                                  <span className="text-[13.5px] font-extrabold text-[#003366]">{sel.topic}</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                  <span className="rounded-lg bg-ice px-2 py-0.5 text-[11.5px] font-bold text-[#003366]">{topicTotal} Qs</span>
-                                  <button
-                                    type="button"
-                                    className="cursor-pointer rounded-lg border-0 bg-transparent px-1 py-0.5 text-[16px] leading-none text-[#5A6B8C] transition-colors duration-150 hover:bg-[#FDF3F4] hover:text-[#C8202F] motion-reduce:transition-none"
-                                    title={`Remove ${sel.topic}`}
-                                    onClick={() => toggleSelection(sel.subject, sel.topic)}
-                                  >
-                                    ×
-                                  </button>
-                                </div>
-                              </div>
-
-                              <div className="flex flex-col gap-2 rounded-2xl bg-[#F7F9FF] p-2.5">
-                                {/* Single Option MCQ */}
-                                <div className="flex items-center justify-between text-[12.5px] font-semibold text-[#003366]">
-                                  <div className="flex items-center gap-1.5 text-[12.5px] font-bold text-[#003366]">
-                                    <span className={cx('inline-block h-[7px] w-[7px] rounded-full', 'bg-[#0284C7]')} />
-                                    <span>Single Option (MCQ)</span>
-                                  </div>
-                                  <div className="inline-flex items-center overflow-hidden rounded-xl border-[2px] border-[#003366] bg-white">
-                                    <button
-                                      type="button"
-                                      className="grid h-[26px] w-[26px] cursor-pointer place-items-center border-0 bg-ice text-[14px] font-extrabold text-[#003366] transition-colors duration-150 hover:bg-soft/60 disabled:cursor-not-allowed disabled:text-[#C6D2F8] motion-reduce:transition-none"
-                                      disabled={mcq <= 0}
-                                      onClick={() => handleCountStep(sel.subject, sel.topic, 'mcqCount', -1)}
-                                    >
-                                      −
-                                    </button>
-                                    <input
-                                      type="number"
-                                      min={0}
-                                      max={100}
-                                      className="h-[26px] w-[38px] border-x border-[#003366]/15 bg-white text-center text-[12.5px] font-extrabold text-[#003366] outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
-                                      value={mcq}
-                                      onChange={(e) =>
-                                        handleCountChange(sel.subject, sel.topic, 'mcqCount', parseInt(e.target.value, 10))
-                                      }
-                                    />
-                                    <button
-                                      type="button"
-                                      className="grid h-[26px] w-[26px] cursor-pointer place-items-center border-0 bg-ice text-[14px] font-extrabold text-[#003366] transition-colors duration-150 hover:bg-soft/60 disabled:cursor-not-allowed disabled:text-[#C6D2F8] motion-reduce:transition-none"
-                                      onClick={() => handleCountStep(sel.subject, sel.topic, 'mcqCount', 1)}
-                                    >
-                                      +
-                                    </button>
-                                  </div>
-                                </div>
-
-                                {/* Multi-correct MCQ (JEE Advanced only) */}
-                                {examType === 'Advanced' && (
-                                  <div className="flex items-center justify-between text-[12.5px] font-semibold text-[#003366]">
-                                    <div className="flex items-center gap-1.5 text-[12.5px] font-bold text-[#003366]">
-                                      <span className={cx('inline-block h-[7px] w-[7px] rounded-full', 'bg-[#D97706]')} />
-                                      <span>Multi-Correct MCQ</span>
-                                    </div>
-                                    <div className="inline-flex items-center overflow-hidden rounded-xl border-[2px] border-[#003366] bg-white">
-                                      <button
-                                        type="button"
-                                        className="grid h-[26px] w-[26px] cursor-pointer place-items-center border-0 bg-ice text-[14px] font-extrabold text-[#003366] transition-colors duration-150 hover:bg-soft/60 disabled:cursor-not-allowed disabled:text-[#C6D2F8] motion-reduce:transition-none"
-                                        disabled={multi <= 0}
-                                        onClick={() => handleCountStep(sel.subject, sel.topic, 'multiCount', -1)}
-                                      >
-                                        −
-                                      </button>
-                                      <input
-                                        type="number"
-                                        min={0}
-                                        max={100}
-                                        className="h-[26px] w-[38px] border-x border-[#003366]/15 bg-white text-center text-[12.5px] font-extrabold text-[#003366] outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
-                                        value={multi}
-                                        onChange={(e) =>
-                                          handleCountChange(sel.subject, sel.topic, 'multiCount', parseInt(e.target.value, 10))
-                                        }
-                                      />
-                                      <button
-                                        type="button"
-                                        className="grid h-[26px] w-[26px] cursor-pointer place-items-center border-0 bg-ice text-[14px] font-extrabold text-[#003366] transition-colors duration-150 hover:bg-soft/60 disabled:cursor-not-allowed disabled:text-[#C6D2F8] motion-reduce:transition-none"
-                                        onClick={() => handleCountStep(sel.subject, sel.topic, 'multiCount', 1)}
-                                      >
-                                        +
-                                      </button>
-                                    </div>
-                                  </div>
-                                )}
-
-                                {/* Integer / Numerical (JEE Main & Advanced only) */}
-                                {examType !== 'NEET' && (
-                                  <div className="flex items-center justify-between text-[12.5px] font-semibold text-[#003366]">
-                                    <div className="flex items-center gap-1.5 text-[12.5px] font-bold text-[#003366]">
-                                      <span className={cx('inline-block h-[7px] w-[7px] rounded-full', 'bg-accent')} />
-                                      <span>Integer / Numerical</span>
-                                    </div>
-                                    <div className="inline-flex items-center overflow-hidden rounded-xl border-[2px] border-[#003366] bg-white">
-                                      <button
-                                        type="button"
-                                        className="grid h-[26px] w-[26px] cursor-pointer place-items-center border-0 bg-ice text-[14px] font-extrabold text-[#003366] transition-colors duration-150 hover:bg-soft/60 disabled:cursor-not-allowed disabled:text-[#C6D2F8] motion-reduce:transition-none"
-                                        disabled={integer <= 0}
-                                        onClick={() => handleCountStep(sel.subject, sel.topic, 'integerCount', -1)}
-                                      >
-                                        −
-                                      </button>
-                                      <input
-                                        type="number"
-                                        min={0}
-                                        max={100}
-                                        className="h-[26px] w-[38px] border-x border-[#003366]/15 bg-white text-center text-[12.5px] font-extrabold text-[#003366] outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
-                                        value={integer}
-                                        onChange={(e) =>
-                                          handleCountChange(sel.subject, sel.topic, 'integerCount', parseInt(e.target.value, 10))
-                                        }
-                                      />
-                                      <button
-                                        type="button"
-                                        className="grid h-[26px] w-[26px] cursor-pointer place-items-center border-0 bg-ice text-[14px] font-extrabold text-[#003366] transition-colors duration-150 hover:bg-soft/60 disabled:cursor-not-allowed disabled:text-[#C6D2F8] motion-reduce:transition-none"
-                                        onClick={() => handleCountStep(sel.subject, sel.topic, 'integerCount', 1)}
-                                      >
-                                        +
-                                      </button>
-                                    </div>
-                                  </div>
-                                )}
-
-                                {/* Matrix Match / Match the List */}
-                                <div className="flex items-center justify-between text-[12.5px] font-semibold text-[#003366]">
-                                  <div className="flex items-center gap-1.5 text-[12.5px] font-bold text-[#003366]">
-                                    <span className="inline-block h-[7px] w-[7px] rounded-full bg-[#9333EA]" />
-                                    <span>Matrix Match (List)</span>
-                                  </div>
-                                  <div className="inline-flex items-center overflow-hidden rounded-xl border-[2px] border-[#003366] bg-white">
-                                    <button
-                                      type="button"
-                                      className="grid h-[26px] w-[26px] cursor-pointer place-items-center border-0 bg-ice text-[14px] font-extrabold text-[#003366] transition-colors duration-150 hover:bg-soft/60 disabled:cursor-not-allowed disabled:text-[#C6D2F8] motion-reduce:transition-none"
-                                      disabled={matrix <= 0}
-                                      onClick={() => handleCountStep(sel.subject, sel.topic, 'matrixCount', -1)}
-                                    >
-                                      −
-                                    </button>
-                                    <input
-                                      type="number"
-                                      min={0}
-                                      max={100}
-                                      className="h-[26px] w-[38px] border-x border-[#003366]/15 bg-white text-center text-[12.5px] font-extrabold text-[#003366] outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
-                                      value={matrix}
-                                      onChange={(e) =>
-                                        handleCountChange(sel.subject, sel.topic, 'matrixCount', parseInt(e.target.value, 10))
-                                      }
-                                    />
-                                    <button
-                                      type="button"
-                                      className="grid h-[26px] w-[26px] cursor-pointer place-items-center border-0 bg-ice text-[14px] font-extrabold text-[#003366] transition-colors duration-150 hover:bg-soft/60 disabled:cursor-not-allowed disabled:text-[#C6D2F8] motion-reduce:transition-none"
-                                      onClick={() => handleCountStep(sel.subject, sel.topic, 'matrixCount', 1)}
-                                    >
-                                      +
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
+                  {selectedTopicsCount > 0 && (
+                    <div className="mt-5">
+                      <TopicBreakdownConfig
+                        selectedSubjects={selectedSubjects}
+                        selectedTopics={selectedTopics}
+                        perSubjectCount={perSubjectTarget}
+                        isNeet={examType === 'NEET'}
+                        isAdvanced={examType === 'Advanced'}
+                        topicConfigs={topicConfigs}
+                        onTopicConfigs={setTopicConfigs}
+                        onAutoDistributeSubject={autoDistributeTopicsForSubject}
+                        onAutoDistributeAll={autoDistributeAllTopics}
+                      />
                     </div>
                   )}
 
-                  <div className="mt-3.5 flex justify-end">
+                  <div className="mt-6 flex justify-end">
                     <button
                       type="submit"
-                      className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                      className={BTN_PRIMARY}
                       disabled={
                         creating ||
-                        selections.length === 0 ||
-                        (selections.length > 0 && totalCalculatedCount !== questionCount) ||
-                        (examType !== 'Advanced' && difficultyMode === 'custom' && totalDifficultyPct !== 100)
+                        selectedTopicsCount === 0 ||
+                        totalCalculatedCount !== questionCount
                       }
                     >
                       {creating
-                        ? 'Starting generation…'
-                        : selections.length > 0 && totalCalculatedCount > questionCount
+                        ? 'Starting generation...'
+                        : selectedTopicsCount === 0
+                        ? 'Select at least 1 topic above'
+                        : totalCalculatedCount > questionCount
                         ? `Overflow: Reduce ${totalCalculatedCount - questionCount} Q(s) in Topics`
-                        : selections.length > 0 && totalCalculatedCount < questionCount
+                        : totalCalculatedCount < questionCount
                         ? `Add ${questionCount - totalCalculatedCount} more Q(s) to match ${questionCount}`
-                        : examType !== 'Advanced' && difficultyMode === 'custom' && totalDifficultyPct !== 100
-                        ? `Normalize % to 100% (currently ${totalDifficultyPct}%)`
                         : `Generate ${questionCount}-Question Verified Paper`}
                     </button>
                   </div>
                 </form>
               )}
 
-              <section className="rounded-[28px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
-                <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2.5 font-display text-[17px] font-extrabold text-[#003366]">
+              <section className={PANEL}>
+                <div className={PANEL_TITLE}>
                   <span>Generated Papers Stack ({papers.length})</span>
                 </div>
 
@@ -1342,7 +985,7 @@ export default function FacultyPage() {
                                 {p.status === 'ready'
                                   ? 'Ready'
                                   : p.status === 'generating'
-                                    ? 'Generating…'
+                                    ? 'Generating...'
                                     : 'Error'}
                               </span>
                               <span>{dateStr}</span>
@@ -1352,7 +995,7 @@ export default function FacultyPage() {
                           <div className="flex flex-wrap items-center gap-2">
                             <button
                               type="button"
-                              className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                              className={BTN_PRIMARY}
                               onClick={() => void handleOpenPaper(p.id)}
                             >
                               Open / Edit
@@ -1363,7 +1006,7 @@ export default function FacultyPage() {
                                   href={`/faculty/papers/${p.id}/print?mode=questions&download=1`}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-accent bg-white px-3 py-1.5 text-[12.5px] font-extrabold text-accent no-underline shadow-[0_4px_0_#E2C2F0] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#E2C2F0] active:translate-y-[3px] active:shadow-[0_1px_0_#E2C2F0] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                                  className={BTN_ACCENT}
                                 >
                                   PDF: Questions
                                 </Link>
@@ -1371,7 +1014,7 @@ export default function FacultyPage() {
                                   href={`/faculty/papers/${p.id}/print?mode=solutions&download=1`}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-accent bg-white px-3 py-1.5 text-[12.5px] font-extrabold text-accent no-underline shadow-[0_4px_0_#E2C2F0] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#E2C2F0] active:translate-y-[3px] active:shadow-[0_1px_0_#E2C2F0] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                                  className={BTN_ACCENT}
                                 >
                                   PDF: Solutions
                                 </Link>
@@ -1379,7 +1022,7 @@ export default function FacultyPage() {
                                   href={`/faculty/papers/${p.id}/print?mode=key&download=1`}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-accent bg-white px-3 py-1.5 text-[12.5px] font-extrabold text-accent no-underline shadow-[0_4px_0_#E2C2F0] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#E2C2F0] active:translate-y-[3px] active:shadow-[0_1px_0_#E2C2F0] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                                  className={BTN_ACCENT}
                                 >
                                   PDF: Key
                                 </Link>
@@ -1387,7 +1030,7 @@ export default function FacultyPage() {
                             )}
                             <button
                               type="button"
-                              className="cursor-pointer rounded-xl border border-[#C8202F]/30 bg-white px-2.5 py-1.5 text-[12px] font-bold text-[#C8202F] transition-colors duration-150 hover:bg-[#FDF3F4] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                              className={BTN_DANGER}
                               disabled={p.status === 'generating'}
                               onClick={() => void handleDeletePaper(p.id)}
                             >

@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import type { Question, AnswerResult, Subject, TopicProgress, PaperSet } from '@/types';
 import type { SplitTopics } from '@/lib/api';
-import type { AppState, WizardStep, DiffOption, MarkingScheme, StoredResult, QuestionTypeCounts, DifficultyDistribution } from './shared';
-import { getDefaultQuestionTypes, DEFAULT_DIFFICULTY_DISTRIBUTION } from './shared';
+import type { AppState, WizardStep, MarkingScheme, StoredResult, TopicCustomConfig } from './shared';
+import { getDefaultQuestionTypes, planTopicTypeSlots, createBalancedDifficulty, getTypeTotal, getTopicTotal, MAX_TOPIC_QUESTIONS } from './shared';
 import type { PracticeExamConfig } from './examConfig';
 import { SessionReview } from './SessionReview';
 import { SubjectStep } from './SubjectStep';
@@ -60,21 +60,140 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   const [selectedTopics, setSelectedTopics] = useState<Partial<Record<Subject, Set<string>>>>({});
   const [questionCount, setQuestionCount] = useState<number | 'custom'>(10);
   const [customCount, setCustomCount] = useState('');
-  const [difficulty, setDifficulty] = useState<DiffOption>('mixed');
-  const [difficultyMode, setDifficultyMode] = useState<'preset' | 'custom'>('preset');
-  const [difficultyDistribution, setDifficultyDistribution] = useState<DifficultyDistribution>(DEFAULT_DIFFICULTY_DISTRIBUTION);
   const [examType, setExamType] = useState<'Main' | 'Advanced'>('Main');
   const [markingScheme, setMarkingScheme] = useState<MarkingScheme>('jee_main');
-  const [questionTypeCounts, setQuestionTypeCounts] = useState<QuestionTypeCounts>(() =>
-    getDefaultQuestionTypes(10, 'Main', config.exam === 'NEET'),
-  );
+  const [topicConfigs, setTopicConfigs] = useState<Record<string, TopicCustomConfig>>({});
+  const prevCountRef = useRef(10);
+  const prevExamTypeRef = useRef<'Main' | 'Advanced'>('Main');
+
+  const handleExamTypeChange = useCallback((newExamType: 'Main' | 'Advanced') => {
+    setExamType(newExamType);
+    setMarkingScheme(newExamType === 'Advanced' ? 'jee_advanced' : 'jee_main');
+  }, []);
+
+  const resolvedCount = useCallback((): number => {
+    if (questionCount === 'custom') {
+      const n = parseInt(customCount, 10);
+      return isNaN(n) || n < 1 ? 5 : Math.min(n, config.maxPerSubject);
+    }
+    return questionCount;
+  }, [questionCount, customCount, config.maxPerSubject]);
+
+  const autoDistributeTopicsForSubject = useCallback((subject: Subject) => {
+    const topics = Array.from(selectedTopics[subject] ?? new Set<string>());
+    if (topics.length === 0) return;
+
+    const perSubject = resolvedCount();
+    const isAdv = !isNeet && examType === 'Advanced';
+    const isNeetMode = isNeet;
+
+    const k = topics.length;
+    const baseQuota = Math.floor(perSubject / k);
+    const remainder = perSubject % k;
+
+    setTopicConfigs((prev) => {
+      const next = { ...prev };
+      topics.forEach((topic, idx) => {
+        const topicCount = Math.min(MAX_TOPIC_QUESTIONS, baseQuota + (idx < remainder ? 1 : 0));
+        const defTypes = getDefaultQuestionTypes(topicCount, examType, isNeet);
+        const typeSlots = planTopicTypeSlots(topicCount, defTypes, isAdv, isNeetMode);
+
+        const mcqCount = typeSlots.filter((t) => t === 'mcq_single').length;
+        const integerCount = typeSlots.filter((t) => t === 'integer').length;
+        const multiCount = typeSlots.filter((t) => t === 'mcq_multi').length;
+        const matrixCount = typeSlots.filter((t) => t === 'matrix_match').length;
+
+        const key = `${subject}::${topic}`;
+        next[key] = {
+          subject,
+          topic,
+          mcq: createBalancedDifficulty(mcqCount),
+          integer: createBalancedDifficulty(integerCount),
+          multi: createBalancedDifficulty(multiCount),
+          matrix: createBalancedDifficulty(matrixCount),
+        };
+      });
+      return next;
+    });
+  }, [selectedTopics, resolvedCount, isNeet, examType]);
+
+  const autoDistributeAllTopics = useCallback(() => {
+    const perSubject = resolvedCount();
+    const isAdv = !isNeet && examType === 'Advanced';
+    const isNeetMode = isNeet;
+
+    setTopicConfigs((prev) => {
+      const next = { ...prev };
+      for (const subject of selectedSubjects) {
+        const topics = Array.from(selectedTopics[subject] ?? new Set<string>());
+        if (topics.length === 0) continue;
+        const k = topics.length;
+        const baseQuota = Math.floor(perSubject / k);
+        const remainder = perSubject % k;
+
+        topics.forEach((topic, idx) => {
+          const topicCount = Math.min(MAX_TOPIC_QUESTIONS, baseQuota + (idx < remainder ? 1 : 0));
+          const defTypes = getDefaultQuestionTypes(topicCount, examType, isNeet);
+          const typeSlots = planTopicTypeSlots(topicCount, defTypes, isAdv, isNeetMode);
+
+          const mcqCount = typeSlots.filter((t) => t === 'mcq_single').length;
+          const integerCount = typeSlots.filter((t) => t === 'integer').length;
+          const multiCount = typeSlots.filter((t) => t === 'mcq_multi').length;
+          const matrixCount = typeSlots.filter((t) => t === 'matrix_match').length;
+
+          const key = `${subject}::${topic}`;
+          next[key] = {
+            subject,
+            topic,
+            mcq: createBalancedDifficulty(mcqCount),
+            integer: createBalancedDifficulty(integerCount),
+            multi: createBalancedDifficulty(multiCount),
+            matrix: createBalancedDifficulty(matrixCount),
+          };
+        });
+      }
+      return next;
+    });
+  }, [selectedSubjects, selectedTopics, resolvedCount, isNeet, examType]);
 
   useEffect(() => {
-    const count = questionCount === 'custom'
-      ? Math.max(1, Math.min(parseInt(customCount, 10) || 10, config.maxPerSubject))
-      : questionCount;
-    setQuestionTypeCounts(getDefaultQuestionTypes(count, examType, config.exam === 'NEET'));
-  }, [questionCount, customCount, examType, config.exam, config.maxPerSubject]);
+    if (wizardStep !== 3) return;
+    const perSubject = resolvedCount();
+
+    let missing = false;
+    for (const subject of selectedSubjects) {
+      for (const topic of selectedTopics[subject] ?? []) {
+        const key = `${subject}::${topic}`;
+        if (!topicConfigs[key]) {
+          missing = true;
+          break;
+        }
+      }
+      if (missing) break;
+    }
+
+    if (missing || prevCountRef.current !== perSubject || prevExamTypeRef.current !== examType) {
+      prevCountRef.current = perSubject;
+      prevExamTypeRef.current = examType;
+      autoDistributeAllTopics();
+    }
+  }, [wizardStep, selectedSubjects, selectedTopics, autoDistributeAllTopics, topicConfigs, resolvedCount, examType]);
+
+  const areTopicConfigsValid = useMemo(() => {
+    if (selectedSubjects.size === 0) return true;
+    const perSubject = resolvedCount();
+
+    for (const subject of selectedSubjects) {
+      const topics = Array.from(selectedTopics[subject] ?? new Set<string>());
+      if (topics.length === 0) continue;
+      const subjectTotal = topics.reduce((sum, topic) => {
+        const key = `${subject}::${topic}`;
+        return sum + getTopicTotal(topicConfigs[key]);
+      }, 0);
+      if (subjectTotal !== perSubject) return false;
+    }
+    return true;
+  }, [selectedSubjects, selectedTopics, topicConfigs, resolvedCount]);
 
   /* ── Topics (fetched from API) ── */
   const [topicsByClass, setTopicsByClass] = useState<SplitTopics | null>(null);
@@ -301,52 +420,118 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   }
 
   /* ─── Build selections array ──────────────────────────── */
-  function buildSelections(): Array<{ subject: Subject; topic: string }> {
-    const out: Array<{ subject: Subject; topic: string }> = [];
+  function buildSelections(): Array<{
+    subject: Subject;
+    topic: string;
+    count?: number;
+    mcqCount?: number;
+    integerCount?: number;
+    multiCount?: number;
+    matrixCount?: number;
+    beginnerCount?: number;
+    intermediateCount?: number;
+    advancedCount?: number;
+    mcqEasy?: number;
+    mcqMedium?: number;
+    mcqHard?: number;
+    integerEasy?: number;
+    integerMedium?: number;
+    integerHard?: number;
+    multiEasy?: number;
+    multiMedium?: number;
+    multiHard?: number;
+    matrixEasy?: number;
+    matrixMedium?: number;
+    matrixHard?: number;
+  }> {
+    const out: Array<{
+      subject: Subject;
+      topic: string;
+      count?: number;
+      mcqCount?: number;
+      integerCount?: number;
+      multiCount?: number;
+      matrixCount?: number;
+      beginnerCount?: number;
+      intermediateCount?: number;
+      advancedCount?: number;
+      mcqEasy?: number;
+      mcqMedium?: number;
+      mcqHard?: number;
+      integerEasy?: number;
+      integerMedium?: number;
+      integerHard?: number;
+      multiEasy?: number;
+      multiMedium?: number;
+      multiHard?: number;
+      matrixEasy?: number;
+      matrixMedium?: number;
+      matrixHard?: number;
+    }> = [];
     for (const subject of selectedSubjects) {
       for (const topic of (selectedTopics[subject] ?? new Set())) {
-        out.push({ subject, topic });
+        const key = `${subject}::${topic}`;
+        const cfg = topicConfigs[key];
+        if (cfg) {
+          const mcqTotal = getTypeTotal(cfg.mcq);
+          const integerTotal = getTypeTotal(cfg.integer);
+          const multiTotal = getTypeTotal(cfg.multi);
+          const matrixTotal = getTypeTotal(cfg.matrix);
+          const totalQ = mcqTotal + integerTotal + multiTotal + matrixTotal;
+
+          const beginnerTotal = (cfg.mcq?.easy || 0) + (cfg.integer?.easy || 0) + (cfg.multi?.easy || 0) + (cfg.matrix?.easy || 0);
+          const intermediateTotal = (cfg.mcq?.medium || 0) + (cfg.integer?.medium || 0) + (cfg.multi?.medium || 0) + (cfg.matrix?.medium || 0);
+          const advancedTotal = (cfg.mcq?.hard || 0) + (cfg.integer?.hard || 0) + (cfg.multi?.hard || 0) + (cfg.matrix?.hard || 0);
+
+          out.push({
+            subject,
+            topic,
+            count: totalQ,
+            mcqCount: mcqTotal,
+            integerCount: integerTotal,
+            multiCount: multiTotal,
+            matrixCount: matrixTotal,
+            beginnerCount: beginnerTotal,
+            intermediateCount: intermediateTotal,
+            advancedCount: advancedTotal,
+            mcqEasy: cfg.mcq?.easy || 0,
+            mcqMedium: cfg.mcq?.medium || 0,
+            mcqHard: cfg.mcq?.hard || 0,
+            integerEasy: cfg.integer?.easy || 0,
+            integerMedium: cfg.integer?.medium || 0,
+            integerHard: cfg.integer?.hard || 0,
+            multiEasy: cfg.multi?.easy || 0,
+            multiMedium: cfg.multi?.medium || 0,
+            multiHard: cfg.multi?.hard || 0,
+            matrixEasy: cfg.matrix?.easy || 0,
+            matrixMedium: cfg.matrix?.medium || 0,
+            matrixHard: cfg.matrix?.hard || 0,
+          });
+        } else {
+          out.push({ subject, topic });
+        }
       }
     }
     return out;
   }
 
-  function resolvedCount(): number {
-    if (questionCount === 'custom') {
-      const n = parseInt(customCount, 10);
-      return isNaN(n) || n < 1 ? 5 : Math.min(n, config.maxPerSubject);
-    }
-    return questionCount;
-  }
-
   /* ─── Paper row: preview papers, then claim the chosen one (JEE) ── */
   async function loadPapers(page: number) {
     const perSubject = resolvedCount();
-    const allocatedTypes =
-      (questionTypeCounts.mcq_single || 0) +
-      (questionTypeCounts.integer || 0) +
-      (questionTypeCounts.matrix_match || 0) +
-      (!isNeet && examType === 'Advanced' ? (questionTypeCounts.mcq_multi || 0) : 0);
 
-    if (allocatedTypes !== perSubject) {
-      setLoadError(
-        allocatedTypes > perSubject
-          ? `Question limit exceeded: you have allocated ${allocatedTypes} questions, but the session is set to ${perSubject} per subject. Please reduce question counts or click Auto-balance.`
-          : `Questions under-allocated: you have allocated ${allocatedTypes} of ${perSubject} questions. Please add ${perSubject - allocatedTypes} more question(s) or click Auto-balance.`,
-      );
-      return;
-    }
-
-    if (difficultyMode === 'custom') {
-      const totalPct =
-        (difficultyDistribution.beginner || 0) +
-        (difficultyDistribution.intermediate || 0) +
-        (difficultyDistribution.advanced || 0);
-      if (totalPct !== 100) {
-        setLoadError(
-          `Difficulty percentage mismatch: total is ${totalPct}% (must equal exactly 100%). Please adjust percentages or click Normalize to 100%.`,
-        );
-        return;
+    if (!areTopicConfigsValid) {
+      for (const subject of selectedSubjects) {
+        const topics = Array.from(selectedTopics[subject] ?? new Set<string>());
+        const subjectTotal = topics.reduce((sum, topic) => {
+          const cfg = topicConfigs[`${subject}::${topic}`];
+          return sum + getTopicTotal(cfg);
+        }, 0);
+        if (subjectTotal !== perSubject) {
+          setLoadError(
+            `Questions in ${subject} (${subjectTotal}) do not match the target of ${perSubject} questions per subject. Adjust counts or click Auto-match.`,
+          );
+          return;
+        }
       }
     }
 
@@ -356,13 +541,11 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
     try {
       const res = await api.questions.papers({
         selections: buildSelections(),
-        difficulty,
+        difficulty: 'mixed',
         examType,
         studentClass: batchClass,
         perSubject: resolvedCount(),
         page,
-        questionTypes: questionTypeCounts,
-        difficultyDistribution: difficultyMode === 'custom' || difficulty === 'mixed' ? difficultyDistribution : undefined,
       });
       setPaperSets(res.papers);
       setPaperPage(res.page);
@@ -400,32 +583,22 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   /* ─── Start exam (fetch batch) ────────────────────────── */
   const startExam = useCallback(async () => {
     const perSubject = resolvedCount();
-    const allocatedTypes =
-      (questionTypeCounts.mcq_single || 0) +
-      (questionTypeCounts.integer || 0) +
-      (questionTypeCounts.matrix_match || 0) +
-      (!isNeet && examType === 'Advanced' ? (questionTypeCounts.mcq_multi || 0) : 0);
 
-    if (allocatedTypes !== perSubject) {
-      setLoadError(
-        allocatedTypes > perSubject
-          ? `Question limit exceeded: you have allocated ${allocatedTypes} questions, but the session is set to ${perSubject} per subject. Please reduce question counts or click Auto-balance.`
-          : `Questions under-allocated: you have allocated ${allocatedTypes} of ${perSubject} questions per subject. Please add ${perSubject - allocatedTypes} more question(s) or click Auto-balance.`,
-      );
-      return;
-    }
-
-    if (difficultyMode === 'custom') {
-      const totalPct =
-        (difficultyDistribution.beginner || 0) +
-        (difficultyDistribution.intermediate || 0) +
-        (difficultyDistribution.advanced || 0);
-      if (totalPct !== 100) {
-        setLoadError(
-          `Difficulty percentage mismatch: total is ${totalPct}% (must equal exactly 100%). Please adjust percentages or click Normalize to 100%.`,
-        );
-        return;
+    if (!areTopicConfigsValid) {
+      for (const subject of selectedSubjects) {
+        const topics = Array.from(selectedTopics[subject] ?? new Set<string>());
+        const subjectTotal = topics.reduce((sum, topic) => {
+          const cfg = topicConfigs[`${subject}::${topic}`];
+          return sum + getTopicTotal(cfg);
+        }, 0);
+        if (subjectTotal !== perSubject) {
+          setLoadError(
+            `Questions in ${subject} (${subjectTotal}) do not match the target of ${perSubject} questions per subject. Adjust counts or click Auto-match.`,
+          );
+          return;
+        }
       }
+      return;
     }
 
     enterFullscreen();
@@ -443,12 +616,10 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
 
       const batch = await api.questions.batch({
         selections,
-        difficulty,
+        difficulty: 'mixed',
         examType: isNeet ? 'NEET' : examType,
         studentClass: batchClass,
         count,
-        questionTypes: questionTypeCounts,
-        difficultyDistribution: difficultyMode === 'custom' || difficulty === 'mixed' ? difficultyDistribution : undefined,
       });
 
       clearInterval(msgInterval);
@@ -472,7 +643,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
       setAppState('wizard');
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedSubjects, selectedTopics, questionCount, customCount, difficulty, difficultyMode, difficultyDistribution, questionTypeCounts, examType, batchClass, isNeet, config]);
+  }, [selectedSubjects, selectedTopics, questionCount, customCount, examType, batchClass, isNeet, config, areTopicConfigsValid, topicConfigs, resolvedCount]);
 
   // Keep the active question dot in view within the horizontal palette
   useEffect(() => {
@@ -688,6 +859,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                 onChoosePaper={choosePaper}
                 onPageChange={loadPapers}
                 onStartExam={startExam}
+                onBack={() => setShowPapers(false)}
               />
             )}
 
@@ -698,21 +870,17 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                 onQuestionCount={setQuestionCount}
                 customCount={customCount}
                 onCustomCount={setCustomCount}
-                difficulty={difficulty}
-                onDifficulty={setDifficulty}
-                difficultyMode={difficultyMode}
-                onDifficultyMode={setDifficultyMode}
-                difficultyDistribution={difficultyDistribution}
-                onDifficultyDistribution={setDifficultyDistribution}
-                questionTypeCounts={questionTypeCounts}
-                onQuestionTypeCounts={setQuestionTypeCounts}
                 examType={examType}
-                onExamType={setExamType}
+                onExamType={handleExamTypeChange}
                 markingScheme={markingScheme}
                 onMarkingScheme={setMarkingScheme}
                 perSubjectCount={resolvedCount()}
                 selectedSubjects={selectedSubjects}
                 selectedTopics={selectedTopics}
+                topicConfigs={topicConfigs}
+                onTopicConfigs={setTopicConfigs}
+                onAutoDistributeSubject={autoDistributeTopicsForSubject}
+                onAutoDistributeAll={autoDistributeAllTopics}
               />
             )}
           </div>
@@ -734,20 +902,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
               <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
                 {(() => {
                   const perSubject = resolvedCount();
-                  const totalAllocatedTypes =
-                    (questionTypeCounts.mcq_single || 0) +
-                    (questionTypeCounts.integer || 0) +
-                    (questionTypeCounts.matrix_match || 0) +
-                    (!isNeet && examType === 'Advanced' ? (questionTypeCounts.mcq_multi || 0) : 0);
-                  const isTypeCountValid = totalAllocatedTypes === perSubject;
-
-                  const totalDifficultyPct =
-                    (difficultyDistribution.beginner || 0) +
-                    (difficultyDistribution.intermediate || 0) +
-                    (difficultyDistribution.advanced || 0);
-                  const isDifficultyValid = difficultyMode !== 'custom' || totalDifficultyPct === 100;
-
-                  const canStartSession = isTypeCountValid && isDifficultyValid;
+                  const canStartSession = areTopicConfigsValid;
 
                   return (
                     <>
@@ -766,64 +921,39 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                             gap: 4,
                           }}
                         >
-                          ⚠️ {!isTypeCountValid && !isDifficultyValid
-                            ? `Adjust question types (${totalAllocatedTypes}/${perSubject}) and difficulty (${totalDifficultyPct}%/100%)`
-                            : !isTypeCountValid
-                            ? totalAllocatedTypes > perSubject
-                              ? `Question count exceeded (${totalAllocatedTypes}/${perSubject}). Reduce values to proceed.`
-                              : `Question count under-allocated (${totalAllocatedTypes}/${perSubject}). Add values to proceed.`
-                            : `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`}
+                          ⚠️ Topic questions must match target ({perSubject}/subject). Click Auto-match.
                         </span>
                       )}
-                      {config.hasPapers ? (
+                      {config.hasPapers && perSubject <= 30 && (
                         <button
                           type="button"
-                          className="btn btn-primary btn-lg"
+                          className="btn btn-ghost btn-lg"
                           disabled={!canStartSession}
-                          onClick={(e) => {
-                            if (!canStartSession) {
-                              e.preventDefault();
-                              setLoadError(
-                                !isTypeCountValid
-                                  ? totalAllocatedTypes > perSubject
-                                    ? `Question count exceeded (${totalAllocatedTypes}/${perSubject}). Reduce values to proceed.`
-                                    : `Question count under-allocated (${totalAllocatedTypes}/${perSubject}). Add values to proceed.`
-                                  : `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`,
-                              );
-                              return;
-                            }
+                          onClick={() => {
+                            if (!canStartSession) return;
                             loadPapers(1);
                           }}
-                          style={!canStartSession ? { opacity: 0.5, cursor: 'not-allowed' } : undefined}
                         >
-                          Browse papers
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          className="btn btn-primary btn-lg"
-                          disabled={!canStartSession}
-                          onClick={(e) => {
-                            if (!canStartSession) {
-                              e.preventDefault();
-                              setLoadError(
-                                !isTypeCountValid
-                                  ? totalAllocatedTypes > perSubject
-                                    ? `Question count exceeded (${totalAllocatedTypes}/${perSubject}). Reduce values to proceed.`
-                                    : `Question count under-allocated (${totalAllocatedTypes}/${perSubject}). Add values to proceed.`
-                                  : `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`,
-                              );
-                              return;
-                            }
-                            startExam();
-                          }}
-                          style={!canStartSession ? { opacity: 0.5, cursor: 'not-allowed' } : undefined}
-                        >
-                          Start practice
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                          Browse pre-made papers
                         </button>
                       )}
+                      <button
+                        type="button"
+                        className="btn btn-primary btn-lg"
+                        disabled={!canStartSession}
+                        onClick={(e) => {
+                          if (!canStartSession) {
+                            e.preventDefault();
+                            setLoadError('Topic questions must match target for each subject. Click Auto-match to balance.');
+                            return;
+                          }
+                          startExam();
+                        }}
+                        style={!canStartSession ? { opacity: 0.5, cursor: 'not-allowed' } : undefined}
+                      >
+                        Start practice ({perSubject * selectedSubjects.size} Qs)
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                      </button>
                     </>
                   );
                 })()}

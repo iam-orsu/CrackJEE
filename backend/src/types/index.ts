@@ -14,6 +14,33 @@ export interface DifficultyDistribution {
 }
 export const NEET_SUBJECTS: Subject[] = ['Physics', 'Chemistry', 'Botany', 'Zoology'];
 
+export interface TopicSelectionConfig {
+  subject: Subject;
+  topic: string;
+  count?: number;
+  mcqCount?: number;
+  integerCount?: number;
+  multiCount?: number;
+  matrixCount?: number;
+  beginnerCount?: number;
+  intermediateCount?: number;
+  advancedCount?: number;
+  mcqEasy?: number;
+  mcqMedium?: number;
+  mcqHard?: number;
+  integerEasy?: number;
+  integerMedium?: number;
+  integerHard?: number;
+  multiEasy?: number;
+  multiMedium?: number;
+  multiHard?: number;
+  matrixEasy?: number;
+  matrixMedium?: number;
+  matrixHard?: number;
+  difficulty?: Difficulty | 'mixed';
+  difficultyDistribution?: DifficultyDistribution;
+}
+
 export interface AuthPayload {
   userId: string;
   // Unique token id: lets logout revoke this exact token

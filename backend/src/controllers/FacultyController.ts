@@ -2,6 +2,8 @@ import type { Response, NextFunction } from 'express';
 import { z } from 'zod';
 import { FacultyAuthService } from '../services/FacultyAuthService';
 import { facultyPaperService, type FacultyPaperService } from '../services/FacultyPaperService';
+import { FacultyBatchService } from '../services/FacultyBatchService';
+import { FacultyAssignmentService } from '../services/FacultyAssignmentService';
 import {
   clearFacultyCookie,
   setFacultyCookie,
@@ -22,6 +24,18 @@ const selectionSchema = z.object({
   integerCount: z.number().int().min(0).max(180).optional(),
   multiCount: z.number().int().min(0).max(180).optional(),
   matrixCount: z.number().int().min(0).max(180).optional(),
+  mcqEasy: z.number().int().min(0).max(180).optional(),
+  mcqMedium: z.number().int().min(0).max(180).optional(),
+  mcqHard: z.number().int().min(0).max(180).optional(),
+  integerEasy: z.number().int().min(0).max(180).optional(),
+  integerMedium: z.number().int().min(0).max(180).optional(),
+  integerHard: z.number().int().min(0).max(180).optional(),
+  multiEasy: z.number().int().min(0).max(180).optional(),
+  multiMedium: z.number().int().min(0).max(180).optional(),
+  multiHard: z.number().int().min(0).max(180).optional(),
+  matrixEasy: z.number().int().min(0).max(180).optional(),
+  matrixMedium: z.number().int().min(0).max(180).optional(),
+  matrixHard: z.number().int().min(0).max(180).optional(),
 });
 
 const createPaperSchema = z.object({
@@ -75,6 +89,31 @@ const acceptDraftSchema = z.object({
   verified: z.boolean(),
 });
 
+const createBatchSchema = z.object({
+  name: z.string().trim().min(1, 'Batch name is required').max(100),
+  code: z.string().trim().min(1, 'Batch code is required').max(50),
+  description: z.string().trim().max(300).optional(),
+});
+
+const createStudentSchema = z.object({
+  batchId: z.string().min(1, 'Batch is required'),
+  name: z.string().trim().min(1, 'Student name is required').max(100),
+  rollNumber: z.string().trim().min(1, 'Roll number is required').max(50),
+  email: z.string().trim().email().optional().or(z.literal('')),
+  password: z.string().min(4, 'Password must be at least 4 characters').optional().or(z.literal('')),
+});
+
+const createAssignmentSchema = z.object({
+  paperId: z.string().min(1, 'Paper is required'),
+  batchId: z.string().min(1, 'Batch is required'),
+  title: z.string().trim().min(1, 'Title is required').max(150),
+  instructions: z.string().max(2000).optional(),
+  durationMinutes: z.number().int().min(10).max(360).default(180),
+  startTime: z.string().nullable().optional(),
+  endTime: z.string().nullable().optional(),
+  showSolutions: z.boolean().default(true),
+});
+
 function parseQuestionNumber(raw: unknown): number {
   const num = Number(Array.isArray(raw) ? raw[0] : raw);
   if (!Number.isInteger(num) || num < 1 || num > 180) {
@@ -92,6 +131,8 @@ export class FacultyController {
   constructor(
     private readonly authService: FacultyAuthService = new FacultyAuthService(),
     private readonly paperService: FacultyPaperService = facultyPaperService,
+    private readonly batchService: FacultyBatchService = new FacultyBatchService(),
+    private readonly assignmentService: FacultyAssignmentService = new FacultyAssignmentService(),
   ) {}
 
   public readonly login = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
@@ -315,6 +356,127 @@ export class FacultyController {
     try {
       await this.paperService.deletePaper(req.faculty!.facultyId, String(req.params.id));
       res.json({ success: true });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  // ── Batch Management ──
+  public readonly listBatches = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const batches = await this.batchService.listBatches(req.faculty!.facultyId);
+      res.json({ success: true, batches });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly createBatch = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const parsed = createBatchSchema.safeParse(req.body);
+      if (!parsed.success) {
+        throw new AppError(400, parsed.error.issues[0]?.message ?? 'Invalid batch details');
+      }
+      const batch = await this.batchService.createBatch(req.faculty!.facultyId, parsed.data);
+      res.status(201).json({ success: true, batch });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly deleteBatch = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      await this.batchService.deleteBatch(String(req.params.id), req.faculty!.facultyId);
+      res.json({ success: true });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  // ── Student Management ──
+  public readonly listStudents = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const batchId = typeof req.query.batchId === 'string' ? req.query.batchId : undefined;
+      const students = await this.batchService.listStudents(req.faculty!.facultyId, batchId);
+      res.json({ success: true, students });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly createStudent = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const parsed = createStudentSchema.safeParse(req.body);
+      if (!parsed.success) {
+        throw new AppError(400, parsed.error.issues[0]?.message ?? 'Invalid student details');
+      }
+      const result = await this.batchService.createStudent(req.faculty!.facultyId, {
+        batchId: parsed.data.batchId,
+        name: parsed.data.name,
+        rollNumber: parsed.data.rollNumber,
+        email: parsed.data.email || undefined,
+        password: parsed.data.password || undefined,
+      });
+      res.status(201).json({ success: true, student: result.student, initialPassword: result.initialPassword });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly deleteStudent = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      await this.batchService.deleteStudent(String(req.params.id), req.faculty!.facultyId);
+      res.json({ success: true });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  // ── Exam Assignments & Batch Reports ──
+  public readonly listAssignments = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const assignments = await this.assignmentService.listAssignments(req.faculty!.facultyId);
+      res.json({ success: true, assignments });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly createAssignment = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const parsed = createAssignmentSchema.safeParse(req.body);
+      if (!parsed.success) {
+        throw new AppError(400, parsed.error.issues[0]?.message ?? 'Invalid assignment details');
+      }
+      const assignment = await this.assignmentService.createAssignment(req.faculty!.facultyId, {
+        paperId: parsed.data.paperId,
+        batchId: parsed.data.batchId,
+        title: parsed.data.title,
+        instructions: parsed.data.instructions,
+        durationMinutes: parsed.data.durationMinutes,
+        startTime: parsed.data.startTime,
+        endTime: parsed.data.endTime,
+        showSolutions: parsed.data.showSolutions,
+      });
+      res.status(201).json({ success: true, assignment });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly deleteAssignment = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      await this.assignmentService.deleteAssignment(String(req.params.id), req.faculty!.facultyId);
+      res.json({ success: true });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly getAssignmentReport = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const report = await this.assignmentService.getAssignmentReport(String(req.params.id), req.faculty!.facultyId);
+      res.json({ success: true, report });
     } catch (err) {
       next(err);
     }
