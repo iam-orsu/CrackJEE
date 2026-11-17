@@ -7,7 +7,9 @@ import {
   type FacultyAssignmentReport,
   type FacultyAssignmentSummary,
 } from '@/lib/faculty';
-import styles from '@/app/faculty/faculty.module.css';
+
+const SELECT =
+  'h-[46px] min-w-[260px] cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none';
 
 interface FacultyReportsTabProps {
   initialAssignmentId?: string | null;
@@ -48,22 +50,21 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+    <div className="flex flex-col gap-6">
       {/* Top Header & Assignment Picker */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+      <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h2 style={{ fontSize: '18px', fontWeight: 600, color: 'var(--ink)' }}>Batch Performance Reports</h2>
-          <p style={{ fontSize: '13px', color: 'var(--muted)' }}>
+          <h2 className="font-display text-[18px] font-extrabold text-[#003366]">Batch Performance Reports</h2>
+          <p className="text-[13px] text-[#5A6B8C]">
             Examine student rankings, score distributions, and topic accuracy across your assigned exams.
           </p>
         </div>
 
         {assignments.length > 0 && (
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <label style={{ fontSize: '13px', fontWeight: 500, color: 'var(--ink-2)' }}>Select Exam:</label>
+          <div className="flex items-center gap-2.5">
+            <label className="text-[13px] font-medium text-[#31407F]">Select Exam:</label>
             <select
-              className={styles.select}
-              style={{ minWidth: '260px' }}
+              className={SELECT}
               value={selectedAssignmentId}
               onChange={(e) => setSelectedAssignmentId(e.target.value)}
             >
@@ -77,58 +78,58 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
         )}
       </div>
 
-      {error && <div className={styles.error}>{error}</div>}
+      {error && <div className="mb-3.5 rounded-2xl border border-[#C8202F]/25 bg-[#FDF3F4] px-3.5 py-2.5 text-[13px] font-semibold text-[#C8202F]">{error}</div>}
 
       {loading ? (
-        <div style={{ padding: '40px', textAlign: 'center', color: 'var(--muted)' }}>
-          Loading batch performance data…
+        <div className="px-10 py-10 text-center text-[#5A6B8C]">
+          Loading batch performance data...
         </div>
       ) : !report ? (
-        <div className={styles.emptyState}>
+        <div className="rounded-3xl border border-dashed border-[#003366]/20 bg-white px-5 py-9 text-center text-[13.5px] font-medium text-[#5A6B8C]">
           No assignment selected or no assigned exams found. Assign an exam to a batch to view reports.
         </div>
       ) : (
         <>
           {/* Summary Overview Cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
-            <div className={styles.panel} style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--muted)', textTransform: 'uppercase' }}>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
+            <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+              <div className="text-[12px] font-semibold uppercase text-[#5A6B8C]">
                 Batch Average
               </div>
-              <div style={{ fontSize: '28px', fontWeight: 700, color: 'var(--ink)', margin: '8px 0 2px' }}>
+              <div className="my-2 font-display text-[28px] font-extrabold text-[#003366]">
                 {report.summary.avgScore}
               </div>
-              <div style={{ fontSize: '12px', color: 'var(--muted)' }}>Marks</div>
+              <div className="text-[12px] text-[#5A6B8C]">Marks</div>
             </div>
 
-            <div className={styles.panel} style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--muted)', textTransform: 'uppercase' }}>
+            <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+              <div className="text-[12px] font-semibold uppercase text-[#5A6B8C]">
                 Highest Score
               </div>
-              <div style={{ fontSize: '28px', fontWeight: 700, color: 'var(--accent)', margin: '8px 0 2px' }}>
+              <div className="my-2 font-display text-[28px] font-extrabold text-accent">
                 {report.summary.highestScore}
               </div>
-              <div style={{ fontSize: '12px', color: 'var(--muted)' }}>Marks (Top Rank)</div>
+              <div className="text-[12px] text-[#5A6B8C]">Marks (Top Rank)</div>
             </div>
 
-            <div className={styles.panel} style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--muted)', textTransform: 'uppercase' }}>
+            <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+              <div className="text-[12px] font-semibold uppercase text-[#5A6B8C]">
                 Lowest Score
               </div>
-              <div style={{ fontSize: '28px', fontWeight: 700, color: '#ef4444', margin: '8px 0 2px' }}>
+              <div className="my-2 font-display text-[28px] font-extrabold text-[#C8202F]">
                 {report.summary.lowestScore}
               </div>
-              <div style={{ fontSize: '12px', color: 'var(--muted)' }}>Marks</div>
+              <div className="text-[12px] text-[#5A6B8C]">Marks</div>
             </div>
 
-            <div className={styles.panel} style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--muted)', textTransform: 'uppercase' }}>
+            <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+              <div className="text-[12px] font-semibold uppercase text-[#5A6B8C]">
                 Submissions
               </div>
-              <div style={{ fontSize: '28px', fontWeight: 700, color: 'var(--ink)', margin: '8px 0 2px' }}>
+              <div className="my-2 font-display text-[28px] font-extrabold text-[#003366]">
                 {report.summary.submittedCount} / {report.summary.totalEnrolled}
               </div>
-              <div style={{ fontSize: '12px', color: 'var(--accent)' }}>
+              <div className="text-[12px] text-accent">
                 {report.summary.totalEnrolled > 0
                   ? `${Math.round((report.summary.submittedCount / report.summary.totalEnrolled) * 100)}% turnout`
                   : '—'}
@@ -137,30 +138,30 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
           </div>
 
           {/* Student Leaderboard Table */}
-          <div className={styles.panel}>
-            <div className={styles.panelTitle}>
+          <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+            <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2.5 font-display text-[17px] font-extrabold text-[#003366]">
               <span>Batch Leaderboard &amp; Rankings ({report.rankList.length})</span>
-              <span style={{ fontSize: '12px', fontWeight: 400, color: 'var(--muted)' }}>
+              <span className="text-[12px] font-normal text-[#5A6B8C]">
                 Ranked by Total Marks Descending
               </span>
             </div>
 
             {report.rankList.length === 0 ? (
-              <div className={styles.emptyState}>
+              <div className="rounded-3xl border border-dashed border-[#003366]/20 bg-white px-5 py-9 text-center text-[13.5px] font-medium text-[#5A6B8C]">
                 No student has submitted this exam yet. Students can take the test at <strong>/student-portal</strong>.
               </div>
             ) : (
-              <div style={{ overflowX: 'auto' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse text-[13px]">
                   <thead>
-                    <tr style={{ borderBottom: '2px solid var(--line)', textAlign: 'left', color: 'var(--muted)' }}>
-                      <th style={{ padding: '10px 12px', width: '60px' }}>Rank</th>
-                      <th style={{ padding: '10px 12px' }}>Roll Number</th>
-                      <th style={{ padding: '10px 12px' }}>Student Name</th>
-                      <th style={{ padding: '10px 12px', textAlign: 'center' }}>Score / Max</th>
-                      <th style={{ padding: '10px 12px', textAlign: 'center' }}>Accuracy</th>
-                      <th style={{ padding: '10px 12px', textAlign: 'center' }}>Correct / Wrong / Skip</th>
-                      <th style={{ padding: '10px 12px', textAlign: 'right' }}>Time Taken</th>
+                    <tr className="border-b-2 border-[#003366]/10 text-left text-[#5A6B8C]">
+                      <th className="w-[60px] px-3 py-2.5">Rank</th>
+                      <th className="px-3 py-2.5">Roll Number</th>
+                      <th className="px-3 py-2.5">Student Name</th>
+                      <th className="px-3 py-2.5 text-center">Score / Max</th>
+                      <th className="px-3 py-2.5 text-center">Accuracy</th>
+                      <th className="px-3 py-2.5 text-center">Correct / Wrong / Skip</th>
+                      <th className="px-3 py-2.5 text-right">Time Taken</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -170,44 +171,43 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                       const accuracy = totalAttempted > 0 ? Math.round((st.correctCount / totalAttempted) * 100) : 0;
 
                       return (
-                        <tr key={st.studentId} style={{ borderBottom: '1px solid var(--line)' }}>
-                          <td style={{ padding: '12px', fontWeight: 700, fontSize: '14px', color: 'var(--ink)' }}>
+                        <tr key={st.studentId} className="border-b border-[#003366]/10">
+                          <td className="px-3 py-3 text-[14px] font-bold text-[#003366]">
                             {medal}
                           </td>
-                          <td style={{ padding: '12px', fontWeight: 600, color: 'var(--accent)' }}>
+                          <td className="px-3 py-3 font-semibold text-accent">
                             {st.rollNumber}
                           </td>
-                          <td style={{ padding: '12px', fontWeight: 500, color: 'var(--ink)' }}>
+                          <td className="px-3 py-3 font-medium text-[#003366]">
                             {st.name}
                           </td>
-                          <td style={{ padding: '12px', textAlign: 'center' }}>
-                            <span style={{ fontWeight: 700, color: st.totalScore >= 0 ? 'var(--ink)' : '#ef4444' }}>
+                          <td className="px-3 py-3 text-center">
+                            <span className={st.totalScore >= 0 ? 'font-bold text-[#003366]' : 'font-bold text-[#C8202F]'}>
                               {st.totalScore}
                             </span>
-                            <span style={{ color: 'var(--muted)', fontSize: '12px' }}> / {st.maxScore}</span>
+                            <span className="text-[12px] text-[#5A6B8C]"> / {st.maxScore}</span>
                           </td>
-                          <td style={{ padding: '12px', textAlign: 'center' }}>
+                          <td className="px-3 py-3 text-center">
                             <span
-                              style={{
-                                background: accuracy >= 70 ? '#ecfdf5' : accuracy >= 40 ? '#fffbeb' : '#fef2f2',
-                                color: accuracy >= 70 ? '#065f46' : accuracy >= 40 ? '#b45309' : '#991b1b',
-                                padding: '2px 8px',
-                                borderRadius: '999px',
-                                fontSize: '11px',
-                                fontWeight: 600,
-                              }}
+                              className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${
+                                accuracy >= 70
+                                  ? 'bg-[#EAF7EF] text-[#146C33]'
+                                  : accuracy >= 40
+                                    ? 'bg-[#FEF3C7] text-[#B45309]'
+                                    : 'bg-[#FDF3F4] text-[#C8202F]'
+                              }`}
                             >
                               {accuracy}%
                             </span>
                           </td>
-                          <td style={{ padding: '12px', textAlign: 'center', fontSize: '12px' }}>
-                            <span style={{ color: '#10b981', fontWeight: 600 }}>+{st.correctCount}</span>{' '}
-                            <span style={{ color: 'var(--line)' }}>/</span>{' '}
-                            <span style={{ color: '#ef4444', fontWeight: 600 }}>-{st.incorrectCount}</span>{' '}
-                            <span style={{ color: 'var(--line)' }}>/</span>{' '}
-                            <span style={{ color: 'var(--muted)' }}>{st.unattemptedCount}</span>
+                          <td className="px-3 py-3 text-center text-[12px]">
+                            <span className="font-semibold text-[#15803D]">+{st.correctCount}</span>{' '}
+                            <span className="text-[#003366]/20">/</span>{' '}
+                            <span className="font-semibold text-[#C8202F]">-{st.incorrectCount}</span>{' '}
+                            <span className="text-[#003366]/20">/</span>{' '}
+                            <span className="text-[#5A6B8C]">{st.unattemptedCount}</span>
                           </td>
-                          <td style={{ padding: '12px', textAlign: 'right', color: 'var(--muted)', fontSize: '12px' }}>
+                          <td className="px-3 py-3 text-right text-[12px] text-[#5A6B8C]">
                             {formatTime(st.timeTakenSeconds)}
                           </td>
                         </tr>
@@ -220,82 +220,68 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
           </div>
 
           {/* Question-by-Question Batch Accuracy Analysis */}
-          <div className={styles.panel}>
-            <div className={styles.panelTitle}>
+          <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+            <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2.5 font-display text-[17px] font-extrabold text-[#003366]">
               <span>Question Difficulty &amp; Error Analysis</span>
-              <span style={{ fontSize: '12px', fontWeight: 400, color: 'var(--muted)' }}>
+              <span className="text-[12px] font-normal text-[#5A6B8C]">
                 Identifies questions and topics the batch struggled with most
               </span>
             </div>
 
-            <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse text-[13px]">
                 <thead>
-                  <tr style={{ borderBottom: '2px solid var(--line)', textAlign: 'left', color: 'var(--muted)' }}>
-                    <th style={{ padding: '10px 12px', width: '50px' }}>Q#</th>
-                    <th style={{ padding: '10px 12px' }}>Subject</th>
-                    <th style={{ padding: '10px 12px' }}>Topic</th>
-                    <th style={{ padding: '10px 12px' }}>Type</th>
-                    <th style={{ padding: '10px 12px', minWidth: '160px' }}>Batch Accuracy</th>
-                    <th style={{ padding: '10px 12px', textAlign: 'right' }}>Correct / Wrong / Skip</th>
+                  <tr className="border-b-2 border-[#003366]/10 text-left text-[#5A6B8C]">
+                    <th className="w-[50px] px-3 py-2.5">Q#</th>
+                    <th className="px-3 py-2.5">Subject</th>
+                    <th className="px-3 py-2.5">Topic</th>
+                    <th className="px-3 py-2.5">Type</th>
+                    <th className="min-w-[160px] px-3 py-2.5">Batch Accuracy</th>
+                    <th className="px-3 py-2.5 text-right">Correct / Wrong / Skip</th>
                   </tr>
                 </thead>
                 <tbody>
                   {report.questionAnalytics.map((q) => (
-                    <tr key={q.questionNumber} style={{ borderBottom: '1px solid var(--line)' }}>
-                      <td style={{ padding: '12px', fontWeight: 600, color: 'var(--ink)' }}>
+                    <tr key={q.questionNumber} className="border-b border-[#003366]/10">
+                      <td className="px-3 py-3 font-semibold text-[#003366]">
                         #{q.questionNumber}
                       </td>
-                      <td style={{ padding: '12px', fontWeight: 500, color: 'var(--ink-2)' }}>
+                      <td className="px-3 py-3 font-medium text-[#31407F]">
                         {q.subject}
                       </td>
-                      <td style={{ padding: '12px', color: 'var(--muted)' }}>
+                      <td className="px-3 py-3 text-[#5A6B8C]">
                         {q.topic}
                       </td>
-                      <td style={{ padding: '12px' }}>
-                        <span
-                          style={{
-                            fontSize: '11px',
-                            background: 'var(--surface)',
-                            border: '1px solid var(--line)',
-                            padding: '2px 6px',
-                            borderRadius: '4px',
-                            textTransform: 'uppercase',
-                          }}
-                        >
+                      <td className="px-3 py-3">
+                        <span className="rounded bg-ice px-1.5 py-0.5 text-[11px] font-bold uppercase text-[#003366]">
                           {q.questionType.replace('mcq_', '')}
                         </span>
                       </td>
-                      <td style={{ padding: '12px' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                          <div
-                            style={{
-                              flex: 1,
-                              height: '8px',
-                              background: '#fee2e2',
-                              borderRadius: '999px',
-                              overflow: 'hidden',
-                            }}
-                          >
+                      <td className="px-3 py-3">
+                        <div className="flex items-center gap-2">
+                          <div className="h-2 flex-1 overflow-hidden rounded-full bg-[#F1E3E5]">
                             <div
-                              style={{
-                                width: `${q.accuracyPct}%`,
-                                height: '100%',
-                                background: q.accuracyPct >= 60 ? '#10b981' : q.accuracyPct >= 35 ? '#f59e0b' : '#ef4444',
-                              }}
+                              className={`h-full ${
+                                q.accuracyPct >= 60
+                                  ? 'bg-[#15803D]'
+                                  : q.accuracyPct >= 35
+                                    ? 'bg-[#D97706]'
+                                    : 'bg-[#C8202F]'
+                              }`}
+                              style={{ width: `${q.accuracyPct}%` }}
                             />
                           </div>
-                          <span style={{ fontSize: '11px', fontWeight: 600, minWidth: '32px' }}>
+                          <span className="min-w-[32px] text-[11px] font-semibold">
                             {q.accuracyPct}%
                           </span>
                         </div>
                       </td>
-                      <td style={{ padding: '12px', textAlign: 'right', fontSize: '12px' }}>
-                        <span style={{ color: '#10b981', fontWeight: 600 }}>{q.correctCount}</span>{' '}
-                        <span style={{ color: 'var(--line)' }}>/</span>{' '}
-                        <span style={{ color: '#ef4444', fontWeight: 600 }}>{q.wrongCount}</span>{' '}
-                        <span style={{ color: 'var(--line)' }}>/</span>{' '}
-                        <span style={{ color: 'var(--muted)' }}>{q.skippedCount}</span>
+                      <td className="px-3 py-3 text-right text-[12px]">
+                        <span className="font-semibold text-[#15803D]">{q.correctCount}</span>{' '}
+                        <span className="text-[#003366]/20">/</span>{' '}
+                        <span className="font-semibold text-[#C8202F]">{q.wrongCount}</span>{' '}
+                        <span className="text-[#003366]/20">/</span>{' '}
+                        <span className="text-[#5A6B8C]">{q.skippedCount}</span>
                       </td>
                     </tr>
                   ))}

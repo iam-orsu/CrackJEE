@@ -1,14 +1,15 @@
 'use client';
 
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import {
   facultyCreatePaper,
   facultyDeletePaper,
   facultyGetPaper,
   facultyGetTopics,
   facultyListPapers,
-  facultyLogin,
   facultyLogout,
   facultyMe,
   FacultyError,
@@ -23,6 +24,7 @@ import { FacultyPaperPreview } from '@/components/faculty/FacultyPaperPreview';
 import { FacultyBatchesTab } from '@/components/faculty/FacultyBatchesTab';
 import { FacultyAssignmentsTab } from '@/components/faculty/FacultyAssignmentsTab';
 import { FacultyReportsTab } from '@/components/faculty/FacultyReportsTab';
+import { FacultySidebar, type PortalTab } from '@/components/faculty/FacultySidebar';
 import type { Subject } from '@/types';
 import { TopicBreakdownConfig } from '@/components/practice/TopicBreakdownConfig';
 import type { TopicCustomConfig } from '@/components/practice/shared';
@@ -33,7 +35,6 @@ import {
   planTopicTypeSlots,
   MAX_TOPIC_QUESTIONS,
 } from '@/components/practice/shared';
-import styles from './faculty.module.css';
 
 const COUNT_PRESETS: Record<FacultyExamType, Array<{ count: number; label: string }>> = {
   Main: [
@@ -61,73 +62,30 @@ const DEFAULT_COUNT: Record<FacultyExamType, number> = {
   NEET: 180,
 };
 
-function FacultyLoginForm({ onSignedIn }: { onSignedIn: (user: FacultyUser) => void }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [busy, setBusy] = useState(false);
-  const [error, setError] = useState('');
+type ClassValue = string | false | null | undefined;
+const cx = (...parts: ClassValue[]) => parts.filter(Boolean).join(' ');
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setBusy(true);
-    setError('');
-    try {
-      const res = await facultyLogin(email, password);
-      onSignedIn(res.faculty);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Sign-in failed');
-    } finally {
-      setBusy(false);
-    }
-  }
-
-  return (
-    <div className={styles.loginWrap}>
-      <form className={styles.loginBox} onSubmit={handleSubmit}>
-        <span className={styles.loginBadge}>Faculty Portal</span>
-        <h1 className={styles.loginTitle}>Weekly Exam Paper Studio</h1>
-        <p className={styles.loginSub}>Sign in with your mentor credentials to generate verified JEE &amp; NEET papers.</p>
-
-        {error && <div className={styles.error}>{error}</div>}
-
-        <div className={styles.field}>
-          <label className={styles.label} htmlFor="faculty-email">Faculty Email</label>
-          <input
-            id="faculty-email"
-            type="email"
-            className={styles.input}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            autoComplete="username"
-            required
-          />
-        </div>
-
-        <div className={styles.field}>
-          <label className={styles.label} htmlFor="faculty-password">Password</label>
-          <input
-            id="faculty-password"
-            type="password"
-            className={styles.input}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            autoComplete="current-password"
-            required
-          />
-        </div>
-
-        <button type="submit" className={styles.btnPrimary} style={{ width: '100%' }} disabled={busy}>
-          {busy ? 'Signing in…' : 'Sign in to Faculty Studio'}
-        </button>
-      </form>
-    </div>
-  );
-}
+/* The studio repeats a handful of surfaces and controls, so their classes live
+   here and every instance stays identical. */
+const PANEL = 'rounded-[28px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6';
+const PANEL_TITLE = 'mb-3.5 flex flex-wrap items-center justify-between gap-2.5 font-display text-[17px] font-extrabold text-[#003366]';
+const FIELD = 'mb-3.5 flex flex-col gap-1.5';
+const LABEL = 'text-[12.5px] font-extrabold text-[#003366]';
+const INPUT = 'h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none';
+const SELECT = 'h-[46px] w-full cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none';
+const BTN_PRIMARY = 'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none';
+const BTN_SECONDARY = 'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none';
+const BTN_ACCENT = 'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-accent bg-white px-3 py-1.5 text-[12.5px] font-extrabold text-accent no-underline shadow-[0_4px_0_#E2C2F0] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#E2C2F0] active:translate-y-[3px] active:shadow-[0_1px_0_#E2C2F0] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none';
+const BTN_DANGER = 'cursor-pointer rounded-xl border border-[#C8202F]/30 bg-white px-2.5 py-1.5 text-[12px] font-bold text-[#C8202F] transition-colors duration-150 hover:bg-[#FDF3F4] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none';
+const MICRO_BTN = 'cursor-pointer rounded-xl border-[2px] border-[#003366]/20 px-2.5 py-1 text-[11.5px] font-bold transition-colors duration-150 motion-reduce:transition-none';
+const MICRO_ON = 'border-transparent bg-grad text-white';
+const MICRO_OFF = 'bg-white text-[#003366] hover:bg-ice';
 
 export default function FacultyPage() {
+  const router = useRouter();
   const [faculty, setFaculty] = useState<FacultyUser | null>(null);
   const [authChecked, setAuthChecked] = useState(false);
-  const [activeTab, setActiveTab] = useState<'papers' | 'batches' | 'assignments' | 'reports'>('papers');
+  const [activeTab, setActiveTab] = useState<PortalTab>('papers');
   const [selectedReportAssignmentId, setSelectedReportAssignmentId] = useState<string | null>(null);
 
   // Builder state (JEE Main defaults to 75 per NTA 2025-2026 pattern)
@@ -208,6 +166,12 @@ export default function FacultyPage() {
       });
     return () => { active = false; };
   }, [loadWorkspace]);
+
+  // The login screen lives on its own route, so an unauthenticated visit — after
+  // the check has run — moves there instead of rendering a form inside the studio.
+  useEffect(() => {
+    if (authChecked && !faculty) router.replace('/faculty/login');
+  }, [authChecked, faculty, router]);
 
   async function handleExamTypeChange(nextExam: FacultyExamType) {
     setExamType(nextExam);
@@ -569,512 +533,500 @@ export default function FacultyPage() {
     setFaculty(null);
     setPapers([]);
     setActivePaper(null);
+    router.replace('/faculty/login');
   }
 
-  if (!authChecked) {
+  // Still checking, or signed out and about to bounce to the login route: both
+  // show the same quiet wait screen rather than a form inside the studio.
+  if (!authChecked || !faculty) {
     return (
-      <div className={styles.loginWrap}>
-        <p className={styles.sub}>Checking faculty session…</p>
+      <div className="grid min-h-screen place-items-center bg-[#FBFCFE] bg-page-wash font-dm">
+        <div className="flex flex-col items-center gap-5" role="status" aria-live="polite">
+          <Image src="/logo.png" alt="JEENEET.ai" width={118} height={48} priority className="block h-12 w-auto" />
+          <span
+            aria-hidden
+            className="h-7 w-7 animate-spin rounded-full border-[3px] border-[#C6D2F8] border-t-[#803688] motion-reduce:animate-none"
+          />
+          <p className="text-[13px] font-semibold text-[#7A87A0]">
+            {authChecked ? 'Taking you to sign in...' : 'Checking faculty session...'}
+          </p>
+        </div>
       </div>
     );
   }
 
-  if (!faculty) {
-    return (
-      <FacultyLoginForm
-        onSignedIn={(user) => {
-          setFaculty(user);
-          void loadWorkspace(examType);
-        }}
-      />
-    );
-  }
+  const initials = faculty.name
+    .split(' ')
+    .filter(Boolean)
+    .map((part) => part[0])
+    .slice(0, 2)
+    .join('')
+    .toUpperCase();
 
   return (
-    <div className={styles.page}>
-      <div className={styles.wrap}>
-        <header className={styles.header}>
-          <div>
-            <h1 className={styles.title}>Faculty Portal</h1>
-            <p className={styles.sub}>Signed in as {faculty.name} ({faculty.email}) · {papers.length} paper(s) in studio</p>
+    <div className="min-h-screen bg-[#FBFCFE] bg-page-wash font-dm text-[#003366]">
+      {/* Top navigation: the brand on the left, who is signed in and the way out on the right. */}
+      <header className="sticky top-0 z-20 border-b border-[#003366]/10 bg-[#FBFCFE]/85 backdrop-blur">
+        <div className="mx-auto flex w-full max-w-[1160px] items-center justify-between gap-4 px-4 py-1.5 sm:px-6 sm:py-2">
+          <Link href="/" aria-label="JEENEET.ai home" className="shrink-0 rounded-xl">
+            <Image src="/logo.png" alt="JEENEET.ai" width={118} height={48} priority className="block h-12 w-auto sm:h-14" />
+          </Link>
+
+          <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2.5 rounded-full border border-[#003366]/10 bg-white py-1 pl-1 pr-3.5 shadow-[0_2px_0_#E3E9F7]">
+              <span aria-hidden className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-grad text-[12px] font-extrabold text-white">
+                {initials || 'F'}
+              </span>
+              <span className="hidden min-w-0 flex-col leading-tight sm:flex">
+                <span className="max-w-[180px] truncate text-[12.5px] font-extrabold text-[#003366]">{faculty.name}</span>
+                <span className="max-w-[180px] truncate text-[11px] font-medium text-[#5A6B8C]">{faculty.email}</span>
+              </span>
+            </div>
+            <button type="button" className={BTN_SECONDARY} onClick={handleLogout}>
+              Sign out
+            </button>
           </div>
-          <div className={styles.headerActions}>
-            {!activePaper && activeTab === 'papers' && (
-              <button
-                type="button"
-                className={styles.btnPrimary}
-                onClick={() => setBuilderOpen((v) => !v)}
-              >
-                {builderOpen ? 'Close Builder' : '+ Generate New Paper'}
-              </button>
-            )}
-            <button type="button" className={styles.btn} onClick={handleLogout}>Sign out</button>
-          </div>
-        </header>
+        </div>
+      </header>
 
-        {!activePaper && (
-          <nav className={styles.portalNav}>
-            <button
-              type="button"
-              className={`${styles.portalNavBtn} ${activeTab === 'papers' ? styles.portalNavBtnActive : ''}`}
-              onClick={() => setActiveTab('papers')}
-            >
-              📝 Paper Studio
-            </button>
-            <button
-              type="button"
-              className={`${styles.portalNavBtn} ${activeTab === 'batches' ? styles.portalNavBtnActive : ''}`}
-              onClick={() => setActiveTab('batches')}
-            >
-              👥 Batches &amp; Students
-            </button>
-            <button
-              type="button"
-              className={`${styles.portalNavBtn} ${activeTab === 'assignments' ? styles.portalNavBtnActive : ''}`}
-              onClick={() => setActiveTab('assignments')}
-            >
-              📤 Assign Exams
-            </button>
-            <button
-              type="button"
-              className={`${styles.portalNavBtn} ${activeTab === 'reports' ? styles.portalNavBtnActive : ''}`}
-              onClick={() => setActiveTab('reports')}
-            >
-              📊 Batch Reports
-            </button>
-          </nav>
-        )}
+      <div className="px-4 pb-16 pt-5 sm:px-6 sm:pb-[72px] sm:pt-6">
+        <div className="mx-auto w-full max-w-[1160px]">
+          <header className="mb-5 flex flex-wrap items-center justify-between gap-4 border-b border-[#003366]/10 pb-4">
+            <div>
+              <h1 className="font-display text-[22px] font-extrabold leading-tight tracking-[-0.02em] text-[#003366] sm:text-[26px]">Faculty Weekly Paper Studio</h1>
+              <p className="mt-1 text-[13px] font-medium text-[#5A6B8C]">{papers.length} paper{papers.length === 1 ? '' : 's'} generated</p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2.5">
+              {!activePaper && activeTab === 'papers' && (
+                <button type="button" className={BTN_PRIMARY} onClick={() => setBuilderOpen((v) => !v)}>
+                  {builderOpen ? 'Close Builder' : '+ Generate New Paper'}
+                </button>
+              )}
+            </div>
+          </header>
 
-        {error && <div className={styles.error}>{error}</div>}
+          {error && <div className="mb-3.5 rounded-2xl border border-[#C8202F]/25 bg-[#FDF3F4] px-3.5 py-2.5 text-[13px] font-semibold text-[#C8202F]">{error}</div>}
 
-        {activePaper ? (
-          <FacultyPaperPreview
-            paper={activePaper}
-            topicsBySubject={activePaperTopics}
-            onBack={() => setActivePaper(null)}
-            onPaperUpdated={(updated) => {
-              setActivePaper(updated);
-              setPapers((prev) =>
-                prev.map((row) =>
-                  row.id === updated.id
-                    ? {
-                        ...row,
-                        questionCount: updated.questionCount,
-                        verifiedCount: updated.verifiedCount,
-                        status: updated.status,
-                      }
-                    : row,
-                ),
-              );
-            }}
-            onDelete={handleDeletePaper}
-            onError={setError}
-          />
-        ) : activeTab === 'batches' ? (
-          <FacultyBatchesTab />
-        ) : activeTab === 'assignments' ? (
-          <FacultyAssignmentsTab
-            onViewReport={(id) => {
-              setSelectedReportAssignmentId(id);
-              setActiveTab('reports');
-            }}
-          />
-        ) : activeTab === 'reports' ? (
-          <FacultyReportsTab initialAssignmentId={selectedReportAssignmentId} />
-        ) : (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-            {builderOpen && (
-              <form className={styles.panel} onSubmit={handleCreatePaper}>
-                <div className={styles.panelTitle}>
-                  <span>Create Verified Exam Paper</span>
-                  {papers.length > 0 && (
-                    <button type="button" className={styles.btn} onClick={() => setBuilderOpen(false)}>
-                      Hide
-                    </button>
-                  )}
-                </div>
+          {activePaper ? (
+            <FacultyPaperPreview
+              paper={activePaper}
+              topicsBySubject={activePaperTopics}
+              onBack={() => setActivePaper(null)}
+              onPaperUpdated={(updated) => {
+                setActivePaper(updated);
+                setPapers((prev) =>
+                  prev.map((row) =>
+                    row.id === updated.id
+                      ? {
+                          ...row,
+                          questionCount: updated.questionCount,
+                          verifiedCount: updated.verifiedCount,
+                          status: updated.status,
+                        }
+                      : row,
+                  ),
+                );
+              }}
+              onDelete={handleDeletePaper}
+              onError={setError}
+            />
+          ) : (
+            <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:gap-6">
+              <FacultySidebar activeTab={activeTab} onTabChange={setActiveTab} />
+              <div className="flex min-w-0 flex-1 flex-col gap-5">
+                {activeTab === 'batches' ? (
+                  <FacultyBatchesTab />
+                ) : activeTab === 'assignments' ? (
+                  <FacultyAssignmentsTab
+                    onViewReport={(id) => {
+                      setSelectedReportAssignmentId(id);
+                      setActiveTab('reports');
+                    }}
+                  />
+                ) : activeTab === 'reports' ? (
+                  <FacultyReportsTab initialAssignmentId={selectedReportAssignmentId} />
+                ) : (
+                  <div className="flex flex-col gap-5">
+                    {builderOpen && (
+                      <form className={PANEL} onSubmit={handleCreatePaper}>
+                        <div className={PANEL_TITLE}>
+                          <span>Create Verified Exam Paper</span>
+                          {papers.length > 0 && (
+                            <button type="button" className={BTN_SECONDARY} onClick={() => setBuilderOpen(false)}>
+                              Hide
+                            </button>
+                          )}
+                        </div>
 
-                <div className={styles.builderGrid}>
-                  <div>
-                    <div className={styles.field}>
-                      <label className={styles.label} htmlFor="paper-title">Paper Title (optional, neutral)</label>
-                      <input
-                        id="paper-title"
-                        className={styles.input}
-                        placeholder="e.g. Week 4 Rotational Motion & Electrochemistry"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        maxLength={120}
-                      />
-                    </div>
-
-                    <div className={styles.field}>
-                      <label className={styles.label} htmlFor="paper-org">
-                        College / Organization Name <span style={{ fontWeight: 400, color: 'var(--muted, #64748b)' }}>(optional)</span>
-                      </label>
-                      <input
-                        id="paper-org"
-                        className={styles.input}
-                        placeholder="Enter college or organization name"
-                        value={organization}
-                        onChange={(e) => setOrganization(e.target.value)}
-                        maxLength={120}
-                      />
-                    </div>
-
-                    <div className={styles.row2}>
-                      <div className={styles.field}>
-                        <label className={styles.label} htmlFor="paper-exam">Exam Pattern</label>
-                        <select
-                          id="paper-exam"
-                          className={styles.select}
-                          value={examType}
-                          onChange={(e) => void handleExamTypeChange(e.target.value as FacultyExamType)}
-                        >
-                          <option value="Main">JEE Main (NTA Rationalized)</option>
-                          <option value="Advanced">JEE Advanced (IIT Rigor Only)</option>
-                          <option value="NEET">NEET-UG (NCERT Medical)</option>
-                        </select>
-                      </div>
-
-                      <div className={styles.field}>
-                        <label className={styles.label}>Cognitive Rigor &amp; Question Difficulty</label>
-                        <div
-                          style={{
-                            background: 'var(--surface-2, #f8fafc)',
-                            border: '1px solid var(--border, #e2e8f0)',
-                            borderRadius: 8,
-                            padding: '10px 14px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: 10,
-                            fontSize: 12,
-                            color: 'var(--ink-2, #334155)',
-                          }}
-                        >
-                          <span style={{ fontSize: 18 }}>🎯</span>
+                        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                           <div>
-                            <strong>Granular Topic Breakdown:</strong> Configure exact quantities of <strong>Easy</strong>, <strong>Medium</strong>, and <strong>Hard</strong> questions per topic &amp; question type below using direct integer counters.
+                            <div className={FIELD}>
+                              <label className={LABEL} htmlFor="paper-title">Paper Title (optional, neutral)</label>
+                              <input
+                                id="paper-title"
+                                className={INPUT}
+                                placeholder="e.g. Week 4 Rotational Motion & Electrochemistry"
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
+                                maxLength={120}
+                              />
+                            </div>
+
+                            <div className={FIELD}>
+                              <label className={LABEL} htmlFor="paper-org">
+                                College / Organization Name <span className="font-normal text-[#5A6B8C]">(optional)</span>
+                              </label>
+                              <input
+                                id="paper-org"
+                                className={INPUT}
+                                placeholder="Enter college or organization name"
+                                value={organization}
+                                onChange={(e) => setOrganization(e.target.value)}
+                                maxLength={120}
+                              />
+                            </div>
+
+                            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+                              <div className={FIELD}>
+                                <label className={LABEL} htmlFor="paper-exam">Exam Pattern</label>
+                                <select
+                                  id="paper-exam"
+                                  className={SELECT}
+                                  value={examType}
+                                  onChange={(e) => void handleExamTypeChange(e.target.value as FacultyExamType)}
+                                >
+                                  <option value="Main">JEE Main (NTA Rationalized)</option>
+                                  <option value="Advanced">JEE Advanced (IIT Rigor Only)</option>
+                                  <option value="NEET">NEET-UG (NCERT Medical)</option>
+                                </select>
+                              </div>
+
+                              <div className={FIELD}>
+                                <label className={LABEL}>Cognitive Rigor &amp; Question Difficulty</label>
+                                <div className="flex items-center gap-2.5 rounded-2xl border border-[#003366]/10 bg-[#F7F9FF] px-3.5 py-2.5 text-[12px] text-[#31407F]">
+                                  <span className="text-[18px]">🎯</span>
+                                  <div>
+                                    <strong>Granular Topic Breakdown:</strong> Configure exact quantities of <strong>Easy</strong>, <strong>Medium</strong>, and <strong>Hard</strong> questions per topic &amp; question type below using direct integer counters.
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+                              <div className={FIELD}>
+                                <label className={LABEL} htmlFor="paper-count">
+                                  Question Count (1–180)
+                                </label>
+                                <input
+                                  id="paper-count"
+                                  type="number"
+                                  min={1}
+                                  max={180}
+                                  className={INPUT}
+                                  placeholder="e.g. 75"
+                                  value={questionCountStr}
+                                  onChange={(e) => {
+                                    const raw = e.target.value;
+                                    setQuestionCountStr(raw);
+                                    if (raw.trim() === '') return;
+                                    const parsed = parseInt(raw, 10);
+                                    if (!isNaN(parsed) && parsed >= 1 && parsed <= 180) {
+                                      setQuestionCount(parsed);
+                                    }
+                                  }}
+                                  onBlur={() => {
+                                    const parsed = parseInt(questionCountStr, 10);
+                                    if (questionCountStr.trim() === '' || isNaN(parsed) || parsed < 1) {
+                                      const fallback = questionCount >= 1 ? questionCount : (DEFAULT_COUNT[examType] || 75);
+                                      setQuestionCount(fallback);
+                                      setQuestionCountStr(String(fallback));
+                                    } else if (parsed > 180) {
+                                      setQuestionCount(180);
+                                      setQuestionCountStr('180');
+                                    } else {
+                                      setQuestionCount(parsed);
+                                      setQuestionCountStr(String(parsed));
+                                    }
+                                  }}
+                                  required
+                                />
+                                <div className="mt-1 flex flex-wrap gap-1.5">
+                                  {COUNT_PRESETS[examType].map((p) => (
+                                    <button
+                                      key={p.count}
+                                      type="button"
+                                      className={cx(MICRO_BTN, questionCount === p.count ? MICRO_ON : MICRO_OFF)}
+                                      onClick={() => {
+                                        setQuestionCount(p.count);
+                                        setQuestionCountStr(String(p.count));
+                                        applyPresetAcrossTopics(p.count);
+                                      }}
+                                    >
+                                      {p.label}
+                                    </button>
+                                  ))}
+                                </div>
+                              </div>
+
+                              <div className={FIELD}>
+                                <label className={LABEL} htmlFor="paper-qtype">Quick Batch Mix</label>
+                                <select
+                                  id="paper-qtype"
+                                  className={SELECT}
+                                  value={questionType}
+                                  onChange={(e) => {
+                                    const next = e.target.value as FacultyQuestionTypePref;
+                                    setQuestionType(next);
+                                    if (next === 'mcq_single') {
+                                      applyPresetToAll(5, 0, 0, 0);
+                                    } else if (next === 'integer') {
+                                      applyPresetToAll(0, 5, 0, 0);
+                                    } else if (next === 'mcq_multi') {
+                                      applyPresetToAll(0, 0, 5, 0);
+                                    } else if (next === 'matrix_match') {
+                                      applyPresetToAll(0, 0, 0, 5);
+                                    } else {
+                                      applyPresetToAll(examType === 'Advanced' ? 3 : 5, 1, examType === 'Advanced' ? 2 : 0, 0);
+                                    }
+                                  }}
+                                >
+                                  {examType === 'NEET' ? (
+                                    <>
+                                      <option value="auto">NEET Standard Mix (MCQ + Match List)</option>
+                                      <option value="mcq_single">Single-correct MCQ Only</option>
+                                      <option value="matrix_match">Matrix Match (Match the List) Only</option>
+                                    </>
+                                  ) : (
+                                    <>
+                                      <option value="auto">Official Pattern Mix (5 MCQ + 1 Int)</option>
+                                      <option value="mcq_single">Single-correct Only</option>
+                                      <option value="integer">Integer Only</option>
+                                      {examType === 'Advanced' && <option value="mcq_multi">Multi-correct Only</option>}
+                                      <option value="matrix_match">Matrix Match (Match the List) Only</option>
+                                    </>
+                                  )}
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div>
+                            <div className={FIELD}>
+                              <div className="flex items-center justify-between">
+                                <label className={LABEL}>Topics ({selectedTopicsCount} selected)</label>
+                                {selectedTopicsCount > 0 && (
+                                  <button
+                                    type="button"
+                                    className={cx(MICRO_BTN, MICRO_OFF)}
+                                    onClick={() => setTopicConfigs({})}
+                                  >
+                                    Clear all
+                                  </button>
+                                )}
+                              </div>
+
+                              <div className="mb-2.5 flex flex-wrap gap-1.5">
+                                {subjects.map((subj) => (
+                                  <button
+                                    key={subj}
+                                    type="button"
+                                    className={cx('cursor-pointer rounded-xl border-[2px] border-[#003366]/15 bg-white px-2.5 py-1.5 text-[12.5px] font-bold text-[#003366] transition-colors duration-150 hover:bg-ice motion-reduce:transition-none', activeSubject === subj && 'border-transparent bg-grad text-white')}
+                                    onClick={() => setActiveSubject(subj)}
+                                  >
+                                    {subj}
+                                  </button>
+                                ))}
+                              </div>
+
+                              <input
+                                className={cx(INPUT, 'mb-2')}
+                                placeholder={`Filter ${activeSubject} topics...`}
+                                value={topicSearch}
+                                onChange={(e) => setTopicSearch(e.target.value)}
+                              />
+
+                              <div className="max-h-[230px] overflow-y-auto rounded-2xl border border-[#003366]/10 bg-[#FBFCFE] p-1.5">
+                                {visibleTopics.map((topic) => {
+                                  const checked = Boolean(topicConfigs[`${activeSubject}::${topic}`]);
+                                  return (
+                                    <label key={topic} className="flex cursor-pointer items-center gap-2 rounded-xl px-2 py-1.5 text-[12.5px] font-medium text-[#003366] transition-colors duration-150 hover:bg-ice motion-reduce:transition-none">
+                                      <input
+                                        type="checkbox"
+                                        checked={checked}
+                                        onChange={() => toggleSelection(activeSubject as Subject, topic)}
+                                      />
+                                      <span>{topic}</span>
+                                    </label>
+                                  );
+                                })}
+                                {visibleTopics.length === 0 && (
+                                  <p className="mt-1 p-1.5 text-[13px] font-medium text-[#5A6B8C]">No topics match.</p>
+                                )}
+                              </div>
+
+                              {selectedTopicsCount > 0 && (
+                                <div className="mt-2 flex flex-wrap gap-1.5">
+                                  {Object.values(topicConfigs).map((cfg) => (
+                                    <span key={`${cfg.subject}::${cfg.topic}`} className="inline-flex items-center gap-1.5 rounded-full border border-accent/25 bg-accent-50 px-2 py-0.5 text-[11.5px] font-bold text-accent">
+                                      {cfg.subject.slice(0, 4)}: {cfg.topic} ({getTopicTotal(cfg)} Qs)
+                                      <button
+                                        type="button"
+                                        className="cursor-pointer border-0 bg-transparent p-0 text-[13px] leading-none text-accent transition-colors duration-150 hover:text-accent-900"
+                                        aria-label={`Remove ${cfg.topic}`}
+                                        onClick={() => toggleSelection(cfg.subject, cfg.topic)}
+                                      >
+                                        ×
+                                      </button>
+                                    </span>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
 
-                    <div className={styles.row2}>
-                      <div className={styles.field}>
-                        <label className={styles.label} htmlFor="paper-count">
-                          Question Count (1–180)
-                        </label>
-                        <input
-                          id="paper-count"
-                          type="number"
-                          min={1}
-                          max={180}
-                          className={styles.input}
-                          placeholder="e.g. 75"
-                          value={questionCountStr}
-                          onChange={(e) => {
-                            const raw = e.target.value;
-                            setQuestionCountStr(raw);
-                            if (raw.trim() === '') return;
-                            const parsed = parseInt(raw, 10);
-                            if (!isNaN(parsed) && parsed >= 1 && parsed <= 180) {
-                              setQuestionCount(parsed);
-                            }
-                          }}
-                          onBlur={() => {
-                            const parsed = parseInt(questionCountStr, 10);
-                            if (questionCountStr.trim() === '' || isNaN(parsed) || parsed < 1) {
-                              const fallback = questionCount >= 1 ? questionCount : (DEFAULT_COUNT[examType] || 75);
-                              setQuestionCount(fallback);
-                              setQuestionCountStr(String(fallback));
-                            } else if (parsed > 180) {
-                              setQuestionCount(180);
-                              setQuestionCountStr('180');
-                            } else {
-                              setQuestionCount(parsed);
-                              setQuestionCountStr(String(parsed));
-                            }
-                          }}
-                          required
-                        />
-                        <div className={styles.presetRow}>
-                          {COUNT_PRESETS[examType].map((p) => (
-                            <button
-                              key={p.count}
-                              type="button"
-                              className={`${styles.presetBtn} ${questionCount === p.count ? styles.presetBtnActive : ''}`}
-                              onClick={() => {
-                                setQuestionCount(p.count);
-                                setQuestionCountStr(String(p.count));
-                                applyPresetAcrossTopics(p.count);
-                              }}
-                            >
-                              {p.label}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className={styles.field}>
-                        <label className={styles.label} htmlFor="paper-qtype">Quick Batch Mix</label>
-                        <select
-                          id="paper-qtype"
-                          className={styles.select}
-                          value={questionType}
-                          onChange={(e) => {
-                            const next = e.target.value as FacultyQuestionTypePref;
-                            setQuestionType(next);
-                            if (next === 'mcq_single') {
-                              applyPresetToAll(5, 0, 0, 0);
-                            } else if (next === 'integer') {
-                              applyPresetToAll(0, 5, 0, 0);
-                            } else if (next === 'mcq_multi') {
-                              applyPresetToAll(0, 0, 5, 0);
-                            } else if (next === 'matrix_match') {
-                              applyPresetToAll(0, 0, 0, 5);
-                            } else {
-                              applyPresetToAll(examType === 'Advanced' ? 3 : 5, 1, examType === 'Advanced' ? 2 : 0, 0);
-                            }
-                          }}
-                        >
-                          {examType === 'NEET' ? (
-                            <>
-                              <option value="auto">NEET Standard Mix (MCQ + Match List)</option>
-                              <option value="mcq_single">Single-correct MCQ Only</option>
-                              <option value="matrix_match">Matrix Match (Match the List) Only</option>
-                            </>
-                          ) : (
-                            <>
-                              <option value="auto">Official Pattern Mix (5 MCQ + 1 Int)</option>
-                              <option value="mcq_single">Single-correct Only</option>
-                              <option value="integer">Integer Only</option>
-                              {examType === 'Advanced' && <option value="mcq_multi">Multi-correct Only</option>}
-                              <option value="matrix_match">Matrix Match (Match the List) Only</option>
-                            </>
-                          )}
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className={styles.field}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <label className={styles.label}>Topics ({selectedTopicsCount} selected)</label>
                         {selectedTopicsCount > 0 && (
-                          <button
-                            type="button"
-                            className={styles.btn}
-                            style={{ fontSize: 11, padding: '2px 8px' }}
-                            onClick={() => setTopicConfigs({})}
-                          >
-                            Clear all
-                          </button>
+                          <div className="mt-5">
+                            <TopicBreakdownConfig
+                              selectedSubjects={selectedSubjects}
+                              selectedTopics={selectedTopics}
+                              perSubjectCount={perSubjectTarget}
+                              isNeet={examType === 'NEET'}
+                              isAdvanced={examType === 'Advanced'}
+                              topicConfigs={topicConfigs}
+                              onTopicConfigs={setTopicConfigs}
+                              onAutoDistributeSubject={autoDistributeTopicsForSubject}
+                              onAutoDistributeAll={autoDistributeAllTopics}
+                            />
+                          </div>
                         )}
-                      </div>
 
-                      <div className={styles.subjectTabs}>
-                        {subjects.map((subj) => (
+                        <div className="mt-6 flex justify-end">
                           <button
-                            key={subj}
-                            type="button"
-                            className={`${styles.tabBtn} ${activeSubject === subj ? styles.tabBtnActive : ''}`}
-                            onClick={() => setActiveSubject(subj)}
+                            type="submit"
+                            className={BTN_PRIMARY}
+                            disabled={
+                              creating ||
+                              selectedTopicsCount === 0 ||
+                              totalCalculatedCount !== questionCount
+                            }
                           >
-                            {subj}
+                            {creating
+                              ? 'Starting generation...'
+                              : selectedTopicsCount === 0
+                              ? 'Select at least 1 topic above'
+                              : totalCalculatedCount > questionCount
+                              ? `Overflow: Reduce ${totalCalculatedCount - questionCount} Q(s) in Topics`
+                              : totalCalculatedCount < questionCount
+                              ? `Add ${questionCount - totalCalculatedCount} more Q(s) to match ${questionCount}`
+                              : `Generate ${questionCount}-Question Verified Paper`}
                           </button>
-                        ))}
+                        </div>
+                      </form>
+                    )}
+
+                    <section className={PANEL}>
+                      <div className={PANEL_TITLE}>
+                        <span>Generated Papers Stack ({papers.length})</span>
                       </div>
 
-                      <input
-                        className={styles.input}
-                        style={{ marginBottom: 8 }}
-                        placeholder={`Filter ${activeSubject} topics…`}
-                        value={topicSearch}
-                        onChange={(e) => setTopicSearch(e.target.value)}
-                      />
+                      {papers.length === 0 ? (
+                        <p className="mt-1 text-[13px] font-medium text-[#5A6B8C]">No papers generated yet. Configure topics above to create your first paper.</p>
+                      ) : (
+                        <div className="flex flex-col gap-3">
+                          {papers.map((p) => {
+                            const examLabel = p.examType === 'NEET' ? 'NEET-UG' : `JEE ${p.examType}`;
+                            const dateStr = new Date(p.createdAt).toLocaleString('en-IN', {
+                              day: 'numeric',
+                              month: 'short',
+                              year: 'numeric',
+                              hour: '2-digit',
+                              minute: '2-digit',
+                            });
+                            return (
+                              <div key={p.id} className="flex flex-wrap items-center justify-between gap-4 rounded-[22px] border border-[#003366]/10 bg-white px-5 py-4 shadow-[0_16px_40px_-34px_rgba(0,51,102,.4)] transition-[border-color,box-shadow,transform] duration-150 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-[0_22px_46px_-32px_rgba(0,51,102,.45)] motion-reduce:transition-none">
+                                <div className="flex min-w-[240px] flex-1 flex-col gap-1.5">
+                                  <div className="flex flex-wrap items-center gap-2">
+                                    <span className="rounded-lg bg-ice px-2 py-0.5 font-mono text-[11px] font-bold text-accent">{p.paperCode}</span>
+                                    {p.organization && (
+                                      <span className="rounded-[4px] bg-ice px-1.5 py-px text-[11px] font-bold text-[#003366]">
+                                        🏛️ {p.organization}
+                                      </span>
+                                    )}
+                                    <span className="font-display text-[17px] font-extrabold text-[#003366]">{p.title}</span>
+                                  </div>
+                                  <div className="flex flex-wrap gap-2.5 text-[12px] font-medium text-[#5A6B8C]">
+                                    <span><strong>{examLabel}</strong></span>
+                                    <span>{p.questionCount} Qs</span>
+                                    <span>Difficulty: {p.difficulty}</span>
+                                    <span>
+                                      {p.status === 'ready'
+                                        ? 'Ready'
+                                        : p.status === 'generating'
+                                          ? 'Generating...'
+                                          : 'Error'}
+                                    </span>
+                                    <span>{dateStr}</span>
+                                  </div>
+                                </div>
 
-                      <div className={styles.topicBox}>
-                        {visibleTopics.map((topic) => {
-                          const checked = Boolean(topicConfigs[`${activeSubject}::${topic}`]);
-                          return (
-                            <label key={topic} className={styles.topicItem}>
-                              <input
-                                type="checkbox"
-                                checked={checked}
-                                onChange={() =>
-                                  toggleSelection(activeSubject as Subject, topic)
-                                }
-                              />
-                              <span>{topic}</span>
-                            </label>
-                          );
-                        })}
-                        {visibleTopics.length === 0 && (
-                          <p className={styles.sub} style={{ padding: 6 }}>No topics match.</p>
-                        )}
-                      </div>
-
-                      {selectedTopicsCount > 0 && (
-                        <div className={styles.chipList}>
-                          {Object.values(topicConfigs).map((cfg) => (
-                            <span key={`${cfg.subject}::${cfg.topic}`} className={styles.chip}>
-                              {cfg.subject.slice(0, 4)}: {cfg.topic} ({getTopicTotal(cfg)} Qs)
-                              <button
-                                type="button"
-                                className={styles.chipRemove}
-                                aria-label={`Remove ${cfg.topic}`}
-                                onClick={() => toggleSelection(cfg.subject, cfg.topic)}
-                              >
-                                ×
-                              </button>
-                            </span>
-                          ))}
+                                <div className="flex flex-wrap items-center gap-2">
+                                  <button
+                                    type="button"
+                                    className={BTN_PRIMARY}
+                                    onClick={() => void handleOpenPaper(p.id)}
+                                  >
+                                    Open / Edit
+                                  </button>
+                                  {p.status === 'ready' && (
+                                    <>
+                                      <Link
+                                        href={`/faculty/papers/${p.id}/print?mode=questions&download=1`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={BTN_ACCENT}
+                                      >
+                                        PDF: Questions
+                                      </Link>
+                                      <Link
+                                        href={`/faculty/papers/${p.id}/print?mode=solutions&download=1`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={BTN_ACCENT}
+                                      >
+                                        PDF: Solutions
+                                      </Link>
+                                      <Link
+                                        href={`/faculty/papers/${p.id}/print?mode=key&download=1`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={BTN_ACCENT}
+                                      >
+                                        PDF: Key
+                                      </Link>
+                                    </>
+                                  )}
+                                  <button
+                                    type="button"
+                                    className={BTN_DANGER}
+                                    disabled={p.status === 'generating'}
+                                    onClick={() => void handleDeletePaper(p.id)}
+                                  >
+                                    Delete
+                                  </button>
+                                </div>
+                              </div>
+                            );
+                          })}
                         </div>
                       )}
-                    </div>
-                  </div>
-                </div>
-
-                {selectedTopicsCount > 0 && (
-                  <div style={{ marginTop: 20 }}>
-                    <TopicBreakdownConfig
-                      selectedSubjects={selectedSubjects}
-                      selectedTopics={selectedTopics}
-                      perSubjectCount={perSubjectTarget}
-                      isNeet={examType === 'NEET'}
-                      isAdvanced={examType === 'Advanced'}
-                      topicConfigs={topicConfigs}
-                      onTopicConfigs={setTopicConfigs}
-                      onAutoDistributeSubject={autoDistributeTopicsForSubject}
-                      onAutoDistributeAll={autoDistributeAllTopics}
-                    />
+                    </section>
                   </div>
                 )}
-
-                <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 24 }}>
-                  <button
-                    type="submit"
-                    className={styles.btnPrimary}
-                    disabled={
-                      creating ||
-                      selectedTopicsCount === 0 ||
-                      totalCalculatedCount !== questionCount
-                    }
-                  >
-                    {creating
-                      ? 'Starting generation…'
-                      : selectedTopicsCount === 0
-                      ? 'Select at least 1 topic above'
-                      : totalCalculatedCount > questionCount
-                      ? `Overflow: Reduce ${totalCalculatedCount - questionCount} Q(s) in Topics`
-                      : totalCalculatedCount < questionCount
-                      ? `Add ${questionCount - totalCalculatedCount} more Q(s) to match ${questionCount}`
-                      : `Generate ${questionCount}-Question Verified Paper`}
-                  </button>
-                </div>
-              </form>
-            )}
-
-            <section className={styles.panel}>
-              <div className={styles.panelTitle}>
-                <span>Generated Papers Stack ({papers.length})</span>
               </div>
-
-              {papers.length === 0 ? (
-                <p className={styles.sub}>No papers generated yet. Configure topics above to create your first paper.</p>
-              ) : (
-                <div className={styles.paperStack}>
-                  {papers.map((p) => {
-                    const examLabel = p.examType === 'NEET' ? 'NEET-UG' : `JEE ${p.examType}`;
-                    const dateStr = new Date(p.createdAt).toLocaleString('en-IN', {
-                      day: 'numeric',
-                      month: 'short',
-                      year: 'numeric',
-                      hour: '2-digit',
-                      minute: '2-digit',
-                    });
-                    return (
-                      <div key={p.id} className={styles.paperStackCard}>
-                        <div className={styles.paperCardLeft}>
-                          <div className={styles.paperCardTop}>
-                            <span className={styles.paperCodeBadge}>{p.paperCode}</span>
-                            {p.organization && (
-                              <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--brand, #0f2b48)', background: 'var(--surface-2, #f1f5f9)', padding: '1px 6px', borderRadius: 4 }}>
-                                🏛️ {p.organization}
-                              </span>
-                            )}
-                            <span className={styles.paperStackTitle}>{p.title}</span>
-                          </div>
-                          <div className={styles.paperCardMeta}>
-                            <span><strong>{examLabel}</strong></span>
-                            <span>{p.questionCount} Qs</span>
-                            <span>Difficulty: {p.difficulty}</span>
-                            <span>
-                              {p.status === 'ready'
-                                ? 'Ready'
-                                : p.status === 'generating'
-                                  ? 'Generating…'
-                                  : 'Error'}
-                            </span>
-                            <span>{dateStr}</span>
-                          </div>
-                        </div>
-
-                        <div className={styles.paperCardActions}>
-                          <button
-                            type="button"
-                            className={styles.btnPrimary}
-                            onClick={() => void handleOpenPaper(p.id)}
-                          >
-                            Open / Edit
-                          </button>
-                          {p.status === 'ready' && (
-                            <>
-                              <Link
-                                href={`/faculty/papers/${p.id}/print?mode=questions&download=1`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={styles.btnAccent}
-                              >
-                                PDF: Questions
-                              </Link>
-                              <Link
-                                href={`/faculty/papers/${p.id}/print?mode=solutions&download=1`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={styles.btnAccent}
-                              >
-                                PDF: Solutions
-                              </Link>
-                              <Link
-                                href={`/faculty/papers/${p.id}/print?mode=key&download=1`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={styles.btnAccent}
-                              >
-                                PDF: Key
-                              </Link>
-                            </>
-                          )}
-                          <button
-                            type="button"
-                            className={styles.btnDanger}
-                            disabled={p.status === 'generating'}
-                            onClick={() => void handleDeletePaper(p.id)}
-                          >
-                            Delete
-                          </button>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-            </section>
-          </div>
-        )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

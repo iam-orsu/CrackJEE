@@ -96,19 +96,18 @@ export function MatchListTable({ questionText, className, style }: MatchListTabl
   return (
     <div className={className} style={{ display: 'flex', flexDirection: 'column', gap: 14, ...style }}>
       {lead && (
-        <div style={{ fontSize: 15, lineHeight: 1.6, color: '#1e293b', fontWeight: 500 }}>
+        <div style={{ fontSize: 15, lineHeight: 1.65, color: 'var(--gray-900)', fontWeight: 500 }}>
           <MathText text={lead} />
         </div>
       )}
 
-      {/* 2-Column Side-by-Side Match Table */}
+      {/* Two columns, set as one table on the page */}
       <div
         style={{
-          border: '1px solid #e2e8f0',
+          border: '1px solid rgba(0,51,102,.12)',
           borderRadius: 8,
           overflow: 'hidden',
           background: '#ffffff',
-          boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
         }}
       >
         {/* Table Header */}
@@ -116,18 +115,17 @@ export function MatchListTable({ questionText, className, style }: MatchListTabl
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
-            background: '#f8fafc',
-            borderBottom: '2px solid #e2e8f0',
-            fontWeight: 700,
-            fontSize: 13,
-            color: '#334155',
-            letterSpacing: '0.02em',
+            background: '#F7F9FB',
+            borderBottom: '1px solid rgba(0,51,102,.12)',
+            fontWeight: 600,
+            fontSize: 12.5,
+            color: 'var(--brand)',
           }}
         >
-          <div style={{ padding: '10px 16px', borderRight: '1px solid #e2e8f0' }}>
+          <div style={{ padding: '9px 16px', borderRight: '1px solid rgba(0,51,102,.12)' }}>
             <MathText text={list1Title} />
           </div>
-          <div style={{ padding: '10px 16px' }}>
+          <div style={{ padding: '9px 16px' }}>
             <MathText text={list2Title} />
           </div>
         </div>
@@ -136,7 +134,6 @@ export function MatchListTable({ questionText, className, style }: MatchListTabl
         {Array.from({ length: maxRows }).map((_, idx) => {
           const item1 = list1Items[idx];
           const item2 = list2Items[idx];
-          const isEven = idx % 2 === 0;
 
           return (
             <div
@@ -144,17 +141,16 @@ export function MatchListTable({ questionText, className, style }: MatchListTabl
               style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
-                borderBottom: idx < maxRows - 1 ? '1px solid #f1f5f9' : 'none',
-                background: isEven ? '#ffffff' : '#fbfcfd',
+                borderBottom: idx < maxRows - 1 ? '1px solid rgba(0,51,102,.08)' : 'none',
                 fontSize: 14,
-                lineHeight: 1.5,
+                lineHeight: 1.55,
               }}
             >
               {/* Left Column Item */}
               <div
                 style={{
-                  padding: '11px 16px',
-                  borderRight: '1px solid #e2e8f0',
+                  padding: '10px 16px',
+                  borderRight: '1px solid rgba(0,51,102,.12)',
                   display: 'flex',
                   alignItems: 'flex-start',
                   gap: 10,
@@ -165,14 +161,14 @@ export function MatchListTable({ questionText, className, style }: MatchListTabl
                     <span
                       style={{
                         flexShrink: 0,
-                        fontWeight: 700,
-                        color: '#0f172a',
+                        fontWeight: 600,
+                        color: 'var(--gray-900)',
                         minWidth: 20,
                       }}
                     >
                       {item1.label}.
                     </span>
-                    <span style={{ color: '#1e293b' }}>
+                    <span style={{ color: 'var(--gray-700)' }}>
                       <MathText text={item1.text} />
                     </span>
                   </>
@@ -182,7 +178,7 @@ export function MatchListTable({ questionText, className, style }: MatchListTabl
               {/* Right Column Item */}
               <div
                 style={{
-                  padding: '11px 16px',
+                  padding: '10px 16px',
                   display: 'flex',
                   alignItems: 'flex-start',
                   gap: 10,
@@ -193,14 +189,14 @@ export function MatchListTable({ questionText, className, style }: MatchListTabl
                     <span
                       style={{
                         flexShrink: 0,
-                        fontWeight: 700,
-                        color: '#0f172a',
+                        fontWeight: 600,
+                        color: 'var(--gray-900)',
                         minWidth: 22,
                       }}
                     >
                       {item2.label}.
                     </span>
-                    <span style={{ color: '#1e293b' }}>
+                    <span style={{ color: 'var(--gray-700)' }}>
                       <MathText text={item2.text} />
                     </span>
                   </>
@@ -212,7 +208,7 @@ export function MatchListTable({ questionText, className, style }: MatchListTabl
       </div>
 
       {instruction && (
-        <div style={{ fontSize: 13, color: '#64748b', fontStyle: 'italic', marginTop: 2 }}>
+        <div style={{ fontSize: 12.5, color: 'var(--mute)', marginTop: 2 }}>
           <MathText text={instruction} />
         </div>
       )}

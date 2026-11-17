@@ -5,17 +5,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, useParams } from 'next/navigation';
 import { api } from '@/lib/api';
-import { isAuthenticated } from '@/lib/auth';
-import type { MockExam } from '@/types';
+import { getUser, isAuthenticated } from '@/lib/auth';
+import type { MockExam, User } from '@/types';
 
 import { MathText, stripOptionPrefix } from '@/lib/math';
 import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchListTable';
 import Loader from '@/components/loader';
-import { Badge, qtypeVariant, difficultyVariant } from '@/components/ui/Badge';
 import { qStatus, type QStatus } from '@/components/mock/examStatus';
-import { SUBJECT_COLOR } from '@/lib/subjects';
 import { ExamPalette } from '@/components/mock/ExamPalette';
 import { SubmitModal } from '@/components/mock/SubmitModal';
+import { EX, FONT_MONO, FONT_SANS } from '@/components/mock/examTheme';
 
 /* ── Helpers ──────────────────────────────────────────────────── */
 
@@ -30,6 +29,76 @@ function fmtTime(s: number): string {
   return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
 }
 
+function escapeXml(s: string): string {
+  return s.replace(/[<>&'"]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', "'": '&apos;', '"': '&quot;' }[c]!));
+}
+
+/* A small ruled tag, like a field on an official form */
+const TAG: React.CSSProperties = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  padding: '2px 8px',
+  border: `1px solid ${EX.line}`,
+  borderRadius: 2,
+  background: EX.paper,
+  fontSize: 10,
+  fontWeight: 600,
+  letterSpacing: '0.08em',
+  textTransform: 'uppercase',
+  color: EX.ink2,
+  whiteSpace: 'nowrap',
+};
+
+/* Hover and focus live in CSS so inline styles stay declarative */
+const EXAM_CSS = `
+  .exa-btn { font: inherit; cursor: pointer; transition: background .12s, border-color .12s, color .12s; }
+  .exa-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(29, 78, 137, .22); }
+  .exa-btn:disabled { cursor: not-allowed; }
+  .exa-primary { background: ${EX.accent}; color: #fff; border: 1px solid ${EX.accentDark}; }
+  .exa-primary:hover:not(:disabled) { background: ${EX.accentDark}; }
+  .exa-outline { background: #fff; color: ${EX.accent}; border: 1px solid ${EX.accent}; }
+  .exa-outline:hover:not(:disabled) { background: ${EX.accentWash}; }
+  .exa-ghost { background: #fff; color: ${EX.ink}; border: 1px solid ${EX.line}; }
+  .exa-ghost:hover:not(:disabled) { background: #F7F9FC; border-color: #AEBBCB; }
+  .exa-danger { background: #fff; color: ${EX.danger}; border: 1px solid ${EX.dangerLine}; }
+  .exa-danger:hover:not(:disabled) { background: #FDF1F0; border-color: #D9A5A0; }
+  .exa-opt { transition: border-color .12s, background .12s; }
+  .exa-opt:hover { border-color: #AEBBCB; }
+  .exa-opt.is-selected:hover { border-color: ${EX.accent}; }
+  /* Candidate watermark: tiled behind glass, never intercepts the pointer */
+  .exa-watermark {
+    position: absolute; inset: 0; z-index: 1;
+    pointer-events: none; user-select: none; -webkit-user-select: none;
+    background-repeat: repeat;
+  }
+
+  /* Phone and small tablet: the CBT shell becomes one scrolling column.
+     The palette drops below the question so neither is squeezed. */
+  @media (max-width: 900px) {
+    .exa-root { height: auto !important; min-height: 100dvh; }
+    .exa-top { height: auto !important; padding: 8px 12px !important; gap: 10px !important; flex-wrap: wrap; }
+    .exa-top-left { gap: 10px !important; }
+    .exa-top-rule, .exa-top-title, .exa-offline { display: none !important; }
+    .exa-cand, .exa-cand-rule { display: none !important; }
+    .exa-timer { padding: 4px 10px !important; gap: 8px !important; }
+    .exa-submit { padding: 8px 14px !important; font-size: 11px !important; }
+    .exa-main { flex-direction: column !important; overflow: visible !important; flex: 1 0 auto !important; }
+    .exa-qarea { flex: 0 0 auto !important; overflow: visible !important; padding: 16px 14px 20px !important; }
+    .exa-qcard { padding: 18px 16px !important; }
+    .exa-optcard { padding: 14px !important; }
+    .exa-palette {
+      width: 100% !important; border-left: 0 !important; border-top: 1px solid ${EX.line};
+      overflow: visible !important; padding: 16px 14px 24px !important;
+    }
+  }
+  @media (max-width: 400px) {
+    .exa-logo { height: 34px !important; }
+    .exa-top { padding: 8px 10px !important; gap: 8px !important; }
+    .exa-qarea { padding: 14px 10px 18px !important; }
+    .exa-palette { padding: 14px 10px 22px !important; }
+  }
+`;
+
 
 /* ══════════════════════════════════════════════════════════════
    Main component
@@ -42,6 +111,8 @@ export default function MockExamPage() {
 
   const [exam, setExam] = useState<MockExam | null>(null);
   const [pageStatus, setPageStatus] = useState<'loading' | 'polling' | 'exam' | 'submitting' | 'error'>('loading');
+  // Read from storage after mount so the server and first client render agree
+  const [candidate, setCandidate] = useState<User | null>(null);
   // Set while the paper is generating, so the wait message names only this exam's time
   const [pendingExamType, setPendingExamType] = useState<string | null>(null);
   const [loadMsg, setLoadMsg] = useState('Loading exam…');
@@ -87,6 +158,9 @@ export default function MockExamPage() {
       if (pollTimerRef.current) clearTimeout(pollTimerRef.current);
     };
   }, []);
+
+  // The candidate's name is stored with the session; load it after mount
+  useEffect(() => { setCandidate(getUser()); }, []);
 
   const flushPendingAnswers = useCallback(async () => {
     if (pendingSyncRef.current.size === 0) return;
@@ -240,6 +314,33 @@ export default function MockExamPage() {
     return () => { cancelled = true; };
   }, [examId, router, pollForReady, initializeExam]);
 
+  /* ── Fullscreen: the exam runs full-window when the browser allows it ── */
+  useEffect(() => {
+    if (pageStatus !== 'exam') return;
+    if (typeof document === 'undefined' || document.fullscreenElement) return;
+    document.documentElement.requestFullscreen?.().catch(() => {
+      // Refused without a recent user gesture (e.g. a page reload) — the exam still works windowed
+    });
+  }, [pageStatus]);
+
+  /* Leaving the exam (submit, back button, any navigation) releases fullscreen.
+     The short delay lets StrictMode's dev-only mount/unmount cycle cancel itself. */
+  const fsExitTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    if (fsExitTimerRef.current) {
+      clearTimeout(fsExitTimerRef.current);
+      fsExitTimerRef.current = null;
+    }
+    return () => {
+      fsExitTimerRef.current = setTimeout(() => {
+        fsExitTimerRef.current = null;
+        if (typeof document !== 'undefined' && document.fullscreenElement) {
+          document.exitFullscreen?.().catch(() => {});
+        }
+      }, 250);
+    };
+  }, []);
+
   /* ── Timer ── */
   useEffect(() => {
     if (pageStatus !== 'exam' || !startedAt) return;
@@ -385,6 +486,9 @@ export default function MockExamPage() {
       }
       await api.mock.submit(examId, questionTimesRef.current);
       try { localStorage.removeItem(`mock_answers_${examId}`); } catch {}
+      if (typeof document !== 'undefined' && document.fullscreenElement) {
+        document.exitFullscreen?.().catch(() => {});
+      }
       router.replace(`/mock/${examId}/result`);
     } catch (e) {
       submittingRef.current = false;
@@ -420,9 +524,9 @@ export default function MockExamPage() {
 
   if (pageStatus === 'error') {
     return (
-      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#fff' }}>
-        <div style={{ fontSize: 16, color: '#dc2626', marginBottom: 16 }}>{loadMsg}</div>
-        <Link href="/mock" style={{ color: 'var(--gray-700)', textDecoration: 'underline' }}>Back to Mock Tests</Link>
+      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: EX.paper, fontFamily: FONT_SANS }}>
+        <div style={{ fontSize: 16, color: EX.danger, marginBottom: 16 }}>{loadMsg}</div>
+        <Link href="/mock" style={{ color: EX.accent, textDecoration: 'underline' }}>Back to Mock Tests</Link>
       </div>
     );
   }
@@ -447,134 +551,148 @@ export default function MockExamPage() {
   const totalMarked = Object.values(marked).filter(Boolean).length;
   const total = questions.length;
 
-  const timerColor = timeLeft < 600 ? '#dc2626' : timeLeft < 1800 ? '#d97706' : '#166534';
-  const timerBg   = timeLeft < 600 ? '#fef2f2' : timeLeft < 1800 ? '#fffbeb' : '#f0fdf4';
+  const timerColor = timeLeft < 600 ? EX.danger : timeLeft < 1800 ? EX.warn : EX.ink;
 
   const qt = currentQ.questionType;
+  const qtypeLabel = qt === 'mcq_single' ? 'Single Correct' : qt === 'mcq_multi' ? 'Multi-Correct' : qt === 'matrix_match' ? 'Matrix Match' : 'Integer Type';
   const options = ['A', 'B', 'C', 'D'];
   const multiSelected = new Set(draft ? draft.split(',').map((s) => s.trim()).filter(Boolean) : []);
 
+  // Tiled candidate watermark, the way proctored exams mark the paper
+  const watermarkName = escapeXml(candidate?.name ?? 'JEENEET.AI');
+  const watermarkExam = escapeXml(exam.examType === 'NEET' ? 'NEET (UG) · MOCK TEST' : `JEE ${exam.examType} · MOCK TEST`);
+  const watermarkSvg =
+    `<svg xmlns="http://www.w3.org/2000/svg" width="380" height="230">` +
+    `<g transform="rotate(-24 190 115)" fill="${EX.ink}" fill-opacity="0.07" font-family="Inter, Segoe UI, sans-serif" text-anchor="middle">` +
+    `<text x="190" y="108" font-size="15" font-weight="600" letter-spacing="2.4">${watermarkName}</text>` +
+    `<text x="190" y="130" font-size="9" font-weight="600" letter-spacing="3">${watermarkExam}</text>` +
+    `</g></svg>`;
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', background: '#f3f4f6', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+    <div className="exa-root" style={{ display: 'flex', flexDirection: 'column', height: '100vh', background: EX.ground, fontFamily: FONT_SANS, color: EX.ink }}>
+      <style>{EXAM_CSS}</style>
 
       {/* ── Top bar ── */}
-      <div style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        background: '#fff', color: '#1e293b', padding: '0 20px', height: 52, flexShrink: 0,
-        borderBottom: '1px solid #e2e8f0',
+      <div className="exa-top" style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16,
+        background: EX.paper, padding: '0 24px', height: 60, flexShrink: 0,
+        borderBottom: `1px solid ${EX.line}`,
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <span style={{ display: 'inline-flex' }}>
-            <Image src="/logo.png" alt="JEENEET.ai" width={78} height={32} className="site-logo" />
+        <div className="exa-top-left" style={{ display: 'flex', alignItems: 'center', gap: 20, minWidth: 0 }}>
+          <span style={{ display: 'inline-flex', flexShrink: 0 }}>
+            <Image src="/logo.png" alt="JEENEET.ai" width={103} height={42} className="exa-logo" style={{ display: 'block', height: 42, width: 'auto' }} />
           </span>
-          <span style={{ width: 1, height: 20, background: '#e2e8f0' }} />
-          <span style={{ fontSize: 14, color: '#64748b' }}>
-            {exam.examType === 'NEET' ? 'NEET UG Mock Test' : `JEE ${exam.examType} Mock Test`}
-          </span>
+          <span className="exa-top-rule" style={{ width: 1, height: 28, background: EX.line, flexShrink: 0 }} />
+          <div className="exa-top-title" style={{ display: 'flex', flexDirection: 'column', gap: 2, minWidth: 0 }}>
+            <span style={{ fontSize: 9.5, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: EX.mute }}>
+              Mock examination · CBT
+            </span>
+            <span style={{ fontSize: 14, fontWeight: 600, color: EX.ink, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              {exam.examType === 'NEET' ? 'NEET (UG)' : `JEE ${exam.examType}`} — Mock Test
+            </span>
+          </div>
           {!isOnline && (
-            <span style={{
-              fontSize: 12, background: '#fef3c7', color: '#92400e',
-              border: '1px solid #fde68a', borderRadius: 4, padding: '3px 8px',
-              display: 'inline-flex', alignItems: 'center', gap: 6, fontWeight: 500,
+            <span className="exa-offline" style={{
+              display: 'inline-flex', alignItems: 'center', gap: 6, flexShrink: 0,
+              fontSize: 9.5, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase',
+              color: EX.warn, background: EX.warnWash, border: `1px solid ${EX.warnLine}`,
+              borderRadius: 2, padding: '3px 8px',
             }}>
-              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#d97706' }} />
-              Offline mode (saved locally)
+              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#C7861A' }} />
+              Offline — saved locally
             </span>
           )}
         </div>
-        <div style={{
-          display: 'flex', alignItems: 'center', gap: 8,
-          background: timerBg, color: timerColor,
-          border: `1px solid ${timerColor}30`,
-          borderRadius: 6, padding: '6px 14px',
-        }}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-          </svg>
-          <span style={{ fontFamily: 'monospace', fontSize: 16, fontWeight: 700 }}>{fmtTime(timeLeft)}</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexShrink: 0 }}>
+          {candidate && (
+            <>
+              <div className="exa-cand" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 1, minWidth: 0 }}>
+                <span style={{ fontSize: 9, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: EX.mute }}>
+                  Candidate
+                </span>
+                <span
+                  title={candidate.name}
+                  style={{
+                    fontSize: 13, fontWeight: 600, color: EX.ink, maxWidth: 200,
+                    whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+                  }}
+                >
+                  {candidate.name}
+                </span>
+              </div>
+              <span className="exa-cand-rule" style={{ width: 1, height: 28, background: EX.line, flexShrink: 0 }} />
+            </>
+          )}
+          <div className="exa-timer" style={{
+            display: 'flex', alignItems: 'center', gap: 10,
+            background: EX.paper, border: `1px solid ${EX.line}`,
+            borderRadius: 3, padding: '5px 14px',
+          }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={EX.mute} strokeWidth="2" aria-hidden>
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: EX.mute, lineHeight: '11px' }}>
+                Time remaining
+              </span>
+              <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 700, lineHeight: '18px', fontVariantNumeric: 'tabular-nums', color: timerColor }}>
+                {fmtTime(timeLeft)}
+              </span>
+            </div>
+          </div>
+          <button
+            onClick={() => handleSubmit(false)}
+            className="exa-btn exa-primary exa-submit"
+            style={{
+              padding: '9px 22px', borderRadius: 3, fontSize: 11.5,
+              fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase',
+            }}
+          >
+            Submit Test
+          </button>
         </div>
-        <button
-          onClick={() => handleSubmit(false)}
-          style={{
-            background: '#fff', color: '#1e293b', border: '1px solid #cbd5e1',
-            padding: '7px 20px', borderRadius: 5, fontSize: 13, fontWeight: 700, cursor: 'pointer',
-          }}
-        >
-          Submit Test
-        </button>
       </div>
 
       {/* ── Submission error banner (if network/server drops) ── */}
       {errorMsg && (
         <div style={{
-          background: '#fee2e2', borderBottom: '1px solid #fca5a5', color: '#991b1b',
-          padding: '10px 20px', fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          background: '#FDF1F0', borderBottom: `1px solid ${EX.dangerLine}`, color: EX.danger,
+          padding: '10px 24px', fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           flexShrink: 0,
         }}>
-          <span><strong>Submission Error:</strong> {errorMsg}. Please check your connection and click Submit Test again.</span>
-          <button onClick={() => setErrorMsg('')} style={{ background: 'transparent', border: 'none', color: '#991b1b', fontWeight: 700, cursor: 'pointer', fontSize: 14 }}>✕</button>
+          <span><strong>Submission error:</strong> {errorMsg}. Please check your connection and click Submit Test again.</span>
+          <button onClick={() => setErrorMsg('')} style={{ background: 'transparent', border: 'none', color: EX.danger, fontWeight: 700, cursor: 'pointer', fontSize: 14 }}>✕</button>
         </div>
       )}
 
-      {/* ── Subject tabs ── */}
-      <div style={{ display: 'flex', background: '#fff', borderBottom: '1px solid #e2e8f0', flexShrink: 0 }}>
-        {subjects.map((subj) => {
-          const subjQs = bySubject[subj] ?? [];
-          const firstIdx = questions.findIndex((q) => q.subject === subj);
-          const isActive = currentQ.subject === subj;
-          const answeredCount = subjQs.filter((q) => !!answers[q.mockQuestionId]).length;
-          return (
-            <button
-              key={subj}
-              onClick={() => goTo(firstIdx)}
-              style={{
-                flex: 1, padding: '10px 16px', border: 'none', cursor: 'pointer',
-                background: isActive ? '#fff' : '#f8fafc',
-                borderBottom: isActive ? `3px solid ${SUBJECT_COLOR[subj]}` : '3px solid transparent',
-                color: isActive ? SUBJECT_COLOR[subj] : '#64748b',
-                fontWeight: isActive ? 700 : 500, fontSize: 13,
-                transition: 'all 0.15s',
-              }}
-            >
-              {subj}
-              <span style={{
-                marginLeft: 8, fontSize: 11, padding: '1px 6px', borderRadius: 9999,
-                background: isActive ? `${SUBJECT_COLOR[subj]}18` : '#e2e8f0',
-                color: isActive ? SUBJECT_COLOR[subj] : '#64748b',
-              }}>
-                {answeredCount}/{subjQs.length}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-
       {/* ── Main body ── */}
-      <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
+      <div className="exa-main" style={{ display: 'flex', flex: 1, overflow: 'hidden', position: 'relative' }}>
+        <div
+          aria-hidden
+          className="exa-watermark"
+          style={{ backgroundImage: `url("data:image/svg+xml,${encodeURIComponent(watermarkSvg)}")` }}
+        />
 
         {/* Question area */}
-        <div style={{ flex: 1, overflowY: 'auto', padding: 20, display: 'flex', flexDirection: 'column', gap: 16 }}>
+        <div className="exa-qarea" style={{ flex: 1, overflowY: 'auto', padding: '24px 28px 32px', display: 'flex', flexDirection: 'column', gap: 16 }}>
 
           {/* Question header */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
-            <span style={{ fontSize: 14, fontWeight: 600, color: '#1e293b' }}>
-              Question {currentQ.questionNumber} of {total}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+            <span style={{ fontSize: 15, fontWeight: 700, color: EX.ink, marginRight: 4 }}>
+              Question {currentQ.questionNumber} <span style={{ fontWeight: 500, color: EX.mute }}>of {total}</span>
             </span>
-            <Badge variant={qtypeVariant(qt)}>
-              {qt === 'mcq_single' ? 'Single Correct' : qt === 'mcq_multi' ? 'Multi-Correct' : qt === 'matrix_match' ? 'Matrix Match' : 'Integer Type'}
-            </Badge>
-            <Badge variant={difficultyVariant(currentQ.difficulty)}>
-              {currentQ.difficulty}
-            </Badge>
-            <span style={{ fontSize: 11, color: '#94a3b8', marginLeft: 'auto' }}>
+            <span style={TAG}>{currentQ.subject}</span>
+            <span style={TAG}>{qtypeLabel}</span>
+            <span style={TAG}>{currentQ.difficulty}</span>
+            <span style={{ fontSize: 11, color: EX.mute, marginLeft: 'auto' }}>
               {currentQ.topic}
             </span>
           </div>
 
           {/* Question text */}
-          <div style={{
-            background: '#fff', border: '1px solid #e2e8f0', borderRadius: 8,
-            padding: '20px 24px', fontSize: 15, lineHeight: 1.7, color: '#1e293b',
+          <div className="exa-qcard" style={{
+            background: EX.paper, border: `1px solid ${EX.line}`, borderRadius: 3,
+            padding: '24px 28px', fontSize: 15, lineHeight: 1.75, color: EX.ink,
           }}>
             {qt === 'matrix_match' || parseMatchQuestion(currentQ.questionText) ? (
               <MatchListTable questionText={currentQ.questionText} />
@@ -584,11 +702,11 @@ export default function MockExamPage() {
           </div>
 
           {/* Options / Input */}
-          <div style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 8, padding: '16px 20px' }}>
+          <div className="exa-optcard" style={{ background: EX.paper, border: `1px solid ${EX.line}`, borderRadius: 3, padding: '18px 20px' }}>
             {qt === 'integer' ? (
               <div>
-                <div style={{ fontSize: 13, color: '#64748b', marginBottom: 10 }}>
-                  Enter your answer (integer):
+                <div style={{ fontSize: 12.5, color: EX.mute, marginBottom: 10 }}>
+                  Enter your answer (integer)
                 </div>
                 <input
                   type="number"
@@ -596,13 +714,17 @@ export default function MockExamPage() {
                   onChange={(e) => setDraft(e.target.value)}
                   placeholder="Type integer answer"
                   style={{
-                    width: 160, padding: '10px 14px', border: '2px solid #cbd5e1',
-                    borderRadius: 6, fontSize: 16, fontFamily: 'monospace',
-                    outline: 'none', color: '#1e293b',
+                    width: 168, padding: '10px 14px', border: `1px solid ${EX.line}`,
+                    borderRadius: 3, fontSize: 16, fontFamily: FONT_MONO,
+                    outline: 'none', color: EX.ink, background: EX.paper,
                   }}
-                  onFocus={(e) => (e.target.style.borderColor = '#1e293b')}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = EX.accent;
+                    e.target.style.boxShadow = '0 0 0 3px rgba(29, 78, 137, .16)';
+                  }}
                   onBlur={(e) => {
-                    e.target.style.borderColor = '#cbd5e1';
+                    e.target.style.borderColor = EX.line;
+                    e.target.style.boxShadow = 'none';
                     // Save what was typed once the field is left; Save & Next, navigation and submit also save it
                     persistAnswer(currentQ.mockQuestionId, e.target.value);
                   }}
@@ -611,7 +733,7 @@ export default function MockExamPage() {
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {qt === 'mcq_multi' && (
-                  <div style={{ fontSize: 12, color: '#64748b', marginBottom: 4 }}>
+                  <div style={{ fontSize: 12.5, color: EX.mute, marginBottom: 4 }}>
                     Select one or more correct options
                   </div>
                 )}
@@ -621,6 +743,7 @@ export default function MockExamPage() {
                   return (
                     <button
                       key={letter}
+                      className={`exa-opt${isSelected ? ' is-selected' : ''}`}
                       onClick={() => {
                         if (qt === 'mcq_multi') {
                           toggleMulti(letter);
@@ -632,22 +755,23 @@ export default function MockExamPage() {
                       }}
                       style={{
                         display: 'flex', alignItems: 'flex-start', gap: 14, padding: '12px 16px',
-                        border: `2px solid ${isSelected ? '#1e293b' : '#e2e8f0'}`,
-                        borderRadius: 7, background: isSelected ? '#f1f5f9' : '#fff',
-                        cursor: 'pointer', textAlign: 'left', transition: 'all 0.12s',
+                        border: `1.5px solid ${isSelected ? EX.accent : EX.line}`,
+                        borderRadius: 3, background: isSelected ? EX.accentWash : EX.paper,
+                        cursor: 'pointer', textAlign: 'left',
                       }}
                     >
                       <span style={{
                         flexShrink: 0, width: 26, height: 26,
-                        borderRadius: qt === 'mcq_multi' ? 4 : '50%',
-                        border: `2px solid ${isSelected ? '#1e293b' : '#94a3b8'}`,
-                        background: isSelected ? '#1e293b' : '#fff',
+                        borderRadius: qt === 'mcq_multi' ? 3 : '50%',
+                        border: `1.5px solid ${isSelected ? EX.accent : EX.faint}`,
+                        background: isSelected ? EX.accent : EX.paper,
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        fontSize: 12, fontWeight: 700, color: isSelected ? '#fff' : '#64748b',
+                        fontFamily: FONT_MONO, fontSize: 12, fontWeight: 700,
+                        color: isSelected ? '#fff' : EX.ink2,
                       }}>
                         {letter}
                       </span>
-                      <span style={{ fontSize: 14, color: '#1e293b', lineHeight: 1.5, paddingTop: 2 }}>
+                      <span style={{ fontSize: 14, color: EX.ink, lineHeight: 1.55, paddingTop: 3 }}>
                         <MathText text={stripPrefix(opt)} />
                       </span>
                     </button>
@@ -658,31 +782,25 @@ export default function MockExamPage() {
           </div>
 
           {/* Action buttons */}
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', paddingBottom: 20 }}>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center', paddingBottom: 24 }}>
             <button
               onClick={() => saveAndNext(false)}
-              style={{
-                padding: '10px 20px', background: '#1e293b', color: '#fff',
-                border: 'none', borderRadius: 6, fontSize: 13, fontWeight: 600, cursor: 'pointer',
-              }}
+              className="exa-btn exa-primary"
+              style={{ padding: '10px 22px', borderRadius: 3, fontSize: 12.5, fontWeight: 600 }}
             >
               Save &amp; Next
             </button>
             <button
               onClick={markForReview}
-              style={{
-                padding: '10px 20px', background: '#7c3aed', color: '#fff',
-                border: 'none', borderRadius: 6, fontSize: 13, fontWeight: 600, cursor: 'pointer',
-              }}
+              className="exa-btn exa-outline"
+              style={{ padding: '10px 22px', borderRadius: 3, fontSize: 12.5, fontWeight: 600 }}
             >
               Mark for Review &amp; Next
             </button>
             <button
               onClick={clearResponse}
-              style={{
-                padding: '10px 20px', background: '#fff', color: '#ef4444',
-                border: '1px solid #fca5a5', borderRadius: 6, fontSize: 13, fontWeight: 600, cursor: 'pointer',
-              }}
+              className="exa-btn exa-danger"
+              style={{ padding: '10px 22px', borderRadius: 3, fontSize: 12.5, fontWeight: 600 }}
             >
               Clear Response
             </button>
@@ -690,10 +808,10 @@ export default function MockExamPage() {
             <button
               onClick={() => currentIdx > 0 && goTo(currentIdx - 1)}
               disabled={currentIdx === 0}
+              className="exa-btn exa-ghost"
               style={{
-                padding: '10px 16px', background: '#fff', color: currentIdx === 0 ? '#94a3b8' : '#1e293b',
-                border: `1px solid ${currentIdx === 0 ? '#e2e8f0' : '#cbd5e1'}`,
-                borderRadius: 6, fontSize: 13, fontWeight: 600, cursor: currentIdx === 0 ? 'not-allowed' : 'pointer',
+                padding: '10px 18px', borderRadius: 3, fontSize: 12.5, fontWeight: 600,
+                ...(currentIdx === 0 ? { color: EX.faint, borderColor: EX.lineSoft } : null),
               }}
             >
               ← Back
@@ -701,23 +819,23 @@ export default function MockExamPage() {
             <button
               onClick={() => currentIdx < total - 1 && goTo(currentIdx + 1)}
               disabled={currentIdx === total - 1}
+              className="exa-btn exa-ghost"
               style={{
-                padding: '10px 16px', background: '#fff', color: currentIdx === total - 1 ? '#94a3b8' : '#1e293b',
-                border: `1px solid ${currentIdx === total - 1 ? '#e2e8f0' : '#cbd5e1'}`,
-                borderRadius: 6, fontSize: 13, fontWeight: 600, cursor: currentIdx === total - 1 ? 'not-allowed' : 'pointer',
+                padding: '10px 18px', borderRadius: 3, fontSize: 12.5, fontWeight: 600,
+                ...(currentIdx === total - 1 ? { color: EX.faint, borderColor: EX.lineSoft } : null),
               }}
             >
               Next →
             </button>
           </div>
 
-          {errorMsg && <div style={{ color: '#dc2626', fontSize: 13 }}>{errorMsg}</div>}
+          {errorMsg && <div style={{ color: EX.danger, fontSize: 13 }}>{errorMsg}</div>}
         </div>
 
         {/* ── Question Palette ── */}
-        <div style={{
-          width: 268, flexShrink: 0, background: '#fff', borderLeft: '1px solid #e2e8f0',
-          overflowY: 'auto', padding: '16px 14px', display: 'flex', flexDirection: 'column', gap: 16,
+        <div className="exa-palette" style={{
+          width: 284, flexShrink: 0, background: EX.paper, borderLeft: `1px solid ${EX.line}`,
+          overflowY: 'auto', padding: '20px 16px', display: 'flex', flexDirection: 'column', gap: 18,
         }}>
           <ExamPalette
             totalAnswered={totalAnswered}

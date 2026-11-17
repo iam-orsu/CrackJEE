@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef, useState, useEffect, useCallback } from 'react';
+import { EX, FONT_SANS } from '@/components/mock/examTheme';
 
 interface DragToConfirmProps {
   onConfirm: () => void;
@@ -8,10 +9,12 @@ interface DragToConfirmProps {
   disabled?: boolean;
 }
 
-const THUMB_W = 52;
-const THUMB_PAD = 4;
+const THUMB_W = 56;
+const THUMB_PAD = 5;
+const OK = '#1E7A45';
 
-export function DragToConfirm({ onConfirm, label = 'Drag to submit exam', disabled = false }: DragToConfirmProps) {
+/* A slide-to-confirm control: drag the handle across the track, or focus it and press Enter */
+export function DragToConfirm({ onConfirm, label = 'Slide to submit exam', disabled = false }: DragToConfirmProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [usableW, setUsableW] = useState(240);
   const [progress, setProgress] = useState(0);
@@ -38,6 +41,12 @@ export function DragToConfirm({ onConfirm, label = 'Drag to submit exam', disabl
     return () => ro?.disconnect();
   }, []);
 
+  const finish = useCallback(() => {
+    setConfirmed(true);
+    setProgress(1);
+    confirmTimerRef.current = setTimeout(onConfirm, 320);
+  }, [onConfirm]);
+
   const onPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     if (disabled || confirmed) return;
     e.currentTarget.setPointerCapture(e.pointerId);
@@ -57,13 +66,19 @@ export function DragToConfirm({ onConfirm, label = 'Drag to submit exam', disabl
     if (!dragging) return;
     setDragging(false);
     if (progress >= 0.85) {
-      setConfirmed(true);
-      setProgress(1);
-      confirmTimerRef.current = setTimeout(onConfirm, 320);
+      finish();
     } else {
       setProgress(0);
     }
-  }, [dragging, progress, onConfirm]);
+  }, [dragging, progress, finish]);
+
+  const onKeyDown = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (disabled || confirmed) return;
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      finish();
+    }
+  }, [disabled, confirmed, finish]);
 
   const thumbLeft = THUMB_PAD + progress * usableW;
   const fillPct = progress * 100;
@@ -72,53 +87,65 @@ export function DragToConfirm({ onConfirm, label = 'Drag to submit exam', disabl
     <>
       <style>{`
         @keyframes _dtcPulse {
-          0%,100% { box-shadow: 0 0 0 0 rgba(30,41,59,.25); }
-          50%      { box-shadow: 0 0 0 7px rgba(30,41,59,0); }
+          0%,100% { box-shadow: 0 0 0 0 rgba(29,78,137,.22); }
+          60%     { box-shadow: 0 0 0 7px rgba(29,78,137,0); }
         }
-        ._dtcThumb { animation: _dtcPulse 2.2s ease infinite; }
+        ._dtcThumb:not(._dtcDone) { animation: _dtcPulse 2.4s ease infinite; }
         ._dtcThumb:active { animation: none; }
+        ._dtcTrack:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(29,78,137,.22); }
       `}</style>
       <div
         ref={trackRef}
+        className="_dtcTrack"
+        role="button"
+        tabIndex={disabled ? -1 : 0}
+        aria-label={label}
+        aria-disabled={disabled}
+        onKeyDown={onKeyDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
         onPointerLeave={onPointerUp}
         style={{
-          position: 'relative', height: 56, borderRadius: 28,
-          background: confirmed ? '#f0fdf4' : '#f8fafc',
-          border: `1.5px solid ${confirmed ? '#bbf7d0' : '#e2e8f0'}`,
+          position: 'relative', height: 56, borderRadius: 8,
+          background: confirmed ? '#F1F8F4' : '#F4F6F9',
+          border: `1px solid ${confirmed ? '#B9DCC6' : EX.line}`,
           overflow: 'hidden',
           userSelect: 'none', touchAction: 'none',
           cursor: disabled ? 'not-allowed' : 'default',
-          transition: 'background .25s, border-color .25s',
+          transition: 'background .2s, border-color .2s',
+          fontFamily: FONT_SANS,
         }}
       >
         {/* Fill bar */}
         <div style={{
           position: 'absolute', inset: 0, right: 'auto',
           width: `${fillPct}%`,
-          background: confirmed ? '#16a34a' : '#1e293b',
-          opacity: 0.1,
-          transition: dragging ? 'none' : 'width .35s cubic-bezier(.34,1.56,.64,1)',
-          borderRadius: 28,
+          background: confirmed ? OK : EX.accent,
+          opacity: confirmed ? 0.16 : 0.1,
+          transition: dragging ? 'none' : 'width .3s cubic-bezier(.2,.7,.2,1)',
           pointerEvents: 'none',
         }} />
 
         {/* Track label */}
         <div style={{
           position: 'absolute', inset: 0, display: 'flex', alignItems: 'center',
-          justifyContent: 'center', pointerEvents: 'none',
-          fontSize: 13, fontWeight: 600,
-          color: confirmed ? '#15803d' : '#94a3b8',
-          opacity: progress > 0.25 ? 0 : 1,
+          justifyContent: 'center', gap: 8, pointerEvents: 'none',
+          fontSize: 12.5, fontWeight: 600, letterSpacing: '0.02em',
+          color: confirmed ? OK : EX.mute,
+          opacity: progress > 0.2 ? 0 : 1,
           transition: 'opacity .15s',
         }}>
-          {confirmed ? 'Submitted ✓' : label}
+          {confirmed ? 'Submitted' : label}
+          {!confirmed && (
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M5 12h9M11 7l5 5-5 5M18 7l3 5-3 5" />
+            </svg>
+          )}
         </div>
 
         {/* Thumb */}
         <div
-          className={confirmed ? undefined : '_dtcThumb'}
+          className={`_dtcThumb${confirmed ? ' _dtcDone' : ''}`}
           onPointerDown={onPointerDown}
           style={{
             position: 'absolute',
@@ -126,13 +153,13 @@ export function DragToConfirm({ onConfirm, label = 'Drag to submit exam', disabl
             top: THUMB_PAD,
             width: THUMB_W,
             height: 56 - THUMB_PAD * 2,
-            borderRadius: 24,
-            background: confirmed ? '#16a34a' : '#1e293b',
+            borderRadius: 5,
+            background: confirmed ? OK : EX.accent,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             cursor: disabled ? 'not-allowed' : dragging ? 'grabbing' : 'grab',
-            transition: dragging ? 'none' : 'left .35s cubic-bezier(.34,1.56,.64,1), background .25s',
+            transition: dragging ? 'none' : 'left .3s cubic-bezier(.2,.7,.2,1), background .2s',
             color: '#fff',
-            boxShadow: dragging ? '0 6px 20px rgba(0,0,0,.18)' : '0 2px 8px rgba(0,0,0,.12)',
+            boxShadow: dragging ? '0 6px 16px rgba(15,23,42,.18)' : '0 1px 3px rgba(15,23,42,.18)',
           }}
         >
           {confirmed ? (
@@ -140,7 +167,7 @@ export function DragToConfirm({ onConfirm, label = 'Drag to submit exam', disabl
               <polyline points="20 6 9 17 4 12"/>
             </svg>
           ) : (
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="9 18 15 12 9 6"/>
             </svg>
           )}

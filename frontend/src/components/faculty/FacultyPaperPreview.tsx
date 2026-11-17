@@ -15,9 +15,11 @@ import {
   type FacultyPaperItem,
   type FacultyQuestionType,
 } from '@/lib/faculty';
-import styles from '@/app/faculty/faculty.module.css';
 
 const LETTERS = ['A', 'B', 'C', 'D'];
+
+type ClassValue = string | false | null | undefined;
+const cx = (...parts: ClassValue[]) => parts.filter(Boolean).join(' ');
 
 function isOptionSelected(correctAnswer: string, letter: string): boolean {
   return correctAnswer.toUpperCase().split(',').map((s) => s.trim()).includes(letter);
@@ -27,7 +29,7 @@ function isOptionSelected(correctAnswer: string, letter: string): boolean {
 function QuestionContent({ item }: { item: FacultyPaperItem }) {
   return (
     <>
-      <div className={styles.qBody}>
+      <div className="text-[14px] leading-[1.65] text-[#0F172A]">
         {item.questionType === 'matrix_match' || parseMatchQuestion(item.questionText) ? (
           <MatchListTable questionText={item.questionText} />
         ) : (
@@ -36,19 +38,19 @@ function QuestionContent({ item }: { item: FacultyPaperItem }) {
       </div>
 
       {item.diagram && (
-        <div className={styles.diagramWrap}>
+        <div className="my-3 max-w-[440px]">
           <DiagramRenderer descriptor={item.diagram} />
         </div>
       )}
 
       {item.questionType !== 'integer' && item.options.length > 0 && (
-        <div className={styles.optGrid}>
+        <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
           {item.options.map((opt, idx) => {
             const letter = LETTERS[idx]!;
             const isCorrect = isOptionSelected(item.correctAnswer, letter);
             return (
-              <div key={letter} className={`${styles.optBox} ${isCorrect ? styles.optBoxCorrect : ''}`}>
-                <span className={styles.optLetter}>{letter})</span>
+              <div key={letter} className={cx('flex items-baseline gap-2 rounded-xl border border-[#CBD5E1] bg-white px-2.5 py-2 text-[13px] font-medium text-[#0F172A] [print-color-adjust:exact]', isCorrect && 'border-[#86EFAC] bg-[#F0FDF4]')}>
+                <span className="font-extrabold text-[#64748B]">{letter})</span>
                 <MathText text={stripOptionPrefix(opt)} />
               </div>
             );
@@ -56,10 +58,10 @@ function QuestionContent({ item }: { item: FacultyPaperItem }) {
         </div>
       )}
 
-      <div className={styles.answerLine}>Answer: {item.correctAnswer}</div>
+      <div className="mt-2.5 inline-block rounded-lg border border-[#BBF7D0] bg-[#F0FDF4] px-2.5 py-1.5 text-[13px] font-bold text-[#15803D] [print-color-adjust:exact]">Answer: {item.correctAnswer}</div>
 
       {item.explanation && (
-        <div className={styles.explainBox}>
+        <div className="mt-2.5 rounded-lg border-l-[3px] border-l-[#94A3B8] bg-[#F8FAFC] px-3 py-2.5 text-[13px] leading-relaxed text-[#334155]">
           <strong>Solution: </strong>
           <MathText text={item.explanation} />
         </div>
@@ -148,21 +150,21 @@ function SparklePanel({
   }
 
   return (
-    <div className={styles.sparkleBox}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-        <strong style={{ fontSize: 13, color: '#5b21b6' }}>
+    <div className="mt-3 rounded-[22px] border border-accent/30 bg-accent-50 p-4">
+      <div className="mb-2.5 flex items-center justify-between">
+        <strong className="text-[13px] text-accent-900">
           ✨ {targetNumber !== null ? `Sparkle Replace Q${targetNumber}` : 'Sparkle Add New Question'}
         </strong>
-        <button type="button" className={styles.btn} style={{ fontSize: 11, padding: '3px 8px' }} onClick={onClose}>
+        <button type="button" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-2 py-[3px] text-[11px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" onClick={onClose}>
           Close
         </button>
       </div>
 
-      <div className={styles.row3}>
-        <div className={styles.field} style={{ marginBottom: 8 }}>
-          <label className={styles.label}>Subject</label>
+      <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mb-2 flex flex-col gap-1.5">
+          <label className="text-[12.5px] font-extrabold text-[#003366]">Subject</label>
           <select
-            className={styles.select}
+            className="h-[46px] w-full cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
             value={subject}
             onChange={(e) => handleSubjectChange(e.target.value)}
             disabled={generating || accepting}
@@ -173,10 +175,10 @@ function SparklePanel({
           </select>
         </div>
 
-        <div className={styles.field} style={{ marginBottom: 8 }}>
-          <label className={styles.label}>Topic</label>
+        <div className="mb-2 flex flex-col gap-1.5">
+          <label className="text-[12.5px] font-extrabold text-[#003366]">Topic</label>
           <select
-            className={styles.select}
+            className="h-[46px] w-full cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
             value={topic}
             onChange={(e) => setTopic(e.target.value)}
             disabled={generating || accepting}
@@ -187,10 +189,10 @@ function SparklePanel({
           </select>
         </div>
 
-        <div className={styles.field} style={{ marginBottom: 8 }}>
-          <label className={styles.label}>Question Type</label>
+        <div className="mb-2 flex flex-col gap-1.5">
+          <label className="text-[12.5px] font-extrabold text-[#003366]">Question Type</label>
           <select
-            className={styles.select}
+            className="h-[46px] w-full cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
             value={questionType}
             disabled={generating || accepting}
             onChange={(e) => setQuestionType(e.target.value as FacultyQuestionType)}
@@ -203,10 +205,10 @@ function SparklePanel({
         </div>
       </div>
 
-      <div className={styles.qActions}>
+      <div className="flex flex-wrap gap-1.5">
         <button
           type="button"
-          className={styles.btnSparkle}
+          className="inline-flex cursor-pointer items-center gap-1 rounded-xl border-[2.5px] border-accent bg-accent-50 px-2.5 py-1.5 text-[12px] font-extrabold text-accent transition-colors duration-150 hover:bg-accent-100 disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
           onClick={() => void handleGenerate()}
           disabled={generating || accepting || !topic}
         >
@@ -215,11 +217,11 @@ function SparklePanel({
       </div>
 
       {candidate && (
-        <div className={styles.draftPreview}>
-          <div className={styles.qCardHead}>
-            <div className={styles.qMeta}>
-              <span className={styles.qTag}>{candidate.subject} · {candidate.topic}</span>
-              <span className={candidate.verified ? styles.badgeVerified : styles.badgeWarn}>
+        <div className="mt-3 rounded-2xl border border-accent/40 bg-white p-3.5">
+          <div className="mb-2.5 flex flex-wrap items-center justify-between gap-2.5">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="rounded-lg bg-ice px-2 py-0.5 text-[11.5px] font-bold text-[#003366]">{candidate.subject} · {candidate.topic}</span>
+              <span className={candidate.verified ? 'rounded-full bg-[#DCFCE7] px-2 py-0.5 text-[11.5px] font-bold text-[#15803D]' : 'rounded-full bg-[#FEF3C7] px-2 py-0.5 text-[11.5px] font-bold text-[#B45309]'}>
                 {candidate.verified ? 'Verified ✓' : 'Unverified Draft'}
               </span>
             </div>
@@ -227,10 +229,10 @@ function SparklePanel({
 
           <QuestionContent item={candidate} />
 
-          <div className={styles.qActions} style={{ marginTop: 12 }}>
+          <div className="mt-3 flex flex-wrap gap-1.5">
             <button
               type="button"
-              className={styles.btnAccent}
+              className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-accent bg-white px-3 py-1.5 text-[12.5px] font-extrabold text-accent no-underline shadow-[0_4px_0_#E2C2F0] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#E2C2F0] active:translate-y-[3px] active:shadow-[0_1px_0_#E2C2F0] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
               onClick={() => void handleAccept()}
               disabled={accepting || generating}
             >
@@ -242,7 +244,7 @@ function SparklePanel({
             </button>
             <button
               type="button"
-              className={styles.btn}
+              className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
               onClick={() => setCandidate(null)}
               disabled={accepting || generating}
             >
@@ -342,21 +344,21 @@ function FacultyQuestionCard({
         : 'Single-correct';
 
   return (
-    <article className={styles.questionCard}>
-      <div className={styles.qCardHead}>
-        <div className={styles.qMeta}>
-          <span className={styles.qNum}>Q{item.number}</span>
-          <span className={styles.qTag}>{item.subject} · {item.topic}</span>
-          <span className={styles.qTag}>{typeLabel}</span>
+    <article className="mb-3.5 rounded-[22px] border border-[#003366]/10 bg-white p-4 shadow-[0_16px_40px_-34px_rgba(0,51,102,.4)] sm:p-[18px]">
+      <div className="mb-2.5 flex flex-wrap items-center justify-between gap-2.5">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="font-display text-[15px] font-extrabold text-[#003366]">Q{item.number}</span>
+          <span className="rounded-lg bg-ice px-2 py-0.5 text-[11.5px] font-bold text-[#003366]">{item.subject} · {item.topic}</span>
+          <span className="rounded-lg bg-ice px-2 py-0.5 text-[11.5px] font-bold text-[#003366]">{typeLabel}</span>
           {item.editedByFaculty && (
-            <span className={styles.badgeVerified}>Edited ✓</span>
+            <span className="rounded-full bg-[#DCFCE7] px-2 py-0.5 text-[11.5px] font-bold text-[#15803D]">Edited ✓</span>
           )}
         </div>
         {!busy && (
-          <div className={styles.qActions}>
+          <div className="flex flex-wrap gap-1.5">
             <button
               type="button"
-              className={styles.btnSparkle}
+              className="inline-flex cursor-pointer items-center gap-1 rounded-xl border-[2.5px] border-accent bg-accent-50 px-2.5 py-1.5 text-[12px] font-extrabold text-accent transition-colors duration-150 hover:bg-accent-100 disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
               onClick={() => { setEditing(false); setSparkleOpen((v) => !v); }}
               disabled={saving || deleting}
             >
@@ -364,7 +366,7 @@ function FacultyQuestionCard({
             </button>
             <button
               type="button"
-              className={styles.btn}
+              className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
               onClick={editing ? () => setEditing(false) : openEdit}
               disabled={saving || deleting}
             >
@@ -372,7 +374,7 @@ function FacultyQuestionCard({
             </button>
             <button
               type="button"
-              className={styles.btnDanger}
+              className="cursor-pointer rounded-xl border border-[#C8202F]/30 bg-white px-2.5 py-1.5 text-[12px] font-bold text-[#C8202F] transition-colors duration-150 hover:bg-[#FDF3F4] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
               onClick={() => void handleDelete()}
               disabled={!canDelete || saving || deleting}
               title={canDelete ? 'Delete question & renumber' : 'Paper must keep at least 1 question'}
@@ -386,11 +388,11 @@ function FacultyQuestionCard({
       {!editing ? (
         <QuestionContent item={item} />
       ) : (
-        <form onSubmit={handleSave} className={styles.editBox}>
-          <div className={styles.field}>
-            <label className={styles.label}>Question (supports $LaTeX$)</label>
+        <form onSubmit={handleSave} className="mt-3 rounded-2xl border border-[#003366]/15 bg-[#FBFCFE] p-3.5">
+          <div className="mb-3.5 flex flex-col gap-1.5">
+            <label className="text-[12.5px] font-extrabold text-[#003366]">Question (supports $LaTeX$)</label>
             <textarea
-              className={styles.textarea}
+              className="min-h-[76px] w-full resize-y rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2.5 text-[14px] font-semibold leading-relaxed text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
               value={draftText}
               onChange={(e) => setDraftText(e.target.value)}
               required
@@ -398,12 +400,12 @@ function FacultyQuestionCard({
           </div>
 
           {item.questionType !== 'integer' && (
-            <div className={styles.row2}>
+            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
               {draftOptions.map((opt, idx) => (
-                <div key={LETTERS[idx]} className={styles.field}>
-                  <label className={styles.label}>Option {LETTERS[idx]}</label>
+                <div key={LETTERS[idx]} className="mb-3.5 flex flex-col gap-1.5">
+                  <label className="text-[12.5px] font-extrabold text-[#003366]">Option {LETTERS[idx]}</label>
                   <input
-                    className={styles.input}
+                    className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                     value={opt}
                     onChange={(e) => {
                       const next = [...draftOptions];
@@ -417,29 +419,29 @@ function FacultyQuestionCard({
             </div>
           )}
 
-          <div className={styles.field}>
-            <label className={styles.label}>
+          <div className="mb-3.5 flex flex-col gap-1.5">
+            <label className="text-[12.5px] font-extrabold text-[#003366]">
               Correct Answer {item.questionType === 'mcq_multi' ? '(e.g. A,C)' : item.questionType === 'integer' ? '(non-negative integer)' : '(A, B, C, or D)'}
             </label>
             <input
-              className={styles.input}
+              className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
               value={draftAnswer}
               onChange={(e) => setDraftAnswer(e.target.value)}
               required
             />
           </div>
 
-          <div className={styles.field}>
-            <label className={styles.label}>Step-by-step Solution</label>
+          <div className="mb-3.5 flex flex-col gap-1.5">
+            <label className="text-[12.5px] font-extrabold text-[#003366]">Step-by-step Solution</label>
             <textarea
-              className={styles.textarea}
+              className="min-h-[76px] w-full resize-y rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2.5 text-[14px] font-semibold leading-relaxed text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
               value={draftExplain}
               onChange={(e) => setDraftExplain(e.target.value)}
             />
           </div>
 
           {item.diagram && (
-            <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, marginBottom: 12, color: '#b91c1c', cursor: 'pointer' }}>
+            <label className="mb-3 flex cursor-pointer items-center gap-2 text-[12px] text-[#C8202F]">
               <input
                 type="checkbox"
                 checked={removeDiagram}
@@ -449,11 +451,11 @@ function FacultyQuestionCard({
             </label>
           )}
 
-          <div className={styles.qActions}>
-            <button type="submit" className={styles.btnPrimary} disabled={saving}>
+          <div className="flex flex-wrap gap-1.5">
+            <button type="submit" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" disabled={saving}>
               {saving ? 'Saving…' : 'Save Question'}
             </button>
-            <button type="button" className={styles.btn} onClick={() => setEditing(false)} disabled={saving}>
+            <button type="button" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" onClick={() => setEditing(false)} disabled={saving}>
               Cancel
             </button>
           </div>
@@ -519,35 +521,35 @@ export function FacultyPaperPreview({
   }
 
   return (
-    <section className={styles.panel}>
-      <div style={{ marginBottom: 14 }}>
-        <button type="button" className={styles.btn} onClick={onBack}>
+    <section className="rounded-[28px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+      <div className="mb-3.5">
+        <button type="button" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" onClick={onBack}>
           ← Back to Paper Stack
         </button>
       </div>
 
-      <div className={styles.previewHeader}>
+      <div className="mb-4 flex flex-wrap items-start justify-between gap-4 border-b border-[#003366]/10 pb-4">
         <div>
           {paper.organization && (
-            <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--brand, #0f2b48)', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 2 }}>
+            <div className="mb-0.5 text-[13px] font-extrabold uppercase tracking-[0.04em] text-[#003366]">
               🏛️ {paper.organization}
             </div>
           )}
-          <div className={styles.paperCardTop}>
-            <span className={styles.paperCodeBadge}>{paper.paperCode}</span>
-            <h2 className={styles.title} style={{ fontSize: 18 }}>{paper.title}</h2>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="rounded-lg bg-ice px-2 py-0.5 font-mono text-[11px] font-bold text-accent">{paper.paperCode}</span>
+            <h2 className="font-display text-[18px] font-extrabold leading-tight tracking-[-0.02em] text-[#003366]">{paper.title}</h2>
           </div>
-          <p className={styles.sub} style={{ marginTop: 4 }}>
+          <p className="mt-1 text-[13px] font-medium text-[#5A6B8C]">
             {paper.examType === 'NEET' ? 'NEET-UG' : `JEE ${paper.examType}`} · {paper.difficulty}
             {!isGenerating && ` · ${paper.questionCount} Questions`}
           </p>
           {paper.status === 'ready' && (
-            <div className={styles.pdfBar}>
+            <div className="mt-3 flex flex-wrap gap-2">
               <Link
                 href={`/faculty/papers/${paper.id}/print?mode=questions&download=1`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.btnAccent}
+                className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-accent bg-white px-3 py-1.5 text-[12.5px] font-extrabold text-accent no-underline shadow-[0_4px_0_#E2C2F0] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#E2C2F0] active:translate-y-[3px] active:shadow-[0_1px_0_#E2C2F0] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
               >
                 Download PDF: Question Paper
               </Link>
@@ -555,7 +557,7 @@ export function FacultyPaperPreview({
                 href={`/faculty/papers/${paper.id}/print?mode=solutions&download=1`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.btnAccent}
+                className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-accent bg-white px-3 py-1.5 text-[12.5px] font-extrabold text-accent no-underline shadow-[0_4px_0_#E2C2F0] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#E2C2F0] active:translate-y-[3px] active:shadow-[0_1px_0_#E2C2F0] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
               >
                 Download PDF: Paper + Solutions
               </Link>
@@ -563,7 +565,7 @@ export function FacultyPaperPreview({
                 href={`/faculty/papers/${paper.id}/print?mode=key&download=1`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.btnAccent}
+                className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-accent bg-white px-3 py-1.5 text-[12.5px] font-extrabold text-accent no-underline shadow-[0_4px_0_#E2C2F0] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#E2C2F0] active:translate-y-[3px] active:shadow-[0_1px_0_#E2C2F0] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
               >
                 Download PDF: Answer Key
               </Link>
@@ -573,7 +575,7 @@ export function FacultyPaperPreview({
 
         <button
           type="button"
-          className={styles.btnDanger}
+          className="cursor-pointer rounded-xl border border-[#C8202F]/30 bg-white px-2.5 py-1.5 text-[12px] font-bold text-[#C8202F] transition-colors duration-150 hover:bg-[#FDF3F4] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
           onClick={() => void handleDeletePaper()}
           disabled={isGenerating || deletingPaper}
         >
@@ -582,15 +584,15 @@ export function FacultyPaperPreview({
       </div>
 
       {isGenerating && (
-        <div className={styles.loadingWrap}>
-          <div className={styles.loadingSpinner} />
-          <div className={styles.loadingTitle}>Generating questions…</div>
-          <p className={styles.loadingSub}>Please wait while your verified questions are prepared.</p>
+        <div className="mb-5 flex flex-col items-center justify-center gap-3.5 rounded-[28px] border border-[#003366]/10 bg-white px-5 py-10 shadow-[0_24px_56px_-40px_rgba(0,51,102,.4)]">
+          <div className="h-9 w-9 animate-spin rounded-full border-[3px] border-[#C6D2F8] border-t-accent motion-reduce:animate-none" />
+          <div className="font-display text-[17px] font-extrabold text-[#003366]">Generating questions…</div>
+          <p className="m-0 text-[13px] font-medium text-[#5A6B8C]">Please wait while your verified questions are prepared.</p>
         </div>
       )}
 
       {paper.status === 'error' && (
-        <div className={styles.error}>
+        <div className="mb-3.5 rounded-2xl border border-[#C8202F]/25 bg-[#FDF3F4] px-3.5 py-2.5 text-[13px] font-semibold text-[#C8202F]">
           {paper.errorMessage || 'Generation failed. Try generating again or selecting another topic.'}
         </div>
       )}
@@ -611,10 +613,10 @@ export function FacultyPaperPreview({
         ))}
 
       {paper.status === 'ready' && (
-        <div className={styles.addQuestionBar}>
+        <div className="mt-4 flex flex-col gap-2.5 border-t border-dashed border-[#003366]/20 pt-4">
           {!addSparkleOpen ? (
             <div>
-              <button type="button" className={styles.btnSparkle} onClick={() => setAddSparkleOpen(true)}>
+              <button type="button" className="inline-flex cursor-pointer items-center gap-1 rounded-xl border-[2.5px] border-accent bg-accent-50 px-2.5 py-1.5 text-[12px] font-extrabold text-accent transition-colors duration-150 hover:bg-accent-100 disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" onClick={() => setAddSparkleOpen(true)}>
                 ✨ Add Question (Choose Topic &amp; Preview)
               </button>
             </div>
