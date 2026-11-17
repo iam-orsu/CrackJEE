@@ -40,7 +40,7 @@ export interface TypeDifficultyBreakdown {
   hard: number;
 }
 
-export const MAX_TOPIC_QUESTIONS = 50;
+export const MAX_TOPIC_QUESTIONS = 75;
 
 export interface TopicCustomConfig {
   subject: Subject;
