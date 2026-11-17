@@ -74,7 +74,6 @@ export default function StudentPortalLoginPage() {
   const router = useRouter();
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
-  const [batchCode, setBatchCode] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
@@ -92,7 +91,7 @@ export default function StudentPortalLoginPage() {
     setBusy(true);
     setError('');
     try {
-      await studentLogin(identifier, password, batchCode);
+      await studentLogin(identifier, password);
       router.replace('/student-portal');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Invalid roll number or password');
@@ -186,7 +185,7 @@ export default function StudentPortalLoginPage() {
                   Student sign in
                 </h2>
                 <p className="mt-1.5 text-[13.5px] leading-[1.6] text-[#5A6B8C]">
-                  Use the roll number and password your faculty issued. Batch code only if you were given one.
+                  Use the roll number and password your faculty issued.
                 </p>
               </div>
 
@@ -232,20 +231,6 @@ export default function StudentPortalLoginPage() {
                       {showPassword ? 'Hide' : 'Show'}
                     </button>
                   </div>
-                </div>
-
-                <div className="grid gap-1.5">
-                  <label className={LABEL} htmlFor="student-batch">
-                    Batch code <span className="font-medium text-[#97A3D4]">(optional)</span>
-                  </label>
-                  <input
-                    id="student-batch"
-                    type="text"
-                    className={INPUT}
-                    placeholder="e.g. TARGET-26"
-                    value={batchCode}
-                    onChange={(e) => setBatchCode(e.target.value)}
-                  />
                 </div>
 
                 <button type="submit" className={cx(BUTTON_PRIMARY, 'mt-1 min-h-[54px] w-full text-[15px]')} disabled={busy}>
