@@ -23,23 +23,47 @@ export class FacultyStudentExamRepository {
       return existing;
     }
 
-    return database.client.facultyStudentExam.create({
-      data: {
-        assignmentId,
-        studentId,
-        status: 'in_progress',
-        startedAt: new Date(),
-        answers: {},
-      },
-      include: {
-        assignment: {
-          include: {
-            paper: true,
-            batch: true,
+    try {
+      return await database.client.facultyStudentExam.create({
+        data: {
+          assignmentId,
+          studentId,
+          status: 'in_progress',
+          startedAt: new Date(),
+          answers: {},
+        },
+        include: {
+          assignment: {
+            include: {
+              paper: true,
+              batch: true,
+            },
           },
         },
-      },
-    });
+      });
+    } catch (err: unknown) {
+      // Handle concurrent P2002 race condition gracefully
+      if ((err as { code?: string })?.code === 'P2002') {
+        const raceWinner = await database.client.facultyStudentExam.findUnique({
+          where: {
+            assignmentId_studentId: {
+              assignmentId,
+              studentId,
+            },
+          },
+          include: {
+            assignment: {
+              include: {
+                paper: true,
+                batch: true,
+              },
+            },
+          },
+        });
+        if (raceWinner) return raceWinner;
+      }
+      throw err;
+    }
   }
 
   public async findById(id: string) {
@@ -152,14 +176,18 @@ export class FacultyStudentExamRepository {
       totalScore: number;
       maxScore: number;
       correctCount: number;
+      partialCount?: number;
       incorrectCount: number;
       unattemptedCount: number;
       answers: any;
       resultBreakdown: any;
     },
   ) {
-    return database.client.facultyStudentExam.update({
-      where: { id },
+    const res = await database.client.facultyStudentExam.updateMany({
+      where: {
+        id,
+        status: { not: 'submitted' },
+      },
       data: {
         status: data.status,
         submittedAt: data.submittedAt,
@@ -167,10 +195,31 @@ export class FacultyStudentExamRepository {
         totalScore: data.totalScore,
         maxScore: data.maxScore,
         correctCount: data.correctCount,
+        partialCount: data.partialCount ?? 0,
         incorrectCount: data.incorrectCount,
         unattemptedCount: data.unattemptedCount,
         answers: data.answers,
         resultBreakdown: data.resultBreakdown,
+      },
+    });
+    return res.count > 0;
+  }
+
+  public async countStudentsScoredHigher(assignmentId: string, score: number) {
+    return database.client.facultyStudentExam.count({
+      where: {
+        assignmentId,
+        status: 'submitted',
+        totalScore: { gt: score },
+      },
+    });
+  }
+
+  public async countBatchSubmissions(assignmentId: string) {
+    return database.client.facultyStudentExam.count({
+      where: {
+        assignmentId,
+        status: 'submitted',
       },
     });
   }

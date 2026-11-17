@@ -269,7 +269,7 @@ export class QuestionController {
         throw new AppError(400, 'Tier must be either "better" or "best"');
       }
 
-      const data = await this.questionService.getTieredExplanation(id, body.data.tier);
+      const data = await this.questionService.getTieredExplanation(id, body.data.tier, req.user?.userId);
       res.json({ success: true, data });
     } catch (err) {
       next(err);

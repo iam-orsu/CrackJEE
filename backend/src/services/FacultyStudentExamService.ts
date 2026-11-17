@@ -16,10 +16,18 @@ export class FacultyStudentExamService {
     private readonly examRepo: FacultyStudentExamRepository = new FacultyStudentExamRepository(),
   ) {}
 
-  public async login(identifier: string, password: string) {
-    const candidates = await this.studentRepo.findByCredentials(identifier);
+  public async login(identifier: string, password: string, batchCode?: string) {
+    let candidates = await this.studentRepo.findByCredentials(identifier);
     if (!candidates || candidates.length === 0) {
       throw new AppError(401, 'Invalid Roll Number / Email or password');
+    }
+
+    if (batchCode && batchCode.trim()) {
+      const trimmedCode = batchCode.trim().toUpperCase();
+      const filtered = candidates.filter((c) => c.batch.code.toUpperCase() === trimmedCode);
+      if (filtered.length > 0) {
+        candidates = filtered;
+      }
     }
 
     let matchedStudent = null;
@@ -215,6 +223,18 @@ export class FacultyStudentExamService {
       throw new AppError(400, 'Cannot save answers on an already submitted exam');
     }
 
+    const assignment = await this.assignmentRepo.findByIdGlobal(assignmentId);
+    if (assignment) {
+      const graceSeconds = 120; // 2 min grace period for network latency
+      const totalAllowed = (assignment.durationMinutes ?? 180) * 60 + graceSeconds;
+      if (timeTakenSeconds > totalAllowed) {
+        throw new AppError(400, 'Exam time limit exceeded. Please submit your exam.');
+      }
+      if (assignment.endTime && new Date() > new Date(new Date(assignment.endTime).getTime() + graceSeconds * 1000)) {
+        throw new AppError(400, 'The exam window has ended. Please submit your exam.');
+      }
+    }
+
     await this.examRepo.saveAnswers(session.id, answers, timeTakenSeconds);
     return { success: true, savedAt: new Date().toISOString() };
   }
@@ -235,6 +255,10 @@ export class FacultyStudentExamService {
         alreadySubmitted: true,
         totalScore: session.totalScore,
         maxScore: session.maxScore,
+        correctCount: session.correctCount,
+        partialCount: session.partialCount,
+        incorrectCount: session.incorrectCount,
+        unattemptedCount: session.unattemptedCount,
       };
     }
 
@@ -249,6 +273,7 @@ export class FacultyStudentExamService {
     let totalScore = 0;
     let maxScore = 0;
     let correctCount = 0;
+    let partialCount = 0;
     let incorrectCount = 0;
     let unattemptedCount = 0;
 
@@ -276,6 +301,8 @@ export class FacultyStudentExamService {
         unattemptedCount++;
       } else if (isCorrect) {
         correctCount++;
+      } else if (score > 0 && score < maxMark) {
+        partialCount++;
       } else {
         incorrectCount++;
       }
@@ -309,30 +336,47 @@ export class FacultyStudentExamService {
       };
     }
 
+    const totalAttempted = correctCount + incorrectCount + partialCount;
     const resultBreakdown = {
       subjectBreakdown,
       itemResults,
-      accuracyPct: correctCount + incorrectCount > 0 ? Math.round((correctCount / (correctCount + incorrectCount)) * 100) : 0,
+      accuracyPct: totalAttempted > 0 ? Math.round((correctCount / totalAttempted) * 100) : 0,
     };
 
-    await this.examRepo.submit(session.id, {
+    const updated = await this.examRepo.submit(session.id, {
       status: 'submitted',
       submittedAt: new Date(),
       timeTakenSeconds,
       totalScore: Math.round(totalScore * 10) / 10,
       maxScore,
       correctCount,
+      partialCount,
       incorrectCount,
       unattemptedCount,
       answers,
       resultBreakdown,
     });
 
+    if (!updated) {
+      const freshSession = await this.examRepo.findById(session.id);
+      return {
+        success: true,
+        alreadySubmitted: true,
+        totalScore: freshSession?.totalScore ?? totalScore,
+        maxScore: freshSession?.maxScore ?? maxScore,
+        correctCount: freshSession?.correctCount ?? correctCount,
+        partialCount: freshSession?.partialCount ?? partialCount,
+        incorrectCount: freshSession?.incorrectCount ?? incorrectCount,
+        unattemptedCount: freshSession?.unattemptedCount ?? unattemptedCount,
+      };
+    }
+
     return {
       success: true,
       totalScore: Math.round(totalScore * 10) / 10,
       maxScore,
       correctCount,
+      partialCount,
       incorrectCount,
       unattemptedCount,
       accuracyPct: resultBreakdown.accuracyPct,
@@ -350,20 +394,23 @@ export class FacultyStudentExamService {
       throw new AppError(404, 'Assignment not found');
     }
 
-    // Compute student's rank within the batch
-    const allBatchSubmissions = await this.examRepo.getBatchResults(assignmentId);
-    let rank = 1;
-    for (let i = 0; i < allBatchSubmissions.length; i++) {
-      if (allBatchSubmissions[i]!.student.id === studentId) {
-        rank = i + 1;
-        break;
-      }
-    }
+    // High performance O(1) rank lookup using indexed composite count query
+    const [higherCount, totalCandidates] = await Promise.all([
+      typeof this.examRepo.countStudentsScoredHigher === 'function'
+        ? this.examRepo.countStudentsScoredHigher(assignmentId, session.totalScore)
+        : this.examRepo.getBatchResults(assignmentId).then((all) => all.filter((s: any) => s.totalScore > session.totalScore).length),
+      typeof this.examRepo.countBatchSubmissions === 'function'
+        ? this.examRepo.countBatchSubmissions(assignmentId)
+        : this.examRepo.getBatchResults(assignmentId).then((all) => all.length),
+    ]);
+    const rank = higherCount + 1;
 
     const items = (assignment.paper.items as unknown as FacultyPaperItem[]) || [];
     const submittedAnswers = (session.answers as Record<string, string>) || {};
 
     let solutions = null;
+    let sanitizedBreakdown = session.resultBreakdown as Record<string, unknown> | null;
+
     if (assignment.showSolutions) {
       solutions = items.map((q) => {
         const studentAns = submittedAnswers[String(q.number)] || null;
@@ -392,6 +439,21 @@ export class FacultyStudentExamService {
           maxScore: scoringService.getMaxMarkPerQuestion(assignment.paper.examType, q.questionType),
         };
       });
+    } else if (sanitizedBreakdown && typeof sanitizedBreakdown === 'object') {
+      // Strip isCorrect and score details so answers are not leaked before faculty permits
+      const rawItems = (sanitizedBreakdown as Record<string, unknown>).itemResults;
+      if (rawItems && typeof rawItems === 'object') {
+        const sanitizedItems: Record<string, { submitted: string | null }> = {};
+        for (const [key, val] of Object.entries(rawItems as Record<string, unknown>)) {
+          sanitizedItems[key] = {
+            submitted: ((val as Record<string, unknown>)?.submitted as string | null) ?? null,
+          };
+        }
+        sanitizedBreakdown = {
+          ...sanitizedBreakdown,
+          itemResults: sanitizedItems,
+        };
+      }
     }
 
     return {
@@ -405,15 +467,16 @@ export class FacultyStudentExamService {
       },
       scorecard: {
         rank,
-        totalCandidates: allBatchSubmissions.length,
+        totalCandidates,
         totalScore: session.totalScore,
         maxScore: session.maxScore,
         correctCount: session.correctCount,
+        partialCount: session.partialCount,
         incorrectCount: session.incorrectCount,
         unattemptedCount: session.unattemptedCount,
         timeTakenSeconds: session.timeTakenSeconds,
         submittedAt: session.submittedAt?.toISOString() ?? null,
-        resultBreakdown: session.resultBreakdown,
+        resultBreakdown: sanitizedBreakdown,
       },
       solutions,
     };

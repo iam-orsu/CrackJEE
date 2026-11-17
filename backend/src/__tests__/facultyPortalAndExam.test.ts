@@ -245,4 +245,116 @@ describe('Faculty Exam Assignment & Student Delivery Integrity', () => {
     assert.equal(report.solutions[0].correctAnswer, 'B');
     assert.ok(report.solutions[0].explanation.includes('Using v = u + at'));
   });
+
+  test('enforces server-side time limit on saving answers', async () => {
+    const mockAssignmentRepo: any = {
+      findByIdGlobal: async () => ({
+        id: 'assign-1',
+        durationMinutes: 60, // 3600 seconds
+        endTime: null,
+      }),
+    };
+    const mockExamRepo: any = {
+      findByAssignmentAndStudent: async () => ({
+        id: 'session-1',
+        status: 'in_progress',
+      }),
+      saveAnswers: async () => {},
+    };
+
+    const examService = new FacultyStudentExamService({} as any, mockAssignmentRepo, mockExamRepo);
+
+    // Within limit (3500s <= 3600s + 120s grace)
+    const valid = await examService.saveAnswers('assign-1', 'stu-1', { '1': 'A' }, 3500);
+    assert.ok(valid.success);
+
+    // Over limit (4000s > 3720s)
+    await assert.rejects(
+      async () => {
+        await examService.saveAnswers('assign-1', 'stu-1', { '1': 'A' }, 4000);
+      },
+      (err: any) => err.statusCode === 400 && err.message.includes('time limit exceeded'),
+    );
+  });
+
+  test('hides solutions and sanitizes item results when showSolutions is disabled', async () => {
+    const mockExamRepo: any = {
+      findByAssignmentAndStudent: async () => ({
+        id: 'session-3',
+        status: 'submitted',
+        totalScore: 4,
+        maxScore: 8,
+        correctCount: 1,
+        incorrectCount: 1,
+        unattemptedCount: 0,
+        timeTakenSeconds: 1500,
+        answers: { '1': 'B', '2': '5' },
+        resultBreakdown: {
+          itemResults: {
+            '1': { submitted: 'B', isCorrect: true, score: 4, maxScore: 4 },
+            '2': { submitted: '5', isCorrect: false, score: 0, maxScore: 4 },
+          },
+        },
+      }),
+      countStudentsScoredHigher: async () => 0,
+      countBatchSubmissions: async () => 1,
+    };
+    const mockAssignmentRepo: any = {
+      findByIdGlobal: async () => ({
+        id: 'assign-1',
+        title: 'Weekly Drill 1',
+        showSolutions: false, // Closed window: solutions hidden
+        batch: { name: 'Batch A' },
+        faculty: { name: 'Dr. Rao' },
+        paper: { examType: 'Main', items: sampleItems },
+      }),
+    };
+
+    const examService = new FacultyStudentExamService({} as any, mockAssignmentRepo, mockExamRepo);
+    const report = await examService.getExamResult('assign-1', 'stu-3');
+
+    assert.equal(report.solutions, null, 'Solutions array must be null when showSolutions is false');
+    const breakdown = report.scorecard.resultBreakdown as any;
+    assert.ok(breakdown?.itemResults['1']);
+    assert.equal(breakdown.itemResults['1'].submitted, 'B');
+    assert.equal(breakdown.itemResults['1'].isCorrect, undefined, 'isCorrect must be stripped');
+    assert.equal(breakdown.itemResults['1'].score, undefined, 'score must be stripped from individual items');
+  });
+
+  test('supports disambiguated student login via optional batchCode', async () => {
+    const hash = await bcrypt.hash('secret123', 10);
+    const mockStudentRepo: any = {
+      findByCredentials: async () => [
+        {
+          id: 'stu-a',
+          name: 'Same Roll in Batch A',
+          rollNumber: '101',
+          passwordHash: hash,
+          isActive: true,
+          facultyId: 'fac-1',
+          batchId: 'batch-a',
+          batch: { id: 'batch-a', name: 'Batch A', code: 'ALPHA' },
+          faculty: { id: 'fac-1', name: 'Fac 1' },
+        },
+        {
+          id: 'stu-b',
+          name: 'Same Roll in Batch B',
+          rollNumber: '101',
+          passwordHash: hash,
+          isActive: true,
+          facultyId: 'fac-2',
+          batchId: 'batch-b',
+          batch: { id: 'batch-b', name: 'Batch B', code: 'BETA' },
+          faculty: { id: 'fac-2', name: 'Fac 2' },
+        },
+      ],
+    };
+
+    const examService = new FacultyStudentExamService(mockStudentRepo, {} as any, {} as any);
+
+    // Disambiguate with batchCode 'BETA'
+    const res = await examService.login('101', 'secret123', 'BETA');
+    assert.equal(res.student.id, 'stu-b');
+    assert.equal(res.student.batch.code, 'BETA');
+  });
 });

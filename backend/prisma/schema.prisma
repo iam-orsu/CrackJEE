@@ -269,6 +269,8 @@ model FacultyStudent {
 
   @@unique([facultyId, rollNumber])
   @@index([facultyId, batchId])
+  @@index([rollNumber])
+  @@index([email])
 }
 
 model FacultyExamAssignment {
@@ -292,6 +294,7 @@ model FacultyExamAssignment {
   studentExams    FacultyStudentExam[]
 
   @@index([facultyId, batchId])
+  @@index([batchId, status])
   @@index([paperId])
 }
 
@@ -308,6 +311,7 @@ model FacultyStudentExam {
   totalScore         Float     @default(0)
   maxScore           Int       @default(0)
   correctCount       Int       @default(0)
+  partialCount       Int       @default(0)
   incorrectCount     Int       @default(0)
   unattemptedCount   Int       @default(0)
   
@@ -322,6 +326,7 @@ model FacultyStudentExam {
   student            FacultyStudent        @relation(fields: [studentId], references: [id], onDelete: Cascade)
 
   @@unique([assignmentId, studentId])
+  @@index([assignmentId, status, totalScore])
   @@index([assignmentId, totalScore])
   @@index([studentId])
 }

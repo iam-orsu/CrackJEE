@@ -22,6 +22,7 @@ export default function StudentPortalPage() {
   // Login form state
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
+  const [batchCode, setBatchCode] = useState('');
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
@@ -55,7 +56,7 @@ export default function StudentPortalPage() {
     setBusy(true);
     setError('');
     try {
-      const res = await studentLogin(identifier, password);
+      const res = await studentLogin(identifier, password, batchCode);
       setStudent(res.student);
       await loadExams();
     } catch (err) {
@@ -118,6 +119,20 @@ export default function StudentPortalPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 autoComplete="current-password"
                 required
+              />
+            </div>
+
+            <div className={styles.field}>
+              <label className={styles.label} htmlFor="student-batch">
+                Batch Code <span style={{ fontWeight: 400, opacity: 0.6 }}>(Optional)</span>
+              </label>
+              <input
+                id="student-batch"
+                type="text"
+                className={styles.input}
+                placeholder="e.g. TARGET-26"
+                value={batchCode}
+                onChange={(e) => setBatchCode(e.target.value)}
               />
             </div>
 

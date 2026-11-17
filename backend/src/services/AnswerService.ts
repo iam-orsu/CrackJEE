@@ -93,9 +93,8 @@ export class AnswerService {
         isCorrect,
         timeSpent,
       });
-    } catch (err) {
+    } finally {
       await this.cache.del(lockKey);
-      throw err;
     }
 
     return {

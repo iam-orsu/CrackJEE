@@ -127,7 +127,7 @@ export async function studentFetch<T extends object>(path: string, init: Request
   const res = await fetch(`${API_URL}/faculty-student${path}`, {
     ...init,
     headers,
-    credentials: 'same-origin',
+    credentials: 'include',
   });
 
   const json = (await res.json().catch(() => ({ success: false, error: `HTTP ${res.status}` }))) as T & {
@@ -141,14 +141,14 @@ export async function studentFetch<T extends object>(path: string, init: Request
   return json;
 }
 
-export async function studentLogin(identifier: string, password: string) {
+export async function studentLogin(identifier: string, password: string, batchCode?: string) {
   const res = await studentFetch<{
     token: string;
     student: FacultyStudentUser;
     expiresAt: string;
   }>('/login', {
     method: 'POST',
-    body: JSON.stringify({ identifier, password }),
+    body: JSON.stringify({ identifier, password, batchCode: batchCode?.trim() || undefined }),
   });
   if (typeof window !== 'undefined' && res.token) {
     localStorage.setItem('faculty_student_token', res.token);

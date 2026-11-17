@@ -70,21 +70,27 @@ export default function StudentExamCbtPage() {
       });
   }, [examId, router]);
 
-  // Live timer countdown
+  // Live timer countdown with wall-clock drift compensation (handles background tab throttling)
   useEffect(() => {
     if (!session || submitting) return;
 
+    const initialElapsed = session.timeTakenSeconds || 0;
+    const clientMountTime = Date.now();
+    const totalDurationSec = session.durationMinutes * 60;
+
     const timer = setInterval(() => {
-      setSecondsRemaining((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          // Auto submit on time out
-          finalSubmitRef.current();
-          return 0;
-        }
-        return prev - 1;
-      });
-      setTimeTakenSeconds((prev) => prev + 1);
+      const realSecondsSinceMount = Math.floor((Date.now() - clientMountTime) / 1000);
+      const currentElapsed = initialElapsed + realSecondsSinceMount;
+      const remaining = Math.max(0, totalDurationSec - currentElapsed);
+
+      setTimeTakenSeconds(currentElapsed);
+      setSecondsRemaining(remaining);
+
+      if (remaining <= 0) {
+        clearInterval(timer);
+        // Auto submit on time out
+        finalSubmitRef.current();
+      }
     }, 1000);
 
     return () => clearInterval(timer);

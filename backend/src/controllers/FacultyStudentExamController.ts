@@ -11,6 +11,7 @@ import { AppError } from '../utils/AppError';
 const studentLoginSchema = z.object({
   identifier: z.string().trim().min(1, 'Roll Number or Email is required').max(200),
   password: z.string().min(1, 'Password is required').max(200),
+  batchCode: z.string().trim().max(50).optional(),
 });
 
 const saveAnswersSchema = z.object({
@@ -39,7 +40,11 @@ export class FacultyStudentExamController {
         throw new AppError(400, parsed.error.issues[0]?.message ?? 'Invalid credentials');
       }
 
-      const result = await this.examService.login(parsed.data.identifier, parsed.data.password);
+      const result = await this.examService.login(
+        parsed.data.identifier,
+        parsed.data.password,
+        parsed.data.batchCode,
+      );
       setFacultyStudentCookie(res, result.token);
       res.json({
         success: true,

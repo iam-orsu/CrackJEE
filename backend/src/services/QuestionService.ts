@@ -3,6 +3,7 @@ import { prisma as defaultPrisma } from '../config/database';
 import { CACHE_CONSTANTS } from '../config/constants';
 import { QuestionRepository } from '../repositories/QuestionRepository';
 import { TopicRepository } from '../repositories/TopicRepository';
+import { MockExamRepository } from '../repositories/MockExamRepository';
 import { CacheService, cacheService as defaultCache } from './CacheService';
 import { DeepSeekService, deepSeekService as defaultDeepSeek } from './DeepSeekService';
 import { fillPracticeSlotsWithFallbacks, type PracticePoolCandidate } from './mockBankFill';
@@ -47,6 +48,7 @@ export class QuestionService {
     private readonly cache: CacheService = defaultCache,
     private readonly deepSeek: DeepSeekService = defaultDeepSeek,
     private readonly topicRepo: TopicRepository = new TopicRepository(),
+    private readonly mockRepo: MockExamRepository = new MockExamRepository(),
   ) {}
 
   private poolCacheKey(
@@ -980,7 +982,12 @@ export class QuestionService {
   public async getTieredExplanation(
     questionId: string,
     tier: 'better' | 'best',
+    userId?: string,
   ): Promise<{ tier: 'better' | 'best'; explanation: string; cached: boolean }> {
+    if (userId && (await this.mockRepo.isQuestionInActiveMock(userId, questionId))) {
+      throw new AppError(403, 'Cannot view explanation for a question in an active mock exam');
+    }
+
     const question = await this.questions.findByIdForTieredExplanation(questionId);
     if (!question) throw new AppError(404, 'Question not found');
 

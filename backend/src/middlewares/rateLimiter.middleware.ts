@@ -16,7 +16,11 @@ function createRateLimiter(opts: LimitOptions) {
       const userId = (req as Request & { user?: { userId: string } }).user?.userId;
       who = userId ? `u:${userId}` : (req.ip ?? 'unknown');
     } else if (opts.keyBy === 'email') {
-      const email = typeof req.body?.email === 'string' ? req.body.email.trim().toLowerCase() : null;
+      const email = typeof req.body?.email === 'string'
+        ? req.body.email.trim().toLowerCase()
+        : typeof req.body?.identifier === 'string'
+          ? req.body.identifier.trim().toLowerCase()
+          : null;
       who = email ? `e:${email}` : (req.ip ?? 'unknown');
     } else {
       who = req.ip ?? 'unknown';
