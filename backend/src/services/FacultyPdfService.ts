@@ -79,6 +79,25 @@ function getKatexCss(): string {
   return cachedKatexCss;
 }
 
+function getSystemChromePath(): string | undefined {
+  if (process.env.PUPPETEER_EXECUTABLE_PATH && fs.existsSync(process.env.PUPPETEER_EXECUTABLE_PATH)) {
+    return process.env.PUPPETEER_EXECUTABLE_PATH;
+  }
+  const candidates = [
+    '/usr/bin/chromium-browser',
+    '/usr/bin/chromium',
+    '/usr/bin/google-chrome-stable',
+    '/usr/bin/google-chrome',
+    '/snap/bin/chromium',
+  ];
+  for (const p of candidates) {
+    if (fs.existsSync(p)) {
+      return p;
+    }
+  }
+  return undefined;
+}
+
 export class FacultyPdfService {
   constructor(private readonly facultyRepo: FacultyRepository = new FacultyRepository()) {}
 
@@ -101,10 +120,28 @@ export class FacultyPdfService {
 
     const html = this.buildHtml(paper, mode);
 
-    const browser = await puppeteer.launch({
+    const systemChrome = getSystemChromePath();
+    const launchOptions: any = {
       headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--font-render-hinting=none'],
-    });
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-gpu',
+        '--font-render-hinting=none',
+      ],
+    };
+    if (systemChrome) {
+      launchOptions.executablePath = systemChrome;
+    }
+
+    let browser;
+    try {
+      browser = await puppeteer.launch(launchOptions);
+    } catch (launchErr: any) {
+      console.error('[FacultyPdfService] Failed to launch Puppeteer browser:', launchErr?.message || launchErr);
+      throw new AppError(500, `PDF engine launch error: ${launchErr?.message || 'Chromium missing or incomplete installation'}`);
+    }
 
     try {
       const page = await browser.newPage();
