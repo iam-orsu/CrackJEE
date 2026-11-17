@@ -9,6 +9,7 @@ import {
   createBalancedDifficulty,
   getDefaultQuestionTypes,
   planTopicTypeSlots,
+  MAX_TOPIC_QUESTIONS,
 } from './shared';
 import { SubjectIcon } from './SubjectIcon';
 import { SKIN, ALL_SKIN } from './skin';
@@ -50,6 +51,8 @@ export function TopicBreakdownConfig({
     onTopicConfigs((prev) => {
       const current = prev[key];
       if (!current) return prev;
+      const currentTopicTotal = getTopicTotal(current);
+      if (delta > 0 && currentTopicTotal >= MAX_TOPIC_QUESTIONS) return prev;
       const currentBreakdown = current[typeKey] ?? emptyBreakdown();
       const nextVal = Math.max(0, (currentBreakdown[level] || 0) + delta);
       return {
@@ -74,6 +77,8 @@ export function TopicBreakdownConfig({
     onTopicConfigs((prev) => {
       const current = prev[key];
       if (!current) return prev;
+      const currentTopicTotal = getTopicTotal(current);
+      if (delta > 0 && currentTopicTotal >= MAX_TOPIC_QUESTIONS) return prev;
       const b = { ...(current[typeKey] ?? emptyBreakdown()) };
       if (delta > 0) {
         b.medium = (b.medium || 0) + delta;
@@ -103,9 +108,9 @@ export function TopicBreakdownConfig({
     });
   };
 
-  // Helper to change total questions for an entire topic directly (e.g. typing 15)
+  // Helper to change total questions for an entire topic directly (capped at MAX_TOPIC_QUESTIONS)
   const setTopicTotalExact = (key: string, targetCount: number) => {
-    const newTotal = Math.max(0, targetCount);
+    const newTotal = Math.min(MAX_TOPIC_QUESTIONS, Math.max(0, targetCount));
     onTopicConfigs((prev) => {
       const current = prev[key];
       if (!current) return prev;
@@ -139,7 +144,7 @@ export function TopicBreakdownConfig({
       const current = prev[key];
       if (!current) return prev;
       const currentTotal = getTopicTotal(current);
-      const newTotal = Math.max(0, currentTotal + delta);
+      const newTotal = Math.min(MAX_TOPIC_QUESTIONS, Math.max(0, currentTotal + delta));
       if (newTotal === currentTotal) return prev;
 
       if (delta > 0) {
@@ -381,6 +386,28 @@ export function TopicBreakdownConfig({
                 </div>
               )}
 
+              {/* Helpful tip if 1 topic selected with high target */}
+              {topics.length === 1 && perSubjectCount > MAX_TOPIC_QUESTIONS && (
+                <div
+                  style={{
+                    background: '#eff6ff',
+                    border: '1px solid #bfdbfe',
+                    color: '#1e40af',
+                    padding: '8px 12px',
+                    borderRadius: 8,
+                    marginBottom: 14,
+                    fontSize: 12,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 8,
+                  }}
+                >
+                  <span>
+                    💡 <strong>Single topic limit is {MAX_TOPIC_QUESTIONS} questions</strong> (so bank questions never run dry). To practice {perSubjectCount} questions in {subject}, please select at least {Math.ceil(perSubjectCount / MAX_TOPIC_QUESTIONS)} topics!
+                  </span>
+                </div>
+              )}
+
               {/* Topics Grid - clean full-width responsive grid (NO empty space on the right) */}
               <div
                 style={{
@@ -508,7 +535,7 @@ export function TopicBreakdownConfig({
                             <input
                               type="number"
                               min={0}
-                              max={150}
+                              max={MAX_TOPIC_QUESTIONS}
                               value={topicTotal}
                               onChange={(e) => {
                                 const val = parseInt(e.target.value, 10);
@@ -546,7 +573,8 @@ export function TopicBreakdownConfig({
                             <button
                               type="button"
                               onClick={() => adjustTopicTotal(key, 1)}
-                              title="Increase topic questions"
+                              disabled={topicTotal >= MAX_TOPIC_QUESTIONS}
+                              title={topicTotal >= MAX_TOPIC_QUESTIONS ? `Maximum ${MAX_TOPIC_QUESTIONS} questions per topic` : 'Increase topic questions'}
                               style={{
                                 width: 24,
                                 height: 24,
@@ -557,7 +585,8 @@ export function TopicBreakdownConfig({
                                 boxShadow: '0 1px 2px rgba(0,0,0,0.06)',
                                 fontSize: 14,
                                 fontWeight: 700,
-                                cursor: 'pointer',
+                                cursor: topicTotal >= MAX_TOPIC_QUESTIONS ? 'not-allowed' : 'pointer',
+                                opacity: topicTotal >= MAX_TOPIC_QUESTIONS ? 0.35 : 1,
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',

@@ -7,7 +7,7 @@ import { isAuthenticated, getUser } from '@/lib/auth';
 import type { Question, AnswerResult, Subject, TopicProgress, PaperSet } from '@/types';
 import type { SplitTopics } from '@/lib/api';
 import type { AppState, WizardStep, MarkingScheme, StoredResult, TopicCustomConfig } from './shared';
-import { getDefaultQuestionTypes, planTopicTypeSlots, createBalancedDifficulty, getTypeTotal, getTopicTotal } from './shared';
+import { getDefaultQuestionTypes, planTopicTypeSlots, createBalancedDifficulty, getTypeTotal, getTopicTotal, MAX_TOPIC_QUESTIONS } from './shared';
 import type { PracticeExamConfig } from './examConfig';
 import { SessionReview } from './SessionReview';
 import { SubjectStep } from './SubjectStep';
@@ -94,7 +94,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
     setTopicConfigs((prev) => {
       const next = { ...prev };
       topics.forEach((topic, idx) => {
-        const topicCount = baseQuota + (idx < remainder ? 1 : 0);
+        const topicCount = Math.min(MAX_TOPIC_QUESTIONS, baseQuota + (idx < remainder ? 1 : 0));
         const defTypes = getDefaultQuestionTypes(topicCount, examType, isNeet);
         const typeSlots = planTopicTypeSlots(topicCount, defTypes, isAdv, isNeetMode);
 
@@ -132,7 +132,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
         const remainder = perSubject % k;
 
         topics.forEach((topic, idx) => {
-          const topicCount = baseQuota + (idx < remainder ? 1 : 0);
+          const topicCount = Math.min(MAX_TOPIC_QUESTIONS, baseQuota + (idx < remainder ? 1 : 0));
           const defTypes = getDefaultQuestionTypes(topicCount, examType, isNeet);
           const typeSlots = planTopicTypeSlots(topicCount, defTypes, isAdv, isNeetMode);
 
