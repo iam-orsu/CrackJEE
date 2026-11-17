@@ -1,5 +1,8 @@
+import type { CSSProperties } from 'react';
 import type { PaperSet, Subject, AnswerResult } from '@/types';
-import { SUBJECT_COLOR, SUBJECT_ICON } from '@/lib/subjects';
+import { SUBJECT_COLOR } from '@/lib/subjects';
+import { SubjectIcon } from './SubjectIcon';
+import { ALL_SKIN, SKIN } from './skin';
 
 /* Light background tint used behind each subject on the review screen */
 const REVIEW_BG: Record<string, string> = {
@@ -8,10 +11,10 @@ const REVIEW_BG: Record<string, string> = {
   Mathematics: '#f5f3ff',
 };
 
-export const REVIEW_SUBJ: Record<string, { color: string; icon: string; bg: string }> = Object.fromEntries(
+export const REVIEW_SUBJ: Record<string, { color: string; bg: string }> = Object.fromEntries(
   Object.keys(REVIEW_BG).map((subject) => [
     subject,
-    { color: SUBJECT_COLOR[subject], icon: SUBJECT_ICON[subject], bg: REVIEW_BG[subject] },
+    { color: SUBJECT_COLOR[subject], bg: REVIEW_BG[subject] },
   ]),
 );
 
@@ -104,29 +107,54 @@ export function PaperCard({ paper, onStart }: { paper: PaperSet; onStart: () => 
   return (
     <button type="button" className="paper-sheet" onClick={onStart}>
       <div className="paper-sheet-head">
-        <span className="paper-no">Paper {String(paper.number).padStart(2, '0')}</span>
+        <span className="paper-no">{String(paper.number).padStart(2, '0')}</span>
         <span className="paper-count">{paper.questions.length} questions</span>
       </div>
 
       <div className="paper-chips">
-        {subjectCounts.map(({ s, n }) => (
-          <span key={s} className="paper-chip">{SUBJECT_ICON[s]} {s} · {n}</span>
-        ))}
+        {subjectCounts.map(({ s, n }) => {
+          const skin = SKIN[s] ?? ALL_SKIN;
+          return (
+            <span
+              key={s}
+              className="paper-chip"
+              style={{ '--chip': skin.deep, '--chip-soft': skin.soft } as CSSProperties}
+            >
+              <SubjectIcon subject={s} size={13} /> {s} · {n}
+            </span>
+          );
+        })}
       </div>
 
+      {/* The questions stay blurred until the paper is started */}
       <div className="paper-teaser" aria-hidden="true">
         {teaser.map((t, i) => <p key={i}>{t}</p>)}
       </div>
+      <p className="paper-sealed">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden>
+          <rect x="4" y="10" width="16" height="11" rx="2" /><path d="M8 10V7a4 4 0 018 0v3" />
+        </svg>
+        Sealed until you start
+      </p>
 
       <div className="paper-diff" aria-hidden="true">
         {diffCounts.map((d) => (
           <span key={d.key} className={`paper-diff-seg paper-diff-${d.key}`} style={{ flexGrow: d.n / total }} />
         ))}
       </div>
+      <div className="paper-legend">
+        {diffCounts.map((d) => `${d.n} ${d.label}`).join(' · ')}
+        {topicCount > 0 && ` · ${topicCount} topics`}
+      </div>
 
       <div className="paper-foot">
-        <span>{topicCount} topics · {diffCounts.map((d) => `${d.n} ${d.label}`).join(' · ')}</span>
-        <span className="paper-start">Start →</span>
+        <span>Paper {String(paper.number).padStart(2, '0')}</span>
+        <span className="paper-start">
+          Start
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </span>
       </div>
     </button>
   );

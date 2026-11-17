@@ -52,6 +52,22 @@ const config: Config = {
           DEFAULT: '#EEF2FF',
           50: '#F7F9FF',
         },
+        soft: '#C6D2F8',
+        mute: '#4F5C96',
+        // Mirrors the --gray-* tokens in globals.css so Tailwind utilities
+        // resolve to exactly the same colours as the hand-written CSS.
+        gray: {
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          700: '#334155',
+          800: '#1e293b',
+          900: '#0f172a',
+        },
         // Legacy aliases kept for existing class names
         navy: {
           DEFAULT: '#003366',
@@ -66,18 +82,50 @@ const config: Config = {
           50: '#F3E6F6',
         },
       },
+      backgroundImage: {
+        grad: 'linear-gradient(135deg,#803688 0%,#A24BA8 100%)',
+        'sidebar-wash':
+          'radial-gradient(ellipse 190px 160px at 108% 104%, #EDE3EF 97%, transparent 100%), radial-gradient(circle 90px at -10% 86%, #F4ECF6 97%, transparent 100%), radial-gradient(ellipse 150px 120px at 106% -2%, #EEF1FB 97%, transparent 100%)',
+        // the same soft brand washes, scaled up for a full page
+        'page-wash':
+          'radial-gradient(ellipse 440px 320px at 98% 1%, #EDE3EF 97%, transparent 100%), radial-gradient(circle 260px at -3% 44%, #F4ECF6 97%, transparent 100%), radial-gradient(ellipse 400px 280px at 3% 99%, #EEF1FB 97%, transparent 100%)',
+        'topbar-wash':
+          'radial-gradient(ellipse 150px 90px at 96% -40%, #EDE3EF 97%, transparent 100%)',
+      },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
         display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+        dm: ['"DM Sans"', 'system-ui', 'sans-serif'],
         serif: ['"Fraunces"', 'serif'],
         caveat: ['"Caveat"', 'cursive'],
       },
       boxShadow: {
         '3d': '0 6px 0 rgba(7,28,107,.45)',
         '3d-red': '0 6px 0 rgba(90,37,96,.55)',
+        // Hard "sticker" shadows used by the app chrome
+        'sb-soft-1': '0 1px 0 #C6D2F8',
+        'sb-soft-4': '0 4px 0 #C6D2F8',
+        'sb-soft-5': '0 5px 0 #C6D2F8',
+        'sb-soft-6': '0 6px 0 #C6D2F8',
+        'sb-pur-1': '0 1px 0 #5A2560',
+        'sb-pur-3': '0 3px 0 #5A2560',
+        'sb-pur-4': '0 4px 0 #5A2560',
+        'sb-pur-5': '0 5px 0 #5A2560',
+        'sb-note': '4px 5px 0 #5A2560',
+        'sb-float': '10px 0 22px -10px rgba(0,51,102,.22)',
+        'sb-drawer': '6px 0 24px rgba(0,40,79,.25)',
       },
       borderRadius: {
         'xl-plus': '16px',
+      },
+      keyframes: {
+        'skeleton-pulse': {
+          '0%, 100%': { opacity: '0.6' },
+          '50%': { opacity: '1' },
+        },
+      },
+      animation: {
+        'skeleton-pulse': 'skeleton-pulse 1.4s ease-in-out infinite',
       },
     },
   },

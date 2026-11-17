@@ -9,13 +9,5 @@ export const SUBJECT_COLOR: Record<string, string> = {
   Biology: '#059669',
 };
 
-export const SUBJECT_ICON: Record<string, string> = {
-  Mathematics: '∑',
-  Physics: '⚛',
-  Chemistry: '⚗',
-  Botany: '🌿',
-  Zoology: '🦎',
-};
-
 export const JEE_SUBJECTS = ['Physics', 'Chemistry', 'Mathematics'] as const;
 export const NEET_SUBJECTS = ['Physics', 'Chemistry', 'Botany', 'Zoology'] as const;
