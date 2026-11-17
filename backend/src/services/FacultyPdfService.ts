@@ -68,7 +68,21 @@ function getKatexCss(): string {
       ];
       for (const p of candidates) {
         if (fs.existsSync(p)) {
-          cachedKatexCss = fs.readFileSync(p, 'utf8');
+          let rawCss = fs.readFileSync(p, 'utf8');
+          const fontsDir = path.resolve(path.dirname(p), 'fonts');
+          if (fs.existsSync(fontsDir)) {
+            // Embed all KaTeX woff2 font files directly as base64 data URIs so Puppeteer
+            // renders all math symbols (≠, ∈, ∫, ∑, etc.) reliably without missing glyphs (tofu)
+            rawCss = rawCss.replace(/url\(fonts\/([^\)]+?\.woff2)\)/g, (match, filename) => {
+              const fontFile = path.join(fontsDir, filename);
+              if (fs.existsSync(fontFile)) {
+                const b64 = fs.readFileSync(fontFile).toString('base64');
+                return `url("data:font/woff2;base64,${b64}")`;
+              }
+              return match;
+            });
+          }
+          cachedKatexCss = rawCss;
           break;
         }
       }
