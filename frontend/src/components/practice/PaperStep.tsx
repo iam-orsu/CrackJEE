@@ -34,8 +34,6 @@ export function PaperStep({ papersError, paperSets, page, pageCount, available, 
         </div>
       )}
 
-      <PaperPager page={page} pageCount={pageCount} disabled={papersLoading} onPageChange={onPageChange} />
-
       {/* The row stays mounted while paging, so the page does not jump to the top */}
       <div className={`paper-row${papersLoading ? ' paper-row-loading' : ''}`} aria-busy={papersLoading}>
         {paperSets.map((paper) => (

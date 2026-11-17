@@ -4,10 +4,8 @@ import type { Subject } from '@/types';
 export interface PracticeExamConfig {
   exam: 'JEE' | 'NEET';
   subjects: readonly Subject[];
-  defaultSubject: Subject;
 
   /* Wizard copy */
-  allIcon: string;
   allLabel: string;
   subjectsIntro: string;
   topicsIntro: string;
@@ -53,9 +51,7 @@ const NEET_LOAD_MESSAGES = [
 export const JEE_PRACTICE: PracticeExamConfig = {
   exam: 'JEE',
   subjects: ['Mathematics', 'Physics', 'Chemistry'],
-  defaultSubject: 'Mathematics',
 
-  allIcon: 'MPC',
   allLabel: 'All Three',
   subjectsIntro: 'Pick one or more. You can practice MPC together or focus on one.',
   topicsIntro: 'Select all or pick specific ones. Questions rotate across your selection.',
@@ -83,9 +79,7 @@ export const JEE_PRACTICE: PracticeExamConfig = {
 export const NEET_PRACTICE: PracticeExamConfig = {
   exam: 'NEET',
   subjects: ['Physics', 'Chemistry', 'Botany', 'Zoology'],
-  defaultSubject: 'Botany',
 
-  allIcon: 'NEET',
   allLabel: 'All Four',
   subjectsIntro: 'NEET has 4 subjects. Pick the ones you want to practice.',
   topicsIntro: 'All topics follow the NMC Rationalized Syllabus 2024-2026.',

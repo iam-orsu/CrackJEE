@@ -3,7 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import type { ExamInsights } from '@/types';
-import { TopicList, NegativesCard, TimeByTypeCard, SectionOrderCard, CutoffCard } from '@/components/insights/InsightBlocks';
+// The insight cards live inside the dashboard page — they were a shared file once,
+// but the mock result page is the only other consumer, so they now sit with the dashboard.
+import { TopicList, NegativesCard, TimeByTypeCard, SectionOrderCard, CutoffCard } from '@/app/(app)/dashboard/page';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
 import { api } from '@/lib/api';

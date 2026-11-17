@@ -2,8 +2,6 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import Link from 'next/link';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import type { Question, AnswerResult, Subject, TopicProgress, PaperSet } from '@/types';
@@ -57,10 +55,8 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   const [wizardStep, setWizardStep] = useState<WizardStep>(1);
 
   /* ── Wizard selections ── */
-  const [selectedSubjects, setSelectedSubjects] = useState<Set<Subject>>(new Set([config.defaultSubject]));
-  const [selectedTopics, setSelectedTopics] = useState<Partial<Record<Subject, Set<string>>>>({
-    [config.defaultSubject]: new Set(),
-  });
+  const [selectedSubjects, setSelectedSubjects] = useState<Set<Subject>>(new Set());
+  const [selectedTopics, setSelectedTopics] = useState<Partial<Record<Subject, Set<string>>>>({});
   const [questionCount, setQuestionCount] = useState<number | 'custom'>(10);
   const [customCount, setCustomCount] = useState('');
   const [difficulty, setDifficulty] = useState<DiffOption>('mixed');
@@ -243,7 +239,6 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
     setSelectedSubjects((prev) => {
       const next = new Set(prev);
       if (next.has(s)) {
-        if (next.size === 1) return prev;
         next.delete(s);
         setSelectedTopics((t) => { const n = { ...t }; delete n[s]; return n; });
       } else {
@@ -264,7 +259,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   function toggleTopic(subject: Subject, topic: string) {
     setSelectedTopics((prev) => {
       const cur = new Set(prev[subject] ?? []);
-      if (cur.has(topic)) { if (cur.size === 1) return prev; cur.delete(topic); }
+      if (cur.has(topic)) cur.delete(topic);
       else cur.add(topic);
       return { ...prev, [subject]: cur };
     });
@@ -276,7 +271,8 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
     if (all.length === 0) return; // topics not yet loaded
     const cur = selectedTopics[subject];
     if (cur && cur.size === all.length) {
-      setSelectedTopics((p) => ({ ...p, [subject]: new Set([all[0]!]) }));
+      // Everything is picked — clear the subject completely
+      setSelectedTopics((p) => ({ ...p, [subject]: new Set() }));
     } else {
       setSelectedTopics((p) => ({ ...p, [subject]: new Set(all) }));
     }
@@ -460,7 +456,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
 
   /* Every screen goes through this wrapper, so the palette and button styling reach the imported step screens too */
   const themed = (node: React.ReactNode) => (
-    <div className="pr-root">
+    <div className="pr-root app-wide">
       <style>{css}</style>
       {node}
     </div>
@@ -480,15 +476,27 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
     const weakTopicCount = Array.from(selectedSubjects).reduce((acc, s) => acc + (selectedTopics[s]?.size ?? 0), 0);
     return themed(
       <div className="pr-page">
-        {/* ── Header: ruled notebook page ── */}
+        {/* ── Header ── */}
         <header className="pr-hero">
-          <div className="pr-top">
-            <span className="pr-logo">
-              <Image src="/logo.png" alt="JEENEET.ai" width={78} height={32} className="site-logo" />
-            </span>
-            <Link href="/dashboard" className="btn btn-ghost btn-sm">Dashboard</Link>
-            {loadError && <span className="pr-toperr" role="alert">{loadError}</span>}
-          </div>
+          {/* the landing page's blob, anchored bottom-right */}
+          <svg aria-hidden viewBox="0 0 900 700" preserveAspectRatio="xMaxYMax slice" className="pr-blob">
+            <defs>
+              <linearGradient id="pr-hero-blob" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stopColor="#803688" stopOpacity="0.20" />
+                <stop offset="0.5" stopColor="#803688" stopOpacity="0.12" />
+                <stop offset="1" stopColor="#B98CBE" stopOpacity="0.18" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M1000 700 L1000 150 C946 92 862 62 772 78 C668 97 596 172 528 246 C462 318 396 378 310 414 C214 455 132 508 84 578 C52 626 30 668 24 700 Z"
+              fill="url(#pr-hero-blob)"
+            />
+          </svg>
+          {loadError && (
+            <div className="pr-top">
+              <span className="pr-toperr" role="alert">{loadError}</span>
+            </div>
+          )}
 
           <div className="pr-hero-body">
             <p className="pr-eyebrow">{isNeet ? 'NEET UG' : 'JEE Main & Advanced'} practice</p>
@@ -512,11 +520,11 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
           </div>
         </header>
 
-        <div className="pr-body">
+        <div className={`pr-body${wizardStep === 1 ? ' pr-body-top' : ''}`}>
           <div className="pr-inner">
             {weakMode && (
               <div className="pr-weak">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8202F" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5A2560" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                   <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
                   <line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" />
                 </svg>
@@ -597,20 +605,9 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
           </div>
         </div>
 
-        {/* Action bar stays in reach at the bottom, which matters most on phones */}
+        {/* Action bar */}
         <div className="pr-nav">
           <div className="pr-nav-in">
-            <button
-              type="button"
-              className="btn btn-outline"
-              onClick={() => {
-                if (showPapers) setShowPapers(false);
-                else if (wizardStep > 1) setWizardStep((s) => (s - 1) as WizardStep);
-                else router.push('/dashboard');
-              }}
-            >
-              {wizardStep === 1 ? 'Cancel' : 'Back'}
-            </button>
             {wizardStep < 3 ? (
               <button
                 type="button"
@@ -704,18 +701,20 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
 /* ───────────────────────── STYLES ───────────────────────── */
 
 const css = `
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;600;700;800&display=swap');
 
 .pr-root{
-  --blue:#003366; --blue-d:#071C6B; --blue-l:#2A4FD6;
-  --red:#C8202F; --red-d:#8F1521; --ice:#EEF2FF; --ink:#0E1A55; --mute:#5663A0;
+  --brand:#003366; --brand-d:#00284F; --brand-l:#2A4FD6;
+  --accent:#803688; --accent-d:#5A2560; --accent-2:#A24BA8;
+  --grad:linear-gradient(135deg,#803688 0%,#A24BA8 100%);
+  --ice:#EEF2FF; --soft:#C6D2F8; --ink:#003366; --body:#31407F; --mute:#5A6B8C;
 
   /* Remap the app's own tokens so the imported step screens pick up the palette */
-  --gray-50:#F5F7FF; --gray-100:#E8EDFC; --gray-200:#D7DFFA; --gray-300:#C6D2F8; --gray-400:#97A3D4;
-  --gray-500:#5663A0; --gray-600:#3C4A8A; --gray-700:#31407F; --gray-800:#1B2866; --gray-900:#0E1A55;
-  --navy-50:#EEF2FF; --navy-100:#D7DFFA; --navy-600:#003366; --navy-800:#071C6B; --red-600:#C8202F;
+  --gray-50:#F8FAFF; --gray-100:#EEF2FF; --gray-200:#D7DFFA; --gray-300:#C6D2F8; --gray-400:#97A3D4;
+  --gray-500:#5A6B8C; --gray-600:#4A5A78; --gray-700:#31407F; --gray-800:#1B2866; --gray-900:#003366;
+  --navy-50:#EEF2FF; --navy-100:#D7DFFA; --navy-600:#003366; --navy-800:#003366; --red-600:#C8202F;
 
-  font-family:'Plus Jakarta Sans',system-ui,sans-serif; color:var(--ink);
+  font-family:'DM Sans',system-ui,sans-serif; color:var(--body);
   -webkit-text-size-adjust:100%;
 }
 .pr-root *{box-sizing:border-box}
@@ -728,55 +727,62 @@ const css = `
 }
 .pr-root .btn-sm{min-height:40px;padding:0 14px;font-size:13px;border-radius:12px}
 .pr-root .btn-lg{min-height:54px;padding:0 28px;font-size:16px;border-radius:16px}
-.pr-root .btn-primary{background:var(--red);color:#fff;box-shadow:0 6px 0 var(--red-d)}
-.pr-root .btn-primary:hover:not(:disabled){background:var(--red);transform:translateY(-3px);box-shadow:0 9px 0 var(--red-d)}
-.pr-root .btn-primary:active:not(:disabled){transform:translateY(4px);box-shadow:0 2px 0 var(--red-d)}
-.pr-root .btn-outline{background:#fff;color:var(--blue);border:2.5px solid var(--blue);box-shadow:0 4px 0 #C6D2F8}
-.pr-root .btn-outline:hover:not(:disabled){background:#fff;transform:translateY(-2px);box-shadow:0 6px 0 #C6D2F8}
-.pr-root .btn-ghost{background:transparent;color:var(--blue);box-shadow:none}
+.pr-root .btn-primary{background:var(--grad);color:#fff;box-shadow:0 6px 0 var(--accent-d)}
+.pr-root .btn-primary:hover:not(:disabled){background:var(--grad);transform:translateY(-3px);box-shadow:0 9px 0 var(--accent-d)}
+.pr-root .btn-primary:active:not(:disabled){transform:translateY(4px);box-shadow:0 2px 0 var(--accent-d)}
+.pr-root .btn-outline{background:#fff;color:var(--brand);border:2.5px solid var(--brand);box-shadow:0 4px 0 var(--soft)}
+.pr-root .btn-outline:hover:not(:disabled){background:#fff;transform:translateY(-2px);box-shadow:0 6px 0 var(--soft)}
+.pr-root .btn-ghost{background:transparent;color:var(--brand);box-shadow:none}
 .pr-root .btn-ghost:hover:not(:disabled){background:var(--ice)}
 .pr-root .btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
-.pr-root .btn:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.pr-root .btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 
-/* Page */
+/* Page — white, with the edges faded into the app canvas so the sheet has no hard border */
 .pr-page{
-  min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;background-color:#F8FAFF;
-  background-image:linear-gradient(rgba(11,42,155,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(11,42,155,.06) 1px,transparent 1px);
-  background-size:32px 32px;
+  min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;position:relative;background:transparent;
 }
+.pr-page::before{
+  content:"";position:absolute;inset:0;z-index:0;background:#fff;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%),
+                    linear-gradient(to bottom,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%),
+              linear-gradient(to bottom,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);
+  mask-composite:intersect;
+}
+.pr-page > *{position:relative;z-index:1}
 
 /* Header */
 .pr-hero{
-  --hero-l:clamp(60px,8vw,120px);
-  position:relative;overflow:hidden;color:#fff;padding:16px clamp(18px,5vw,64px) 34px var(--hero-l);
-  background-color:var(--blue);border-bottom:6px solid var(--red);
-  background-image:
-    repeating-linear-gradient(to bottom, transparent 0 35px, rgba(255,255,255,.11) 35px 36px),
-    radial-gradient(800px 420px at 85% 0%, var(--blue-l) 0%, transparent 70%);
+  position:relative;overflow:hidden;color:var(--ink);padding:30px clamp(18px,5vw,64px) 36px;
+  background:transparent;border-bottom:none;
 }
-.pr-hero::before{content:"";position:absolute;top:0;bottom:0;left:calc(var(--hero-l) - 28px);width:2px;background:var(--red)}
-.pr-top{position:relative;z-index:2;display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:26px}
-.pr-logo{background:#fff;border-radius:14px;padding:6px 12px;display:inline-flex;box-shadow:0 5px 0 rgba(7,28,107,.4)}
-.pr-hero .btn-ghost{color:#fff;border:2px solid rgba(255,255,255,.55)}
-.pr-hero .btn-ghost:hover:not(:disabled){background:rgba(255,255,255,.14)}
-.pr-toperr{margin-left:auto;background:#fff;color:var(--red-d);font-weight:800;font-size:13px;padding:7px 14px;border-radius:999px;max-width:100%;overflow-wrap:anywhere}
+.pr-blob{
+  position:absolute;bottom:-14%;right:0;height:112%;width:min(46%,520px);pointer-events:none;
+  -webkit-mask-image:linear-gradient(to right,#000 40%,transparent 100%);
+  mask-image:linear-gradient(to right,#000 40%,transparent 100%);
+}
+.pr-top{position:relative;z-index:2;display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.pr-toperr{margin-left:auto;background:#FEF2F2;color:#B42318;border:1px solid #F4C7C7;font-weight:800;font-size:13px;padding:7px 14px;border-radius:999px;max-width:100%;overflow-wrap:anywhere}
 .pr-hero-body{position:relative;z-index:2;max-width:760px}
-.pr-eyebrow{margin:0 0 10px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
-.pr-hero h1{margin:0;font-family:'Fraunces',serif;font-weight:800;font-size:clamp(32px,5vw,56px);line-height:1.04;letter-spacing:-.02em}
+.pr-eyebrow{margin:0 0 10px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-d)}
+.pr-hero h1{margin:0;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-size:clamp(32px,5vw,56px);line-height:1.04;letter-spacing:-.02em;color:var(--brand)}
 .pr-scribble{position:relative;display:inline-block}
 .pr-scribble svg{position:absolute;left:0;bottom:-10px;width:100%;height:14px}
-.pr-scribble path{fill:none;stroke:var(--red);stroke-width:5;stroke-linecap:round}
-.pr-sub{margin:20px 0 0;max-width:560px;font-size:clamp(14px,1.5vw,16px);line-height:1.65;opacity:.92}
+.pr-scribble path{fill:none;stroke:var(--accent);stroke-width:5;stroke-linecap:round}
+.pr-sub{margin:20px 0 0;max-width:560px;font-size:clamp(14px,1.5vw,16px);line-height:1.65;color:var(--body)}
 .pr-stats{display:flex;gap:16px;flex-wrap:wrap;margin-top:22px}
-.pr-stat{background:#fffdf7;color:var(--ink);border-radius:6px;padding:12px 18px;box-shadow:0 12px 20px rgba(3,10,50,.35)}
-.pr-stat:nth-child(1){transform:rotate(-2deg)}
-.pr-stat:nth-child(2){transform:rotate(1.5deg);background:#FFE680}
-.pr-stat strong{display:block;font-family:'Fraunces',serif;font-weight:800;font-size:26px;line-height:1.1;color:var(--blue)}
+.pr-stat{background:#fff;color:var(--ink);border:1px solid rgba(0,51,102,.1);border-radius:16px;padding:12px 18px;box-shadow:0 10px 24px -18px rgba(0,51,102,.5)}
+.pr-stat:nth-child(2){background:#FDBA74;border-color:rgba(0,51,102,.08)}
+.pr-stat strong{display:block;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-size:26px;line-height:1.1;color:var(--brand)}
 .pr-stat span{font-size:12px;font-weight:700;color:var(--mute)}
 
 /* Body */
 .pr-body{flex:1;padding:30px clamp(16px,4vw,48px) 36px}
-.pr-inner{max-width:980px;margin:0 auto}
+/* On the first step the content is short, so the action bar tucks up under it
+   instead of being pushed to the bottom of the viewport. */
+.pr-body-top{flex:0 0 auto}
+.pr-inner{max-width:1240px;margin:0 auto}
 
 /* Step bar */
 .pr-steps{list-style:none;margin:0 0 28px;padding:0;display:flex;align-items:center}
@@ -785,29 +791,30 @@ const css = `
 .pr-step{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px;color:var(--mute);white-space:nowrap}
 .pr-step i{
   width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-style:normal;
-  font-family:'Fraunces',serif;font-weight:800;font-size:16px;background:#fff;color:var(--blue);
-  border:3px solid var(--blue);box-shadow:0 3px 0 #C6D2F8;
+  font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-size:16px;background:#fff;color:var(--brand);
+  border:3px solid var(--brand);box-shadow:0 3px 0 var(--soft);
 }
-.pr-step.cur{color:var(--ink)}
-.pr-step.cur i{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 3px 0 var(--red-d)}
-.pr-step.done i{background:var(--blue);color:#fff;box-shadow:0 3px 0 var(--blue-d)}
-.pr-step-line{flex:1 1 24px;min-width:16px;margin:0 12px;border-top:3px dashed #B9C6F5}
-.pr-step-line.done{border-color:var(--blue)}
+.pr-step.cur{color:var(--brand)}
+.pr-step.cur i{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 3px 0 var(--accent-d)}
+.pr-step.done i{background:var(--brand);color:#fff;box-shadow:0 3px 0 var(--brand-d)}
+.pr-step-line{flex:1 1 24px;min-width:16px;margin:0 12px;border-top:3px dashed rgba(0,51,102,.18)}
+.pr-step-line.done{border-color:var(--brand)}
 
 /* Weak-mode sticky note */
 .pr-weak{
-  display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:26px;padding:14px 18px;background:#FFE680;border-radius:6px;
-  transform:rotate(-.4deg);box-shadow:0 10px 18px rgba(7,28,107,.18);
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:26px;padding:14px 18px;background:#FDBA74;border:1px solid rgba(0,51,102,.08);border-radius:16px;
+  box-shadow:0 10px 20px -14px rgba(0,51,102,.45);
 }
 .pr-weak svg{flex:none}
 .pr-weak div{min-width:0}
-.pr-weak strong{display:block;font-size:14px}
-.pr-weak span{display:block;margin-top:2px;font-size:12.5px;font-weight:600;color:#31407F;line-height:1.45}
+.pr-weak strong{display:block;font-size:14px;color:var(--brand)}
+.pr-weak span{display:block;margin-top:2px;font-size:12.5px;font-weight:600;color:var(--body);line-height:1.45}
 .pr-weak .btn{margin-left:auto}
 
 /* Action bar */
-.pr-nav{position:sticky;bottom:0;z-index:20;background:#fff;border-top:3px solid var(--blue);padding:14px clamp(16px,4vw,48px) max(14px,env(safe-area-inset-bottom))}
-.pr-nav-in{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+/* Action bar — flows after the content, not pinned to the viewport */
+.pr-nav{position:static;background:#fff;border-top:none;padding:8px clamp(16px,4vw,48px) max(22px,env(safe-area-inset-bottom))}
+.pr-nav-in{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:flex-end;gap:12px}
 
 /* ═════════ RESPONSIVE ═════════ */
 @media(max-width:720px){
@@ -818,8 +825,8 @@ const css = `
   .pr-step-line{margin:0 8px}
 }
 @media(max-width:560px){
-  .pr-hero{--hero-l:50px;padding-top:max(14px,env(safe-area-inset-top));padding-bottom:28px}
-  .pr-top{margin-bottom:20px}
+  .pr-hero{padding-top:max(18px,env(safe-area-inset-top));padding-bottom:28px}
+  .pr-top{margin-bottom:18px}
   .pr-stats{gap:12px}
   .pr-stat{padding:10px 14px}
   /* only the current step keeps its label */
@@ -830,15 +837,14 @@ const css = `
   .pr-nav-in .btn-lg{font-size:15px}
 }
 @media(max-width:360px){
-  .pr-hero{--hero-l:42px}
   .pr-nav-in{gap:8px}
 }
 @media(max-height:480px) and (orientation:landscape){
   .pr-sub,.pr-stats{display:none}
 }
 @media(hover:none){
-  .pr-root .btn-primary:hover:not(:disabled){transform:none;box-shadow:0 6px 0 var(--red-d)}
-  .pr-root .btn-outline:hover:not(:disabled){transform:none;box-shadow:0 4px 0 #C6D2F8}
+  .pr-root .btn-primary:hover:not(:disabled){transform:none;box-shadow:0 6px 0 var(--accent-d)}
+  .pr-root .btn-outline:hover:not(:disabled){transform:none;box-shadow:0 4px 0 var(--soft)}
 }
 @media(prefers-reduced-motion:reduce){
   .pr-root *{animation:none!important;transition:none!important}

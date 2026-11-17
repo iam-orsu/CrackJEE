@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Question } from '@/types';
 import { REVIEW_SUBJ, type StoredResult } from './shared';
+import { SubjectIcon } from './SubjectIcon';
 
 interface SessionReviewProps {
   questions: Question[];
@@ -125,7 +126,7 @@ export function SessionReview({ questions, examResults, sessionSecs, fmtTime, on
       </div>
 
       <div className="exam-body" style={{ padding: '40px 32px' }}>
-        <div style={{ width: '100%', maxWidth: 720, display: 'flex', flexDirection: 'column', gap: 28 }}>
+        <div style={{ width: '100%', maxWidth: 1100, display: 'flex', flexDirection: 'column', gap: 28 }}>
 
           {/* Score headline */}
           <div>
@@ -162,7 +163,7 @@ export function SessionReview({ questions, examResults, sessionSecs, fmtTime, on
                       border: '1px solid var(--gray-200)', borderRadius: 'var(--radius-xl)', padding: '16px 18px',
                     }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
-                        <span style={{ fontSize: 18, color: cfg.color }}>{cfg.icon}</span>
+                        <span style={{ color: cfg.color, display: 'grid', placeItems: 'center' }}><SubjectIcon subject={subj} size={19} /></span>
                         <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--gray-700)' }}>{subj}</span>
                       </div>
                       <p style={{ fontSize: 30, fontWeight: 800, letterSpacing: '-.03em', color: barColor, marginBottom: 2 }}>
@@ -199,7 +200,7 @@ export function SessionReview({ questions, examResults, sessionSecs, fmtTime, on
                       background: 'var(--white)',
                     }}>
                       <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--gray-300)', width: 18, flexShrink: 0 }}>#{i + 1}</span>
-                      <span style={{ fontSize: 15, color: cfg.color, flexShrink: 0 }}>{cfg.icon}</span>
+                      <span style={{ color: cfg.color, flexShrink: 0, display: 'grid', placeItems: 'center' }}><SubjectIcon subject={t.subject} size={16} /></span>
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <p style={{ fontSize: 14, fontWeight: 500, color: 'var(--gray-800)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                           {t.topic}

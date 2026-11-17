@@ -1,7 +1,7 @@
 import type { Subject } from '@/types';
 import type { SplitTopics } from '@/lib/api';
-import { SUBJECT_ICON } from '@/lib/subjects';
 import type { PracticeExamConfig } from './examConfig';
+import { ALL_SKIN, SKIN, SYMBOL, skinVars } from './skin';
 
 interface SubjectStepProps {
   config: PracticeExamConfig;
@@ -19,18 +19,29 @@ export function SubjectStep({ config, selectedSubjects, topicsByClass, bank, onS
       <p className="wizard-section-title">Which subjects?</p>
       <p className="wizard-section-sub">{config.subjectsIntro}</p>
       <div className="subject-cards">
-        <div className={`subject-card${selectedSubjects.size === config.subjects.length ? ' selected' : ''}`} onClick={onSelectAll}>
-          <span className="subject-card-emoji">{config.allIcon}</span>
+        <div
+          className={`subject-card${selectedSubjects.size === config.subjects.length ? ' selected' : ''}`}
+          style={skinVars(ALL_SKIN)}
+          onClick={onSelectAll}
+        >
+          <span className="subject-mark" aria-hidden>{'∞'}</span>
           <span className="subject-card-name">{config.allLabel}</span>
           <span className="subject-card-sub">Full coverage</span>
         </div>
+
         {config.subjects.map((s) => {
           const t = topicsByClass?.[s];
           const topicCount = t ? (t.class11.length + t.class12.length) : null;
           const questionCount = bank?.bySubject[s];
+          const skin = SKIN[s] ?? ALL_SKIN;
           return (
-            <div key={s} className={`subject-card${selectedSubjects.has(s) ? ' selected' : ''}`} onClick={() => onToggleSubject(s)}>
-              <span className="subject-card-emoji" style={{ fontFamily: 'serif', fontSize: 28 }}>{SUBJECT_ICON[s]}</span>
+            <div
+              key={s}
+              className={`subject-card${selectedSubjects.has(s) ? ' selected' : ''}`}
+              style={skinVars(skin)}
+              onClick={() => onToggleSubject(s)}
+            >
+              <span className="subject-mark" aria-hidden>{SYMBOL[s] ?? '·'}</span>
               <span className="subject-card-name">{s}</span>
               <span className="subject-card-sub">
                 {topicCount !== null ? `${topicCount} topics` : 'Loading...'}
@@ -40,7 +51,7 @@ export function SubjectStep({ config, selectedSubjects, topicsByClass, bank, onS
           );
         })}
       </div>
-      <div style={{ marginTop: 12, fontSize: 13, color: 'var(--gray-500)' }}>
+      <div style={{ marginTop: 12, fontSize: 13, color: 'var(--mute)' }}>
         {selectedSubjects.size} subject{selectedSubjects.size !== 1 ? 's' : ''} selected
       </div>
     </>
