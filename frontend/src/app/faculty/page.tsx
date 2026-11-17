@@ -21,6 +21,9 @@ import {
   type FacultyUser,
 } from '@/lib/faculty';
 import { FacultyPaperPreview } from '@/components/faculty/FacultyPaperPreview';
+import { FacultyBatchesTab } from '@/components/faculty/FacultyBatchesTab';
+import { FacultyAssignmentsTab } from '@/components/faculty/FacultyAssignmentsTab';
+import { FacultyReportsTab } from '@/components/faculty/FacultyReportsTab';
 import styles from './faculty.module.css';
 
 const COUNT_PRESETS: Record<FacultyExamType, Array<{ count: number; label: string }>> = {
@@ -115,6 +118,8 @@ function FacultyLoginForm({ onSignedIn }: { onSignedIn: (user: FacultyUser) => v
 export default function FacultyPage() {
   const [faculty, setFaculty] = useState<FacultyUser | null>(null);
   const [authChecked, setAuthChecked] = useState(false);
+  const [activeTab, setActiveTab] = useState<'papers' | 'batches' | 'assignments' | 'reports'>('papers');
+  const [selectedReportAssignmentId, setSelectedReportAssignmentId] = useState<string | null>(null);
 
   // Builder state (JEE Main defaults to 75 per NTA 2025-2026 pattern)
   const [builderOpen, setBuilderOpen] = useState(false);
@@ -496,11 +501,11 @@ export default function FacultyPage() {
       <div className={styles.wrap}>
         <header className={styles.header}>
           <div>
-            <h1 className={styles.title}>Faculty Weekly Paper Studio</h1>
-            <p className={styles.sub}>Signed in as {faculty.name} ({faculty.email}) · {papers.length} paper(s) generated</p>
+            <h1 className={styles.title}>Faculty Portal</h1>
+            <p className={styles.sub}>Signed in as {faculty.name} ({faculty.email}) · {papers.length} paper(s) in studio</p>
           </div>
           <div className={styles.headerActions}>
-            {!activePaper && (
+            {!activePaper && activeTab === 'papers' && (
               <button
                 type="button"
                 className={styles.btnPrimary}
@@ -512,6 +517,39 @@ export default function FacultyPage() {
             <button type="button" className={styles.btn} onClick={handleLogout}>Sign out</button>
           </div>
         </header>
+
+        {!activePaper && (
+          <nav className={styles.portalNav}>
+            <button
+              type="button"
+              className={`${styles.portalNavBtn} ${activeTab === 'papers' ? styles.portalNavBtnActive : ''}`}
+              onClick={() => setActiveTab('papers')}
+            >
+              📝 Paper Studio
+            </button>
+            <button
+              type="button"
+              className={`${styles.portalNavBtn} ${activeTab === 'batches' ? styles.portalNavBtnActive : ''}`}
+              onClick={() => setActiveTab('batches')}
+            >
+              👥 Batches &amp; Students
+            </button>
+            <button
+              type="button"
+              className={`${styles.portalNavBtn} ${activeTab === 'assignments' ? styles.portalNavBtnActive : ''}`}
+              onClick={() => setActiveTab('assignments')}
+            >
+              📤 Assign Exams
+            </button>
+            <button
+              type="button"
+              className={`${styles.portalNavBtn} ${activeTab === 'reports' ? styles.portalNavBtnActive : ''}`}
+              onClick={() => setActiveTab('reports')}
+            >
+              📊 Batch Reports
+            </button>
+          </nav>
+        )}
 
         {error && <div className={styles.error}>{error}</div>}
 
@@ -538,6 +576,17 @@ export default function FacultyPage() {
             onDelete={handleDeletePaper}
             onError={setError}
           />
+        ) : activeTab === 'batches' ? (
+          <FacultyBatchesTab />
+        ) : activeTab === 'assignments' ? (
+          <FacultyAssignmentsTab
+            onViewReport={(id) => {
+              setSelectedReportAssignmentId(id);
+              setActiveTab('reports');
+            }}
+          />
+        ) : activeTab === 'reports' ? (
+          <FacultyReportsTab initialAssignmentId={selectedReportAssignmentId} />
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
             {builderOpen && (

@@ -205,7 +205,10 @@ model Faculty {
   isActive     Boolean        @default(true)
   createdAt    DateTime       @default(now())
 
-  papers FacultyPaper[]
+  papers       FacultyPaper[]
+  batches      FacultyBatch[]
+  students     FacultyStudent[]
+  assignments  FacultyExamAssignment[]
 }
 
 model FacultyPaper {
@@ -225,7 +228,100 @@ model FacultyPaper {
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
-  faculty Faculty @relation(fields: [facultyId], references: [id], onDelete: Cascade)
+  faculty     Faculty                 @relation(fields: [facultyId], references: [id], onDelete: Cascade)
+  assignments FacultyExamAssignment[]
 
   @@index([facultyId, createdAt])
+}
+
+model FacultyBatch {
+  id          String   @id @default(cuid())
+  facultyId   String
+  name        String
+  code        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  faculty     Faculty                 @relation(fields: [facultyId], references: [id], onDelete: Cascade)
+  students    FacultyStudent[]
+  assignments FacultyExamAssignment[]
+
+  @@unique([facultyId, code])
+  @@index([facultyId])
+}
+
+model FacultyStudent {
+  id           String   @id @default(cuid())
+  facultyId    String
+  batchId      String
+  name         String
+  rollNumber   String
+  email        String?
+  passwordHash String
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  faculty      Faculty              @relation(fields: [facultyId], references: [id], onDelete: Cascade)
+  batch        FacultyBatch         @relation(fields: [batchId], references: [id], onDelete: Cascade)
+  examSessions FacultyStudentExam[]
+
+  @@unique([facultyId, rollNumber])
+  @@index([facultyId, batchId])
+}
+
+model FacultyExamAssignment {
+  id              String    @id @default(cuid())
+  facultyId       String
+  paperId         String
+  batchId         String
+  title           String
+  instructions    String?   @db.Text
+  durationMinutes Int       @default(180)
+  startTime       DateTime?
+  endTime         DateTime?
+  showSolutions   Boolean   @default(true)
+  status          String    @default("active") // "scheduled" | "active" | "closed"
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  faculty         Faculty              @relation(fields: [facultyId], references: [id], onDelete: Cascade)
+  paper           FacultyPaper         @relation(fields: [paperId], references: [id], onDelete: Cascade)
+  batch           FacultyBatch         @relation(fields: [batchId], references: [id], onDelete: Cascade)
+  studentExams    FacultyStudentExam[]
+
+  @@index([facultyId, batchId])
+  @@index([paperId])
+}
+
+model FacultyStudentExam {
+  id                 String    @id @default(cuid())
+  assignmentId       String
+  studentId          String
+  status             String    @default("not_started") // "in_progress" | "submitted"
+  startedAt          DateTime?
+  submittedAt        DateTime?
+  timeTakenSeconds   Int       @default(0)
+  
+  // Scoring
+  totalScore         Float     @default(0)
+  maxScore           Int       @default(0)
+  correctCount       Int       @default(0)
+  incorrectCount     Int       @default(0)
+  unattemptedCount   Int       @default(0)
+  
+  // Student's responses & question analytics
+  answers            Json      // { [questionId]: "A" | "12" | ["A","B"] }
+  resultBreakdown    Json?     // Detailed marks, subject scores, accuracy
+  
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  assignment         FacultyExamAssignment @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+  student            FacultyStudent        @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@unique([assignmentId, studentId])
+  @@index([assignmentId, totalScore])
+  @@index([studentId])
 }

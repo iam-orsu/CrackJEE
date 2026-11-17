@@ -24,5 +24,21 @@ export function createFacultyRoutes(controller = new FacultyController()): Route
   router.delete('/papers/:id/questions/:number', guard, controller.deleteQuestion);
   router.delete('/papers/:id', guard, controller.deletePaper);
 
+  // Batches
+  router.get('/batches', guard, controller.listBatches);
+  router.post('/batches', guard, controller.createBatch);
+  router.delete('/batches/:id', guard, controller.deleteBatch);
+
+  // Students
+  router.get('/students', guard, controller.listStudents);
+  router.post('/students', guard, controller.createStudent);
+  router.delete('/students/:id', guard, controller.deleteStudent);
+
+  // Assignments & Reports
+  router.get('/assignments', guard, controller.listAssignments);
+  router.post('/assignments', guard, controller.createAssignment);
+  router.delete('/assignments/:id', guard, controller.deleteAssignment);
+  router.get('/assignments/:id/report', guard, controller.getAssignmentReport);
+
   return router;
 }
