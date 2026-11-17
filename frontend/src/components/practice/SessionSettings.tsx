@@ -1,6 +1,7 @@
 import type { Subject } from '@/types';
-import type { DiffOption, MarkingScheme, QuestionTypeCounts, DifficultyDistribution } from './shared';
+import type { DiffOption, MarkingScheme, QuestionTypeCounts, DifficultyDistribution, TopicCustomConfig } from './shared';
 import type { PracticeExamConfig } from './examConfig';
+import { TopicBreakdownConfig } from './TopicBreakdownConfig';
 
 interface SessionSettingsProps {
   config: PracticeExamConfig;
@@ -23,6 +24,10 @@ interface SessionSettingsProps {
   perSubjectCount: number;
   selectedSubjects: Set<Subject>;
   selectedTopics: Partial<Record<Subject, Set<string>>>;
+  topicConfigs: Record<string, TopicCustomConfig>;
+  onTopicConfigs: React.Dispatch<React.SetStateAction<Record<string, TopicCustomConfig>>>;
+  onAutoDistributeSubject: (subject: Subject) => void;
+  onAutoDistributeAll: () => void;
 }
 
 export function SessionSettings({
@@ -46,6 +51,10 @@ export function SessionSettings({
   perSubjectCount,
   selectedSubjects,
   selectedTopics,
+  topicConfigs,
+  onTopicConfigs,
+  onAutoDistributeSubject,
+  onAutoDistributeAll,
 }: SessionSettingsProps) {
   const isNeet = config.exam === 'NEET';
   const examLabel = isNeet ? 'NEET UG' : `JEE ${examType}`;
@@ -997,6 +1006,19 @@ export function SessionSettings({
           </div>
         </>
       )}
+
+      {/* ── 4b. Granular Topic Breakdown (Per-Topic Types & Difficulty) ── */}
+      <TopicBreakdownConfig
+        selectedSubjects={selectedSubjects}
+        selectedTopics={selectedTopics}
+        perSubjectCount={perSubjectCount}
+        isNeet={isNeet}
+        isAdvanced={isAdvanced}
+        topicConfigs={topicConfigs}
+        onTopicConfigs={onTopicConfigs}
+        onAutoDistributeSubject={onAutoDistributeSubject}
+        onAutoDistributeAll={onAutoDistributeAll}
+      />
 
       {/* ── 5. Summary Info Card ── */}
       <div

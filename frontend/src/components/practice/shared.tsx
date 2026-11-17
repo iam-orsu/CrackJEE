@@ -34,6 +34,18 @@ export interface QuestionTypeCounts {
   matrix_match: number;
 }
 
+export interface TopicCustomConfig {
+  subject: Subject;
+  topic: string;
+  mcqCount: number;
+  integerCount: number;
+  multiCount: number;
+  matrixCount: number;
+  beginnerCount: number;
+  intermediateCount: number;
+  advancedCount: number;
+}
+
 export interface DifficultyDistribution {
   beginner: number;     // % e.g. 20
   intermediate: number; // % e.g. 40
@@ -68,6 +80,77 @@ export function getDefaultQuestionTypes(
   const integer = Math.max(1, Math.round(count * 0.2));
   const single = Math.max(0, count - matrix - integer);
   return { mcq_single: single, integer, matrix_match: matrix, mcq_multi: 0 };
+}
+
+export function planTopicTypeSlots(
+  count: number,
+  types: QuestionTypeCounts,
+  isAdvanced: boolean,
+  isNeet: boolean,
+): ('mcq_single' | 'mcq_multi' | 'integer' | 'matrix_match')[] {
+  const slots: ('mcq_single' | 'mcq_multi' | 'integer' | 'matrix_match')[] = [];
+  const matrix = types.matrix_match || 0;
+  const integer = isNeet ? 0 : (types.integer || 0);
+  const multi = isAdvanced ? (types.mcq_multi || 0) : 0;
+  const single = types.mcq_single || 0;
+  const total = matrix + integer + multi + single;
+
+  if (total <= 0) {
+    const def = getDefaultQuestionTypes(count, isAdvanced ? 'Advanced' : 'Main', isNeet);
+    return planTopicTypeSlots(count, def, isAdvanced, isNeet);
+  }
+
+  const mCount = Math.round((matrix / total) * count);
+  const iCount = isNeet ? 0 : Math.round((integer / total) * count);
+  const multiCount = isAdvanced ? Math.round((multi / total) * count) : 0;
+  let sCount = Math.max(0, count - mCount - iCount - multiCount);
+
+  const currentSum = sCount + mCount + iCount + multiCount;
+  if (currentSum > count) {
+    const diff = currentSum - count;
+    sCount = Math.max(0, sCount - diff);
+  }
+
+  for (let i = 0; i < sCount; i++) slots.push('mcq_single');
+  for (let i = 0; i < iCount; i++) slots.push('integer');
+  for (let i = 0; i < multiCount; i++) slots.push('mcq_multi');
+  for (let i = 0; i < mCount; i++) slots.push('matrix_match');
+  while (slots.length < count) slots.push('mcq_single');
+  return slots.slice(0, count);
+}
+
+export function planTopicDifficultySlots(
+  count: number,
+  difficulty: DiffOption,
+  dist?: DifficultyDistribution,
+): ('beginner' | 'intermediate' | 'advanced')[] {
+  const slots: ('beginner' | 'intermediate' | 'advanced')[] = [];
+  if (difficulty === 'beginner') {
+    for (let i = 0; i < count; i++) slots.push('beginner');
+    return slots;
+  }
+  if (difficulty === 'intermediate') {
+    for (let i = 0; i < count; i++) slots.push('intermediate');
+    return slots;
+  }
+  if (difficulty === 'advanced') {
+    for (let i = 0; i < count; i++) slots.push('advanced');
+    return slots;
+  }
+  const bPct = dist?.beginner ?? 20;
+  const iPct = dist?.intermediate ?? 40;
+  const aPct = dist?.advanced ?? 40;
+  const totalPct = (bPct + iPct + aPct) || 100;
+
+  const bCount = Math.round((bPct / totalPct) * count);
+  const aCount = Math.round((aPct / totalPct) * count);
+  const iCount = Math.max(0, count - bCount - aCount);
+
+  for (let i = 0; i < bCount; i++) slots.push('beginner');
+  for (let i = 0; i < iCount; i++) slots.push('intermediate');
+  for (let i = 0; i < aCount; i++) slots.push('advanced');
+  while (slots.length < count) slots.push('intermediate');
+  return slots.slice(0, count);
 }
 
 export const SUBJECTS_FOR_PAPERS: Subject[] = ['Physics', 'Chemistry', 'Mathematics'];

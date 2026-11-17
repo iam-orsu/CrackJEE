@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import type { Question, AnswerResult, Subject, TopicProgress, PaperSet } from '@/types';
 import type { SplitTopics } from '@/lib/api';
-import type { AppState, WizardStep, DiffOption, MarkingScheme, StoredResult, QuestionTypeCounts, DifficultyDistribution } from './shared';
-import { getDefaultQuestionTypes, DEFAULT_DIFFICULTY_DISTRIBUTION } from './shared';
+import type { AppState, WizardStep, DiffOption, MarkingScheme, StoredResult, QuestionTypeCounts, DifficultyDistribution, TopicCustomConfig } from './shared';
+import { getDefaultQuestionTypes, DEFAULT_DIFFICULTY_DISTRIBUTION, planTopicTypeSlots, planTopicDifficultySlots } from './shared';
 import type { PracticeExamConfig } from './examConfig';
 import { SessionReview } from './SessionReview';
 import { SubjectStep } from './SubjectStep';
@@ -68,6 +68,177 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   const [questionTypeCounts, setQuestionTypeCounts] = useState<QuestionTypeCounts>(() =>
     getDefaultQuestionTypes(10, 'Main', config.exam === 'NEET'),
   );
+  const [topicConfigs, setTopicConfigs] = useState<Record<string, TopicCustomConfig>>({});
+  const prevCountRef = useRef(10);
+
+  const resolvedCount = useCallback((): number => {
+    if (questionCount === 'custom') {
+      const n = parseInt(customCount, 10);
+      return isNaN(n) || n < 1 ? 5 : Math.min(n, config.maxPerSubject);
+    }
+    return questionCount;
+  }, [questionCount, customCount, config.maxPerSubject]);
+
+  const autoDistributeTopicsForSubject = useCallback((subject: Subject) => {
+    const topics = Array.from(selectedTopics[subject] ?? new Set<string>());
+    if (topics.length === 0) return;
+
+    const perSubject = resolvedCount();
+    const isAdv = !isNeet && examType === 'Advanced';
+    const isNeetMode = isNeet;
+
+    const k = topics.length;
+    const baseQuota = Math.floor(perSubject / k);
+    const remainder = perSubject % k;
+
+    setTopicConfigs((prev) => {
+      const next = { ...prev };
+      topics.forEach((topic, idx) => {
+        const topicCount = baseQuota + (idx < remainder ? 1 : 0);
+        const typeSlots = planTopicTypeSlots(topicCount, questionTypeCounts, isAdv, isNeetMode);
+        const diffSlots = planTopicDifficultySlots(
+          topicCount,
+          difficulty,
+          difficultyMode === 'custom' || difficulty === 'mixed' ? difficultyDistribution : undefined,
+        );
+
+        const mcqCount = typeSlots.filter((t) => t === 'mcq_single').length;
+        const integerCount = typeSlots.filter((t) => t === 'integer').length;
+        const multiCount = typeSlots.filter((t) => t === 'mcq_multi').length;
+        const matrixCount = typeSlots.filter((t) => t === 'matrix_match').length;
+
+        const beginnerCount = diffSlots.filter((d) => d === 'beginner').length;
+        const intermediateCount = diffSlots.filter((d) => d === 'intermediate').length;
+        const advancedCount = diffSlots.filter((d) => d === 'advanced').length;
+
+        const key = `${subject}::${topic}`;
+        next[key] = {
+          subject,
+          topic,
+          mcqCount,
+          integerCount,
+          multiCount,
+          matrixCount,
+          beginnerCount,
+          intermediateCount,
+          advancedCount,
+        };
+      });
+      return next;
+    });
+  }, [selectedTopics, resolvedCount, isNeet, examType, questionTypeCounts, difficulty, difficultyMode, difficultyDistribution]);
+
+  const autoDistributeAllTopics = useCallback(() => {
+    const perSubject = resolvedCount();
+    const isAdv = !isNeet && examType === 'Advanced';
+    const isNeetMode = isNeet;
+
+    setTopicConfigs((prev) => {
+      const next = { ...prev };
+      for (const subject of selectedSubjects) {
+        const topics = Array.from(selectedTopics[subject] ?? new Set<string>());
+        if (topics.length === 0) continue;
+        const k = topics.length;
+        const baseQuota = Math.floor(perSubject / k);
+        const remainder = perSubject % k;
+
+        topics.forEach((topic, idx) => {
+          const topicCount = baseQuota + (idx < remainder ? 1 : 0);
+          const typeSlots = planTopicTypeSlots(topicCount, questionTypeCounts, isAdv, isNeetMode);
+          const diffSlots = planTopicDifficultySlots(
+            topicCount,
+            difficulty,
+            difficultyMode === 'custom' || difficulty === 'mixed' ? difficultyDistribution : undefined,
+          );
+
+          const mcqCount = typeSlots.filter((t) => t === 'mcq_single').length;
+          const integerCount = typeSlots.filter((t) => t === 'integer').length;
+          const multiCount = typeSlots.filter((t) => t === 'mcq_multi').length;
+          const matrixCount = typeSlots.filter((t) => t === 'matrix_match').length;
+
+          const beginnerCount = diffSlots.filter((d) => d === 'beginner').length;
+          const intermediateCount = diffSlots.filter((d) => d === 'intermediate').length;
+          const advancedCount = diffSlots.filter((d) => d === 'advanced').length;
+
+          const key = `${subject}::${topic}`;
+          next[key] = {
+            subject,
+            topic,
+            mcqCount,
+            integerCount,
+            multiCount,
+            matrixCount,
+            beginnerCount,
+            intermediateCount,
+            advancedCount,
+          };
+        });
+      }
+      return next;
+    });
+  }, [selectedSubjects, selectedTopics, resolvedCount, isNeet, examType, questionTypeCounts, difficulty, difficultyMode, difficultyDistribution]);
+
+  useEffect(() => {
+    if (wizardStep !== 3) return;
+    const perSubject = resolvedCount();
+
+    let missing = false;
+    for (const subject of selectedSubjects) {
+      for (const topic of selectedTopics[subject] ?? []) {
+        const key = `${subject}::${topic}`;
+        if (!topicConfigs[key]) {
+          missing = true;
+          break;
+        }
+      }
+      if (missing) break;
+    }
+
+    if (missing || prevCountRef.current !== perSubject) {
+      prevCountRef.current = perSubject;
+      autoDistributeAllTopics();
+    }
+  }, [wizardStep, selectedSubjects, selectedTopics, autoDistributeAllTopics, topicConfigs, resolvedCount]);
+
+  const areTopicConfigsValid = useMemo(() => {
+    if (selectedSubjects.size === 0) return true;
+    const perSubject = resolvedCount();
+
+    for (const subject of selectedSubjects) {
+      const topics = Array.from(selectedTopics[subject] ?? new Set<string>());
+      if (topics.length === 0) continue;
+      const subjectTotal = topics.reduce((sum, topic) => {
+        const key = `${subject}::${topic}`;
+        const cfg = topicConfigs[key];
+        if (!cfg) return sum;
+        return (
+          sum +
+          (cfg.mcqCount || 0) +
+          (cfg.integerCount || 0) +
+          (cfg.multiCount || 0) +
+          (cfg.matrixCount || 0)
+        );
+      }, 0);
+      if (subjectTotal !== perSubject) return false;
+
+      for (const topic of topics) {
+        const key = `${subject}::${topic}`;
+        const cfg = topicConfigs[key];
+        if (!cfg) continue;
+        const typeSum =
+          (cfg.mcqCount || 0) +
+          (cfg.integerCount || 0) +
+          (cfg.multiCount || 0) +
+          (cfg.matrixCount || 0);
+        const diffSum =
+          (cfg.beginnerCount || 0) +
+          (cfg.intermediateCount || 0) +
+          (cfg.advancedCount || 0);
+        if (typeSum !== diffSum) return false;
+      }
+    }
+    return true;
+  }, [selectedSubjects, selectedTopics, topicConfigs, resolvedCount]);
 
   useEffect(() => {
     const count = questionCount === 'custom'
@@ -301,22 +472,58 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   }
 
   /* ─── Build selections array ──────────────────────────── */
-  function buildSelections(): Array<{ subject: Subject; topic: string }> {
-    const out: Array<{ subject: Subject; topic: string }> = [];
+  function buildSelections(): Array<{
+    subject: Subject;
+    topic: string;
+    count?: number;
+    mcqCount?: number;
+    integerCount?: number;
+    multiCount?: number;
+    matrixCount?: number;
+    beginnerCount?: number;
+    intermediateCount?: number;
+    advancedCount?: number;
+  }> {
+    const out: Array<{
+      subject: Subject;
+      topic: string;
+      count?: number;
+      mcqCount?: number;
+      integerCount?: number;
+      multiCount?: number;
+      matrixCount?: number;
+      beginnerCount?: number;
+      intermediateCount?: number;
+      advancedCount?: number;
+    }> = [];
     for (const subject of selectedSubjects) {
       for (const topic of (selectedTopics[subject] ?? new Set())) {
-        out.push({ subject, topic });
+        const key = `${subject}::${topic}`;
+        const cfg = topicConfigs[key];
+        if (cfg) {
+          const totalQ =
+            (cfg.mcqCount || 0) +
+            (cfg.integerCount || 0) +
+            (cfg.multiCount || 0) +
+            (cfg.matrixCount || 0);
+          out.push({
+            subject,
+            topic,
+            count: totalQ,
+            mcqCount: cfg.mcqCount || 0,
+            integerCount: cfg.integerCount || 0,
+            multiCount: cfg.multiCount || 0,
+            matrixCount: cfg.matrixCount || 0,
+            beginnerCount: cfg.beginnerCount || 0,
+            intermediateCount: cfg.intermediateCount || 0,
+            advancedCount: cfg.advancedCount || 0,
+          });
+        } else {
+          out.push({ subject, topic });
+        }
       }
     }
     return out;
-  }
-
-  function resolvedCount(): number {
-    if (questionCount === 'custom') {
-      const n = parseInt(customCount, 10);
-      return isNaN(n) || n < 1 ? 5 : Math.min(n, config.maxPerSubject);
-    }
-    return questionCount;
   }
 
   /* ─── Paper row: preview papers, then claim the chosen one (JEE) ── */
@@ -347,6 +554,22 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
           `Difficulty percentage mismatch: total is ${totalPct}% (must equal exactly 100%). Please adjust percentages or click Normalize to 100%.`,
         );
         return;
+      }
+    }
+
+    if (!areTopicConfigsValid) {
+      for (const subject of selectedSubjects) {
+        const topics = Array.from(selectedTopics[subject] ?? new Set<string>());
+        const subjectTotal = topics.reduce((sum, topic) => {
+          const cfg = topicConfigs[`${subject}::${topic}`];
+          return sum + (cfg ? (cfg.mcqCount + cfg.integerCount + cfg.multiCount + cfg.matrixCount) : 0);
+        }, 0);
+        if (subjectTotal !== perSubject) {
+          setLoadError(
+            `Topic questions in ${subject} (${subjectTotal}) do not match the target of ${perSubject} questions per subject. Adjust counts or click Auto-match.`,
+          );
+          return;
+        }
       }
     }
 
@@ -425,6 +648,22 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
           `Difficulty percentage mismatch: total is ${totalPct}% (must equal exactly 100%). Please adjust percentages or click Normalize to 100%.`,
         );
         return;
+      }
+    }
+
+    if (!areTopicConfigsValid) {
+      for (const subject of selectedSubjects) {
+        const topics = Array.from(selectedTopics[subject] ?? new Set<string>());
+        const subjectTotal = topics.reduce((sum, topic) => {
+          const cfg = topicConfigs[`${subject}::${topic}`];
+          return sum + (cfg ? (cfg.mcqCount + cfg.integerCount + cfg.multiCount + cfg.matrixCount) : 0);
+        }, 0);
+        if (subjectTotal !== perSubject) {
+          setLoadError(
+            `Topic questions in ${subject} (${subjectTotal}) do not match the target of ${perSubject} questions per subject. Adjust counts or click Auto-match.`,
+          );
+          return;
+        }
       }
     }
 
@@ -713,6 +952,10 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                 perSubjectCount={resolvedCount()}
                 selectedSubjects={selectedSubjects}
                 selectedTopics={selectedTopics}
+                topicConfigs={topicConfigs}
+                onTopicConfigs={setTopicConfigs}
+                onAutoDistributeSubject={autoDistributeTopicsForSubject}
+                onAutoDistributeAll={autoDistributeAllTopics}
               />
             )}
           </div>
@@ -747,7 +990,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                     (difficultyDistribution.advanced || 0);
                   const isDifficultyValid = difficultyMode !== 'custom' || totalDifficultyPct === 100;
 
-                  const canStartSession = isTypeCountValid && isDifficultyValid;
+                  const canStartSession = isTypeCountValid && isDifficultyValid && areTopicConfigsValid;
 
                   return (
                     <>
@@ -772,7 +1015,11 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                             ? totalAllocatedTypes > perSubject
                               ? `Question count exceeded (${totalAllocatedTypes}/${perSubject}). Reduce values to proceed.`
                               : `Question count under-allocated (${totalAllocatedTypes}/${perSubject}). Add values to proceed.`
-                            : `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`}
+                            : !isDifficultyValid
+                            ? `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`
+                            : !areTopicConfigsValid
+                            ? `Topic questions must match target (${perSubject}/subject). Click Auto-match.`
+                            : 'Adjust settings to proceed.'}
                         </span>
                       )}
                       {config.hasPapers ? (
@@ -788,7 +1035,9 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                                   ? totalAllocatedTypes > perSubject
                                     ? `Question count exceeded (${totalAllocatedTypes}/${perSubject}). Reduce values to proceed.`
                                     : `Question count under-allocated (${totalAllocatedTypes}/${perSubject}). Add values to proceed.`
-                                  : `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`,
+                                  : !isDifficultyValid
+                                  ? `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`
+                                  : 'Topic questions must match target for each subject. Click Auto-match to balance.',
                               );
                               return;
                             }
@@ -812,7 +1061,9 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                                   ? totalAllocatedTypes > perSubject
                                     ? `Question count exceeded (${totalAllocatedTypes}/${perSubject}). Reduce values to proceed.`
                                     : `Question count under-allocated (${totalAllocatedTypes}/${perSubject}). Add values to proceed.`
-                                  : `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`,
+                                  : !isDifficultyValid
+                                  ? `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`
+                                  : 'Topic questions must match target for each subject. Click Auto-match to balance.',
                               );
                               return;
                             }

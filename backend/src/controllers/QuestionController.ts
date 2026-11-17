@@ -9,6 +9,7 @@ import {
   type AuthRequest,
   type StudentClass,
   type Subject,
+  type TopicSelectionConfig,
 } from '../types/index';
 
 const nextQuestionSchema = z.object({
@@ -23,6 +24,20 @@ const nextQuestionSchema = z.object({
 const selectionSchema = z.object({
   subject: z.enum(['Mathematics', 'Physics', 'Chemistry', 'Botany', 'Zoology']),
   topic: z.string().min(1).max(100),
+  count: z.number().int().min(0).max(100).optional(),
+  mcqCount: z.number().int().min(0).max(100).optional(),
+  integerCount: z.number().int().min(0).max(100).optional(),
+  multiCount: z.number().int().min(0).max(100).optional(),
+  matrixCount: z.number().int().min(0).max(100).optional(),
+  beginnerCount: z.number().int().min(0).max(100).optional(),
+  intermediateCount: z.number().int().min(0).max(100).optional(),
+  advancedCount: z.number().int().min(0).max(100).optional(),
+  difficulty: z.enum(['beginner', 'intermediate', 'advanced', 'mixed']).optional(),
+  difficultyDistribution: z.object({
+    beginner: z.number().min(0).max(100).optional(),
+    intermediate: z.number().min(0).max(100).optional(),
+    advanced: z.number().min(0).max(100).optional(),
+  }).optional(),
 });
 
 const batchSchema = z.object({
@@ -113,7 +128,28 @@ export class QuestionController {
         this.validateTopicSelection(subject, topic, examType, studentClass);
       }
 
-      if (questionTypes) {
+      const hasGranularTopicCounts = selections.some(
+        (s) =>
+          (s.count ?? 0) > 0 ||
+          (s.mcqCount ?? 0) > 0 ||
+          (s.integerCount ?? 0) > 0 ||
+          (s.multiCount ?? 0) > 0 ||
+          (s.matrixCount ?? 0) > 0,
+      );
+
+      if (hasGranularTopicCounts) {
+        const topicTotalSum = selections.reduce((sum, s) => {
+          const typeSum = (s.mcqCount ?? 0) + (s.integerCount ?? 0) + (s.multiCount ?? 0) + (s.matrixCount ?? 0);
+          return sum + (typeSum > 0 ? typeSum : (s.count ?? 0));
+        }, 0);
+
+        if (topicTotalSum > 0 && topicTotalSum !== count) {
+          throw new AppError(
+            400,
+            `Total questions across topic breakdown (${topicTotalSum}) does not match session question count (${count}).`,
+          );
+        }
+      } else if (questionTypes) {
         const typeSum =
           (questionTypes.mcq_single ?? 0) +
           (questionTypes.mcq_multi ?? 0) +
@@ -145,7 +181,7 @@ export class QuestionController {
       const questions = mode === 'practice'
         ? await this.questionService.getPracticeQuestionBatch(
             req.user!.userId,
-            selections as Array<{ subject: Subject; topic: string }>,
+            selections as TopicSelectionConfig[],
             difficulty,
             examType,
             count,
@@ -154,7 +190,7 @@ export class QuestionController {
           )
         : await this.questionService.getQuestionBatch(
             req.user!.userId,
-            selections as Array<{ subject: Subject; topic: string }>,
+            selections as TopicSelectionConfig[],
             difficulty,
             examType,
             studentClass,

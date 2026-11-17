@@ -106,7 +106,24 @@ export const api = {
     },
 
     batch: (body: {
-      selections: Array<{ subject: string; topic: string }>;
+      selections: Array<{
+        subject: string;
+        topic: string;
+        count?: number;
+        mcqCount?: number;
+        integerCount?: number;
+        multiCount?: number;
+        matrixCount?: number;
+        beginnerCount?: number;
+        intermediateCount?: number;
+        advancedCount?: number;
+        difficulty?: string;
+        difficultyDistribution?: {
+          beginner?: number;
+          intermediate?: number;
+          advanced?: number;
+        };
+      }>;
       difficulty: string;
       examType: string;
       studentClass: string;
@@ -133,7 +150,18 @@ export const api = {
       ),
 
     papers: (body: {
-      selections: Array<{ subject: string; topic: string }>;
+      selections: Array<{
+        subject: string;
+        topic: string;
+        count?: number;
+        mcqCount?: number;
+        integerCount?: number;
+        multiCount?: number;
+        matrixCount?: number;
+        beginnerCount?: number;
+        intermediateCount?: number;
+        advancedCount?: number;
+      }>;
       difficulty: string;
       examType: string;
       studentClass: string;
