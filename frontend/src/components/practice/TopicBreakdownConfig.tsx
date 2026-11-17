@@ -70,10 +70,8 @@ export function TopicBreakdownConfig({
       if (!current) return prev;
       const b = { ...(current[typeKey] ?? emptyBreakdown()) };
       if (delta > 0) {
-        // Add to medium by default, or easy/hard if medium is high
         b.medium = (b.medium || 0) + delta;
       } else if (delta < 0) {
-        // Remove from hard, then medium, then easy
         let toRemove = Math.abs(delta);
         if ((b.hard || 0) >= toRemove) {
           b.hard = (b.hard || 0) - toRemove;
@@ -117,7 +115,7 @@ export function TopicBreakdownConfig({
             Customize Questions per Topic
           </p>
           <p style={{ fontSize: 12, color: 'var(--gray-500)', margin: 0 }}>
-            Choose question types for each topic, and set how many are Easy, Medium, or Hard.
+            Choose question types for each topic, and adjust Easy, Medium, or Hard counts.
           </p>
         </div>
         <button
@@ -129,7 +127,7 @@ export function TopicBreakdownConfig({
             color: 'var(--brand, #003366)',
             background: 'var(--ice, #eef2ff)',
             border: '1px solid rgba(0,51,102,.15)',
-            borderRadius: 'var(--radius-full)',
+            borderRadius: 999,
             padding: '5px 12px',
             cursor: 'pointer',
             display: 'inline-flex',
@@ -141,7 +139,7 @@ export function TopicBreakdownConfig({
         </button>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
         {subjects.map((subject) => {
           const skin = SKIN[subject] ?? ALL_SKIN;
           const topics = Array.from(selectedTopics[subject] ?? new Set<string>());
@@ -161,9 +159,9 @@ export function TopicBreakdownConfig({
               style={{
                 background: 'var(--white)',
                 border: '1px solid rgba(0,51,102,.1)',
-                borderRadius: 16,
+                borderRadius: 14,
                 padding: '16px 18px',
-                boxShadow: '0 4px 16px -8px rgba(0,51,102,.12)',
+                boxShadow: '0 2px 10px -4px rgba(0,51,102,.08)',
               }}
             >
               {/* Subject Bar Header */}
@@ -300,11 +298,14 @@ export function TopicBreakdownConfig({
                 </div>
               )}
 
-              {/* Topics Grid */}
+              {/* Topics Grid - clean compact cards, never excessively stretched */}
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                  gridTemplateColumns:
+                    topics.length === 1
+                      ? 'minmax(min(100%, 280px), 480px)'
+                      : 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))',
                   gap: 14,
                 }}
               >
@@ -339,12 +340,12 @@ export function TopicBreakdownConfig({
                       style={{
                         background: '#ffffff',
                         border: '1px solid #e2e8f0',
-                        borderRadius: 14,
-                        padding: 14,
-                        boxShadow: '0 2px 8px -2px rgba(0,0,0,0.05)',
+                        borderRadius: 12,
+                        padding: '14px 16px',
+                        boxShadow: '0 1px 4px rgba(0,0,0,0.04)',
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'space-between',
+                        gap: 10,
                       }}
                     >
                       {/* Topic Card Header */}
@@ -352,8 +353,7 @@ export function TopicBreakdownConfig({
                         style={{
                           display: 'flex',
                           justifyContent: 'space-between',
-                          alignItems: 'flex-start',
-                          marginBottom: 12,
+                          alignItems: 'center',
                           gap: 8,
                           paddingBottom: 8,
                           borderBottom: '1px solid #f1f5f9',
@@ -386,7 +386,7 @@ export function TopicBreakdownConfig({
                       </div>
 
                       {/* Question Types List */}
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                         {questionTypesList.map(({ id, label, sub, badge }) => {
                           const breakdown = cfg[id] ?? emptyBreakdown();
                           const count = getTypeTotal(breakdown);
@@ -402,7 +402,7 @@ export function TopicBreakdownConfig({
                                 transition: 'all 0.15s ease',
                               }}
                             >
-                              {/* Type Row Header */}
+                              {/* Top row: Label on left, compact counter on right */}
                               <div
                                 style={{
                                   display: 'flex',
@@ -431,12 +431,13 @@ export function TopicBreakdownConfig({
                                   <p style={{ margin: 0, fontSize: 10, color: '#64748b' }}>{sub}</p>
                                 </div>
 
-                                {/* Total Counter for this type */}
+                                {/* Counter Stepper */}
                                 <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                                   <button
                                     type="button"
                                     onClick={() => adjustTypeCount(key, id, -1)}
                                     disabled={count <= 0}
+                                    title={`Decrease ${label}`}
                                     style={{
                                       width: 24,
                                       height: 24,
@@ -458,7 +459,7 @@ export function TopicBreakdownConfig({
                                   </button>
                                   <span
                                     style={{
-                                      minWidth: 22,
+                                      minWidth: 20,
                                       textAlign: 'center',
                                       fontSize: 13,
                                       fontWeight: 800,
@@ -470,6 +471,7 @@ export function TopicBreakdownConfig({
                                   <button
                                     type="button"
                                     onClick={() => adjustTypeCount(key, id, 1)}
+                                    title={`Increase ${label}`}
                                     style={{
                                       width: 24,
                                       height: 24,
@@ -491,73 +493,82 @@ export function TopicBreakdownConfig({
                                 </div>
                               </div>
 
-                              {/* Easy / Medium / Hard Breakdown for this Question Type */}
+                              {/* Easy / Medium / Hard Breakdown: Compact inline chips (Never stretched!) */}
                               {count > 0 && (
                                 <div
                                   style={{
-                                    marginTop: 8,
-                                    paddingTop: 8,
+                                    marginTop: 6,
+                                    paddingTop: 6,
                                     borderTop: '1px dashed #e2e8f0',
                                     display: 'flex',
                                     gap: 6,
+                                    flexWrap: 'wrap',
                                     alignItems: 'center',
-                                    justifyContent: 'space-between',
                                   }}
                                 >
-                                  {/* Easy */}
+                                  {/* Easy Chip */}
                                   <div
                                     style={{
-                                      flex: 1,
+                                      display: 'inline-flex',
+                                      alignItems: 'center',
+                                      gap: 5,
                                       background: '#ecfdf5',
                                       border: '1px solid #a7f3d0',
-                                      borderRadius: 6,
-                                      padding: '3px 4px',
-                                      display: 'flex',
-                                      alignItems: 'center',
-                                      justifyContent: 'space-between',
+                                      borderRadius: 999,
+                                      padding: '2px 6px 2px 8px',
                                     }}
                                   >
                                     <span style={{ fontSize: 10, fontWeight: 700, color: '#047857' }}>
                                       Easy
                                     </span>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: 2 }}>
                                       <button
                                         type="button"
                                         onClick={() => adjustDifficulty(key, id, 'easy', -1)}
                                         disabled={(breakdown.easy || 0) <= 0}
+                                        title="Decrease Easy"
                                         style={{
-                                          width: 16,
-                                          height: 16,
-                                          border: 'none',
+                                          width: 17,
+                                          height: 17,
+                                          border: '1px solid #a7f3d0',
                                           background: '#ffffff',
                                           color: '#047857',
-                                          borderRadius: 3,
+                                          borderRadius: 4,
                                           fontSize: 11,
                                           fontWeight: 700,
                                           cursor: (breakdown.easy || 0) <= 0 ? 'not-allowed' : 'pointer',
                                           opacity: (breakdown.easy || 0) <= 0 ? 0.3 : 1,
                                           padding: 0,
+                                          display: 'flex',
+                                          alignItems: 'center',
+                                          justifyContent: 'center',
+                                          lineHeight: 1,
                                         }}
                                       >
                                         −
                                       </button>
-                                      <span style={{ fontSize: 11, fontWeight: 800, color: '#047857', minWidth: 12, textAlign: 'center' }}>
+                                      <span style={{ fontSize: 11, fontWeight: 800, color: '#047857', minWidth: 14, textAlign: 'center' }}>
                                         {breakdown.easy || 0}
                                       </span>
                                       <button
                                         type="button"
                                         onClick={() => adjustDifficulty(key, id, 'easy', 1)}
+                                        title="Increase Easy"
                                         style={{
-                                          width: 16,
-                                          height: 16,
-                                          border: 'none',
+                                          width: 17,
+                                          height: 17,
+                                          border: '1px solid #a7f3d0',
                                           background: '#ffffff',
                                           color: '#047857',
-                                          borderRadius: 3,
+                                          borderRadius: 4,
                                           fontSize: 11,
                                           fontWeight: 700,
                                           cursor: 'pointer',
                                           padding: 0,
+                                          display: 'flex',
+                                          alignItems: 'center',
+                                          justifyContent: 'center',
+                                          lineHeight: 1,
                                         }}
                                       >
                                         +
@@ -565,60 +576,69 @@ export function TopicBreakdownConfig({
                                     </div>
                                   </div>
 
-                                  {/* Medium */}
+                                  {/* Medium Chip */}
                                   <div
                                     style={{
-                                      flex: 1,
+                                      display: 'inline-flex',
+                                      alignItems: 'center',
+                                      gap: 5,
                                       background: '#fffbeb',
                                       border: '1px solid #fde68a',
-                                      borderRadius: 6,
-                                      padding: '3px 4px',
-                                      display: 'flex',
-                                      alignItems: 'center',
-                                      justifyContent: 'space-between',
+                                      borderRadius: 999,
+                                      padding: '2px 6px 2px 8px',
                                     }}
                                   >
                                     <span style={{ fontSize: 10, fontWeight: 700, color: '#b45309' }}>
                                       Medium
                                     </span>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: 2 }}>
                                       <button
                                         type="button"
                                         onClick={() => adjustDifficulty(key, id, 'medium', -1)}
                                         disabled={(breakdown.medium || 0) <= 0}
+                                        title="Decrease Medium"
                                         style={{
-                                          width: 16,
-                                          height: 16,
-                                          border: 'none',
+                                          width: 17,
+                                          height: 17,
+                                          border: '1px solid #fde68a',
                                           background: '#ffffff',
                                           color: '#b45309',
-                                          borderRadius: 3,
+                                          borderRadius: 4,
                                           fontSize: 11,
                                           fontWeight: 700,
                                           cursor: (breakdown.medium || 0) <= 0 ? 'not-allowed' : 'pointer',
                                           opacity: (breakdown.medium || 0) <= 0 ? 0.3 : 1,
                                           padding: 0,
+                                          display: 'flex',
+                                          alignItems: 'center',
+                                          justifyContent: 'center',
+                                          lineHeight: 1,
                                         }}
                                       >
                                         −
                                       </button>
-                                      <span style={{ fontSize: 11, fontWeight: 800, color: '#b45309', minWidth: 12, textAlign: 'center' }}>
+                                      <span style={{ fontSize: 11, fontWeight: 800, color: '#b45309', minWidth: 14, textAlign: 'center' }}>
                                         {breakdown.medium || 0}
                                       </span>
                                       <button
                                         type="button"
                                         onClick={() => adjustDifficulty(key, id, 'medium', 1)}
+                                        title="Increase Medium"
                                         style={{
-                                          width: 16,
-                                          height: 16,
-                                          border: 'none',
+                                          width: 17,
+                                          height: 17,
+                                          border: '1px solid #fde68a',
                                           background: '#ffffff',
                                           color: '#b45309',
-                                          borderRadius: 3,
+                                          borderRadius: 4,
                                           fontSize: 11,
                                           fontWeight: 700,
                                           cursor: 'pointer',
                                           padding: 0,
+                                          display: 'flex',
+                                          alignItems: 'center',
+                                          justifyContent: 'center',
+                                          lineHeight: 1,
                                         }}
                                       >
                                         +
@@ -626,60 +646,69 @@ export function TopicBreakdownConfig({
                                     </div>
                                   </div>
 
-                                  {/* Hard */}
+                                  {/* Hard Chip */}
                                   <div
                                     style={{
-                                      flex: 1,
+                                      display: 'inline-flex',
+                                      alignItems: 'center',
+                                      gap: 5,
                                       background: '#fef2f2',
                                       border: '1px solid #fecaca',
-                                      borderRadius: 6,
-                                      padding: '3px 4px',
-                                      display: 'flex',
-                                      alignItems: 'center',
-                                      justifyContent: 'space-between',
+                                      borderRadius: 999,
+                                      padding: '2px 6px 2px 8px',
                                     }}
                                   >
                                     <span style={{ fontSize: 10, fontWeight: 700, color: '#b91c1c' }}>
                                       Hard
                                     </span>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: 2 }}>
                                       <button
                                         type="button"
                                         onClick={() => adjustDifficulty(key, id, 'hard', -1)}
                                         disabled={(breakdown.hard || 0) <= 0}
+                                        title="Decrease Hard"
                                         style={{
-                                          width: 16,
-                                          height: 16,
-                                          border: 'none',
+                                          width: 17,
+                                          height: 17,
+                                          border: '1px solid #fecaca',
                                           background: '#ffffff',
                                           color: '#b91c1c',
-                                          borderRadius: 3,
+                                          borderRadius: 4,
                                           fontSize: 11,
                                           fontWeight: 700,
                                           cursor: (breakdown.hard || 0) <= 0 ? 'not-allowed' : 'pointer',
                                           opacity: (breakdown.hard || 0) <= 0 ? 0.3 : 1,
                                           padding: 0,
+                                          display: 'flex',
+                                          alignItems: 'center',
+                                          justifyContent: 'center',
+                                          lineHeight: 1,
                                         }}
                                       >
                                         −
                                       </button>
-                                      <span style={{ fontSize: 11, fontWeight: 800, color: '#b91c1c', minWidth: 12, textAlign: 'center' }}>
+                                      <span style={{ fontSize: 11, fontWeight: 800, color: '#b91c1c', minWidth: 14, textAlign: 'center' }}>
                                         {breakdown.hard || 0}
                                       </span>
                                       <button
                                         type="button"
                                         onClick={() => adjustDifficulty(key, id, 'hard', 1)}
+                                        title="Increase Hard"
                                         style={{
-                                          width: 16,
-                                          height: 16,
-                                          border: 'none',
+                                          width: 17,
+                                          height: 17,
+                                          border: '1px solid #fecaca',
                                           background: '#ffffff',
                                           color: '#b91c1c',
-                                          borderRadius: 3,
+                                          borderRadius: 4,
                                           fontSize: 11,
                                           fontWeight: 700,
                                           cursor: 'pointer',
                                           padding: 0,
+                                          display: 'flex',
+                                          alignItems: 'center',
+                                          justifyContent: 'center',
+                                          lineHeight: 1,
                                         }}
                                       >
                                         +
