@@ -390,6 +390,10 @@ export interface FacultyAssignmentReport {
     topic: string;
     questionType: string;
     difficulty: string;
+    questionText?: string;
+    options?: string[];
+    correctAnswer?: string;
+    explanation?: string | null;
     correctCount: number;
     wrongCount: number;
     skippedCount: number;
@@ -415,6 +419,10 @@ export interface FacultyAssignmentReport {
       topic: string;
       questionType: string;
       difficulty: string;
+      questionText?: string;
+      options?: string[];
+      correctAnswer?: string;
+      explanation?: string | null;
       correctCount: number;
       wrongCount: number;
       skippedCount: number;
