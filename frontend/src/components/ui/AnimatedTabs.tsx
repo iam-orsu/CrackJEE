@@ -20,7 +20,7 @@ export function AnimatedTabs<T extends string>({
   tabs,
   value,
   onChange,
-  accentColor = '#1e293b',
+  accentColor = '#003366',
   size = 'md',
 }: AnimatedTabsProps<T>) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -47,7 +47,7 @@ export function AnimatedTabs<T extends string>({
       style={{
         position: 'relative',
         display: 'inline-flex',
-        borderBottom: '2px solid #e2e8f0',
+        borderBottom: '2px solid rgba(0,51,102,.10)',
         gap: 0,
       }}
     >
@@ -84,7 +84,7 @@ export function AnimatedTabs<T extends string>({
               cursor: 'pointer',
               fontSize: fs,
               fontWeight: active ? 700 : 500,
-              color: active ? accentColor : '#64748b',
+              color: active ? accentColor : '#5A6B8C',
               transition: 'color .15s',
               display: 'flex',
               alignItems: 'center',
@@ -98,8 +98,8 @@ export function AnimatedTabs<T extends string>({
                 fontSize: fs - 1,
                 padding: '1px 6px',
                 borderRadius: 9999,
-                background: active ? `${accentColor}18` : '#f1f5f9',
-                color: active ? accentColor : '#94a3b8',
+                background: active ? `${accentColor}14` : '#EEF2FF',
+                color: active ? accentColor : '#7A87A0',
                 fontWeight: 600,
                 transition: 'background .15s, color .15s',
               }}>

@@ -861,6 +861,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
         onNext={handleExamNext}
         onPrev={() => setCurrentIndex((i) => i - 1)}
         onSelectIndex={setCurrentIndex}
+        markingScheme={markingScheme}
       />,
     );
   }

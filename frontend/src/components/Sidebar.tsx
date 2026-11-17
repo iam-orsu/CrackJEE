@@ -252,6 +252,15 @@ export function Sidebar() {
 
   useEffect(() => { setMobileOpen(false); }, [pathname]);
 
+  // Rotating or resizing past the mobile breakpoint removes the drawer from
+  // the layout, so close it too — otherwise the body stays scroll-locked.
+  useEffect(() => {
+    const wide = window.matchMedia('(min-width: 769px)');
+    const onChange = () => { if (wide.matches) setMobileOpen(false); };
+    wide.addEventListener('change', onChange);
+    return () => wide.removeEventListener('change', onChange);
+  }, []);
+
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };

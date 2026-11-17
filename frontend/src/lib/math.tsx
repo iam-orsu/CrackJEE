@@ -126,6 +126,28 @@ export function sanitizeMathDelimiters(text: string): string {
   return s;
 }
 
+/* KaTeX paints a parse error in red, which reads as "wrong answer" in a
+   solution. A formula that will not parse is repaired once (a truncated
+   command or a degree sign that lost its command) and, failing that, shown as
+   plain source instead of a red blob. */
+function renderKatex(content: string, display: boolean): string {
+  const opts = { displayMode: display, throwOnError: true, trust: false };
+  try {
+    return katex.renderToString(content, opts);
+  } catch {
+    const repaired = content
+      .replace(/\^\s*$/, '')           // a degree sign that lost its command
+      .replace(/\\[a-zA-Z]+\s*$/, '')  // a dangling command
+      .trim();
+    if (repaired && repaired !== content) {
+      try {
+        return katex.renderToString(repaired, opts);
+      } catch { /* fall through to the plain source */ }
+    }
+    return `<span class="math-plain">${escapeHtml(content)}</span>`;
+  }
+}
+
 export function renderMath(rawText: string): string {
   if (!rawText) return '';
   const text = sanitizeMathDelimiters(rawText);
@@ -138,11 +160,7 @@ export function renderMath(rawText: string): string {
       while (start > 0 && /[a-zA-Z0-9]/.test(processed[start - 1]!)) start--;
       const pre  = processed.slice(0, start);
       const math = processed.slice(start).trim();
-      try {
-        return (pre ? escapeHtml(pre) : '') + katex.renderToString(math, { throwOnError: false, trust: false });
-      } catch {
-        return escapeHtml(processed);
-      }
+      return (pre ? escapeHtml(pre) : '') + renderKatex(math, false);
     }
     return escapeHtml(processed);
   }
@@ -163,11 +181,7 @@ export function renderMath(rawText: string): string {
     else if (raw.startsWith('$'))                     { content = raw.slice(1, -1); }
     else if (raw.startsWith('\\[')) { display = true;  content = raw.slice(2, -2); }
     else if (raw.startsWith('\\('))                   { content = raw.slice(2, -2); }
-    try {
-      parts.push(katex.renderToString(content.trim(), { displayMode: display, throwOnError: false, trust: false }));
-    } catch {
-      parts.push(escapeHtml(raw));
-    }
+    parts.push(renderKatex(content.trim(), display));
     lastIndex = match.index + raw.length;
   }
 
@@ -197,6 +211,11 @@ interface SectionItem {
   kind: 'p' | 'li' | 'math' | 'step_header';
   text: string;
 }
+
+/* The section kind is carried by one small status dot, not an icon in a
+   coloured box. The emoji the model writes are used only for detection. */
+const SUBSTEP_ICON =
+  '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>';
 
 interface ParsedSection {
   type: 'insight' | 'shortcut' | 'trap' | 'verification' | 'step' | 'general';
@@ -258,6 +277,14 @@ function detectHeader(line: string): { type: ParsedSection['type']; icon: string
   };
 }
 
+/* A short line that ends in a colon introduces what follows, so it is set
+   as a label rather than as body prose. */
+function paragraphHtml(text: string): string {
+  const plain = text.replace(/\*\*/g, '').trim();
+  const isLead = plain.length > 0 && plain.length <= 40 && /:$/.test(plain);
+  return `<p class="explain-para${isLead ? ' is-lead' : ''}">${formatInlineMarkdown(text)}</p>`;
+}
+
 export function renderExplanationHtml(rawText: string): string {
   if (!rawText || !rawText.trim()) return '';
   const text = sanitizeMathDelimiters(rawText);
@@ -270,19 +297,12 @@ export function renderExplanationHtml(rawText: string): string {
     let display = false;
     let content = match;
     if (match.startsWith('$$'))       { display = true;  content = match.slice(2, -2); }
-    else if (match.startsWith('$'))                     { content = match.slice(1, -1); }
+    else if (match.startsWith('$'))   { content = match.slice(1, -1); }
     else if (match.startsWith('\\[')) { display = true;  content = match.slice(2, -2); }
-    else if (match.startsWith('\\('))                   { content = match.slice(2, -2); }
+    else if (match.startsWith('\\(')) { content = match.slice(2, -2); }
 
-    let rendered = '';
-    try {
-      rendered = katex.renderToString(content.trim(), { displayMode: display, throwOnError: false, trust: false });
-      if (display) {
-        rendered = `<span class="explain-math-display">${rendered}</span>`;
-      }
-    } catch {
-      rendered = escapeHtml(match);
-    }
+    let rendered = renderKatex(content.trim(), display);
+    if (display) rendered = `<span class="explain-math-display">${rendered}</span>`;
     const token = `@@MATH_TOKEN_${mathTokens.length}@@`;
     mathTokens.push(rendered);
     return token;
@@ -356,7 +376,7 @@ export function renderExplanationHtml(rawText: string): string {
     let simpleHtml = '';
     for (const item of sections[0]!.items) {
       if (item.kind === 'math') simpleHtml += `<div class="explain-math-block">${item.text}</div>`;
-      else simpleHtml += `<p class="explain-para">${formatInlineMarkdown(item.text)}</p>`;
+      else simpleHtml += paragraphHtml(item.text);
     }
     for (let i = 0; i < mathTokens.length; i++) {
       simpleHtml = simpleHtml.replace(new RegExp(`@@MATH_TOKEN_${i}@@`, 'g'), () => mathTokens[i]!);
@@ -382,11 +402,11 @@ export function renderExplanationHtml(rawText: string): string {
           inList = false;
         }
         if (item.kind === 'step_header') {
-          bodyHtml += `<div class="explain-substep-badge"><span class="badge-num">▶</span> <strong>${escapeHtml(item.text)}</strong></div>`;
+          bodyHtml += `<div class="explain-substep-badge"><span class="badge-num">${SUBSTEP_ICON}</span> <strong>${escapeHtml(item.text)}</strong></div>`;
         } else if (item.kind === 'math') {
           bodyHtml += `<div class="explain-math-block">${item.text}</div>`;
         } else {
-          bodyHtml += `<p class="explain-para">${formatInlineMarkdown(item.text)}</p>`;
+          bodyHtml += paragraphHtml(item.text);
         }
       }
     }
@@ -398,7 +418,6 @@ export function renderExplanationHtml(rawText: string): string {
 
     return `<div class="explain-card ${sec.type}">
   <div class="explain-card-header">
-    <span class="explain-card-icon">${sec.icon}</span>
     <span class="explain-card-title">${escapeHtml(sec.title)}</span>
   </div>
   <div class="explain-card-body">${bodyHtml}</div>
@@ -413,6 +432,56 @@ export function renderExplanationHtml(rawText: string): string {
   }
 
   return fullHtml;
+}
+
+export interface ExplanationStep {
+  label: string;
+  text: string;
+}
+
+export interface SplitExplanation {
+  lead: string | null;
+  steps: ExplanationStep[];
+}
+
+/* Math spans are protected while we look for step markers, so a "Step 2"
+   written inside an equation never splits the text. */
+const EXPLANATION_MATH_SPAN = /(\$\$[\s\S]+?\$\$|\$[^$\n]+?\$|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\))/g;
+
+/**
+ * Splits an explanation that carries "Step 1: … Step 2: …" markers into
+ * numbered steps, the way an official solution booklet prints them.
+ * Returns null when the text has no usable step markers.
+ */
+export function splitExplanationSteps(raw: string): SplitExplanation | null {
+  if (!raw) return null;
+
+  const mathRanges: Array<[number, number]> = [];
+  const mathPattern = new RegExp(EXPLANATION_MATH_SPAN.source, 'g');
+  let match: RegExpExecArray | null;
+  while ((match = mathPattern.exec(raw)) !== null) {
+    mathRanges.push([match.index, match.index + match[0].length]);
+  }
+  const insideMath = (i: number) => mathRanges.some(([a, b]) => i >= a && i < b);
+
+  const marker = /Step\s*(\d{1,2})\s*(?::|\.|–|—|-|−|\)|\*)/gi;
+  const cuts: Array<{ num: string; start: number; end: number }> = [];
+  while ((match = marker.exec(raw)) !== null) {
+    if (insideMath(match.index)) continue;
+    cuts.push({ num: match[1]!, start: match.index, end: match.index + match[0].length });
+  }
+  if (cuts.length < 2) return null;
+
+  const lead = raw.slice(0, cuts[0]!.start).trim();
+  const steps: ExplanationStep[] = [];
+  for (let i = 0; i < cuts.length; i += 1) {
+    const from = cuts[i]!.end;
+    const to = i + 1 < cuts.length ? cuts[i + 1]!.start : raw.length;
+    const text = raw.slice(from, to).trim().replace(/^\*+\s*/, '');
+    if (text) steps.push({ label: cuts[i]!.num, text });
+  }
+  if (steps.length < 2) return null;
+  return { lead: lead || null, steps };
 }
 
 export function MathText({
