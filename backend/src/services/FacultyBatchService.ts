@@ -78,6 +78,117 @@ export class FacultyBatchService {
     };
   }
 
+  public async bulkCreateStudents(
+    facultyId: string,
+    students: Array<{
+      batchId?: string;
+      batchCode?: string;
+      batchName?: string;
+      name: string;
+      rollNumber: string;
+      email?: string;
+      password?: string;
+    }>,
+    defaultBatchId?: string,
+  ) {
+    const batches = await this.batchRepo.listByFaculty(facultyId);
+    const batchMapById = new Map<string, string>();
+    const batchMapByCode = new Map<string, string>();
+    const batchMapByName = new Map<string, string>();
+
+    for (const b of batches) {
+      batchMapById.set(b.id, b.id);
+      batchMapByCode.set(b.code.toUpperCase().trim(), b.id);
+      batchMapByName.set(b.name.toLowerCase().trim(), b.id);
+    }
+
+    const created: any[] = [];
+    const errors: Array<{ row: number; rollNumber?: string; name?: string; error: string }> = [];
+
+    for (let i = 0; i < students.length; i++) {
+      const s = students[i]!;
+      const rowNum = i + 1;
+      try {
+        const rawName = s.name?.trim();
+        const rawRoll = s.rollNumber?.trim();
+
+        if (!rawName || !rawRoll) {
+          errors.push({ row: rowNum, rollNumber: rawRoll, name: rawName, error: 'Name and Roll Number are required' });
+          continue;
+        }
+
+        // Determine target batch
+        let targetBatchId = s.batchId;
+        if (!targetBatchId && s.batchCode) {
+          targetBatchId = batchMapByCode.get(s.batchCode.toUpperCase().trim());
+        }
+        if (!targetBatchId && s.batchName) {
+          targetBatchId = batchMapByName.get(s.batchName.toLowerCase().trim());
+        }
+        if (!targetBatchId) {
+          targetBatchId = defaultBatchId;
+        }
+
+        if (!targetBatchId || !batchMapById.has(targetBatchId)) {
+          errors.push({
+            row: rowNum,
+            rollNumber: rawRoll,
+            name: rawName,
+            error: `Target batch "${s.batchCode || s.batchName || 'unspecified'}" not found`,
+          });
+          continue;
+        }
+
+        const rollNumber = rawRoll.toUpperCase();
+        const existingRoll = await this.studentRepo.findByRollNumber(facultyId, rollNumber);
+        if (existingRoll) {
+          errors.push({
+            row: rowNum,
+            rollNumber,
+            name: rawName,
+            error: `Roll Number "${rollNumber}" already exists in your institute`,
+          });
+          continue;
+        }
+
+        const plainPassword = s.password?.trim() || rollNumber;
+        const passwordHash = await bcrypt.hash(plainPassword, AUTH_CONSTANTS.BCRYPT_ROUNDS);
+
+        const newStudent = await this.studentRepo.create({
+          facultyId,
+          batchId: targetBatchId,
+          name: rawName,
+          rollNumber,
+          email: s.email?.trim() || undefined,
+          passwordHash,
+        });
+
+        created.push({
+          id: newStudent.id,
+          name: newStudent.name,
+          rollNumber: newStudent.rollNumber,
+          batchId: targetBatchId,
+          email: newStudent.email,
+        });
+      } catch (err: any) {
+        errors.push({
+          row: rowNum,
+          rollNumber: s.rollNumber,
+          name: s.name,
+          error: err.message || 'Failed to create student',
+        });
+      }
+    }
+
+    return {
+      total: students.length,
+      createdCount: created.length,
+      errorCount: errors.length,
+      created,
+      errors,
+    };
+  }
+
   public async listStudents(facultyId: string, batchId?: string) {
     return this.studentRepo.listByFaculty(facultyId, batchId);
   }

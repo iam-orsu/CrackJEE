@@ -308,6 +308,48 @@ export interface FacultyAssignmentSummary {
   };
 }
 
+export interface FacultyStudentSubmission {
+  assignment: {
+    id: string;
+    title: string;
+    durationMinutes: number;
+    paperTitle: string;
+    examType: string;
+  };
+  student: {
+    id: string;
+    name: string;
+    rollNumber: string;
+    email: string | null;
+    batchName: string;
+    batchCode: string;
+  };
+  score: {
+    totalScore: number;
+    maxScore: number;
+    correctCount: number;
+    incorrectCount: number;
+    unattemptedCount: number;
+    timeTakenSeconds: number;
+    submittedAt: string | null;
+  };
+  questions: Array<{
+    number: number;
+    subject: string;
+    topic: string;
+    questionType: string;
+    difficulty: string;
+    questionText: string;
+    options: string[];
+    correctAnswer: string;
+    studentAnswer: string | null;
+    isCorrect: boolean;
+    isSkipped: boolean;
+    marksAwarded: number;
+    explanation?: string | null;
+  }>;
+}
+
 export interface FacultyAssignmentReport {
   assignment: {
     id: string;
@@ -340,6 +382,7 @@ export interface FacultyAssignmentReport {
     unattemptedCount: number;
     submittedAt: string | null;
     resultBreakdown: Record<string, unknown> | null;
+    personalWeakTopics?: Array<{ topic: string; mistakes: number }>;
   }>;
   questionAnalytics: Array<{
     questionNumber: number;
@@ -351,7 +394,40 @@ export interface FacultyAssignmentReport {
     wrongCount: number;
     skippedCount: number;
     accuracyPct: number;
+    optionDistribution?: Record<string, number>;
+    optionPercentages?: Record<string, number>;
   }>;
+  topicAnalytics?: Array<{
+    topic: string;
+    subject: string;
+    questionCount: number;
+    questionNumbers: number[];
+    totalAttempts: number;
+    correctCount: number;
+    wrongCount: number;
+    skippedCount: number;
+    accuracyPct: number;
+    isWeak: boolean;
+    isStrong: boolean;
+    questions: Array<{
+      questionNumber: number;
+      subject: string;
+      topic: string;
+      questionType: string;
+      difficulty: string;
+      correctCount: number;
+      wrongCount: number;
+      skippedCount: number;
+      accuracyPct: number;
+      optionDistribution?: Record<string, number>;
+      optionPercentages?: Record<string, number>;
+    }>;
+  }>;
+  revisionRecommendations?: {
+    lackingTopics: Array<{ topic: string; subject: string; accuracyPct: number; questionCount: number }>;
+    topPerformingTopics: Array<{ topic: string; subject: string; accuracyPct: number; questionCount: number }>;
+    recommendations: string[];
+  };
 }
 
 // ── Batch API ──
@@ -389,6 +465,30 @@ export async function facultyCreateStudent(input: {
   });
 }
 
+export async function facultyBulkCreateStudents(input: {
+  batchId?: string;
+  students: Array<{
+    batchId?: string;
+    batchCode?: string;
+    batchName?: string;
+    name: string;
+    rollNumber: string;
+    email?: string;
+    password?: string;
+  }>;
+}) {
+  return facultyFetch<{
+    total: number;
+    createdCount: number;
+    errorCount: number;
+    created: Array<{ id: string; name: string; rollNumber: string; batchId: string; email: string | null }>;
+    errors: Array<{ row: number; rollNumber?: string; name?: string; error: string }>;
+  }>('/students/bulk', {
+    method: 'POST',
+    body: JSON.stringify(input),
+  });
+}
+
 export async function facultyDeleteStudent(id: string) {
   return facultyFetch<Record<string, never>>(`/students/${encodeURIComponent(id)}`, { method: 'DELETE' });
 }
@@ -420,4 +520,10 @@ export async function facultyDeleteAssignment(id: string) {
 
 export async function facultyGetAssignmentReport(id: string) {
   return facultyFetch<{ report: FacultyAssignmentReport }>(`/assignments/${encodeURIComponent(id)}/report`);
+}
+
+export async function facultyGetStudentSubmission(assignmentId: string, studentId: string) {
+  return facultyFetch<{ submission: FacultyStudentSubmission }>(
+    `/assignments/${encodeURIComponent(assignmentId)}/submissions/${encodeURIComponent(studentId)}`,
+  );
 }

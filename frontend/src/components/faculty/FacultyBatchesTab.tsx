@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import {
   facultyCreateBatch,
   facultyCreateStudent,
+  facultyBulkCreateStudents,
   facultyDeleteBatch,
   facultyDeleteStudent,
   facultyListBatches,
@@ -21,6 +22,63 @@ const BTN_GHOST_SM =
 const SELECT_SM =
   'h-9 cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-2.5 text-[12px] font-semibold text-[#003366] shadow-[0_3px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_4px_0_#E3C9E6] motion-reduce:transition-none';
 
+function parseStudentCsv(text: string): Array<{ name: string; rollNumber: string; email?: string; password?: string; batchCode?: string }> {
+  const lines = text.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+  if (lines.length < 2) return [];
+
+  const header = lines[0]!.toLowerCase().split(',').map((h) => h.trim().replace(/^["']|["']$/g, ''));
+  const nameIdx = header.findIndex((h) => h.includes('name'));
+  const rollIdx = header.findIndex((h) => h.includes('roll') || h.includes('id') || h.includes('user'));
+  const emailIdx = header.findIndex((h) => h.includes('email') || h.includes('mail'));
+  const passIdx = header.findIndex((h) => h.includes('pass'));
+  const batchIdx = header.findIndex((h) => h.includes('batch'));
+
+  const results: Array<{ name: string; rollNumber: string; email?: string; password?: string; batchCode?: string }> = [];
+
+  for (let i = 1; i < lines.length; i++) {
+    const rawLine = lines[i]!;
+    const cells = (rawLine.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || rawLine.split(',')).map((c) =>
+      c.trim().replace(/^["']|["']$/g, ''),
+    );
+    if (cells.length === 0) continue;
+
+    const name = nameIdx !== -1 ? cells[nameIdx] : cells[0];
+    const rollNumber = rollIdx !== -1 ? cells[rollIdx] : cells[1];
+    const email = emailIdx !== -1 ? cells[emailIdx] : cells[2];
+    const password = passIdx !== -1 ? cells[passIdx] : cells[3];
+    const batchCode = batchIdx !== -1 ? cells[batchIdx] : cells[4];
+
+    if (name && rollNumber) {
+      results.push({
+        name,
+        rollNumber,
+        email: email || undefined,
+        password: password || undefined,
+        batchCode: batchCode || undefined,
+      });
+    }
+  }
+
+  return results;
+}
+
+function downloadSampleCsv() {
+  const sample =
+    'name,rollNumber,email,password,batchCode\n' +
+    'Sumanth Varma,JEE-2026-001,sumanth@example.com,,COCDE\n' +
+    'Priya Sharma,JEE-2026-002,priya@example.com,Secret@123,COCDE\n' +
+    'Rahul Reddy,JEE-2026-003,rahul@example.com,,COCDE\n';
+  const blob = new Blob([sample], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.setAttribute('href', url);
+  link.setAttribute('download', 'students_bulk_template.csv');
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
+
 export function FacultyBatchesTab() {
   const [batches, setBatches] = useState<FacultyBatch[]>([]);
   const [selectedBatchId, setSelectedBatchId] = useState<string>('all');
@@ -37,12 +95,25 @@ export function FacultyBatchesTab() {
 
   // Student modal
   const [studentModalOpen, setStudentModalOpen] = useState(false);
+  const [studentCreationMode, setStudentCreationMode] = useState<'single' | 'bulk'>('single');
   const [targetBatchId, setTargetBatchId] = useState('');
   const [studentName, setStudentName] = useState('');
   const [studentRoll, setStudentRoll] = useState('');
   const [studentEmail, setStudentEmail] = useState('');
   const [studentPassword, setStudentPassword] = useState('');
   const [studentSubmitting, setStudentSubmitting] = useState(false);
+
+  // Bulk CSV upload states
+  const [csvFileName, setCsvFileName] = useState('');
+  const [parsedStudents, setParsedStudents] = useState<
+    Array<{ name: string; rollNumber: string; email?: string; password?: string; batchCode?: string }>
+  >([]);
+  const [bulkResult, setBulkResult] = useState<{
+    total: number;
+    createdCount: number;
+    errorCount: number;
+    errors: Array<{ row: number; error: string; rollNumber?: string; name?: string }>;
+  } | null>(null);
 
   // Credentials notification banner
   const [createdCredentials, setCreatedCredentials] = useState<{
@@ -149,6 +220,44 @@ export function FacultyBatchesTab() {
       await loadData();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to remove student');
+    }
+  }
+
+  function handleCsvFile(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setCsvFileName(file.name);
+    setBulkResult(null);
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const text = String(event.target?.result || '');
+      const parsed = parseStudentCsv(text);
+      setParsedStudents(parsed);
+    };
+    reader.readAsText(file);
+  }
+
+  async function handleBulkUpload(e: React.FormEvent) {
+    e.preventDefault();
+    if (parsedStudents.length === 0) {
+      alert('Please select a valid CSV file with student records.');
+      return;
+    }
+    setStudentSubmitting(true);
+    setError('');
+    try {
+      const res = await facultyBulkCreateStudents({
+        batchId: targetBatchId,
+        students: parsedStudents,
+      });
+      setBulkResult(res);
+      if (res.createdCount > 0) {
+        await loadData();
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to bulk import students');
+    } finally {
+      setStudentSubmitting(false);
     }
   }
 
@@ -441,82 +550,245 @@ export function FacultyBatchesTab() {
       {/* Modal: Add Student */}
       {studentModalOpen && (
         <div className="fixed inset-0 z-[999] flex items-center justify-center bg-[#0F172A]/45 p-5" onClick={() => setStudentModalOpen(false)}>
-          <div className="w-full max-w-[460px] max-h-[90vh] overflow-y-auto rounded-[22px] border border-[#003366]/10 bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.12)] sm:px-7" onClick={(e) => e.stopPropagation()}>
-            <h3 className="mb-4 font-display text-[18px] font-extrabold text-[#003366]">
-              Add Student to Batch
-            </h3>
-            <form onSubmit={handleCreateStudent} className="flex flex-col gap-3.5">
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[12.5px] font-extrabold text-[#003366]">Assign to Batch</label>
-                <select
-                  className="h-[46px] w-full cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
-                  value={targetBatchId}
-                  onChange={(e) => setTargetBatchId(e.target.value)}
-                  required
-                >
-                  {batches.map((b) => (
-                    <option key={b.id} value={b.id}>
-                      {b.name} ({b.code})
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[12.5px] font-extrabold text-[#003366]">Student Full Name</label>
-                <input
-                  type="text"
-                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
-                  placeholder="e.g. Sumanth Varma"
-                  value={studentName}
-                  onChange={(e) => setStudentName(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[12.5px] font-extrabold text-[#003366]">Roll Number (Login Username)</label>
-                <input
-                  type="text"
-                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
-                  placeholder="e.g. JEE-2026-042"
-                  value={studentRoll}
-                  onChange={(e) => setStudentRoll(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[12.5px] font-extrabold text-[#003366]">Email (Optional)</label>
-                <input
-                  type="email"
-                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
-                  placeholder="e.g. sumanth@example.com"
-                  value={studentEmail}
-                  onChange={(e) => setStudentEmail(e.target.value)}
-                />
-              </div>
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[12.5px] font-extrabold text-[#003366]">Password (Leave blank to use Roll Number)</label>
-                <input
-                  type="text"
-                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
-                  placeholder="Defaults to Roll Number"
-                  value={studentPassword}
-                  onChange={(e) => setStudentPassword(e.target.value)}
-                />
-              </div>
-              <div className="mt-2.5 flex justify-end gap-2.5">
-                <button
-                  type="button"
-                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
-                  onClick={() => setStudentModalOpen(false)}
-                  disabled={studentSubmitting}
-                >
-                  Cancel
-                </button>
-                <button type="submit" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" disabled={studentSubmitting}>
-                  {studentSubmitting ? 'Adding...' : 'Add Student'}
-                </button>
-              </div>
-            </form>
+          <div className="w-full max-w-[500px] max-h-[90vh] overflow-y-auto rounded-[22px] border border-[#003366]/10 bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.12)] sm:px-7" onClick={(e) => e.stopPropagation()}>
+            <div className="mb-4 flex items-center justify-between">
+              <h3 className="font-display text-[18px] font-extrabold text-[#003366]">
+                Add Students to Batch
+              </h3>
+              <button
+                type="button"
+                className="text-[18px] font-bold text-[#5A6B8C] hover:text-[#003366]"
+                onClick={() => setStudentModalOpen(false)}
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Segmented Mode Toggle: Single vs Bulk */}
+            <div className="mb-4 flex rounded-xl border-[2px] border-[#003366]/15 bg-[#F8FAFC] p-1">
+              <button
+                type="button"
+                className={`flex-1 rounded-lg py-1.5 text-[12.5px] font-bold transition-all ${
+                  studentCreationMode === 'single'
+                    ? 'bg-[#003366] text-white shadow-sm'
+                    : 'text-[#5A6B8C] hover:text-[#003366]'
+                }`}
+                onClick={() => setStudentCreationMode('single')}
+              >
+                👤 Single Student
+              </button>
+              <button
+                type="button"
+                className={`flex-1 rounded-lg py-1.5 text-[12.5px] font-bold transition-all ${
+                  studentCreationMode === 'bulk'
+                    ? 'bg-[#003366] text-white shadow-sm'
+                    : 'text-[#5A6B8C] hover:text-[#003366]'
+                }`}
+                onClick={() => setStudentCreationMode('bulk')}
+              >
+                📁 Bulk Upload (CSV)
+              </button>
+            </div>
+
+            {studentCreationMode === 'single' ? (
+              <form onSubmit={handleCreateStudent} className="flex flex-col gap-3.5">
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[12.5px] font-extrabold text-[#003366]">Assign to Batch</label>
+                  <select
+                    className="h-[46px] w-full cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                    value={targetBatchId}
+                    onChange={(e) => setTargetBatchId(e.target.value)}
+                    required
+                  >
+                    {batches.map((b) => (
+                      <option key={b.id} value={b.id}>
+                        {b.name} ({b.code})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[12.5px] font-extrabold text-[#003366]">Student Full Name</label>
+                  <input
+                    type="text"
+                    className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                    placeholder="e.g. Sumanth Varma"
+                    value={studentName}
+                    onChange={(e) => setStudentName(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[12.5px] font-extrabold text-[#003366]">Roll Number (Login Username)</label>
+                  <input
+                    type="text"
+                    className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                    placeholder="e.g. JEE-2026-042"
+                    value={studentRoll}
+                    onChange={(e) => setStudentRoll(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[12.5px] font-extrabold text-[#003366]">Email (Optional)</label>
+                  <input
+                    type="email"
+                    className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                    placeholder="e.g. sumanth@example.com"
+                    value={studentEmail}
+                    onChange={(e) => setStudentEmail(e.target.value)}
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[12.5px] font-extrabold text-[#003366]">Password (Leave blank to use Roll Number)</label>
+                  <input
+                    type="text"
+                    className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                    placeholder="Defaults to Roll Number"
+                    value={studentPassword}
+                    onChange={(e) => setStudentPassword(e.target.value)}
+                  />
+                </div>
+                <div className="mt-2.5 flex justify-end gap-2.5">
+                  <button
+                    type="button"
+                    className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                    onClick={() => setStudentModalOpen(false)}
+                    disabled={studentSubmitting}
+                  >
+                    Cancel
+                  </button>
+                  <button type="submit" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" disabled={studentSubmitting}>
+                    {studentSubmitting ? 'Adding...' : 'Add Student'}
+                  </button>
+                </div>
+              </form>
+            ) : (
+              <form onSubmit={handleBulkUpload} className="flex flex-col gap-3.5">
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[12.5px] font-extrabold text-[#003366]">Default Batch</label>
+                  <select
+                    className="h-[46px] w-full cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                    value={targetBatchId}
+                    onChange={(e) => setTargetBatchId(e.target.value)}
+                  >
+                    {batches.map((b) => (
+                      <option key={b.id} value={b.id}>
+                        {b.name} ({b.code})
+                      </option>
+                    ))}
+                  </select>
+                  <span className="text-[11.5px] text-[#5A6B8C]">
+                    Used when a student row in CSV does not specify a batch code.
+                  </span>
+                </div>
+
+                {/* CSV Template Download Action */}
+                <div className="flex items-center justify-between rounded-xl border border-dashed border-[#003366]/25 bg-ice/40 p-3">
+                  <div>
+                    <div className="text-[12.5px] font-bold text-[#003366]">Need the CSV format?</div>
+                    <div className="text-[11.5px] text-[#5A6B8C]">Columns: name, rollNumber, email, password, batchCode</div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={downloadSampleCsv}
+                    className="inline-flex items-center gap-1 rounded-lg border border-[#003366] bg-white px-2.5 py-1 text-[11.5px] font-extrabold text-[#003366] shadow-sm hover:bg-ice"
+                  >
+                    📥 Download CSV Template
+                  </button>
+                </div>
+
+                {/* File Upload Box */}
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[12.5px] font-extrabold text-[#003366]">Upload CSV File</label>
+                  <input
+                    type="file"
+                    accept=".csv,text/csv"
+                    onChange={handleCsvFile}
+                    className="block w-full text-[13px] text-[#5A6B8C] file:mr-3 file:cursor-pointer file:rounded-xl file:border-0 file:bg-[#003366] file:px-3 file:py-2 file:text-[12px] file:font-bold file:text-white hover:file:bg-[#002244]"
+                  />
+                  {csvFileName && (
+                    <span className="text-[12px] font-semibold text-accent">
+                      ✓ Selected: {csvFileName} ({parsedStudents.length} valid students detected)
+                    </span>
+                  )}
+                </div>
+
+                {/* Parsed Students Preview Table */}
+                {parsedStudents.length > 0 && (
+                  <div className="max-h-[160px] overflow-y-auto rounded-xl border border-[#003366]/15 bg-[#FBFCFE] p-2 text-[11.5px]">
+                    <div className="mb-1 font-bold text-[#003366]">Preview ({parsedStudents.length} records):</div>
+                    <table className="w-full text-left">
+                      <thead>
+                        <tr className="border-b text-[#5A6B8C]">
+                          <th className="py-1">Name</th>
+                          <th className="py-1">Roll Number</th>
+                          <th className="py-1">Email</th>
+                          <th className="py-1">Batch</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {parsedStudents.slice(0, 10).map((s, idx) => (
+                          <tr key={idx} className="border-b border-[#003366]/5">
+                            <td className="py-1 font-semibold text-[#003366]">{s.name}</td>
+                            <td className="py-1 text-accent">{s.rollNumber}</td>
+                            <td className="py-1 text-[#5A6B8C]">{s.email || '—'}</td>
+                            <td className="py-1 text-[#5A6B8C]">{s.batchCode || 'Default'}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                    {parsedStudents.length > 10 && (
+                      <div className="mt-1 text-center text-[10.5px] text-[#5A6B8C]">
+                        ... and {parsedStudents.length - 10} more students
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Bulk Results Feedback */}
+                {bulkResult && (
+                  <div className="flex flex-col gap-1.5 rounded-xl border border-[#15803D]/25 bg-[#EAF7EF] p-3 text-[12.5px] text-[#146C33]">
+                    <div className="font-bold">
+                      ✓ Successfully imported {bulkResult.createdCount} of {bulkResult.total} students!
+                    </div>
+                    {bulkResult.errorCount > 0 && (
+                      <div className="mt-1 text-[11.5px] text-[#C8202F]">
+                        {bulkResult.errorCount} row(s) skipped:
+                        <ul className="list-disc pl-4 mt-0.5">
+                          {bulkResult.errors.map((e, idx) => (
+                            <li key={idx}>Row {e.row}: {e.error}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                <div className="mt-2.5 flex justify-end gap-2.5">
+                  <button
+                    type="button"
+                    className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                    onClick={() => {
+                      setStudentModalOpen(false);
+                      setBulkResult(null);
+                      setParsedStudents([]);
+                      setCsvFileName('');
+                    }}
+                    disabled={studentSubmitting}
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="submit"
+                    className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                    disabled={studentSubmitting || parsedStudents.length === 0}
+                  >
+                    {studentSubmitting ? 'Importing...' : `Import ${parsedStudents.length} Students`}
+                  </button>
+                </div>
+              </form>
+            )}
           </div>
         </div>
       )}

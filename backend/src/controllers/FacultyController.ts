@@ -104,6 +104,21 @@ const createStudentSchema = z.object({
   password: z.string().min(4, 'Password must be at least 4 characters').optional().or(z.literal('')),
 });
 
+const bulkStudentItemSchema = z.object({
+  batchId: z.string().optional(),
+  batchCode: z.string().optional(),
+  batchName: z.string().optional(),
+  name: z.string().trim().min(1, 'Name is required').max(100),
+  rollNumber: z.string().trim().min(1, 'Roll number is required').max(50),
+  email: z.string().trim().email().optional().or(z.literal('')),
+  password: z.string().min(4).optional().or(z.literal('')),
+});
+
+const bulkCreateStudentsSchema = z.object({
+  batchId: z.string().optional(),
+  students: z.array(bulkStudentItemSchema).min(1, 'At least one student is required').max(1000, 'Max 1000 students per batch'),
+});
+
 const createAssignmentSchema = z.object({
   paperId: z.string().min(1, 'Paper is required'),
   batchId: z.string().min(1, 'Batch is required'),
@@ -446,6 +461,23 @@ export class FacultyController {
     }
   };
 
+  public readonly bulkCreateStudents = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const parsed = bulkCreateStudentsSchema.safeParse(req.body);
+      if (!parsed.success) {
+        throw new AppError(400, parsed.error.issues[0]?.message ?? 'Invalid bulk student data');
+      }
+      const result = await this.batchService.bulkCreateStudents(
+        req.faculty!.facultyId,
+        parsed.data.students,
+        parsed.data.batchId,
+      );
+      res.status(201).json({ success: true, ...result });
+    } catch (err) {
+      next(err);
+    }
+  };
+
   public readonly deleteStudent = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
       await this.batchService.deleteStudent(String(req.params.id), req.faculty!.facultyId);
@@ -500,6 +532,17 @@ export class FacultyController {
     try {
       const report = await this.assignmentService.getAssignmentReport(String(req.params.id), req.faculty!.facultyId);
       res.json({ success: true, report });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly getStudentSubmission = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const assignmentId = String(req.params.id);
+      const studentId = String(req.params.studentId);
+      const submission = await this.assignmentService.getStudentSubmission(assignmentId, studentId, req.faculty!.facultyId);
+      res.json({ success: true, submission });
     } catch (err) {
       next(err);
     }

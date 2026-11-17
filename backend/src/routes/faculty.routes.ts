@@ -33,6 +33,7 @@ export function createFacultyRoutes(controller = new FacultyController()): Route
   // Students
   router.get('/students', guard, controller.listStudents);
   router.post('/students', guard, controller.createStudent);
+  router.post('/students/bulk', guard, controller.bulkCreateStudents);
   router.delete('/students/:id', guard, controller.deleteStudent);
 
   // Assignments & Reports
@@ -40,6 +41,7 @@ export function createFacultyRoutes(controller = new FacultyController()): Route
   router.post('/assignments', guard, controller.createAssignment);
   router.delete('/assignments/:id', guard, controller.deleteAssignment);
   router.get('/assignments/:id/report', guard, controller.getAssignmentReport);
+  router.get('/assignments/:id/submissions/:studentId', guard, controller.getStudentSubmission);
 
   return router;
 }
