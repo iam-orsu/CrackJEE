@@ -3,7 +3,13 @@
 import React from 'react';
 import type { Subject } from '@/types';
 import type { TopicCustomConfig, TypeDifficultyBreakdown } from './shared';
-import { getTypeTotal, getTopicTotal } from './shared';
+import {
+  getTypeTotal,
+  getTopicTotal,
+  createBalancedDifficulty,
+  getDefaultQuestionTypes,
+  planTopicTypeSlots,
+} from './shared';
 import { SubjectIcon } from './SubjectIcon';
 import { SKIN, ALL_SKIN } from './skin';
 
@@ -94,6 +100,83 @@ export function TopicBreakdownConfig({
           [typeKey]: b,
         },
       };
+    });
+  };
+
+  // Helper to change total questions for an entire topic directly (e.g. typing 15)
+  const setTopicTotalExact = (key: string, targetCount: number) => {
+    const newTotal = Math.max(0, targetCount);
+    onTopicConfigs((prev) => {
+      const current = prev[key];
+      if (!current) return prev;
+      const currentTotal = getTopicTotal(current);
+      if (newTotal === currentTotal) return prev;
+
+      const examTypeStr = isAdvanced ? 'Advanced' : 'Main';
+      const defTypes = getDefaultQuestionTypes(newTotal, examTypeStr, isNeet);
+      const typeSlots = planTopicTypeSlots(newTotal, defTypes, isAdvanced, isNeet);
+      const mcqCount = typeSlots.filter((t) => t === 'mcq_single').length;
+      const integerCount = typeSlots.filter((t) => t === 'integer').length;
+      const multiCount = typeSlots.filter((t) => t === 'mcq_multi').length;
+      const matrixCount = typeSlots.filter((t) => t === 'matrix_match').length;
+
+      return {
+        ...prev,
+        [key]: {
+          ...current,
+          mcq: createBalancedDifficulty(mcqCount),
+          integer: createBalancedDifficulty(integerCount),
+          multi: createBalancedDifficulty(multiCount),
+          matrix: createBalancedDifficulty(matrixCount),
+        },
+      };
+    });
+  };
+
+  // Helper to increment or decrement an entire topic's total questions
+  const adjustTopicTotal = (key: string, delta: number) => {
+    onTopicConfigs((prev) => {
+      const current = prev[key];
+      if (!current) return prev;
+      const currentTotal = getTopicTotal(current);
+      const newTotal = Math.max(0, currentTotal + delta);
+      if (newTotal === currentTotal) return prev;
+
+      if (delta > 0) {
+        // Increment: add to MCQ medium
+        const mcq = { ...(current.mcq ?? emptyBreakdown()) };
+        mcq.medium = (mcq.medium || 0) + delta;
+        return {
+          ...prev,
+          [key]: { ...current, mcq },
+        };
+      } else {
+        // Decrement: remove from hard -> medium -> easy across types
+        let toRemove = Math.abs(delta);
+        const nextCfg = {
+          ...current,
+          matrix: { ...(current.matrix ?? emptyBreakdown()) },
+          multi: { ...(current.multi ?? emptyBreakdown()) },
+          integer: { ...(current.integer ?? emptyBreakdown()) },
+          mcq: { ...(current.mcq ?? emptyBreakdown()) },
+        };
+        const types: Array<'matrix' | 'multi' | 'integer' | 'mcq'> = ['matrix', 'multi', 'integer', 'mcq'];
+        for (const t of types) {
+          if (toRemove <= 0) break;
+          const b = nextCfg[t];
+          for (const lvl of ['hard', 'medium', 'easy'] as const) {
+            if (toRemove <= 0) break;
+            const available = b[lvl] || 0;
+            const take = Math.min(available, toRemove);
+            b[lvl] = available - take;
+            toRemove -= take;
+          }
+        }
+        return {
+          ...prev,
+          [key]: nextCfg,
+        };
+      }
     });
   };
 
@@ -298,14 +381,14 @@ export function TopicBreakdownConfig({
                 </div>
               )}
 
-              {/* Topics Grid - clean compact cards, never excessively stretched */}
+              {/* Topics Grid - clean full-width responsive grid (NO empty space on the right) */}
               <div
                 style={{
                   display: 'grid',
                   gridTemplateColumns:
                     topics.length === 1
-                      ? 'minmax(min(100%, 280px), 480px)'
-                      : 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))',
+                      ? '1fr'
+                      : 'repeat(auto-fit, minmax(320px, 1fr))',
                   gap: 14,
                 }}
               >
@@ -354,15 +437,16 @@ export function TopicBreakdownConfig({
                           display: 'flex',
                           justifyContent: 'space-between',
                           alignItems: 'center',
-                          gap: 8,
-                          paddingBottom: 8,
+                          gap: 12,
+                          paddingBottom: 10,
                           borderBottom: '1px solid #f1f5f9',
+                          flexWrap: 'wrap',
                         }}
                       >
                         <h4
                           style={{
                             margin: 0,
-                            fontSize: 13,
+                            fontSize: 14,
                             fontWeight: 700,
                             color: 'var(--gray-900)',
                             lineHeight: 1.3,
@@ -370,23 +454,133 @@ export function TopicBreakdownConfig({
                         >
                           {topic}
                         </h4>
-                        <span
-                          style={{
-                            fontSize: 11,
-                            fontWeight: 800,
-                            padding: '2px 8px',
-                            borderRadius: 999,
-                            background: topicTotal > 0 ? 'var(--navy-50, #f0f4f8)' : '#f1f5f9',
-                            color: topicTotal > 0 ? 'var(--primary, #003366)' : '#94a3b8',
-                            whiteSpace: 'nowrap',
-                          }}
-                        >
-                          {topicTotal} Qs
-                        </span>
+
+                        {/* Interactive Topic Questions Stepper & Direct Input */}
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                          <span
+                            style={{
+                              fontSize: 11,
+                              fontWeight: 700,
+                              color: 'var(--gray-500)',
+                              textTransform: 'uppercase',
+                              letterSpacing: '.03em',
+                            }}
+                          >
+                            Questions:
+                          </span>
+                          <div
+                            style={{
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              background: '#f8fafc',
+                              border: '1px solid #cbd5e1',
+                              borderRadius: 8,
+                              padding: '2px',
+                              gap: 2,
+                            }}
+                          >
+                            <button
+                              type="button"
+                              onClick={() => adjustTopicTotal(key, -1)}
+                              disabled={topicTotal <= 0}
+                              title="Decrease topic questions"
+                              style={{
+                                width: 24,
+                                height: 24,
+                                borderRadius: 6,
+                                border: 'none',
+                                background: '#ffffff',
+                                color: '#1e293b',
+                                boxShadow: '0 1px 2px rgba(0,0,0,0.06)',
+                                fontSize: 14,
+                                fontWeight: 700,
+                                cursor: topicTotal <= 0 ? 'not-allowed' : 'pointer',
+                                opacity: topicTotal <= 0 ? 0.35 : 1,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                padding: 0,
+                              }}
+                            >
+                              −
+                            </button>
+
+                            <input
+                              type="number"
+                              min={0}
+                              max={100}
+                              value={topicTotal}
+                              onChange={(e) => {
+                                const val = parseInt(e.target.value, 10);
+                                if (!isNaN(val)) {
+                                  setTopicTotalExact(key, val);
+                                }
+                              }}
+                              aria-label={`${topic} question count`}
+                              style={{
+                                width: 36,
+                                textAlign: 'center',
+                                fontSize: 13,
+                                fontWeight: 800,
+                                color: 'var(--brand, #003366)',
+                                border: 'none',
+                                background: 'transparent',
+                                outline: 'none',
+                                padding: '0 2px',
+                                MozAppearance: 'textfield',
+                              }}
+                            />
+
+                            <span
+                              style={{
+                                fontSize: 11,
+                                fontWeight: 700,
+                                color: 'var(--gray-500)',
+                                paddingRight: 4,
+                                userSelect: 'none',
+                              }}
+                            >
+                              Qs
+                            </span>
+
+                            <button
+                              type="button"
+                              onClick={() => adjustTopicTotal(key, 1)}
+                              title="Increase topic questions"
+                              style={{
+                                width: 24,
+                                height: 24,
+                                borderRadius: 6,
+                                border: 'none',
+                                background: '#ffffff',
+                                color: '#1e293b',
+                                boxShadow: '0 1px 2px rgba(0,0,0,0.06)',
+                                fontSize: 14,
+                                fontWeight: 700,
+                                cursor: 'pointer',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                padding: 0,
+                              }}
+                            >
+                              +
+                            </button>
+                          </div>
+                        </div>
                       </div>
 
-                      {/* Question Types List */}
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                      {/* Question Types List: Multi-column if 1 topic, single column if multiple topics */}
+                      <div
+                        style={{
+                          display: 'grid',
+                          gridTemplateColumns:
+                            topics.length === 1
+                              ? 'repeat(auto-fit, minmax(260px, 1fr))'
+                              : '1fr',
+                          gap: 10,
+                        }}
+                      >
                         {questionTypesList.map(({ id, label, sub, badge }) => {
                           const breakdown = cfg[id] ?? emptyBreakdown();
                           const count = getTypeTotal(breakdown);
