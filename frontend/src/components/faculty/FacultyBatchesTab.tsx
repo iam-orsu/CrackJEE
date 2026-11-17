@@ -48,6 +48,7 @@ export function FacultyBatchesTab() {
   const [createdCredentials, setCreatedCredentials] = useState<{
     name: string;
     rollNumber: string;
+    email?: string | null;
     password: string;
   } | null>(null);
   const [copied, setCopied] = useState(false);
@@ -125,6 +126,7 @@ export function FacultyBatchesTab() {
       setCreatedCredentials({
         name: res.student.name,
         rollNumber: res.student.rollNumber,
+        email: res.student.email,
         password: res.initialPassword || res.student.rollNumber,
       });
       setStudentModalOpen(false);
@@ -152,7 +154,7 @@ export function FacultyBatchesTab() {
 
   function copyCredentials() {
     if (!createdCredentials) return;
-    const text = `Student Portal Login Credentials\nPortal: /student-portal\nRoll Number: ${createdCredentials.rollNumber}\nPassword: ${createdCredentials.password}`;
+    const text = `Student Portal Credentials\nPortal: /student-portal\nRoll Number: ${createdCredentials.rollNumber}${createdCredentials.email ? `\nEmail: ${createdCredentials.email}` : ''}\nPassword: ${createdCredentials.password}`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
@@ -204,11 +206,14 @@ export function FacultyBatchesTab() {
             </div>
             <div className="mt-1 text-[13px] text-[#146C33]">
               <strong>{createdCredentials.name}</strong> • Roll No:{' '}
-              <code>{createdCredentials.rollNumber}</code> • Password:{' '}
-              <code>{createdCredentials.password}</code>
+              <code>{createdCredentials.rollNumber}</code>
+              {createdCredentials.email && (
+                <> • Email: <code>{createdCredentials.email}</code></>
+              )}
+              {' '}• Password: <code>{createdCredentials.password}</code>
             </div>
             <div className="mt-0.5 text-[12px] text-[#15803D]">
-              Students can sign in directly at <strong>/student-portal</strong> using these credentials.
+              Students can sign in directly at <strong>/student-portal</strong> using their Roll Number (or Email) and Password.
             </div>
           </div>
           <div className="flex gap-2">
@@ -329,10 +334,10 @@ export function FacultyBatchesTab() {
               <thead>
                 <tr className="border-b-2 border-[#003366]/10 text-left text-[#5A6B8C]">
                   <th className="px-3 py-2.5">Roll Number</th>
+                  <th className="px-3 py-2.5">Email</th>
+                  <th className="px-3 py-2.5">Password</th>
                   <th className="px-3 py-2.5">Student Name</th>
                   <th className="px-3 py-2.5">Batch</th>
-                  <th className="px-3 py-2.5">Email</th>
-                  <th className="px-3 py-2.5">Exams Taken</th>
                   <th className="px-3 py-2.5 text-right">Actions</th>
                 </tr>
               </thead>
@@ -343,18 +348,20 @@ export function FacultyBatchesTab() {
                       {s.rollNumber}
                     </td>
                     <td className="px-3 py-3 font-medium text-[#003366]">
+                      {s.email || '—'}
+                    </td>
+                    <td className="px-3 py-3 font-mono text-[12px]">
+                      <span className="rounded bg-[#EEF2FF] px-2 py-0.5 font-bold text-[#003366]" title="Default login password is Roll Number">
+                        {s.rollNumber}
+                      </span>
+                    </td>
+                    <td className="px-3 py-3 text-[#5A6B8C]">
                       {s.name}
                     </td>
                     <td className="px-3 py-3 text-[#5A6B8C]">
                       <span className="rounded bg-ice px-1.5 py-0.5 text-[11px] font-bold text-[#003366]">
                         {s.batch?.code || '—'}
                       </span>
-                    </td>
-                    <td className="px-3 py-3 text-[#5A6B8C]">
-                      {s.email || '—'}
-                    </td>
-                    <td className="px-3 py-3 text-[#003366]">
-                      {s._count?.examSessions || 0}
                     </td>
                     <td className="px-3 py-3 text-right">
                       <button
