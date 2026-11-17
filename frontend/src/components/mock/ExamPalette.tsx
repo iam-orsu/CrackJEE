@@ -1,6 +1,7 @@
+import type { CSSProperties } from 'react';
 import type { MockExamQuestion } from '@/types';
-import { SUBJECT_COLOR } from '@/lib/subjects';
 import { qStatus, STATUS_STYLE, type QStatus } from './examStatus';
+import { EX, FONT_MONO } from './examTheme';
 
 interface ExamPaletteProps {
   totalAnswered: number;
@@ -16,97 +17,145 @@ interface ExamPaletteProps {
   goTo: (index: number) => void;
 }
 
-/* Right-hand panel: counts by status, the per-subject question palette and the colour legend */
+const SECTION_HEAD: CSSProperties = {
+  fontSize: 10.5, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase',
+  color: EX.ink, paddingBottom: 10, borderBottom: `1px solid ${EX.line}`,
+};
+
+/* Right-hand panel, top to bottom: legend, the per-subject question palette,
+   then the counts by status */
 export function ExamPalette({ totalAnswered, totalMarked, statusCounts, subjects, bySubject, questions, answers, marked, visited, currentIdx, goTo }: ExamPaletteProps) {
+  const stats: { label: string; count: number; status: QStatus }[] = [
+    { label: 'Answered', count: totalAnswered, status: 'answered' },
+    { label: 'Not answered', count: statusCounts.not_answered, status: 'not_answered' },
+    { label: 'Marked for review', count: totalMarked, status: 'marked' },
+    { label: 'Not visited', count: statusCounts.not_visited, status: 'not_visited' },
+  ];
+
   return (
     <>
-      {/* Summary */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
-        {[
-          { label: 'Answered', count: totalAnswered, bg: '#dcfce7', color: '#166534' },
-          { label: 'Not Answered', count: statusCounts.not_answered, bg: '#fee2e2', color: '#991b1b' },
-          { label: 'Marked', count: totalMarked, bg: '#ede9fe', color: '#5b21b6' },
-          { label: 'Not Visited', count: statusCounts.not_visited, bg: '#f1f5f9', color: '#475569' },
-        ].map(({ label, count, bg, color }) => (
-          <div key={label} style={{ background: bg, borderRadius: 6, padding: '8px 10px', textAlign: 'center' }}>
-            <div style={{ fontSize: 18, fontWeight: 700, color }}>{Math.max(0, count)}</div>
-            <div style={{ fontSize: 10, color, opacity: 0.8 }}>{label}</div>
-          </div>
-        ))}
+      {/* Legend */}
+      <div>
+        <div style={SECTION_HEAD}>Legend</div>
+        <div style={{ marginTop: 12 }}>
+          {([
+            ['not_visited',     'Not visited'],
+            ['not_answered',    'Not answered'],
+            ['answered',        'Answered'],
+            ['marked',          'Marked for review'],
+            ['answered_marked', 'Answered + marked'],
+          ] as [QStatus, string][]).map(([status, label]) => {
+            const st = STATUS_STYLE[status];
+            const round = status === 'marked' || status === 'answered_marked';
+            return (
+              <div key={status} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 7 }}>
+                <div style={{
+                  width: 16, height: 16, borderRadius: round ? '50%' : 2,
+                  background: st.bg, border: `1px solid ${st.border}`, flexShrink: 0,
+                }} />
+                <span style={{ fontSize: 11, color: EX.ink2 }}>{label}</span>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       {/* Per-subject palette */}
-      {subjects.map((subj) => {
-        const subjectQs = bySubject[subj] ?? [];
-        return (
-          <div key={subj}>
-            <div style={{
-              fontSize: 11, fontWeight: 700, color: SUBJECT_COLOR[subj],
-              textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8,
-              paddingBottom: 6, borderBottom: `2px solid ${SUBJECT_COLOR[subj]}30`,
-            }}>
-              {subj}
-            </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5 }}>
-              {subjectQs.map((q) => {
-                const status = qStatus(q.mockQuestionId, answers, marked, visited);
-                const st = STATUS_STYLE[status];
-                const globalIdx = questions.findIndex((x) => x.mockQuestionId === q.mockQuestionId);
-                const isCurrent = globalIdx === currentIdx;
-                return (
-                  <button
-                    key={q.mockQuestionId}
-                    onClick={() => goTo(globalIdx)}
-                    title={`Q${q.questionNumber} — ${status.replace('_', ' ')}`}
-                    style={{
-                      width: 32, height: 32, border: `2px solid ${isCurrent ? '#0f172a' : st.border}`,
-                      borderRadius: status === 'marked' || status === 'answered_marked' ? '50%' : 5,
-                      background: st.bg, color: st.color,
-                      fontSize: 11, fontWeight: 700, cursor: 'pointer',
-                      outline: isCurrent ? '2px solid #0f172a' : 'none',
-                      outlineOffset: 2,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      position: 'relative',
-                    }}
-                  >
-                    {q.subjectIndex + 1}
-                    {status === 'answered_marked' && (
-                      <span style={{
-                        position: 'absolute', top: -3, right: -3,
-                        width: 10, height: 10, background: '#22c55e',
-                        borderRadius: '50%', border: '1px solid #fff',
-                      }} />
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        );
-      })}
+      <div>
+        <div style={SECTION_HEAD}>Question palette</div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginTop: 14 }}>
+          {subjects.map((subj) => {
+            const subjectQs = bySubject[subj] ?? [];
+            const answeredCount = subjectQs.filter((q) => !!answers[q.mockQuestionId]).length;
+            return (
+              <div key={subj}>
+                <div style={{
+                  display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 8,
+                  paddingBottom: 7, marginBottom: 9, borderBottom: `1px solid ${EX.lineSoft}`,
+                }}>
+                  <span style={{ fontSize: 10.5, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: EX.ink }}>
+                    {subj}
+                  </span>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 10.5, color: EX.mute, fontVariantNumeric: 'tabular-nums' }}>
+                    {answeredCount}/{subjectQs.length}
+                  </span>
+                </div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5 }}>
+                  {subjectQs.map((q) => {
+                    const status = qStatus(q.mockQuestionId, answers, marked, visited);
+                    const st = STATUS_STYLE[status];
+                    const globalIdx = questions.findIndex((x) => x.mockQuestionId === q.mockQuestionId);
+                    const isCurrent = globalIdx === currentIdx;
+                    const round = status === 'marked' || status === 'answered_marked';
+                    return (
+                      <button
+                        key={q.mockQuestionId}
+                        onClick={() => goTo(globalIdx)}
+                        title={`Q${q.questionNumber} — ${status.replace('_', ' ')}`}
+                        onMouseEnter={(e) => { e.currentTarget.style.borderColor = EX.ink2; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.borderColor = isCurrent ? EX.ink : st.border; }}
+                        style={{
+                          width: 32, height: 32,
+                          border: `1px solid ${isCurrent ? EX.ink : st.border}`,
+                          borderRadius: round ? '50%' : 2,
+                          background: st.bg, color: st.color,
+                          fontFamily: FONT_MONO, fontSize: 11, fontWeight: 600, cursor: 'pointer',
+                          outline: isCurrent ? `2px solid ${EX.ink}` : 'none',
+                          outlineOffset: 2,
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          position: 'relative', transition: 'border-color .1s',
+                        }}
+                      >
+                        {q.subjectIndex + 1}
+                        {status === 'answered_marked' && (
+                          <span style={{
+                            position: 'absolute', top: -3, right: -3,
+                            width: 9, height: 9, background: '#2E8B57',
+                            borderRadius: '50%', border: '1px solid #fff',
+                          }} />
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
 
-      {/* Legend */}
-      <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: 14 }}>
-        <div style={{ fontSize: 10, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8 }}>Legend</div>
-        {([
-          ['not_visited',     'Not Visited'],
-          ['not_answered',    'Not Answered'],
-          ['answered',        'Answered'],
-          ['marked',          'Marked for Review'],
-          ['answered_marked', 'Answered + Marked'],
-        ] as [QStatus, string][]).map(([status, label]) => {
-          const st = STATUS_STYLE[status];
-          return (
-            <div key={status} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 5 }}>
-              <div style={{
-                width: 18, height: 18, borderRadius: status === 'marked' || status === 'answered_marked' ? '50%' : 3,
-                background: st.bg, border: `1.5px solid ${st.border}`,
-                flexShrink: 0,
-              }} />
-              <span style={{ fontSize: 11, color: '#475569' }}>{label}</span>
-            </div>
-          );
-        })}
+      {/* Summary table */}
+      <div>
+        <div style={SECTION_HEAD}>Response summary</div>
+        <div style={{
+          display: 'grid', gridTemplateColumns: '1fr 1fr', marginTop: 12,
+          border: `1px solid ${EX.line}`, borderRadius: 2, overflow: 'hidden', background: EX.paper,
+        }}>
+          {stats.map(({ label, count, status }, i) => {
+            const st = STATUS_STYLE[status];
+            return (
+              <div
+                key={label}
+                style={{
+                  padding: '10px 12px',
+                  borderRight: i % 2 === 0 ? `1px solid ${EX.lineSoft}` : 'none',
+                  borderBottom: i < 2 ? `1px solid ${EX.lineSoft}` : 'none',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+                  <span style={{ width: 7, height: 7, borderRadius: 2, background: st.bg, border: `1px solid ${st.border}`, flexShrink: 0 }} />
+                  <span style={{ fontSize: 9.5, fontWeight: 600, color: EX.mute }}>{label}</span>
+                </div>
+                <div style={{
+                  fontFamily: FONT_MONO, fontSize: 19, fontWeight: 700, color: EX.ink,
+                  lineHeight: 1.1, fontVariantNumeric: 'tabular-nums',
+                }}>
+                  {Math.max(0, count)}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </>
   );

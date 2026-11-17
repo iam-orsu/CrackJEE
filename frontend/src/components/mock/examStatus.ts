@@ -14,9 +14,9 @@ export function qStatus(mqId: string, answers: Record<string, string>, marked: R
 }
 
 export const STATUS_STYLE: Record<QStatus, { bg: string; color: string; border: string }> = {
-  not_visited:     { bg: '#d1d5db', color: '#374151', border: '#9ca3af' },
-  not_answered:    { bg: '#ef4444', color: '#fff',    border: '#dc2626' },
-  answered:        { bg: '#22c55e', color: '#fff',    border: '#16a34a' },
-  marked:          { bg: '#a855f7', color: '#fff',    border: '#9333ea' },
-  answered_marked: { bg: '#7c3aed', color: '#fff',    border: '#6d28d9' },
+  not_visited:     { bg: '#E9EDF2', color: '#445364', border: '#BCC7D4' },
+  not_answered:    { bg: '#C0392B', color: '#FFFFFF', border: '#A32E23' },
+  answered:        { bg: '#1E7A45', color: '#FFFFFF', border: '#176036' },
+  marked:          { bg: '#6D4AA8', color: '#FFFFFF', border: '#59398C' },
+  answered_marked: { bg: '#55308F', color: '#FFFFFF', border: '#452677' },
 };

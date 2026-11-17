@@ -439,6 +439,12 @@ const css = `
 .sn-meter b{position:absolute;left:60%;top:-4px;bottom:-4px;width:2px;border-radius:2px;background:var(--blue)}
 .sn-flag span{font-size:13px;font-weight:700;color:var(--muted)}
 
+/* The cards beside the form recede so the sign-in box carries the screen.
+   The question card comes back the moment you engage with it. */
+.sn-card{opacity:.62;transition:opacity .25s ease}
+.sn-card:hover,.sn-card:focus-within{opacity:1}
+.sn-flag{opacity:.45;transition:opacity .25s ease}
+
 /* Floating chips + atom: wide screens only */
 .sn-chip,.sn-atom{display:none}
 .sn-chip{position:absolute;z-index:1;font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-size:19px;border-radius:14px;padding:11px 17px;line-height:1}

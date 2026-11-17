@@ -11,7 +11,11 @@ import {
   type FacultyBatch,
   type FacultyPaperSummary,
 } from '@/lib/faculty';
-import styles from '@/app/faculty/faculty.module.css';
+
+const BTN_PRIMARY =
+  'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none';
+const BTN_SECONDARY =
+  'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none';
 
 interface FacultyAssignmentsTabProps {
   onViewReport: (assignmentId: string) => void;
@@ -102,18 +106,18 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+    <div className="flex flex-col gap-6">
       {/* Top Action Bar */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h2 style={{ fontSize: '18px', fontWeight: 600, color: 'var(--ink)' }}>Assign Mock Exams</h2>
-          <p style={{ fontSize: '13px', color: 'var(--muted)' }}>
+          <h2 className="font-display text-[18px] font-extrabold text-[#003366]">Assign Mock Exams</h2>
+          <p className="text-[13px] text-[#5A6B8C]">
             Assign verified question papers to student batches with scheduled exam windows and CBT timings.
           </p>
         </div>
         <button
           type="button"
-          className={styles.btnPrimary}
+          className={BTN_PRIMARY}
           onClick={() => {
             if (readyPapers.length === 0) {
               alert('You do not have any ready papers yet. Please generate a question paper in Paper Studio first.');
@@ -130,19 +134,19 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
         </button>
       </div>
 
-      {error && <div className={styles.error}>{error}</div>}
+      {error && <div className="mb-3.5 rounded-2xl border border-[#C8202F]/25 bg-[#FDF3F4] px-3.5 py-2.5 text-[13px] font-semibold text-[#C8202F]">{error}</div>}
 
       {/* Assignments List */}
       {loading ? (
-        <div style={{ padding: '36px', textAlign: 'center', color: 'var(--muted)' }}>
-          Loading assigned exams…
+        <div className="px-9 py-9 text-center text-[#5A6B8C]">
+          Loading assigned exams...
         </div>
       ) : assignments.length === 0 ? (
-        <div className={styles.emptyState}>
+        <div className="rounded-3xl border border-dashed border-[#003366]/20 bg-white px-5 py-9 text-center text-[13.5px] font-medium text-[#5A6B8C]">
           No exams assigned yet. Click <strong>+ Assign New Exam</strong> to assign a paper to one of your batches.
         </div>
       ) : (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div className="flex flex-col gap-4">
           {assignments.map((a) => {
             const completionRate =
               a.stats.totalEnrolled > 0
@@ -152,55 +156,26 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
             return (
               <div
                 key={a.id}
-                style={{
-                  background: '#fff',
-                  border: '1px solid var(--line)',
-                  borderRadius: '12px',
-                  padding: '20px 24px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  gap: '20px',
-                  flexWrap: 'wrap',
-                }}
+                className="flex flex-wrap items-center justify-between gap-5 rounded-2xl border border-[#003366]/10 bg-white px-6 py-5"
               >
-                <div style={{ flex: '1 1 320px' }}>
-                  <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap', marginBottom: '6px' }}>
-                    <span
-                      style={{
-                        fontSize: '11px',
-                        fontWeight: 700,
-                        letterSpacing: '0.04em',
-                        color: 'var(--accent)',
-                        background: 'var(--accent-bg)',
-                        padding: '2px 8px',
-                        borderRadius: '6px',
-                      }}
-                    >
+                <div className="flex-[1_1_320px]">
+                  <div className="mb-1.5 flex flex-wrap items-center gap-2">
+                    <span className="rounded-md bg-accent-50 px-2 py-0.5 text-[11px] font-bold tracking-[0.04em] text-accent">
                       {a.batch.name} ({a.batch.code})
                     </span>
-                    <span
-                      style={{
-                        fontSize: '11px',
-                        fontWeight: 600,
-                        color: '#6366f1',
-                        background: '#eef2ff',
-                        padding: '2px 8px',
-                        borderRadius: '6px',
-                      }}
-                    >
+                    <span className="rounded-md bg-ice px-2 py-0.5 text-[11px] font-semibold text-[#003366]">
                       {a.paper.examType} • {a.paper.questionCount} Questions
                     </span>
-                    <span style={{ fontSize: '12px', color: 'var(--muted)' }}>
+                    <span className="text-[12px] text-[#5A6B8C]">
                       ⏱ {a.durationMinutes} mins
                     </span>
                   </div>
 
-                  <h3 style={{ fontSize: '16px', fontWeight: 600, color: 'var(--ink)' }}>
+                  <h3 className="text-[16px] font-bold text-[#003366]">
                     {a.title}
                   </h3>
 
-                  <div style={{ fontSize: '12px', color: 'var(--muted)', marginTop: '4px' }}>
+                  <div className="mt-1 text-[12px] text-[#5A6B8C]">
                     Paper: <strong>{a.paper.title}</strong>
                     {a.startTime && (
                       <> • Window opens: {new Date(a.startTime).toLocaleDateString()}</>
@@ -212,65 +187,47 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
                 </div>
 
                 {/* Submission and Average Score Stats */}
-                <div
-                  style={{
-                    display: 'flex',
-                    gap: '20px',
-                    alignItems: 'center',
-                    background: 'var(--surface)',
-                    padding: '10px 16px',
-                    borderRadius: '8px',
-                    border: '1px solid var(--line)',
-                  }}
-                >
-                  <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '11px', color: 'var(--muted)', textTransform: 'uppercase', fontWeight: 600 }}>
+                <div className="flex items-center gap-5 rounded-xl border border-[#003366]/10 bg-ice px-4 py-2.5">
+                  <div className="text-center">
+                    <div className="text-[11px] font-semibold uppercase text-[#5A6B8C]">
                       Submissions
                     </div>
-                    <div style={{ fontSize: '16px', fontWeight: 700, color: 'var(--ink)' }}>
+                    <div className="text-[16px] font-bold text-[#003366]">
                       {a.stats.submittedCount} / {a.stats.totalEnrolled}
                     </div>
-                    <div style={{ fontSize: '11px', color: 'var(--accent)' }}>
+                    <div className="text-[11px] text-accent">
                       {completionRate}% completed
                     </div>
                   </div>
 
-                  <div style={{ width: '1px', height: '32px', background: 'var(--line)' }} />
+                  <div className="h-8 w-px bg-[#003366]/10" />
 
-                  <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '11px', color: 'var(--muted)', textTransform: 'uppercase', fontWeight: 600 }}>
+                  <div className="text-center">
+                    <div className="text-[11px] font-semibold uppercase text-[#5A6B8C]">
                       Batch Avg
                     </div>
-                    <div style={{ fontSize: '16px', fontWeight: 700, color: 'var(--ink)' }}>
+                    <div className="text-[16px] font-bold text-[#003366]">
                       {a.stats.avgScore}
                     </div>
-                    <div style={{ fontSize: '11px', color: 'var(--muted)' }}>
+                    <div className="text-[11px] text-[#5A6B8C]">
                       Marks
                     </div>
                   </div>
                 </div>
 
                 {/* Actions */}
-                <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                <div className="flex items-center gap-2">
                   <button
                     type="button"
-                    className={styles.btnPrimary}
+                    className={BTN_PRIMARY}
                     onClick={() => onViewReport(a.id)}
-                    style={{ fontSize: '13px', padding: '8px 14px' }}
                   >
                     📊 View Batch Report
                   </button>
                   <button
                     type="button"
                     onClick={() => handleDeleteAssignment(a.id, a.title)}
-                    style={{
-                      background: 'transparent',
-                      border: 'none',
-                      color: '#ef4444',
-                      cursor: 'pointer',
-                      fontSize: '13px',
-                      padding: '8px 10px',
-                    }}
+                    className="cursor-pointer rounded-lg border-0 bg-transparent px-2.5 py-2 text-[13px] text-[#C8202F] transition-colors duration-150 hover:bg-[#FDF3F4] motion-reduce:transition-none"
                     title="Delete Exam Assignment"
                   >
                     Delete
@@ -284,16 +241,16 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
 
       {/* Modal: Assign Exam */}
       {assignModalOpen && (
-        <div className={styles.modalOverlay} onClick={() => setAssignModalOpen(false)}>
-          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()} style={{ maxWidth: '520px' }}>
-            <h3 style={{ fontSize: '18px', fontWeight: 600, color: 'var(--ink)', marginBottom: '16px' }}>
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-[#0F172A]/45 p-5" onClick={() => setAssignModalOpen(false)}>
+          <div className="w-full max-w-[520px] max-h-[90vh] overflow-y-auto rounded-[22px] border border-[#003366]/10 bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.12)] sm:px-7" onClick={(e) => e.stopPropagation()}>
+            <h3 className="mb-4 font-display text-[18px] font-extrabold text-[#003366]">
               Assign Exam to Batch
             </h3>
-            <form onSubmit={handleAssignSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <div className={styles.field}>
-                <label className={styles.label}>Select Question Paper</label>
+            <form onSubmit={handleAssignSubmit} className="flex flex-col gap-3.5">
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Select Question Paper</label>
                 <select
-                  className={styles.select}
+                  className="h-[46px] w-full cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                   value={selectedPaperId}
                   onChange={(e) => setSelectedPaperId(e.target.value)}
                   required
@@ -306,10 +263,10 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
                 </select>
               </div>
 
-              <div className={styles.field}>
-                <label className={styles.label}>Select Target Batch</label>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Select Target Batch</label>
                 <select
-                  className={styles.select}
+                  className="h-[46px] w-full cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                   value={selectedBatchId}
                   onChange={(e) => setSelectedBatchId(e.target.value)}
                   required
@@ -322,11 +279,11 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
                 </select>
               </div>
 
-              <div className={styles.field}>
-                <label className={styles.label}>Exam Title</label>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Exam Title</label>
                 <input
                   type="text"
-                  className={styles.input}
+                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                   placeholder="e.g. Weekly Full Length CBT Mock Drill #3"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
@@ -334,15 +291,14 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
                 />
               </div>
 
-              <div className={styles.field}>
-                <label className={styles.label}>Exam Duration</label>
-                <div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Exam Duration</label>
+                <div className="mb-2 flex gap-2">
                   {[60, 90, 180].map((mins) => (
                     <button
                       key={mins}
                       type="button"
-                      className={durationMinutes === mins ? styles.btnPrimary : styles.btnSecondary}
-                      style={{ fontSize: '12px', padding: '4px 10px' }}
+                      className={durationMinutes === mins ? BTN_PRIMARY : BTN_SECONDARY}
                       onClick={() => setDurationMinutes(mins)}
                     >
                       {mins} Mins
@@ -351,7 +307,7 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
                 </div>
                 <input
                   type="number"
-                  className={styles.input}
+                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                   min={10}
                   max={360}
                   value={durationMinutes}
@@ -359,31 +315,31 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                <div className={styles.field}>
-                  <label className={styles.label}>Start Window (Optional)</label>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[12.5px] font-extrabold text-[#003366]">Start Window (Optional)</label>
                   <input
                     type="datetime-local"
-                    className={styles.input}
+                    className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                     value={startTime}
                     onChange={(e) => setStartTime(e.target.value)}
                   />
                 </div>
-                <div className={styles.field}>
-                  <label className={styles.label}>End Window (Optional)</label>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[12.5px] font-extrabold text-[#003366]">End Window (Optional)</label>
                   <input
                     type="datetime-local"
-                    className={styles.input}
+                    className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                     value={endTime}
                     onChange={(e) => setEndTime(e.target.value)}
                   />
                 </div>
               </div>
 
-              <div className={styles.field}>
-                <label className={styles.label}>Exam Instructions (Optional)</label>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Exam Instructions (Optional)</label>
                 <textarea
-                  className={styles.textarea}
+                  className="min-h-[76px] w-full resize-y rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2.5 text-[14px] font-semibold leading-relaxed text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                   rows={2}
                   placeholder="e.g. Read each question carefully. Standard negative marking applies."
                   value={instructions}
@@ -391,7 +347,7 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
                 />
               </div>
 
-              <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', cursor: 'pointer' }}>
+              <label className="flex cursor-pointer items-center gap-2 text-[13px]">
                 <input
                   type="checkbox"
                   checked={showSolutions}
@@ -400,17 +356,17 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
                 <span>Allow students to view detailed step-by-step solutions after submission</span>
               </label>
 
-              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '12px' }}>
+              <div className="mt-3 flex justify-end gap-2.5">
                 <button
                   type="button"
-                  className={styles.btnSecondary}
+                  className={BTN_SECONDARY}
                   onClick={() => setAssignModalOpen(false)}
                   disabled={assignSubmitting}
                 >
                   Cancel
                 </button>
-                <button type="submit" className={styles.btnPrimary} disabled={assignSubmitting}>
-                  {assignSubmitting ? 'Assigning…' : 'Publish & Assign Exam'}
+                <button type="submit" className={BTN_PRIMARY} disabled={assignSubmitting}>
+                  {assignSubmitting ? 'Assigning...' : 'Publish & Assign Exam'}
                 </button>
               </div>
             </form>

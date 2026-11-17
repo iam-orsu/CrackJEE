@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { renderMath, renderExplanationHtml, escapeHtml, stripOptionPrefix, sanitizeMathDelimiters } from './math';
+import { renderMath, renderExplanationHtml, escapeHtml, stripOptionPrefix, sanitizeMathDelimiters, splitExplanationSteps } from './math';
 
 describe('escapeHtml', () => {
   it('escapes markup characters', () => {
@@ -91,6 +91,14 @@ describe('renderExplanationHtml', () => {
     expect(html).toContain('katex');
   });
 
+  it('sets a short line ending in a colon as a label rather than body prose', () => {
+    const html = renderExplanationHtml('Let:\n$x = 1$ and $y = 2$.\nWe must now evaluate $Z$ at every corner point and match it with List II:');
+
+    expect(html).toContain('<p class="explain-para is-lead">Let:</p>');
+    // A full sentence that merely ends in a colon stays prose
+    expect(html).not.toContain('is-lead">We must now');
+  });
+
   it('escapes injected HTML while preserving math formatting', () => {
     const raw = '**Step 1: Given**\n$v = 10\\text{ m/s}$\n<script>bad()</script>';
     const html = renderExplanationHtml(raw);
@@ -113,6 +121,40 @@ describe('renderExplanationHtml', () => {
     // Ensure both U_1 and U_2 math expressions are rendered into KaTeX
     expect(html).toContain('U_1');
     expect(html).toContain('U_2');
+  });
+});
+
+describe('splitExplanationSteps', () => {
+  it('splits a plain explanation into numbered steps', () => {
+    const raw = 'Step 1: Convert to tangent. Step 2: Substitute f(θ). Step 3: Therefore the minimum is 25.';
+    const split = splitExplanationSteps(raw);
+
+    expect(split).not.toBeNull();
+    expect(split!.lead).toBeNull();
+    expect(split!.steps.map((s) => s.label)).toEqual(['1', '2', '3']);
+    expect(split!.steps[0]!.text).toBe('Convert to tangent.');
+    expect(split!.steps[2]!.text).toBe('Therefore the minimum is 25.');
+  });
+
+  it('keeps the text before the first step as a lead', () => {
+    const raw = 'Here is the working. Step 1: First move. Step 2: Then finish.';
+    const split = splitExplanationSteps(raw);
+
+    expect(split!.lead).toBe('Here is the working.');
+    expect(split!.steps).toHaveLength(2);
+  });
+
+  it('never splits inside a math expression', () => {
+    const raw = 'Step 1: Let $x = Step 2$. Step 2: Done.';
+    const split = splitExplanationSteps(raw);
+
+    expect(split!.steps).toHaveLength(2);
+    expect(split!.steps[0]!.text).toContain('$x = Step 2$');
+  });
+
+  it('returns null when there are no step markers', () => {
+    expect(splitExplanationSteps('Just a plain explanation with no steps.')).toBeNull();
+    expect(splitExplanationSteps('Step 1: Only one step.')).toBeNull();
   });
 });
 

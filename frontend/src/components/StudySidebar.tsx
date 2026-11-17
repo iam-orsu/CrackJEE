@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 import { api } from '@/lib/api';
 import { getUser } from '@/lib/auth';
+import { ALL_SKIN, SKIN } from '@/components/practice/skin';
 import type { TopicProgress, WeeklyPoint } from '@/types';
 
 // Approximate exam dates for the 2026-27 cycle
@@ -23,12 +24,13 @@ const NEXT_EXAMS: Record<string, Array<{ label: string; date: Date }>> = {
   ],
 };
 
-const SUBJECT_TAG: Record<string, { bg: string; text: string }> = {
-  Physics:     { bg: '#eff6ff', text: '#1d4ed8' },
-  Chemistry:   { bg: '#f0fdf4', text: '#15803d' },
-  Mathematics: { bg: '#f5f3ff', text: '#6d28d9' },
-  Botany:      { bg: '#ecfdf5', text: '#065f46' },
-  Zoology:     { bg: '#fdf4ff', text: '#7e22ce' },
+const WEEKDAY = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+// A display figure: the app's headline face, tabular so counts never jitter
+const FIGURE: CSSProperties = {
+  fontFamily: "'Bricolage Grotesque', system-ui, sans-serif",
+  fontWeight: 800, letterSpacing: '-.03em', lineHeight: 1,
+  fontVariantNumeric: 'tabular-nums',
 };
 
 function daysUntil(date: Date): number {
@@ -45,13 +47,20 @@ function computeStreak(week: WeeklyPoint[]): number {
   return streak;
 }
 
+// Keys are date-only (YYYY-MM-DD), so parse at local midnight to keep the weekday right
+function weekdayLabel(dateKey: string): string {
+  const d = new Date(`${dateKey}T00:00:00`);
+  return Number.isNaN(d.getTime()) ? '' : WEEKDAY[d.getDay()]!;
+}
+
 function Card({ children }: { children: React.ReactNode }) {
   return (
     <div style={{
       background: '#fff',
-      border: '1px solid var(--gray-200)',
-      borderRadius: 10,
-      padding: '16px 18px',
+      border: '1px solid rgba(0,51,102,.1)',
+      borderRadius: 16,
+      padding: '18px 18px 16px',
+      boxShadow: '0 10px 24px -18px rgba(0,51,102,.5)',
     }}>
       {children}
     </div>
@@ -61,17 +70,31 @@ function Card({ children }: { children: React.ReactNode }) {
 function Label({ children, action }: { children: React.ReactNode; action?: React.ReactNode }) {
   return (
     <div style={{
-      fontSize: 11, fontWeight: 600,
-      textTransform: 'uppercase', letterSpacing: '.07em',
-      color: 'var(--gray-500)',
-      marginBottom: 10,
-      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8,
+      minHeight: 14, marginBottom: 12,
+      fontSize: 10, fontWeight: 800, letterSpacing: '.12em',
+      textTransform: 'uppercase', color: 'var(--faint)',
     }}>
       {children}
       {action}
     </div>
   );
 }
+
+function Muted({ children }: { children: React.ReactNode }) {
+  return (
+    <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--gray-500)', lineHeight: 1.6 }}>
+      {children}
+    </div>
+  );
+}
+
+const css = `
+.sb-link{font-size:11px;font-weight:700;color:var(--brand);text-decoration:underline;text-underline-offset:3px;text-transform:none;letter-spacing:normal}
+.sb-link:hover{color:var(--accent-d)}
+.sb-link:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+@media(prefers-reduced-motion:reduce){.sb-bar{transition:none}}
+`;
 
 export function StudySidebar() {
   const user = getUser();
@@ -103,16 +126,8 @@ export function StudySidebar() {
     .filter((e) => e.days > 0)
     .sort((a, b) => a.days - b.days)[0];
 
-  const streak       = computeStreak(week);
-  const todayTotal   = week[week.length - 1]?.total ?? 0;
-
-  // Bar fill: more filled = less time left. Color shifts from blue → amber → red as exam approaches.
-  const barFill  = nextExam ? Math.min(100, Math.max(2, (1 - nextExam.days / 365) * 100)) : 0;
-  const barColor = nextExam
-    ? nextExam.days <= 30 ? '#dc2626'
-    : nextExam.days <= 90 ? '#d97706'
-    : '#2563eb'
-    : '#2563eb';
+  const streak     = computeStreak(week);
+  const todayTotal = week[week.length - 1]?.total ?? 0;
 
   return (
     <aside style={{
@@ -120,23 +135,22 @@ export function StudySidebar() {
       display: 'flex', flexDirection: 'column', gap: 12,
       position: 'sticky', top: 36, alignSelf: 'flex-start',
     }}>
+      <style>{css}</style>
+
       {/* ── Widget 1: Exam countdown ──────────────────────── */}
       {nextExam && (
         <Card>
-          <Label>Next Exam</Label>
-          <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--gray-700)', marginBottom: 6 }}>
+          <Label>Next exam</Label>
+          <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--gray-700)', marginBottom: 10 }}>
             {nextExam.label}
           </div>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, marginBottom: 10 }}>
-            <span style={{ fontSize: 32, fontWeight: 700, color: 'var(--gray-900)', lineHeight: 1 }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
+            <span style={{ ...FIGURE, fontSize: 40, color: nextExam.days <= 30 ? 'var(--red-600)' : 'var(--brand)' }}>
               {nextExam.days}
             </span>
-            <span style={{ fontSize: 13, color: 'var(--gray-500)', fontWeight: 500 }}>days to go</span>
+            <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--gray-500)' }}>days to go</span>
           </div>
-          <div style={{ height: 5, background: 'var(--gray-100)', borderRadius: 99, overflow: 'hidden', marginBottom: 6 }}>
-            <div style={{ height: '100%', width: `${barFill}%`, background: barColor, borderRadius: 99, transition: 'width .4s' }} />
-          </div>
-          <div style={{ fontSize: 11, color: 'var(--gray-400)' }}>
+          <div style={{ marginTop: 10, fontSize: 11, fontWeight: 600, color: 'var(--faint)', fontVariantNumeric: 'tabular-nums' }}>
             {nextExam.date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
           </div>
         </Card>
@@ -146,45 +160,45 @@ export function StudySidebar() {
       <Card>
         <Label
           action={weakAreas.length > 0
-            ? <a href={targetExam === 'NEET' ? '/neet/practice?mode=weak' : '/practice?mode=weak'} style={{ fontSize: 11, color: 'var(--gray-400)', fontWeight: 500, textDecoration: 'underline', textTransform: 'none', letterSpacing: 'normal' }}>Practice all</a>
+            ? <a className="sb-link" href={targetExam === 'NEET' ? '/neet/practice?mode=weak' : '/practice?mode=weak'}>Practice all</a>
             : null}
         >
-          Weak Areas
+          Weak areas
         </Label>
 
         {!loaded ? (
-          <div style={{ fontSize: 13, color: 'var(--gray-400)' }}>Loading...</div>
+          <Muted>Loading…</Muted>
         ) : weakAreas.length === 0 ? (
-          <div style={{ fontSize: 13, color: 'var(--gray-500)', lineHeight: 1.6 }}>
-            No weak areas yet. Keep practicing and gaps will appear here.
-          </div>
+          <Muted>No weak areas yet. Keep practicing and gaps will appear here.</Muted>
         ) : (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {weakAreas.map((area) => {
-              const tag = SUBJECT_TAG[area.subject] ?? { bg: '#f3f4f6', text: '#374151' };
+              const skin = SKIN[area.subject] ?? ALL_SKIN;
               const pct = Math.round(area.successRate * 100);
               return (
                 <div key={`${area.subject}:${area.topicName}`}
-                  style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 8 }}>
+                  style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 10 }}>
                   <div style={{ minWidth: 0 }}>
                     <div style={{
-                      fontSize: 13, fontWeight: 500, color: 'var(--gray-800)',
+                      fontSize: 13, fontWeight: 600, color: 'var(--gray-800)',
                       whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
                     }}>
                       {area.topicName}
                     </div>
                     <span style={{
-                      fontSize: 10, fontWeight: 600,
-                      background: tag.bg, color: tag.text,
-                      padding: '1px 6px', borderRadius: 4,
-                      display: 'inline-block', marginTop: 2,
+                      display: 'inline-block', marginTop: 5, padding: '2px 8px', borderRadius: 999,
+                      fontSize: 10, fontWeight: 700, letterSpacing: '.04em', textTransform: 'uppercase',
+                      background: skin.soft, color: skin.deep,
                     }}>
                       {area.subject}
                     </span>
                   </div>
-                  <div style={{ fontSize: 13, fontWeight: 700, color: '#dc2626', flexShrink: 0, paddingTop: 1 }}>
+                  <span style={{
+                    flexShrink: 0, fontSize: 14, fontWeight: 700, fontVariantNumeric: 'tabular-nums',
+                    color: pct < 60 ? 'var(--red-600)' : 'var(--gray-700)',
+                  }}>
                     {pct}%
-                  </div>
+                  </span>
                 </div>
               );
             })}
@@ -196,43 +210,45 @@ export function StudySidebar() {
       <Card>
         <Label>Activity</Label>
         {!loaded ? (
-          <div style={{ fontSize: 13, color: 'var(--gray-400)' }}>Loading...</div>
+          <Muted>Loading…</Muted>
         ) : (
           <>
-            <div style={{ display: 'flex', gap: 20, marginBottom: 14 }}>
+            <div style={{ display: 'flex', gap: 24, marginBottom: 16 }}>
               <div>
-                <div style={{ fontSize: 28, fontWeight: 700, color: 'var(--gray-900)', lineHeight: 1 }}>
-                  {streak}
-                </div>
-                <div style={{ fontSize: 11, color: 'var(--gray-500)', marginTop: 3 }}>day streak</div>
+                <div style={{ ...FIGURE, fontSize: 28, color: 'var(--brand)' }}>{streak}</div>
+                <div style={{ marginTop: 4, fontSize: 11, fontWeight: 600, color: 'var(--gray-500)' }}>day streak</div>
               </div>
               <div>
-                <div style={{ fontSize: 28, fontWeight: 700, color: 'var(--gray-900)', lineHeight: 1 }}>
-                  {todayTotal}
-                </div>
-                <div style={{ fontSize: 11, color: 'var(--gray-500)', marginTop: 3 }}>questions today</div>
+                <div style={{ ...FIGURE, fontSize: 28, color: 'var(--brand)' }}>{todayTotal}</div>
+                <div style={{ marginTop: 4, fontSize: 11, fontWeight: 600, color: 'var(--gray-500)' }}>questions today</div>
               </div>
             </div>
 
-            {/* 7-day dot bar */}
-            <div style={{ display: 'flex', gap: 4, marginBottom: 4 }}>
-              {week.map((day, i) => (
-                <div
-                  key={i}
-                  title={`${day.date}: ${day.total} questions`}
-                  style={{
-                    flex: 1, height: 6, borderRadius: 99,
-                    background: day.total > 0 ? '#2563eb' : 'var(--gray-100)',
-                  }}
-                />
-              ))}
-            </div>
-            <div style={{ fontSize: 10, color: 'var(--gray-400)' }}>
-              Last 7 days (mock attempts)
-            </div>
+            {/* Last 7 days: one bar a day, the accent marks the days you practised */}
+            {week.length > 0 && (
+              <>
+                <div style={{ display: 'flex', gap: 4 }}>
+                  {week.map((day, i) => (
+                    <div key={i} title={`${day.date}: ${day.total} questions`}
+                      style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
+                      <span className="sb-bar" style={{
+                        width: '100%', height: 4, borderRadius: 99,
+                        background: day.total > 0 ? 'var(--brand)' : 'rgba(0,51,102,.1)',
+                      }} />
+                      <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.02em', color: 'var(--faint)' }}>
+                        {weekdayLabel(day.date)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div style={{ marginTop: 10, fontSize: 10, fontWeight: 600, color: 'var(--faint)' }}>
+                  Mock attempts, last 7 days
+                </div>
+              </>
+            )}
 
             {streak === 0 && (
-              <div style={{ marginTop: 10, fontSize: 12, color: 'var(--gray-500)', lineHeight: 1.5 }}>
+              <div style={{ marginTop: 10, fontSize: 12, fontWeight: 500, color: 'var(--gray-500)', lineHeight: 1.5 }}>
                 Start a mock today to build your streak.
               </div>
             )}

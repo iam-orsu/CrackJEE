@@ -11,7 +11,15 @@ import {
   type FacultyBatch,
   type FacultyStudent,
 } from '@/lib/faculty';
-import styles from '@/app/faculty/faculty.module.css';
+
+/* The small secondary button and the compact select, so the dense student and
+   batch toolbars stay on the same brand scale as the rest of the studio. */
+const BTN_SECONDARY_SM =
+  'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3 py-1.5 text-[12px] font-extrabold text-[#003366] no-underline shadow-[0_3px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_5px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none';
+const BTN_GHOST_SM =
+  'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-lg border-0 bg-transparent px-2 py-1 text-[12px] font-bold text-[#5A6B8C] transition-colors duration-150 hover:bg-ice hover:text-[#003366] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none';
+const SELECT_SM =
+  'h-9 cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-2.5 text-[12px] font-semibold text-[#003366] shadow-[0_3px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_4px_0_#E3C9E6] motion-reduce:transition-none';
 
 export function FacultyBatchesTab() {
   const [batches, setBatches] = useState<FacultyBatch[]>([]);
@@ -151,26 +159,26 @@ export function FacultyBatchesTab() {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+    <div className="flex flex-col gap-6">
       {/* Top Action Bar */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h2 style={{ fontSize: '18px', fontWeight: 600, color: 'var(--ink)' }}>Batches &amp; Student Management</h2>
-          <p style={{ fontSize: '13px', color: 'var(--muted)' }}>
+          <h2 className="font-display text-[18px] font-extrabold text-[#003366]">Batches &amp; Student Management</h2>
+          <p className="text-[13px] text-[#5A6B8C]">
             Organize students into batches and manage their isolated student portal credentials.
           </p>
         </div>
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <div className="flex gap-2.5">
           <button
             type="button"
-            className={styles.btnSecondary}
+            className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
             onClick={() => setBatchModalOpen(true)}
           >
             + Create New Batch
           </button>
           <button
             type="button"
-            className={styles.btnPrimary}
+            className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
             onClick={() => {
               if (batches.length > 0) {
                 setTargetBatchId(batches[0]!.id);
@@ -185,51 +193,29 @@ export function FacultyBatchesTab() {
         </div>
       </div>
 
-      {error && <div className={styles.error}>{error}</div>}
+      {error && <div className="mb-3.5 rounded-2xl border border-[#C8202F]/25 bg-[#FDF3F4] px-3.5 py-2.5 text-[13px] font-semibold text-[#C8202F]">{error}</div>}
 
       {/* Newly Created Student Credentials Notification */}
       {createdCredentials && (
-        <div
-          style={{
-            background: '#ecfdf5',
-            border: '1px solid #a7f3d0',
-            borderRadius: '10px',
-            padding: '16px 20px',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            gap: '16px',
-            flexWrap: 'wrap',
-          }}
-        >
+        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#9FD6B2] bg-[#EAF7EF] px-5 py-4">
           <div>
-            <div style={{ fontWeight: 600, color: '#065f46', fontSize: '14px' }}>
+            <div className="text-[14px] font-bold text-[#146C33]">
               ✓ Student Created Successfully!
             </div>
-            <div style={{ fontSize: '13px', color: '#047857', marginTop: '4px' }}>
+            <div className="mt-1 text-[13px] text-[#146C33]">
               <strong>{createdCredentials.name}</strong> • Roll No:{' '}
               <code>{createdCredentials.rollNumber}</code> • Password:{' '}
               <code>{createdCredentials.password}</code>
             </div>
-            <div style={{ fontSize: '12px', color: '#059669', marginTop: '2px' }}>
+            <div className="mt-0.5 text-[12px] text-[#15803D]">
               Students can sign in directly at <strong>/student-portal</strong> using these credentials.
             </div>
           </div>
-          <div style={{ display: 'flex', gap: '8px' }}>
-            <button
-              type="button"
-              className={styles.btnSecondary}
-              style={{ fontSize: '12px', padding: '6px 12px' }}
-              onClick={copyCredentials}
-            >
+          <div className="flex gap-2">
+            <button type="button" className={BTN_SECONDARY_SM} onClick={copyCredentials}>
               {copied ? '✓ Copied to Clipboard!' : 'Copy Credentials'}
             </button>
-            <button
-              type="button"
-              className={styles.btnGhost}
-              style={{ fontSize: '12px' }}
-              onClick={() => setCreatedCredentials(null)}
-            >
+            <button type="button" className={BTN_GHOST_SM} onClick={() => setCreatedCredentials(null)}>
               Dismiss
             </button>
           </div>
@@ -238,48 +224,30 @@ export function FacultyBatchesTab() {
 
       {/* Batches Cards Grid */}
       <div>
-        <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--ink-2)', marginBottom: '12px' }}>
+        <h3 className="mb-3 text-[14px] font-bold text-[#31407F]">
           Active Batches ({batches.length})
         </h3>
         {batches.length === 0 ? (
-          <div className={styles.emptyState}>
+          <div className="rounded-3xl border border-dashed border-[#003366]/20 bg-white px-5 py-9 text-center text-[13.5px] font-medium text-[#5A6B8C]">
             No batches created yet. Click <strong>+ Create New Batch</strong> above to set up your first student cohort.
           </div>
         ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '16px' }}>
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-4">
             {batches.map((b) => {
               const isSelected = selectedBatchId === b.id;
               return (
                 <div
                   key={b.id}
                   onClick={() => setSelectedBatchId(isSelected ? 'all' : b.id)}
-                  style={{
-                    background: '#fff',
-                    border: isSelected ? '2px solid var(--accent)' : '1px solid var(--line)',
-                    borderRadius: '12px',
-                    padding: '16px',
-                    cursor: 'pointer',
-                    boxShadow: isSelected ? '0 4px 14px rgba(15, 118, 110, 0.12)' : 'none',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    gap: '12px',
-                    transition: 'all 0.15s ease',
-                  }}
+                  className={`flex cursor-pointer flex-col justify-between gap-3 rounded-2xl bg-white p-4 transition-[border-color,box-shadow] duration-150 motion-reduce:transition-none ${
+                    isSelected
+                      ? 'border-2 border-accent shadow-[0_6px_18px_-6px_rgba(128,54,136,.35)]'
+                      : 'border border-[#003366]/10'
+                  }`}
                 >
                   <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span
-                        style={{
-                          fontSize: '11px',
-                          fontWeight: 700,
-                          letterSpacing: '0.04em',
-                          color: 'var(--accent)',
-                          background: 'var(--accent-bg)',
-                          padding: '2px 8px',
-                          borderRadius: '6px',
-                        }}
-                      >
+                    <div className="flex items-center justify-between">
+                      <span className="rounded-md bg-accent-50 px-2 py-0.5 text-[11px] font-bold tracking-[0.04em] text-accent">
                         {b.code}
                       </span>
                       <button
@@ -288,40 +256,23 @@ export function FacultyBatchesTab() {
                           e.stopPropagation();
                           handleDeleteBatch(b.id, b.name);
                         }}
-                        style={{
-                          background: 'transparent',
-                          border: 'none',
-                          color: '#ef4444',
-                          cursor: 'pointer',
-                          fontSize: '12px',
-                          padding: '2px 6px',
-                        }}
+                        className="cursor-pointer rounded-md border-0 bg-transparent px-1.5 py-0.5 text-[12px] text-[#C8202F] transition-colors duration-150 hover:bg-[#FDF3F4] motion-reduce:transition-none"
                         title="Delete Batch"
                       >
                         ✕
                       </button>
                     </div>
-                    <div style={{ fontSize: '15px', fontWeight: 600, color: 'var(--ink)', marginTop: '8px' }}>
+                    <div className="mt-2 text-[15px] font-bold text-[#003366]">
                       {b.name}
                     </div>
                     {b.description && (
-                      <div style={{ fontSize: '12px', color: 'var(--muted)', marginTop: '4px' }}>
+                      <div className="mt-1 text-[12px] text-[#5A6B8C]">
                         {b.description}
                       </div>
                     )}
                   </div>
 
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      fontSize: '12px',
-                      color: 'var(--muted)',
-                      borderTop: '1px solid var(--line)',
-                      paddingTop: '10px',
-                    }}
-                  >
+                  <div className="flex items-center justify-between border-t border-[#003366]/10 pt-2.5 text-[12px] text-[#5A6B8C]">
                     <span>
                       👥 <strong>{b._count?.students || 0}</strong> students
                     </span>
@@ -337,26 +288,20 @@ export function FacultyBatchesTab() {
       </div>
 
       {/* Students Table */}
-      <div className={styles.panel} style={{ marginTop: '8px' }}>
-        <div className={styles.panelTitle}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <div className="mt-2 rounded-[28px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+        <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2.5 font-display text-[17px] font-extrabold text-[#003366]">
+          <div className="flex items-center gap-3">
             <span>Students ({students.length})</span>
             {selectedBatchId !== 'all' && (
-              <button
-                type="button"
-                className={styles.btnGhost}
-                style={{ fontSize: '12px', padding: '2px 8px' }}
-                onClick={() => setSelectedBatchId('all')}
-              >
+              <button type="button" className={BTN_GHOST_SM} onClick={() => setSelectedBatchId('all')}>
                 Showing single batch • Click to view all
               </button>
             )}
           </div>
-          <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-            <label style={{ fontSize: '12px', color: 'var(--muted)' }}>Filter Batch:</label>
+          <div className="flex items-center gap-2">
+            <label className="text-[12px] text-[#5A6B8C]">Filter Batch:</label>
             <select
-              className={styles.select}
-              style={{ fontSize: '12px', padding: '4px 8px' }}
+              className={SELECT_SM}
               value={selectedBatchId}
               onChange={(e) => setSelectedBatchId(e.target.value)}
             >
@@ -371,65 +316,51 @@ export function FacultyBatchesTab() {
         </div>
 
         {loading ? (
-          <div style={{ padding: '24px', textAlign: 'center', color: 'var(--muted)', fontSize: '14px' }}>
-            Loading students…
+          <div className="px-6 py-6 text-center text-[14px] text-[#5A6B8C]">
+            Loading students...
           </div>
         ) : students.length === 0 ? (
-          <div className={styles.emptyState}>
+          <div className="rounded-3xl border border-dashed border-[#003366]/20 bg-white px-5 py-9 text-center text-[13.5px] font-medium text-[#5A6B8C]">
             No students found in this batch. Click <strong>+ Add Student</strong> to enroll students.
           </div>
         ) : (
-          <div style={{ overflowX: 'auto' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-[13px]">
               <thead>
-                <tr style={{ borderBottom: '2px solid var(--line)', textAlign: 'left', color: 'var(--muted)' }}>
-                  <th style={{ padding: '10px 12px' }}>Roll Number</th>
-                  <th style={{ padding: '10px 12px' }}>Student Name</th>
-                  <th style={{ padding: '10px 12px' }}>Batch</th>
-                  <th style={{ padding: '10px 12px' }}>Email</th>
-                  <th style={{ padding: '10px 12px' }}>Exams Taken</th>
-                  <th style={{ padding: '10px 12px', textAlign: 'right' }}>Actions</th>
+                <tr className="border-b-2 border-[#003366]/10 text-left text-[#5A6B8C]">
+                  <th className="px-3 py-2.5">Roll Number</th>
+                  <th className="px-3 py-2.5">Student Name</th>
+                  <th className="px-3 py-2.5">Batch</th>
+                  <th className="px-3 py-2.5">Email</th>
+                  <th className="px-3 py-2.5">Exams Taken</th>
+                  <th className="px-3 py-2.5 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {students.map((s) => (
-                  <tr key={s.id} style={{ borderBottom: '1px solid var(--line)' }}>
-                    <td style={{ padding: '12px', fontWeight: 600, color: 'var(--accent)' }}>
+                  <tr key={s.id} className="border-b border-[#003366]/10">
+                    <td className="px-3 py-3 font-semibold text-accent">
                       {s.rollNumber}
                     </td>
-                    <td style={{ padding: '12px', fontWeight: 500, color: 'var(--ink)' }}>
+                    <td className="px-3 py-3 font-medium text-[#003366]">
                       {s.name}
                     </td>
-                    <td style={{ padding: '12px', color: 'var(--muted)' }}>
-                      <span
-                        style={{
-                          background: 'var(--surface)',
-                          border: '1px solid var(--line)',
-                          padding: '2px 6px',
-                          borderRadius: '4px',
-                          fontSize: '11px',
-                        }}
-                      >
+                    <td className="px-3 py-3 text-[#5A6B8C]">
+                      <span className="rounded bg-ice px-1.5 py-0.5 text-[11px] font-bold text-[#003366]">
                         {s.batch?.code || '—'}
                       </span>
                     </td>
-                    <td style={{ padding: '12px', color: 'var(--muted)' }}>
+                    <td className="px-3 py-3 text-[#5A6B8C]">
                       {s.email || '—'}
                     </td>
-                    <td style={{ padding: '12px', color: 'var(--ink)' }}>
+                    <td className="px-3 py-3 text-[#003366]">
                       {s._count?.examSessions || 0}
                     </td>
-                    <td style={{ padding: '12px', textAlign: 'right' }}>
+                    <td className="px-3 py-3 text-right">
                       <button
                         type="button"
                         onClick={() => handleDeleteStudent(s.id, s.name)}
-                        style={{
-                          background: 'transparent',
-                          border: 'none',
-                          color: '#ef4444',
-                          cursor: 'pointer',
-                          fontSize: '12px',
-                        }}
+                        className="cursor-pointer rounded-md border-0 bg-transparent px-1.5 py-0.5 text-[12px] text-[#C8202F] transition-colors duration-150 hover:bg-[#FDF3F4] motion-reduce:transition-none"
                       >
                         Remove
                       </button>
@@ -444,55 +375,55 @@ export function FacultyBatchesTab() {
 
       {/* Modal: Create Batch */}
       {batchModalOpen && (
-        <div className={styles.modalOverlay} onClick={() => setBatchModalOpen(false)}>
-          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()} style={{ maxWidth: '440px' }}>
-            <h3 style={{ fontSize: '18px', fontWeight: 600, color: 'var(--ink)', marginBottom: '16px' }}>
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-[#0F172A]/45 p-5" onClick={() => setBatchModalOpen(false)}>
+          <div className="w-full max-w-[440px] max-h-[90vh] overflow-y-auto rounded-[22px] border border-[#003366]/10 bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.12)] sm:px-7" onClick={(e) => e.stopPropagation()}>
+            <h3 className="mb-4 font-display text-[18px] font-extrabold text-[#003366]">
               Create New Batch
             </h3>
-            <form onSubmit={handleCreateBatch} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <div className={styles.field}>
-                <label className={styles.label}>Batch Name</label>
+            <form onSubmit={handleCreateBatch} className="flex flex-col gap-3.5">
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Batch Name</label>
                 <input
                   type="text"
-                  className={styles.input}
+                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                   placeholder="e.g. JEE 2026 Achievers"
                   value={batchName}
                   onChange={(e) => setBatchName(e.target.value)}
                   required
                 />
               </div>
-              <div className={styles.field}>
-                <label className={styles.label}>Batch Code (Identifier)</label>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Batch Code (Identifier)</label>
                 <input
                   type="text"
-                  className={styles.input}
+                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                   placeholder="e.g. ACHIEVERS-A"
                   value={batchCode}
                   onChange={(e) => setBatchCode(e.target.value.toUpperCase())}
                   required
                 />
               </div>
-              <div className={styles.field}>
-                <label className={styles.label}>Description (Optional)</label>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Description (Optional)</label>
                 <input
                   type="text"
-                  className={styles.input}
+                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                   placeholder="e.g. Morning classroom cohort"
                   value={batchDesc}
                   onChange={(e) => setBatchDesc(e.target.value)}
                 />
               </div>
-              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '10px' }}>
+              <div className="mt-2.5 flex justify-end gap-2.5">
                 <button
                   type="button"
-                  className={styles.btnSecondary}
+                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
                   onClick={() => setBatchModalOpen(false)}
                   disabled={batchSubmitting}
                 >
                   Cancel
                 </button>
-                <button type="submit" className={styles.btnPrimary} disabled={batchSubmitting}>
-                  {batchSubmitting ? 'Creating…' : 'Create Batch'}
+                <button type="submit" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" disabled={batchSubmitting}>
+                  {batchSubmitting ? 'Creating...' : 'Create Batch'}
                 </button>
               </div>
             </form>
@@ -502,16 +433,16 @@ export function FacultyBatchesTab() {
 
       {/* Modal: Add Student */}
       {studentModalOpen && (
-        <div className={styles.modalOverlay} onClick={() => setStudentModalOpen(false)}>
-          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()} style={{ maxWidth: '460px' }}>
-            <h3 style={{ fontSize: '18px', fontWeight: 600, color: 'var(--ink)', marginBottom: '16px' }}>
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-[#0F172A]/45 p-5" onClick={() => setStudentModalOpen(false)}>
+          <div className="w-full max-w-[460px] max-h-[90vh] overflow-y-auto rounded-[22px] border border-[#003366]/10 bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.12)] sm:px-7" onClick={(e) => e.stopPropagation()}>
+            <h3 className="mb-4 font-display text-[18px] font-extrabold text-[#003366]">
               Add Student to Batch
             </h3>
-            <form onSubmit={handleCreateStudent} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <div className={styles.field}>
-                <label className={styles.label}>Assign to Batch</label>
+            <form onSubmit={handleCreateStudent} className="flex flex-col gap-3.5">
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Assign to Batch</label>
                 <select
-                  className={styles.select}
+                  className="h-[46px] w-full cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                   value={targetBatchId}
                   onChange={(e) => setTargetBatchId(e.target.value)}
                   required
@@ -523,59 +454,59 @@ export function FacultyBatchesTab() {
                   ))}
                 </select>
               </div>
-              <div className={styles.field}>
-                <label className={styles.label}>Student Full Name</label>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Student Full Name</label>
                 <input
                   type="text"
-                  className={styles.input}
+                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                   placeholder="e.g. Sumanth Varma"
                   value={studentName}
                   onChange={(e) => setStudentName(e.target.value)}
                   required
                 />
               </div>
-              <div className={styles.field}>
-                <label className={styles.label}>Roll Number (Login Username)</label>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Roll Number (Login Username)</label>
                 <input
                   type="text"
-                  className={styles.input}
+                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                   placeholder="e.g. JEE-2026-042"
                   value={studentRoll}
                   onChange={(e) => setStudentRoll(e.target.value)}
                   required
                 />
               </div>
-              <div className={styles.field}>
-                <label className={styles.label}>Email (Optional)</label>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Email (Optional)</label>
                 <input
                   type="email"
-                  className={styles.input}
+                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                   placeholder="e.g. sumanth@example.com"
                   value={studentEmail}
                   onChange={(e) => setStudentEmail(e.target.value)}
                 />
               </div>
-              <div className={styles.field}>
-                <label className={styles.label}>Password (Leave blank to use Roll Number)</label>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Password (Leave blank to use Roll Number)</label>
                 <input
                   type="text"
-                  className={styles.input}
+                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                   placeholder="Defaults to Roll Number"
                   value={studentPassword}
                   onChange={(e) => setStudentPassword(e.target.value)}
                 />
               </div>
-              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '10px' }}>
+              <div className="mt-2.5 flex justify-end gap-2.5">
                 <button
                   type="button"
-                  className={styles.btnSecondary}
+                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
                   onClick={() => setStudentModalOpen(false)}
                   disabled={studentSubmitting}
                 >
                   Cancel
                 </button>
-                <button type="submit" className={styles.btnPrimary} disabled={studentSubmitting}>
-                  {studentSubmitting ? 'Adding…' : 'Add Student'}
+                <button type="submit" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" disabled={studentSubmitting}>
+                  {studentSubmitting ? 'Adding...' : 'Add Student'}
                 </button>
               </div>
             </form>
