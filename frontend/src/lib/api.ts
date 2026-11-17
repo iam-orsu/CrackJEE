@@ -117,6 +117,18 @@ export const api = {
         beginnerCount?: number;
         intermediateCount?: number;
         advancedCount?: number;
+        mcqEasy?: number;
+        mcqMedium?: number;
+        mcqHard?: number;
+        integerEasy?: number;
+        integerMedium?: number;
+        integerHard?: number;
+        multiEasy?: number;
+        multiMedium?: number;
+        multiHard?: number;
+        matrixEasy?: number;
+        matrixMedium?: number;
+        matrixHard?: number;
         difficulty?: string;
         difficultyDistribution?: {
           beginner?: number;
@@ -161,6 +173,18 @@ export const api = {
         beginnerCount?: number;
         intermediateCount?: number;
         advancedCount?: number;
+        mcqEasy?: number;
+        mcqMedium?: number;
+        mcqHard?: number;
+        integerEasy?: number;
+        integerMedium?: number;
+        integerHard?: number;
+        multiEasy?: number;
+        multiMedium?: number;
+        multiHard?: number;
+        matrixEasy?: number;
+        matrixMedium?: number;
+        matrixHard?: number;
       }>;
       difficulty: string;
       examType: string;

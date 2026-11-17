@@ -32,6 +32,18 @@ const selectionSchema = z.object({
   beginnerCount: z.number().int().min(0).max(100).optional(),
   intermediateCount: z.number().int().min(0).max(100).optional(),
   advancedCount: z.number().int().min(0).max(100).optional(),
+  mcqEasy: z.number().int().min(0).max(100).optional(),
+  mcqMedium: z.number().int().min(0).max(100).optional(),
+  mcqHard: z.number().int().min(0).max(100).optional(),
+  integerEasy: z.number().int().min(0).max(100).optional(),
+  integerMedium: z.number().int().min(0).max(100).optional(),
+  integerHard: z.number().int().min(0).max(100).optional(),
+  multiEasy: z.number().int().min(0).max(100).optional(),
+  multiMedium: z.number().int().min(0).max(100).optional(),
+  multiHard: z.number().int().min(0).max(100).optional(),
+  matrixEasy: z.number().int().min(0).max(100).optional(),
+  matrixMedium: z.number().int().min(0).max(100).optional(),
+  matrixHard: z.number().int().min(0).max(100).optional(),
   difficulty: z.enum(['beginner', 'intermediate', 'advanced', 'mixed']).optional(),
   difficultyDistribution: z.object({
     beginner: z.number().min(0).max(100).optional(),
@@ -134,12 +146,20 @@ export class QuestionController {
           (s.mcqCount ?? 0) > 0 ||
           (s.integerCount ?? 0) > 0 ||
           (s.multiCount ?? 0) > 0 ||
-          (s.matrixCount ?? 0) > 0,
+          (s.matrixCount ?? 0) > 0 ||
+          (s.mcqEasy ?? 0) > 0 || (s.mcqMedium ?? 0) > 0 || (s.mcqHard ?? 0) > 0 ||
+          (s.integerEasy ?? 0) > 0 || (s.integerMedium ?? 0) > 0 || (s.integerHard ?? 0) > 0 ||
+          (s.multiEasy ?? 0) > 0 || (s.multiMedium ?? 0) > 0 || (s.multiHard ?? 0) > 0 ||
+          (s.matrixEasy ?? 0) > 0 || (s.matrixMedium ?? 0) > 0 || (s.matrixHard ?? 0) > 0,
       );
 
       if (hasGranularTopicCounts) {
         const topicTotalSum = selections.reduce((sum, s) => {
-          const typeSum = (s.mcqCount ?? 0) + (s.integerCount ?? 0) + (s.multiCount ?? 0) + (s.matrixCount ?? 0);
+          const mcq = (s.mcqCount ?? 0) > 0 ? s.mcqCount! : ((s.mcqEasy ?? 0) + (s.mcqMedium ?? 0) + (s.mcqHard ?? 0));
+          const integer = (s.integerCount ?? 0) > 0 ? s.integerCount! : ((s.integerEasy ?? 0) + (s.integerMedium ?? 0) + (s.integerHard ?? 0));
+          const multi = (s.multiCount ?? 0) > 0 ? s.multiCount! : ((s.multiEasy ?? 0) + (s.multiMedium ?? 0) + (s.multiHard ?? 0));
+          const matrix = (s.matrixCount ?? 0) > 0 ? s.matrixCount! : ((s.matrixEasy ?? 0) + (s.matrixMedium ?? 0) + (s.matrixHard ?? 0));
+          const typeSum = mcq + integer + multi + matrix;
           return sum + (typeSum > 0 ? typeSum : (s.count ?? 0));
         }, 0);
 

@@ -7,7 +7,7 @@ import { isAuthenticated, getUser } from '@/lib/auth';
 import type { Question, AnswerResult, Subject, TopicProgress, PaperSet } from '@/types';
 import type { SplitTopics } from '@/lib/api';
 import type { AppState, WizardStep, MarkingScheme, StoredResult, TopicCustomConfig } from './shared';
-import { getDefaultQuestionTypes, planTopicTypeSlots, planTopicDifficultySlots } from './shared';
+import { getDefaultQuestionTypes, planTopicTypeSlots, createBalancedDifficulty, getTypeTotal, getTopicTotal } from './shared';
 import type { PracticeExamConfig } from './examConfig';
 import { SessionReview } from './SessionReview';
 import { SubjectStep } from './SubjectStep';
@@ -91,28 +91,20 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
         const topicCount = baseQuota + (idx < remainder ? 1 : 0);
         const defTypes = getDefaultQuestionTypes(topicCount, examType, isNeet);
         const typeSlots = planTopicTypeSlots(topicCount, defTypes, isAdv, isNeetMode);
-        const diffSlots = planTopicDifficultySlots(topicCount, 'mixed');
 
         const mcqCount = typeSlots.filter((t) => t === 'mcq_single').length;
         const integerCount = typeSlots.filter((t) => t === 'integer').length;
         const multiCount = typeSlots.filter((t) => t === 'mcq_multi').length;
         const matrixCount = typeSlots.filter((t) => t === 'matrix_match').length;
 
-        const beginnerCount = diffSlots.filter((d) => d === 'beginner').length;
-        const intermediateCount = diffSlots.filter((d) => d === 'intermediate').length;
-        const advancedCount = diffSlots.filter((d) => d === 'advanced').length;
-
         const key = `${subject}::${topic}`;
         next[key] = {
           subject,
           topic,
-          mcqCount,
-          integerCount,
-          multiCount,
-          matrixCount,
-          beginnerCount,
-          intermediateCount,
-          advancedCount,
+          mcq: createBalancedDifficulty(mcqCount),
+          integer: createBalancedDifficulty(integerCount),
+          multi: createBalancedDifficulty(multiCount),
+          matrix: createBalancedDifficulty(matrixCount),
         };
       });
       return next;
@@ -137,28 +129,20 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
           const topicCount = baseQuota + (idx < remainder ? 1 : 0);
           const defTypes = getDefaultQuestionTypes(topicCount, examType, isNeet);
           const typeSlots = planTopicTypeSlots(topicCount, defTypes, isAdv, isNeetMode);
-          const diffSlots = planTopicDifficultySlots(topicCount, 'mixed');
 
           const mcqCount = typeSlots.filter((t) => t === 'mcq_single').length;
           const integerCount = typeSlots.filter((t) => t === 'integer').length;
           const multiCount = typeSlots.filter((t) => t === 'mcq_multi').length;
           const matrixCount = typeSlots.filter((t) => t === 'matrix_match').length;
 
-          const beginnerCount = diffSlots.filter((d) => d === 'beginner').length;
-          const intermediateCount = diffSlots.filter((d) => d === 'intermediate').length;
-          const advancedCount = diffSlots.filter((d) => d === 'advanced').length;
-
           const key = `${subject}::${topic}`;
           next[key] = {
             subject,
             topic,
-            mcqCount,
-            integerCount,
-            multiCount,
-            matrixCount,
-            beginnerCount,
-            intermediateCount,
-            advancedCount,
+            mcq: createBalancedDifficulty(mcqCount),
+            integer: createBalancedDifficulty(integerCount),
+            multi: createBalancedDifficulty(multiCount),
+            matrix: createBalancedDifficulty(matrixCount),
           };
         });
       }
@@ -197,33 +181,9 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
       if (topics.length === 0) continue;
       const subjectTotal = topics.reduce((sum, topic) => {
         const key = `${subject}::${topic}`;
-        const cfg = topicConfigs[key];
-        if (!cfg) return sum;
-        return (
-          sum +
-          (cfg.mcqCount || 0) +
-          (cfg.integerCount || 0) +
-          (cfg.multiCount || 0) +
-          (cfg.matrixCount || 0)
-        );
+        return sum + getTopicTotal(topicConfigs[key]);
       }, 0);
       if (subjectTotal !== perSubject) return false;
-
-      for (const topic of topics) {
-        const key = `${subject}::${topic}`;
-        const cfg = topicConfigs[key];
-        if (!cfg) continue;
-        const typeSum =
-          (cfg.mcqCount || 0) +
-          (cfg.integerCount || 0) +
-          (cfg.multiCount || 0) +
-          (cfg.matrixCount || 0);
-        const diffSum =
-          (cfg.beginnerCount || 0) +
-          (cfg.intermediateCount || 0) +
-          (cfg.advancedCount || 0);
-        if (typeSum !== diffSum) return false;
-      }
     }
     return true;
   }, [selectedSubjects, selectedTopics, topicConfigs, resolvedCount]);
@@ -464,6 +424,18 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
     beginnerCount?: number;
     intermediateCount?: number;
     advancedCount?: number;
+    mcqEasy?: number;
+    mcqMedium?: number;
+    mcqHard?: number;
+    integerEasy?: number;
+    integerMedium?: number;
+    integerHard?: number;
+    multiEasy?: number;
+    multiMedium?: number;
+    multiHard?: number;
+    matrixEasy?: number;
+    matrixMedium?: number;
+    matrixHard?: number;
   }> {
     const out: Array<{
       subject: Subject;
@@ -476,28 +448,57 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
       beginnerCount?: number;
       intermediateCount?: number;
       advancedCount?: number;
+      mcqEasy?: number;
+      mcqMedium?: number;
+      mcqHard?: number;
+      integerEasy?: number;
+      integerMedium?: number;
+      integerHard?: number;
+      multiEasy?: number;
+      multiMedium?: number;
+      multiHard?: number;
+      matrixEasy?: number;
+      matrixMedium?: number;
+      matrixHard?: number;
     }> = [];
     for (const subject of selectedSubjects) {
       for (const topic of (selectedTopics[subject] ?? new Set())) {
         const key = `${subject}::${topic}`;
         const cfg = topicConfigs[key];
         if (cfg) {
-          const totalQ =
-            (cfg.mcqCount || 0) +
-            (cfg.integerCount || 0) +
-            (cfg.multiCount || 0) +
-            (cfg.matrixCount || 0);
+          const mcqTotal = getTypeTotal(cfg.mcq);
+          const integerTotal = getTypeTotal(cfg.integer);
+          const multiTotal = getTypeTotal(cfg.multi);
+          const matrixTotal = getTypeTotal(cfg.matrix);
+          const totalQ = mcqTotal + integerTotal + multiTotal + matrixTotal;
+
+          const beginnerTotal = (cfg.mcq?.easy || 0) + (cfg.integer?.easy || 0) + (cfg.multi?.easy || 0) + (cfg.matrix?.easy || 0);
+          const intermediateTotal = (cfg.mcq?.medium || 0) + (cfg.integer?.medium || 0) + (cfg.multi?.medium || 0) + (cfg.matrix?.medium || 0);
+          const advancedTotal = (cfg.mcq?.hard || 0) + (cfg.integer?.hard || 0) + (cfg.multi?.hard || 0) + (cfg.matrix?.hard || 0);
+
           out.push({
             subject,
             topic,
             count: totalQ,
-            mcqCount: cfg.mcqCount || 0,
-            integerCount: cfg.integerCount || 0,
-            multiCount: cfg.multiCount || 0,
-            matrixCount: cfg.matrixCount || 0,
-            beginnerCount: cfg.beginnerCount || 0,
-            intermediateCount: cfg.intermediateCount || 0,
-            advancedCount: cfg.advancedCount || 0,
+            mcqCount: mcqTotal,
+            integerCount: integerTotal,
+            multiCount: multiTotal,
+            matrixCount: matrixTotal,
+            beginnerCount: beginnerTotal,
+            intermediateCount: intermediateTotal,
+            advancedCount: advancedTotal,
+            mcqEasy: cfg.mcq?.easy || 0,
+            mcqMedium: cfg.mcq?.medium || 0,
+            mcqHard: cfg.mcq?.hard || 0,
+            integerEasy: cfg.integer?.easy || 0,
+            integerMedium: cfg.integer?.medium || 0,
+            integerHard: cfg.integer?.hard || 0,
+            multiEasy: cfg.multi?.easy || 0,
+            multiMedium: cfg.multi?.medium || 0,
+            multiHard: cfg.multi?.hard || 0,
+            matrixEasy: cfg.matrix?.easy || 0,
+            matrixMedium: cfg.matrix?.medium || 0,
+            matrixHard: cfg.matrix?.hard || 0,
           });
         } else {
           out.push({ subject, topic });
@@ -516,11 +517,11 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
         const topics = Array.from(selectedTopics[subject] ?? new Set<string>());
         const subjectTotal = topics.reduce((sum, topic) => {
           const cfg = topicConfigs[`${subject}::${topic}`];
-          return sum + (cfg ? (cfg.mcqCount + cfg.integerCount + cfg.multiCount + cfg.matrixCount) : 0);
+          return sum + getTopicTotal(cfg);
         }, 0);
         if (subjectTotal !== perSubject) {
           setLoadError(
-            `Topic questions in ${subject} (${subjectTotal}) do not match the target of ${perSubject} questions per subject. Adjust counts or click Auto-match.`,
+            `Questions in ${subject} (${subjectTotal}) do not match the target of ${perSubject} questions per subject. Adjust counts or click Auto-match.`,
           );
           return;
         }
@@ -581,26 +582,13 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
         const topics = Array.from(selectedTopics[subject] ?? new Set<string>());
         const subjectTotal = topics.reduce((sum, topic) => {
           const cfg = topicConfigs[`${subject}::${topic}`];
-          return sum + (cfg ? (cfg.mcqCount + cfg.integerCount + cfg.multiCount + cfg.matrixCount) : 0);
+          return sum + getTopicTotal(cfg);
         }, 0);
         if (subjectTotal !== perSubject) {
           setLoadError(
-            `Topic questions in ${subject} (${subjectTotal}) do not match the target of ${perSubject} questions per subject. Adjust counts or click Auto-match.`,
+            `Questions in ${subject} (${subjectTotal}) do not match the target of ${perSubject} questions per subject. Adjust counts or click Auto-match.`,
           );
           return;
-        }
-        for (const topic of topics) {
-          const cfg = topicConfigs[`${subject}::${topic}`];
-          if (cfg) {
-            const typeSum = cfg.mcqCount + cfg.integerCount + cfg.multiCount + cfg.matrixCount;
-            const diffSum = cfg.beginnerCount + cfg.intermediateCount + cfg.advancedCount;
-            if (typeSum !== diffSum) {
-              setLoadError(
-                `Difficulty sum (${diffSum}) does not match total questions (${typeSum}) for topic "${topic}". Click Equalize in the topic card to balance.`,
-              );
-              return;
-            }
-          }
         }
       }
       return;

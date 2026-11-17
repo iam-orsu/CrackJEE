@@ -25,6 +25,18 @@ export interface TopicSelectionConfig {
   beginnerCount?: number;
   intermediateCount?: number;
   advancedCount?: number;
+  mcqEasy?: number;
+  mcqMedium?: number;
+  mcqHard?: number;
+  integerEasy?: number;
+  integerMedium?: number;
+  integerHard?: number;
+  multiEasy?: number;
+  multiMedium?: number;
+  multiHard?: number;
+  matrixEasy?: number;
+  matrixMedium?: number;
+  matrixHard?: number;
   difficulty?: Difficulty | 'mixed';
   difficultyDistribution?: DifficultyDistribution;
 }

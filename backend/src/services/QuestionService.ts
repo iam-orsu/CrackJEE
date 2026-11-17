@@ -191,12 +191,55 @@ export class QuestionService {
         (s.matrixCount ?? 0) > 0 ||
         (s.beginnerCount ?? 0) > 0 ||
         (s.intermediateCount ?? 0) > 0 ||
-        (s.advancedCount ?? 0) > 0,
+        (s.advancedCount ?? 0) > 0 ||
+        (s.mcqEasy ?? 0) > 0 || (s.mcqMedium ?? 0) > 0 || (s.mcqHard ?? 0) > 0 ||
+        (s.integerEasy ?? 0) > 0 || (s.integerMedium ?? 0) > 0 || (s.integerHard ?? 0) > 0 ||
+        (s.multiEasy ?? 0) > 0 || (s.multiMedium ?? 0) > 0 || (s.multiHard ?? 0) > 0 ||
+        (s.matrixEasy ?? 0) > 0 || (s.matrixMedium ?? 0) > 0 || (s.matrixHard ?? 0) > 0,
     );
 
     const overPlan: Array<{ subject: Subject; topic: string; diff: Difficulty; type?: QuestionType }> = [];
     if (hasGranularSelections) {
       for (const sel of selections) {
+        const hasPerTypeDiff =
+          (sel.mcqEasy ?? 0) > 0 || (sel.mcqMedium ?? 0) > 0 || (sel.mcqHard ?? 0) > 0 ||
+          (sel.integerEasy ?? 0) > 0 || (sel.integerMedium ?? 0) > 0 || (sel.integerHard ?? 0) > 0 ||
+          (sel.multiEasy ?? 0) > 0 || (sel.multiMedium ?? 0) > 0 || (sel.multiHard ?? 0) > 0 ||
+          (sel.matrixEasy ?? 0) > 0 || (sel.matrixMedium ?? 0) > 0 || (sel.matrixHard ?? 0) > 0;
+
+        if (hasPerTypeDiff) {
+          const topicExactSlots: Array<{ type: QuestionType; diff: Difficulty }> = [];
+          for (let i = 0; i < (sel.mcqEasy ?? 0); i++) topicExactSlots.push({ type: 'mcq_single', diff: 'beginner' });
+          for (let i = 0; i < (sel.mcqMedium ?? 0); i++) topicExactSlots.push({ type: 'mcq_single', diff: 'intermediate' });
+          for (let i = 0; i < (sel.mcqHard ?? 0); i++) topicExactSlots.push({ type: 'mcq_single', diff: 'advanced' });
+
+          for (let i = 0; i < (sel.integerEasy ?? 0); i++) topicExactSlots.push({ type: 'integer', diff: 'beginner' });
+          for (let i = 0; i < (sel.integerMedium ?? 0); i++) topicExactSlots.push({ type: 'integer', diff: 'intermediate' });
+          for (let i = 0; i < (sel.integerHard ?? 0); i++) topicExactSlots.push({ type: 'integer', diff: 'advanced' });
+
+          for (let i = 0; i < (sel.multiEasy ?? 0); i++) topicExactSlots.push({ type: 'mcq_multi', diff: 'beginner' });
+          for (let i = 0; i < (sel.multiMedium ?? 0); i++) topicExactSlots.push({ type: 'mcq_multi', diff: 'intermediate' });
+          for (let i = 0; i < (sel.multiHard ?? 0); i++) topicExactSlots.push({ type: 'mcq_multi', diff: 'advanced' });
+
+          for (let i = 0; i < (sel.matrixEasy ?? 0); i++) topicExactSlots.push({ type: 'matrix_match', diff: 'beginner' });
+          for (let i = 0; i < (sel.matrixMedium ?? 0); i++) topicExactSlots.push({ type: 'matrix_match', diff: 'intermediate' });
+          for (let i = 0; i < (sel.matrixHard ?? 0); i++) topicExactSlots.push({ type: 'matrix_match', diff: 'advanced' });
+
+          if (topicExactSlots.length > 0) {
+            const overSlots = Math.ceil(topicExactSlots.length * 1.2);
+            for (let i = 0; i < overSlots; i++) {
+              const s = topicExactSlots[i % topicExactSlots.length]!;
+              overPlan.push({
+                subject: sel.subject,
+                topic: sel.topic,
+                diff: s.diff,
+                type: s.type,
+              });
+            }
+            continue;
+          }
+        }
+
         const mcq = sel.mcqCount ?? 0;
         const integer = sel.integerCount ?? 0;
         const multi = sel.multiCount ?? 0;
@@ -578,12 +621,55 @@ export class QuestionService {
         (s.matrixCount ?? 0) > 0 ||
         (s.beginnerCount ?? 0) > 0 ||
         (s.intermediateCount ?? 0) > 0 ||
-        (s.advancedCount ?? 0) > 0,
+        (s.advancedCount ?? 0) > 0 ||
+        (s.mcqEasy ?? 0) > 0 || (s.mcqMedium ?? 0) > 0 || (s.mcqHard ?? 0) > 0 ||
+        (s.integerEasy ?? 0) > 0 || (s.integerMedium ?? 0) > 0 || (s.integerHard ?? 0) > 0 ||
+        (s.multiEasy ?? 0) > 0 || (s.multiMedium ?? 0) > 0 || (s.multiHard ?? 0) > 0 ||
+        (s.matrixEasy ?? 0) > 0 || (s.matrixMedium ?? 0) > 0 || (s.matrixHard ?? 0) > 0,
     );
 
     const overPlan: Array<{ subject: Subject; topic: string; diff: Difficulty; type?: QuestionType }> = [];
     if (hasGranularSelections) {
       for (const sel of selections) {
+        const hasPerTypeDiff =
+          (sel.mcqEasy ?? 0) > 0 || (sel.mcqMedium ?? 0) > 0 || (sel.mcqHard ?? 0) > 0 ||
+          (sel.integerEasy ?? 0) > 0 || (sel.integerMedium ?? 0) > 0 || (sel.integerHard ?? 0) > 0 ||
+          (sel.multiEasy ?? 0) > 0 || (sel.multiMedium ?? 0) > 0 || (sel.multiHard ?? 0) > 0 ||
+          (sel.matrixEasy ?? 0) > 0 || (sel.matrixMedium ?? 0) > 0 || (sel.matrixHard ?? 0) > 0;
+
+        if (hasPerTypeDiff) {
+          const topicExactSlots: Array<{ type: QuestionType; diff: Difficulty }> = [];
+          for (let i = 0; i < (sel.mcqEasy ?? 0); i++) topicExactSlots.push({ type: 'mcq_single', diff: 'beginner' });
+          for (let i = 0; i < (sel.mcqMedium ?? 0); i++) topicExactSlots.push({ type: 'mcq_single', diff: 'intermediate' });
+          for (let i = 0; i < (sel.mcqHard ?? 0); i++) topicExactSlots.push({ type: 'mcq_single', diff: 'advanced' });
+
+          for (let i = 0; i < (sel.integerEasy ?? 0); i++) topicExactSlots.push({ type: 'integer', diff: 'beginner' });
+          for (let i = 0; i < (sel.integerMedium ?? 0); i++) topicExactSlots.push({ type: 'integer', diff: 'intermediate' });
+          for (let i = 0; i < (sel.integerHard ?? 0); i++) topicExactSlots.push({ type: 'integer', diff: 'advanced' });
+
+          for (let i = 0; i < (sel.multiEasy ?? 0); i++) topicExactSlots.push({ type: 'mcq_multi', diff: 'beginner' });
+          for (let i = 0; i < (sel.multiMedium ?? 0); i++) topicExactSlots.push({ type: 'mcq_multi', diff: 'intermediate' });
+          for (let i = 0; i < (sel.multiHard ?? 0); i++) topicExactSlots.push({ type: 'mcq_multi', diff: 'advanced' });
+
+          for (let i = 0; i < (sel.matrixEasy ?? 0); i++) topicExactSlots.push({ type: 'matrix_match', diff: 'beginner' });
+          for (let i = 0; i < (sel.matrixMedium ?? 0); i++) topicExactSlots.push({ type: 'matrix_match', diff: 'intermediate' });
+          for (let i = 0; i < (sel.matrixHard ?? 0); i++) topicExactSlots.push({ type: 'matrix_match', diff: 'advanced' });
+
+          if (topicExactSlots.length > 0) {
+            const overSlots = Math.ceil(topicExactSlots.length * 1.2);
+            for (let i = 0; i < overSlots; i++) {
+              const s = topicExactSlots[i % topicExactSlots.length]!;
+              overPlan.push({
+                subject: sel.subject,
+                topic: sel.topic,
+                diff: s.diff,
+                type: s.type,
+              });
+            }
+            continue;
+          }
+        }
+
         const mcq = sel.mcqCount ?? 0;
         const integer = sel.integerCount ?? 0;
         const multi = sel.multiCount ?? 0;

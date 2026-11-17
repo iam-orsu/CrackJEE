@@ -34,16 +34,45 @@ export interface QuestionTypeCounts {
   matrix_match: number;
 }
 
+export interface TypeDifficultyBreakdown {
+  easy: number;
+  medium: number;
+  hard: number;
+}
+
 export interface TopicCustomConfig {
   subject: Subject;
   topic: string;
-  mcqCount: number;
-  integerCount: number;
-  multiCount: number;
-  matrixCount: number;
-  beginnerCount: number;
-  intermediateCount: number;
-  advancedCount: number;
+  mcq: TypeDifficultyBreakdown;
+  integer: TypeDifficultyBreakdown;
+  multi: TypeDifficultyBreakdown;
+  matrix: TypeDifficultyBreakdown;
+}
+
+export function createBalancedDifficulty(count: number): TypeDifficultyBreakdown {
+  if (count <= 0) return { easy: 0, medium: 0, hard: 0 };
+  if (count === 1) return { easy: 0, medium: 1, hard: 0 };
+  if (count === 2) return { easy: 1, medium: 1, hard: 0 };
+  if (count === 3) return { easy: 1, medium: 1, hard: 1 };
+  const easy = Math.max(1, Math.round(count * 0.25));
+  const hard = Math.max(1, Math.round(count * 0.35));
+  const med = Math.max(0, count - easy - hard);
+  return { easy, medium: med, hard };
+}
+
+export function getTypeTotal(t?: TypeDifficultyBreakdown): number {
+  if (!t) return 0;
+  return (t.easy || 0) + (t.medium || 0) + (t.hard || 0);
+}
+
+export function getTopicTotal(cfg?: TopicCustomConfig): number {
+  if (!cfg) return 0;
+  return (
+    getTypeTotal(cfg.mcq) +
+    getTypeTotal(cfg.integer) +
+    getTypeTotal(cfg.multi) +
+    getTypeTotal(cfg.matrix)
+  );
 }
 
 export interface DifficultyDistribution {
