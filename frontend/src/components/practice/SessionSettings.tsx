@@ -95,7 +95,10 @@ export function SessionSettings({
                 <button
                   key={e}
                   className={`pill${examType === e ? ' selected' : ''}`}
-                  onClick={() => onExamType(e)}
+                  onClick={() => {
+                    onExamType(e);
+                    onMarkingScheme(e === 'Advanced' ? 'jee_advanced' : 'jee_main');
+                  }}
                 >
                   JEE {e}
                 </button>

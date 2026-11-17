@@ -64,6 +64,12 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   const [markingScheme, setMarkingScheme] = useState<MarkingScheme>('jee_main');
   const [topicConfigs, setTopicConfigs] = useState<Record<string, TopicCustomConfig>>({});
   const prevCountRef = useRef(10);
+  const prevExamTypeRef = useRef<'Main' | 'Advanced'>('Main');
+
+  const handleExamTypeChange = useCallback((newExamType: 'Main' | 'Advanced') => {
+    setExamType(newExamType);
+    setMarkingScheme(newExamType === 'Advanced' ? 'jee_advanced' : 'jee_main');
+  }, []);
 
   const resolvedCount = useCallback((): number => {
     if (questionCount === 'custom') {
@@ -166,11 +172,12 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
       if (missing) break;
     }
 
-    if (missing || prevCountRef.current !== perSubject) {
+    if (missing || prevCountRef.current !== perSubject || prevExamTypeRef.current !== examType) {
       prevCountRef.current = perSubject;
+      prevExamTypeRef.current = examType;
       autoDistributeAllTopics();
     }
-  }, [wizardStep, selectedSubjects, selectedTopics, autoDistributeAllTopics, topicConfigs, resolvedCount]);
+  }, [wizardStep, selectedSubjects, selectedTopics, autoDistributeAllTopics, topicConfigs, resolvedCount, examType]);
 
   const areTopicConfigsValid = useMemo(() => {
     if (selectedSubjects.size === 0) return true;
@@ -863,7 +870,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                 customCount={customCount}
                 onCustomCount={setCustomCount}
                 examType={examType}
-                onExamType={setExamType}
+                onExamType={handleExamTypeChange}
                 markingScheme={markingScheme}
                 onMarkingScheme={setMarkingScheme}
                 perSubjectCount={resolvedCount()}
