@@ -508,7 +508,7 @@ export function TopicBreakdownConfig({
                             <input
                               type="number"
                               min={0}
-                              max={100}
+                              max={150}
                               value={topicTotal}
                               onChange={(e) => {
                                 const val = parseInt(e.target.value, 10);
@@ -518,7 +518,7 @@ export function TopicBreakdownConfig({
                               }}
                               aria-label={`${topic} question count`}
                               style={{
-                                width: 36,
+                                width: 44,
                                 textAlign: 'center',
                                 fontSize: 13,
                                 fontWeight: 800,
