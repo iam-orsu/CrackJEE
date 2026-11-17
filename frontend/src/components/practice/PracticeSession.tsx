@@ -6,8 +6,8 @@ import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import type { Question, AnswerResult, Subject, TopicProgress, PaperSet } from '@/types';
 import type { SplitTopics } from '@/lib/api';
-import type { AppState, WizardStep, DiffOption, MarkingScheme, StoredResult, QuestionTypeCounts, DifficultyDistribution, TopicCustomConfig } from './shared';
-import { getDefaultQuestionTypes, DEFAULT_DIFFICULTY_DISTRIBUTION, planTopicTypeSlots, planTopicDifficultySlots } from './shared';
+import type { AppState, WizardStep, MarkingScheme, StoredResult, TopicCustomConfig } from './shared';
+import { getDefaultQuestionTypes, planTopicTypeSlots, planTopicDifficultySlots } from './shared';
 import type { PracticeExamConfig } from './examConfig';
 import { SessionReview } from './SessionReview';
 import { SubjectStep } from './SubjectStep';
@@ -60,14 +60,8 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   const [selectedTopics, setSelectedTopics] = useState<Partial<Record<Subject, Set<string>>>>({});
   const [questionCount, setQuestionCount] = useState<number | 'custom'>(10);
   const [customCount, setCustomCount] = useState('');
-  const [difficulty, setDifficulty] = useState<DiffOption>('mixed');
-  const [difficultyMode, setDifficultyMode] = useState<'preset' | 'custom'>('preset');
-  const [difficultyDistribution, setDifficultyDistribution] = useState<DifficultyDistribution>(DEFAULT_DIFFICULTY_DISTRIBUTION);
   const [examType, setExamType] = useState<'Main' | 'Advanced'>('Main');
   const [markingScheme, setMarkingScheme] = useState<MarkingScheme>('jee_main');
-  const [questionTypeCounts, setQuestionTypeCounts] = useState<QuestionTypeCounts>(() =>
-    getDefaultQuestionTypes(10, 'Main', config.exam === 'NEET'),
-  );
   const [topicConfigs, setTopicConfigs] = useState<Record<string, TopicCustomConfig>>({});
   const prevCountRef = useRef(10);
 
@@ -95,12 +89,9 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
       const next = { ...prev };
       topics.forEach((topic, idx) => {
         const topicCount = baseQuota + (idx < remainder ? 1 : 0);
-        const typeSlots = planTopicTypeSlots(topicCount, questionTypeCounts, isAdv, isNeetMode);
-        const diffSlots = planTopicDifficultySlots(
-          topicCount,
-          difficulty,
-          difficultyMode === 'custom' || difficulty === 'mixed' ? difficultyDistribution : undefined,
-        );
+        const defTypes = getDefaultQuestionTypes(topicCount, examType, isNeet);
+        const typeSlots = planTopicTypeSlots(topicCount, defTypes, isAdv, isNeetMode);
+        const diffSlots = planTopicDifficultySlots(topicCount, 'mixed');
 
         const mcqCount = typeSlots.filter((t) => t === 'mcq_single').length;
         const integerCount = typeSlots.filter((t) => t === 'integer').length;
@@ -126,7 +117,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
       });
       return next;
     });
-  }, [selectedTopics, resolvedCount, isNeet, examType, questionTypeCounts, difficulty, difficultyMode, difficultyDistribution]);
+  }, [selectedTopics, resolvedCount, isNeet, examType]);
 
   const autoDistributeAllTopics = useCallback(() => {
     const perSubject = resolvedCount();
@@ -144,12 +135,9 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
 
         topics.forEach((topic, idx) => {
           const topicCount = baseQuota + (idx < remainder ? 1 : 0);
-          const typeSlots = planTopicTypeSlots(topicCount, questionTypeCounts, isAdv, isNeetMode);
-          const diffSlots = planTopicDifficultySlots(
-            topicCount,
-            difficulty,
-            difficultyMode === 'custom' || difficulty === 'mixed' ? difficultyDistribution : undefined,
-          );
+          const defTypes = getDefaultQuestionTypes(topicCount, examType, isNeet);
+          const typeSlots = planTopicTypeSlots(topicCount, defTypes, isAdv, isNeetMode);
+          const diffSlots = planTopicDifficultySlots(topicCount, 'mixed');
 
           const mcqCount = typeSlots.filter((t) => t === 'mcq_single').length;
           const integerCount = typeSlots.filter((t) => t === 'integer').length;
@@ -176,7 +164,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
       }
       return next;
     });
-  }, [selectedSubjects, selectedTopics, resolvedCount, isNeet, examType, questionTypeCounts, difficulty, difficultyMode, difficultyDistribution]);
+  }, [selectedSubjects, selectedTopics, resolvedCount, isNeet, examType]);
 
   useEffect(() => {
     if (wizardStep !== 3) return;
@@ -239,13 +227,6 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
     }
     return true;
   }, [selectedSubjects, selectedTopics, topicConfigs, resolvedCount]);
-
-  useEffect(() => {
-    const count = questionCount === 'custom'
-      ? Math.max(1, Math.min(parseInt(customCount, 10) || 10, config.maxPerSubject))
-      : questionCount;
-    setQuestionTypeCounts(getDefaultQuestionTypes(count, examType, config.exam === 'NEET'));
-  }, [questionCount, customCount, examType, config.exam, config.maxPerSubject]);
 
   /* ── Topics (fetched from API) ── */
   const [topicsByClass, setTopicsByClass] = useState<SplitTopics | null>(null);
@@ -529,33 +510,6 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   /* ─── Paper row: preview papers, then claim the chosen one (JEE) ── */
   async function loadPapers(page: number) {
     const perSubject = resolvedCount();
-    const allocatedTypes =
-      (questionTypeCounts.mcq_single || 0) +
-      (questionTypeCounts.integer || 0) +
-      (questionTypeCounts.matrix_match || 0) +
-      (!isNeet && examType === 'Advanced' ? (questionTypeCounts.mcq_multi || 0) : 0);
-
-    if (allocatedTypes !== perSubject) {
-      setLoadError(
-        allocatedTypes > perSubject
-          ? `Question limit exceeded: you have allocated ${allocatedTypes} questions, but the session is set to ${perSubject} per subject. Please reduce question counts or click Auto-balance.`
-          : `Questions under-allocated: you have allocated ${allocatedTypes} of ${perSubject} questions. Please add ${perSubject - allocatedTypes} more question(s) or click Auto-balance.`,
-      );
-      return;
-    }
-
-    if (difficultyMode === 'custom') {
-      const totalPct =
-        (difficultyDistribution.beginner || 0) +
-        (difficultyDistribution.intermediate || 0) +
-        (difficultyDistribution.advanced || 0);
-      if (totalPct !== 100) {
-        setLoadError(
-          `Difficulty percentage mismatch: total is ${totalPct}% (must equal exactly 100%). Please adjust percentages or click Normalize to 100%.`,
-        );
-        return;
-      }
-    }
 
     if (!areTopicConfigsValid) {
       for (const subject of selectedSubjects) {
@@ -579,13 +533,11 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
     try {
       const res = await api.questions.papers({
         selections: buildSelections(),
-        difficulty,
+        difficulty: 'mixed',
         examType,
         studentClass: batchClass,
         perSubject: resolvedCount(),
         page,
-        questionTypes: questionTypeCounts,
-        difficultyDistribution: difficultyMode === 'custom' || difficulty === 'mixed' ? difficultyDistribution : undefined,
       });
       setPaperSets(res.papers);
       setPaperPage(res.page);
@@ -623,33 +575,6 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
   /* ─── Start exam (fetch batch) ────────────────────────── */
   const startExam = useCallback(async () => {
     const perSubject = resolvedCount();
-    const allocatedTypes =
-      (questionTypeCounts.mcq_single || 0) +
-      (questionTypeCounts.integer || 0) +
-      (questionTypeCounts.matrix_match || 0) +
-      (!isNeet && examType === 'Advanced' ? (questionTypeCounts.mcq_multi || 0) : 0);
-
-    if (allocatedTypes !== perSubject) {
-      setLoadError(
-        allocatedTypes > perSubject
-          ? `Question limit exceeded: you have allocated ${allocatedTypes} questions, but the session is set to ${perSubject} per subject. Please reduce question counts or click Auto-balance.`
-          : `Questions under-allocated: you have allocated ${allocatedTypes} of ${perSubject} questions per subject. Please add ${perSubject - allocatedTypes} more question(s) or click Auto-balance.`,
-      );
-      return;
-    }
-
-    if (difficultyMode === 'custom') {
-      const totalPct =
-        (difficultyDistribution.beginner || 0) +
-        (difficultyDistribution.intermediate || 0) +
-        (difficultyDistribution.advanced || 0);
-      if (totalPct !== 100) {
-        setLoadError(
-          `Difficulty percentage mismatch: total is ${totalPct}% (must equal exactly 100%). Please adjust percentages or click Normalize to 100%.`,
-        );
-        return;
-      }
-    }
 
     if (!areTopicConfigsValid) {
       for (const subject of selectedSubjects) {
@@ -664,7 +589,21 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
           );
           return;
         }
+        for (const topic of topics) {
+          const cfg = topicConfigs[`${subject}::${topic}`];
+          if (cfg) {
+            const typeSum = cfg.mcqCount + cfg.integerCount + cfg.multiCount + cfg.matrixCount;
+            const diffSum = cfg.beginnerCount + cfg.intermediateCount + cfg.advancedCount;
+            if (typeSum !== diffSum) {
+              setLoadError(
+                `Difficulty sum (${diffSum}) does not match total questions (${typeSum}) for topic "${topic}". Click Equalize in the topic card to balance.`,
+              );
+              return;
+            }
+          }
+        }
       }
+      return;
     }
 
     enterFullscreen();
@@ -682,12 +621,10 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
 
       const batch = await api.questions.batch({
         selections,
-        difficulty,
+        difficulty: 'mixed',
         examType: isNeet ? 'NEET' : examType,
         studentClass: batchClass,
         count,
-        questionTypes: questionTypeCounts,
-        difficultyDistribution: difficultyMode === 'custom' || difficulty === 'mixed' ? difficultyDistribution : undefined,
       });
 
       clearInterval(msgInterval);
@@ -711,7 +648,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
       setAppState('wizard');
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedSubjects, selectedTopics, questionCount, customCount, difficulty, difficultyMode, difficultyDistribution, questionTypeCounts, examType, batchClass, isNeet, config]);
+  }, [selectedSubjects, selectedTopics, questionCount, customCount, examType, batchClass, isNeet, config, areTopicConfigsValid, topicConfigs, resolvedCount]);
 
   // Keep the active question dot in view within the horizontal palette
   useEffect(() => {
@@ -937,14 +874,6 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                 onQuestionCount={setQuestionCount}
                 customCount={customCount}
                 onCustomCount={setCustomCount}
-                difficulty={difficulty}
-                onDifficulty={setDifficulty}
-                difficultyMode={difficultyMode}
-                onDifficultyMode={setDifficultyMode}
-                difficultyDistribution={difficultyDistribution}
-                onDifficultyDistribution={setDifficultyDistribution}
-                questionTypeCounts={questionTypeCounts}
-                onQuestionTypeCounts={setQuestionTypeCounts}
                 examType={examType}
                 onExamType={setExamType}
                 markingScheme={markingScheme}
@@ -977,20 +906,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
               <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
                 {(() => {
                   const perSubject = resolvedCount();
-                  const totalAllocatedTypes =
-                    (questionTypeCounts.mcq_single || 0) +
-                    (questionTypeCounts.integer || 0) +
-                    (questionTypeCounts.matrix_match || 0) +
-                    (!isNeet && examType === 'Advanced' ? (questionTypeCounts.mcq_multi || 0) : 0);
-                  const isTypeCountValid = totalAllocatedTypes === perSubject;
-
-                  const totalDifficultyPct =
-                    (difficultyDistribution.beginner || 0) +
-                    (difficultyDistribution.intermediate || 0) +
-                    (difficultyDistribution.advanced || 0);
-                  const isDifficultyValid = difficultyMode !== 'custom' || totalDifficultyPct === 100;
-
-                  const canStartSession = isTypeCountValid && isDifficultyValid && areTopicConfigsValid;
+                  const canStartSession = areTopicConfigsValid;
 
                   return (
                     <>
@@ -1009,17 +925,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                             gap: 4,
                           }}
                         >
-                          ⚠️ {!isTypeCountValid && !isDifficultyValid
-                            ? `Adjust question types (${totalAllocatedTypes}/${perSubject}) and difficulty (${totalDifficultyPct}%/100%)`
-                            : !isTypeCountValid
-                            ? totalAllocatedTypes > perSubject
-                              ? `Question count exceeded (${totalAllocatedTypes}/${perSubject}). Reduce values to proceed.`
-                              : `Question count under-allocated (${totalAllocatedTypes}/${perSubject}). Add values to proceed.`
-                            : !isDifficultyValid
-                            ? `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`
-                            : !areTopicConfigsValid
-                            ? `Topic questions must match target (${perSubject}/subject). Click Auto-match.`
-                            : 'Adjust settings to proceed.'}
+                          ⚠️ Topic questions must match target ({perSubject}/subject). Click Auto-match.
                         </span>
                       )}
                       {config.hasPapers ? (
@@ -1030,15 +936,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                           onClick={(e) => {
                             if (!canStartSession) {
                               e.preventDefault();
-                              setLoadError(
-                                !isTypeCountValid
-                                  ? totalAllocatedTypes > perSubject
-                                    ? `Question count exceeded (${totalAllocatedTypes}/${perSubject}). Reduce values to proceed.`
-                                    : `Question count under-allocated (${totalAllocatedTypes}/${perSubject}). Add values to proceed.`
-                                  : !isDifficultyValid
-                                  ? `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`
-                                  : 'Topic questions must match target for each subject. Click Auto-match to balance.',
-                              );
+                              setLoadError('Topic questions must match target for each subject. Click Auto-match to balance.');
                               return;
                             }
                             loadPapers(1);
@@ -1056,15 +954,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                           onClick={(e) => {
                             if (!canStartSession) {
                               e.preventDefault();
-                              setLoadError(
-                                !isTypeCountValid
-                                  ? totalAllocatedTypes > perSubject
-                                    ? `Question count exceeded (${totalAllocatedTypes}/${perSubject}). Reduce values to proceed.`
-                                    : `Question count under-allocated (${totalAllocatedTypes}/${perSubject}). Add values to proceed.`
-                                  : !isDifficultyValid
-                                  ? `Difficulty total is ${totalDifficultyPct}%. Must equal 100% to proceed.`
-                                  : 'Topic questions must match target for each subject. Click Auto-match to balance.',
-                              );
+                              setLoadError('Topic questions must match target for each subject. Click Auto-match to balance.');
                               return;
                             }
                             startExam();
