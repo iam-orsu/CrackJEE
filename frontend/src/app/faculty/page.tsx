@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import {
   facultyCreatePaper,
   facultyDeletePaper,
+  facultyDownloadPdf,
   facultyGetPaper,
   facultyGetTopics,
   facultyListPapers,
@@ -137,6 +138,18 @@ export default function FacultyPage() {
   const [activePaperTopics, setActivePaperTopics] = useState<Record<string, string[]>>({});
   const [creating, setCreating] = useState(false);
   const [error, setError] = useState('');
+  const [downloadingPdf, setDownloadingPdf] = useState<{ id: string; mode: string } | null>(null);
+
+  async function handleDownloadPdf(paperId: string, mode: 'questions' | 'solutions' | 'key') {
+    setDownloadingPdf({ id: paperId, mode });
+    try {
+      await facultyDownloadPdf(paperId, mode);
+    } catch (err) {
+      alert(err instanceof Error ? err.message : 'Failed to download PDF');
+    } finally {
+      setDownloadingPdf(null);
+    }
+  }
 
   const loadWorkspace = useCallback(async (currentExam: FacultyExamType) => {
     const [topicsRes, papersRes] = await Promise.all([
@@ -980,30 +993,30 @@ export default function FacultyPage() {
                                   </button>
                                   {p.status === 'ready' && (
                                     <>
-                                      <Link
-                                        href={`/faculty/papers/${p.id}/print?mode=questions&download=1`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                      <button
+                                        type="button"
+                                        disabled={downloadingPdf?.id === p.id}
+                                        onClick={() => void handleDownloadPdf(p.id, 'questions')}
                                         className={BTN_ACCENT}
                                       >
-                                        PDF: Questions
-                                      </Link>
-                                      <Link
-                                        href={`/faculty/papers/${p.id}/print?mode=solutions&download=1`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        {downloadingPdf?.id === p.id && downloadingPdf.mode === 'questions' ? 'Generating PDF...' : 'Download PDF: Questions'}
+                                      </button>
+                                      <button
+                                        type="button"
+                                        disabled={downloadingPdf?.id === p.id}
+                                        onClick={() => void handleDownloadPdf(p.id, 'solutions')}
                                         className={BTN_ACCENT}
                                       >
-                                        PDF: Solutions
-                                      </Link>
-                                      <Link
-                                        href={`/faculty/papers/${p.id}/print?mode=key&download=1`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        {downloadingPdf?.id === p.id && downloadingPdf.mode === 'solutions' ? 'Generating PDF...' : 'Download PDF: Solutions'}
+                                      </button>
+                                      <button
+                                        type="button"
+                                        disabled={downloadingPdf?.id === p.id}
+                                        onClick={() => void handleDownloadPdf(p.id, 'key')}
                                         className={BTN_ACCENT}
                                       >
-                                        PDF: Key
-                                      </Link>
+                                        {downloadingPdf?.id === p.id && downloadingPdf.mode === 'key' ? 'Generating PDF...' : 'Download PDF: Key'}
+                                      </button>
                                     </>
                                   )}
                                   <button

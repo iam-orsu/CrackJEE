@@ -6,7 +6,7 @@ import { useParams, useSearchParams } from 'next/navigation';
 import { DiagramRenderer } from '@/components/DiagramRenderer';
 import { MathText, stripOptionPrefix } from '@/lib/math';
 import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchListTable';
-import { facultyGetPaper, type FacultyPaper, type PrintMode } from '@/lib/faculty';
+import { facultyDownloadPdf, facultyGetPaper, type FacultyPaper, type PrintMode } from '@/lib/faculty';
 
 const LETTERS = ['A', 'B', 'C', 'D'];
 
@@ -34,7 +34,20 @@ function FacultyPrintContent() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
+  const [downloading, setDownloading] = useState(false);
   const printedRef = useRef(false);
+
+  async function handleDownloadPdfDirect() {
+    if (!paper) return;
+    setDownloading(true);
+    try {
+      await facultyDownloadPdf(paper.id, mode);
+    } catch (err) {
+      alert(err instanceof Error ? err.message : 'Failed to download PDF');
+    } finally {
+      setDownloading(false);
+    }
+  }
 
   function handleCopyAll() {
     if (!paper) return;
@@ -94,18 +107,8 @@ function FacultyPrintContent() {
   useEffect(() => {
     if (!paper || !autoDownload || printedRef.current) return;
     printedRef.current = true;
-    const triggerPrint = () => {
-      if (typeof document !== 'undefined' && document.fonts?.ready) {
-        document.fonts.ready.then(() => {
-          setTimeout(() => window.print(), 150);
-        });
-      } else {
-        window.print();
-      }
-    };
-    const timer = setTimeout(triggerPrint, 700);
-    return () => clearTimeout(timer);
-  }, [paper, autoDownload]);
+    facultyDownloadPdf(paper.id, mode).catch(() => {});
+  }, [paper, autoDownload, mode]);
 
   if (loading) {
     return (
@@ -161,8 +164,13 @@ function FacultyPrintContent() {
           <button type="button" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" onClick={handleCopyAll}>
             {copied ? '✓ Copied All!' : '📋 Copy Text'}
           </button>
-          <button type="button" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-accent bg-white px-3 py-1.5 text-[12.5px] font-extrabold text-accent no-underline shadow-[0_4px_0_#E2C2F0] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#E2C2F0] active:translate-y-[3px] active:shadow-[0_1px_0_#E2C2F0] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" onClick={() => window.print()}>
-            Download / Save PDF (A4)
+          <button
+            type="button"
+            disabled={downloading}
+            className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-accent bg-white px-3 py-1.5 text-[12.5px] font-extrabold text-accent no-underline shadow-[0_4px_0_#E2C2F0] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#E2C2F0] active:translate-y-[3px] active:shadow-[0_1px_0_#E2C2F0] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+            onClick={() => void handleDownloadPdfDirect()}
+          >
+            {downloading ? 'Generating PDF...' : 'Download / Save PDF (A4)'}
           </button>
         </div>
       </div>

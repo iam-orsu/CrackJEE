@@ -73,7 +73,7 @@ function defaultPaperTitle(examType: FacultyExamType, selections: FacultyPaperSe
   return `${examLabel} ${subjectLabel} Test`;
 }
 
-function formatPaperCode(paperCode: string | null | undefined, id: string): string {
+export function formatPaperCode(paperCode: string | null | undefined, id: string): string {
   return paperCode && paperCode.trim() ? paperCode : `FP-${id.slice(-6).toUpperCase()}`;
 }
 

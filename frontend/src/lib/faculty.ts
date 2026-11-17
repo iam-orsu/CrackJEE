@@ -143,6 +143,34 @@ export async function facultyGetPaper(id: string) {
   return facultyFetch<{ paper: FacultyPaper }>(`/papers/${encodeURIComponent(id)}`);
 }
 
+export async function facultyDownloadPdf(id: string, mode: PrintMode = 'questions'): Promise<void> {
+  const res = await fetch(`${API_URL}/faculty/papers/${encodeURIComponent(id)}/pdf?mode=${encodeURIComponent(mode)}`, {
+    credentials: 'same-origin',
+  });
+
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new FacultyError(res.status, err.error ?? `Failed to download PDF (${res.status})`);
+  }
+
+  const blob = await res.blob();
+  const disposition = res.headers.get('content-disposition');
+  let filename = `Paper-${mode}.pdf`;
+  if (disposition) {
+    const match = disposition.match(/filename="?([^";]+)"?/);
+    if (match?.[1]) filename = match[1];
+  }
+
+  const downloadUrl = window.URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = downloadUrl;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  window.URL.revokeObjectURL(downloadUrl);
+}
+
 export async function facultyUpdateQuestion(
   paperId: string,
   number: number,

@@ -35,6 +35,8 @@ function facultyTokenFrom(req: Request): string | null {
     const [name, ...value] = part.trim().split('=');
     if (name === FACULTY_COOKIE && value.length > 0) return decodeURIComponent(value.join('='));
   }
+  const queryToken = req.query?.token;
+  if (typeof queryToken === 'string' && queryToken) return queryToken;
   return null;
 }
 

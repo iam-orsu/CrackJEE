@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { DiagramRenderer } from '@/components/DiagramRenderer';
 import { MathText, stripOptionPrefix } from '@/lib/math';
 import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchListTable';
 import {
   facultyAcceptDraftQuestion,
   facultyDeleteQuestion,
+  facultyDownloadPdf,
   facultyGenerateDraftQuestion,
   facultyUpdateQuestion,
   type FacultyExamType,
@@ -499,6 +499,18 @@ export function FacultyPaperPreview({
 }: PreviewProps) {
   const [deletingPaper, setDeletingPaper] = useState(false);
   const [addSparkleOpen, setAddSparkleOpen] = useState(false);
+  const [downloadingPdf, setDownloadingPdf] = useState<string | null>(null);
+
+  async function handleDownloadPdf(mode: 'questions' | 'solutions' | 'key') {
+    setDownloadingPdf(mode);
+    try {
+      await facultyDownloadPdf(paper.id, mode);
+    } catch (err) {
+      onError(err instanceof Error ? err.message : 'Failed to download PDF');
+    } finally {
+      setDownloadingPdf(null);
+    }
+  }
 
   useEffect(() => {
     setAddSparkleOpen(false);
@@ -545,30 +557,30 @@ export function FacultyPaperPreview({
           </p>
           {paper.status === 'ready' && (
             <div className="mt-3 flex flex-wrap gap-2">
-              <Link
-                href={`/faculty/papers/${paper.id}/print?mode=questions&download=1`}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
+                disabled={downloadingPdf !== null}
+                onClick={() => void handleDownloadPdf('questions')}
                 className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-accent bg-white px-3 py-1.5 text-[12.5px] font-extrabold text-accent no-underline shadow-[0_4px_0_#E2C2F0] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#E2C2F0] active:translate-y-[3px] active:shadow-[0_1px_0_#E2C2F0] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
               >
-                Download PDF: Question Paper
-              </Link>
-              <Link
-                href={`/faculty/papers/${paper.id}/print?mode=solutions&download=1`}
-                target="_blank"
-                rel="noopener noreferrer"
+                {downloadingPdf === 'questions' ? 'Generating PDF...' : 'Download PDF: Question Paper'}
+              </button>
+              <button
+                type="button"
+                disabled={downloadingPdf !== null}
+                onClick={() => void handleDownloadPdf('solutions')}
                 className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-accent bg-white px-3 py-1.5 text-[12.5px] font-extrabold text-accent no-underline shadow-[0_4px_0_#E2C2F0] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#E2C2F0] active:translate-y-[3px] active:shadow-[0_1px_0_#E2C2F0] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
               >
-                Download PDF: Paper + Solutions
-              </Link>
-              <Link
-                href={`/faculty/papers/${paper.id}/print?mode=key&download=1`}
-                target="_blank"
-                rel="noopener noreferrer"
+                {downloadingPdf === 'solutions' ? 'Generating PDF...' : 'Download PDF: Paper + Solutions'}
+              </button>
+              <button
+                type="button"
+                disabled={downloadingPdf !== null}
+                onClick={() => void handleDownloadPdf('key')}
                 className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-accent bg-white px-3 py-1.5 text-[12.5px] font-extrabold text-accent no-underline shadow-[0_4px_0_#E2C2F0] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#E2C2F0] active:translate-y-[3px] active:shadow-[0_1px_0_#E2C2F0] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
               >
-                Download PDF: Answer Key
-              </Link>
+                {downloadingPdf === 'key' ? 'Generating PDF...' : 'Download PDF: Answer Key'}
+              </button>
             </div>
           )}
         </div>

@@ -4,6 +4,7 @@ import { FacultyAuthService } from '../services/FacultyAuthService';
 import { facultyPaperService, type FacultyPaperService } from '../services/FacultyPaperService';
 import { FacultyBatchService } from '../services/FacultyBatchService';
 import { FacultyAssignmentService } from '../services/FacultyAssignmentService';
+import { FacultyPdfService } from '../services/FacultyPdfService';
 import {
   clearFacultyCookie,
   setFacultyCookie,
@@ -133,6 +134,7 @@ export class FacultyController {
     private readonly paperService: FacultyPaperService = facultyPaperService,
     private readonly batchService: FacultyBatchService = new FacultyBatchService(),
     private readonly assignmentService: FacultyAssignmentService = new FacultyAssignmentService(),
+    private readonly pdfService: FacultyPdfService = new FacultyPdfService(),
   ) {}
 
   public readonly login = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
@@ -231,6 +233,27 @@ export class FacultyController {
     try {
       const paper = await this.paperService.getPaper(req.faculty!.facultyId, String(req.params.id));
       res.json({ success: true, paper });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly downloadPaperPdf = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const paperId = String(req.params.id);
+      const rawMode = String(req.query.mode || 'questions').toLowerCase();
+      const mode = (rawMode === 'solutions' || rawMode === 'key') ? rawMode : 'questions';
+
+      const { buffer, filename } = await this.pdfService.generatePaperPdf(
+        req.faculty!.facultyId,
+        paperId,
+        mode,
+      );
+
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+      res.setHeader('Content-Length', buffer.length);
+      res.end(buffer);
     } catch (err) {
       next(err);
     }
