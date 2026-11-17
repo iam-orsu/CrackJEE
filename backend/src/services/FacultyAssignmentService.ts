@@ -231,9 +231,13 @@ export class FacultyAssignmentService {
 
     const topicAnalytics = Array.from(topicMap.values()).map((t) => {
       const accuracyPct = t.totalAttempts > 0 ? Math.round((t.correctCount / t.totalAttempts) * 100) : 0;
+      const marksLost = (t.wrongCount * 5) + (t.skippedCount * 4);
+      const negativeMarks = t.wrongCount * 1;
       return {
         ...t,
         accuracyPct,
+        marksLost,
+        negativeMarks,
         isWeak: accuracyPct < 50,
         isStrong: accuracyPct >= 70,
       };
@@ -242,7 +246,7 @@ export class FacultyAssignmentService {
     // Lacking and top performing topics
     const lackingTopics = topicAnalytics
       .filter((t) => t.isWeak && t.totalAttempts > 0)
-      .sort((a, b) => a.accuracyPct - b.accuracyPct);
+      .sort((a, b) => b.marksLost - a.marksLost || a.accuracyPct - b.accuracyPct);
 
     const topPerformingTopics = topicAnalytics
       .filter((t) => t.isStrong && t.totalAttempts > 0)
@@ -253,7 +257,7 @@ export class FacultyAssignmentService {
     if (lackingTopics.length > 0) {
       for (const lt of lackingTopics.slice(0, 4)) {
         recommendations.push(
-          `Revise ${lt.subject} — ${lt.topic}: Batch accuracy is only ${lt.accuracyPct}% (${lt.wrongCount} incorrect attempts across ${lt.questionCount} question${lt.questionCount > 1 ? 's' : ''}).`,
+          `Re-teach ${lt.subject} — ${lt.topic}: Batch accuracy is ${lt.accuracyPct}%, with ${lt.wrongCount} mistakes causing ${lt.marksLost} marks lost across ${lt.questionCount} question${lt.questionCount > 1 ? 's' : ''}.`,
         );
       }
     } else if (submissions.length > 0) {
@@ -318,8 +322,21 @@ export class FacultyAssignmentService {
       questionAnalytics,
       topicAnalytics,
       revisionRecommendations: {
-        lackingTopics: lackingTopics.map((t) => ({ topic: t.topic, subject: t.subject, accuracyPct: t.accuracyPct, questionCount: t.questionCount })),
-        topPerformingTopics: topPerformingTopics.map((t) => ({ topic: t.topic, subject: t.subject, accuracyPct: t.accuracyPct, questionCount: t.questionCount })),
+        lackingTopics: lackingTopics.map((t) => ({
+          topic: t.topic,
+          subject: t.subject,
+          accuracyPct: t.accuracyPct,
+          questionCount: t.questionCount,
+          wrongCount: t.wrongCount,
+          marksLost: t.marksLost,
+        })),
+        topPerformingTopics: topPerformingTopics.map((t) => ({
+          topic: t.topic,
+          subject: t.subject,
+          accuracyPct: t.accuracyPct,
+          questionCount: t.questionCount,
+          correctCount: t.correctCount,
+        })),
         recommendations,
       },
     };

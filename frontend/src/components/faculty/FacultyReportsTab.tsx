@@ -13,7 +13,7 @@ import {
 } from '@/lib/faculty';
 
 const SELECT =
-  'h-[44px] min-w-[220px] cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-bold text-[#003366] shadow-[0_3px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_5px_0_#E3C9E6] motion-reduce:transition-none';
+  'h-[42px] min-w-[200px] cursor-pointer rounded-xl border-[2px] border-[#003366] bg-white px-3 text-[13.5px] font-semibold text-[#003366] shadow-[0_3px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_5px_0_#E3C9E6] motion-reduce:transition-none';
 
 interface FacultyReportsTabProps {
   initialAssignmentId?: string | null;
@@ -28,10 +28,8 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
 
   // Subject filter for Topic Analysis
   const [selectedSubject, setSelectedSubject] = useState<string>('ALL');
-  // Expanded topics state (default: all expanded for professors)
+  // Expanded topics state (default: collapsed as topic-grouped stack)
   const [expandedTopics, setExpandedTopics] = useState<Record<string, boolean>>({});
-  // View mode: detailed question cards vs compact table
-  const [analyticsViewMode, setAnalyticsViewMode] = useState<'cards' | 'table'>('cards');
 
   // Student Submission Viewer Modal state
   const [submissionModalOpen, setSubmissionModalOpen] = useState(false);
@@ -58,14 +56,8 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
     facultyGetAssignmentReport(selectedAssignmentId)
       .then((res) => {
         setReport(res.report);
-        // By default, expand all topics so non-technical faculty see all analytics immediately!
-        const initialExpanded: Record<string, boolean> = {};
-        if (res.report.topicAnalytics) {
-          res.report.topicAnalytics.forEach((t) => {
-            initialExpanded[`${t.subject}-${t.topic}`] = true;
-          });
-        }
-        setExpandedTopics(initialExpanded);
+        // Collapsed by default as a clean topic stack
+        setExpandedTopics({});
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
@@ -109,7 +101,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
     return Array.from(set).sort();
   }, [report]);
 
-  // Filtered topics
+  // Filtered topics based on subject filter dropdown
   const filteredTopics = useMemo(() => {
     if (!report?.topicAnalytics) return [];
     if (selectedSubject === 'ALL') return report.topicAnalytics;
@@ -132,33 +124,20 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
     }));
   }
 
-  function handleExpandAll() {
-    if (!report?.topicAnalytics) return;
-    const allExpanded: Record<string, boolean> = {};
-    report.topicAnalytics.forEach((t) => {
-      allExpanded[`${t.subject}-${t.topic}`] = true;
-    });
-    setExpandedTopics(allExpanded);
-  }
-
-  function handleCollapseAll() {
-    setExpandedTopics({});
-  }
-
   return (
     <div className="flex flex-col gap-6">
       {/* Top Header & Assignment Picker */}
-      <div className="flex flex-wrap items-center justify-between gap-4 rounded-[26px] border border-[#003366]/10 bg-white p-5 shadow-[0_20px_45px_-30px_rgba(0,51,102,.25)]">
+      <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h2 className="font-display text-[20px] font-extrabold text-[#003366]">Batch Performance &amp; Exam Analytics</h2>
-          <p className="mt-0.5 text-[13px] text-[#5A6B8C]">
-            Comprehensive student score reports, question error analysis, and topic revision recommendations.
+          <h2 className="font-display text-[18px] font-extrabold text-[#003366]">Batch Performance Reports</h2>
+          <p className="text-[13px] text-[#5A6B8C]">
+            Examine student rankings, score distributions, and topic accuracy across your assigned exams.
           </p>
         </div>
 
         {assignments.length > 0 && (
           <div className="flex items-center gap-2.5">
-            <label className="text-[13.5px] font-bold text-[#003366]">Exam Report:</label>
+            <label className="text-[13px] font-semibold text-[#31407F]">Select Exam:</label>
             <select
               className={SELECT}
               value={selectedAssignmentId}
@@ -181,9 +160,9 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
       )}
 
       {loading ? (
-        <div className="rounded-3xl border border-dashed border-[#003366]/20 bg-white px-10 py-16 text-center text-[#5A6B8C]">
-          <div className="inline-block h-8 w-8 animate-spin rounded-full border-3 border-accent border-t-transparent" />
-          <p className="mt-3 text-[15px] font-bold text-[#003366]">Compiling batch analytics...</p>
+        <div className="rounded-3xl border border-dashed border-[#003366]/20 bg-white px-10 py-12 text-center text-[#5A6B8C]">
+          <div className="inline-block h-6 w-6 animate-spin rounded-full border-2 border-accent border-t-transparent" />
+          <p className="mt-2 text-[14px] font-medium">Loading batch performance data...</p>
         </div>
       ) : !report ? (
         <div className="rounded-3xl border border-dashed border-[#003366]/20 bg-white px-5 py-9 text-center text-[13.5px] font-medium text-[#5A6B8C]">
@@ -193,164 +172,57 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
         <>
           {/* Summary Overview Cards */}
           <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
-            <div className="rounded-[24px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_20px_45px_-30px_rgba(0,51,102,.35)]">
-              <div className="text-[12px] font-bold uppercase tracking-wider text-[#5A6B8C]">
-                Batch Average Score
+            <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+              <div className="text-[12px] font-semibold uppercase text-[#5A6B8C]">
+                Batch Average
               </div>
-              <div className="my-1.5 font-display text-[30px] font-black text-[#003366]">
+              <div className="my-2 font-display text-[28px] font-extrabold text-[#003366]">
                 {report.summary.avgScore}
               </div>
-              <div className="text-[12px] font-semibold text-[#5A6B8C]">Marks out of {report.assignment.paper.questionCount * 4}</div>
+              <div className="text-[12px] text-[#5A6B8C]">Marks</div>
             </div>
 
-            <div className="rounded-[24px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_20px_45px_-30px_rgba(0,51,102,.35)]">
-              <div className="text-[12px] font-bold uppercase tracking-wider text-[#5A6B8C]">
+            <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+              <div className="text-[12px] font-semibold uppercase text-[#5A6B8C]">
                 Highest Score
               </div>
-              <div className="my-1.5 font-display text-[30px] font-black text-[#15803D]">
+              <div className="my-2 font-display text-[28px] font-extrabold text-accent">
                 {report.summary.highestScore}
               </div>
-              <div className="text-[12px] font-semibold text-[#15803D]">Top Batch Rank 🥇</div>
+              <div className="text-[12px] text-[#5A6B8C]">Marks (Top Rank)</div>
             </div>
 
-            <div className="rounded-[24px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_20px_45px_-30px_rgba(0,51,102,.35)]">
-              <div className="text-[12px] font-bold uppercase tracking-wider text-[#5A6B8C]">
+            <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+              <div className="text-[12px] font-semibold uppercase text-[#5A6B8C]">
                 Lowest Score
               </div>
-              <div className="my-1.5 font-display text-[30px] font-black text-[#C8202F]">
+              <div className="my-2 font-display text-[28px] font-extrabold text-[#C8202F]">
                 {report.summary.lowestScore}
               </div>
-              <div className="text-[12px] font-semibold text-[#C8202F]">Marks</div>
+              <div className="text-[12px] text-[#5A6B8C]">Marks</div>
             </div>
 
-            <div className="rounded-[24px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_20px_45px_-30px_rgba(0,51,102,.35)]">
-              <div className="text-[12px] font-bold uppercase tracking-wider text-[#5A6B8C]">
+            <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+              <div className="text-[12px] font-semibold uppercase text-[#5A6B8C]">
                 Submissions
               </div>
-              <div className="my-1.5 font-display text-[30px] font-black text-accent">
+              <div className="my-2 font-display text-[28px] font-extrabold text-[#003366]">
                 {report.summary.submittedCount} / {report.summary.totalEnrolled}
               </div>
-              <div className="text-[12px] font-bold text-accent">
+              <div className="text-[12px] text-accent">
                 {report.summary.totalEnrolled > 0
-                  ? `${Math.round((report.summary.submittedCount / report.summary.totalEnrolled) * 100)}% Participation`
+                  ? `${Math.round((report.summary.submittedCount / report.summary.totalEnrolled) * 100)}% turnout`
                   : '—'}
               </div>
             </div>
           </div>
 
-          {/* Revision & Curriculum Recommendations Banner */}
-          {report.revisionRecommendations && (
-            <div className="rounded-[26px] border-[2px] border-[#003366]/15 bg-white p-5 shadow-[0_20px_45px_-30px_rgba(0,51,102,.3)]">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#003366]/10 pb-3">
-                <div className="flex items-center gap-2">
-                  <span className="text-[20px]">📋</span>
-                  <h3 className="font-display text-[17px] font-extrabold text-[#003366]">
-                    Curriculum Health &amp; Class Revision Priorities
-                  </h3>
-                </div>
-                <span className="rounded-full bg-ice px-3 py-1 text-[11.5px] font-bold text-[#003366]">
-                  Actionable Insights for Teaching
-                </span>
-              </div>
-
-              <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-                {/* Lacking Topics Box */}
-                <div className="rounded-2xl border-[2px] border-[#C8202F]/30 bg-[#FDF3F4] p-4">
-                  <div className="flex items-center gap-2 text-[14px] font-black text-[#C8202F]">
-                    <span>⚠️ Topics Needing Immediate Revision (&lt; 50% Accuracy)</span>
-                  </div>
-                  <p className="mt-1 text-[12px] text-[#5A6B8C]">
-                    Students struggled heavily in these topics. Consider a recap lecture or doubt session.
-                  </p>
-                  {report.revisionRecommendations.lackingTopics.length === 0 ? (
-                    <div className="mt-3 rounded-xl bg-white p-3 text-[13px] font-bold text-[#146C33]">
-                      ✓ Excellent! The batch achieved 50% or higher accuracy across all topics.
-                    </div>
-                  ) : (
-                    <div className="mt-3 flex flex-col gap-2">
-                      {report.revisionRecommendations.lackingTopics.map((item, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-center justify-between rounded-xl border border-[#C8202F]/20 bg-white p-2.5 shadow-sm"
-                        >
-                          <div>
-                            <span className="text-[13.5px] font-bold text-[#003366]">{item.topic}</span>
-                            <span className="ml-2 rounded bg-ice px-1.5 py-0.5 text-[11px] font-semibold text-[#003366]">
-                              {item.subject}
-                            </span>
-                            <span className="ml-2 text-[11.5px] text-[#5A6B8C]">
-                              ({item.questionCount} {item.questionCount === 1 ? 'question' : 'questions'})
-                            </span>
-                          </div>
-                          <span className="rounded-lg bg-[#FDF3F4] px-2.5 py-1 text-[13px] font-extrabold text-[#C8202F]">
-                            {item.accuracyPct}% Accuracy
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Strong Topics Box */}
-                <div className="rounded-2xl border-[2px] border-[#146C33]/30 bg-[#EAF7EF] p-4">
-                  <div className="flex items-center gap-2 text-[14px] font-black text-[#146C33]">
-                    <span>🌟 Mastered Strong Topics (≥ 70% Accuracy)</span>
-                  </div>
-                  <p className="mt-1 text-[12px] text-[#5A6B8C]">
-                    High mastery demonstrated by the majority of the batch.
-                  </p>
-                  {report.revisionRecommendations.topPerformingTopics.length === 0 ? (
-                    <div className="mt-3 rounded-xl bg-white p-3 text-[12.5px] text-[#5A6B8C]">
-                      No topic reached 70% accuracy in this test. Continued structured practice is advised.
-                    </div>
-                  ) : (
-                    <div className="mt-3 flex flex-col gap-2">
-                      {report.revisionRecommendations.topPerformingTopics.map((item, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-center justify-between rounded-xl border border-[#146C33]/20 bg-white p-2.5 shadow-sm"
-                        >
-                          <div>
-                            <span className="text-[13.5px] font-bold text-[#003366]">{item.topic}</span>
-                            <span className="ml-2 rounded bg-ice px-1.5 py-0.5 text-[11px] font-semibold text-[#003366]">
-                              {item.subject}
-                            </span>
-                            <span className="ml-2 text-[11.5px] text-[#5A6B8C]">
-                              ({item.questionCount} {item.questionCount === 1 ? 'question' : 'questions'})
-                            </span>
-                          </div>
-                          <span className="rounded-lg bg-[#EAF7EF] px-2.5 py-1 text-[13px] font-extrabold text-[#146C33]">
-                            {item.accuracyPct}% Accuracy
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {report.revisionRecommendations.recommendations.length > 0 && (
-                <div className="mt-4 rounded-xl border border-[#003366]/15 bg-[#F8FAFF] p-3.5 text-[13px] text-[#003366]">
-                  <span className="font-extrabold text-[#003366]">📌 Faculty Teaching Advice: </span>
-                  {report.revisionRecommendations.recommendations.join(' • ')}
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* Student Leaderboard Table */}
-          <div className="rounded-[26px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
-            <div className="mb-4 flex flex-wrap items-center justify-between gap-2.5">
-              <div>
-                <h3 className="font-display text-[18px] font-extrabold text-[#003366]">
-                  Batch Leaderboard &amp; Rankings ({report.rankList.length} Students)
-                </h3>
-                <p className="text-[12.5px] text-[#5A6B8C]">
-                  Click the prominent <strong>📄 View Paper Sheet</strong> button to inspect any student&apos;s chosen options, answers, and score breakdown.
-                </p>
-              </div>
-              <span className="rounded-lg bg-ice px-2.5 py-1 text-[12px] font-bold text-[#003366]">
-                Ranked by Total Marks
+          {/* Student Leaderboard Table with Eye Icon */}
+          <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+            <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2.5 font-display text-[17px] font-extrabold text-[#003366]">
+              <span>Batch Leaderboard &amp; Rankings ({report.rankList.length})</span>
+              <span className="text-[12px] font-normal text-[#5A6B8C]">
+                Ranked by Total Marks Descending • Click 👁 to inspect student response sheet
               </span>
             </div>
 
@@ -369,9 +241,9 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                       <th className="px-3 py-2.5 text-center">Score / Max</th>
                       <th className="px-3 py-2.5 text-center">Accuracy</th>
                       <th className="px-3 py-2.5 text-center">Correct / Wrong / Skip</th>
-                      <th className="px-3 py-2.5">Student Weak Topics</th>
+                      <th className="px-3 py-2.5">Weak Topics</th>
                       <th className="px-3 py-2.5 text-right">Time Taken</th>
-                      <th className="px-3 py-2.5 text-center">Exam Paper Sheet</th>
+                      <th className="px-3 py-2.5 text-center">Paper Sheet</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -386,11 +258,24 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                         <tr key={st.studentId} className="border-b border-[#003366]/10 transition-colors hover:bg-[#F8FAFF]">
                           <td className="px-3 py-3 text-[14px] font-bold text-[#003366]">{medal}</td>
                           <td className="px-3 py-3 font-semibold text-accent">{st.rollNumber}</td>
-                          <td className="px-3 py-3 font-bold text-[#003366]">{st.name}</td>
+                          <td className="px-3 py-3 font-medium text-[#003366]">
+                            <div className="flex items-center gap-2">
+                              <span>{st.name}</span>
+                              {/* Eye symbol right after student name */}
+                              <button
+                                type="button"
+                                onClick={() => handleViewSubmission(st.studentId)}
+                                className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-ice text-[13px] text-[#003366] transition hover:bg-accent hover:text-white"
+                                title={`Inspect ${st.name}'s answered paper`}
+                              >
+                                👁
+                              </button>
+                            </div>
+                          </td>
                           <td className="px-3 py-3 text-center">
                             <span
                               className={
-                                st.totalScore >= 0 ? 'text-[14px] font-extrabold text-[#003366]' : 'text-[14px] font-extrabold text-[#C8202F]'
+                                st.totalScore >= 0 ? 'font-bold text-[#003366]' : 'font-bold text-[#C8202F]'
                               }
                             >
                               {st.totalScore}
@@ -399,7 +284,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                           </td>
                           <td className="px-3 py-3 text-center">
                             <span
-                              className={`rounded-full px-2.5 py-0.5 text-[11.5px] font-bold ${
+                              className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${
                                 accuracy >= 70
                                   ? 'bg-[#EAF7EF] text-[#146C33]'
                                   : accuracy >= 40
@@ -411,40 +296,45 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                             </span>
                           </td>
                           <td className="px-3 py-3 text-center text-[12px]">
-                            <span className="font-extrabold text-[#15803D]">+{st.correctCount}</span>{' '}
+                            <span className="font-semibold text-[#15803D]">+{st.correctCount}</span>{' '}
                             <span className="text-[#003366]/20">/</span>{' '}
-                            <span className="font-extrabold text-[#C8202F]">-{st.incorrectCount}</span>{' '}
+                            <span className="font-semibold text-[#C8202F]">-{st.incorrectCount}</span>{' '}
                             <span className="text-[#003366]/20">/</span>{' '}
-                            <span className="font-semibold text-[#5A6B8C]">{st.unattemptedCount}</span>
+                            <span className="text-[#5A6B8C]">{st.unattemptedCount}</span>
                           </td>
-                          <td className="px-3 py-3 text-[11.5px]">
+                          <td className="px-3 py-3 text-[11px]">
                             {st.personalWeakTopics && st.personalWeakTopics.length > 0 ? (
-                              <div className="flex flex-wrap gap-1 max-w-[220px]">
-                                {st.personalWeakTopics.map((w, i) => (
+                              <div className="flex flex-wrap gap-1 max-w-[200px]">
+                                {st.personalWeakTopics.slice(0, 2).map((w, i) => (
                                   <span
                                     key={i}
-                                    className="rounded-md border border-[#C8202F]/20 bg-[#FDF3F4] px-2 py-0.5 font-bold text-[#C8202F]"
+                                    className="rounded bg-[#FDF3F4] px-1.5 py-0.5 font-medium text-[#C8202F]"
                                   >
                                     {w.topic} ({w.mistakes})
                                   </span>
                                 ))}
+                                {st.personalWeakTopics.length > 2 && (
+                                  <span className="text-[#5A6B8C]">
+                                    +{st.personalWeakTopics.length - 2} more
+                                  </span>
+                                )}
                               </div>
                             ) : (
-                              <span className="font-bold text-[#15803D]">✓ No weak topics</span>
+                              <span className="font-medium text-[#15803D]">None</span>
                             )}
                           </td>
-                          <td className="px-3 py-3 text-right text-[12px] font-medium text-[#5A6B8C]">
+                          <td className="px-3 py-3 text-right text-[12px] text-[#5A6B8C]">
                             {formatTime(st.timeTakenSeconds)}
                           </td>
                           <td className="px-3 py-3 text-center">
                             <button
                               type="button"
                               onClick={() => handleViewSubmission(st.studentId)}
-                              className="inline-flex items-center gap-1.5 rounded-xl border-[2px] border-accent bg-[#F5ECF7] px-3 py-1.5 text-[12.5px] font-extrabold text-accent shadow-[0_2px_0_#C6D2F8] transition-all hover:bg-accent hover:text-white hover:shadow-[0_4px_0_#5A2560] active:translate-y-0.5"
-                              title="Click to view full answered paper with student chosen options and answers"
+                              className="inline-flex items-center gap-1.5 rounded-xl border border-[#003366]/20 bg-white px-2.5 py-1 text-[12px] font-bold text-[#003366] shadow-[0_2px_0_#C6D2F8] transition-all hover:border-accent hover:bg-[#F3E8FF] hover:text-accent hover:shadow-[0_3px_0_#E3C9E6] active:translate-y-0.5"
+                              title="Inspect student's chosen options and question paper"
                             >
-                              <span>📄</span>
-                              <span>View Paper Sheet</span>
+                              <span>👁</span>
+                              <span>View</span>
                             </button>
                           </td>
                         </tr>
@@ -456,89 +346,137 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
             )}
           </div>
 
-          {/* Topic-Wise Question Difficulty & Option Distribution Section */}
-          <div className="rounded-[26px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
-            <div className="mb-5 flex flex-wrap items-center justify-between gap-4 border-b border-[#003366]/10 pb-4">
+          {/* 3. Subject-Filtered, Topic-Grouped Error & Revision Analytics */}
+          <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+            {/* Header: Title on Left, Subject Filter Dropdown on the Top Right */}
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-[#003366]/10 pb-4">
               <div>
-                <h3 className="font-display text-[18px] font-extrabold text-[#003366]">
-                  Topic-Wise Question Difficulty &amp; Student Option Analytics
+                <h3 className="font-display text-[17px] font-extrabold text-[#003366]">
+                  Question Difficulty &amp; Error Analysis
                 </h3>
-                <p className="mt-0.5 text-[12.5px] text-[#5A6B8C]">
-                  Examine accuracy per topic, see the question paper text, and discover what percentage of students picked each option (A, B, C, D).
+                <p className="text-[12px] text-[#5A6B8C]">
+                  Topic-grouped stack: Identifies questions, batch accuracy, and marks lost per topic. Click any topic to inspect individual questions.
                 </p>
               </div>
 
-              {/* Controls: Subject Filter + View Mode + Expand All Toggle */}
-              <div className="flex flex-wrap items-center gap-3">
-                {/* Subject Filter Dropdown */}
-                <div className="flex items-center gap-2">
-                  <label className="text-[13px] font-bold text-[#003366]">Subject:</label>
-                  <select
-                    value={selectedSubject}
-                    onChange={(e) => setSelectedSubject(e.target.value)}
-                    className="h-[40px] cursor-pointer rounded-xl border-[2px] border-[#003366] bg-white px-3 text-[13px] font-extrabold text-[#003366] shadow-[0_2px_0_#C6D2F8] outline-none transition-[border-color,box-shadow] focus:border-accent"
-                  >
-                    <option value="ALL">All Subjects</option>
-                    {availableSubjects.map((sub) => (
-                      <option key={sub} value={sub}>
-                        {sub}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* View Mode Toggle: Cards vs Table */}
-                <div className="flex items-center rounded-xl border border-[#003366]/20 bg-[#F1F5F9] p-0.5 text-[12px] font-bold">
-                  <button
-                    type="button"
-                    onClick={() => setAnalyticsViewMode('cards')}
-                    className={`rounded-lg px-2.5 py-1.5 transition ${
-                      analyticsViewMode === 'cards'
-                        ? 'bg-white text-[#003366] shadow-sm'
-                        : 'text-[#5A6B8C] hover:text-[#003366]'
-                    }`}
-                  >
-                    📑 Detailed Cards
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setAnalyticsViewMode('table')}
-                    className={`rounded-lg px-2.5 py-1.5 transition ${
-                      analyticsViewMode === 'table'
-                        ? 'bg-white text-[#003366] shadow-sm'
-                        : 'text-[#5A6B8C] hover:text-[#003366]'
-                    }`}
-                  >
-                    📊 Quick Table
-                  </button>
-                </div>
-
-                {/* Expand / Collapse All Toggle */}
-                <div className="flex items-center gap-1.5">
-                  <button
-                    type="button"
-                    onClick={handleExpandAll}
-                    className="rounded-xl border border-[#003366]/20 bg-white px-2.5 py-1.5 text-[12px] font-bold text-[#003366] hover:bg-ice"
-                  >
-                    Expand All
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleCollapseAll}
-                    className="rounded-xl border border-[#003366]/20 bg-white px-2.5 py-1.5 text-[12px] font-bold text-[#5A6B8C] hover:bg-[#F1F5F9]"
-                  >
-                    Collapse All
-                  </button>
-                </div>
+              {/* Subject Filter Dropdown on top right */}
+              <div className="flex items-center gap-2">
+                <label className="text-[13px] font-bold text-[#003366]">Subject:</label>
+                <select
+                  value={selectedSubject}
+                  onChange={(e) => setSelectedSubject(e.target.value)}
+                  className="h-[38px] cursor-pointer rounded-xl border-[2px] border-[#003366] bg-white px-3 text-[13px] font-bold text-[#003366] shadow-[0_2px_0_#C6D2F8] outline-none transition-[border-color,box-shadow] focus:border-accent"
+                >
+                  <option value="ALL">All Subjects</option>
+                  {availableSubjects.map((sub) => (
+                    <option key={sub} value={sub}>
+                      {sub}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
 
+            {/* Batch & Student Revision Analytics Summary (Strongest, Lacking, Actionable Advice) */}
+            {report.revisionRecommendations && (
+              <div className="mb-5 grid grid-cols-1 gap-3.5 md:grid-cols-3">
+                {/* 1. Lacking / Weak Topics */}
+                <div className="rounded-2xl border border-[#C8202F]/25 bg-[#FDF3F4] p-3.5">
+                  <div className="flex items-center gap-1.5 text-[13px] font-bold text-[#C8202F]">
+                    <span>⚠️ Lacking / Weak Topics</span>
+                  </div>
+                  <p className="mt-0.5 text-[11.5px] text-[#5A6B8C]">
+                    Topics with high error rates or marks lost:
+                  </p>
+                  {report.revisionRecommendations.lackingTopics.length === 0 ? (
+                    <div className="mt-2 text-[12px] font-semibold text-[#146C33]">
+                      ✓ No topics below 50% accuracy.
+                    </div>
+                  ) : (
+                    <div className="mt-2 flex flex-col gap-1.5">
+                      {report.revisionRecommendations.lackingTopics.map((lt, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-center justify-between rounded-lg bg-white px-2.5 py-1.5 text-[12px] shadow-sm"
+                        >
+                          <div>
+                            <span className="font-bold text-[#003366]">{lt.topic}</span>
+                            <span className="ml-1 text-[11px] text-[#5A6B8C]">({lt.subject})</span>
+                          </div>
+                          <div className="text-right">
+                            <span className="font-bold text-[#C8202F]">{lt.accuracyPct}% acc</span>
+                            {lt.marksLost !== undefined && (
+                              <span className="ml-1.5 text-[11px] font-medium text-[#C8202F]">
+                                (-{lt.marksLost} pts)
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* 2. Strongest Topics */}
+                <div className="rounded-2xl border border-[#146C33]/25 bg-[#EAF7EF] p-3.5">
+                  <div className="flex items-center gap-1.5 text-[13px] font-bold text-[#146C33]">
+                    <span>🌟 Strongest Topics</span>
+                  </div>
+                  <p className="mt-0.5 text-[11.5px] text-[#5A6B8C]">
+                    Topics with the highest score and accuracy:
+                  </p>
+                  {report.revisionRecommendations.topPerformingTopics.length === 0 ? (
+                    <div className="mt-2 text-[12px] text-[#5A6B8C]">
+                      No topics reached 70% accuracy yet.
+                    </div>
+                  ) : (
+                    <div className="mt-2 flex flex-col gap-1.5">
+                      {report.revisionRecommendations.topPerformingTopics.map((st, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-center justify-between rounded-lg bg-white px-2.5 py-1.5 text-[12px] shadow-sm"
+                        >
+                          <div>
+                            <span className="font-bold text-[#003366]">{st.topic}</span>
+                            <span className="ml-1 text-[11px] text-[#5A6B8C]">({st.subject})</span>
+                          </div>
+                          <span className="font-bold text-[#146C33]">{st.accuracyPct}% acc</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* 3. Actionable Revision Need */}
+                <div className="rounded-2xl border border-[#003366]/15 bg-[#F8FAFF] p-3.5">
+                  <div className="flex items-center gap-1.5 text-[13px] font-bold text-[#003366]">
+                    <span>📌 Actionable Revision Need</span>
+                  </div>
+                  <p className="mt-0.5 text-[11.5px] text-[#5A6B8C]">
+                    Faculty priorities to re-teach or assign practice:
+                  </p>
+                  <div className="mt-2 text-[12px] leading-relaxed text-[#31407F]">
+                    {report.revisionRecommendations.recommendations.length > 0 ? (
+                      <ul className="list-inside list-disc space-y-1">
+                        {report.revisionRecommendations.recommendations.map((rec, i) => (
+                          <li key={i}>{rec}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <span>No specific revision needs identified.</span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Topic-Grouped Stack (No Flat Dumps) */}
             {filteredTopics.length === 0 ? (
-              <div className="rounded-2xl border border-dashed border-[#003366]/20 bg-white p-8 text-center text-[13.5px] font-medium text-[#5A6B8C]">
+              <div className="rounded-2xl border border-dashed border-[#003366]/20 bg-white p-6 text-center text-[13px] text-[#5A6B8C]">
                 No topics found for the selected subject filter.
               </div>
             ) : (
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-3">
                 {filteredTopics.map((t) => {
                   const topicKey = `${t.subject}-${t.topic}`;
                   const isExpanded = !!expandedTopics[topicKey];
@@ -546,29 +484,31 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                   return (
                     <div
                       key={topicKey}
-                      className="overflow-hidden rounded-2xl border-[2px] border-[#003366]/15 bg-white shadow-sm transition-all"
+                      className="overflow-hidden rounded-2xl border border-[#003366]/15 bg-white transition-all shadow-sm"
                     >
-                      {/* Topic Header Row (Accordion Trigger) */}
+                      {/* Topic-Grouped Stack Row (Clean, Compact, Click to Expand) */}
                       <button
                         type="button"
                         onClick={() => toggleTopic(topicKey)}
-                        className="flex w-full flex-wrap items-center justify-between gap-3 bg-[#F8FAFF] px-5 py-3.5 text-left transition-colors hover:bg-[#EEF3FF]"
+                        className="flex w-full flex-wrap items-center justify-between gap-3 bg-[#F8FAFF] px-4 py-3.5 text-left transition-colors hover:bg-[#EEF3FF]"
                       >
-                        <div className="flex flex-wrap items-center gap-2.5">
-                          <span className="font-display text-[16px] font-extrabold text-[#003366]">{t.topic}</span>
-                          <span className="rounded-full bg-ice px-2.5 py-0.5 text-[11.5px] font-extrabold text-[#003366]">
+                        {/* Topic Name & Question Count */}
+                        <div className="flex items-center gap-2.5">
+                          <span className="text-[14px] font-extrabold text-[#003366]">{t.topic}</span>
+                          <span className="rounded-full bg-ice px-2 py-0.5 text-[11px] font-bold text-[#003366]">
                             {t.subject}
                           </span>
-                          <span className="rounded-md border border-[#003366]/15 bg-white px-2 py-0.5 text-[11.5px] font-bold text-[#5A6B8C]">
+                          <span className="rounded-md border border-[#003366]/15 bg-white px-2 py-0.5 text-[11.5px] font-bold text-[#31407F]">
                             {t.questionCount} {t.questionCount === 1 ? 'Question' : 'Questions'}
                           </span>
                         </div>
 
+                        {/* Topic Stats: Batch Accuracy & Marks Lost */}
                         <div className="flex flex-wrap items-center gap-3.5">
-                          {/* Accuracy bar */}
+                          {/* Accuracy Bar */}
                           <div className="flex items-center gap-2">
-                            <span className="text-[12px] font-semibold text-[#5A6B8C]">Batch Accuracy:</span>
-                            <div className="h-2.5 w-28 overflow-hidden rounded-full bg-[#E2E8F0]">
+                            <span className="text-[12px] text-[#5A6B8C]">Batch Accuracy:</span>
+                            <div className="h-2 w-24 overflow-hidden rounded-full bg-[#E2E8F0]">
                               <div
                                 className={`h-full ${
                                   t.accuracyPct >= 70
@@ -581,7 +521,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                               />
                             </div>
                             <span
-                              className={`min-w-[36px] text-[13px] font-black ${
+                              className={`min-w-[34px] text-[12.5px] font-bold ${
                                 t.accuracyPct >= 70
                                   ? 'text-[#15803D]'
                                   : t.accuracyPct >= 40
@@ -593,312 +533,131 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                             </span>
                           </div>
 
+                          {/* Marks Lost for that topic */}
+                          <div className="rounded-md bg-white border border-[#003366]/15 px-2 py-0.5 text-[11.5px]">
+                            <span className="text-[#5A6B8C]">Marks Lost: </span>
+                            <span className={`font-bold ${t.marksLost ? 'text-[#C8202F]' : 'text-[#15803D]'}`}>
+                              {t.marksLost || 0}
+                            </span>
+                          </div>
+
+                          {/* Correct / Wrong / Skipped Counts */}
+                          <div className="text-[12px] text-[#5A6B8C]">
+                            <span className="font-bold text-[#15803D]">+{t.correctCount}</span> /{' '}
+                            <span className="font-bold text-[#C8202F]">-{t.wrongCount}</span> /{' '}
+                            <span className="font-medium text-[#5A6B8C]">{t.skippedCount}</span>
+                          </div>
+
                           {/* Status Badge */}
                           {t.isWeak ? (
-                            <span className="rounded-full bg-[#FDF3F4] px-2.5 py-1 text-[11.5px] font-extrabold text-[#C8202F]">
+                            <span className="rounded-full bg-[#FDF3F4] px-2 py-0.5 text-[11px] font-bold text-[#C8202F]">
                               ⚠️ Needs Revision
                             </span>
                           ) : t.isStrong ? (
-                            <span className="rounded-full bg-[#EAF7EF] px-2.5 py-1 text-[11.5px] font-extrabold text-[#146C33]">
+                            <span className="rounded-full bg-[#EAF7EF] px-2 py-0.5 text-[11px] font-bold text-[#146C33]">
                               ✅ Mastered
                             </span>
                           ) : (
-                            <span className="rounded-full bg-[#FEF3C7] px-2.5 py-1 text-[11.5px] font-extrabold text-[#B45309]">
+                            <span className="rounded-full bg-[#FEF3C7] px-2 py-0.5 text-[11px] font-bold text-[#B45309]">
                               🟡 Average
                             </span>
                           )}
 
-                          <span className="text-[13px] font-extrabold text-[#003366]">
-                            {isExpanded ? '▲ Hide' : '▼ View Questions & Options'}
+                          {/* Expand/Collapse Dropdown Arrow */}
+                          <span className="text-[12.5px] font-bold text-[#003366]">
+                            {isExpanded ? '▲ Close' : '▼ Inspect Questions'}
                           </span>
                         </div>
                       </button>
 
-                      {/* Expanded Content */}
+                      {/* Expanded Section: Inspect Individual Questions Within That Topic */}
                       {isExpanded && (
-                        <div className="border-t border-[#003366]/10 p-5 bg-white">
-                          {analyticsViewMode === 'cards' ? (
-                            /* Detailed Question Cards with Math, Options, and % Selection */
-                            <div className="flex flex-col gap-5">
-                              {t.questions.map((q) => {
-                                const letters = ['A', 'B', 'C', 'D'];
-                                const totalAttempts = q.correctCount + q.wrongCount;
-                                const accuracy = totalAttempts > 0 ? Math.round((q.correctCount / totalAttempts) * 100) : 0;
-
-                                return (
-                                  <div
+                        <div className="border-t border-[#003366]/10 p-4 bg-white">
+                          <div className="overflow-x-auto">
+                            <table className="w-full border-collapse text-[12.5px]">
+                              <thead>
+                                <tr className="border-b border-[#003366]/10 text-left text-[#5A6B8C]">
+                                  <th className="w-[50px] px-2.5 py-2">Q#</th>
+                                  <th className="px-2.5 py-2">Type</th>
+                                  <th className="px-2.5 py-2">Difficulty</th>
+                                  <th className="min-w-[140px] px-2.5 py-2">Batch Accuracy</th>
+                                  <th className="px-2.5 py-2 text-center">Correct / Wrong / Skip</th>
+                                  <th className="min-w-[200px] px-2.5 py-2">Student Option Choices</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {t.questions.map((q) => (
+                                  <tr
                                     key={q.questionNumber}
-                                    className="rounded-2xl border-[1.5px] border-[#003366]/15 bg-white p-4 shadow-sm"
+                                    className="border-b border-[#003366]/5 transition-colors hover:bg-[#FAFBFD]"
                                   >
-                                    {/* Question Card Header */}
-                                    <div className="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-[#003366]/10 pb-2.5">
+                                    <td className="px-2.5 py-2.5 font-bold text-[#003366]">
+                                      #{q.questionNumber}
+                                    </td>
+                                    <td className="px-2.5 py-2.5">
+                                      <span className="rounded bg-ice px-1.5 py-0.5 text-[10.5px] font-bold uppercase text-[#003366]">
+                                        {q.questionType.replace('mcq_', '')}
+                                      </span>
+                                    </td>
+                                    <td className="px-2.5 py-2.5 text-[#5A6B8C] capitalize">
+                                      {q.difficulty}
+                                    </td>
+                                    <td className="px-2.5 py-2.5">
                                       <div className="flex items-center gap-2">
-                                        <span className="rounded-lg bg-[#003366] px-2.5 py-1 text-[13px] font-extrabold text-white">
-                                          Question #{q.questionNumber}
-                                        </span>
-                                        <span className="rounded bg-ice px-2 py-0.5 text-[11px] font-bold text-[#003366]">
-                                          {q.questionType.replace('mcq_', '').toUpperCase()}
-                                        </span>
-                                        <span className="text-[12px] font-medium text-[#5A6B8C] capitalize">
-                                          Difficulty: {q.difficulty}
+                                        <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#E2E8F0]">
+                                          <div
+                                            className={`h-full ${
+                                              q.accuracyPct >= 60
+                                                ? 'bg-[#15803D]'
+                                                : q.accuracyPct >= 35
+                                                  ? 'bg-[#D97706]'
+                                                  : 'bg-[#C8202F]'
+                                            }`}
+                                            style={{ width: `${q.accuracyPct}%` }}
+                                          />
+                                        </div>
+                                        <span className="min-w-[32px] text-[11px] font-bold">
+                                          {q.accuracyPct}%
                                         </span>
                                       </div>
-
-                                      <div className="flex items-center gap-3">
-                                        <span className="text-[12.5px] text-[#5A6B8C]">
-                                          Attempts: <strong className="font-extrabold text-[#003366]">{totalAttempts}</strong>
-                                        </span>
-                                        <span className="text-[12px] font-extrabold text-[#15803D]">
-                                          +{q.correctCount} Correct
-                                        </span>
-                                        <span className="text-[12px] font-extrabold text-[#C8202F]">
-                                          -{q.wrongCount} Wrong
-                                        </span>
-                                        <span className="text-[12px] text-[#5A6B8C]">
-                                          {q.skippedCount} Skipped
-                                        </span>
-                                        <span
-                                          className={`rounded-full px-2 py-0.5 text-[12px] font-black ${
-                                            accuracy >= 70
-                                              ? 'bg-[#EAF7EF] text-[#146C33]'
-                                              : accuracy >= 40
-                                                ? 'bg-[#FEF3C7] text-[#B45309]'
-                                                : 'bg-[#FDF3F4] text-[#C8202F]'
-                                          }`}
-                                        >
-                                          {accuracy}% Accuracy
-                                        </span>
-                                      </div>
-                                    </div>
-
-                                    {/* Question Text */}
-                                    {q.questionText ? (
-                                      <div className="text-[14px] leading-[1.65] text-[#0F172A]">
-                                        {q.questionType === 'matrix_match' || parseMatchQuestion(q.questionText) ? (
-                                          <MatchListTable questionText={q.questionText} />
-                                        ) : (
-                                          <MathText text={q.questionText} />
-                                        )}
-                                      </div>
-                                    ) : null}
-
-                                    {/* Option Selection Distribution - The Boomer-Friendly Visual Breakdown! */}
-                                    {q.options && q.options.length > 0 ? (
-                                      <div className="mt-4 flex flex-col gap-2">
-                                        <div className="text-[12px] font-extrabold uppercase tracking-wider text-[#31407F]">
-                                          Option Selection Breakdown (How Students Answered):
-                                        </div>
-
-                                        <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-                                          {q.options.map((optText, idx) => {
-                                            const letter = letters[idx]!;
-                                            const isCorrectOpt = q.correctAnswer?.toUpperCase().includes(letter);
-                                            const pct = q.optionPercentages ? q.optionPercentages[letter] || 0 : 0;
-                                            const isDistractorTrap = !isCorrectOpt && pct >= 25;
-
-                                            return (
-                                              <div
-                                                key={idx}
-                                                className={`relative overflow-hidden rounded-xl border-[1.5px] p-3 text-[12.5px] transition ${
-                                                  isCorrectOpt
-                                                    ? 'border-[#15803D] bg-[#F0FDF4]'
-                                                    : isDistractorTrap
-                                                      ? 'border-[#C8202F] bg-[#FFF5F5]'
-                                                      : 'border-[#003366]/15 bg-white'
-                                                }`}
-                                              >
-                                                <div className="flex items-start justify-between gap-2">
-                                                  <div className="flex items-start gap-2 flex-1">
-                                                    <span
-                                                      className={`flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full text-[11px] font-extrabold ${
-                                                        isCorrectOpt
-                                                          ? 'bg-[#15803D] text-white'
-                                                          : isDistractorTrap
-                                                            ? 'bg-[#C8202F] text-white'
-                                                            : 'bg-white text-[#003366] border border-[#003366]/20'
-                                                      }`}
-                                                    >
-                                                      {letter}
-                                                    </span>
-                                                    <div className="flex-1">
-                                                      <MathText text={stripOptionPrefix(optText)} />
-                                                    </div>
-                                                  </div>
-
-                                                  <div className="text-right">
-                                                    <span
-                                                      className={`font-black text-[14px] ${
-                                                        isCorrectOpt
-                                                          ? 'text-[#15803D]'
-                                                          : pct > 0
-                                                            ? 'text-[#C8202F]'
-                                                            : 'text-[#5A6B8C]'
-                                                      }`}
-                                                    >
-                                                      {pct}%
-                                                    </span>
-                                                    <div className="text-[10px] text-[#5A6B8C]">of students</div>
-                                                  </div>
-                                                </div>
-
-                                                {/* Percentage Bar */}
-                                                <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-[#E2E8F0]">
-                                                  <div
-                                                    className={`h-full ${
-                                                      isCorrectOpt
-                                                        ? 'bg-[#15803D]'
-                                                        : isDistractorTrap
-                                                          ? 'bg-[#C8202F]'
-                                                          : 'bg-[#94A3B8]'
-                                                    }`}
-                                                    style={{ width: `${pct}%` }}
-                                                  />
-                                                </div>
-
-                                                {/* Badge */}
-                                                <div className="mt-1.5 flex items-center justify-between text-[11px]">
-                                                  {isCorrectOpt ? (
-                                                    <span className="font-extrabold text-[#15803D]">
-                                                      ✓ Correct Answer
-                                                    </span>
-                                                  ) : isDistractorTrap ? (
-                                                    <span className="font-extrabold text-[#C8202F]">
-                                                      ⚠️ Distractor Trap ({pct}% fell for this)
-                                                    </span>
-                                                  ) : (
-                                                    <span className="text-[#5A6B8C]">Incorrect Option</span>
-                                                  )}
-                                                </div>
-                                              </div>
-                                            );
-                                          })}
-                                        </div>
-
-                                        {/* Skipped percentage pill */}
-                                        <div className="mt-1 flex items-center gap-3 text-[12px] text-[#5A6B8C]">
-                                          <span>
-                                            Skipped by: <strong className="font-bold text-[#003366]">{q.optionPercentages?.skipped || 0}%</strong> of students
-                                          </span>
-                                          {q.correctAnswer && (
-                                            <span>
-                                              Official Correct Key: <strong className="font-extrabold text-[#15803D]">{q.correctAnswer}</strong>
-                                            </span>
-                                          )}
-                                        </div>
-                                      </div>
-                                    ) : (
-                                      <div className="mt-3 flex flex-wrap items-center gap-4 rounded-xl border border-[#003366]/15 bg-[#F8FAFF] p-3 text-[13px]">
-                                        <div>
-                                          <span className="font-bold text-[#003366]">Correct Key: </span>
-                                          <span className="font-black text-[#15803D]">{q.correctAnswer}</span>
-                                        </div>
-                                        <div>
-                                          <span className="font-bold text-[#003366]">Batch Accuracy: </span>
-                                          <span className="font-black text-accent">{accuracy}%</span>
-                                        </div>
-                                      </div>
-                                    )}
-
-                                    {/* Explanation / Solution */}
-                                    {q.explanation && (
-                                      <div className="mt-3.5 rounded-xl border border-[#003366]/10 bg-[#F8FAFF] p-3 text-[12.5px] text-[#31407F]">
-                                        <span className="font-extrabold text-[#003366]">Solution / Explanation: </span>
-                                        <div className="mt-1">
-                                          <MathText text={q.explanation} />
-                                        </div>
-                                      </div>
-                                    )}
-                                  </div>
-                                );
-                              })}
-                            </div>
-                          ) : (
-                            /* Quick Summary Table */
-                            <div className="overflow-x-auto">
-                              <table className="w-full border-collapse text-[12.5px]">
-                                <thead>
-                                  <tr className="border-b border-[#003366]/10 text-left text-[#5A6B8C]">
-                                    <th className="w-[50px] px-2.5 py-2">Q#</th>
-                                    <th className="px-2.5 py-2">Type</th>
-                                    <th className="px-2.5 py-2">Difficulty</th>
-                                    <th className="min-w-[140px] px-2.5 py-2">Batch Accuracy</th>
-                                    <th className="px-2.5 py-2 text-center">Correct / Wrong / Skip</th>
-                                    <th className="min-w-[200px] px-2.5 py-2">Student Option Choices</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  {t.questions.map((q) => (
-                                    <tr
-                                      key={q.questionNumber}
-                                      className="border-b border-[#003366]/5 transition-colors hover:bg-[#FAFBFD]"
-                                    >
-                                      <td className="px-2.5 py-2.5 font-bold text-[#003366]">
-                                        #{q.questionNumber}
-                                      </td>
-                                      <td className="px-2.5 py-2.5">
-                                        <span className="rounded bg-ice px-1.5 py-0.5 text-[10.5px] font-bold uppercase text-[#003366]">
-                                          {q.questionType.replace('mcq_', '')}
-                                        </span>
-                                      </td>
-                                      <td className="px-2.5 py-2.5 text-[#5A6B8C] capitalize">
-                                        {q.difficulty}
-                                      </td>
-                                      <td className="px-2.5 py-2.5">
-                                        <div className="flex items-center gap-2">
-                                          <div className="h-2 flex-1 overflow-hidden rounded-full bg-[#E2E8F0]">
-                                            <div
-                                              className={`h-full ${
-                                                q.accuracyPct >= 60
-                                                  ? 'bg-[#15803D]'
-                                                  : q.accuracyPct >= 35
-                                                    ? 'bg-[#D97706]'
-                                                    : 'bg-[#C8202F]'
+                                    </td>
+                                    <td className="px-2.5 py-2.5 text-center text-[11.5px]">
+                                      <span className="font-semibold text-[#15803D]">+{q.correctCount}</span>{' '}
+                                      <span className="text-[#003366]/20">/</span>{' '}
+                                      <span className="font-semibold text-[#C8202F]">-{q.wrongCount}</span>{' '}
+                                      <span className="text-[#003366]/20">/</span>{' '}
+                                      <span className="text-[#5A6B8C]">{q.skippedCount}</span>
+                                    </td>
+                                    <td className="px-2.5 py-2.5">
+                                      {q.optionPercentages && Object.keys(q.optionPercentages).length > 0 ? (
+                                        <div className="flex flex-wrap items-center gap-1 text-[11px]">
+                                          {Object.entries(q.optionPercentages).map(([opt, pct]) => (
+                                            <span
+                                              key={opt}
+                                              className={`rounded px-1.5 py-0.5 font-medium ${
+                                                opt === q.correctAnswer
+                                                  ? 'bg-[#EAF7EF] text-[#146C33] font-bold'
+                                                  : opt === 'Skipped'
+                                                    ? 'bg-[#F1F5F9] text-[#64748B]'
+                                                    : pct > 0
+                                                      ? 'bg-[#FDF3F4] text-[#C8202F] font-semibold'
+                                                      : 'bg-[#F3E8FF] text-[#003366]'
                                               }`}
-                                              style={{ width: `${q.accuracyPct}%` }}
-                                            />
-                                          </div>
-                                          <span className="min-w-[32px] text-[11px] font-bold">
-                                            {q.accuracyPct}%
-                                          </span>
+                                            >
+                                              {opt}: <strong className="font-bold">{pct}%</strong>
+                                              {opt === q.correctAnswer && ' (Key)'}
+                                            </span>
+                                          ))}
                                         </div>
-                                      </td>
-                                      <td className="px-2.5 py-2.5 text-center text-[11.5px]">
-                                        <span className="font-bold text-[#15803D]">+{q.correctCount}</span>{' '}
-                                        <span className="text-[#003366]/20">/</span>{' '}
-                                        <span className="font-bold text-[#C8202F]">-{q.wrongCount}</span>{' '}
-                                        <span className="text-[#003366]/20">/</span>{' '}
-                                        <span className="text-[#5A6B8C]">{q.skippedCount}</span>
-                                      </td>
-                                      <td className="px-2.5 py-2.5">
-                                        {q.optionPercentages && Object.keys(q.optionPercentages).length > 0 ? (
-                                          <div className="flex flex-wrap items-center gap-1.5 text-[11.5px]">
-                                            {Object.entries(q.optionPercentages).map(([opt, pct]) => (
-                                              <span
-                                                key={opt}
-                                                className={`rounded px-1.5 py-0.5 font-bold ${
-                                                  opt === q.correctAnswer
-                                                    ? 'bg-[#EAF7EF] text-[#146C33]'
-                                                    : opt === 'Skipped'
-                                                      ? 'bg-[#F1F5F9] text-[#64748B]'
-                                                      : pct > 0
-                                                        ? 'bg-[#FDF3F4] text-[#C8202F]'
-                                                        : 'bg-[#F8FAFF] text-[#003366]'
-                                                }`}
-                                              >
-                                                {opt}: {pct}%
-                                              </span>
-                                            ))}
-                                          </div>
-                                        ) : (
-                                          <span className="text-[11px] text-[#5A6B8C]">—</span>
-                                        )}
-                                      </td>
-                                    </tr>
-                                  ))}
-                                </tbody>
-                              </table>
-                            </div>
-                          )}
+                                      ) : (
+                                        <span className="text-[11px] text-[#5A6B8C]">—</span>
+                                      )}
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                       )}
                     </div>

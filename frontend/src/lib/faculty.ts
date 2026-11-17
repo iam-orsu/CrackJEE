@@ -411,6 +411,8 @@ export interface FacultyAssignmentReport {
     wrongCount: number;
     skippedCount: number;
     accuracyPct: number;
+    marksLost?: number;
+    negativeMarks?: number;
     isWeak: boolean;
     isStrong: boolean;
     questions: Array<{
@@ -432,8 +434,21 @@ export interface FacultyAssignmentReport {
     }>;
   }>;
   revisionRecommendations?: {
-    lackingTopics: Array<{ topic: string; subject: string; accuracyPct: number; questionCount: number }>;
-    topPerformingTopics: Array<{ topic: string; subject: string; accuracyPct: number; questionCount: number }>;
+    lackingTopics: Array<{
+      topic: string;
+      subject: string;
+      accuracyPct: number;
+      questionCount: number;
+      wrongCount?: number;
+      marksLost?: number;
+    }>;
+    topPerformingTopics: Array<{
+      topic: string;
+      subject: string;
+      accuracyPct: number;
+      questionCount: number;
+      correctCount?: number;
+    }>;
     recommendations: string[];
   };
 }
