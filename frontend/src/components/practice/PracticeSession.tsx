@@ -924,36 +924,49 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
                           ⚠️ Topic questions must match target ({perSubject}/subject). Click Auto-match.
                         </span>
                       )}
-                      {config.hasPapers && perSubject <= 30 && (
+                      {config.hasPapers ? (
                         <button
                           type="button"
-                          className="btn btn-ghost btn-lg"
-                          disabled={!canStartSession}
-                          onClick={() => {
-                            if (!canStartSession) return;
+                          className="btn btn-primary btn-lg"
+                          disabled={!canStartSession || papersLoading}
+                          onClick={(e) => {
+                            if (!canStartSession) {
+                              e.preventDefault();
+                              setLoadError('Topic questions must match target for each subject. Click Auto-match to balance.');
+                              return;
+                            }
                             loadPapers(1);
                           }}
+                          style={!canStartSession ? { opacity: 0.5, cursor: 'not-allowed' } : undefined}
                         >
-                          Browse pre-made papers
+                          {papersLoading ? (
+                            'Loading papers...'
+                          ) : (
+                            <>
+                              Browse Papers ({perSubject * selectedSubjects.size} Qs)
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                            </>
+                          )}
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          className="btn btn-primary btn-lg"
+                          disabled={!canStartSession}
+                          onClick={(e) => {
+                            if (!canStartSession) {
+                              e.preventDefault();
+                              setLoadError('Topic questions must match target for each subject. Click Auto-match to balance.');
+                              return;
+                            }
+                            startExam();
+                          }}
+                          style={!canStartSession ? { opacity: 0.5, cursor: 'not-allowed' } : undefined}
+                        >
+                          Start practice ({perSubject * selectedSubjects.size} Qs)
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                         </button>
                       )}
-                      <button
-                        type="button"
-                        className="btn btn-primary btn-lg"
-                        disabled={!canStartSession}
-                        onClick={(e) => {
-                          if (!canStartSession) {
-                            e.preventDefault();
-                            setLoadError('Topic questions must match target for each subject. Click Auto-match to balance.');
-                            return;
-                          }
-                          startExam();
-                        }}
-                        style={!canStartSession ? { opacity: 0.5, cursor: 'not-allowed' } : undefined}
-                      >
-                        Start practice ({perSubject * selectedSubjects.size} Qs)
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-                      </button>
                     </>
                   );
                 })()}
