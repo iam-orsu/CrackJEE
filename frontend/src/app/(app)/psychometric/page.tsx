@@ -504,13 +504,17 @@ export default function PsychometricPage() {
 
         {/* Question Card */}
         <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-          {/* Scenario text if provided */}
-          {currentQ.scenarioText && (
-            <div className="mb-4 rounded-xl border border-blue-100 bg-blue-50/60 p-4 text-xs font-medium leading-relaxed text-blue-900">
-              <span className="block font-bold text-blue-950 mb-1">Scenario:</span>
-              {currentQ.scenarioText}
-            </div>
-          )}
+          {/* Scenario text if provided and is a genuine multi-sentence context */}
+          {currentQ.scenarioText &&
+            currentQ.scenarioText.trim().length > 45 &&
+            !/^think about|^consider how|^reflect on|^imagine how/i.test(currentQ.scenarioText.trim()) && (
+              <div className="mb-5 rounded-2xl border border-blue-100 bg-blue-50/70 p-4 sm:p-5 text-xs sm:text-sm font-medium leading-relaxed text-blue-950">
+                <span className="block font-bold text-blue-900 uppercase tracking-wider text-[11px] mb-1.5">
+                  Real-World Scenario:
+                </span>
+                {currentQ.scenarioText}
+              </div>
+            )}
 
           {/* Subtopic & Framework pill */}
           <div className="flex flex-wrap items-center gap-2 mb-3">

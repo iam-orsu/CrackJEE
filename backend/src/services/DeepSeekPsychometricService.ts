@@ -61,17 +61,22 @@ CRITICAL TONE & VOCABULARY RULES:
      * If the candidate is a school student (e.g., Class 10): questions MUST match real 10th-grade academic rigor (algebraic word problems, ratio/proportion systems, geometry logic, speed-distance-time, probability/permutation logic, or logical syllogisms). NEVER ask childish 5th-grade arithmetic like basic single-step percentages ("45 out of 60").
      * If Intermediate (11th-12th): pre-college analytical reasoning, function logic, deductive puzzles.
      * If College / Graduate / Employed: campus recruitment / corporate aptitude testing standard (multi-step data analysis, critical deduction, pattern matrices).
-4. TAILOR SCENARIO CONTEXT TO CANDIDATE BACKGROUND:
+4. STRICT SCENARIO RULES (NO LAZY ONE-LINERS):
+   - Whenever scenarioText is provided, it MUST be a clear, vivid, multi-sentence real-world situation (2 to 4 complete sentences).
+   - It MUST describe a concrete incident with characters, actions, a conflict or challenge, and real stakes (e.g. what went wrong, who was involved, what deadline or relationship is at risk).
+   - STRICTLY FORBIDDEN: NEVER write lazy one-liner instructions as scenarios (e.g. NEVER write "Think about how you respond to others' feelings", "Consider how you handle stressful situations", "Reflect on your teamwork", or "Imagine that...").
+   - For direct self-report statements (Likert 1-5 agreement on general habits or personal traits), DO NOT create placeholder scenarios — set "scenarioText": null.
+5. TAILOR SCENARIO CONTEXT TO CANDIDATE BACKGROUND:
    - School student: school projects, homework, exams, teacher feedback, sports/club activities.
    - College / UG / PG: college presentations, lab work, coding/engineering projects, campus recruitment, internships.
    - Employed professional: workplace meetings, deadlines, client issues, code reviews, coworker collaboration.
    - Job seeker: skill building, interviews, practical tasks, portfolio projects.
-5. FORMAT DIVERSITY:
+6. FORMAT DIVERSITY:
    - Reasoning / Logic: 4 options (A, B, C, D) with one clear "correctAnswer".
    - Dilemma / SJT: 4 realistic behavioral action options reflecting effective to ineffective choices.
    - Frequency / Habits: 5-point scale (Never, Rarely, Sometimes, Often, Always).
    - Values / Work Style: 5-point scale (Strongly Disagree, Disagree, Neutral, Agree, Strongly Agree).
-6. Output MUST be ONLY valid JSON matching the requested schema. No markdown outside the JSON.`;
+7. Output MUST be ONLY valid JSON matching the requested schema. No markdown outside the JSON.`;
 
 export class DeepSeekPsychometricService {
   private client: OpenAI | null = null;
@@ -155,6 +160,12 @@ SPECIFIC ASSESSMENT INSTRUCTIONS:
 - If Career Interests: Ground in Holland RIASEC Codes (Realistic, Investigative, Artistic, Social, Enterprising, Conventional) and O*NET.
 - If Integrity & Risk: Ground in Cognitive Moral Development and workplace ethical decision-making.
 
+CRITICAL SCENARIO MANDATE:
+- When writing a scenario (especially for Situational Judgment, Emotional Intelligence dilemmas, or practical challenges), write a real, multi-sentence story (2 to 4 full sentences). Describe a specific situation, people involved, the tension, and what decision is needed.
+  * Good example: "During a major group project worth 30% of your grade, your team divided the work equally. Two days before the deadline, one member texts saying they were unable to finish their section due to personal issues, leaving your group with an incomplete deck."
+  * STRICTLY FORBIDDEN: NEVER write lazy one-liners like "Think about how you respond to others' feelings" or "Consider how you handle stressful situations".
+- For general self-assessment statements (e.g. agreement scales on personal traits), set "scenarioText": null.
+
 TONE & RULES:
 - Zero posh words! No "resilience", "determination", "grit", or complex academic jargon.
 - NEVER use the forbidden word "tuition".
@@ -171,7 +182,7 @@ Format output as JSON:
       "construct": "Subtopic name here",
       "subFacet": "Framework aspect (e.g. CHC Fluid Reasoning / Big Five Conscientiousness / Goleman Empathy)",
       "itemType": "COGNITIVE_MCQ | SCENARIO_ACTION_MCQ | FREQUENCY_SCALE | AGREEMENT_LIKERT",
-      "scenarioText": "Optional realistic context or dilemma if applicable",
+      "scenarioText": "A detailed 2-4 sentence realistic story, OR null if self-assessment statement",
       "promptText": "The exact question in simple plain English",
       "options": [
         {"id": "A", "text": "Option 1"},
@@ -208,12 +219,26 @@ Format output as JSON:
       return null;
     }
 
-    const items: PsychometricQuestionData[] = parsed.items.map((item, idx) => ({
-      ...item,
-      id: item.id || `psy_${cardDef.id}_${idx + 1}_${Date.now()}`,
-      section: (item.section as any) || cardDef.id,
-      orderIndex: idx + 1,
-    }));
+    const items: PsychometricQuestionData[] = parsed.items.map((item, idx) => {
+      let cleanScenario = item.scenarioText ? item.scenarioText.trim() : undefined;
+      // Strip lazy one-liner pseudo-scenarios
+      if (cleanScenario) {
+        if (
+          cleanScenario.length < 50 ||
+          /^think about|^consider how|^reflect on|^imagine how|^in this scenario|^how do you respond/i.test(cleanScenario)
+        ) {
+          cleanScenario = undefined;
+        }
+      }
+
+      return {
+        ...item,
+        id: item.id || `psy_${cardDef.id}_${idx + 1}_${Date.now()}`,
+        section: (item.section as any) || cardDef.id,
+        scenarioText: cleanScenario,
+        orderIndex: idx + 1,
+      };
+    });
 
     return {
       id: examId,
@@ -665,21 +690,37 @@ Format as JSON:
     if (cardDef.id === 'cognitive_ability') {
       items = getCognitiveItems();
     } else if (cardDef.id === 'situational_judgment' || cardDef.id === 'integrity_risk') {
+      const studentScenarios = [
+        'During an important science exhibition project due tomorrow, your group split the work evenly. One team member has completely stopped answering messages in your group chat and has not submitted their slides. Your other two teammates want to report them immediately and remove their name from the project.',
+        'During a mock test review, your teacher mistakenly awarded you 15 extra marks because of a grading tally error. These extra marks pushed your rank to first in the class, and several classmates are congratulating you.',
+        'You and your lab partner need to complete an experiment by 4 PM. Your partner insists on taking a shortcut by copying older data instead of running the remaining chemical trials, claiming everyone else does the same.',
+        'Two of your closest friends in a school club have had a serious argument over who should speak at the annual event. Both friends refuse to work together and both are pressuring you to publicly choose a side.',
+        'You have three major commitments on the same afternoon: studying for an important math assessment, completing a computer project worth 20% of your grade, and attending a mandatory sports practice.',
+        'A classmate approaches you during recess and asks if they can copy your completed homework assignment, saying they were dealing with an emergency at home and could not finish it.',
+      ];
+      const workScenarios = [
+        'A critical client presentation is scheduled for tomorrow at 9 AM, but your teammate missed their core data deliverable. The client has explicitly stated that no postponements will be accepted under any circumstances.',
+        'You notice an accounting formula error in an approved quarterly budget spreadsheet that underestimates project costs by 18%. Your manager has already submitted the summary to senior leadership.',
+        'A customer calls in demanding an immediate refund for an issue that violates company policy. They are shouting and threatening to post negative reviews across social media if you do not grant it right now.',
+        'Two key engineers on your sprint team strongly disagree on the database architecture, refusing to collaborate and delaying the sprint deliverable by several days.',
+        'You have four competing deadlines by end-of-day: a client bug fix, quarterly KPI report, reviewing a teammate\'s pull request, and attending an all-hands strategy session.',
+        'A senior colleague asks you to approve an expense report without the required receipt documentation, promising they will find the receipt and upload it sometime next week.',
+      ];
+      const scenarioPool = isStudent ? studentScenarios : workScenarios;
+
       items = cardDef.subtopics.map((st, idx) => ({
         id: `item_sjt_${idx + 1}`,
         section: 'SJT' as any,
         construct: st,
         subFacet: 'BARS & Critical Incident Method',
         itemType: 'SCENARIO_ACTION_MCQ',
-        scenarioText: isStudent
-          ? 'You have an important group assignment due tomorrow. One member has not submitted their required slides and is not responding.'
-          : 'A critical client presentation is scheduled for tomorrow morning, but a teammate missed their portion of the deck.',
-        promptText: 'What is the most constructive action you would take right now?',
+        scenarioText: scenarioPool[idx % scenarioPool.length],
+        promptText: 'What is the most constructive action you would take in this situation?',
         options: [
-          { id: 'A', text: 'Call them directly to check what is blocking them, and redistribute the urgent parts immediately.' },
-          { id: 'B', text: 'Notify the teacher or manager first thing in the morning and request an extension.' },
-          { id: 'C', text: 'Work through the night alone to finish their part without informing anyone.' },
-          { id: 'D', text: 'Submit only the completed parts and clearly identify whose work is missing.' },
+          { id: 'A', text: 'Assess the core root cause first, discuss practical alternatives with everyone involved, and agree on a clear next step.' },
+          { id: 'B', text: 'Escalate the issue to the teacher or supervisor immediately and let them decide how to resolve it.' },
+          { id: 'C', text: 'Take full responsibility and finish the extra work yourself quietly to prevent any conflict or delay.' },
+          { id: 'D', text: 'Politely decline to get involved and stick strictly to your own individual tasks.' },
         ],
         orderIndex: idx + 1,
       }));
@@ -715,16 +756,31 @@ Format as JSON:
         orderIndex: idx + 1,
       }));
     } else if (cardDef.id === 'emotional_intelligence') {
+      const eiScenarios = isStudent
+        ? [
+            'Your teacher returns a graded project that you spent two full weeks perfecting, giving you a surprisingly low score and criticizing your main arguments in front of the classroom.',
+            'You notice your best friend sitting alone in the cafeteria with their head down. When you sit next to them, they wipe their eyes quickly and say everything is fine, but their voice is trembling.',
+            'During a high-stakes group project, tensions boil over and two teammates begin shouting insults at each other while other students in the room stare.',
+            'You are chosen as the team captain for an academic quiz team, and you must inform an enthusiastic friend that another classmate was selected for the final roster instead of them.',
+          ]
+        : [
+            'During an all-hands team review, your department head publicly criticizes your proposal as inadequate and impractical, without giving you a chance to explain your supporting data.',
+            'You notice a normally energetic colleague has become completely withdrawn and quiet over the past three days, missing deadlines and avoiding eye contact during meetings.',
+            'A high-priority project deployment fails 30 minutes before client sign-off, and several teammates begin blaming each other in panic during an emergency call.',
+            'You need to deliver critical constructive feedback to a direct peer whose missed commitments have caused your entire squad to work overtime over the weekend.',
+          ];
+
       items = cardDef.subtopics.map((st, idx) => ({
         id: `item_ei_${idx + 1}`,
         section: 'BEHAVIORAL' as any,
         construct: st,
         subFacet: 'Goleman Competency & MSCEIT Ability Model',
         itemType: idx % 2 === 0 ? 'FREQUENCY_SCALE' : 'AGREEMENT_LIKERT',
+        scenarioText: eiScenarios[idx % eiScenarios.length],
         promptText:
           idx % 2 === 0
-            ? `When someone gives you sharp or unexpected critical feedback on your work, how often do you pause to understand their perspective before responding?`
-            : `I can easily tell when a teammate is feeling frustrated or overwhelmed, even if they have not spoken up directly.`,
+            ? `In high-pressure moments like this, how often do you pause to control your emotional reaction before speaking or acting?`
+            : `I can easily identify the unspoken emotions of others in tense situations and adapt my behavior to help calm them down.`,
         options:
           idx % 2 === 0
             ? [
