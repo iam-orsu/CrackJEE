@@ -1,5 +1,6 @@
 import type { Request, Response, NextFunction } from 'express';
 import { z } from 'zod';
+import { AUTH_CONSTANTS } from '../config/constants';
 import { AuthService } from '../services/AuthService';
 import { setSessionCookie, clearSessionCookie } from '../middlewares/auth.middleware';
 import { AppError } from '../utils/AppError';
@@ -18,6 +19,20 @@ const registerSchema = z.object({
 const loginSchema = z.object({
   email: z.string().email().toLowerCase().trim(),
   password: z.string().min(1),
+});
+
+const profileSchema = z.object({
+  class: z.enum(['11', '12', 'Dropper']).optional(),
+  targetExam: z.enum(['Main', 'Advanced', 'Both', 'NEET', 'Psychometric']).optional(),
+  currentLevel: z.enum(['beginner', 'intermediate', 'advanced']).optional(),
+  hasPsychometric: z.boolean().optional(),
+});
+
+const onboardingSchema = z.object({
+  class: z.enum(['11', '12', 'Dropper']),
+  targetExam: z.enum(['Main', 'Advanced', 'Both', 'NEET', 'Psychometric']),
+  currentLevel: z.enum(['beginner', 'intermediate', 'advanced']).optional(),
+  hasPsychometric: z.boolean().optional(),
 });
 
 export class AuthController {
@@ -56,6 +71,49 @@ export class AuthController {
   public readonly me = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
       const user = await this.authService.getProfile(req.user!.userId);
+      res.json({ success: true, data: user });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly session = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const user = await this.authService.getProfile(req.user!.userId);
+      res.json({
+        success: true,
+        data: {
+          user,
+          expiresAt: new Date(Date.now() + AUTH_CONSTANTS.TOKEN_TTL_SECONDS * 1000).toISOString(),
+        },
+      });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly updateProfile = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const body = profileSchema.safeParse(req.body);
+      if (!body.success) {
+        throw new AppError(400, body.error.errors[0]?.message ?? 'Invalid profile input');
+      }
+
+      const user = await this.authService.updateProfile(req.user!.userId, body.data);
+      res.json({ success: true, data: user });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly completeOnboarding = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const body = onboardingSchema.safeParse(req.body);
+      if (!body.success) {
+        throw new AppError(400, body.error.errors[0]?.message ?? 'Invalid onboarding input');
+      }
+
+      const user = await this.authService.completeOnboarding(req.user!.userId, body.data);
       res.json({ success: true, data: user });
     } catch (err) {
       next(err);

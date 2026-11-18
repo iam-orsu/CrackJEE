@@ -13,10 +13,13 @@ model User {
   name         String
   email        String   @unique
   passwordHash String
+  googleSub    String?  @unique
+  avatarUrl    String?  @db.Text
   class        String
   targetExam   String
   hasPsychometric Boolean  @default(false)
   currentLevel String   @default("beginner")
+  isOnboarded  Boolean  @default(false)
   createdAt    DateTime @default(now())
 
   attempts       StudentAttempt[]

@@ -88,6 +88,29 @@ export const api = {
 
     me: () => request<import('@/types').User>('/auth/me'),
 
+    session: () =>
+      request<{ user: import('@/types').User; expiresAt: string }>('/auth/session'),
+
+    updateProfile: (body: { class?: string; targetExam?: string }) =>
+      request<import('@/types').User>('/auth/profile', {
+        method: 'PATCH',
+        body: JSON.stringify(body),
+      }),
+
+    completeOnboarding: (body: {
+      class: string;
+      targetExam: string;
+      currentLevel?: string;
+      hasPsychometric?: boolean;
+    }) =>
+      request<import('@/types').User>('/auth/onboarding', {
+        method: 'POST',
+        body: JSON.stringify(body),
+      }),
+
+    googleUrl: (redirectTo = '/auth/google') =>
+      `${API_URL}/auth/google/start?redirect=${encodeURIComponent(redirectTo)}`,
+
     refresh: () => request<{ expiresAt: string }>('/auth/refresh', { method: 'POST' }),
 
     // Revokes the session on the server and clears the cookie

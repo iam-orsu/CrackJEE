@@ -7,7 +7,7 @@ export const GOOGLE_STATE_COOKIE_MAX_AGE_S = GOOGLE_CONSTANTS.STATE_TTL_SECONDS;
 
 function stateCookieFlags(maxAgeSeconds: number): string {
   const secure = isCookieSecure() ? ' Secure;' : '';
-  return `Path=/api/v1/google; HttpOnly;${secure} SameSite=Lax; Max-Age=${maxAgeSeconds}`;
+  return `Path=/api/v1; HttpOnly;${secure} SameSite=Lax; Max-Age=${maxAgeSeconds}`;
 }
 
 export function setGoogleStateCookie(res: Response, nonce: string): void {

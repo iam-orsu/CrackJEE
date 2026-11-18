@@ -36,23 +36,18 @@ const LEVELS = [
   ['advanced', 'Advanced', 'Revision & mock tests'],
 ] as const;
 
-const GOAL_LABEL: Record<FormState['targetExam'], string> = {
-  Main: 'JEE Main',
-  Advanced: 'JEE Advanced',
-  Both: 'JEE Main + Advanced',
-  NEET: 'NEET UG',
-};
-
-const TRACKER = [
-  { name: 'Physics', pct: 72, low: false },
-  { name: 'Chemistry', pct: 58, low: true },
-  { name: 'Mathematics', pct: 81, low: false },
-  { name: 'Biology', pct: 66, low: false },
-];
-
 const Sparkle = ({ className }: { className: string }) => (
   <svg className={`rg-spark ${className}`} viewBox="0 0 24 24" aria-hidden>
     <path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" />
+  </svg>
+);
+
+const GoogleMark = () => (
+  <svg width="19" height="19" viewBox="0 0 48 48" aria-hidden style={{ flexShrink: 0 }}>
+    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+    <path fill="#FBBC05" d="M10.53 28.59A14.5 14.5 0 019.75 24c0-1.59.27-3.13.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
   </svg>
 );
 
@@ -74,7 +69,15 @@ export default function RegisterPage() {
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [googleBusy, setGoogleBusy] = useState(false);
+  const [mode, setMode] = useState<'choose' | 'manual'>('choose');
   const [showPwd, setShowPwd] = useState(false);
+
+  function handleGoogleSignIn() {
+    setGoogleBusy(true);
+    setError('');
+    window.location.assign(api.auth.googleUrl('/auth/google'));
+  }
 
   function set<K extends keyof FormState>(k: K, v: FormState[K]) {
     setForm((f) => ({ ...f, [k]: v }));
@@ -126,18 +129,12 @@ export default function RegisterPage() {
 
         {/* ── Hero text ── */}
         <header className="rg-hero">
-          <p className="rg-badge">
-            <i aria-hidden />
-            30 seconds to set up
-          </p>
+
           <h2 className="rg-tagline">
             <span className="rg-t1">The only prep tool</span>
             <span className="rg-t2">that learns you.</span>
           </h2>
-          <p className="rg-sub">
-            We track every topic you attempt. The moment your accuracy drops below 60%,
-            it&apos;s flagged as a weak area. No wasted time, only targeted practice.
-          </p>
+
         </header>
 
         {/* ── Stage: form in the middle, cards floating around it ── */}
@@ -145,8 +142,40 @@ export default function RegisterPage() {
           <main className="rg-box">
             <header className="rg-head">
               <h1>Create your account</h1>
-              <p>Free for all students · takes 30 seconds</p>
+              <p>One account for practice, mocks and your progress dashboard.</p>
             </header>
+
+            {mode === 'choose' ? (
+              <div className="rg-choose">
+                <button type="button" className="rg-google" onClick={handleGoogleSignIn} disabled={googleBusy}>
+                  {googleBusy ? (
+                    <>
+                      <span className="rg-spin" style={{ borderTopColor: 'var(--blue)', borderColor: 'rgba(0,51,102,.2)' }} />
+                      Redirecting to Google...
+                    </>
+                  ) : (
+                    <>
+                      <GoogleMark />
+                      Sign up with Google
+                    </>
+                  )}
+                </button>
+
+                <p className="rg-or">or</p>
+
+                <button type="button" className="rg-manual" onClick={() => setMode('manual')}>
+                  Register with email
+                </button>
+
+                <p className="rg-hint" style={{ textAlign: 'center' }}>
+                  With Google your name and photo come across automatically — you pick your class and target exam next.
+                </p>
+              </div>
+            ) : (
+              <>
+            <button type="button" className="rg-back" onClick={() => setMode('choose')}>
+              ← Back to sign-up options
+            </button>
 
             <form onSubmit={handleSubmit} className="rg-form">
               <div className="rg-row-2">
@@ -317,13 +346,7 @@ export default function RegisterPage() {
                       <strong style={{ fontSize: 13, color: '#1B254B', fontWeight: 700 }}>
                         Include Psychometric & Behavioral Test
                       </strong>
-                      <span style={{ fontSize: 10, fontWeight: 800, color: '#008060', background: '#E3F6ED', padding: '1px 5px', borderRadius: 4 }}>
-                        LIVE AI
-                      </span>
                     </div>
-                    <small style={{ fontSize: 11, color: '#5A6B8C', display: 'block', marginTop: 2 }}>
-                      Evaluates cognitive logic, test anxiety, resilience, study habits & recommended career streams
-                    </small>
                   </div>
                 </button>
                 <p className="rg-hint" style={{ marginTop: 4 }}>
@@ -363,35 +386,13 @@ export default function RegisterPage() {
                 )}
               </button>
             </form>
+              </>
+            )}
 
             <p className="rg-link">
               Already have an account? <Link href="/login">Sign in</Link>
             </p>
           </main>
-
-          {/* Accuracy tracker */}
-          <div className="rg-card">
-            <p className="rg-card-title">Accuracy tracker</p>
-            <div className="rg-rows">
-              {TRACKER.map((t) => (
-                <div key={t.name} className={`rg-row${t.low ? ' rg-low' : ''}`}>
-                  <span>{t.name}</span>
-                  <div className="rg-bar"><i style={{ width: `${t.pct}%` }} /></div>
-                  <em>{t.pct}%</em>
-                </div>
-              ))}
-            </div>
-            <p className="rg-note">below 60% = weak area</p>
-          </div>
-
-          {/* Goal card (updates live) */}
-          <div className="rg-goal">
-            <small>Your goal</small>
-            <strong>
-              {form.class === 'Dropper' ? 'Dropper' : `Class ${form.class}`} · {GOAL_LABEL[form.targetExam]}
-            </strong>
-            <span>let&apos;s go!</span>
-          </div>
 
           {/* floating science chips (wide screens only) */}
           <span className="rg-chipf rg-chipf-pi" aria-hidden>π</span>
@@ -476,7 +477,7 @@ const css = `
 .rg-tagline{
   display:flex;flex-wrap:nowrap;justify-content:center;align-items:center;gap:.06em .28em;
   font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
-  font-size:clamp(34px,5.8vw,76px);line-height:1.06;letter-spacing:-.035em;
+  font-size:clamp(27px,4.5vw,54px);line-height:1.06;letter-spacing:-.035em;
   white-space:nowrap;
 }
 .rg-t1{color:var(--blue);white-space:nowrap}
@@ -548,6 +549,31 @@ const css = `
 
 .rg-error{background:#FDE6E8;color:var(--err);border-left:5px solid var(--err);border-radius:10px;padding:12px 14px;font-weight:700;font-size:14px;overflow-wrap:anywhere}
 
+/* Sign-up options */
+.rg-choose{display:grid;gap:16px}
+.rg-google{
+  display:inline-flex;align-items:center;justify-content:center;gap:11px;min-height:58px;width:100%;
+  font-weight:800;font-size:17px;color:var(--blue);background:#fff;border:2.5px solid var(--blue);border-radius:16px;cursor:pointer;
+  box-shadow:0 5px 0 var(--soft);transition:transform .15s,box-shadow .15s;-webkit-tap-highlight-color:transparent;
+}
+.rg-google:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 8px 0 var(--soft)}
+.rg-google:active:not(:disabled){transform:translateY(4px);box-shadow:0 1px 0 var(--soft)}
+.rg-google:disabled{opacity:.75;cursor:not-allowed}
+.rg-or{display:flex;align-items:center;gap:12px;color:#97A3D4;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.rg-or::before,.rg-or::after{content:'';flex:1;height:2px;background:var(--ice)}
+.rg-manual{
+  display:inline-flex;align-items:center;justify-content:center;min-height:58px;width:100%;
+  font-weight:800;font-size:17px;color:#fff;background:var(--grad);border:0;border-radius:16px;cursor:pointer;
+  box-shadow:0 7px 0 var(--purple-d);transition:transform .15s,box-shadow .15s;-webkit-tap-highlight-color:transparent;
+}
+.rg-manual:hover{transform:translateY(-3px);box-shadow:0 10px 0 var(--purple-d)}
+.rg-manual:active{transform:translateY(5px);box-shadow:0 2px 0 var(--purple-d)}
+.rg-back{
+  display:inline-flex;align-items:center;gap:6px;margin-bottom:18px;padding:0;background:none;border:0;
+  font-weight:800;font-size:13.5px;color:var(--purple);cursor:pointer;
+}
+.rg-back:hover{text-decoration:underline;text-underline-offset:3px}
+
 .rg-submit{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;margin-top:4px;min-height:58px;width:100%;
   font-weight:800;font-size:17px;color:#fff;background:var(--grad);border:0;border-radius:16px;cursor:pointer;
@@ -559,33 +585,6 @@ const css = `
 .rg-spin{width:18px;height:18px;border-radius:50%;border:3px solid rgba(255,255,255,.4);border-top-color:#fff;animation:rg-rot .7s linear infinite}
 .rg-box .rg-link{margin-top:22px;text-align:center;font-size:15px;line-height:1.6;color:var(--muted);font-weight:500}
 .rg-link a{color:var(--purple);font-weight:800;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;white-space:nowrap}
-
-/* Accuracy tracker card */
-.rg-card{
-  position:relative;z-index:2;width:100%;max-width:440px;background:#fff;border:2.5px solid var(--blue);
-  border-radius:24px;padding:22px 20px 18px;box-shadow:6px 8px 0 var(--blue);transform:rotate(-1.5deg);
-}
-.rg-card-title{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-size:20px;color:var(--blue);margin-bottom:12px}
-.rg-rows{display:grid;gap:4px}
-.rg-row{display:grid;grid-template-columns:96px minmax(0,1fr) 40px;gap:10px;align-items:center;padding:8px 10px;border-radius:12px;font-weight:700;font-size:13.5px}
-.rg-row em{font-style:normal;text-align:right;font-weight:800}
-.rg-bar{position:relative;height:10px;background:#E4EAFC;border-radius:99px}
-.rg-bar i{display:block;height:100%;background:var(--blue);border-radius:99px;animation:rg-fill 1s .3s cubic-bezier(.2,.8,.2,1) both}
-.rg-bar::after{content:"";position:absolute;left:60%;top:-4px;bottom:-4px;border-left:2px dashed rgba(0,51,102,.4)}
-.rg-low{background:#F6E9F7}
-.rg-low .rg-bar i{background:var(--grad)}
-.rg-low em,.rg-low span{color:var(--purple)}
-.rg-note{margin-top:12px;display:inline-block;padding:6px 12px;border-radius:99px;background:var(--ice);font-size:12.5px;font-weight:700;color:var(--blue)}
-
-/* Goal card */
-.rg-goal{
-  position:relative;z-index:2;width:100%;max-width:300px;display:flex;flex-direction:column;gap:4px;
-  background:#fff;border:2.5px solid var(--purple);border-radius:20px;padding:16px 18px;
-  box-shadow:5px 7px 0 var(--purple-d);transform:rotate(1.5deg);
-}
-.rg-goal small{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--purple)}
-.rg-goal strong{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:19px;line-height:1.25;font-weight:800;color:var(--blue)}
-.rg-goal span{font-size:14px;font-weight:700;color:var(--muted)}
 
 /* Floating chips + atom: wide screens only */
 .rg-chipf,.rg-atom{display:none}
@@ -612,16 +611,13 @@ const css = `
 .rg-subjects i{width:12px;height:12px;border-radius:50%;background:var(--purple);box-shadow:0 0 0 4px #EAD7EC}
 
 @keyframes rg-rot{to{transform:rotate(360deg)}}
-@keyframes rg-fill{from{width:0}}
 
 /* ═════════ RESPONSIVE ═════════ */
 
-/* Wide: cards float around the form */
+/* Wide: chips and atom float around the form */
 @media(min-width:1240px){
   .rg-stage{display:block}
   .rg-box{margin:0 auto 16px}
-  .rg-card{position:absolute;right:calc(50% + 190px);top:50px;width:410px;max-width:none;transform:rotate(-4deg)}
-  .rg-goal{position:absolute;left:calc(50% + 215px);top:170px;width:270px;max-width:none;transform:rotate(3deg)}
   .rg-chipf,.rg-atom{display:block}
   .rg-chipf-pi{left:calc(50% - 575px);top:-6px}
   .rg-chipf-e{left:calc(50% - 540px);top:420px}
@@ -649,13 +645,14 @@ const css = `
   .rg-nav-btn{min-height:42px;padding:0 18px;font-size:14px}
   .rg-badge{font-size:12px;padding:7px 13px 7px 11px}
   .rg-sub{font-size:15px}
+  /* Let the headline wrap instead of running off both edges of a narrow screen. */
+  .rg-tagline{flex-wrap:wrap;white-space:normal;row-gap:.1em}
+  .rg-t1,.rg-t2{white-space:normal}
   .rg-stage{gap:36px}
   .rg-box{box-shadow:5px 7px 0 var(--blue),10px 14px 0 var(--purple);margin-bottom:12px;border-radius:24px}
   .rg-head p{font-size:15px}
   .rg-input input{font-size:16px} /* 16px stops iOS zoom on focus */
   .rg-chip{flex:1 1 auto}
-  .rg-card{padding:18px 14px 14px;box-shadow:5px 6px 0 var(--blue)}
-  .rg-row{grid-template-columns:84px minmax(0,1fr) 38px;gap:8px;padding:8px 6px}
   .rg-s2{display:none}
   .rg-subjects{gap:10px 20px}
 }

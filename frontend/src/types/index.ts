@@ -6,6 +6,8 @@ export interface User {
   targetExam: 'Main' | 'Advanced' | 'Both' | 'NEET' | 'Psychometric';
   hasPsychometric?: boolean;
   currentLevel: 'beginner' | 'intermediate' | 'advanced';
+  avatarUrl?: string | null;
+  isOnboarded?: boolean;
   createdAt?: string;
 }
 

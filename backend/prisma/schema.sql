@@ -11,12 +11,16 @@ CREATE TABLE `User` (
     `name` VARCHAR(191) NOT NULL,
     `email` VARCHAR(191) NOT NULL,
     `passwordHash` VARCHAR(191) NOT NULL,
+    `googleSub` VARCHAR(191) NULL,
+    `avatarUrl` TEXT NULL,
     `class` VARCHAR(191) NOT NULL,
     `targetExam` VARCHAR(191) NOT NULL,
     `currentLevel` VARCHAR(191) NOT NULL DEFAULT 'beginner',
+    `isOnboarded` BOOLEAN NOT NULL DEFAULT false,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
     UNIQUE INDEX `User_email_key`(`email`),
+    UNIQUE INDEX `User_googleSub_key`(`googleSub`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

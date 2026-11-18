@@ -20,7 +20,10 @@ export interface GoogleProfile {
 export interface GoogleState {
   nonce: string;
   redirectTo: string;
+  audience: GoogleAudience;
 }
+
+export type GoogleAudience = 'faculty' | 'student';
 
 export function readGoogleConfig(): GoogleConfig | null {
   const clientId = process.env.GOOGLE_CLIENT_ID?.trim();
@@ -84,11 +87,14 @@ export class GoogleAuthService {
       const payload = jwt.verify(raw, secret, { algorithms: ['HS256'] }) as {
         nonce?: string;
         redirectTo?: string;
+        audience?: string;
       };
       if (!payload.nonce) throw new Error('state is missing its nonce');
+      const audience: GoogleAudience = payload.audience === 'student' ? 'student' : 'faculty';
       return {
         nonce: payload.nonce,
         redirectTo: sanitizeRedirectPath(payload.redirectTo),
+        audience,
       };
     } catch {
       throw new AppError(400, 'Invalid or expired sign-in request. Please try again.');

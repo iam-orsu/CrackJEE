@@ -63,10 +63,14 @@ describe('Google OAuth helpers', () => {
 
   test('signs and verifies the OAuth state, rejecting tampered payloads', () => {
     const service = new GoogleAuthService();
-    const state = service.signState({ nonce: 'nonce-123', redirectTo: '/faculty' });
+    const state = service.signState({ nonce: 'nonce-123', redirectTo: '/faculty', audience: 'faculty' });
     const verified = service.verifyState(state);
     assert.equal(verified.nonce, 'nonce-123');
     assert.equal(verified.redirectTo, '/faculty');
+    assert.equal(verified.audience, 'faculty');
+
+    const studentState = service.signState({ nonce: 'nonce-456', redirectTo: '/auth/google', audience: 'student' });
+    assert.equal(service.verifyState(studentState).audience, 'student');
 
     const forged = jwt.sign({ nonce: 'nonce-123', redirectTo: '/faculty' }, 'a-different-secret');
     assert.throws(() => service.verifyState(forged), (err: any) => err.statusCode === 400);
