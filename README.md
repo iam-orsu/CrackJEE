@@ -1,6 +1,6 @@
 # JEENEET.ai
 
-Practice and CBT mock exam platform for **JEE Main**, **JEE Advanced**, and **NEET UG**, featuring adaptive question generation, weak-area analytics, and faculty paper studios.
+Practice and CBT mock exam platform for **JEE Main**, **JEE Advanced**, and **NEET UG**, featuring adaptive question generation, weak-area analytics, faculty paper studios, and psychometric evaluation.
 
 ---
 
@@ -9,15 +9,15 @@ Practice and CBT mock exam platform for **JEE Main**, **JEE Advanced**, and **NE
 * **Frontend:** Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS
 * **Backend:** Node.js, Express, TypeScript (layered architecture), Prisma ORM
 * **Database & Cache:** MySQL 8+, optional Redis (falls back to built-in in-memory TTL cache)
-* **Production Deployment:** PM2 Process Manager + Nginx Reverse Proxy + Let's Encrypt SSL
+* **Production Deployment:** PM2 Process Manager, Nginx Reverse Proxy, Let's Encrypt SSL
 
 ---
 
-## 🛠️ Part 1: Local Development Setup (From Scratch)
+## Part 1: Local Development Setup (From Scratch)
 
 ### Prerequisites
 * Node.js `>= 20` (Node 20 or 22 LTS recommended)
-* Ubuntu / Debian / WSL2 (Windows Subsystem for Linux) / macOS
+* Ubuntu, Debian, WSL2 (Windows Subsystem for Linux), or macOS
 
 ---
 
@@ -65,7 +65,7 @@ mysql -u crackjee -p'CrackJee_Local123!' -h 127.0.0.1 -e "SHOW DATABASES;"
 
 ---
 
-### Step 3: Clone Repository & Setup `.env` Files
+### Step 3: Clone Repository & Setup Environment Files
 
 ```bash
 git clone https://github.com/iam-orsu/CrackJEE.git
@@ -88,7 +88,7 @@ FRONTEND_URL=http://localhost:3000
 DATABASE_URL="mysql://crackjee:CrackJee_Local123!@127.0.0.1:3306/jeeneet"
 JWT_SECRET=your_generated_32_or_64_char_hex_secret
 
-# Optional: DeepSeek API Key (Leave empty to use built-in 12,677+ question bank)
+# Optional: DeepSeek API Key (Leave empty to use built-in question bank)
 DEEPSEEK_API_KEY=
 ```
 *(Frontend `frontend/.env.local` works out of the box with defaults).*
@@ -112,7 +112,7 @@ npm install
 
 ---
 
-### Step 5: (Optional) Create a Faculty / Mentor Account
+### Step 5: (Optional) Create a Faculty Mentor Account
 
 To test the Faculty Studio (`/faculty`), create a faculty login:
 ```bash
@@ -138,235 +138,284 @@ Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
 ---
 
-## 🚀 Part 2: Production Deployment on Ubuntu / AWS EC2 (From Scratch)
+## Part 2: Production Deployment on Ubuntu / AWS EC2 (Step-by-Step)
 
-### Step 1: Install Server Packages (Node 22, Git, Nginx, MySQL, PM2, Certbot, Chromium)
+Follow these exact steps to deploy on a clean Ubuntu 22.04 / 24.04 LTS server or AWS EC2 instance.
 
-Run on your fresh Ubuntu / Debian server:
+---
+
+### Step 1: Install Required System Packages
+
+Run on your fresh server:
 
 ```bash
+# 1. Update OS packages
 sudo apt update && sudo apt upgrade -y
+
+# 2. Install base system utilities, Nginx, MySQL, and Certbot
 sudo apt install -y curl ca-certificates git nginx mysql-server certbot python3-certbot-nginx chromium-browser
 
-# Install Node.js 22 LTS
+# 3. Install Node.js 22 LTS
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt install -y nodejs
 
-# Install PM2 process manager globally
+# 4. Install PM2 process manager globally
 sudo npm install -g pm2
 
-# Verify all installed tools
+# 5. Verify installations
 node -v && npm -v && pm2 -v && nginx -v && mysql --version && chromium-browser --version
 ```
 
 ---
 
-### Step 2: Configure & Start Production MySQL
+### Step 2: Configure Production MySQL (Tuned for Concurrency)
 
-```bash
-# Ensure MySQL service is running
-sudo systemctl enable --now mysql
+1. Tune MySQL configuration for high concurrency (e.g. 1,000+ active students taking tests).  
+   Edit `/etc/mysql/mysql.conf.d/mysqld.cnf` or `/etc/mysql/my.cnf`:
+   ```bash
+   sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+   ```
+   Add or update these directives under `[mysqld]`:
+   ```ini
+   [mysqld]
+   max_connections = 500
+   innodb_buffer_pool_size = 2G
+   wait_timeout = 600
+   interactive_timeout = 600
+   ```
 
-# Create database and production database user
-sudo mysql <<'SQL'
-CREATE DATABASE IF NOT EXISTS jeeneet CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+2. Restart and enable MySQL:
+   ```bash
+   sudo systemctl restart mysql
+   sudo systemctl enable mysql
+   ```
 
-CREATE USER IF NOT EXISTS 'crackjee'@'127.0.0.1' IDENTIFIED BY 'YOUR_STRONG_DB_PASSWORD';
-GRANT ALL PRIVILEGES ON jeeneet.* TO 'crackjee'@'127.0.0.1';
+3. Create the database and dedicated application user:
+   ```bash
+   sudo mysql <<'SQL'
+   CREATE DATABASE IF NOT EXISTS jeeneet CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-CREATE USER IF NOT EXISTS 'crackjee'@'localhost' IDENTIFIED BY 'YOUR_STRONG_DB_PASSWORD';
-GRANT ALL PRIVILEGES ON jeeneet.* TO 'crackjee'@'localhost';
+   CREATE USER IF NOT EXISTS 'crackjee'@'127.0.0.1' IDENTIFIED BY 'YOUR_STRONG_DB_PASSWORD';
+   GRANT ALL PRIVILEGES ON jeeneet.* TO 'crackjee'@'127.0.0.1';
 
-FLUSH PRIVILEGES;
-SQL
-```
+   CREATE USER IF NOT EXISTS 'crackjee'@'localhost' IDENTIFIED BY 'YOUR_STRONG_DB_PASSWORD';
+   GRANT ALL PRIVILEGES ON jeeneet.* TO 'crackjee'@'localhost';
 
-Verify connection:
-```bash
-mysql -u crackjee -p'YOUR_STRONG_DB_PASSWORD' -h 127.0.0.1 -e "SHOW DATABASES;"
-```
+   FLUSH PRIVILEGES;
+   SQL
+   ```
+
+4. Test MySQL connection:
+   ```bash
+   mysql -u crackjee -p'YOUR_STRONG_DB_PASSWORD' -h 127.0.0.1 -e "SHOW DATABASES;"
+   ```
 
 ---
 
-### Step 3: Clone Repository & Configure Production `.env`
+### Step 3: Clone the Repository
 
 ```bash
 cd ~
 git clone https://github.com/iam-orsu/CrackJEE.git
 cd CrackJEE
-
-cp backend/.env.example backend/.env
-cp frontend/.env.example frontend/.env.local
 ```
-
-Generate a 64-character JWT secret:
-```bash
-node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
-```
-
-Edit `backend/.env` (`nano backend/.env`):
-```env
-NODE_ENV=production
-PORT=3001
-LOG_LEVEL=info
-FRONTEND_URL=https://jeeneet.ai
-EXTRA_CORS_ORIGINS=https://www.jeeneet.ai
-
-DATABASE_URL="mysql://crackjee:YOUR_STRONG_DB_PASSWORD@127.0.0.1:3306/jeeneet"
-DB_CONNECTION_LIMIT=10
-DB_FANOUT_CONCURRENCY=5
-
-JWT_SECRET=YOUR_64_CHAR_HEX_SECRET
-
-DEEPSEEK_API_KEY=your_deepseek_api_key_or_leave_empty
-DEEPSEEK_CONCURRENCY=6
-DEEPSEEK_CIRCUIT_FAILURE_THRESHOLD=5
-DEEPSEEK_CIRCUIT_COOLDOWN_MS=300000
-
-# Superadmin credentials for /superadmin
-SUPERADMIN_EMAIL=admin@crackjee.com
-SUPERADMIN_PASSWORD_HASH=$2b$10$0qT/0ARRyR3CxTHuSyY5cecUxSyhdzWJiYJ5t.tB8WZk/BJhtKwR2
-```
-
-> **Note:** The hash above corresponds to password `admin@123`. You can generate a custom bcrypt hash by running:  
-> `cd backend && node -e "require('bcrypt').hash('your_password', 10).then(console.log)"`
 
 ---
 
-### Step 4: Install Dependencies, Migrate Database, Build & Seed
+### Step 4: Configure Production Environment Variables
 
-```bash
-# 1. Setup Backend: install deps, run migrations, compile TS, seed questions
-cd ~/CrackJEE/backend
-npm ci
-npm run db:generate
-npm run db:migrate
-npm run build
-npm run db:seed
+1. Copy the template files:
+   ```bash
+   cp backend/.env.example backend/.env
+   cp frontend/.env.example frontend/.env.local
+   ```
 
-# 2. Setup Frontend: install deps and compile production Next.js build
-cd ~/CrackJEE/frontend
-npm ci
-npm run build
-```
+2. Generate a secure 64-character random secret:
+   ```bash
+   node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+   ```
 
-> [!NOTE]
-> **Headless Linux / Ubuntu VPS — Chromium & PDF Engine Setup:**  
-> Faculty paper PDF generation uses server-side headless Chromium. On an Ubuntu / Debian VPS:
-> 1. **Install Chromium via `apt`** (this automatically resolves and installs all required Linux GUI and font dependencies without missing library errors):
->    ```bash
->    sudo apt update && sudo apt install -y chromium-browser
->    ```
-> 2. **Clean Cache & Standalone Chrome (if needed):**  
->    If you ever encounter an interrupted download or cache error, wipe the cache and install Puppeteer's pinned Chrome:
->    ```bash
->    rm -rf ~/.cache/puppeteer
->    cd ~/CrackJEE/backend && npx puppeteer browsers install chrome
->    ```
+3. Edit `backend/.env` (`nano backend/.env`):
+   ```env
+   NODE_ENV=production
+   PORT=3001
+   LOG_LEVEL=info
+   FRONTEND_URL=https://jeeneet.ai
+   EXTRA_CORS_ORIGINS=https://www.jeeneet.ai
+
+   # Database connection with connection pool limit and timeout
+   DATABASE_URL="mysql://crackjee:YOUR_STRONG_DB_PASSWORD@127.0.0.1:3306/jeeneet?connection_limit=50&pool_timeout=30"
+   DB_CONNECTION_LIMIT=50
+   DB_FANOUT_CONCURRENCY=5
+
+   # Security
+   JWT_SECRET=YOUR_64_CHAR_HEX_SECRET_FROM_STEP_2
+
+   # DeepSeek AI (Optional: leave empty to use built-in question bank)
+   DEEPSEEK_API_KEY=your_deepseek_api_key_or_leave_empty
+   DEEPSEEK_CONCURRENCY=6
+   DEEPSEEK_CIRCUIT_FAILURE_THRESHOLD=5
+   DEEPSEEK_CIRCUIT_COOLDOWN_MS=300000
+
+   # Redis (Optional: enable for multi-instance distributed caching)
+   # REDIS_URL=redis://127.0.0.1:6379
+
+   # Superadmin credentials for /superadmin
+   SUPERADMIN_EMAIL=admin@crackjee.com
+   SUPERADMIN_PASSWORD_HASH=$2b$10$0qT/0ARRyR3CxTHuSyY5cecUxSyhdzWJiYJ5t.tB8WZk/BJhtKwR2
+   ```
+
+4. Edit `frontend/.env.local` (`nano frontend/.env.local`):
+   ```env
+   NEXT_PUBLIC_API_URL=https://jeeneet.ai/api/v1
+   ```
 
 ---
 
-### Step 5: Start Applications with PM2
+### Step 5: Install Dependencies, Migrate Database & Build Applications
+
+1. Build backend:
+   ```bash
+   cd ~/CrackJEE/backend
+   npm ci
+   npm run db:generate
+   npm run db:migrate
+   npm run build
+   npm run db:seed
+   ```
+
+2. Build frontend:
+   ```bash
+   cd ~/CrackJEE/frontend
+   npm ci
+   npm run build
+   ```
+
+---
+
+### Step 6: Verify Chromium & PDF Engine (Server-Side)
+
+Faculty paper PDF exports run headless Chromium on the server.
+Verify that Chromium runs without missing library errors:
+```bash
+chromium-browser --version --no-sandbox
+```
+If you ever need to clean the Puppeteer cache or reinstall pinned Chrome:
+```bash
+rm -rf ~/.cache/puppeteer
+cd ~/CrackJEE/backend && npx puppeteer browsers install chrome
+```
+
+---
+
+### Step 7: Launch Applications with PM2
+
+Start both frontend and backend using PM2:
 
 ```bash
 cd ~/CrackJEE
 
-# Start backend and frontend defined in ecosystem.config.cjs
+# Start applications defined in ecosystem.config.cjs
 pm2 start ecosystem.config.cjs
 
-# Save PM2 process list so it survives reboots
+# Save PM2 process list so it automatically restarts on server reboot
 pm2 save
 
-# Setup PM2 systemd startup hook
+# Setup systemd startup hook
 pm2 startup
 ```
-*(Copy and execute the `sudo env PATH=...` command that `pm2 startup` displays in the terminal).*
+*(Copy and run the `sudo env PATH=...` command that `pm2 startup` displays in your terminal).*
+
+Check that both processes are online:
+```bash
+pm2 status
+```
 
 ---
 
-### Step 6: Configure Nginx Reverse Proxy & SSL
+### Step 8: Configure Nginx Reverse Proxy & SSL Certificate
 
 1. Create Nginx site configuration:
-```bash
-sudo tee /etc/nginx/sites-available/jeeneet.conf > /dev/null <<'EOF'
-upstream jeeneet_frontend {
-    server 127.0.0.1:3000;
-    keepalive 32;
-}
+   ```bash
+   sudo tee /etc/nginx/sites-available/jeeneet.conf > /dev/null <<'EOF'
+   upstream jeeneet_frontend {
+       server 127.0.0.1:3000;
+       keepalive 32;
+   }
 
-upstream jeeneet_backend {
-    server 127.0.0.1:3001;
-    keepalive 32;
-}
+   upstream jeeneet_backend {
+       server 127.0.0.1:3001;
+       keepalive 32;
+   }
 
-server {
-    listen 80;
-    listen [::]:80;
-    server_name jeeneet.ai www.jeeneet.ai;
+   server {
+       listen 80;
+       listen [::]:80;
+       server_name jeeneet.ai www.jeeneet.ai;
 
-    server_tokens off;
-    client_max_body_size 10m;
+       server_tokens off;
+       client_max_body_size 10m;
 
-    gzip on;
-    gzip_vary on;
-    gzip_proxied any;
-    gzip_min_length 1024;
-    gzip_types text/plain text/css application/json application/javascript text/xml application/xml;
+       gzip on;
+       gzip_vary on;
+       gzip_proxied any;
+       gzip_min_length 1024;
+       gzip_types text/plain text/css application/json application/javascript text/xml application/xml;
 
-    location /api/ {
-        proxy_pass http://jeeneet_backend;
-        proxy_http_version 1.1;
-        proxy_set_header Connection "";
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_read_timeout 180s;
-        proxy_send_timeout 180s;
-    }
+       location /api/ {
+           proxy_pass http://jeeneet_backend;
+           proxy_http_version 1.1;
+           proxy_set_header Connection "";
+           proxy_set_header Host $host;
+           proxy_set_header X-Real-IP $remote_addr;
+           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+           proxy_set_header X-Forwarded-Proto $scheme;
+           proxy_read_timeout 180s;
+           proxy_send_timeout 180s;
+       }
 
-    location = /health {
-        proxy_pass http://jeeneet_backend/health;
-        proxy_http_version 1.1;
-        proxy_set_header Host $host;
-    }
+       location = /health {
+           proxy_pass http://jeeneet_backend/health;
+           proxy_http_version 1.1;
+           proxy_set_header Host $host;
+       }
 
-    location / {
-        proxy_pass http://jeeneet_frontend;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-}
-EOF
-```
+       location / {
+           proxy_pass http://jeeneet_frontend;
+           proxy_http_version 1.1;
+           proxy_set_header Upgrade $http_upgrade;
+           proxy_set_header Connection "upgrade";
+           proxy_set_header Host $host;
+           proxy_set_header X-Real-IP $remote_addr;
+           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+           proxy_set_header X-Forwarded-Proto $scheme;
+       }
+   }
+   EOF
+   ```
 
-2. Enable the site and test Nginx configuration:
-```bash
-sudo ln -sf /etc/nginx/sites-available/jeeneet.conf /etc/nginx/sites-enabled/jeeneet.conf
-sudo rm -f /etc/nginx/sites-enabled/default
-sudo nginx -t && sudo systemctl reload nginx
-```
+2. Enable the site and reload Nginx:
+   ```bash
+   sudo ln -sf /etc/nginx/sites-available/jeeneet.conf /etc/nginx/sites-enabled/jeeneet.conf
+   sudo rm -f /etc/nginx/sites-enabled/default
+   sudo nginx -t && sudo systemctl reload nginx
+   ```
 
-3. Obtain Let's Encrypt SSL certificate (HTTPS):
-```bash
-sudo certbot --nginx -d jeeneet.ai -d www.jeeneet.ai
-```
+3. Obtain Let's Encrypt SSL certificate:
+   ```bash
+   sudo certbot --nginx -d jeeneet.ai -d www.jeeneet.ai
+   ```
 
-4. Verify live production health:
-```bash
-curl -s https://jeeneet.ai/health && echo ""
-```
+4. Verify live deployment:
+   ```bash
+   curl -s https://jeeneet.ai/health && echo ""
+   ```
 
 ---
 
-## 🔄 Part 3: Deploying Updates (Production)
+## Part 3: Deploying Updates (Zero-Downtime)
 
-Whenever you push new code to `main`, run this block on your EC2 server to pull, migrate, rebuild, and reload:
+Whenever you push new code to `main`, run this block on your server to pull, rebuild, and reload:
 
 ```bash
 cd ~/CrackJEE
@@ -380,7 +429,7 @@ npm ci && npm run db:generate && npm run db:migrate && npm run build
 cd ~/CrackJEE/frontend
 npm ci && npm run build
 
-# Reload PM2 processes with updated env
+# Reload PM2 processes with updated environment
 cd ~/CrackJEE
 pm2 restart ecosystem.config.cjs --update-env
 pm2 status
@@ -389,7 +438,21 @@ curl -s https://jeeneet.ai/health && echo ""
 
 ---
 
-## 👥 Part 4: Faculty Portal — Bulk Student Upload via CSV
+## Part 4: High-Scale Tuning Guide (1,000+ Concurrent Students)
+
+When running institutional or multi-batch exams where 1,000+ students are simultaneously answering questions:
+
+| Component | Setting | Recommendation |
+| :--- | :--- | :--- |
+| **MySQL `max_connections`** | `/etc/mysql/mysql.conf.d/mysqld.cnf` | Set `max_connections = 500` (default 151). |
+| **Node Connection Pool** | `backend/.env` | Set `DB_CONNECTION_LIMIT=50` and append `&pool_timeout=30` to `DATABASE_URL`. |
+| **Node Cluster Mode** | PM2 Process Manager | Run backend with `pm2 start dist/server.js -i max --name jeeneet-backend` to utilize all CPU cores. |
+| **Distributed Cache** | `backend/.env` | Set `REDIS_URL=redis://127.0.0.1:6379` so rate limits and caches are shared across cluster workers. |
+| **Express Body Limit** | Built-in | Hardened to `2mb` to easily support 180-question submissions and bulk rosters. |
+
+---
+
+## Part 5: Faculty Portal — Bulk Student Upload via CSV
 
 Faculty members can create student accounts one-by-one or import dozens/hundreds of students at once using a `.csv` file.
 
@@ -425,12 +488,11 @@ Ananya Patel,NEET-2026-015,ananya@example.com,Pass@456,NEET-CRACK
 | **`password`** | No | Initial login password. **If left blank, the student's password automatically defaults to their `rollNumber`**. |
 | **`batchCode`** | No | The target batch code (e.g. `TARGET-26`). If omitted in the CSV row, the student is assigned to the batch currently selected in the portal dropdown. |
 
-> [!TIP]
 > **Flexible Header Aliases:** The CSV parser also recognizes common variations such as `student_name` or `fullName` for `name`, `roll_no` or `roll` for `rollNumber`, and `batch` for `batchCode`.
 
 ---
 
-## 📌 Useful Server Cheatsheet
+## Useful Server Cheatsheet
 
 | Task | Command |
 | :--- | :--- |
