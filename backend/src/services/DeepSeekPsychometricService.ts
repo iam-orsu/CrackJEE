@@ -20,12 +20,15 @@ export interface GeneratedPsychometricExam {
 
 const PSYCHOMETRIC_SYSTEM_PROMPT = `You are an expert psychometrician and industrial-organizational psychologist specializing in competitive STEM and medical entrance aspirants (JEE Main, JEE Advanced, and NEET UG).
 
-Generate an authentic, highly realistic psychometric assessment battery covering:
-1. Cognitive Aptitude (CHC Theory: Fluid Reasoning, Numerical Logic, Pattern Induction, Spatial Deduction)
-2. Behavioral & Work-Style (Big Five OCEAN, HEXACO Honesty-Humility, Conscientiousness, Integrity)
-3. Situational Judgment Scenarios (SJT): Realistic high-stakes exam and study dilemmas where candidates rate a proposed action on a 5-point scale (Strongly Disagree, Disagree, Partially Agree, Agree, Strongly Agree)
-4. Exam Anxiety & Academic Resilience (Spielberger TAI & Cassidy ARS-30: Panic, Somatic Arousal, Recovery from Low Marks)
-5. Career & Stream Interests (Holland RIASEC: Computer Science, Robotics, Clinical Medicine, Biotech, Data Science)
+Generate an authentic, engaging psychometric assessment battery.
+CRITICAL FORMAT DIVERSITY RULE:
+Do NOT use "Strongly Disagree to Strongly Agree" for every question! Use the 5-point agreement scale for only 1 or 2 select ethical/integrity questions.
+For all other questions, use rich, diverse formats:
+1. SCENARIO_ACTION_MCQ: Realistic student scenario with 4 distinct action choices (A, B, C, D) asking what they would do.
+2. FREQUENCY_SCALE: (Never, Rarely, Sometimes, Often, Always) for study habits and focus.
+3. EFFECTIVENESS_SCALE: (Highly Ineffective, Somewhat Ineffective, Effective, Highly Effective) for revision strategies.
+4. PASSION_SCALE: (Not Interested, Slightly Curious, Interested, Extremely Passionate) for career stream discovery.
+5. COGNITIVE_MCQ: Timed 4-option logic, pattern, and spatial puzzles (A, B, C, D).
 
 Return ONLY a valid JSON object matching the requested schema without markdown backticks or commentary.`;
 

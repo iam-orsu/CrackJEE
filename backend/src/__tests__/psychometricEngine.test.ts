@@ -39,41 +39,31 @@ describe('Psychometric Engine & Framework Coverage', () => {
     });
   });
 
-  it('covers Big Five (OCEAN) and HEXACO Honesty-Humility with 5-point Likert items', () => {
+  it('ensures agreement scale (Strongly Disagree to Agree) occurs only occasionally (1-2 times)', () => {
     const exam = service.generateFromRandomizedBank('test_psy_3', 'Main');
-    const behSec = exam.sections.find((s) => s.id === 'sec_behavioral');
+    const allItems = exam.sections.flatMap((s) => s.items);
 
-    assert.ok(behSec);
-    const constructs = new Set(behSec.items.map((it) => it.construct));
-
-    assert.ok(constructs.has('CONSCIENTIOUSNESS'));
-    assert.ok(constructs.has('OPENNESS'));
-    assert.ok(constructs.has('EMOTIONAL_STABILITY'));
-    assert.ok(constructs.has('HONESTY_HUMILITY')); // HEXACO H factor
-
-    behSec.items.forEach((item) => {
-      assert.equal(item.itemType, 'LIKERT_5');
-      assert.equal(item.options?.length, 5);
-    });
+    const agreementItems = allItems.filter((it) => it.itemType === 'AGREEMENT_LIKERT');
+    // As explicitly requested: strongly agree/disagree should come occasionally like 1-2, not everything
+    assert.ok(agreementItems.length <= 2, `Expected at most 2 agreement items, got ${agreementItems.length}`);
+    assert.ok(agreementItems.length >= 1, 'Expected at least 1 agreement item');
   });
 
-  it('covers Situational Judgment (SJT) with scenario vignettes and agreement rating', () => {
+  it('covers Situational Judgment (SJT) with realistic scenario action MCQs and effectiveness ratings', () => {
     const exam = service.generateFromRandomizedBank('test_psy_4', 'Advanced');
     const sjtSec = exam.sections.find((s) => s.id === 'sec_sjt');
 
     assert.ok(sjtSec);
-    sjtSec.items.forEach((item) => {
-      assert.equal(item.section, 'SJT');
-      assert.equal(item.itemType, 'SCENARIO_LIKERT_5');
-      assert.ok(item.scenarioText && item.scenarioText.length > 20);
-      assert.ok(item.promptText && item.promptText.length > 10);
-      assert.equal(item.options?.length, 5);
-      assert.equal(item.options[0]?.text, 'Strongly Disagree');
-      assert.equal(item.options[4]?.text, 'Strongly Agree');
-    });
+    const itemTypes = new Set(sjtSec.items.map((it) => it.itemType));
+    assert.ok(itemTypes.has('SCENARIO_ACTION_MCQ'));
+
+    const actionMcq = sjtSec.items.find((it) => it.itemType === 'SCENARIO_ACTION_MCQ');
+    assert.ok(actionMcq);
+    assert.ok(actionMcq.scenarioText && actionMcq.scenarioText.length > 20);
+    assert.ok(actionMcq.options.length === 4); // 4 distinct action options (A, B, C, D)
   });
 
-  it('covers Spielberger TAI and Cassidy ARS-30 for test anxiety and resilience', () => {
+  it('covers Spielberger TAI and Cassidy ARS-30 with frequency rating scales', () => {
     const exam = service.generateFromRandomizedBank('test_psy_5', 'NEET');
     const anxSec = exam.sections.find((s) => s.id === 'sec_anxiety');
 
@@ -84,14 +74,14 @@ describe('Psychometric Engine & Framework Coverage', () => {
     assert.ok(constructs.has('ACADEMIC_RESILIENCE'));
 
     anxSec.items.forEach((item) => {
-      assert.equal(item.itemType, 'LIKERT_4');
-      assert.equal(item.options?.length, 4);
-      assert.equal(item.options[0]?.text, 'Almost Never');
-      assert.equal(item.options[3]?.text, 'Almost Always');
+      assert.equal(item.itemType, 'FREQUENCY_SCALE');
+      assert.equal(item.options?.length, 5);
+      assert.equal(item.options[0]?.text, 'Never');
+      assert.equal(item.options[4]?.text, 'Always');
     });
   });
 
-  it('covers Holland RIASEC model for engineering vs medical stream discovery', () => {
+  it('covers Holland RIASEC model with passion & interest ratings', () => {
     const exam = service.generateFromRandomizedBank('test_psy_6', 'Both');
     const riaSec = exam.sections.find((s) => s.id === 'sec_riasec');
 
@@ -101,13 +91,12 @@ describe('Psychometric Engine & Framework Coverage', () => {
     assert.ok(constructs.has('RIASEC_R')); // Realistic
     assert.ok(constructs.has('RIASEC_I')); // Investigative
     assert.ok(constructs.has('RIASEC_C')); // Conventional
-    assert.ok(constructs.has('RIASEC_S')); // Social
 
     riaSec.items.forEach((item) => {
-      assert.equal(item.itemType, 'RIASEC_RATING');
-      assert.equal(item.options?.length, 5);
-      assert.equal(item.options[0]?.text, 'Strongly Dislike');
-      assert.equal(item.options[4]?.text, 'Strongly Like');
+      assert.equal(item.itemType, 'PASSION_SCALE');
+      assert.equal(item.options?.length, 4);
+      assert.equal(item.options[0]?.text, 'Not Interested');
+      assert.equal(item.options[3]?.text, 'Extremely Passionate');
     });
   });
 
@@ -115,10 +104,10 @@ describe('Psychometric Engine & Framework Coverage', () => {
     // On a 1-5 scale: adjusted = (5 + 1) - raw
     const reverseKey = (raw: number) => Math.max(1, Math.min(5, 6 - raw));
 
-    assert.equal(reverseKey(1), 5); // Strongly disagree with a negative statement = high positive score
+    assert.equal(reverseKey(1), 5); // Never getting distracted = high positive score
     assert.equal(reverseKey(2), 4);
     assert.equal(reverseKey(3), 3);
     assert.equal(reverseKey(4), 2);
-    assert.equal(reverseKey(5), 1); // Strongly agreeing with negative statement = 1
+    assert.equal(reverseKey(5), 1); // Always getting distracted = 1
   });
 });

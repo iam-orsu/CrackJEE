@@ -11,7 +11,7 @@ const saveAnswerSchema = z.object({
     section: z.enum(['COGNITIVE', 'BEHAVIORAL', 'SJT', 'ANXIETY', 'RIASEC']),
     construct: z.string(),
     subFacet: z.string().optional(),
-    itemType: z.enum(['LIKERT_5', 'LIKERT_4', 'SCENARIO_LIKERT_5', 'COGNITIVE_MCQ', 'RIASEC_RATING']),
+    itemType: z.string(),
     scenarioText: z.string().optional(),
     promptText: z.string(),
     options: z.array(z.object({ id: z.string(), text: z.string() })).optional(),

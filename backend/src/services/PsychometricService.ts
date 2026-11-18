@@ -148,6 +148,12 @@ export class PsychometricService {
     let score = 0;
     if (item.section === 'COGNITIVE') {
       score = item.correctAnswer && answer.trim().toUpperCase() === item.correctAnswer.trim().toUpperCase() ? 1 : 0;
+    } else if (item.itemType === 'SCENARIO_ACTION_MCQ' || item.itemType === 'PREFERENCE_CHOICE') {
+      if (item.correctAnswer) {
+        score = answer.trim().toUpperCase() === item.correctAnswer.trim().toUpperCase() ? 5 : 2;
+      } else {
+        score = 4;
+      }
     } else {
       const numVal = parseFloat(answer) || 3;
       if (item.isReverseKeyed) {

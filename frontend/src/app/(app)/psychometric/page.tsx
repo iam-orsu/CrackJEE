@@ -92,19 +92,26 @@ const LIKERT_5 = [
   { val: '5', label: 'Strongly Agree', color: '#803688', bg: '#F5E6F8' },
 ];
 
-const LIKERT_4 = [
-  { val: '1', label: 'Almost Never', color: '#059669', bg: '#D1FAE5' },
-  { val: '2', label: 'Sometimes', color: '#D97706', bg: '#FEF3C7' },
-  { val: '3', label: 'Often', color: '#EA580C', bg: '#FFEDD5' },
-  { val: '4', label: 'Almost Always', color: '#E11D48', bg: '#FFE4E6' },
+const FREQUENCY_SCALE = [
+  { val: '1', label: 'Never', color: '#059669', bg: '#D1FAE5' },
+  { val: '2', label: 'Rarely', color: '#0284C7', bg: '#E0F2FE' },
+  { val: '3', label: 'Sometimes', color: '#D97706', bg: '#FEF3C7' },
+  { val: '4', label: 'Often', color: '#EA580C', bg: '#FFEDD5' },
+  { val: '5', label: 'Always', color: '#E11D48', bg: '#FFE4E6' },
 ];
 
-const RIASEC_SCALE = [
-  { val: '1', label: 'Strongly Dislike', color: '#E11D48', bg: '#FFE4E6' },
-  { val: '2', label: 'Dislike', color: '#EA580C', bg: '#FFEDD5' },
-  { val: '3', label: 'Neutral / Unsure', color: '#64748B', bg: '#F1F5F9' },
-  { val: '4', label: 'Like', color: '#059669', bg: '#D1FAE5' },
-  { val: '5', label: 'Strongly Like', color: '#803688', bg: '#F5E6F8' },
+const EFFECTIVENESS_SCALE = [
+  { val: '1', label: 'Highly Ineffective', color: '#E11D48', bg: '#FFE4E6' },
+  { val: '2', label: 'Somewhat Ineffective', color: '#EA580C', bg: '#FFEDD5' },
+  { val: '3', label: 'Effective', color: '#059669', bg: '#D1FAE5' },
+  { val: '4', label: 'Highly Effective', color: '#803688', bg: '#F5E6F8' },
+];
+
+const PASSION_SCALE = [
+  { val: '1', label: 'Not Interested', color: '#64748B', bg: '#F1F5F9' },
+  { val: '2', label: 'Slightly Curious', color: '#0284C7', bg: '#E0F2FE' },
+  { val: '3', label: 'Interested', color: '#059669', bg: '#D1FAE5' },
+  { val: '4', label: 'Extremely Passionate', color: '#803688', bg: '#F5E6F8' },
 ];
 
 export default function PsychometricPage() {
@@ -346,10 +353,7 @@ export default function PsychometricPage() {
   // --------------------------------------------------------------------------
   if (view === 'exam' && exam && currentSection && currentItem) {
     const isCognitive = currentSection.id === 'sec_cognitive';
-    const isSjt = currentItem.itemType === 'SCENARIO_LIKERT_5';
-    const isAnxiety = currentItem.itemType === 'LIKERT_4';
-    const isRiasec = currentItem.itemType === 'RIASEC_RATING';
-    const isMcq = currentItem.itemType === 'COGNITIVE_MCQ';
+    const hasScenario = currentItem.scenarioText != null && currentItem.scenarioText.length > 0;
 
     return (
       <div className="mx-auto max-w-4xl px-4 py-6">
@@ -433,8 +437,8 @@ export default function PsychometricPage() {
             )}
           </div>
 
-          {/* Scenario Callout if SJT */}
-          {isSjt && currentItem.scenarioText && (
+          {/* Scenario Callout if Scenario exists */}
+          {hasScenario && currentItem.scenarioText && (
             <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50/70 p-5">
               <div className="flex items-center gap-2 text-xs font-extrabold text-amber-800">
                 <span>📋</span>
@@ -453,14 +457,19 @@ export default function PsychometricPage() {
             </h3>
           </div>
 
-          {/* Answer Inputs based on Question Type */}
+          {/* Diverse Answer Inputs based on Question Format */}
           <div className="mt-8">
-            {/* 1. SCENARIO 5-POINT AGREEMENT OR STANDARD LIKERT */}
-            {(isSjt || currentItem.itemType === 'LIKERT_5') && (
+            {/* 1. OCCASIONAL 5-POINT AGREEMENT SCALE (Comes only on 1-2 select questions) */}
+            {(currentItem.itemType === 'AGREEMENT_LIKERT' || currentItem.itemType === 'LIKERT_5') && (
               <div>
-                <p className="mb-3 text-xs font-bold tracking-wide uppercase text-[#8A97AC]">
-                  Select your level of agreement:
-                </p>
+                <div className="mb-3 flex items-center justify-between">
+                  <p className="text-xs font-bold tracking-wide uppercase text-[#8A97AC]">
+                    Select your level of agreement:
+                  </p>
+                  <span className="text-[11px] font-semibold text-[#803688] bg-[#F5E6F8] px-2 py-0.5 rounded-full">
+                    Agreement Rating
+                  </span>
+                </div>
                 <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-5">
                   {LIKERT_5.map((opt) => {
                     const selected = answers[currentItem.id] === opt.val;
@@ -474,9 +483,7 @@ export default function PsychometricPage() {
                             ? 'ring-2 ring-offset-2 ring-[#803688] font-extrabold shadow-sm'
                             : 'border border-[#E2E8F0] bg-white hover:bg-slate-50'
                         }`}
-                        style={{
-                          backgroundColor: selected ? opt.bg : undefined,
-                        }}
+                        style={{ backgroundColor: selected ? opt.bg : undefined }}
                       >
                         <span
                           className="flex h-7 w-7 items-center justify-center rounded-full text-xs font-extrabold sm:mb-2"
@@ -487,10 +494,7 @@ export default function PsychometricPage() {
                         >
                           {opt.val}
                         </span>
-                        <span
-                          className="text-xs font-bold leading-tight"
-                          style={{ color: selected ? opt.color : '#334155' }}
-                        >
+                        <span className="text-xs font-bold leading-tight" style={{ color: selected ? opt.color : '#334155' }}>
                           {opt.label}
                         </span>
                       </button>
@@ -500,57 +504,54 @@ export default function PsychometricPage() {
               </div>
             )}
 
-            {/* 2. 4-POINT ANXIETY / RESILIENCE */}
-            {isAnxiety && (
-              <div>
-                <p className="mb-3 text-xs font-bold tracking-wide uppercase text-[#8A97AC]">
-                  How frequently do you experience this?
-                </p>
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
-                  {LIKERT_4.map((opt) => {
-                    const selected = answers[currentItem.id] === opt.val;
-                    return (
-                      <button
-                        key={opt.val}
-                        type="button"
-                        onClick={() => handleSelectAnswer(opt.val)}
-                        className={`flex items-center justify-between sm:justify-center gap-3 rounded-2xl p-4 text-center transition ${
-                          selected
-                            ? 'ring-2 ring-offset-2 ring-rose-500 font-extrabold shadow-sm'
-                            : 'border border-[#E2E8F0] bg-white hover:bg-slate-50'
-                        }`}
-                        style={{ backgroundColor: selected ? opt.bg : undefined }}
-                      >
-                        <span
-                          className="flex h-6 w-6 items-center justify-center rounded-full text-xs font-extrabold"
-                          style={{
-                            backgroundColor: selected ? opt.color : '#F1F5F9',
-                            color: selected ? '#FFFFFF' : '#64748B',
-                          }}
+            {/* 2. SCENARIO ACTION MCQS / PREFERENCE CHOICES / COGNITIVE PUZZLES */}
+            {(currentItem.itemType === 'SCENARIO_ACTION_MCQ' ||
+              currentItem.itemType === 'PREFERENCE_CHOICE' ||
+              currentItem.itemType === 'COGNITIVE_MCQ') &&
+              currentItem.options && (
+                <div>
+                  <p className="mb-3 text-xs font-bold tracking-wide uppercase text-[#8A97AC]">
+                    {currentItem.itemType === 'SCENARIO_ACTION_MCQ'
+                      ? 'Choose your immediate reaction / course of action:'
+                      : 'Select the best option:'}
+                  </p>
+                  <div className="grid grid-cols-1 gap-3">
+                    {currentItem.options.map((opt) => {
+                      const selected = answers[currentItem.id] === opt.id;
+                      return (
+                        <button
+                          key={opt.id}
+                          type="button"
+                          onClick={() => handleSelectAnswer(opt.id)}
+                          className={`flex items-start gap-4 rounded-2xl p-4 text-left transition ${
+                            selected
+                              ? 'border-2 border-[#803688] bg-[#F5E6F8] font-bold shadow-sm'
+                              : 'border border-[#E2E8F0] bg-white hover:bg-slate-50'
+                          }`}
                         >
-                          {opt.val}
-                        </span>
-                        <span
-                          className="text-xs font-bold"
-                          style={{ color: selected ? opt.color : '#334155' }}
-                        >
-                          {opt.label}
-                        </span>
-                      </button>
-                    );
-                  })}
+                          <span
+                            className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-xl font-bold text-xs ${
+                              selected ? 'bg-[#803688] text-white shadow-sm' : 'bg-slate-100 text-[#5A6B8C]'
+                            }`}
+                          >
+                            {opt.id}
+                          </span>
+                          <span className="text-sm text-[#1B254B] pt-1 leading-relaxed">{opt.text}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {/* 3. HOLLAND RIASEC INTEREST RATING */}
-            {isRiasec && (
+            {/* 3. FREQUENCY SCALE (Study Habits & Exam Reaction Frequency) */}
+            {currentItem.itemType === 'FREQUENCY_SCALE' && (
               <div>
                 <p className="mb-3 text-xs font-bold tracking-wide uppercase text-[#8A97AC]">
-                  Rate your genuine interest in this activity:
+                  How frequently does this occur in your routine?
                 </p>
                 <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-5">
-                  {RIASEC_SCALE.map((opt) => {
+                  {FREQUENCY_SCALE.map((opt) => {
                     const selected = answers[currentItem.id] === opt.val;
                     return (
                       <button
@@ -573,10 +574,7 @@ export default function PsychometricPage() {
                         >
                           {opt.val}
                         </span>
-                        <span
-                          className="text-xs font-bold"
-                          style={{ color: selected ? opt.color : '#334155' }}
-                        >
+                        <span className="text-xs font-bold" style={{ color: selected ? opt.color : '#334155' }}>
                           {opt.label}
                         </span>
                       </button>
@@ -586,33 +584,83 @@ export default function PsychometricPage() {
               </div>
             )}
 
-            {/* 4. COGNITIVE TIMED MCQS */}
-            {isMcq && currentItem.options && (
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {currentItem.options.map((opt) => {
-                  const selected = answers[currentItem.id] === opt.id;
-                  return (
-                    <button
-                      key={opt.id}
-                      type="button"
-                      onClick={() => handleSelectAnswer(opt.id)}
-                      className={`flex items-start gap-4 rounded-2xl p-4 text-left transition ${
-                        selected
-                          ? 'border-2 border-[#803688] bg-[#F5E6F8] font-bold shadow-sm'
-                          : 'border border-[#E2E8F0] bg-white hover:bg-slate-50'
-                      }`}
-                    >
-                      <span
-                        className={`flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-xl font-bold text-xs ${
-                          selected ? 'bg-[#803688] text-white' : 'bg-slate-100 text-[#5A6B8C]'
+            {/* 4. STRATEGY EFFECTIVENESS RATING */}
+            {currentItem.itemType === 'EFFECTIVENESS_SCALE' && (
+              <div>
+                <p className="mb-3 text-xs font-bold tracking-wide uppercase text-[#8A97AC]">
+                  Rate the effectiveness of this strategy:
+                </p>
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
+                  {EFFECTIVENESS_SCALE.map((opt) => {
+                    const selected = answers[currentItem.id] === opt.val;
+                    return (
+                      <button
+                        key={opt.val}
+                        type="button"
+                        onClick={() => handleSelectAnswer(opt.val)}
+                        className={`flex items-center justify-between sm:justify-center gap-3 rounded-2xl p-4 text-center transition ${
+                          selected
+                            ? 'ring-2 ring-offset-2 ring-purple-600 font-extrabold shadow-sm'
+                            : 'border border-[#E2E8F0] bg-white hover:bg-slate-50'
                         }`}
+                        style={{ backgroundColor: selected ? opt.bg : undefined }}
                       >
-                        {opt.id}
-                      </span>
-                      <span className="text-sm text-[#1B254B] pt-0.5">{opt.text}</span>
-                    </button>
-                  );
-                })}
+                        <span
+                          className="flex h-6 w-6 items-center justify-center rounded-full text-xs font-extrabold"
+                          style={{
+                            backgroundColor: selected ? opt.color : '#F1F5F9',
+                            color: selected ? '#FFFFFF' : '#64748B',
+                          }}
+                        >
+                          {opt.val}
+                        </span>
+                        <span className="text-xs font-bold" style={{ color: selected ? opt.color : '#334155' }}>
+                          {opt.label}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* 5. PASSION & INTEREST SCALE */}
+            {(currentItem.itemType === 'PASSION_SCALE' || currentItem.itemType === 'RIASEC_RATING') && (
+              <div>
+                <p className="mb-3 text-xs font-bold tracking-wide uppercase text-[#8A97AC]">
+                  Rate your genuine interest / passion in this area:
+                </p>
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
+                  {PASSION_SCALE.map((opt) => {
+                    const selected = answers[currentItem.id] === opt.val;
+                    return (
+                      <button
+                        key={opt.val}
+                        type="button"
+                        onClick={() => handleSelectAnswer(opt.val)}
+                        className={`flex items-center justify-between sm:justify-center gap-3 rounded-2xl p-4 text-center transition ${
+                          selected
+                            ? 'ring-2 ring-offset-2 ring-[#803688] font-extrabold shadow-sm'
+                            : 'border border-[#E2E8F0] bg-white hover:bg-slate-50'
+                        }`}
+                        style={{ backgroundColor: selected ? opt.bg : undefined }}
+                      >
+                        <span
+                          className="flex h-6 w-6 items-center justify-center rounded-full text-xs font-extrabold"
+                          style={{
+                            backgroundColor: selected ? opt.color : '#F1F5F9',
+                            color: selected ? '#FFFFFF' : '#64748B',
+                          }}
+                        >
+                          {opt.val}
+                        </span>
+                        <span className="text-xs font-bold" style={{ color: selected ? opt.color : '#334155' }}>
+                          {opt.label}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             )}
           </div>
