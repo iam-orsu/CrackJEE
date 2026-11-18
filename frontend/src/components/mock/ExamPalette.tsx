@@ -22,8 +22,8 @@ const SECTION_HEAD: CSSProperties = {
   color: EX.ink, paddingBottom: 10, borderBottom: `1px solid ${EX.line}`,
 };
 
-/* Right-hand panel, top to bottom: legend, the per-subject question palette,
-   then the counts by status */
+/* Right-hand panel, top to bottom: the counts by status, the per-subject
+   question palette, then the key to the sheet */
 export function ExamPalette({ totalAnswered, totalMarked, statusCounts, subjects, bySubject, questions, answers, marked, visited, currentIdx, goTo }: ExamPaletteProps) {
   const stats: { label: string; count: number; status: QStatus }[] = [
     { label: 'Answered', count: totalAnswered, status: 'answered' },
@@ -34,26 +34,34 @@ export function ExamPalette({ totalAnswered, totalMarked, statusCounts, subjects
 
   return (
     <>
-      {/* Legend */}
+      {/* Summary table */}
       <div>
-        <div style={SECTION_HEAD}>Legend</div>
-        <div style={{ marginTop: 12 }}>
-          {([
-            ['not_visited',     'Not visited'],
-            ['not_answered',    'Not answered'],
-            ['answered',        'Answered'],
-            ['marked',          'Marked for review'],
-            ['answered_marked', 'Answered + marked'],
-          ] as [QStatus, string][]).map(([status, label]) => {
+        <div style={SECTION_HEAD}>Response summary</div>
+        <div style={{
+          display: 'grid', gridTemplateColumns: '1fr 1fr', marginTop: 12,
+          border: `1px solid ${EX.line}`, borderRadius: 2, overflow: 'hidden', background: EX.paper,
+        }}>
+          {stats.map(({ label, count, status }, i) => {
             const st = STATUS_STYLE[status];
-            const round = status === 'marked' || status === 'answered_marked';
             return (
-              <div key={status} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 7 }}>
+              <div
+                key={label}
+                style={{
+                  padding: '10px 12px',
+                  borderRight: i % 2 === 0 ? `1px solid ${EX.lineSoft}` : 'none',
+                  borderBottom: i < 2 ? `1px solid ${EX.lineSoft}` : 'none',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+                  <span style={{ width: 7, height: 7, borderRadius: 2, background: st.bg, border: `1px solid ${st.border}`, flexShrink: 0 }} />
+                  <span style={{ fontSize: 9.5, fontWeight: 600, color: EX.mute }}>{label}</span>
+                </div>
                 <div style={{
-                  width: 16, height: 16, borderRadius: round ? '50%' : 2,
-                  background: st.bg, border: `1px solid ${st.border}`, flexShrink: 0,
-                }} />
-                <span style={{ fontSize: 11, color: EX.ink2 }}>{label}</span>
+                  fontFamily: FONT_MONO, fontSize: 19, fontWeight: 700, color: EX.ink,
+                  lineHeight: 1.1, fontVariantNumeric: 'tabular-nums',
+                }}>
+                  {Math.max(0, count)}
+                </div>
               </div>
             );
           })}
@@ -124,34 +132,26 @@ export function ExamPalette({ totalAnswered, totalMarked, statusCounts, subjects
         </div>
       </div>
 
-      {/* Summary table */}
+      {/* Legend */}
       <div>
-        <div style={SECTION_HEAD}>Response summary</div>
-        <div style={{
-          display: 'grid', gridTemplateColumns: '1fr 1fr', marginTop: 12,
-          border: `1px solid ${EX.line}`, borderRadius: 2, overflow: 'hidden', background: EX.paper,
-        }}>
-          {stats.map(({ label, count, status }, i) => {
+        <div style={SECTION_HEAD}>Legend</div>
+        <div style={{ marginTop: 12 }}>
+          {([
+            ['not_visited',     'Not visited'],
+            ['not_answered',    'Not answered'],
+            ['answered',        'Answered'],
+            ['marked',          'Marked for review'],
+            ['answered_marked', 'Answered + marked'],
+          ] as [QStatus, string][]).map(([status, label]) => {
             const st = STATUS_STYLE[status];
+            const round = status === 'marked' || status === 'answered_marked';
             return (
-              <div
-                key={label}
-                style={{
-                  padding: '10px 12px',
-                  borderRight: i % 2 === 0 ? `1px solid ${EX.lineSoft}` : 'none',
-                  borderBottom: i < 2 ? `1px solid ${EX.lineSoft}` : 'none',
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
-                  <span style={{ width: 7, height: 7, borderRadius: 2, background: st.bg, border: `1px solid ${st.border}`, flexShrink: 0 }} />
-                  <span style={{ fontSize: 9.5, fontWeight: 600, color: EX.mute }}>{label}</span>
-                </div>
+              <div key={status} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 7 }}>
                 <div style={{
-                  fontFamily: FONT_MONO, fontSize: 19, fontWeight: 700, color: EX.ink,
-                  lineHeight: 1.1, fontVariantNumeric: 'tabular-nums',
-                }}>
-                  {Math.max(0, count)}
-                </div>
+                  width: 16, height: 16, borderRadius: round ? '50%' : 2,
+                  background: st.bg, border: `1px solid ${st.border}`, flexShrink: 0,
+                }} />
+                <span style={{ fontSize: 11, color: EX.ink2 }}>{label}</span>
               </div>
             );
           })}
