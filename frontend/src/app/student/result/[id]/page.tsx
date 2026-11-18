@@ -33,6 +33,20 @@ const ArrowLeftIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const CheckCircleIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className={className ?? 'h-4 w-4'}>
+    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+    <polyline points="22 4 12 14.01 9 11.01" />
+  </svg>
+);
+
+const CompassIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className={className ?? 'h-4 w-4'}>
+    <circle cx="12" cy="12" r="10" />
+    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+  </svg>
+);
+
 const FILTER_TABS = [
   { value: 'all', label: 'All' },
   { value: 'correct', label: 'Correct' },
@@ -79,6 +93,7 @@ export default function StudentExamResultPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [filterType, setFilterType] = useState<'all' | 'correct' | 'incorrect' | 'skipped'>('all');
+  const [psyFilter, setPsyFilter] = useState<'all' | 'answered' | 'skipped'>('all');
 
   useEffect(() => {
     studentGetResult(examId)
@@ -154,6 +169,369 @@ export default function StudentExamResultPage() {
         minute: '2-digit',
       })
     : '';
+
+  const isPsychometric = assignment.examType === 'Psychometric';
+
+  if (isPsychometric) {
+    const attemptedCount = scorecard.attemptedCount ?? ((solutions?.length || 0) - scorecard.unattemptedCount);
+    const totalQuestions = solutions?.length || 0;
+    const report = scorecard.psychometricReport;
+    const goalText = assignment.examGoal || report?.goal || assignment.title;
+
+    const filteredPsySolutions = (solutions || []).filter((q) => {
+      if (psyFilter === 'answered') return Boolean(q.studentAnswer);
+      if (psyFilter === 'skipped') return !q.studentAnswer;
+      return true;
+    });
+
+    return (
+      <div className="min-h-screen bg-[#FBFCFE] bg-page-wash font-dm text-[#003366]">
+        <Style />
+
+        <header className="sticky top-0 z-20 border-b border-[#003366]/10 bg-[#FBFCFE]/85 backdrop-blur">
+          <div className="mx-auto flex w-full max-w-[1160px] items-center justify-between gap-4 px-4 py-1.5 sm:px-6 sm:py-2">
+            <Link href="/" aria-label="JEENEET.ai home" className="shrink-0 rounded-xl">
+              <Image src="/logo.png" alt="JEENEET.ai" width={118} height={48} priority className="block h-12 w-auto sm:h-14" />
+            </Link>
+            <Link href="/student" className={SECONDARY_BTN}>
+              <ArrowLeftIcon />
+              Dashboard
+            </Link>
+          </div>
+        </header>
+
+        <div className="px-4 pb-16 pt-5 sm:px-6 sm:pb-[72px] sm:pt-6">
+          <div className="mx-auto flex w-full max-w-[1160px] flex-col gap-6">
+
+            {/* Hero Card: Psychometric Goal Alignment */}
+            <section className="dz-rise relative overflow-hidden rounded-[36px] border border-[#803688]/20 bg-white p-6 text-[#003366] sm:p-8 xl:p-10 shadow-[0_12px_32px_rgba(128,54,136,.06)]">
+              <div aria-hidden className="pointer-events-none absolute inset-0">
+                <svg viewBox="0 0 900 700" preserveAspectRatio="xMaxYMax slice" className="absolute bottom-[-10%] right-0 h-[76%] w-[min(66%,700px)]">
+                  <defs>
+                    <linearGradient id="psy-hero-blob" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stopColor="#803688" stopOpacity="0.22" />
+                      <stop offset="0.6" stopColor="#803688" stopOpacity="0.10" />
+                      <stop offset="1" stopColor="#B98CBE" stopOpacity="0.05" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M1000 700 L1000 150 C946 92 862 62 772 78 C668 97 596 172 528 246 C462 318 396 378 310 414 C214 455 132 508 84 578 C52 626 30 668 24 700 Z"
+                    fill="url(#psy-hero-blob)"
+                  />
+                </svg>
+              </div>
+
+              <div className="relative grid items-center gap-8 lg:grid-cols-[auto_minmax(0,1fr)_auto]">
+                <Ring pct={scorecard.totalScore} color="#803688" size={156} stroke={15} track="rgba(128,54,136,.12)">
+                  <div className="text-center">
+                    <div className={`${HEAD} text-[36px] font-extrabold leading-none tabular-nums text-[#803688]`}>
+                      {scorecard.totalScore}%
+                    </div>
+                    <div className="mt-1 text-[11px] font-bold uppercase tracking-wider text-[#5A6B8C]">
+                      Goal Alignment
+                    </div>
+                  </div>
+                </Ring>
+
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="rounded-full bg-[#803688]/15 px-3 py-1 text-[11.5px] font-extrabold text-[#803688]">
+                      Psychometric &amp; Behavioral Assessment
+                    </span>
+                    <span className="text-[12px] font-semibold text-[#5A6B8C]">
+                      · {assignment.batchName}
+                    </span>
+                  </div>
+
+                  <h1 className={`${HEAD} mt-1.5 text-[clamp(24px,2.8vw,36px)] font-extrabold leading-tight tracking-[-0.02em] text-[#003366]`}>
+                    {assignment.title}
+                  </h1>
+
+                  <p className="mt-1.5 text-[13px] text-[#5A6B8C]">
+                    {assignment.facultyName}
+                    {submitted && ` · Evaluated on ${submitted}`}
+                  </p>
+
+                  {/* Professor Goal Callout */}
+                  <div className="mt-4 rounded-2xl border-[1.5px] border-[#803688]/25 bg-[#FBF5FC] p-3.5 sm:p-4">
+                    <div className="flex items-center gap-2">
+                      <span className="rounded-md bg-[#803688] px-2 py-0.5 text-[10.5px] font-extrabold uppercase tracking-wider text-white">
+                        Evaluation Target / Professor Goal
+                      </span>
+                    </div>
+                    <p className="mt-1.5 text-[14px] font-semibold italic leading-relaxed text-[#003366]">
+                      &ldquo;{goalText}&rdquo;
+                    </p>
+                  </div>
+
+                  <div className="mt-5 grid grid-cols-3 gap-3 max-sm:grid-cols-1">
+                    <div className="dz-pop rounded-2xl border border-[#003366]/10 bg-[rgba(238,242,255,.72)] px-4 py-3 backdrop-blur">
+                      <p className="text-[12px] font-semibold text-[#7A87A0]">Alignment Level</p>
+                      <p className={`${HEAD} mt-1 text-[20px] font-extrabold text-[#803688]`}>
+                        {report?.alignmentLevel || 'High Alignment'}
+                      </p>
+                      <p className="mt-1 text-[11.5px] font-medium text-[#5A6B8C] truncate" title={report?.archetype}>
+                        {report?.archetype || 'Practical Problem Solver'}
+                      </p>
+                    </div>
+
+                    <div className="dz-pop rounded-2xl border border-[#003366]/10 bg-[rgba(238,242,255,.72)] px-4 py-3 backdrop-blur" style={{ animationDelay: '120ms' }}>
+                      <p className="text-[12px] font-semibold text-[#7A87A0]">Questions Answered</p>
+                      <p className={`${HEAD} mt-1 text-[24px] font-extrabold text-[#003366] tabular-nums`}>
+                        {attemptedCount} <span className="text-[14px] font-normal text-[#5A6B8C]">/ {totalQuestions}</span>
+                      </p>
+                      <p className="mt-1 text-[11.5px] text-[#5A6B8C]">
+                        {scorecard.unattemptedCount} skipped · 100% trait-based
+                      </p>
+                    </div>
+
+                    <div className="dz-pop rounded-2xl border border-[#003366]/10 bg-[rgba(238,242,255,.72)] px-4 py-3 backdrop-blur" style={{ animationDelay: '240ms' }}>
+                      <p className="text-[12px] font-semibold text-[#7A87A0]">Completion Time</p>
+                      <p className={`${HEAD} mt-1 text-[24px] font-extrabold text-[#003366] tabular-nums`}>
+                        {formatTime(scorecard.timeTakenSeconds)}
+                      </p>
+                      <p className="mt-1 text-[11.5px] text-[#5A6B8C]">
+                        No right/wrong marking
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-2.5">
+                  <a href="#review" className={btn}>Review Responses</a>
+                  <Link href="/student" className={SECONDARY_BTN}>Back to dashboard</Link>
+                </div>
+              </div>
+            </section>
+
+            {/* AI Behavioral Synthesis & Guidance Grid */}
+            <div className="grid gap-5 xl:grid-cols-12 xl:gap-6">
+              {/* Executive Summary */}
+              <section className={`${glass} flex flex-col p-6 xl:col-span-7`}>
+                <div className="mb-4">
+                  <span className="rounded-md bg-[#803688]/15 px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wide text-[#803688]">
+                    AI Evaluation Synthesis
+                  </span>
+                  <h2 className={`${h2c} mt-2 text-[20px]`}>Mindset &amp; Behavioral Analysis</h2>
+                  <p className="mt-1 text-[13px] text-[#5A6B8C]">
+                    Detailed evaluation of candidate responses calibrated directly to the professor&apos;s goal.
+                  </p>
+                </div>
+
+                <div className="flex-1 space-y-3.5 text-[14px] leading-relaxed text-[#1E2B45]">
+                  {(report?.summary || 'The student demonstrated consistent decision-making patterns across situational and cognitive scenarios, with strong engagement in problem-solving and peer collaboration.')
+                    .split('\n\n')
+                    .map((para, pIdx) => (
+                      <p key={pIdx} className="rounded-2xl border border-[#003366]/10 bg-[#F7F9FF] p-4 text-[#1E2B45]">
+                        {para}
+                      </p>
+                    ))}
+                </div>
+              </section>
+
+              {/* Strengths & Mentoring Guidance */}
+              <div className="flex flex-col gap-5 xl:col-span-5">
+                <section className={`${glass} p-5 sm:p-6`}>
+                  <div className="flex items-center gap-2 text-[#15803D]">
+                    <CheckCircleIcon className="h-5 w-5 shrink-0" />
+                    <h3 className={`${HEAD} text-[16px] font-extrabold text-[#003366]`}>Demonstrated Strengths</h3>
+                  </div>
+                  <ul className="mt-3.5 space-y-2.5">
+                    {(report?.keyStrengths || [
+                      'Practical task ownership and initiative in overcoming project hurdles',
+                      'Active listening and collaborative attitude during group interactions',
+                      'Calculated decision discipline when facing unexpected setbacks'
+                    ]).map((str, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5 text-[13px] leading-relaxed text-[#1E2B45]">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#15803D]" />
+                        <span>{str}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+
+                <section className={`${glass} p-5 sm:p-6`}>
+                  <div className="flex items-center gap-2 text-[#803688]">
+                    <CompassIcon className="h-5 w-5 shrink-0" />
+                    <h3 className={`${HEAD} text-[16px] font-extrabold text-[#003366]`}>Faculty Mentoring Guidance</h3>
+                  </div>
+                  <ul className="mt-3.5 space-y-2.5">
+                    {(report?.growthAreas || [
+                      'Provide safe spaces for autonomous design experiments with room for iterative trials',
+                      'Encourage sharing original ideas with the entire group early in discussions'
+                    ]).map((growth, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5 text-[13px] leading-relaxed text-[#1E2B45]">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#803688]" />
+                        <span>{growth}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              </div>
+            </div>
+
+            {/* Domain Breakdown */}
+            {report?.domainBreakdown && report.domainBreakdown.length > 0 && (
+              <section className={`${glass} p-6`}>
+                <div className="mb-4">
+                  <h2 className={`${h2c} text-[20px]`}>Psychometric Domain Breakdown</h2>
+                  <p className="mt-1 text-[13px] text-[#5A6B8C]">
+                    Alignment across evaluated behavioral and cognitive competency domains
+                  </p>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {report.domainBreakdown.map((d, i) => (
+                    <div key={i} className="rounded-2xl border border-[#003366]/10 bg-white p-4 shadow-sm">
+                      <div className="flex items-center justify-between gap-2">
+                        <h4 className="font-extrabold text-[14px] text-[#003366]">{d.domain}</h4>
+                        <span className="rounded-full bg-[#803688]/10 px-2.5 py-0.5 text-[11.5px] font-extrabold text-[#803688]">
+                          {d.scorePct}%
+                        </span>
+                      </div>
+                      <p className="mt-1 text-[12px] font-bold text-[#803688]">{d.traitLabel}</p>
+                      <div className="mt-2.5 h-2 w-full overflow-hidden rounded-full bg-[#EEF2FF]">
+                        <div className="h-full rounded-full bg-[#803688]" style={{ width: `${d.scorePct}%` }} />
+                      </div>
+                      <p className="mt-2.5 text-[12px] leading-relaxed text-[#5A6B8C]">{d.analysis}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Candidate Response Review (No right/wrong answers) */}
+            <section id="review" className="scroll-mt-24">
+              <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
+                <div>
+                  <h2 className={`${HEAD} text-[24px] font-extrabold tracking-[-0.02em] text-[#003366]`}>
+                    Candidate Response Review
+                  </h2>
+                  <p className="mt-1 text-[13px] text-[#5A6B8C]">
+                    Review your chosen responses and behavioral trait indicators. (There are no right or wrong answers).
+                  </p>
+                </div>
+
+                <div role="tablist" className="flex max-w-full gap-1 overflow-x-auto rounded-full border border-[#003366]/10 bg-white/85 p-1 backdrop-blur-xl">
+                  {[
+                    { value: 'all', label: 'All Questions', count: totalQuestions },
+                    { value: 'answered', label: 'Answered', count: attemptedCount },
+                    { value: 'skipped', label: 'Skipped', count: scorecard.unattemptedCount },
+                  ].map((tab) => (
+                    <button
+                      key={tab.value}
+                      type="button"
+                      role="tab"
+                      aria-selected={psyFilter === tab.value}
+                      onClick={() => setPsyFilter(tab.value as typeof psyFilter)}
+                      className={`shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-[13px] font-bold transition-all duration-200 ${
+                        psyFilter === tab.value ? 'bg-[#803688] text-white shadow-md' : 'text-[#5A6B8C] hover:bg-[#EEF2FF]'
+                      }`}
+                    >
+                      {tab.label}
+                      <span className={`ml-1.5 tabular-nums ${psyFilter === tab.value ? 'opacity-70' : 'opacity-60'}`}>{tab.count}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {filteredPsySolutions.length === 0 ? (
+                <div className={`${glass} p-7 sm:p-9`}>
+                  <Empty>No questions under this filter.</Empty>
+                </div>
+              ) : (
+                <div className="flex flex-col gap-4">
+                  {filteredPsySolutions.map((q) => {
+                    const isSkipped = !q.studentAnswer;
+
+                    return (
+                      <article key={q.number} className={`${glass} flex flex-col gap-4 p-5 sm:p-6`}>
+                        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[rgba(0,51,102,.08)] pb-3.5">
+                          <div className="flex flex-wrap items-center gap-2.5">
+                            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#803688] text-[13px] font-extrabold tabular-nums text-white">
+                              {q.number}
+                            </span>
+                            <span className={`${HEAD} text-[15px] font-extrabold text-[#003366]`}>Question {q.number}</span>
+                            <span className="rounded-full bg-[#803688]/10 px-2.5 py-1 text-[11px] font-bold text-[#803688]">
+                              {q.topic}
+                            </span>
+                          </div>
+
+                          <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11.5px] font-bold tracking-wide ${
+                            isSkipped ? 'bg-[#EEF2FF] text-[#5A6B8C]' : 'bg-[#803688]/10 text-[#803688]'
+                          }`}>
+                            {isSkipped ? 'Skipped' : 'Response Recorded'}
+                          </span>
+                        </div>
+
+                        <div
+                          className="text-[15px] leading-[1.7] text-[#1E2B45]"
+                          dangerouslySetInnerHTML={{ __html: renderMathHtml(q.questionText) }}
+                        />
+
+                        {q.options && q.options.length > 0 && (
+                          <div className="flex flex-col gap-2">
+                            {q.options.map((opt, idx) => {
+                              const letter = String.fromCharCode(65 + idx);
+                              const isStudentSelected =
+                                (q.studentAnswer || '').trim() === letter ||
+                                (q.studentAnswer || '').trim() === opt.trim() ||
+                                (q.studentAnswer || '').trim().startsWith(letter);
+
+                              return (
+                                <div
+                                  key={letter}
+                                  className={`flex items-center gap-3 rounded-[14px] border-[1.5px] px-3.5 py-2.5 text-[14px] transition-colors ${
+                                    isStudentSelected
+                                      ? 'border-[#803688] bg-[#FBF5FC] font-semibold text-[#803688] shadow-sm'
+                                      : 'border-[#CBD5F3] bg-white text-[#5A6B8C]'
+                                  }`}
+                                >
+                                  <span className={`min-w-[20px] font-extrabold ${isStudentSelected ? 'text-[#803688]' : 'text-[#003366]'}`}>
+                                    {letter}.
+                                  </span>
+                                  <span
+                                    className="flex-1"
+                                    dangerouslySetInnerHTML={{ __html: renderMathHtml(stripOptionPrefix(opt)) }}
+                                  />
+                                  {isStudentSelected && (
+                                    <span className="rounded-full bg-[#803688] px-2.5 py-0.5 text-[11px] font-extrabold text-white">
+                                      Your Response
+                                    </span>
+                                  )}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        )}
+
+                        {/* Behavioral Trait Rubric */}
+                        {(q.correctAnswer || q.explanation) && (
+                          <div className="rounded-[16px] border-l-[5px] border-[#803688] bg-[#FBF5FC] p-4 text-[13.5px] leading-relaxed text-[#3B2450]">
+                            <p className="mb-1 text-[11px] font-extrabold uppercase tracking-wider text-[#803688]">
+                              Behavioral Trait Rubric &amp; Insight
+                            </p>
+                            <div
+                              dangerouslySetInnerHTML={{
+                                __html: renderExplanationHtml(
+                                  q.correctAnswer.startsWith('Trait Rubric')
+                                    ? `${q.correctAnswer}\n\n${q.explanation}`
+                                    : q.explanation || q.correctAnswer
+                                ),
+                              }}
+                            />
+                          </div>
+                        )}
+                      </article>
+                    );
+                  })}
+                </div>
+              )}
+            </section>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#FBFCFE] bg-page-wash font-dm text-[#003366]">

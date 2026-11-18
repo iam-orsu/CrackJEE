@@ -317,9 +317,15 @@ export default function StudentExamCbtPage() {
                 {activeQuestion.subject} · {activeQuestion.topic}
               </span>
             </div>
-            <p className="text-[12.5px] font-medium text-[#5A6B8C]">
-              Marking: <strong className="text-[#15803D]">+4</strong> correct, <strong className="text-[#C8202F]">-1</strong> wrong
-            </p>
+            {session.examType === 'Psychometric' ? (
+              <span className="rounded-full bg-accent/10 px-3 py-1 text-[12px] font-bold text-accent">
+                Opinion &amp; Behavioral Assessment · No Right/Wrong Answers
+              </span>
+            ) : (
+              <p className="text-[12.5px] font-medium text-[#5A6B8C]">
+                Marking: <strong className="text-[#15803D]">+4</strong> correct, <strong className="text-[#C8202F]">-1</strong> wrong
+              </p>
+            )}
           </div>
 
           {/* Diagram if available */}

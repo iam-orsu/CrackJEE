@@ -7,6 +7,7 @@ import { FacultyStudentRepository } from '../repositories/FacultyStudentReposito
 import { type FacultyPaperItem } from '../repositories/FacultyRepository';
 import { scoringService } from './ScoringService';
 import { gradingService } from './GradingService';
+import { deepSeekPsychometricService } from './DeepSeekPsychometricService';
 import { AppError } from '../utils/AppError';
 
 export class FacultyStudentExamService {
@@ -270,6 +271,69 @@ export class FacultyStudentExamService {
     const items = (assignment.paper.items as unknown as FacultyPaperItem[]) || [];
     const examType = assignment.paper.examType;
 
+    // Psychometric assessments: 100% opinion and trait based - zero right/wrong scoring
+    if (examType === 'Psychometric') {
+      const professorGoal = this.extractPaperGoal(assignment.paper);
+      const studentName = session.student?.name || 'Student';
+      const attemptedCount = items.filter((item) => Boolean(answers[String(item.number)]?.trim())).length;
+      const unattemptedCount = items.length - attemptedCount;
+
+      const psychometricReport = await deepSeekPsychometricService.evaluateStudentPsychometricSubmission({
+        goal: professorGoal,
+        candidateName: studentName,
+        items,
+        answers,
+        timeTakenSeconds,
+      });
+
+      const itemResults: Record<
+        number,
+        { submitted: string | null; isCorrect: null; score: null; maxScore: null }
+      > = {};
+
+      for (const item of items) {
+        itemResults[item.number] = {
+          submitted: answers[String(item.number)]?.trim() || null,
+          isCorrect: null,
+          score: null,
+          maxScore: null,
+        };
+      }
+
+      const resultBreakdown = {
+        itemResults,
+        psychometricReport,
+        attemptedCount,
+        unattemptedCount,
+        goal: professorGoal,
+      };
+
+      await this.examRepo.submit(session.id, {
+        status: 'submitted',
+        submittedAt: new Date(),
+        timeTakenSeconds,
+        totalScore: psychometricReport.alignmentScore,
+        maxScore: 100,
+        correctCount: 0,
+        partialCount: 0,
+        incorrectCount: 0,
+        unattemptedCount,
+        answers,
+        resultBreakdown,
+      });
+
+      return {
+        success: true,
+        totalScore: psychometricReport.alignmentScore,
+        maxScore: 100,
+        correctCount: 0,
+        partialCount: 0,
+        incorrectCount: 0,
+        unattemptedCount,
+        psychometricReport,
+      };
+    }
+
     let totalScore = 0;
     let maxScore = 0;
     let correctCount = 0;
@@ -408,6 +472,73 @@ export class FacultyStudentExamService {
     const items = (assignment.paper.items as unknown as FacultyPaperItem[]) || [];
     const submittedAnswers = (session.answers as Record<string, string>) || {};
 
+    if (assignment.paper.examType === 'Psychometric') {
+      const professorGoal = this.extractPaperGoal(assignment.paper);
+      const rawBreakdown = (session.resultBreakdown as Record<string, unknown>) || {};
+      let psychometricReport = (rawBreakdown.psychometricReport as any) || null;
+
+      if (!psychometricReport) {
+        psychometricReport = await deepSeekPsychometricService.evaluateStudentPsychometricSubmission({
+          goal: professorGoal,
+          candidateName: session.student?.name || 'Student',
+          items,
+          answers: submittedAnswers,
+          timeTakenSeconds: session.timeTakenSeconds,
+        });
+      }
+
+      const attemptedCount = items.filter((q) => Boolean(submittedAnswers[String(q.number)]?.trim())).length;
+      const unattemptedCount = items.length - attemptedCount;
+
+      const solutions = items.map((q) => {
+        const studentAns = submittedAnswers[String(q.number)] || null;
+        return {
+          number: q.number,
+          subject: q.subject,
+          topic: q.topic,
+          difficulty: q.difficulty,
+          questionType: q.questionType,
+          questionText: q.questionText,
+          options: q.options,
+          diagram: q.diagram,
+          studentAnswer: studentAns,
+          correctAnswer: q.correctAnswer,
+          explanation: q.explanation,
+          isCorrect: null,
+          score: null,
+          maxScore: null,
+        };
+      });
+
+      return {
+        assignment: {
+          id: assignment.id,
+          title: assignment.title,
+          examType: 'Psychometric',
+          showSolutions: assignment.showSolutions,
+          batchName: assignment.batch.name,
+          facultyName: assignment.faculty.name,
+          examGoal: professorGoal,
+        },
+        scorecard: {
+          rank,
+          totalCandidates,
+          totalScore: psychometricReport.alignmentScore,
+          maxScore: 100,
+          correctCount: 0,
+          partialCount: 0,
+          incorrectCount: 0,
+          attemptedCount,
+          unattemptedCount,
+          timeTakenSeconds: session.timeTakenSeconds,
+          submittedAt: session.submittedAt?.toISOString() ?? null,
+          resultBreakdown: rawBreakdown,
+          psychometricReport,
+        },
+        solutions,
+      };
+    }
+
     let solutions = null;
     let sanitizedBreakdown = session.resultBreakdown as Record<string, unknown> | null;
 
@@ -480,5 +611,15 @@ export class FacultyStudentExamService {
       },
       solutions,
     };
+  }
+
+  private extractPaperGoal(paper: { title: string; selections: unknown }): string {
+    if (Array.isArray(paper.selections) && paper.selections.length > 0) {
+      const first = paper.selections[0] as Record<string, unknown>;
+      if (first && typeof first.examGoal === 'string' && first.examGoal.trim()) {
+        return first.examGoal.trim();
+      }
+    }
+    return paper.title || 'Assess student general aptitude, entrepreneurial mindset, and technical problem-solving attitude';
   }
 }

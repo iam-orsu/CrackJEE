@@ -81,6 +81,23 @@ export interface StudentExamSolutionItem extends StudentExamQuestion {
   maxScore: number;
 }
 
+export interface PsychometricReportPayload {
+  goal: string;
+  alignmentScore: number;
+  alignmentLevel: string;
+  archetype: string;
+  summary: string;
+  domainBreakdown: Array<{
+    domain: string;
+    traitLabel: string;
+    scorePct: number;
+    analysis: string;
+  }>;
+  keyStrengths: string[];
+  growthAreas: string[];
+  radicalFlags: string[];
+}
+
 export interface StudentExamResultData {
   assignment: {
     id: string;
@@ -89,6 +106,7 @@ export interface StudentExamResultData {
     showSolutions: boolean;
     batchName: string;
     facultyName: string;
+    examGoal?: string;
   };
   scorecard: {
     rank: number;
@@ -98,9 +116,11 @@ export interface StudentExamResultData {
     correctCount: number;
     incorrectCount: number;
     unattemptedCount: number;
+    attemptedCount?: number;
     timeTakenSeconds: number;
     submittedAt: string | null;
     resultBreakdown: Record<string, unknown> | null;
+    psychometricReport?: PsychometricReportPayload | null;
   };
   solutions: StudentExamSolutionItem[] | null;
 }

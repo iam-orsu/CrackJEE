@@ -353,6 +353,17 @@ export class FacultyPaperService {
       const title = input.title?.trim()
         ? input.title.trim()
         : defaultPaperTitle(input.examType, input.selections, input.examGoal);
+      const selectionsWithGoal = input.selections.map((sel, idx) => {
+        if (idx === 0) {
+          return {
+            ...sel,
+            examGoal: input.examGoal?.trim() || null,
+            targetProfile: input.targetProfile || null,
+          };
+        }
+        return sel;
+      });
+
       const paper = await this.facultyRepo.createPaper({
         facultyId,
         title,
@@ -360,7 +371,7 @@ export class FacultyPaperService {
         examType: input.examType,
         difficulty: 'intermediate',
         questionCount: input.questionCount,
-        selections: input.selections,
+        selections: selectionsWithGoal,
       });
 
       const job = this.runPsychometricGeneration(paper.id, input)
