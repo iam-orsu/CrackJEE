@@ -52,6 +52,7 @@ interface PaperSlot {
   topic: string;
   difficulty: Difficulty;
   questionType: QuestionType;
+  requiresDiagram?: boolean;
 }
 
 const SUBJECT_ORDER: Record<Subject, number> = {
@@ -217,29 +218,51 @@ function buildPaperSlots(input: CreateFacultyPaperInput): PaperSlot[] {
       pushSlotsForType('integer', sel.integerEasy ?? 0, sel.integerMedium ?? 0, sel.integerHard ?? 0, integerCount);
       pushSlotsForType('matrix_match', sel.matrixEasy ?? 0, sel.matrixMedium ?? 0, sel.matrixHard ?? 0, matrixCount);
     }
-    return slots;
-  }
+  } else {
+    // Fallback: standard equal split when granular counts are not provided
+    const n = sortedSelections.length;
+    const base = Math.floor(input.questionCount / n);
+    const remainder = input.questionCount % n;
+    const pref = input.questionType ?? 'auto';
 
-  // Fallback: standard equal split when granular counts are not provided
-  const n = sortedSelections.length;
-  const base = Math.floor(input.questionCount / n);
-  const remainder = input.questionCount % n;
-  const pref = input.questionType ?? 'auto';
-
-  for (let sIdx = 0; sIdx < n; sIdx++) {
-    const sel = sortedSelections[sIdx]!;
-    const countForSelection = base + (sIdx < remainder ? 1 : 0);
-    for (let i = 0; i < countForSelection; i++) {
-      slots.push({
-        number,
-        subject: sel.subject,
-        topic: sel.topic,
-        difficulty: plannedDifficulties[number - 1] ?? resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
-        questionType: resolveSlotQuestionType(input.examType, pref, i, countForSelection),
-      });
-      number++;
+    for (let sIdx = 0; sIdx < n; sIdx++) {
+      const sel = sortedSelections[sIdx]!;
+      const countForSelection = base + (sIdx < remainder ? 1 : 0);
+      for (let i = 0; i < countForSelection; i++) {
+        slots.push({
+          number,
+          subject: sel.subject,
+          topic: sel.topic,
+          difficulty: plannedDifficulties[number - 1] ?? resolveSlotDifficulty(input.examType, input.difficulty, number - 1),
+          questionType: resolveSlotQuestionType(input.examType, pref, i, countForSelection),
+        });
+        number++;
+      }
     }
   }
+
+  // Mandatory diagram guarantee: At least 2 diagram questions for any paper >= 2 questions (or 15% if larger)
+  const diagramQuota = Math.min(slots.length, Math.max(2, Math.round(slots.length * 0.15)));
+  let assignedDiagrams = 0;
+
+  // First pass: assign to MCQ / multi / integer slots (ideal for visual diagrams)
+  for (const s of slots) {
+    if (assignedDiagrams >= diagramQuota) break;
+    if (s.questionType !== 'matrix_match') {
+      s.requiresDiagram = true;
+      assignedDiagrams++;
+    }
+  }
+
+  // Second pass: if diagram quota not met yet (e.g., all matrix_match), assign to remaining slots
+  for (const s of slots) {
+    if (assignedDiagrams >= diagramQuota) break;
+    if (!s.requiresDiagram) {
+      s.requiresDiagram = true;
+      assignedDiagrams++;
+    }
+  }
+
   return slots;
 }
 
@@ -618,6 +641,7 @@ export class FacultyPaperService {
             topic: slot.topic,
             difficulty: slot.difficulty,
             questionType: slot.questionType,
+            requiresDiagram: slot.requiresDiagram,
           });
           const verified = await deepSeekService.blindVerifyFacultyQuestion({
             examType,
@@ -684,7 +708,13 @@ export class FacultyPaperService {
       ? candidates
       : await this.questionRepo.findFacultyFallbackQuestions(slot.subject, slot.topic, examTypes, undefined, 15);
 
-    const row = broadCandidates.find((q) => !usedBankIds.has(q.id) && !usedTexts.has(q.questionText));
+    let row = slot.requiresDiagram
+      ? broadCandidates.find((q) => !usedBankIds.has(q.id) && !usedTexts.has(q.questionText) && q.diagram != null)
+      : undefined;
+
+    if (!row) {
+      row = broadCandidates.find((q) => !usedBankIds.has(q.id) && !usedTexts.has(q.questionText));
+    }
     if (!row) return null;
 
     usedBankIds.add(row.id);

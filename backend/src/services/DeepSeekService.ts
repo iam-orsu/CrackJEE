@@ -353,6 +353,7 @@ ${correct}
     topic: string;
     difficulty: Difficulty;
     questionType: QuestionType;
+    requiresDiagram?: boolean;
   }): Promise<GeneratedQuestion> {
     const targetLetter = LETTERS[Math.floor(Math.random() * 4)]!;
     const prompt = buildFacultyGenerationPrompt({ ...params, targetLetter });
@@ -369,7 +370,7 @@ ${correct}
       const content = response.choices[0]?.message?.content;
       if (!content) throw new Error('Empty response from DeepSeek');
       const raw = extractJsonObject(content);
-      return validateFacultyQuestion(raw, params.questionType, examType);
+      return validateFacultyQuestion(raw, params.questionType, examType, !!params.requiresDiagram);
     }, 'Failed to generate faculty question after retries');
   }
 

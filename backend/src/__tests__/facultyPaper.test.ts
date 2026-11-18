@@ -280,6 +280,56 @@ describe('FacultyPaperService slot allocation and rules', () => {
     assert.equal(savedSlots.filter((s: any) => s.difficulty === 'intermediate').length, 3);
     assert.equal(savedSlots.filter((s: any) => s.difficulty === 'advanced').length, 2);
   });
+
+  it('guarantees at least 2 diagram questions on every faculty paper (10, 20, 75 questions)', async () => {
+    let savedItems: any[] = [];
+    const fakeRepo: any = {
+      createPaper: async (data: any) => ({
+        id: 'test-paper-diagram-quota',
+        paperCode: 'FP-DIAG',
+        facultyId: data.facultyId,
+        title: data.title,
+        examType: data.examType,
+        difficulty: data.difficulty,
+        questionCount: data.questionCount,
+        selections: data.selections,
+        items: [],
+        status: 'ready',
+        verifiedCount: 0,
+      }),
+      updatePaperState: async (_id: string, update: any) => {
+        if (update.items) savedItems = update.items;
+      },
+    };
+
+    // Bank questions: 2 with diagrams, 8 without
+    const fallbackQuestions: any[] = Array.from({ length: 10 }, (_, i) => ({
+      id: `q_${i + 1}`,
+      questionText: `Question text ${i + 1}`,
+      questionType: 'mcq_single',
+      options: ['A', 'B', 'C', 'D'],
+      answer: 'A',
+      explanation: 'Explanation',
+      diagram: i < 2 ? { template: 'simple_circuit', params: {} } : null,
+    }));
+
+    const fakeQRepo: any = {
+      findFacultyFallbackQuestions: async () => fallbackQuestions,
+    };
+
+    const service = new FacultyPaperService(fakeRepo, fakeQRepo);
+    await service.startPaper('faculty-123', {
+      examType: 'Main',
+      difficulty: 'intermediate',
+      questionCount: 10,
+      selections: [{ subject: 'Physics', topic: 'Current Electricity' }],
+    });
+
+    await service.waitForActiveGenerations();
+
+    const diagramItems = savedItems.filter((item) => item.diagram !== null);
+    assert.ok(diagramItems.length >= 2, `Expected at least 2 diagram items in 10-question faculty paper, got ${diagramItems.length}`);
+  });
 });
 
 describe('FacultyPaperService editing, mutating, and error guards', () => {

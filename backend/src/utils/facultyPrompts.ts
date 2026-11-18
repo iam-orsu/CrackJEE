@@ -10,6 +10,7 @@ import {
   ALLOWED_DIAGRAM_TEMPLATES,
   buildDifficultySpec,
   DIAGRAM_SPEC,
+  getSubjectDiagramTemplates,
   isValidDiagramTemplate,
   parseRawQuestion,
 } from './deepseekPrompts';
@@ -67,8 +68,9 @@ export function validateFacultyQuestion(
   raw: Record<string, unknown>,
   questionType: QuestionType,
   examType: ExamType,
+  requiresDiagram = false,
 ): GeneratedQuestion {
-  const parsed = parseRawQuestion(raw, questionType, examType, true);
+  const parsed = parseRawQuestion(raw, questionType, examType, true, requiresDiagram);
 
   if (!hasBalancedMathDelimiters(parsed.question)) {
     throw new Error('Unbalanced LaTeX $ delimiters in question');
@@ -83,6 +85,9 @@ export function validateFacultyQuestion(
   }
   if (!isValidDiagramTemplate(parsed.diagram)) {
     throw new Error('Invalid diagram template or parameters');
+  }
+  if (requiresDiagram && (!parsed.diagram || !isValidDiagramTemplate(parsed.diagram))) {
+    throw new Error('Question must contain a valid non-null diagram template');
   }
 
   return parsed;
@@ -124,8 +129,9 @@ export function buildFacultyGenerationPrompt(params: {
   difficulty: Difficulty;
   questionType: QuestionType;
   targetLetter: string;
+  requiresDiagram?: boolean;
 }): string {
-  const { examType, subject, topic, difficulty, questionType, targetLetter } = params;
+  const { examType, subject, topic, difficulty, questionType, targetLetter, requiresDiagram } = params;
   const effectiveExam: ExamType = examType === 'NEET' ? 'NEET' : examType;
   const effectiveDifficulty: Difficulty = examType === 'Advanced' ? 'advanced' : difficulty;
   const difficultySpec = buildDifficultySpec(effectiveDifficulty, effectiveExam);
@@ -170,6 +176,25 @@ Options MUST be exactly 4 distinct matching permutations of the form "A-P, B-R, 
       ? '["A-P, B-R, C-S, D-Q", "A-R, B-P, C-Q, D-S", "A-Q, B-S, C-P, D-R", "A-S, B-Q, C-R, D-P"]'
       : '["option A", "option B", "option C", "option D"]';
 
+  const allowedTemplates = getSubjectDiagramTemplates(subject);
+  const exampleDiagram = requiresDiagram
+    ? subject === 'Physics'
+      ? `{ "template": "simple_circuit", "params": { "components": [{ "type": "battery", "value": "12V" }, { "type": "resistor", "value": "4Ω" }] } }`
+      : subject === 'Mathematics'
+        ? `{ "template": "coordinate_geometry", "params": { "curves": [{ "type": "parabola", "equation": "y^2 = 4ax" }] } }`
+        : `{ "template": "energy_profile", "params": { "reaction_type": "exothermic", "activation_energy": 50, "delta_h": -20 } }`
+    : 'null';
+
+  const diagramMandate = requiresDiagram
+    ? `
+<diagram_mandate>
+  CRITICAL: This question MUST include a valid, non-null diagram object.
+  The diagram MUST be relevant to the question and use one of the allowed templates for ${subject}:
+  [${allowedTemplates.map((t) => `"${t}"`).join(', ')}]
+  "diagram" CANNOT BE NULL.
+</diagram_mandate>`
+    : '';
+
   return `
 <context>
   <role>Senior faculty exam setter writing a weekly printable competitive test</role>
@@ -200,8 +225,9 @@ Options MUST be exactly 4 distinct matching permutations of the form "A-P, B-R, 
     "options": ${optionsExample},
     ${formatExample},
     "answer_explanation": "Clean, student-ready step-by-step solution matching computed_answer.",
-    "diagram": null
+    "diagram": ${exampleDiagram}
   }
+${diagramMandate}
 ${DIAGRAM_SPEC}
 </format>
 
@@ -210,7 +236,7 @@ ${DIAGRAM_SPEC}
   - Plain option text ONLY — do NOT prefix options with "A)", "(A)", "1.", etc.
   - ALL math/chemical formulas in valid balanced $...$ delimiters (escape dollar signs only as LaTeX pairs)
   - For single-correct: all 4 options must be mathematically & conceptually distinct
-  - diagram must be null or a valid template from the list above
+  ${requiresDiagram ? '- "diagram" MUST NOT be null! It must be a valid template object matching the physical problem setup.' : '- diagram must be null or a valid template from the list above'}
 </constraints>`;
 }
 
