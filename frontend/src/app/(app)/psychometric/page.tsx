@@ -18,7 +18,7 @@ export interface CandidateProfile {
   age: number;
   professionStatus: 'student' | 'employed' | 'job_seeker';
   studentLevel?: 'school' | 'intermediate' | 'ug' | 'pg';
-  schoolClass?: 'class_6' | 'class_7' | 'class_8' | 'class_9' | 'class_10';
+  schoolClass?: 'class_4' | 'class_5' | 'class_6' | 'class_7' | 'class_8' | 'class_9' | 'class_10';
   stream?: string;
   jobTitle?: string;
   companyType?: string;
@@ -121,6 +121,7 @@ export default function PsychometricPage() {
     schoolClass: 'class_10',
     stream: 'Science / Mathematics',
   });
+  const [ageInput, setAgeInput] = useState<string>('16');
 
   const [exam, setExam] = useState<ExamData | null>(null);
   const [sessionId, setSessionId] = useState<string>('');
@@ -169,6 +170,7 @@ export default function PsychometricPage() {
           const parsed = JSON.parse(stored);
           if (parsed && typeof parsed.age === 'number') {
             setProfile(parsed);
+            setAgeInput(String(parsed.age));
             setProfileSaved(true);
           }
         }
@@ -184,16 +186,25 @@ export default function PsychometricPage() {
   }, [history]);
 
   function handleSaveProfile() {
+    const ageNum = parseInt(ageInput, 10) || 16;
+    const clampedAge = Math.max(6, Math.min(100, ageNum));
+    const updated: CandidateProfile = {
+      ...profile,
+      age: clampedAge,
+      schoolClass: profile.studentLevel === 'school' ? (profile.schoolClass || 'class_10') : undefined,
+    };
+    setProfile(updated);
+    setAgeInput(String(clampedAge));
     setProfileSaved(true);
     try {
       if (typeof window !== 'undefined') {
-        localStorage.setItem('psychometric_candidate_profile', JSON.stringify(profile));
+        localStorage.setItem('psychometric_candidate_profile', JSON.stringify(updated));
       }
     } catch {
       // Ignore
     }
     setProfileModalOpen(false);
-    setSaveNotice('Background details saved successfully! Select any assessment card below to begin.');
+    setSaveNotice('Background details saved successfully. Select any assessment card below to begin.');
     setTimeout(() => setSaveNotice(''), 6000);
   }
 
@@ -275,6 +286,8 @@ export default function PsychometricPage() {
 
   const schoolClassLabel = useMemo(() => {
     const map: Record<string, string> = {
+      class_4: 'Class 4',
+      class_5: 'Class 5',
       class_6: 'Class 6',
       class_7: 'Class 7',
       class_8: 'Class 8',
@@ -296,7 +309,7 @@ export default function PsychometricPage() {
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-bold text-emerald-300">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="h-2 w-2 rounded-full bg-emerald-400" />
                 Assessment Complete
               </span>
               <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
@@ -311,7 +324,7 @@ export default function PsychometricPage() {
               onClick={() => setView('hub')}
               className="rounded-xl border border-white/20 bg-white/10 px-5 py-2.5 text-xs font-bold tracking-wide text-white transition hover:bg-white/20"
             >
-              ← Back to All Cards
+              Back to All Cards
             </button>
           </div>
 
@@ -378,7 +391,7 @@ export default function PsychometricPage() {
               {(career?.coreStrengths || []).map((str, i) => (
                 <li key={i} className="flex items-start gap-2.5 text-xs text-slate-700 leading-normal">
                   <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-[10px] font-bold text-emerald-700">
-                    ✓
+                    -
                   </span>
                   {str}
                 </li>
@@ -432,7 +445,7 @@ export default function PsychometricPage() {
             onClick={() => setView('hub')}
             className="rounded-xl bg-[#003366] px-6 py-3 text-sm font-bold text-white shadow-md transition hover:bg-[#002244]"
           >
-            ← Explore More Assessment Cards
+            Explore More Assessment Cards
           </button>
           <button
             type="button"
@@ -467,7 +480,7 @@ export default function PsychometricPage() {
               </span>
               {savingStatus && (
                 <span className="text-xs font-semibold text-emerald-600 transition-opacity">
-                  • {savingStatus}
+                  - {savingStatus}
                 </span>
               )}
             </div>
@@ -633,7 +646,7 @@ export default function PsychometricPage() {
             onClick={() => setActiveQIdx((prev) => Math.max(0, prev - 1))}
             className="rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-xs font-bold text-slate-700 shadow-sm transition hover:bg-slate-50 disabled:opacity-40"
           >
-            ← Previous
+            Previous
           </button>
 
           {activeQIdx < totalQ - 1 ? (
@@ -642,7 +655,7 @@ export default function PsychometricPage() {
               onClick={() => setActiveQIdx((prev) => Math.min(totalQ - 1, prev + 1))}
               className="rounded-xl bg-[#003366] px-6 py-2.5 text-xs font-bold text-white shadow-sm transition hover:bg-[#002244]"
             >
-              Next Question →
+              Next Question
             </button>
           ) : (
             <button
@@ -670,7 +683,7 @@ export default function PsychometricPage() {
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#1D4E89] p-8 text-white shadow-xl sm:p-10">
         <div className="relative z-10 max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-full bg-blue-500/20 px-3 py-1 text-xs font-semibold backdrop-blur-md">
-            <span className="h-2 w-2 rounded-full bg-blue-400 animate-pulse" />
+            <span className="h-2 w-2 rounded-full bg-blue-400" />
             Candidate Intelligence & Career Decision Engine
           </span>
           <h1 className="mt-4 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
@@ -683,10 +696,10 @@ export default function PsychometricPage() {
           {/* Profile Active Status Bar */}
           <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white/10 p-3.5 backdrop-blur-md">
             <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-100">
-              <span className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-bold ${
+              <span className={`inline-flex items-center rounded-lg px-2.5 py-1 text-xs font-bold ${
                 profileSaved ? 'bg-emerald-500/20 text-emerald-300' : 'bg-amber-500/20 text-amber-300'
               }`}>
-                {profileSaved ? '✓ Profile Details Saved' : '⚠️ Profile Not Saved'}
+                {profileSaved ? 'Profile Details Saved' : 'Profile Not Saved'}
               </span>
               <span className="rounded-lg bg-white/10 px-2.5 py-1">Age: {profile.age}</span>
               <span className="rounded-lg bg-white/10 px-2.5 py-1 capitalize">
@@ -715,10 +728,13 @@ export default function PsychometricPage() {
             </div>
             <button
               type="button"
-              onClick={() => setProfileModalOpen(true)}
+              onClick={() => {
+                setAgeInput(String(profile.age || 16));
+                setProfileModalOpen(true);
+              }}
               className="rounded-lg border border-white/20 bg-white/15 px-3 py-1.5 text-xs font-bold text-white transition hover:bg-white/25"
             >
-              ✏️ {profileSaved ? 'Edit Background Details' : 'Enter Background Details'}
+              {profileSaved ? 'Edit Background Details' : 'Enter Background Details'}
             </button>
           </div>
         </div>
@@ -728,9 +744,7 @@ export default function PsychometricPage() {
       {saveNotice && (
         <div className="mt-6 flex items-center justify-between rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-xs font-bold text-emerald-900 shadow-sm">
           <div className="flex items-center gap-2">
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-600 text-white text-[11px]">
-              ✓
-            </span>
+            <span className="h-2 w-2 rounded-full bg-emerald-600" />
             <span>{saveNotice}</span>
           </div>
           <button
@@ -738,7 +752,7 @@ export default function PsychometricPage() {
             onClick={() => setSaveNotice('')}
             className="text-xs text-emerald-700 hover:text-emerald-900"
           >
-            Dismiss ✕
+            Dismiss
           </button>
         </div>
       )}
@@ -812,7 +826,7 @@ export default function PsychometricPage() {
                     <ul className="space-y-1">
                       {card.subtopics.slice(0, 4).map((st, i) => (
                         <li key={i} className="flex items-center gap-1.5 text-[11px] text-slate-600 truncate">
-                          <span className="text-emerald-500 font-bold text-xs">•</span>
+                          <span className="text-emerald-500 font-bold text-xs">-</span>
                           <span className="truncate">{st}</span>
                         </li>
                       ))}
@@ -845,13 +859,13 @@ export default function PsychometricPage() {
                   >
                     {isStartingThis ? (
                       <span className="inline-flex items-center gap-1.5">
-                        <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
+                        <span className="h-2 w-2 rounded-full bg-white" />
                         Generating Questions...
                       </span>
                     ) : isCompleted ? (
-                      '✓ Completed (Retake)'
+                      'Completed (Retake)'
                     ) : (
-                      'Start Assessment →'
+                      'Start Assessment'
                     )}
                   </button>
                 </div>
@@ -875,9 +889,9 @@ export default function PsychometricPage() {
               <button
                 type="button"
                 onClick={() => setProfileModalOpen(false)}
-                className="rounded-lg p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-700"
+                className="rounded-lg p-1.5 text-xs font-bold text-slate-400 hover:bg-slate-100 hover:text-slate-700"
               >
-                ✕
+                Close
               </button>
             </div>
 
@@ -886,13 +900,20 @@ export default function PsychometricPage() {
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1">Your Age</label>
                 <input
-                  type="number"
-                  min={10}
-                  max={90}
-                  value={profile.age}
-                  onChange={(e) => setProfile((p) => ({ ...p, age: parseInt(e.target.value, 10) || 16 }))}
+                  type="text"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  value={ageInput}
+                  onChange={(e) => {
+                    const val = e.target.value.replace(/[^0-9]/g, '');
+                    setAgeInput(val);
+                    if (val !== '') {
+                      const num = parseInt(val, 10);
+                      setProfile((p) => ({ ...p, age: num }));
+                    }
+                  }}
                   className="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm text-slate-900 outline-none focus:border-blue-600"
-                  placeholder="e.g. 16"
+                  placeholder="Enter age (e.g. 15)"
                 />
               </div>
 
@@ -909,7 +930,7 @@ export default function PsychometricPage() {
                         : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                     }`}
                   >
-                    🎓 Student
+                    Student
                   </button>
                   <button
                     type="button"
@@ -920,7 +941,7 @@ export default function PsychometricPage() {
                         : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                     }`}
                   >
-                    💼 Working Job
+                    Working Job
                   </button>
                   <button
                     type="button"
@@ -931,7 +952,7 @@ export default function PsychometricPage() {
                         : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                     }`}
                   >
-                    🔍 Looking for Job
+                    Looking for Job
                   </button>
                 </div>
               </div>
@@ -951,7 +972,7 @@ export default function PsychometricPage() {
                       }
                       className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs text-slate-900 outline-none"
                     >
-                      <option value="school">School (Class 6 - 10)</option>
+                      <option value="school">School (Class 4 - 10)</option>
                       <option value="intermediate">Intermediate / +2 (Class 11 - 12)</option>
                       <option value="ug">Undergraduate (College / Bachelors)</option>
                       <option value="pg">Postgraduate (Masters / Research)</option>
@@ -979,9 +1000,11 @@ export default function PsychometricPage() {
                         <option value="class_8">Class 8</option>
                         <option value="class_7">Class 7</option>
                         <option value="class_6">Class 6</option>
+                        <option value="class_5">Class 5</option>
+                        <option value="class_4">Class 4</option>
                       </select>
                       <p className="mt-1 text-[11px] text-slate-500">
-                        Cognitive questions will match this exact class standard (e.g. Class 10 algebra and reasoning).
+                        Cognitive questions will match this exact class standard.
                       </p>
                     </div>
                   )}
@@ -1065,7 +1088,7 @@ export default function PsychometricPage() {
                 onClick={handleSaveProfile}
                 className="rounded-xl bg-emerald-600 px-6 py-2.5 text-xs font-bold text-white shadow-md transition hover:bg-emerald-700"
               >
-                ✓ Save Background Details
+                Save Background Details
               </button>
             </div>
           </div>

@@ -5,10 +5,10 @@ import type { AuthRequest } from '../types/index';
 import { AppError } from '../utils/AppError';
 
 const candidateProfileSchema = z.object({
-  age: z.number().int().min(10).max(100).default(18),
+  age: z.number().int().min(6).max(100).default(16),
   professionStatus: z.enum(['student', 'employed', 'job_seeker']),
   studentLevel: z.enum(['school', 'intermediate', 'ug', 'pg']).optional(),
-  schoolClass: z.enum(['class_6', 'class_7', 'class_8', 'class_9', 'class_10']).optional(),
+  schoolClass: z.enum(['class_4', 'class_5', 'class_6', 'class_7', 'class_8', 'class_9', 'class_10']).optional(),
   stream: z.string().optional(),
   jobTitle: z.string().optional(),
   companyType: z.string().optional(),

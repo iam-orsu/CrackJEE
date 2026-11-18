@@ -185,7 +185,7 @@ export interface CandidateProfile {
   age: number;
   professionStatus: 'student' | 'employed' | 'job_seeker';
   studentLevel?: 'school' | 'intermediate' | 'ug' | 'pg';
-  schoolClass?: 'class_6' | 'class_7' | 'class_8' | 'class_9' | 'class_10';
+  schoolClass?: 'class_4' | 'class_5' | 'class_6' | 'class_7' | 'class_8' | 'class_9' | 'class_10';
   stream?: string;
   jobTitle?: string;
   companyType?: string;

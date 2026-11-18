@@ -328,6 +328,8 @@ Format as JSON:
 
       if (profile.studentLevel === 'school') {
         const classMap: Record<string, string> = {
+          class_4: 'Class 4 (Primary)',
+          class_5: 'Class 5 (Primary)',
           class_6: 'Class 6',
           class_7: 'Class 7',
           class_8: 'Class 8',
@@ -336,9 +338,15 @@ Format as JSON:
         };
         const classLabel = classMap[profile.schoolClass ?? 'class_10'] ?? 'Class 10';
         parts.push(`- Exact Class: ${classLabel}`);
-        parts.push(
-          `- CALIBRATION MANDATE: The student is in ${classLabel}. Questions MUST strictly match genuine ${classLabel} academic rigor. For Class 10, ask multi-step algebra word problems, ratio/proportion equations, speed-distance-time, geometric logic, or deduction. STRICTLY FORBIDDEN: Do NOT ask elementary 5th/6th grade math like basic single-step percentages ('45 out of 60').`,
-        );
+        if (profile.schoolClass === 'class_4' || profile.schoolClass === 'class_5') {
+          parts.push(
+            `- CALIBRATION MANDATE: The student is in ${classLabel} (around 9-11 years old). Questions must match primary school reasoning: foundational word problems (multiplication, division in everyday scenarios like sharing books, simple patterns, visual fractions, and logic). Keep language extremely clear and simple.`,
+          );
+        } else {
+          parts.push(
+            `- CALIBRATION MANDATE: The student is in ${classLabel}. Questions MUST strictly match genuine ${classLabel} academic rigor. For Class 10, ask multi-step algebra word problems, ratio/proportion equations, speed-distance-time, geometric logic, or deduction. STRICTLY FORBIDDEN: Do NOT ask elementary 5th-grade math like basic single-step percentages ('45 out of 60') for higher grades.`,
+          );
+        }
       } else if (profile.studentLevel === 'intermediate') {
         parts.push(
           `- CALIBRATION MANDATE: Intermediate (11th-12th). Reasoning questions should test pre-college analytical thinking, function/algebra logic, and systematic problem solving.`,
