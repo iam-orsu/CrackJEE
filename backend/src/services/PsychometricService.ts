@@ -10,6 +10,7 @@ import {
   PSYCHOMETRIC_CARDS,
   findCardDef,
   type CandidateProfile,
+  type PsychometricCardDef,
 } from '../data/psychometricCards';
 import { AppError } from '../utils/AppError';
 import { logger } from '../utils/logger';
