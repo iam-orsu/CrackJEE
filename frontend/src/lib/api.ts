@@ -133,7 +133,8 @@ export const api = {
       >('/psychometric/cards'),
 
     startCardSession: (body: {
-      cardId: string;
+      cardId?: string;
+      cardIds?: string[];
       profile: {
         age: number;
         professionStatus: 'student' | 'employed' | 'job_seeker';

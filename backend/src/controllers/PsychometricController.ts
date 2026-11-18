@@ -17,8 +17,11 @@ const candidateProfileSchema = z.object({
 });
 
 const startCardSchema = z.object({
-  cardId: z.string().min(1),
+  cardId: z.string().optional(),
+  cardIds: z.array(z.string().min(1)).optional(),
   profile: candidateProfileSchema,
+}).refine((data) => Boolean(data.cardId || (data.cardIds && data.cardIds.length > 0)), {
+  message: 'Must provide cardId or cardIds',
 });
 
 const saveAnswerSchema = z.object({
@@ -67,9 +70,14 @@ export class PsychometricController {
         throw new AppError(400, parsed.error.errors[0]?.message ?? 'Invalid request');
       }
 
+      const cardIds =
+        parsed.data.cardIds && parsed.data.cardIds.length > 0
+          ? parsed.data.cardIds
+          : [parsed.data.cardId!];
+
       const result = await this.service.startCardSession(
         userId,
-        parsed.data.cardId,
+        cardIds,
         parsed.data.profile as any,
       );
       res.json({ success: true, data: result });

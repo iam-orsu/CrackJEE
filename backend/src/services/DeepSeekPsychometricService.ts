@@ -271,13 +271,19 @@ Format output as JSON:
       construct?: string;
     }>,
   ): Promise<CareerDecisionResult> {
-    const cardDef = findCardDef(cardId) ?? PSYCHOMETRIC_CARDS[0]!;
+    const rawIds = cardId.split(',').map((s) => s.trim()).filter(Boolean);
+    const cardDefs = rawIds
+      .map((id) => findCardDef(id))
+      .filter((c): c is PsychometricCardDef => Boolean(c));
+    const effectiveCards = cardDefs.length > 0 ? cardDefs : [PSYCHOMETRIC_CARDS[0]!];
+    const cardNames = effectiveCards.map((c) => c.name).join(' + ');
+    const allFrameworks = Array.from(new Set(effectiveCards.flatMap((c) => c.frameworks)));
     const profileSummary = this.describeProfile(profile);
 
     if (this.hasApiKey() && !this.breaker.isOpen()) {
       try {
-        const prompt = `You are a real-world career mentor. A candidate just finished the "${cardDef.name}" assessment.
-Frameworks Evaluated: ${cardDef.frameworks.join(', ')}
+        const prompt = `You are a real-world career mentor. A candidate just finished the assessment covering: "${cardNames}".
+Frameworks Evaluated: ${allFrameworks.join(', ')}
 
 CANDIDATE BACKGROUND:
 ${profileSummary}
@@ -288,7 +294,7 @@ ${responses.map((r, i) => `${i + 1}. [${r.construct || 'Area'}] ${r.promptText} 
 RULES:
 - Plain everyday conversational English. No fancy posh buzzwords (NO "resilience", "determination", "grit").
 - NEVER use the word "tuition".
-- Recommend 3 to 4 specific, real-world career paths or roles they can become based on their answers and background.
+- Recommend 3 to 4 specific, real-world career paths or roles they can become based on their answers across all evaluated domains.
 - Give concrete reasons why their mindset, cognitive style, and problem-solving tendencies fit.
 
 Format as JSON:
@@ -336,7 +342,7 @@ Format as JSON:
       }
     }
 
-    return this.fallbackCareerDecision(cardDef, profile);
+    return this.fallbackCareerDecision(effectiveCards[0]!, profile);
   }
 
   private describeProfile(profile: CandidateProfile): string {
