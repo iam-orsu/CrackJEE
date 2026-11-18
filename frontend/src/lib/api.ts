@@ -102,6 +102,7 @@ export const api = {
           name: string;
           description: string;
           subtopics: string[];
+          frameworks?: string[];
           bestFor: string;
           badge: string;
           estimatedMinutes: number;
@@ -114,6 +115,7 @@ export const api = {
         age: number;
         professionStatus: 'student' | 'employed' | 'job_seeker';
         studentLevel?: 'school' | 'intermediate' | 'ug' | 'pg';
+        schoolClass?: 'class_6' | 'class_7' | 'class_8' | 'class_9' | 'class_10';
         stream?: string;
         jobTitle?: string;
         companyType?: string;

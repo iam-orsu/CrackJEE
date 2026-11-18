@@ -3,6 +3,7 @@ export interface PsychometricCardDef {
   name: string;
   description: string;
   subtopics: string[];
+  frameworks: string[];
   bestFor: string;
   badge: string;
   estimatedMinutes: number;
@@ -21,6 +22,12 @@ export const PSYCHOMETRIC_CARDS: PsychometricCardDef[] = [
       'Spatial reasoning',
       'Critical thinking and problem-solving',
     ],
+    frameworks: [
+      'Cattell–Horn–Carroll (CHC Theory)',
+      "Spearman's g Model",
+      "Bloom's Taxonomy",
+      'Critical Thinking Framework',
+    ],
     bestFor: 'Graduate recruitment, aptitude screening, analytical roles and campus placements.',
     badge: 'Analytical',
     estimatedMinutes: 12,
@@ -36,6 +43,14 @@ export const PSYCHOMETRIC_CARDS: PsychometricCardDef[] = [
       'Emotional stability',
       'Openness to experience',
       'Agreeableness and cooperation',
+    ],
+    frameworks: [
+      'Big Five / OCEAN',
+      'HEXACO (Honesty-Humility)',
+      'DISC Assessment',
+      'Myers-Briggs (MBTI)',
+      'Hogan Personality Inventory (HPI / HDS)',
+      '16PF Questionnaire',
     ],
     bestFor: 'Team fit, self-awareness, role development and leadership development.',
     badge: 'Behavioral',
@@ -53,6 +68,12 @@ export const PSYCHOMETRIC_CARDS: PsychometricCardDef[] = [
       'Prioritization',
       'Workplace communication',
     ],
+    frameworks: [
+      'Situational Judgment Test (SJT) Framework',
+      'STAR Method (Situation, Task, Action, Result)',
+      'Behaviorally Anchored Rating Scales (BARS)',
+      'Critical Incident Technique',
+    ],
     bestFor: 'Freshers, management trainees, customer support, sales and managerial roles.',
     badge: 'Real Situations',
     estimatedMinutes: 10,
@@ -67,6 +88,11 @@ export const PSYCHOMETRIC_CARDS: PsychometricCardDef[] = [
       'Empathy',
       'Social awareness',
       'Relationship management',
+    ],
+    frameworks: [
+      'Mayer–Salovey–Caruso Ability Model (MSCEIT)',
+      'Daniel Goleman Competency Model',
+      'Bar-On Emotional-Social Intelligence (EQ-i)',
     ],
     bestFor: 'Team leaders, client-facing roles, managers and collaborative positions.',
     badge: 'People Skills',
@@ -84,6 +110,12 @@ export const PSYCHOMETRIC_CARDS: PsychometricCardDef[] = [
       'Recognition',
       'Collaboration and service orientation',
     ],
+    frameworks: [
+      'Schwartz Theory of Basic Human Values',
+      'Self-Determination Theory (SDT)',
+      "Vroom's Expectancy Theory",
+      'Goal Orientation Theory',
+    ],
     bestFor: 'Career guidance, retention planning, role alignment and development discussions.',
     badge: 'Drivers & Purpose',
     estimatedMinutes: 7,
@@ -99,6 +131,10 @@ export const PSYCHOMETRIC_CARDS: PsychometricCardDef[] = [
       'Initiative',
       'Team orientation',
       'Preference for independent or structured work',
+    ],
+    frameworks: [
+      'SHL Great Eight Competencies',
+      'Korn Ferry Leadership Architect (Lominger)',
     ],
     bestFor: 'Operational roles, project teams, internships and workplace development.',
     badge: 'Execution Style',
@@ -116,6 +152,10 @@ export const PSYCHOMETRIC_CARDS: PsychometricCardDef[] = [
       'Social and helping professions',
       'Practical and hands-on work',
     ],
+    frameworks: [
+      'Holland RIASEC Code',
+      'O*NET Occupational and Competency Framework',
+    ],
     bestFor: 'Students, graduates, career counselling and career-path recommendations.',
     badge: 'Career Matching',
     estimatedMinutes: 7,
@@ -130,6 +170,11 @@ export const PSYCHOMETRIC_CARDS: PsychometricCardDef[] = [
       'Compliance judgment',
       'Responses to conflicts of interest',
     ],
+    frameworks: [
+      'Cognitive Moral Development',
+      'Workplace Compliance & Risk Evaluation',
+      'Conflict of Interest Protocol',
+    ],
     bestFor: 'Roles with significant trust, financial responsibility or compliance requirements.',
     badge: 'Ethics & Trust',
     estimatedMinutes: 8,
@@ -140,6 +185,7 @@ export interface CandidateProfile {
   age: number;
   professionStatus: 'student' | 'employed' | 'job_seeker';
   studentLevel?: 'school' | 'intermediate' | 'ug' | 'pg';
+  schoolClass?: 'class_6' | 'class_7' | 'class_8' | 'class_9' | 'class_10';
   stream?: string;
   jobTitle?: string;
   companyType?: string;

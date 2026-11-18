@@ -8,6 +8,7 @@ export interface PsychometricCardDef {
   name: string;
   description: string;
   subtopics: string[];
+  frameworks?: string[];
   bestFor: string;
   badge: string;
   estimatedMinutes: number;
@@ -17,6 +18,7 @@ export interface CandidateProfile {
   age: number;
   professionStatus: 'student' | 'employed' | 'job_seeker';
   studentLevel?: 'school' | 'intermediate' | 'ug' | 'pg';
+  schoolClass?: 'class_6' | 'class_7' | 'class_8' | 'class_9' | 'class_10';
   stream?: string;
   jobTitle?: string;
   companyType?: string;
@@ -107,13 +109,17 @@ const PASSION_SCALE = [
 export default function PsychometricPage() {
   const [view, setView] = useState<ViewState>('hub');
   const [cards, setCards] = useState<PsychometricCardDef[]>([]);
-  const [selectedCard, setSelectedCard] = useState<PsychometricCardDef | null>(null);
   const [profileModalOpen, setProfileModalOpen] = useState(false);
+  const [profileSaved, setProfileSaved] = useState(false);
+  const [saveNotice, setSaveNotice] = useState('');
+  const [startingCardId, setStartingCardId] = useState<string | null>(null);
+
   const [profile, setProfile] = useState<CandidateProfile>({
-    age: 18,
+    age: 16,
     professionStatus: 'student',
-    studentLevel: 'ug',
-    stream: 'Science / Engineering',
+    studentLevel: 'school',
+    schoolClass: 'class_10',
+    stream: 'Science / Mathematics',
   });
 
   const [exam, setExam] = useState<ExamData | null>(null);
@@ -138,7 +144,7 @@ export default function PsychometricPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // Load cards and user history on mount
+  // Load cards and profile from localStorage / API on mount
   useEffect(() => {
     async function init() {
       try {
@@ -155,6 +161,20 @@ export default function PsychometricPage() {
       } catch (err) {
         console.error('Failed to load assessment cards:', err);
       }
+
+      // Check stored candidate profile
+      try {
+        const stored = typeof window !== 'undefined' ? localStorage.getItem('psychometric_candidate_profile') : null;
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (parsed && typeof parsed.age === 'number') {
+            setProfile(parsed);
+            setProfileSaved(true);
+          }
+        }
+      } catch {
+        // Ignore local storage error
+      }
     }
     init();
   }, []);
@@ -163,18 +183,27 @@ export default function PsychometricPage() {
     return new Set(history.map((h) => h.cardId));
   }, [history]);
 
-  function handleCardClick(card: PsychometricCardDef) {
-    setSelectedCard(card);
-    setProfileModalOpen(true);
+  function handleSaveProfile() {
+    setProfileSaved(true);
+    try {
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('psychometric_candidate_profile', JSON.stringify(profile));
+      }
+    } catch {
+      // Ignore
+    }
+    setProfileModalOpen(false);
+    setSaveNotice('Background details saved successfully! Select any assessment card below to begin.');
+    setTimeout(() => setSaveNotice(''), 6000);
   }
 
-  async function handleLaunchAssessment() {
-    if (!selectedCard) return;
+  async function launchCardExam(card: PsychometricCardDef) {
+    setStartingCardId(card.id);
     setLoading(true);
     setError('');
     try {
       const res = await api.psychometric.startCardSession({
-        cardId: selectedCard.id,
+        cardId: card.id,
         profile,
       });
 
@@ -182,13 +211,21 @@ export default function PsychometricPage() {
       setSessionId(res.session.id);
       setAnswers({});
       setActiveQIdx(0);
-      setProfileModalOpen(false);
       setView('exam');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to launch assessment');
     } finally {
       setLoading(false);
+      setStartingCardId(null);
     }
+  }
+
+  function handleStartCardClick(card: PsychometricCardDef) {
+    if (!profileSaved) {
+      setProfileModalOpen(true);
+      return;
+    }
+    launchCardExam(card);
   }
 
   const currentQuestions = useMemo(() => {
@@ -211,7 +248,7 @@ export default function PsychometricPage() {
       setSavingStatus('Saved');
       setTimeout(() => setSavingStatus(''), 1200);
     } catch {
-      setSavingStatus('Offline (saved locally)');
+      setSavingStatus('Saved locally');
     }
   }
 
@@ -235,6 +272,17 @@ export default function PsychometricPage() {
 
   const answeredCount = Object.keys(answers).length;
   const isAllAnswered = currentQuestions.length > 0 && answeredCount >= currentQuestions.length;
+
+  const schoolClassLabel = useMemo(() => {
+    const map: Record<string, string> = {
+      class_6: 'Class 6',
+      class_7: 'Class 7',
+      class_8: 'Class 8',
+      class_9: 'Class 9',
+      class_10: 'Class 10',
+    };
+    return map[profile.schoolClass || 'class_10'] || 'Class 10';
+  }, [profile.schoolClass]);
 
   // --------------------------------------------------------------------------
   // VIEW: REPORT
@@ -270,9 +318,15 @@ export default function PsychometricPage() {
           {/* Profile summary pill */}
           <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold text-slate-200">
             <span className="rounded-lg bg-white/10 px-3 py-1.5">Age: {profile.age}</span>
-            <span className="rounded-lg bg-white/10 px-3 py-1.5 capitalize">Status: {profile.professionStatus}</span>
-            {profile.professionStatus === 'student' && profile.studentLevel && (
+            <span className="rounded-lg bg-white/10 px-3 py-1.5 capitalize">Status: {profile.professionStatus.replace('_', ' ')}</span>
+            {profile.professionStatus === 'student' && profile.studentLevel === 'school' && (
+              <span className="rounded-lg bg-white/10 px-3 py-1.5">{schoolClassLabel}</span>
+            )}
+            {profile.professionStatus === 'student' && profile.studentLevel !== 'school' && profile.studentLevel && (
               <span className="rounded-lg bg-white/10 px-3 py-1.5 uppercase">Level: {profile.studentLevel}</span>
+            )}
+            {profile.stream && (
+              <span className="rounded-lg bg-white/10 px-3 py-1.5">Stream: {profile.stream}</span>
             )}
             {profile.professionStatus === 'employed' && profile.jobTitle && (
               <span className="rounded-lg bg-white/10 px-3 py-1.5">Role: {profile.jobTitle}</span>
@@ -445,12 +499,19 @@ export default function PsychometricPage() {
             </div>
           )}
 
-          {/* Subtopic pill */}
-          {currentQ.construct && (
-            <span className="inline-block rounded-md bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-600 mb-3">
-              {currentQ.construct}
-            </span>
-          )}
+          {/* Subtopic & Framework pill */}
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            {currentQ.construct && (
+              <span className="rounded-md bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-700">
+                {currentQ.construct}
+              </span>
+            )}
+            {currentQ.subFacet && (
+              <span className="rounded-md bg-indigo-50 px-2.5 py-1 text-[11px] font-semibold text-indigo-700">
+                {currentQ.subFacet}
+              </span>
+            )}
+          </div>
 
           {/* Prompt */}
           <h2 className="text-base font-semibold leading-relaxed text-slate-900 sm:text-lg">
@@ -601,7 +662,7 @@ export default function PsychometricPage() {
   }
 
   // --------------------------------------------------------------------------
-  // VIEW: HUB (8 Assessment Cards)
+  // VIEW: HUB (8 Modular Assessment Cards)
   // --------------------------------------------------------------------------
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
@@ -610,40 +671,86 @@ export default function PsychometricPage() {
         <div className="relative z-10 max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-full bg-blue-500/20 px-3 py-1 text-xs font-semibold backdrop-blur-md">
             <span className="h-2 w-2 rounded-full bg-blue-400 animate-pulse" />
-            Candidate Intelligence & Career Decider
+            Candidate Intelligence & Career Decision Engine
           </span>
           <h1 className="mt-4 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Psychometric & Career Intelligence Assessments
+            Modular Psychometric & Career Assessments
           </h1>
           <p className="mt-3 text-sm text-slate-200 leading-relaxed max-w-2xl">
-            Choose any modular test card below to discover your cognitive aptitude, practical decision-making, and what specific career roles you can become.
+            Save your background details once, then independently take any of the 8 modular cards below to evaluate your cognitive problem-solving, behavioral style, and what careers you fit best.
           </p>
 
-          {/* Profile bar */}
-          <div className="mt-6 flex flex-wrap items-center gap-3 text-xs">
-            <span className="rounded-lg bg-white/10 px-3 py-1.5 font-semibold text-slate-100">
-              Age: {profile.age} • Status: {profile.professionStatus.replace('_', ' ')}
-            </span>
+          {/* Profile Active Status Bar */}
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white/10 p-3.5 backdrop-blur-md">
+            <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-100">
+              <span className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-bold ${
+                profileSaved ? 'bg-emerald-500/20 text-emerald-300' : 'bg-amber-500/20 text-amber-300'
+              }`}>
+                {profileSaved ? '✓ Profile Details Saved' : '⚠️ Profile Not Saved'}
+              </span>
+              <span className="rounded-lg bg-white/10 px-2.5 py-1">Age: {profile.age}</span>
+              <span className="rounded-lg bg-white/10 px-2.5 py-1 capitalize">
+                Status: {profile.professionStatus.replace('_', ' ')}
+              </span>
+              {profile.professionStatus === 'student' && profile.studentLevel === 'school' && (
+                <span className="rounded-lg bg-white/10 px-2.5 py-1 font-bold text-sky-200">
+                  {schoolClassLabel}
+                </span>
+              )}
+              {profile.professionStatus === 'student' && profile.studentLevel !== 'school' && profile.studentLevel && (
+                <span className="rounded-lg bg-white/10 px-2.5 py-1 uppercase">
+                  Level: {profile.studentLevel}
+                </span>
+              )}
+              {profile.stream && (
+                <span className="rounded-lg bg-white/10 px-2.5 py-1">
+                  Focus: {profile.stream}
+                </span>
+              )}
+              {profile.professionStatus === 'employed' && profile.jobTitle && (
+                <span className="rounded-lg bg-white/10 px-2.5 py-1">
+                  Role: {profile.jobTitle}
+                </span>
+              )}
+            </div>
             <button
               type="button"
-              onClick={() => {
-                setSelectedCard(cards[0] || null);
-                setProfileModalOpen(true);
-              }}
-              className="rounded-lg border border-white/20 bg-white/10 px-3 py-1.5 font-bold text-white hover:bg-white/20"
+              onClick={() => setProfileModalOpen(true)}
+              className="rounded-lg border border-white/20 bg-white/15 px-3 py-1.5 text-xs font-bold text-white transition hover:bg-white/25"
             >
-              ✏️ Edit Profile Details
+              ✏️ {profileSaved ? 'Edit Background Details' : 'Enter Background Details'}
             </button>
           </div>
         </div>
       </div>
 
+      {/* Success Notification Banner */}
+      {saveNotice && (
+        <div className="mt-6 flex items-center justify-between rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-xs font-bold text-emerald-900 shadow-sm">
+          <div className="flex items-center gap-2">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-600 text-white text-[11px]">
+              ✓
+            </span>
+            <span>{saveNotice}</span>
+          </div>
+          <button
+            type="button"
+            onClick={() => setSaveNotice('')}
+            className="text-xs text-emerald-700 hover:text-emerald-900"
+          >
+            Dismiss ✕
+          </button>
+        </div>
+      )}
+
       {/* Cards Grid */}
-      <div className="mt-10">
+      <div className="mt-8">
         <div className="flex items-center justify-between gap-4 mb-6">
           <div>
             <h2 className="text-xl font-extrabold text-slate-900">Choose an Assessment Card</h2>
-            <p className="text-xs text-slate-500">Each card evaluates distinct practical skills and work tendencies.</p>
+            <p className="text-xs text-slate-500">
+              Select any assessment card below. Each card is anchored in authoritative psychological frameworks and calibrated to your background.
+            </p>
           </div>
           <span className="text-xs font-bold text-slate-500">
             {cards.length} Assessments Available
@@ -653,6 +760,8 @@ export default function PsychometricPage() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {cards.map((card, idx) => {
             const isCompleted = completedCardIds.has(card.id);
+            const isStartingThis = startingCardId === card.id;
+
             return (
               <div
                 key={card.id}
@@ -676,9 +785,28 @@ export default function PsychometricPage() {
                     {card.description}
                   </p>
 
+                  {/* Theoretical Frameworks Pill */}
+                  {card.frameworks && card.frameworks.length > 0 && (
+                    <div className="mt-3 rounded-lg border border-indigo-100 bg-indigo-50/70 p-2.5 text-[10px] text-indigo-950">
+                      <span className="font-extrabold uppercase tracking-wider block text-[9px] text-indigo-600 mb-1">
+                        Frameworks Used:
+                      </span>
+                      <div className="flex flex-wrap gap-1">
+                        {card.frameworks.slice(0, 3).map((fw, fIdx) => (
+                          <span
+                            key={fIdx}
+                            className="rounded bg-white/90 px-1.5 py-0.5 font-semibold text-indigo-800 shadow-2xs"
+                          >
+                            {fw}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   {/* Subtopics */}
-                  <div className="mt-4 border-t border-slate-100 pt-3">
-                    <span className="block text-[10px] font-extrabold uppercase tracking-wider text-slate-400 mb-1.5">
+                  <div className="mt-3 border-t border-slate-100 pt-2.5">
+                    <span className="block text-[10px] font-extrabold uppercase tracking-wider text-slate-400 mb-1">
                       Topics Covered:
                     </span>
                     <ul className="space-y-1">
@@ -697,7 +825,7 @@ export default function PsychometricPage() {
                   </div>
 
                   {/* Best for box */}
-                  <div className="mt-3 rounded-lg bg-slate-50 p-2.5 text-[11px] text-slate-500 leading-tight">
+                  <div className="mt-3 rounded-lg bg-slate-50 p-2 text-[11px] text-slate-500 leading-tight">
                     <span className="font-semibold text-slate-700">Best for: </span>
                     {card.bestFor}
                   </div>
@@ -707,14 +835,24 @@ export default function PsychometricPage() {
                 <div className="mt-5 pt-3 border-t border-slate-100">
                   <button
                     type="button"
-                    onClick={() => handleCardClick(card)}
-                    className={`w-full rounded-xl py-2.5 text-center text-xs font-bold transition ${
+                    disabled={loading}
+                    onClick={() => handleStartCardClick(card)}
+                    className={`w-full rounded-xl py-2.5 text-center text-xs font-bold transition disabled:opacity-50 ${
                       isCompleted
                         ? 'border border-emerald-600 bg-emerald-50 text-emerald-800 hover:bg-emerald-100'
                         : 'bg-[#003366] text-white hover:bg-[#002244] shadow-sm'
                     }`}
                   >
-                    {isCompleted ? '✓ Completed (Retake)' : 'Start Assessment →'}
+                    {isStartingThis ? (
+                      <span className="inline-flex items-center gap-1.5">
+                        <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
+                        Generating Questions...
+                      </span>
+                    ) : isCompleted ? (
+                      '✓ Completed (Retake)'
+                    ) : (
+                      'Start Assessment →'
+                    )}
                   </button>
                 </div>
               </div>
@@ -723,15 +861,15 @@ export default function PsychometricPage() {
         </div>
       </div>
 
-      {/* Candidate Onboarding & Profile Modal */}
+      {/* Candidate Profile Modal (ONLY Saves Details - Never Auto-Starts Exam) */}
       {profileModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
-          <div className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl sm:p-8">
+          <div className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl sm:p-8 animate-fade-in">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div>
-                <h3 className="text-lg font-bold text-slate-900">Enter Your Background</h3>
+                <h3 className="text-lg font-bold text-slate-900">Enter Your Background Details</h3>
                 <p className="text-xs text-slate-500">
-                  Questions and scenarios will be tailored directly to your real context.
+                  Save your profile so questions and difficulty are accurately calibrated.
                 </p>
               </div>
               <button
@@ -752,9 +890,9 @@ export default function PsychometricPage() {
                   min={10}
                   max={90}
                   value={profile.age}
-                  onChange={(e) => setProfile((p) => ({ ...p, age: parseInt(e.target.value, 10) || 18 }))}
+                  onChange={(e) => setProfile((p) => ({ ...p, age: parseInt(e.target.value, 10) || 16 }))}
                   className="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm text-slate-900 outline-none focus:border-blue-600"
-                  placeholder="e.g. 18"
+                  placeholder="e.g. 16"
                 />
               </div>
 
@@ -802,25 +940,59 @@ export default function PsychometricPage() {
               {profile.professionStatus === 'student' && (
                 <div className="space-y-3 rounded-2xl bg-slate-50 p-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">Current Class / Level</label>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">Current Level</label>
                     <select
-                      value={profile.studentLevel}
-                      onChange={(e) => setProfile((p) => ({ ...p, studentLevel: e.target.value as CandidateProfile['studentLevel'] }))}
+                      value={profile.studentLevel || 'school'}
+                      onChange={(e) =>
+                        setProfile((p) => ({
+                          ...p,
+                          studentLevel: e.target.value as CandidateProfile['studentLevel'],
+                        }))
+                      }
                       className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs text-slate-900 outline-none"
                     >
-                      <option value="school">School / Secondary (Class 10 or below)</option>
-                      <option value="intermediate">Intermediate / +2 (Class 11-12)</option>
+                      <option value="school">School (Class 6 - 10)</option>
+                      <option value="intermediate">Intermediate / +2 (Class 11 - 12)</option>
                       <option value="ug">Undergraduate (College / Bachelors)</option>
                       <option value="pg">Postgraduate (Masters / Research)</option>
                     </select>
                   </div>
+
+                  {/* Dedicated Class Dropdown when School is selected */}
+                  {profile.studentLevel === 'school' && (
+                    <div>
+                      <label className="block text-xs font-bold text-blue-900 mb-1">
+                        Select Exact School Class *
+                      </label>
+                      <select
+                        value={profile.schoolClass || 'class_10'}
+                        onChange={(e) =>
+                          setProfile((p) => ({
+                            ...p,
+                            schoolClass: e.target.value as CandidateProfile['schoolClass'],
+                          }))
+                        }
+                        className="w-full rounded-xl border border-blue-300 bg-blue-50/50 px-3 py-2 text-xs font-semibold text-slate-900 outline-none focus:border-blue-600"
+                      >
+                        <option value="class_10">Class 10 (Secondary Board Exam level)</option>
+                        <option value="class_9">Class 9</option>
+                        <option value="class_8">Class 8</option>
+                        <option value="class_7">Class 7</option>
+                        <option value="class_6">Class 6</option>
+                      </select>
+                      <p className="mt-1 text-[11px] text-slate-500">
+                        Cognitive questions will match this exact class standard (e.g. Class 10 algebra and reasoning).
+                      </p>
+                    </div>
+                  )}
+
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1">Subject Focus / Stream</label>
                     <input
                       type="text"
                       value={profile.stream || ''}
                       onChange={(e) => setProfile((p) => ({ ...p, stream: e.target.value }))}
-                      placeholder="e.g. Science / JEE, Medical / NEET, Commerce, Arts"
+                      placeholder="e.g. Science / Mathematics, CBSE / ICSE, Commerce"
                       className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs text-slate-900 outline-none"
                     />
                   </div>
@@ -890,11 +1062,10 @@ export default function PsychometricPage() {
               </button>
               <button
                 type="button"
-                disabled={loading}
-                onClick={handleLaunchAssessment}
-                className="rounded-xl bg-[#003366] px-5 py-2.5 text-xs font-bold text-white shadow-md transition hover:bg-[#002244] disabled:opacity-50"
+                onClick={handleSaveProfile}
+                className="rounded-xl bg-emerald-600 px-6 py-2.5 text-xs font-bold text-white shadow-md transition hover:bg-emerald-700"
               >
-                {loading ? 'Preparing Questions...' : 'Continue to Assessment →'}
+                ✓ Save Background Details
               </button>
             </div>
           </div>
