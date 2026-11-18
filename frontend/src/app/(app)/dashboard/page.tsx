@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { Activity, Clock, Gauge, Layers } from 'lucide-react';
 import { api } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import type {
@@ -18,6 +19,7 @@ import {
   SectionOrderCard, PracticeLink, CarelessCard, GuessingCard,
   ImprovementCard, CrackabilityCard,
 } from '@/components/insights/InsightBlocks';
+import { InsightsTabBar, InsightsNextView, type InsightsTab } from '@/components/insights/InsightsTabs';
 
 const MASONRY = 'columns-1 gap-4 md:columns-2 2xl:columns-3 [column-fill:balance]';
 
@@ -114,7 +116,14 @@ function TopicMap({ topics }: { topics: TopicStat[] }) {
   );
 }
 
-const TABS = [['where', 'Where you stand'], ['topics', 'Topics'], ['habits', 'Habits'], ['time', 'Time and trends']] as const;
+type InsightTabKey = 'where' | 'topics' | 'habits' | 'time';
+
+const TABS: InsightsTab[] = [
+  { key: 'where', label: 'Where you stand', Icon: Gauge, teaser: 'Your rank, the cutoffs and what to improve first' },
+  { key: 'topics', label: 'Topics', Icon: Layers, teaser: 'Weak chapters, marks lost and what to practise tomorrow' },
+  { key: 'habits', label: 'Habits', Icon: Activity, teaser: 'Careless mistakes, guessing and negative marking' },
+  { key: 'time', label: 'Time and trends', Icon: Clock, teaser: 'Speed per question type, section order and month by month' },
+];
 
 /* ── Page ─────────────────────────────────────────────────────────── */
 export default function DashboardPage() {
@@ -124,7 +133,7 @@ export default function DashboardPage() {
   const [mockWeakTopics, setMockWeakTopics] = useState<MockWeakTopic[]>([]);
   const [leaderboard, setLeaderboard] = useState<LeaderboardData | null>(null);
   const [insights, setInsights] = useState<MockInsights | null>(null);
-  const [tab, setTab] = useState<(typeof TABS)[number][0]>('where');
+  const [tab, setTab] = useState<InsightTabKey>('where');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -383,11 +392,12 @@ export default function DashboardPage() {
           <section>
             <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
               <div><h2 className={`${HEAD} text-[26px] font-extrabold tracking-[-0.02em]`}>Mock insights</h2><p className="mt-1 text-[13px] text-[#5A6B8C]">{plural(ins.examsAnalysed, 'mock')} analysed. Built only from your submitted mocks.</p></div>
-              <div role="tablist" className="flex max-w-full gap-1 overflow-x-auto rounded-full border border-[#003366]/10 bg-white/85 p-1 backdrop-blur-xl">
-                {TABS.map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => setTab(k)} className={`shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-[13px] font-bold transition-all duration-200 ${tab === k ? 'bg-[#003366] text-white shadow-md' : 'text-[#5A6B8C] hover:bg-[#EEF2FF]'}`}>{l}</button>)}
-              </div>
+              <InsightsTabBar tabs={TABS} active={tab} onChange={(k) => setTab(k as InsightTabKey)} />
             </div>
-            <div key={tab} className="flex flex-col gap-4">
+            <div className="mb-4">
+              <InsightsNextView tab={TABS[(TABS.findIndex((t) => t.key === tab) + 1) % TABS.length]!} onOpen={(k) => setTab(k as InsightTabKey)} />
+            </div>
+            <div key={tab} role="tabpanel" id={`insights-panel-${tab}`} aria-labelledby={`insights-tab-${tab}`} className="flex flex-col gap-4">
               {tab === 'where' && (<>
                 <Road p={ins.projection} cutoffs={ins.cutoffs} />
                 <div className={`dz-stagger ${MASONRY}`}>
