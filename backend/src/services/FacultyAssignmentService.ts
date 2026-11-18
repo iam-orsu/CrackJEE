@@ -406,4 +406,243 @@ export class FacultyAssignmentService {
       questions,
     };
   }
+
+  public async exportAssignmentResultsCsv(
+    assignmentId: string,
+    facultyId: string,
+  ): Promise<{ csv: string; filename: string }> {
+    const assignment = await this.assignmentRepo.findById(assignmentId, facultyId);
+    if (!assignment) {
+      throw new AppError(404, 'Assignment not found');
+    }
+
+    const examType = assignment.paper.examType;
+    const submissions = assignment.studentExams
+      .filter((e) => e.status === 'submitted')
+      .sort((a, b) => b.totalScore - a.totalScore);
+
+    const escapeCsv = (val: unknown): string => {
+      if (val === null || val === undefined) return '""';
+      const str = String(val).replace(/"/g, '""');
+      return `"${str}"`;
+    };
+
+    const lines: string[] = [];
+    lines.push('\uFEFF'); // UTF-8 BOM
+    lines.push(`Assignment:,${escapeCsv(assignment.title)}`);
+    lines.push(`Batch:,${escapeCsv(assignment.batch.name)} (${escapeCsv(assignment.batch.code)})`);
+    lines.push(`Exam Type:,${escapeCsv(examType)}`);
+    lines.push(`Paper Title:,${escapeCsv(assignment.paper.title)}`);
+    lines.push(`Total Submissions:,${escapeCsv(submissions.length)}`);
+    lines.push(`Exported At:,${escapeCsv(new Date().toISOString())}`);
+    lines.push('');
+
+    if (examType === 'Main') {
+      lines.push(
+        [
+          'Rank',
+          'Roll Number',
+          'Student Name',
+          'Total Score',
+          'Max Marks',
+          'Accuracy %',
+          'Physics Score',
+          'Chemistry Score',
+          'Mathematics Score',
+          'Correct',
+          'Incorrect',
+          'Unattempted',
+          'Time Taken (mins)',
+          'Submitted At',
+        ]
+          .map(escapeCsv)
+          .join(','),
+      );
+
+      submissions.forEach((s, idx) => {
+        const bd = (s.resultBreakdown as Record<string, any>) || {};
+        const sb = bd.subjectBreakdown || {};
+        const phy = sb['Physics']?.score ?? 0;
+        const chem = sb['Chemistry']?.score ?? 0;
+        const math = sb['Mathematics']?.score ?? 0;
+        const accuracy = bd.accuracyPct ?? 0;
+        const timeMins = Math.round(s.timeTakenSeconds / 60);
+
+        lines.push(
+          [
+            idx + 1,
+            s.student.rollNumber,
+            s.student.name,
+            s.totalScore,
+            s.maxScore,
+            `${accuracy}%`,
+            phy,
+            chem,
+            math,
+            s.correctCount,
+            s.incorrectCount,
+            s.unattemptedCount,
+            timeMins,
+            s.submittedAt ? s.submittedAt.toISOString() : '',
+          ]
+            .map(escapeCsv)
+            .join(','),
+        );
+      });
+    } else if (examType === 'Advanced') {
+      lines.push(
+        [
+          'Rank',
+          'Roll Number',
+          'Student Name',
+          'Total Score',
+          'Max Marks',
+          'Accuracy %',
+          'Physics Score',
+          'Chemistry Score',
+          'Mathematics Score',
+          'Correct',
+          'Partial',
+          'Incorrect',
+          'Unattempted',
+          'Time Taken (mins)',
+          'Submitted At',
+        ]
+          .map(escapeCsv)
+          .join(','),
+      );
+
+      submissions.forEach((s, idx) => {
+        const bd = (s.resultBreakdown as Record<string, any>) || {};
+        const sb = bd.subjectBreakdown || {};
+        const phy = sb['Physics']?.score ?? 0;
+        const chem = sb['Chemistry']?.score ?? 0;
+        const math = sb['Mathematics']?.score ?? 0;
+        const accuracy = bd.accuracyPct ?? 0;
+        const timeMins = Math.round(s.timeTakenSeconds / 60);
+
+        lines.push(
+          [
+            idx + 1,
+            s.student.rollNumber,
+            s.student.name,
+            s.totalScore,
+            s.maxScore,
+            `${accuracy}%`,
+            phy,
+            chem,
+            math,
+            s.correctCount,
+            s.partialCount,
+            s.incorrectCount,
+            s.unattemptedCount,
+            timeMins,
+            s.submittedAt ? s.submittedAt.toISOString() : '',
+          ]
+            .map(escapeCsv)
+            .join(','),
+        );
+      });
+    } else if (examType === 'NEET') {
+      lines.push(
+        [
+          'Rank',
+          'Roll Number',
+          'Student Name',
+          'Total Score (/720)',
+          'Max Marks',
+          'Accuracy %',
+          'Physics (/180)',
+          'Chemistry (/180)',
+          'Biology (/360)',
+          'Correct',
+          'Incorrect',
+          'Unattempted',
+          'Time Taken (mins)',
+          'Submitted At',
+        ]
+          .map(escapeCsv)
+          .join(','),
+      );
+
+      submissions.forEach((s, idx) => {
+        const bd = (s.resultBreakdown as Record<string, any>) || {};
+        const sb = bd.subjectBreakdown || {};
+        const phy = sb['Physics']?.score ?? 0;
+        const chem = sb['Chemistry']?.score ?? 0;
+        const bio = (sb['Biology']?.score ?? 0) + (sb['Botany']?.score ?? 0) + (sb['Zoology']?.score ?? 0);
+        const accuracy = bd.accuracyPct ?? 0;
+        const timeMins = Math.round(s.timeTakenSeconds / 60);
+
+        lines.push(
+          [
+            idx + 1,
+            s.student.rollNumber,
+            s.student.name,
+            s.totalScore,
+            s.maxScore,
+            `${accuracy}%`,
+            phy,
+            chem,
+            bio,
+            s.correctCount,
+            s.incorrectCount,
+            s.unattemptedCount,
+            timeMins,
+            s.submittedAt ? s.submittedAt.toISOString() : '',
+          ]
+            .map(escapeCsv)
+            .join(','),
+        );
+      });
+    } else {
+      // Psychometric & Behavioral Assessment
+      lines.push(
+        [
+          'Rank',
+          'Roll Number',
+          'Student Name',
+          'Total Alignment Score',
+          'Max Score',
+          'Accuracy %',
+          'Attempted Questions',
+          'Unattempted Questions',
+          'Time Taken (mins)',
+          'Submitted At',
+        ]
+          .map(escapeCsv)
+          .join(','),
+      );
+
+      submissions.forEach((s, idx) => {
+        const bd = (s.resultBreakdown as Record<string, any>) || {};
+        const accuracy = bd.accuracyPct ?? 0;
+        const timeMins = Math.round(s.timeTakenSeconds / 60);
+        const attempted = s.correctCount + s.incorrectCount + s.partialCount;
+
+        lines.push(
+          [
+            idx + 1,
+            s.student.rollNumber,
+            s.student.name,
+            s.totalScore,
+            s.maxScore,
+            `${accuracy}%`,
+            attempted,
+            s.unattemptedCount,
+            timeMins,
+            s.submittedAt ? s.submittedAt.toISOString() : '',
+          ]
+            .map(escapeCsv)
+            .join(','),
+        );
+      });
+    }
+
+    const safeTitle = assignment.title.replace(/[^a-zA-Z0-9_-]/g, '_');
+    return {
+      csv: lines.join('\n'),
+      filename: `${safeTitle}-${examType}-Results.csv`,
+    };
+  }
 }

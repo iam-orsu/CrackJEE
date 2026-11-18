@@ -66,11 +66,13 @@ function FacultyPrintContent() {
       } else {
         lines.push(`  Numerical Answer: _______`);
       }
-      if (mode === 'solutions' || mode === 'key') {
-        lines.push(`Answer: ${item.correctAnswer}`);
-      }
-      if (mode === 'solutions' && item.explanation) {
-        lines.push(`Solution: ${item.explanation}`);
+      if (paper.examType !== 'Psychometric') {
+        if (mode === 'solutions' || mode === 'key') {
+          lines.push(`Answer: ${item.correctAnswer}`);
+        }
+        if (mode === 'solutions' && item.explanation) {
+          lines.push(`Solution: ${item.explanation}`);
+        }
       }
       lines.push('');
     });
@@ -148,18 +150,22 @@ function FacultyPrintContent() {
           >
             Question Paper
           </Link>
-          <Link
-            href={`/faculty/papers/${paper.id}/print?mode=solutions`}
-            className={mode === 'solutions' ? 'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none' : 'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none'}
-          >
-            Paper + Solutions
-          </Link>
-          <Link
-            href={`/faculty/papers/${paper.id}/print?mode=key`}
-            className={mode === 'key' ? 'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none' : 'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none'}
-          >
-            Answer Key
-          </Link>
+          {paper.examType !== 'Psychometric' && (
+            <>
+              <Link
+                href={`/faculty/papers/${paper.id}/print?mode=solutions`}
+                className={mode === 'solutions' ? 'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none' : 'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none'}
+              >
+                Paper + Solutions
+              </Link>
+              <Link
+                href={`/faculty/papers/${paper.id}/print?mode=key`}
+                className={mode === 'key' ? 'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none' : 'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none'}
+              >
+                Answer Key
+              </Link>
+            </>
+          )}
         </div>
         <div className="flex items-center gap-2">
           <button type="button" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" onClick={handleCopyAll}>
@@ -226,53 +232,63 @@ function FacultyPrintContent() {
                   </span>
                 </div>
 
-                <div className="text-[14px] leading-[1.65] text-[#0F172A]">
-                  {item.questionType === 'matrix_match' || parseMatchQuestion(item.questionText) ? (
-                    <MatchListTable questionText={item.questionText} />
-                  ) : (
-                    <MathText text={item.questionText} />
-                  )}
-                </div>
-
-                {item.diagram && (
-                  <div className="my-3 max-w-[440px]">
-                    <DiagramRenderer descriptor={item.diagram} />
-                  </div>
-                )}
-
-                {item.questionType !== 'integer' && item.options.length > 0 ? (
-                  <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
-                    {item.options.map((opt, idx) => {
-                      const letter = LETTERS[idx]!;
-                      const highlight = mode === 'solutions' && isCorrectOption(item.correctAnswer, letter);
-                      return (
-                        <div
-                          key={letter}
-                          className={cx('flex items-baseline gap-2 rounded-xl border border-[#CBD5E1] bg-white px-2.5 py-2 text-[13px] font-medium text-[#0F172A] [print-color-adjust:exact]', highlight && 'border-[#86EFAC] bg-[#F0FDF4]')}
-                        >
-                          <span className="font-extrabold text-[#64748B]">({letter})</span>
-                          <MathText text={stripOptionPrefix(opt)} />
-                        </div>
-                      );
-                    })}
-                  </div>
-                ) : (
-                  mode === 'questions' && (
-                    <div className="mt-2 inline-block rounded-md border border-dashed border-[#64748B] px-2.5 py-1 text-[12px] font-medium text-[#334155]">Numerical Answer: ____________</div>
-                  )
-                )}
-
-                {mode === 'solutions' && (
-                  <>
-                    <div className="mt-2.5 inline-block rounded-lg border border-[#BBF7D0] bg-[#F0FDF4] px-2.5 py-1.5 text-[13px] font-bold text-[#15803D] [print-color-adjust:exact]">Correct Answer: {item.correctAnswer}</div>
-                    {item.explanation && (
-                      <div className="mt-2.5 rounded-lg border-l-[3px] border-l-[#94A3B8] bg-[#F8FAFC] px-3 py-2.5 text-[13px] leading-relaxed text-[#334155]">
-                        <strong>Solution: </strong>
-                        <MathText text={item.explanation} />
+                {(() => {
+                  const cleanPrompt = item.questionText
+                    .replace(/\*\*Scenario:\*\*\s*/gi, '')
+                    .replace(/\*\*Question:\*\*\s*/gi, '')
+                    .trim();
+                  return (
+                    <>
+                      <div className="text-[14px] leading-[1.65] text-[#0F172A]">
+                        {item.questionType === 'matrix_match' || parseMatchQuestion(cleanPrompt) ? (
+                          <MatchListTable questionText={cleanPrompt} />
+                        ) : (
+                          <MathText text={cleanPrompt} />
+                        )}
                       </div>
-                    )}
-                  </>
-                )}
+
+                      {item.diagram && (
+                        <div className="my-3 max-w-[440px]">
+                          <DiagramRenderer descriptor={item.diagram} />
+                        </div>
+                      )}
+
+                      {item.questionType !== 'integer' && item.options.length > 0 ? (
+                        <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                          {item.options.map((opt, idx) => {
+                            const letter = LETTERS[idx]!;
+                            const highlight = mode === 'solutions' && paper.examType !== 'Psychometric' && isCorrectOption(item.correctAnswer, letter);
+                            return (
+                              <div
+                                key={letter}
+                                className={cx('flex items-baseline gap-2 rounded-xl border border-[#CBD5E1] bg-white px-2.5 py-2 text-[13px] font-medium text-[#0F172A] [print-color-adjust:exact]', highlight && 'border-[#86EFAC] bg-[#F0FDF4]')}
+                              >
+                                <span className="font-extrabold text-[#64748B]">({letter})</span>
+                                <MathText text={stripOptionPrefix(opt)} />
+                              </div>
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        mode === 'questions' && (
+                          <div className="mt-2 inline-block rounded-md border border-dashed border-[#64748B] px-2.5 py-1 text-[12px] font-medium text-[#334155]">Numerical Answer: ____________</div>
+                        )
+                      )}
+
+                      {mode === 'solutions' && paper.examType !== 'Psychometric' && (
+                        <>
+                          <div className="mt-2.5 inline-block rounded-lg border border-[#BBF7D0] bg-[#F0FDF4] px-2.5 py-1.5 text-[13px] font-bold text-[#15803D] [print-color-adjust:exact]">Correct Answer: {item.correctAnswer}</div>
+                          {item.explanation && (
+                            <div className="mt-2.5 rounded-lg border-l-[3px] border-l-[#94A3B8] bg-[#F8FAFC] px-3 py-2.5 text-[13px] leading-relaxed text-[#334155]">
+                              <strong>Solution: </strong>
+                              <MathText text={item.explanation} />
+                            </div>
+                          )}
+                        </>
+                      )}
+                    </>
+                  );
+                })()}
               </article>
             ))}
           </section>

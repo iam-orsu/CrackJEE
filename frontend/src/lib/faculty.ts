@@ -127,6 +127,13 @@ export async function facultyCreatePaper(input: {
   organization?: string;
   examType: FacultyExamType;
   examGoal?: string;
+  targetProfile?: {
+    studentLevel?: string;
+    schoolClass?: string;
+    stream?: string;
+    ageGroup?: string;
+    age?: number;
+  };
   difficulty?: FacultyDifficulty;
   difficultyDistribution?: { beginner: number; intermediate: number; advanced: number };
   questionCount: number;
@@ -577,4 +584,26 @@ export async function facultyGetStudentSubmission(assignmentId: string, studentI
   return facultyFetch<{ submission: FacultyStudentSubmission }>(
     `/assignments/${encodeURIComponent(assignmentId)}/submissions/${encodeURIComponent(studentId)}`,
   );
+}
+
+export async function facultyDownloadAssignmentResultsCsv(assignmentId: string): Promise<void> {
+  const res = await fetch(`${API_URL}/faculty/assignments/${encodeURIComponent(assignmentId)}/csv`, {
+    credentials: 'same-origin',
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new FacultyError(res.status, err.error ?? `Failed to download CSV (${res.status})`);
+  }
+  const blob = await res.blob();
+  const disposition = res.headers.get('content-disposition') || '';
+  const match = disposition.match(/filename="([^"]+)"/);
+  const filename = match?.[1] || `assignment-${assignmentId}-results.csv`;
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
 }

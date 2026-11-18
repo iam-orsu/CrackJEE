@@ -155,6 +155,12 @@ export default function FacultyPage() {
   const [examGoal, setExamGoal] = useState('');
   const [selectedPsychometricDomains, setSelectedPsychometricDomains] = useState<string[]>([]);
 
+  // Target Candidate Profile for Psychometric calibration
+  const [targetLevel, setTargetLevel] = useState<'school' | 'intermediate' | 'ug' | 'pg' | 'professional'>('intermediate');
+  const [schoolClass, setSchoolClass] = useState<'class_6' | 'class_7' | 'class_8' | 'class_9' | 'class_10'>('class_10');
+  const [targetStream, setTargetStream] = useState('Science & Engineering / Computer Science');
+  const [targetAgeGroup, setTargetAgeGroup] = useState('16-18 (Intermediate / 11th-12th)');
+
   const selectedSubjects = useMemo(() => {
     const set = new Set<Subject>();
     for (const cfg of Object.values(topicConfigs)) {
@@ -519,6 +525,12 @@ export default function FacultyPage() {
           organization: organization.trim() || undefined,
           examType: 'Psychometric',
           examGoal: examGoal.trim() || undefined,
+          targetProfile: {
+            studentLevel: targetLevel,
+            schoolClass: targetLevel === 'school' ? schoolClass : undefined,
+            stream: targetStream,
+            ageGroup: targetAgeGroup,
+          },
           difficulty: 'intermediate',
           questionCount: activeCount,
           questionType: 'mcq_single',
@@ -804,7 +816,7 @@ export default function FacultyPage() {
                             </select>
                             <p className="mt-1 text-[12px] text-[#5A6B8C]">
                               {examType === 'Psychometric'
-                                ? 'Customized psychometric & behavioral paper with evaluation goal calibration. Opinion-based, covers all 5 question models, and exports to Excel.'
+                                ? 'Customized psychometric & behavioral paper with audience profile & evaluation goal calibration. Opinion-based, covers all 5 question models.'
                                 : 'Select the examination standard to configure topics, cognitive difficulty distribution, and paper pattern.'}
                             </p>
                           </div>
@@ -828,7 +840,7 @@ export default function FacultyPage() {
                                   maxLength={500}
                                 />
                                 <p className="mt-1 text-[11.5px] text-[#5A6B8C]">
-                                  The AI engine calibrates cognitive logic puzzles, situational dilemmas, emotional traits, and career inclinations directly to this goal. Generates questions without rigid right/wrong answers and flags radical responses for Excel export.
+                                  The AI engine calibrates cognitive logic puzzles, situational dilemmas, emotional traits, and career inclinations directly to this goal. Generates questions without rigid right/wrong answers and flags radical responses for student batch analytics.
                                 </p>
                               </div>
 
@@ -856,6 +868,91 @@ export default function FacultyPage() {
                                   onChange={(e) => setOrganization(e.target.value)}
                                   maxLength={120}
                                 />
+                              </div>
+
+                              {/* Candidate Target Profile Section */}
+                              <div className="mb-3.5 rounded-2xl border border-[#003366]/15 bg-[#F8FAFC] p-3.5">
+                                <div className="mb-2 font-display text-[13px] font-extrabold text-[#003366]">
+                                  Candidate Target Profile (Cohort Calibration)
+                                </div>
+                                <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+                                  <div className={FIELD}>
+                                    <label className={LABEL} htmlFor="target-level">
+                                      Class / Education Level
+                                    </label>
+                                    <select
+                                      id="target-level"
+                                      className={SELECT}
+                                      value={targetLevel}
+                                      onChange={(e) => setTargetLevel(e.target.value as typeof targetLevel)}
+                                    >
+                                      <option value="school">School (Class 6 - 10)</option>
+                                      <option value="intermediate">11th - 12th / Intermediate</option>
+                                      <option value="ug">Undergraduate / College (B.Tech, B.Sc, B.Com)</option>
+                                      <option value="pg">Postgraduate / Masters (M.Tech, MBA)</option>
+                                      <option value="professional">Working Professional</option>
+                                    </select>
+                                  </div>
+
+                                  {targetLevel === 'school' ? (
+                                    <div className={FIELD}>
+                                      <label className={LABEL} htmlFor="school-class">
+                                        Exact School Class
+                                      </label>
+                                      <select
+                                        id="school-class"
+                                        className={SELECT}
+                                        value={schoolClass}
+                                        onChange={(e) => setSchoolClass(e.target.value as typeof schoolClass)}
+                                      >
+                                        <option value="class_6">Class 6 (Middle School)</option>
+                                        <option value="class_7">Class 7 (Middle School)</option>
+                                        <option value="class_8">Class 8 (Upper Primary)</option>
+                                        <option value="class_9">Class 9 (High School)</option>
+                                        <option value="class_10">Class 10 (Secondary Board)</option>
+                                      </select>
+                                    </div>
+                                  ) : (
+                                    <div className={FIELD}>
+                                      <label className={LABEL} htmlFor="target-age">
+                                        Target Age Group
+                                      </label>
+                                      <select
+                                        id="target-age"
+                                        className={SELECT}
+                                        value={targetAgeGroup}
+                                        onChange={(e) => setTargetAgeGroup(e.target.value)}
+                                      >
+                                        <option value="14-16 (High School)">14–16 years (High School)</option>
+                                        <option value="16-18 (Intermediate / 11th-12th)">16–18 years (Intermediate / 11th-12th)</option>
+                                        <option value="18-22 (UG / College)">18–22 years (Undergraduate / College)</option>
+                                        <option value="22-26 (PG / Masters)">22–26 years (Postgraduate / Masters)</option>
+                                        <option value="26+ (Working Professional)">26+ years (Working Professional)</option>
+                                      </select>
+                                    </div>
+                                  )}
+
+                                  <div className={cx(FIELD, 'sm:col-span-2')}>
+                                    <label className={LABEL} htmlFor="target-stream">
+                                      Stream / Target Branch Focus
+                                    </label>
+                                    <select
+                                      id="target-stream"
+                                      className={SELECT}
+                                      value={targetStream}
+                                      onChange={(e) => setTargetStream(e.target.value)}
+                                    >
+                                      <option value="Science & Engineering / Computer Science">Science &amp; Engineering / Computer Science</option>
+                                      <option value="Medical / Healthcare / Biology">Medical / Healthcare / Biology</option>
+                                      <option value="Commerce / Finance / Business Management">Commerce / Finance / Business Management</option>
+                                      <option value="Humanities / Social Sciences / Law">Humanities / Social Sciences / Law</option>
+                                      <option value="General Aptitude & Problem Solving">General Aptitude &amp; Problem Solving</option>
+                                    </select>
+                                    <p className="mt-1 text-[11px] text-[#5A6B8C]">
+                                      The AI engine tailors scenarios, difficulty, and stakes to this demographic.
+                                    </p>
+                                  </div>
+                                </div>
                               </div>
 
                               <div className={FIELD}>
@@ -923,7 +1020,7 @@ export default function FacultyPage() {
                                   <div className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#15803D]" /> 4-point Passion / Career Interest Scale</div>
                                 </div>
                                 <div className="mt-2 border-t border-[#003366]/10 pt-2 text-[11px] text-[#5A6B8C]">
-                                  Opinion &amp; trait based. Evaluates persona fit (e.g. Entrepreneurial Fit), flags radical answers, and exports to Excel (.csv).
+                                  Opinion &amp; trait based. Evaluates persona fit (e.g. Entrepreneurial Fit) and flags radical answers for student batch analytics.
                                 </div>
                               </div>
                             </div>

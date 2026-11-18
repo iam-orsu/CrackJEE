@@ -357,4 +357,116 @@ describe('Faculty Exam Assignment & Student Delivery Integrity', () => {
     assert.equal(res.student.id, 'stu-b');
     assert.equal(res.student.batch.code, 'BETA');
   });
+
+  test('exportAssignmentResultsCsv formats CSV columns according to exam department (Main, NEET, Psychometric)', async () => {
+    const mockAssignmentRepo: any = {
+      findById: async (id: string) => {
+        if (id === 'main-assign') {
+          return {
+            id: 'main-assign',
+            title: 'JEE Main Mock 1',
+            batch: { name: 'Batch Alpha', code: 'ALPHA' },
+            paper: { title: 'JEE Main Paper', examType: 'Main' },
+            studentExams: [
+              {
+                status: 'submitted',
+                totalScore: 240,
+                maxScore: 300,
+                correctCount: 60,
+                incorrectCount: 15,
+                unattemptedCount: 0,
+                timeTakenSeconds: 7200,
+                submittedAt: new Date('2026-11-18T10:00:00Z'),
+                student: { name: 'Arjun Sharma', rollNumber: 'R101' },
+                resultBreakdown: {
+                  accuracyPct: 80,
+                  subjectBreakdown: {
+                    Physics: { score: 80 },
+                    Chemistry: { score: 75 },
+                    Mathematics: { score: 85 },
+                  },
+                },
+              },
+            ],
+          };
+        }
+        if (id === 'neet-assign') {
+          return {
+            id: 'neet-assign',
+            title: 'NEET Full Diagnostic',
+            batch: { name: 'Batch Medico', code: 'MED1' },
+            paper: { title: 'NEET 2026 Paper', examType: 'NEET' },
+            studentExams: [
+              {
+                status: 'submitted',
+                totalScore: 650,
+                maxScore: 720,
+                correctCount: 165,
+                incorrectCount: 15,
+                unattemptedCount: 0,
+                timeTakenSeconds: 10800,
+                submittedAt: new Date('2026-11-18T11:00:00Z'),
+                student: { name: 'Priya Patel', rollNumber: 'N202' },
+                resultBreakdown: {
+                  accuracyPct: 91,
+                  subjectBreakdown: {
+                    Physics: { score: 150 },
+                    Chemistry: { score: 160 },
+                    Biology: { score: 340 },
+                  },
+                },
+              },
+            ],
+          };
+        }
+        return {
+          id: 'psy-assign',
+          title: 'Psychometric Trait Assessment',
+          batch: { name: 'Batch CS', code: 'CS1' },
+          paper: { title: 'CS Aptitude Paper', examType: 'Psychometric' },
+          studentExams: [
+            {
+              status: 'submitted',
+              totalScore: 88,
+              maxScore: 100,
+              correctCount: 22,
+              incorrectCount: 2,
+              partialCount: 0,
+              unattemptedCount: 0,
+              timeTakenSeconds: 1800,
+              submittedAt: new Date('2026-11-18T12:00:00Z'),
+              student: { name: 'Rahul Verma', rollNumber: 'P303' },
+              resultBreakdown: {
+                accuracyPct: 92,
+              },
+            },
+          ],
+        };
+      },
+    };
+
+    const assignmentService = new FacultyAssignmentService(mockAssignmentRepo, {} as any, {} as any);
+
+    // 1. JEE Main CSV test
+    const mainCsv = await assignmentService.exportAssignmentResultsCsv('main-assign', 'fac-1');
+    assert.ok(mainCsv.filename.includes('Main-Results.csv'));
+    assert.ok(mainCsv.csv.includes('Physics Score'));
+    assert.ok(mainCsv.csv.includes('Chemistry Score'));
+    assert.ok(mainCsv.csv.includes('Mathematics Score'));
+    assert.ok(mainCsv.csv.includes('Arjun Sharma'));
+    assert.ok(mainCsv.csv.includes('240'));
+
+    // 2. NEET CSV test
+    const neetCsv = await assignmentService.exportAssignmentResultsCsv('neet-assign', 'fac-1');
+    assert.ok(neetCsv.filename.includes('NEET-Results.csv'));
+    assert.ok(neetCsv.csv.includes('Biology (/360)'));
+    assert.ok(neetCsv.csv.includes('Priya Patel'));
+    assert.ok(neetCsv.csv.includes('650'));
+
+    // 3. Psychometric CSV test
+    const psyCsv = await assignmentService.exportAssignmentResultsCsv('psy-assign', 'fac-1');
+    assert.ok(psyCsv.filename.includes('Psychometric-Results.csv'));
+    assert.ok(psyCsv.csv.includes('Total Alignment Score'));
+    assert.ok(psyCsv.csv.includes('Rahul Verma'));
+  });
 });

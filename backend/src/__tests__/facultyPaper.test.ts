@@ -681,7 +681,7 @@ describe('FacultyPaperService editing, mutating, and error guards', () => {
     const hasLikert = savedState.items.some((i: any) => i.options.length === 5 && i.options.includes('Strongly Disagree'));
     const hasFrequency = savedState.items.some((i: any) => i.options.length === 5 && i.options.includes('Never'));
     const hasPassion = savedState.items.some((i: any) => i.options.length === 4 && i.options.includes('Passionate'));
-    const hasScenario = savedState.items.some((i: any) => i.questionText.includes('**Scenario:**'));
+    const hasScenario = savedState.items.some((i: any) => i.topic.includes('Situational') || i.questionText.includes('\n\n'));
     const hasCognitive = savedState.items.some((i: any) => i.topic.includes('Cognitive'));
 
     assert.ok(hasLikert, 'Must include 5-point Agreement Likert model');

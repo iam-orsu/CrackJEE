@@ -38,6 +38,15 @@ const createPaperSchema = z.object({
   organization: z.string().trim().max(120).optional(),
   examType: z.enum(['Main', 'Advanced', 'NEET', 'Psychometric']),
   examGoal: z.string().trim().max(1000).optional(),
+  targetProfile: z
+    .object({
+      studentLevel: z.string().trim().max(100).optional(),
+      schoolClass: z.string().trim().max(100).optional(),
+      stream: z.string().trim().max(100).optional(),
+      ageGroup: z.string().trim().max(100).optional(),
+      age: z.number().int().min(6).max(100).optional(),
+    })
+    .optional(),
   difficulty: z.enum(['beginner', 'intermediate', 'advanced', 'mixed']).optional().default('intermediate'),
   difficultyDistribution: z
     .object({
@@ -227,6 +236,7 @@ export class FacultyController {
         organization: parsed.data.organization,
         examType: parsed.data.examType,
         examGoal: parsed.data.examGoal,
+        targetProfile: parsed.data.targetProfile,
         difficulty: parsed.data.difficulty,
         difficultyDistribution: parsed.data.difficultyDistribution,
         questionCount: parsed.data.questionCount,
@@ -542,6 +552,18 @@ export class FacultyController {
     try {
       const report = await this.assignmentService.getAssignmentReport(String(req.params.id), req.faculty!.facultyId);
       res.json({ success: true, report });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly downloadAssignmentResultsCsv = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const assignmentId = String(req.params.id);
+      const { csv, filename } = await this.assignmentService.exportAssignmentResultsCsv(assignmentId, req.faculty!.facultyId);
+      res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+      res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+      res.send(csv);
     } catch (err) {
       next(err);
     }

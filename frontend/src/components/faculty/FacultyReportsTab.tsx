@@ -8,6 +8,7 @@ import {
   Circle,
   CircleCheckBig,
   CircleMinus,
+  Download,
   Eye,
   ListTodo,
   Medal,
@@ -18,6 +19,7 @@ import {
 import { MathText, stripOptionPrefix } from '@/lib/math';
 import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchListTable';
 import {
+  facultyDownloadAssignmentResultsCsv,
   facultyGetAssignmentReport,
   facultyGetStudentSubmission,
   facultyListAssignments,
@@ -39,6 +41,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
   const [report, setReport] = useState<FacultyAssignmentReport | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [exportingCsv, setExportingCsv] = useState(false);
 
   // Subject filter for Topic Analysis
   const [selectedSubject, setSelectedSubject] = useState<string>('ALL');
@@ -81,6 +84,19 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}m ${secs}s`;
+  }
+
+  async function handleExportCsv() {
+    if (!selectedAssignmentId) return;
+    setExportingCsv(true);
+    setError('');
+    try {
+      await facultyDownloadAssignmentResultsCsv(selectedAssignmentId);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to export student results CSV');
+    } finally {
+      setExportingCsv(false);
+    }
   }
 
   // Load a student's full submission paper
@@ -150,7 +166,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
         </div>
 
         {assignments.length > 0 && (
-          <div className="flex items-center gap-2.5">
+          <div className="flex flex-wrap items-center gap-2.5">
             <label className="text-[13px] font-semibold text-[#31407F]">Select Exam:</label>
             <select
               className={SELECT}
@@ -163,6 +179,17 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                 </option>
               ))}
             </select>
+            {report && (
+              <button
+                type="button"
+                disabled={exportingCsv}
+                onClick={handleExportCsv}
+                className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#107C41] bg-white px-3.5 py-2 text-[12.5px] font-extrabold text-[#107C41] no-underline shadow-[0_3px_0_#A3D9B5] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_5px_0_#A3D9B5] active:translate-y-[2px] active:shadow-[0_1px_0_#A3D9B5] disabled:cursor-not-allowed disabled:opacity-45"
+              >
+                <Download className="h-4 w-4 shrink-0" aria-hidden />
+                {exportingCsv ? 'Exporting...' : 'Export Results (.csv)'}
+              </button>
+            )}
           </div>
         )}
       </div>

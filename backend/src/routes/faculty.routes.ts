@@ -43,6 +43,7 @@ export function createFacultyRoutes(controller = new FacultyController()): Route
   router.post('/assignments', guard, controller.createAssignment);
   router.delete('/assignments/:id', guard, controller.deleteAssignment);
   router.get('/assignments/:id/report', guard, controller.getAssignmentReport);
+  router.get('/assignments/:id/csv', guard, controller.downloadAssignmentResultsCsv);
   router.get('/assignments/:id/submissions/:studentId', guard, controller.getStudentSubmission);
 
   return router;

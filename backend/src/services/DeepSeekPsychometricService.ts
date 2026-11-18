@@ -975,6 +975,13 @@ Format as JSON:
     questionCount: number;
     title?: string;
     organization?: string;
+    targetProfile?: {
+      studentLevel?: string;
+      schoolClass?: string;
+      stream?: string;
+      ageGroup?: string;
+      age?: number;
+    };
   }): Promise<FacultyPsychometricItem[]> {
     const goalText = input.examGoal?.trim() || 'Assess student general aptitude, entrepreneurial mindset, and technical problem-solving attitude';
     const rawDomains = input.domains.length > 0 ? input.domains : PSYCHOMETRIC_CARDS.map((c) => c.name);
@@ -986,7 +993,7 @@ Format as JSON:
 
     if (this.hasApiKey() && this.breaker.canAttempt()) {
       try {
-        const liveItems = await this.callFacultyAiGeneration(resolvedDomains, goalText, input.questionCount);
+        const liveItems = await this.callFacultyAiGeneration(resolvedDomains, goalText, input.questionCount, input.targetProfile);
         if (liveItems && liveItems.length >= Math.min(input.questionCount, 5)) {
           this.breaker.recordSuccess();
           logger.info({ count: liveItems.length, goal: goalText }, 'Generated live faculty psychometric paper via DeepSeek');
@@ -1005,12 +1012,29 @@ Format as JSON:
     domains: string[],
     examGoal: string,
     questionCount: number,
+    targetProfile?: {
+      studentLevel?: string;
+      schoolClass?: string;
+      stream?: string;
+      ageGroup?: string;
+      age?: number;
+    },
   ): Promise<FacultyPsychometricItem[] | null> {
+    const cohortInfo = targetProfile
+      ? `\nTARGET CANDIDATE AUDIENCE COHORT:
+- Target Education / Level: ${targetProfile.studentLevel || 'Intermediate / Higher Secondary'} ${targetProfile.schoolClass ? `(${targetProfile.schoolClass})` : ''}
+- Stream / Branch: ${targetProfile.stream || 'Science & Engineering'}
+- Target Age Group: ${targetProfile.ageGroup || (targetProfile.age ? `${targetProfile.age} years old` : '16-18 years')}
+
+COHORT CALIBRATION:
+- Calibrate question difficulty, scenario stakes, dilemmas, and vocabulary directly to the maturity and lived experience of this target group (e.g. school students: academics, teamwork, curiosity, peer dynamics; college/engineers: system design trade-offs, architecture, deadlines, campus startups).\n`
+      : '';
+
     const prompt = `You are an expert talent evaluator and practical psychometrician creating an assessment paper for faculty.
 
 EVALUATION GOAL / FACULTY TARGET:
 "${examGoal}"
-
+${cohortInfo}
 ASSESSMENT DOMAINS TO COVER:
 ${domains.map((d, i) => `${i + 1}. ${d}`).join('\n')}
 

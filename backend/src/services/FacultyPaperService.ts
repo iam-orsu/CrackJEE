@@ -21,6 +21,13 @@ export interface CreateFacultyPaperInput {
   organization?: string;
   examType: FacultyExamType;
   examGoal?: string;
+  targetProfile?: {
+    studentLevel?: string;
+    schoolClass?: string;
+    stream?: string;
+    ageGroup?: string;
+    age?: number;
+  };
   difficulty: FacultyDifficulty;
   difficultyDistribution?: DifficultyDistribution;
   questionCount: number;
@@ -712,15 +719,22 @@ export class FacultyPaperService {
       const psychometricItems = await deepSeekPsychometricService.generateFacultyPsychometricPaper({
         domains,
         examGoal: input.examGoal,
+        targetProfile: input.targetProfile,
         questionCount: input.questionCount,
         title: input.title,
         organization: input.organization,
       });
 
+      const cleanTag = (text: string) =>
+        text
+          .replace(/\*\*Scenario:\*\*\s*/gi, '')
+          .replace(/\*\*Question:\*\*\s*/gi, '')
+          .trim();
+
       const items: FacultyPaperItem[] = psychometricItems.map((q) => {
-        const promptFull = q.scenarioText
-          ? `**Scenario:** ${q.scenarioText}\n\n**Question:** ${q.questionText}`
-          : q.questionText;
+        const scenario = cleanTag(q.scenarioText || '');
+        const question = cleanTag(q.questionText || '');
+        const promptFull = scenario ? `${scenario}\n\n${question}` : question;
         const fullExplanation = `${q.explanation}\n\n**Trait / Persona Fit:** ${q.traitPersonaMapping}\n\n**Radical Answer Flag:** ${q.radicalFeedbackNote}`;
         return {
           number: q.number,
