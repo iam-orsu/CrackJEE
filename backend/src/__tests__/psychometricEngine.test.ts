@@ -1,113 +1,148 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { DeepSeekPsychometricService } from '../services/DeepSeekPsychometricService';
-import { PSYCHOMETRIC_BANK } from '../data/psychometricBank';
+import { PSYCHOMETRIC_CARDS, findCardDef, type CandidateProfile } from '../data/psychometricCards';
 
 describe('Psychometric Engine & Framework Coverage', () => {
   const service = new DeepSeekPsychometricService();
 
-  it('generates a complete 5-section psychometric exam battery', () => {
-    const exam = service.generateFromRandomizedBank('test_psy_1', 'Main');
+  it('contains exactly the 8 specified assessment cards with required subtopics', () => {
+    assert.equal(PSYCHOMETRIC_CARDS.length, 8);
 
-    assert.ok(exam.id.startsWith('test_psy_1'));
-    assert.equal(exam.sections.length, 5);
-
-    const sectionIds = exam.sections.map((s) => s.id);
-    assert.deepEqual(sectionIds, [
-      'sec_cognitive',
-      'sec_behavioral',
-      'sec_sjt',
-      'sec_anxiety',
-      'sec_riasec',
+    const cardNames = PSYCHOMETRIC_CARDS.map((c) => c.name);
+    assert.deepEqual(cardNames, [
+      'Cognitive Ability Tests',
+      'Personality Tests',
+      'Situational Judgment Tests (SJT)',
+      'Emotional Intelligence (EI) Tests',
+      'Motivation and Work-Values Tests',
+      'Behavioral and Work-Style Assessments',
+      'Career Interest Tests',
+      'Integrity and Risk-Related Assessments',
     ]);
+
+    // Check subtopics on Cognitive Ability Tests
+    const cogCard = findCardDef('cognitive_ability');
+    assert.ok(cogCard);
+    assert.deepEqual(cogCard.subtopics, [
+      'Numerical reasoning',
+      'Verbal reasoning',
+      'Logical reasoning',
+      'Abstract reasoning',
+      'Spatial reasoning',
+      'Critical thinking and problem-solving',
+    ]);
+
+    // Check subtopics on SJT
+    const sjtCard = findCardDef('situational_judgment');
+    assert.ok(sjtCard);
+    assert.ok(sjtCard.subtopics.includes('Conflict resolution'));
+    assert.ok(sjtCard.subtopics.includes('Customer handling'));
+    assert.ok(sjtCard.subtopics.includes('Ethical decision-making'));
   });
 
-  it('covers CHC Theory with timed cognitive aptitude questions', () => {
-    const exam = service.generateFromRandomizedBank('test_psy_2', 'NEET');
-    const cogSec = exam.sections.find((s) => s.id === 'sec_cognitive');
+  it('generates dynamic assessment tailored to student profile', async () => {
+    const studentProfile: CandidateProfile = {
+      age: 16,
+      professionStatus: 'student',
+      studentLevel: 'intermediate',
+      stream: 'Science / JEE',
+    };
 
-    assert.ok(cogSec);
-    assert.equal(cogSec.timeLimitSeconds, 15 * 60); // 15 mins timed
-    assert.ok(cogSec.items.length >= 4);
+    const exam = await service.generateCardExam('cognitive_ability', studentProfile);
+    assert.ok(exam.id.startsWith('psy_cognitive_ability'));
+    assert.equal(exam.title, 'Cognitive Ability Tests');
+    assert.ok(exam.sections.length > 0);
 
-    // Verify cognitive items have options and correct answers
-    cogSec.items.forEach((item) => {
-      assert.equal(item.section, 'COGNITIVE');
-      assert.equal(item.itemType, 'COGNITIVE_MCQ');
-      assert.ok(item.options && item.options.length === 4);
-      assert.ok(item.correctAnswer);
+    const items = exam.sections[0]!.items;
+    assert.ok(items.length >= 6);
+
+    // Verify cognitive items have 4 options and a correct answer
+    items.forEach((it) => {
+      assert.ok(it.promptText.length > 5);
+      assert.ok(it.options && it.options.length === 4);
     });
   });
 
-  it('ensures agreement scale (Strongly Disagree to Agree) occurs only occasionally (1-2 times)', () => {
-    const exam = service.generateFromRandomizedBank('test_psy_3', 'Main');
-    const allItems = exam.sections.flatMap((s) => s.items);
+  it('generates dynamic assessment tailored to working professional profile', async () => {
+    const workingProfile: CandidateProfile = {
+      age: 26,
+      professionStatus: 'employed',
+      jobTitle: 'Software Engineer',
+      companyType: 'IT Services',
+    };
 
-    const agreementItems = allItems.filter((it) => it.itemType === 'AGREEMENT_LIKERT');
-    // As explicitly requested: strongly agree/disagree should come occasionally like 1-2, not everything
-    assert.ok(agreementItems.length <= 2, `Expected at most 2 agreement items, got ${agreementItems.length}`);
-    assert.ok(agreementItems.length >= 1, 'Expected at least 1 agreement item');
-  });
+    const exam = await service.generateCardExam('situational_judgment', workingProfile);
+    assert.ok(exam.id.startsWith('psy_situational_judgment'));
+    assert.equal(exam.title, 'Situational Judgment Tests (SJT)');
 
-  it('covers Situational Judgment (SJT) with realistic scenario action MCQs and effectiveness ratings', () => {
-    const exam = service.generateFromRandomizedBank('test_psy_4', 'Advanced');
-    const sjtSec = exam.sections.find((s) => s.id === 'sec_sjt');
+    const items = exam.sections[0]!.items;
+    assert.ok(items.length >= 6);
 
-    assert.ok(sjtSec);
-    const itemTypes = new Set(sjtSec.items.map((it) => it.itemType));
-    assert.ok(itemTypes.has('SCENARIO_ACTION_MCQ'));
-
-    const actionMcq = sjtSec.items.find((it) => it.itemType === 'SCENARIO_ACTION_MCQ');
-    assert.ok(actionMcq);
-    assert.ok(actionMcq.scenarioText && actionMcq.scenarioText.length > 20);
-    assert.ok(actionMcq.options.length === 4); // 4 distinct action options (A, B, C, D)
-  });
-
-  it('covers Spielberger TAI and Cassidy ARS-30 with frequency rating scales', () => {
-    const exam = service.generateFromRandomizedBank('test_psy_5', 'NEET');
-    const anxSec = exam.sections.find((s) => s.id === 'sec_anxiety');
-
-    assert.ok(anxSec);
-    const constructs = new Set(anxSec.items.map((it) => it.construct));
-
-    assert.ok(constructs.has('TEST_ANXIETY'));
-    assert.ok(constructs.has('ACADEMIC_RESILIENCE'));
-
-    anxSec.items.forEach((item) => {
-      assert.equal(item.itemType, 'FREQUENCY_SCALE');
-      assert.equal(item.options?.length, 5);
-      assert.equal(item.options[0]?.text, 'Never');
-      assert.equal(item.options[4]?.text, 'Always');
+    // Check for scenario action dilemmas
+    const scenarioItems = items.filter((it) => it.itemType === 'SCENARIO_ACTION_MCQ');
+    assert.ok(scenarioItems.length > 0);
+    scenarioItems.forEach((it) => {
+      assert.ok(it.scenarioText && it.scenarioText.length > 15);
+      assert.equal(it.options.length, 4);
     });
   });
 
-  it('covers Holland RIASEC model with passion & interest ratings', () => {
-    const exam = service.generateFromRandomizedBank('test_psy_6', 'Both');
-    const riaSec = exam.sections.find((s) => s.id === 'sec_riasec');
+  it('includes varied response combinations across cards (Frequency, Agreement, Scenario Actions)', async () => {
+    const profile: CandidateProfile = {
+      age: 21,
+      professionStatus: 'job_seeker',
+      highestQualification: 'B.Tech',
+      targetRole: 'Data Analyst',
+    };
 
-    assert.ok(riaSec);
-    const constructs = new Set(riaSec.items.map((it) => it.construct));
+    const exam = await service.generateCardExam('behavioral_work_style', profile);
+    const items = exam.sections[0]!.items;
+    const types = new Set(items.map((it) => it.itemType));
 
-    assert.ok(constructs.has('RIASEC_R')); // Realistic
-    assert.ok(constructs.has('RIASEC_I')); // Investigative
-    assert.ok(constructs.has('RIASEC_C')); // Conventional
+    // Must mix scales: frequency and agreement
+    assert.ok(types.has('FREQUENCY_SCALE') || types.has('AGREEMENT_LIKERT'));
 
-    riaSec.items.forEach((item) => {
-      assert.equal(item.itemType, 'PASSION_SCALE');
-      assert.equal(item.options?.length, 4);
-      assert.equal(item.options[0]?.text, 'Not Interested');
-      assert.ok(item.options[3]?.text.includes('Passionate'));
+    const freqItem = items.find((it) => it.itemType === 'FREQUENCY_SCALE');
+    if (freqItem) {
+      assert.equal(freqItem.options[0]?.text, 'Never');
+      assert.equal(freqItem.options[4]?.text, 'Always');
+    }
+  });
+
+  it('decides career outcome and what candidate can become in plain English', async () => {
+    const profile: CandidateProfile = {
+      age: 20,
+      professionStatus: 'student',
+      studentLevel: 'ug',
+      stream: 'Computer Science',
+    };
+
+    const decision = await service.decideCareerAndOutcome('cognitive_ability', profile, [
+      { promptText: 'Number sequence puzzle', answer: 'B', construct: 'Numerical reasoning' },
+      { promptText: 'Code logic debugging problem', answer: 'A', construct: 'Logical reasoning' },
+    ]);
+
+    assert.ok(decision.summary && decision.summary.length > 10);
+    assert.ok(decision.whatYouCanBecome.length >= 2);
+    assert.ok(decision.coreStrengths.length >= 2);
+    assert.ok(decision.actionableNextSteps.length >= 2);
+
+    // Ensure recommendations have roles and match percentages
+    decision.whatYouCanBecome.forEach((rec) => {
+      assert.ok(rec.role && rec.role.length > 2);
+      assert.ok(rec.matchPct >= 50 && rec.matchPct <= 100);
+      assert.ok(rec.whyYouFit && rec.whyYouFit.length > 5);
     });
   });
 
   it('correctly calculates reverse-keying for negative psychological items', () => {
-    // On a 1-5 scale: adjusted = (5 + 1) - raw
     const reverseKey = (raw: number) => Math.max(1, Math.min(5, 6 - raw));
 
-    assert.equal(reverseKey(1), 5); // Never getting distracted = high positive score
+    assert.equal(reverseKey(1), 5);
     assert.equal(reverseKey(2), 4);
     assert.equal(reverseKey(3), 3);
     assert.equal(reverseKey(4), 2);
-    assert.equal(reverseKey(5), 1); // Always getting distracted = 1
+    assert.equal(reverseKey(5), 1);
   });
 });

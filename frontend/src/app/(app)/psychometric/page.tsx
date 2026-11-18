@@ -2,9 +2,27 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { api } from '@/lib/api';
-import { getUser } from '@/lib/auth';
 
-type ViewMode = 'intro' | 'exam' | 'report';
+export interface PsychometricCardDef {
+  id: string;
+  name: string;
+  description: string;
+  subtopics: string[];
+  bestFor: string;
+  badge: string;
+  estimatedMinutes: number;
+}
+
+export interface CandidateProfile {
+  age: number;
+  professionStatus: 'student' | 'employed' | 'job_seeker';
+  studentLevel?: 'school' | 'intermediate' | 'ug' | 'pg';
+  stream?: string;
+  jobTitle?: string;
+  companyType?: string;
+  highestQualification?: string;
+  targetRole?: string;
+}
 
 interface QuestionItem {
   id: string;
@@ -30,66 +48,45 @@ interface SectionData {
 
 interface ExamData {
   id: string;
+  cardId?: string;
   title: string;
   description: string;
   generatedByAi: boolean;
   sections: SectionData[];
 }
 
-interface StreamFit {
-  stream: string;
-  category: 'Engineering' | 'Medical' | 'Interdisciplinary' | 'Research';
-  matchPct: number;
-  description: string;
-  recommendedFocus: string;
+interface CareerDecision {
+  summary: string;
+  whatYouCanBecome: Array<{
+    role: string;
+    field: string;
+    matchPct: number;
+    whyYouFit: string;
+  }>;
+  coreStrengths: string[];
+  workStyle: string;
+  intentAndDrivers: string;
+  actionableNextSteps: string[];
 }
 
 interface ReportData {
   id: string;
+  sessionId: string;
+  userId: string;
   cognitivePercentile: number;
-  cognitiveBreakdown: {
-    numerical: number;
-    logical: number;
-    abstract: number;
-    spatial: number;
-  };
-  oceanProfile: {
-    openness: number;
-    conscientiousness: number;
-    extraversion: number;
-    agreeableness: number;
-    emotionalStability: number;
-  };
-  honestyHumility: number;
-  testAnxietyIndex: number;
-  academicResilience: number;
-  sjtCompetencies: {
-    decisionMaking: number;
-    academicEthics: number;
-    stressTolerance: number;
-  };
-  riasecCode: string;
-  riasecScores: {
-    R: number;
-    I: number;
-    A: number;
-    S: number;
-    E: number;
-    C: number;
-  };
-  streamRecommendations: StreamFit[];
-  studyHabitAdvice: string[];
-  burnoutRisk: 'low' | 'moderate' | 'high';
-  facultyAdvice: string;
+  careerDecision?: CareerDecision;
+  streamRecommendations?: unknown;
   createdAt: string;
 }
+
+type ViewState = 'hub' | 'exam' | 'report';
 
 const LIKERT_5 = [
   { val: '1', label: 'Strongly Disagree', color: '#E11D48', bg: '#FFE4E6' },
   { val: '2', label: 'Disagree', color: '#EA580C', bg: '#FFEDD5' },
-  { val: '3', label: 'Partially Agree', color: '#D97706', bg: '#FEF3C7' },
+  { val: '3', label: 'Neutral', color: '#D97706', bg: '#FEF3C7' },
   { val: '4', label: 'Agree', color: '#059669', bg: '#D1FAE5' },
-  { val: '5', label: 'Strongly Agree', color: '#803688', bg: '#F5E6F8' },
+  { val: '5', label: 'Strongly Agree', color: '#2563EB', bg: '#DBEAFE' },
 ];
 
 const FREQUENCY_SCALE = [
@@ -100,1012 +97,809 @@ const FREQUENCY_SCALE = [
   { val: '5', label: 'Always', color: '#E11D48', bg: '#FFE4E6' },
 ];
 
-const EFFECTIVENESS_SCALE = [
-  { val: '1', label: 'Very Bad Idea', color: '#E11D48', bg: '#FFE4E6' },
-  { val: '2', label: 'Not Very Helpful', color: '#EA580C', bg: '#FFEDD5' },
-  { val: '3', label: 'Helpful & Good', color: '#059669', bg: '#D1FAE5' },
-  { val: '4', label: 'Super Effective', color: '#803688', bg: '#F5E6F8' },
-];
-
 const PASSION_SCALE = [
   { val: '1', label: 'Not Interested', color: '#64748B', bg: '#F1F5F9' },
   { val: '2', label: 'A Little Curious', color: '#0284C7', bg: '#E0F2FE' },
   { val: '3', label: 'Interested', color: '#059669', bg: '#D1FAE5' },
-  { val: '4', label: 'Love It / Passionate', color: '#803688', bg: '#F5E6F8' },
+  { val: '4', label: 'Love It / Passionate', color: '#2563EB', bg: '#DBEAFE' },
 ];
 
 export default function PsychometricPage() {
-  const user = getUser();
-  const [view, setView] = useState<ViewMode>('intro');
+  const [view, setView] = useState<ViewState>('hub');
+  const [cards, setCards] = useState<PsychometricCardDef[]>([]);
+  const [selectedCard, setSelectedCard] = useState<PsychometricCardDef | null>(null);
+  const [profileModalOpen, setProfileModalOpen] = useState(false);
+  const [profile, setProfile] = useState<CandidateProfile>({
+    age: 18,
+    professionStatus: 'student',
+    studentLevel: 'ug',
+    stream: 'Science / Engineering',
+  });
+
+  const [exam, setExam] = useState<ExamData | null>(null);
+  const [sessionId, setSessionId] = useState<string>('');
+  const [activeQIdx, setActiveQIdx] = useState(0);
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [savingStatus, setSavingStatus] = useState('');
+  const [report, setReport] = useState<ReportData | null>(null);
+  const [history, setHistory] = useState<
+    Array<{
+      sessionId: string;
+      cardId: string;
+      completedAt: string;
+      whatYouCanBecome: Array<{
+        role: string;
+        field: string;
+        matchPct: number;
+        whyYouFit: string;
+      }>;
+    }>
+  >([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // Exam taking state
-  const [exam, setExam] = useState<ExamData | null>(null);
-  const [sessionId, setSessionId] = useState<string>('');
-  const [activeSecIdx, setActiveSecIdx] = useState(0);
-  const [activeQIdx, setActiveQIdx] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, string>>({});
-  const [savingStatus, setSavingStatus] = useState<string>('');
-  const [showSubmitModal, setShowSubmitModal] = useState(false);
-
-  // Completed report state
-  const [report, setReport] = useState<ReportData | null>(null);
-
-  // Check if report already exists on initial load
+  // Load cards and user history on mount
   useEffect(() => {
-    async function checkExisting() {
+    async function init() {
       try {
-        const rep = await api.psychometric.getReport();
-        if (rep) {
-          setReport(rep as unknown as ReportData);
+        const [cardsData, histData] = await Promise.all([
+          api.psychometric.getCards().catch(() => []),
+          api.psychometric.getHistory().catch(() => []),
+        ]);
+        if (cardsData && cardsData.length > 0) {
+          setCards(cardsData);
         }
-      } catch {
-        // No report yet
+        if (histData && Array.isArray(histData)) {
+          setHistory(histData);
+        }
+      } catch (err) {
+        console.error('Failed to load assessment cards:', err);
       }
     }
-    checkExisting();
+    init();
   }, []);
 
-  async function handleStartExam() {
+  const completedCardIds = useMemo(() => {
+    return new Set(history.map((h) => h.cardId));
+  }, [history]);
+
+  function handleCardClick(card: PsychometricCardDef) {
+    setSelectedCard(card);
+    setProfileModalOpen(true);
+  }
+
+  async function handleLaunchAssessment() {
+    if (!selectedCard) return;
     setLoading(true);
     setError('');
     try {
-      const data = await api.psychometric.getSession(user?.targetExam || 'Main');
-      setExam(data.exam);
-      setSessionId(data.session.id);
-      setView('exam');
-      setActiveSecIdx(0);
+      const res = await api.psychometric.startCardSession({
+        cardId: selectedCard.id,
+        profile,
+      });
+
+      setExam(res.exam as ExamData);
+      setSessionId(res.session.id);
+      setAnswers({});
       setActiveQIdx(0);
+      setProfileModalOpen(false);
+      setView('exam');
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to launch test');
+      setError(err instanceof Error ? err.message : 'Failed to launch assessment');
     } finally {
       setLoading(false);
     }
   }
 
-  const currentSection = exam?.sections[activeSecIdx];
-  const allItems = useMemo(() => {
-    return exam?.sections.flatMap((s) => s.items) ?? [];
+  const currentQuestions = useMemo(() => {
+    return exam?.sections[0]?.items ?? [];
   }, [exam]);
 
-  const currentItem = currentSection?.items[activeQIdx];
-
-  const totalAnswered = useMemo(() => {
-    return Object.keys(answers).length;
-  }, [answers]);
-
-  const unansweredCount = Math.max(0, allItems.length - totalAnswered);
+  const currentQ = currentQuestions[activeQIdx];
 
   async function handleSelectAnswer(val: string) {
-    if (!currentItem || !sessionId) return;
-    setAnswers((prev) => ({ ...prev, [currentItem.id]: val }));
+    if (!currentQ || !sessionId) return;
+    setAnswers((prev) => ({ ...prev, [currentQ.id]: val }));
 
     try {
       setSavingStatus('Saving...');
       await api.psychometric.saveAnswer({
         sessionId,
-        item: currentItem as unknown as Record<string, unknown>,
+        item: currentQ as unknown as Record<string, unknown>,
         answer: val,
       });
       setSavingStatus('Saved');
-      setTimeout(() => setSavingStatus(''), 1500);
+      setTimeout(() => setSavingStatus(''), 1200);
     } catch {
       setSavingStatus('Offline (saved locally)');
     }
   }
 
-  async function handleSubmitFinal() {
+  async function handleSubmitAssessment() {
     if (!sessionId) return;
     setLoading(true);
     setError('');
     try {
       const rep = await api.psychometric.submit(sessionId);
-      setReport(rep as unknown as ReportData);
+      const repData = rep as unknown as ReportData;
+      setReport(repData);
       setView('report');
-      setShowSubmitModal(false);
+      // Refresh history
+      api.psychometric.getHistory().then((h) => setHistory(h || [])).catch(() => {});
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to submit test');
+      setError(err instanceof Error ? err.message : 'Failed to submit assessment');
     } finally {
       setLoading(false);
     }
   }
 
+  const answeredCount = Object.keys(answers).length;
+  const isAllAnswered = currentQuestions.length > 0 && answeredCount >= currentQuestions.length;
+
   // --------------------------------------------------------------------------
-  // VIEW 1: INTRO & BRIEFING
+  // VIEW: REPORT
   // --------------------------------------------------------------------------
-  if (view === 'intro') {
+  if (view === 'report' && report) {
+    const career = report.careerDecision;
     return (
       <div className="mx-auto max-w-5xl px-4 py-8">
-        {/* Top Hero */}
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1E1B4B] via-[#311042] to-[#803688] p-8 text-white shadow-xl sm:p-12">
-          <div className="absolute -right-12 -top-12 h-64 w-64 rounded-full bg-purple-500/20 blur-3xl pointer-events-none" />
-          <div className="absolute -left-12 -bottom-12 h-64 w-64 rounded-full bg-pink-500/20 blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 max-w-2xl">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold backdrop-blur-md">
-              <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-              For Students in Class 6 to 12 & Droppers
-            </span>
-            <h1 className="mt-4 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
-              Student Mindset & Career Guidance Test
-            </h1>
-            <p className="mt-3 text-base text-purple-100/90 leading-relaxed">
-              Discover your brain strengths, daily study habits, exam confidence, and best college career streams in just 15 minutes.
-              No complex formulas—just fun puzzles and real everyday school situations!
-            </p>
-
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <button
-                type="button"
-                onClick={handleStartExam}
-                disabled={loading}
-                className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-extrabold text-[#1E1B4B] shadow-lg transition hover:bg-purple-50 active:scale-95 disabled:opacity-60"
-              >
-                {loading ? (
-                  <>
-                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#1E1B4B] border-t-transparent" />
-                    Preparing Your Test Questions...
-                  </>
-                ) : (
-                  <>
-                    <span>Start Your Test</span>
-                    <span>→</span>
-                  </>
-                )}
-              </button>
-
-              {report && (
-                <button
-                  type="button"
-                  onClick={() => setView('report')}
-                  className="rounded-xl border border-white/20 bg-white/10 px-5 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
-                >
-                  View Your Latest Report
-                </button>
-              )}
+        {/* Header banner */}
+        <div className="rounded-3xl bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#334155] p-8 text-white shadow-xl sm:p-10">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-bold text-emerald-300">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                Assessment Complete
+              </span>
+              <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
+                Your Career Intelligence & Decision Report
+              </h1>
+              <p className="mt-2 text-sm text-slate-300">
+                Grounded advice and realistic career options matching your real-world thinking style.
+              </p>
             </div>
+            <button
+              type="button"
+              onClick={() => setView('hub')}
+              className="rounded-xl border border-white/20 bg-white/10 px-5 py-2.5 text-xs font-bold tracking-wide text-white transition hover:bg-white/20"
+            >
+              ← Back to All Cards
+            </button>
+          </div>
 
-            {error && <p className="mt-4 text-xs font-semibold text-rose-300">{error}</p>}
+          {/* Profile summary pill */}
+          <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold text-slate-200">
+            <span className="rounded-lg bg-white/10 px-3 py-1.5">Age: {profile.age}</span>
+            <span className="rounded-lg bg-white/10 px-3 py-1.5 capitalize">Status: {profile.professionStatus}</span>
+            {profile.professionStatus === 'student' && profile.studentLevel && (
+              <span className="rounded-lg bg-white/10 px-3 py-1.5 uppercase">Level: {profile.studentLevel}</span>
+            )}
+            {profile.professionStatus === 'employed' && profile.jobTitle && (
+              <span className="rounded-lg bg-white/10 px-3 py-1.5">Role: {profile.jobTitle}</span>
+            )}
           </div>
         </div>
 
-        {/* Section Breakdown Grid */}
-        <div className="mt-10">
-          <h2 className="text-xl font-extrabold text-[#003366]">What This Test Measures</h2>
-          <p className="text-sm text-[#5A6B8C]">
-            A complete 5-part assessment designed specifically for Indian school and competitive exam students:
-          </p>
+        {/* Core Summary */}
+        {career?.summary && (
+          <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h2 className="text-base font-bold text-slate-900">Your Core Mindset & Thinking</h2>
+            <p className="mt-2 text-sm leading-relaxed text-slate-700">{career.summary}</p>
+          </div>
+        )}
 
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                num: '01',
-                title: 'Brain Puzzles & Quick Logic',
-                framework: 'Mental Speed & Problem Solving',
-                desc: 'Fun number patterns, shape sequences, class rankings, and dice puzzles that test your quick thinking.',
-                badge: 'Brain Teasers',
-                color: '#3B82F6',
-              },
-              {
-                num: '02',
-                title: 'Daily Study Habits & Focus',
-                framework: 'How You Study at Home',
-                desc: 'How you handle mobile phone distractions, mistake notebooks, asking doubts, and helping classmates.',
-                badge: 'Daily Habits',
-                color: '#803688',
-              },
-              {
-                num: '03',
-                title: 'What Would You Do? (Real Situations)',
-                framework: 'Smart Exam Decisions',
-                desc: 'Handling exam time running out, peer pressure to copy, and bouncing back after silly mistakes.',
-                badge: 'Real Scenarios',
-                color: '#D97706',
-              },
-              {
-                num: '04',
-                title: 'Exam Tension & Confidence',
-                framework: 'Staying Cool Under Pressure',
-                desc: 'Understanding pre-exam butterflies, blanking out on formulas, and recovering fast after low marks.',
-                badge: 'Exam Composure',
-                color: '#E11D48',
-              },
-              {
-                num: '05',
-                title: 'Your Interests & Dream Careers',
-                framework: 'Discover Your Best College Branch',
-                desc: 'Explore what you love most: Coding & Games, Robots, Doctors/Medicine, Space Rockets (ISRO), or Business.',
-                badge: 'Career Match',
-                color: '#059669',
-              },
-              {
-                num: '06',
-                title: 'Teacher & Mentor Guidance',
-                framework: 'Friendly Advice for Parents & Teachers',
-                desc: 'Clear, personalized study tips and guidance notes to help your teachers and mentors guide you better.',
-                badge: 'Mentor Tips',
-                color: '#4F46E5',
-              },
-            ].map((card) => (
+        {/* Section: What You Can Become */}
+        <div className="mt-8">
+          <h2 className="text-xl font-extrabold text-slate-900">What You Can Become</h2>
+          <p className="text-sm text-slate-500">Top career roles and work paths that directly fit your natural strengths.</p>
+
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {(career?.whatYouCanBecome || []).map((role, idx) => (
               <div
-                key={card.num}
-                className="group relative rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-sm transition hover:shadow-md"
+                key={idx}
+                className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-400 hover:shadow-md"
               >
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs font-bold text-[#8A97AC]">{card.num}</span>
-                  <span
-                    className="rounded-full px-2.5 py-0.5 text-[11px] font-bold"
-                    style={{ background: `${card.color}15`, color: card.color }}
-                  >
-                    {card.badge}
-                  </span>
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="rounded-md bg-blue-50 px-2.5 py-1 text-xs font-extrabold text-blue-700">
+                      {role.field}
+                    </span>
+                    <span className="text-sm font-extrabold text-emerald-600">{role.matchPct}% Match</span>
+                  </div>
+                  <h3 className="mt-3 text-lg font-bold text-slate-900">{role.role}</h3>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-600">{role.whyYouFit}</p>
                 </div>
-                <h3 className="mt-3 font-display text-base font-bold text-[#1B254B]">{card.title}</h3>
-                <span className="block text-[11px] font-semibold text-[#803688]">{card.framework}</span>
-                <p className="mt-2 text-xs leading-relaxed text-[#5A6B8C]">{card.desc}</p>
               </div>
             ))}
           </div>
         </div>
-      </div>
-    );
-  }
 
-  // --------------------------------------------------------------------------
-  // VIEW 2: INTERACTIVE LIVE EXAM RUNNER
-  // --------------------------------------------------------------------------
-  if (view === 'exam' && exam && currentSection && currentItem) {
-    const isCognitive = currentSection.id === 'sec_cognitive';
-    const hasScenario = currentItem.scenarioText != null && currentItem.scenarioText.length > 0;
-
-    return (
-      <div className="mx-auto max-w-4xl px-4 py-6">
-        {/* Top Control Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#E2E8F0] bg-white p-4 shadow-sm">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="rounded bg-[#F5E6F8] px-2.5 py-0.5 text-xs font-extrabold text-[#803688]">
-                {currentSection.name}
-              </span>
-              {exam.generatedByAi && (
-                <span className="rounded bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700">
-                  LIVE FRESH
-                </span>
-              )}
-            </div>
-            <p className="mt-1 text-xs text-[#5A6B8C]">{currentSection.description}</p>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-bold text-[#5A6B8C]">
-              Answered: <strong className="text-[#803688]">{totalAnswered}</strong> / {allItems.length}
-            </span>
-            <span className="text-xs font-semibold text-emerald-600">{savingStatus}</span>
-            <button
-              type="button"
-              onClick={() => setShowSubmitModal(true)}
-              className="rounded-xl border border-rose-200 bg-rose-50 px-3.5 py-1.5 text-xs font-bold text-rose-700 shadow-sm transition hover:bg-rose-100 flex items-center gap-1.5 active:scale-95"
-            >
-              <span>🛑</span>
-              <span>End Exam</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Section Navigation Pills */}
-        <div className="mt-4 flex gap-2 overflow-x-auto pb-1">
-          {exam.sections.map((sec, sIdx) => {
-            const secAnswered = sec.items.filter((it) => answers[it.id] != null).length;
-            const isDone = secAnswered === sec.items.length;
-            const isCurr = sIdx === activeSecIdx;
-            return (
-              <button
-                key={sec.id}
-                type="button"
-                onClick={() => {
-                  setActiveSecIdx(sIdx);
-                  setActiveQIdx(0);
-                }}
-                className={`whitespace-nowrap rounded-xl px-3.5 py-2 text-xs font-bold transition ${
-                  isCurr
-                    ? 'bg-[#1E1B4B] text-white shadow-sm'
-                    : isDone
-                    ? 'bg-[#E3F6ED] text-[#008060]'
-                    : 'bg-white text-[#5A6B8C] hover:bg-slate-100 border border-[#E2E8F0]'
-                }`}
-              >
-                {sec.name.split('.')[1] || sec.name} ({secAnswered}/{sec.items.length})
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Main Question Card */}
-        <div className="mt-6 rounded-3xl border border-[#E2E8F0] bg-white p-6 sm:p-8 shadow-sm">
-          {/* Header indicator */}
-          <div className="flex items-center justify-between border-b border-[#F1F5F9] pb-4">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-bold text-[#8A97AC]">
-                Question {activeQIdx + 1} of {currentSection.items.length}
-              </span>
-              {currentItem.subFacet && (
-                <span className="rounded bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-[#5A6B8C]">
-                  {currentItem.subFacet}
-                </span>
-              )}
-            </div>
-            {isCognitive && (
-              <span className="inline-flex items-center gap-1 text-xs font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full">
-                ⏱ Quick Thinking Puzzle
-              </span>
-            )}
-          </div>
-
-          {/* Scenario Callout if Scenario exists */}
-          {hasScenario && currentItem.scenarioText && (
-            <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50/70 p-5">
-              <div className="flex items-center gap-2 text-xs font-extrabold text-amber-800">
-                <span>📋</span>
-                <span>EVERYDAY SCHOOL & EXAM SITUATION</span>
-              </div>
-              <p className="mt-2 text-sm text-amber-950 leading-relaxed font-medium">
-                {currentItem.scenarioText}
-              </p>
-            </div>
-          )}
-
-          {/* Prompt Statement */}
-          <div className="mt-6">
-            <h3 className="font-display text-base sm:text-lg font-bold text-[#1B254B] leading-relaxed">
-              {currentItem.promptText}
-            </h3>
-          </div>
-
-          {/* Diverse Answer Inputs based on Question Format */}
-          <div className="mt-8">
-            {/* 1. OCCASIONAL 5-POINT AGREEMENT SCALE (Comes only on 1-2 select questions) */}
-            {(currentItem.itemType === 'AGREEMENT_LIKERT' || currentItem.itemType === 'LIKERT_5') && (
-              <div>
-                <div className="mb-3 flex items-center justify-between">
-                  <p className="text-xs font-bold tracking-wide uppercase text-[#8A97AC]">
-                    How much do you agree with this statement?
-                  </p>
-                  <span className="text-[11px] font-semibold text-[#803688] bg-[#F5E6F8] px-2 py-0.5 rounded-full">
-                    Your Opinion
+        {/* Core Strengths & Work Style Grid */}
+        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {/* Strengths */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h3 className="text-base font-bold text-slate-900">Your Core Strengths</h3>
+            <p className="text-xs text-slate-500">What you naturally do well when given a task.</p>
+            <ul className="mt-4 space-y-2.5">
+              {(career?.coreStrengths || []).map((str, i) => (
+                <li key={i} className="flex items-start gap-2.5 text-xs text-slate-700 leading-normal">
+                  <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-[10px] font-bold text-emerald-700">
+                    ✓
                   </span>
-                </div>
-                <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-5">
-                  {LIKERT_5.map((opt) => {
-                    const selected = answers[currentItem.id] === opt.val;
-                    return (
-                      <button
-                        key={opt.val}
-                        type="button"
-                        onClick={() => handleSelectAnswer(opt.val)}
-                        className={`group relative flex sm:flex-col items-center justify-between sm:justify-center rounded-2xl p-4 text-center transition ${
-                          selected
-                            ? 'ring-2 ring-offset-2 ring-[#803688] font-extrabold shadow-sm'
-                            : 'border border-[#E2E8F0] bg-white hover:bg-slate-50'
-                        }`}
-                        style={{ backgroundColor: selected ? opt.bg : undefined }}
-                      >
-                        <span
-                          className="flex h-7 w-7 items-center justify-center rounded-full text-xs font-extrabold sm:mb-2"
-                          style={{
-                            backgroundColor: selected ? opt.color : '#F1F5F9',
-                            color: selected ? '#FFFFFF' : '#64748B',
-                          }}
-                        >
-                          {opt.val}
-                        </span>
-                        <span className="text-xs font-bold leading-tight" style={{ color: selected ? opt.color : '#334155' }}>
-                          {opt.label}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* 2. SCENARIO ACTION MCQS / PREFERENCE CHOICES / COGNITIVE PUZZLES */}
-            {(currentItem.itemType === 'SCENARIO_ACTION_MCQ' ||
-              currentItem.itemType === 'PREFERENCE_CHOICE' ||
-              currentItem.itemType === 'COGNITIVE_MCQ') &&
-              currentItem.options && (
-                <div>
-                  <p className="mb-3 text-xs font-bold tracking-wide uppercase text-[#8A97AC]">
-                    {currentItem.itemType === 'SCENARIO_ACTION_MCQ'
-                      ? 'What would you do in this situation?'
-                      : currentItem.itemType === 'PREFERENCE_CHOICE'
-                      ? 'Which approach best describes you?'
-                      : 'Choose the correct answer:'}
-                  </p>
-                  <div className="grid grid-cols-1 gap-3">
-                    {currentItem.options.map((opt) => {
-                      const selected = answers[currentItem.id] === opt.id;
-                      return (
-                        <button
-                          key={opt.id}
-                          type="button"
-                          onClick={() => handleSelectAnswer(opt.id)}
-                          className={`flex items-start gap-4 rounded-2xl p-4 text-left transition ${
-                            selected
-                              ? 'border-2 border-[#803688] bg-[#F5E6F8] font-bold shadow-sm'
-                              : 'border border-[#E2E8F0] bg-white hover:bg-slate-50'
-                          }`}
-                        >
-                          <span
-                            className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-xl font-bold text-xs ${
-                              selected ? 'bg-[#803688] text-white shadow-sm' : 'bg-slate-100 text-[#5A6B8C]'
-                            }`}
-                          >
-                            {opt.id}
-                          </span>
-                          <span className="text-sm text-[#1B254B] pt-1 leading-relaxed">{opt.text}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-
-            {/* 3. FREQUENCY SCALE (Study Habits & Exam Reaction Frequency) */}
-            {currentItem.itemType === 'FREQUENCY_SCALE' && (
-              <div>
-                <p className="mb-3 text-xs font-bold tracking-wide uppercase text-[#8A97AC]">
-                  How often does this happen with you?
-                </p>
-                <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-5">
-                  {FREQUENCY_SCALE.map((opt) => {
-                    const selected = answers[currentItem.id] === opt.val;
-                    return (
-                      <button
-                        key={opt.val}
-                        type="button"
-                        onClick={() => handleSelectAnswer(opt.val)}
-                        className={`flex sm:flex-col items-center justify-between sm:justify-center rounded-2xl p-4 text-center transition ${
-                          selected
-                            ? 'ring-2 ring-offset-2 ring-emerald-600 font-extrabold shadow-sm'
-                            : 'border border-[#E2E8F0] bg-white hover:bg-slate-50'
-                        }`}
-                        style={{ backgroundColor: selected ? opt.bg : undefined }}
-                      >
-                        <span
-                          className="flex h-6 w-6 items-center justify-center rounded-full text-xs font-extrabold sm:mb-2"
-                          style={{
-                            backgroundColor: selected ? opt.color : '#F1F5F9',
-                            color: selected ? '#FFFFFF' : '#64748B',
-                          }}
-                        >
-                          {opt.val}
-                        </span>
-                        <span className="text-xs font-bold" style={{ color: selected ? opt.color : '#334155' }}>
-                          {opt.label}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* 4. STRATEGY EFFECTIVENESS RATING */}
-            {currentItem.itemType === 'EFFECTIVENESS_SCALE' && (
-              <div>
-                <p className="mb-3 text-xs font-bold tracking-wide uppercase text-[#8A97AC]">
-                  What do you think of this idea / strategy?
-                </p>
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
-                  {EFFECTIVENESS_SCALE.map((opt) => {
-                    const selected = answers[currentItem.id] === opt.val;
-                    return (
-                      <button
-                        key={opt.val}
-                        type="button"
-                        onClick={() => handleSelectAnswer(opt.val)}
-                        className={`flex items-center justify-between rounded-2xl p-4 transition ${
-                          selected
-                            ? 'ring-2 ring-offset-2 ring-[#803688] font-extrabold shadow-sm'
-                            : 'border border-[#E2E8F0] bg-white hover:bg-slate-50'
-                        }`}
-                        style={{ backgroundColor: selected ? opt.bg : undefined }}
-                      >
-                        <span className="text-xs font-bold" style={{ color: selected ? opt.color : '#334155' }}>
-                          {opt.label}
-                        </span>
-                        <span
-                          className="h-3 w-3 rounded-full"
-                          style={{ backgroundColor: selected ? opt.color : '#CBD5E1' }}
-                        />
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* 5. PASSION & INTEREST SCALE */}
-            {currentItem.itemType === 'PASSION_SCALE' && (
-              <div>
-                <p className="mb-3 text-xs font-bold tracking-wide uppercase text-[#8A97AC]">
-                  How interested are you in this activity or field?
-                </p>
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
-                  {PASSION_SCALE.map((opt) => {
-                    const selected = answers[currentItem.id] === opt.val;
-                    return (
-                      <button
-                        key={opt.val}
-                        type="button"
-                        onClick={() => handleSelectAnswer(opt.val)}
-                        className={`flex flex-col items-center justify-center rounded-2xl p-4 text-center transition ${
-                          selected
-                            ? 'ring-2 ring-offset-2 ring-purple-600 font-extrabold shadow-sm'
-                            : 'border border-[#E2E8F0] bg-white hover:bg-slate-50'
-                        }`}
-                        style={{ backgroundColor: selected ? opt.bg : undefined }}
-                      >
-                        <span className="text-xl mb-1">
-                          {opt.val === '1' ? '⚪' : opt.val === '2' ? '🔍' : opt.val === '3' ? '⭐' : '🔥'}
-                        </span>
-                        <span className="text-xs font-bold" style={{ color: selected ? opt.color : '#334155' }}>
-                          {opt.label}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
+                  {str}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Bottom Navigation Buttons */}
-          <div className="mt-10 flex items-center justify-between border-t border-[#F1F5F9] pt-6">
-            <button
-              type="button"
-              disabled={activeQIdx === 0 && activeSecIdx === 0}
-              onClick={() => {
-                if (activeQIdx > 0) {
-                  setActiveQIdx((q) => q - 1);
-                } else if (activeSecIdx > 0) {
-                  const prevSec = exam.sections[activeSecIdx - 1];
-                  setActiveSecIdx((s) => s - 1);
-                  setActiveQIdx((prevSec?.items.length ?? 1) - 1);
-                }
-              }}
-              className="rounded-xl border border-[#D6DCE7] bg-white px-5 py-2.5 text-xs font-bold text-[#5A6B8C] transition hover:bg-slate-50 disabled:opacity-30"
-            >
-              ← Previous
-            </button>
-
-            {/* End Exam Button Always Accessible */}
-            <button
-              type="button"
-              onClick={() => setShowSubmitModal(true)}
-              className="rounded-xl border border-rose-200 bg-rose-50/80 px-4 py-2.5 text-xs font-bold text-rose-700 transition hover:bg-rose-100 flex items-center gap-1.5 shadow-sm active:scale-95"
-            >
-              <span>🛑</span>
-              <span>End Exam</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => {
-                if (activeQIdx < currentSection.items.length - 1) {
-                  setActiveQIdx((q) => q + 1);
-                } else if (activeSecIdx < exam.sections.length - 1) {
-                  setActiveSecIdx((s) => s + 1);
-                  setActiveQIdx(0);
-                } else {
-                  setShowSubmitModal(true);
-                }
-              }}
-              className="rounded-xl bg-[#1E1B4B] px-6 py-2.5 text-xs font-extrabold text-white shadow transition hover:bg-[#311042]"
-            >
-              {activeQIdx < currentSection.items.length - 1 || activeSecIdx < exam.sections.length - 1
-                ? 'Next Question →'
-                : 'Review & Submit Test'}
-            </button>
+          {/* Work Style & Drivers */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h3 className="text-base font-bold text-slate-900">Workplace Style & Drivers</h3>
+            <p className="text-xs text-slate-500">How you execute work and what keeps you going.</p>
+            <div className="mt-4 space-y-4 text-xs text-slate-700">
+              {career?.workStyle && (
+                <div>
+                  <span className="font-bold text-slate-900">How you work best: </span>
+                  {career.workStyle}
+                </div>
+              )}
+              {career?.intentAndDrivers && (
+                <div>
+                  <span className="font-bold text-slate-900">What motivates you: </span>
+                  {career.intentAndDrivers}
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
-        {/* Confirmation & Warning Modal */}
-        {showSubmitModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
-            <div className="w-full max-w-lg rounded-3xl bg-white p-6 sm:p-7 shadow-2xl border border-slate-100">
-              <div className="flex items-center gap-3">
-                <div
-                  className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl ${
-                    unansweredCount > 0 ? 'bg-amber-100 text-amber-700' : 'bg-purple-100 text-[#803688]'
-                  }`}
-                >
-                  <span className="text-xl">{unansweredCount > 0 ? '⚠️' : '🎓'}</span>
+        {/* Actionable Next Steps */}
+        {career?.actionableNextSteps && career.actionableNextSteps.length > 0 && (
+          <div className="mt-8 rounded-2xl border border-emerald-200 bg-emerald-50/50 p-6">
+            <h3 className="text-base font-bold text-emerald-950">Actionable Next Steps</h3>
+            <p className="text-xs text-emerald-800">Clear, practical moves to build towards your ideal career roles.</p>
+            <div className="mt-4 space-y-3">
+              {career.actionableNextSteps.map((step, i) => (
+                <div key={i} className="flex items-start gap-3 rounded-xl bg-white p-3.5 shadow-sm text-xs text-slate-800">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-600 font-bold text-white text-[11px]">
+                    {i + 1}
+                  </span>
+                  <span className="pt-0.5 leading-relaxed">{step}</span>
                 </div>
-                <div>
-                  <h3 className="font-display text-lg font-extrabold text-[#1B254B]">
-                    {unansweredCount > 0 ? 'End Exam With Unanswered Questions?' : 'End & Submit Exam?'}
-                  </h3>
-                  <p className="text-xs text-[#5A6B8C]">
-                    Student Mindset & Career Guidance Test
-                  </p>
-                </div>
-              </div>
-
-              {/* Warning Alert if questions are left unanswered */}
-              {unansweredCount > 0 ? (
-                <div className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-4">
-                  <div className="flex items-center gap-2 text-xs font-extrabold text-amber-800">
-                    <span>⚠️</span>
-                    <span>WARNING: SOME QUESTIONS ARE NOT SUBMITTED</span>
-                  </div>
-                  <p className="mt-1.5 text-xs text-amber-950 leading-relaxed font-medium">
-                    You have <strong>{unansweredCount} unanswered question{unansweredCount > 1 ? 's' : ''}</strong> out of {allItems.length} total questions.
-                    If you end the exam now, unanswered questions will not be evaluated and your report will be generated using only your answered responses.
-                  </p>
-
-                  <div className="mt-3 flex items-center gap-2 pt-2 border-t border-amber-200/60 text-xs font-bold">
-                    <span className="rounded-lg bg-emerald-100 text-emerald-800 px-2.5 py-1">
-                      ✓ Answered: {totalAnswered}
-                    </span>
-                    <span className="rounded-lg bg-rose-100 text-rose-800 px-2.5 py-1">
-                      ✗ Unanswered: {unansweredCount}
-                    </span>
-                  </div>
-                </div>
-              ) : (
-                <div className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
-                  <p className="text-xs text-emerald-950 font-semibold leading-relaxed">
-                    🎉 <strong>Great job!</strong> You have answered all <strong>{allItems.length}</strong> questions.
-                    Submitting will analyze your responses and generate your personalized guidance report.
-                  </p>
-                </div>
-              )}
-
-              <p className="mt-4 text-xs text-[#5A6B8C] leading-relaxed">
-                Are you sure you want to end the test and exit to your results?
-              </p>
-
-              <div className="mt-6 flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-100">
-                <button
-                  type="button"
-                  onClick={() => setShowSubmitModal(false)}
-                  className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-bold text-slate-700 hover:bg-slate-50 transition"
-                >
-                  ← Continue Test
-                </button>
-
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setShowSubmitModal(false);
-                      setView('intro');
-                    }}
-                    className="rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs font-semibold text-slate-500 hover:bg-slate-50 hover:text-rose-600 transition"
-                    title="Exit to home screen"
-                  >
-                    Exit Without Submitting
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={handleSubmitFinal}
-                    disabled={loading}
-                    className="rounded-xl bg-rose-600 px-5 py-2.5 text-xs font-extrabold text-white shadow-md hover:bg-rose-700 transition active:scale-95 disabled:opacity-50"
-                  >
-                    {loading ? (
-                      <span className="flex items-center gap-1.5">
-                        <span className="h-3 w-3 animate-spin rounded-full border-2 border-white border-t-transparent" />
-                        Submitting...
-                      </span>
-                    ) : (
-                      'Yes, End Exam & Submit'
-                    )}
-                  </button>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         )}
+
+        {/* Bottom CTA */}
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-slate-200 pt-6">
+          <button
+            type="button"
+            onClick={() => setView('hub')}
+            className="rounded-xl bg-[#003366] px-6 py-3 text-sm font-bold text-white shadow-md transition hover:bg-[#002244]"
+          >
+            ← Explore More Assessment Cards
+          </button>
+          <button
+            type="button"
+            onClick={() => window.print()}
+            className="rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-700 shadow-sm transition hover:bg-slate-50"
+          >
+            Print / Save Report (PDF)
+          </button>
+        </div>
       </div>
     );
   }
 
   // --------------------------------------------------------------------------
-  // VIEW 3: FULL COMPREHENSIVE DIAGNOSTIC REPORT
+  // VIEW: EXAM TAKING
   // --------------------------------------------------------------------------
-  if (view === 'report' && report) {
-    return (
-      <div className="mx-auto max-w-5xl px-4 py-8">
-        {/* Report Top Banner */}
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1E1B4B] to-[#4C1D95] p-8 text-white shadow-xl">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold backdrop-blur-md">
-                <span>🎓</span>
-                <span>Student Mindset & Career Guidance Report</span>
-              </span>
-              <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight">
-                {user?.name || 'Student'}&apos;s Personal Discovery Report
-              </h1>
-              <p className="mt-1 text-xs text-purple-200">
-                Target: {user?.targetExam || 'School / JEE / NEET'} · Completed on{' '}
-                {new Date(report.createdAt).toLocaleDateString()}
-              </p>
-            </div>
+  if (view === 'exam' && exam && currentQ) {
+    const totalQ = currentQuestions.length;
+    const progressPct = Math.round(((activeQIdx + 1) / totalQ) * 100);
 
-            <div className="flex items-center gap-3">
-              <div className="rounded-2xl bg-white/10 p-3.5 text-center backdrop-blur-sm border border-white/10">
-                <span className="block text-[10px] font-bold tracking-wider uppercase text-purple-200">
-                  Career Match Code
+    return (
+      <div className="mx-auto max-w-3xl px-4 py-8">
+        {/* Top Navigation */}
+        <div className="flex items-center justify-between gap-4 border-b border-slate-200 pb-4">
+          <div>
+            <span className="text-xs font-extrabold uppercase tracking-wider text-blue-600">
+              {exam.title}
+            </span>
+            <div className="mt-1 flex items-center gap-2">
+              <span className="text-lg font-bold text-slate-900">
+                Question {activeQIdx + 1} <span className="text-sm font-normal text-slate-400">of {totalQ}</span>
+              </span>
+              {savingStatus && (
+                <span className="text-xs font-semibold text-emerald-600 transition-opacity">
+                  • {savingStatus}
                 </span>
-                <span className="font-mono text-2xl font-extrabold text-white">{report.riasecCode}</span>
+              )}
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => setView('hub')}
+            className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50"
+          >
+            Exit Assessment
+          </button>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-slate-100">
+          <div
+            className="h-full bg-blue-600 transition-all duration-300"
+            style={{ width: `${progressPct}%` }}
+          />
+        </div>
+
+        {/* Question Card */}
+        <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+          {/* Scenario text if provided */}
+          {currentQ.scenarioText && (
+            <div className="mb-4 rounded-xl border border-blue-100 bg-blue-50/60 p-4 text-xs font-medium leading-relaxed text-blue-900">
+              <span className="block font-bold text-blue-950 mb-1">Scenario:</span>
+              {currentQ.scenarioText}
+            </div>
+          )}
+
+          {/* Subtopic pill */}
+          {currentQ.construct && (
+            <span className="inline-block rounded-md bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-600 mb-3">
+              {currentQ.construct}
+            </span>
+          )}
+
+          {/* Prompt */}
+          <h2 className="text-base font-semibold leading-relaxed text-slate-900 sm:text-lg">
+            {currentQ.promptText}
+          </h2>
+
+          {/* Options Section */}
+          <div className="mt-6">
+            {/* Agreement Likert */}
+            {currentQ.itemType === 'AGREEMENT_LIKERT' && (
+              <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
+                {LIKERT_5.map((opt) => {
+                  const isSelected = answers[currentQ.id] === opt.val;
+                  return (
+                    <button
+                      key={opt.val}
+                      type="button"
+                      onClick={() => handleSelectAnswer(opt.val)}
+                      className={`flex-1 min-w-[120px] rounded-xl border px-3 py-3 text-center text-xs font-bold transition ${
+                        isSelected
+                          ? 'border-blue-600 bg-blue-600 text-white shadow-sm'
+                          : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50'
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* Frequency scale */}
+            {currentQ.itemType === 'FREQUENCY_SCALE' && (
+              <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
+                {FREQUENCY_SCALE.map((opt) => {
+                  const isSelected = answers[currentQ.id] === opt.val;
+                  return (
+                    <button
+                      key={opt.val}
+                      type="button"
+                      onClick={() => handleSelectAnswer(opt.val)}
+                      className={`flex-1 min-w-[100px] rounded-xl border px-3 py-3 text-center text-xs font-bold transition ${
+                        isSelected
+                          ? 'border-blue-600 bg-blue-600 text-white shadow-sm'
+                          : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50'
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* Passion scale */}
+            {currentQ.itemType === 'PASSION_SCALE' && (
+              <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
+                {PASSION_SCALE.map((opt) => {
+                  const isSelected = answers[currentQ.id] === opt.val;
+                  return (
+                    <button
+                      key={opt.val}
+                      type="button"
+                      onClick={() => handleSelectAnswer(opt.val)}
+                      className={`flex-1 min-w-[120px] rounded-xl border px-3 py-3 text-center text-xs font-bold transition ${
+                        isSelected
+                          ? 'border-blue-600 bg-blue-600 text-white shadow-sm'
+                          : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50'
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* Multiple Choice / Scenario Actions / Cognitive */}
+            {(currentQ.itemType === 'COGNITIVE_MCQ' ||
+              currentQ.itemType === 'SCENARIO_ACTION_MCQ' ||
+              (!['AGREEMENT_LIKERT', 'FREQUENCY_SCALE', 'PASSION_SCALE'].includes(currentQ.itemType) &&
+                currentQ.options &&
+                currentQ.options.length > 0)) && (
+              <div className="space-y-2.5">
+                {(currentQ.options || []).map((opt) => {
+                  const isSelected = answers[currentQ.id] === opt.id;
+                  return (
+                    <button
+                      key={opt.id}
+                      type="button"
+                      onClick={() => handleSelectAnswer(opt.id)}
+                      className={`flex w-full items-start gap-3 rounded-xl border p-4 text-left text-xs font-medium leading-relaxed transition ${
+                        isSelected
+                          ? 'border-blue-600 bg-blue-50/70 text-blue-950 font-semibold'
+                          : 'border-slate-200 bg-white text-slate-800 hover:border-slate-300 hover:bg-slate-50'
+                      }`}
+                    >
+                      <span
+                        className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
+                          isSelected ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-600'
+                        }`}
+                      >
+                        {opt.id}
+                      </span>
+                      <span className="pt-0.5">{opt.text}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Bottom Nav Controls */}
+        <div className="mt-6 flex items-center justify-between gap-4">
+          <button
+            type="button"
+            disabled={activeQIdx === 0}
+            onClick={() => setActiveQIdx((prev) => Math.max(0, prev - 1))}
+            className="rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-xs font-bold text-slate-700 shadow-sm transition hover:bg-slate-50 disabled:opacity-40"
+          >
+            ← Previous
+          </button>
+
+          {activeQIdx < totalQ - 1 ? (
+            <button
+              type="button"
+              onClick={() => setActiveQIdx((prev) => Math.min(totalQ - 1, prev + 1))}
+              className="rounded-xl bg-[#003366] px-6 py-2.5 text-xs font-bold text-white shadow-sm transition hover:bg-[#002244]"
+            >
+              Next Question →
+            </button>
+          ) : (
+            <button
+              type="button"
+              disabled={loading || !isAllAnswered}
+              onClick={handleSubmitAssessment}
+              className="rounded-xl bg-emerald-600 px-6 py-2.5 text-xs font-bold text-white shadow-md transition hover:bg-emerald-700 disabled:opacity-50"
+            >
+              {loading ? 'Analyzing Your Responses...' : 'Submit & View Career Decision'}
+            </button>
+          )}
+        </div>
+
+        {error && <p className="mt-4 text-center text-xs text-rose-600">{error}</p>}
+      </div>
+    );
+  }
+
+  // --------------------------------------------------------------------------
+  // VIEW: HUB (8 Assessment Cards)
+  // --------------------------------------------------------------------------
+  return (
+    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+      {/* Top Hero Banner */}
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#1D4E89] p-8 text-white shadow-xl sm:p-10">
+        <div className="relative z-10 max-w-3xl">
+          <span className="inline-flex items-center gap-2 rounded-full bg-blue-500/20 px-3 py-1 text-xs font-semibold backdrop-blur-md">
+            <span className="h-2 w-2 rounded-full bg-blue-400 animate-pulse" />
+            Candidate Intelligence & Career Decider
+          </span>
+          <h1 className="mt-4 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
+            Psychometric & Career Intelligence Assessments
+          </h1>
+          <p className="mt-3 text-sm text-slate-200 leading-relaxed max-w-2xl">
+            Choose any modular test card below to discover your cognitive aptitude, practical decision-making, and what specific career roles you can become.
+          </p>
+
+          {/* Profile bar */}
+          <div className="mt-6 flex flex-wrap items-center gap-3 text-xs">
+            <span className="rounded-lg bg-white/10 px-3 py-1.5 font-semibold text-slate-100">
+              Age: {profile.age} • Status: {profile.professionStatus.replace('_', ' ')}
+            </span>
+            <button
+              type="button"
+              onClick={() => {
+                setSelectedCard(cards[0] || null);
+                setProfileModalOpen(true);
+              }}
+              className="rounded-lg border border-white/20 bg-white/10 px-3 py-1.5 font-bold text-white hover:bg-white/20"
+            >
+              ✏️ Edit Profile Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Cards Grid */}
+      <div className="mt-10">
+        <div className="flex items-center justify-between gap-4 mb-6">
+          <div>
+            <h2 className="text-xl font-extrabold text-slate-900">Choose an Assessment Card</h2>
+            <p className="text-xs text-slate-500">Each card evaluates distinct practical skills and work tendencies.</p>
+          </div>
+          <span className="text-xs font-bold text-slate-500">
+            {cards.length} Assessments Available
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {cards.map((card, idx) => {
+            const isCompleted = completedCardIds.has(card.id);
+            return (
+              <div
+                key={card.id}
+                className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-blue-400 hover:shadow-md"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-[11px] font-bold text-blue-700">
+                      {card.badge}
+                    </span>
+                    <span className="text-[11px] font-semibold text-slate-400">
+                      ~{card.estimatedMinutes} mins
+                    </span>
+                  </div>
+
+                  <h3 className="mt-3 text-base font-bold text-slate-900 leading-snug">
+                    {idx + 1}. {card.name}
+                  </h3>
+
+                  <p className="mt-2 text-xs text-slate-600 leading-relaxed">
+                    {card.description}
+                  </p>
+
+                  {/* Subtopics */}
+                  <div className="mt-4 border-t border-slate-100 pt-3">
+                    <span className="block text-[10px] font-extrabold uppercase tracking-wider text-slate-400 mb-1.5">
+                      Topics Covered:
+                    </span>
+                    <ul className="space-y-1">
+                      {card.subtopics.slice(0, 4).map((st, i) => (
+                        <li key={i} className="flex items-center gap-1.5 text-[11px] text-slate-600 truncate">
+                          <span className="text-emerald-500 font-bold text-xs">•</span>
+                          <span className="truncate">{st}</span>
+                        </li>
+                      ))}
+                      {card.subtopics.length > 4 && (
+                        <li className="text-[10px] text-slate-400 font-semibold pl-3">
+                          + {card.subtopics.length - 4} more
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+
+                  {/* Best for box */}
+                  <div className="mt-3 rounded-lg bg-slate-50 p-2.5 text-[11px] text-slate-500 leading-tight">
+                    <span className="font-semibold text-slate-700">Best for: </span>
+                    {card.bestFor}
+                  </div>
+                </div>
+
+                {/* Card Action Button */}
+                <div className="mt-5 pt-3 border-t border-slate-100">
+                  <button
+                    type="button"
+                    onClick={() => handleCardClick(card)}
+                    className={`w-full rounded-xl py-2.5 text-center text-xs font-bold transition ${
+                      isCompleted
+                        ? 'border border-emerald-600 bg-emerald-50 text-emerald-800 hover:bg-emerald-100'
+                        : 'bg-[#003366] text-white hover:bg-[#002244] shadow-sm'
+                    }`}
+                  >
+                    {isCompleted ? '✓ Completed (Retake)' : 'Start Assessment →'}
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Candidate Onboarding & Profile Modal */}
+      {profileModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+          <div className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl sm:p-8">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <h3 className="text-lg font-bold text-slate-900">Enter Your Background</h3>
+                <p className="text-xs text-slate-500">
+                  Questions and scenarios will be tailored directly to your real context.
+                </p>
               </div>
               <button
                 type="button"
-                onClick={() => setView('intro')}
-                className="rounded-xl bg-white/15 px-4 py-3 text-xs font-bold text-white transition hover:bg-white/25"
+                onClick={() => setProfileModalOpen(false)}
+                className="rounded-lg p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-700"
               >
-                Retake Test
+                ✕
+              </button>
+            </div>
+
+            <div className="mt-5 space-y-4">
+              {/* Age */}
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1">Your Age</label>
+                <input
+                  type="number"
+                  min={10}
+                  max={90}
+                  value={profile.age}
+                  onChange={(e) => setProfile((p) => ({ ...p, age: parseInt(e.target.value, 10) || 18 }))}
+                  className="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm text-slate-900 outline-none focus:border-blue-600"
+                  placeholder="e.g. 18"
+                />
+              </div>
+
+              {/* Status Tabs */}
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1">What are you currently doing?</label>
+                <div className="grid grid-cols-3 gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setProfile((p) => ({ ...p, professionStatus: 'student' }))}
+                    className={`rounded-xl border py-2.5 text-center text-xs font-bold transition ${
+                      profile.professionStatus === 'student'
+                        ? 'border-blue-600 bg-blue-50 text-blue-800'
+                        : 'border-slate-200 text-slate-600 hover:bg-slate-50'
+                    }`}
+                  >
+                    🎓 Student
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setProfile((p) => ({ ...p, professionStatus: 'employed' }))}
+                    className={`rounded-xl border py-2.5 text-center text-xs font-bold transition ${
+                      profile.professionStatus === 'employed'
+                        ? 'border-blue-600 bg-blue-50 text-blue-800'
+                        : 'border-slate-200 text-slate-600 hover:bg-slate-50'
+                    }`}
+                  >
+                    💼 Working Job
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setProfile((p) => ({ ...p, professionStatus: 'job_seeker' }))}
+                    className={`rounded-xl border py-2.5 text-center text-xs font-bold transition ${
+                      profile.professionStatus === 'job_seeker'
+                        ? 'border-blue-600 bg-blue-50 text-blue-800'
+                        : 'border-slate-200 text-slate-600 hover:bg-slate-50'
+                    }`}
+                  >
+                    🔍 Looking for Job
+                  </button>
+                </div>
+              </div>
+
+              {/* Conditional: If Student */}
+              {profile.professionStatus === 'student' && (
+                <div className="space-y-3 rounded-2xl bg-slate-50 p-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">Current Class / Level</label>
+                    <select
+                      value={profile.studentLevel}
+                      onChange={(e) => setProfile((p) => ({ ...p, studentLevel: e.target.value as CandidateProfile['studentLevel'] }))}
+                      className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs text-slate-900 outline-none"
+                    >
+                      <option value="school">School / Secondary (Class 10 or below)</option>
+                      <option value="intermediate">Intermediate / +2 (Class 11-12)</option>
+                      <option value="ug">Undergraduate (College / Bachelors)</option>
+                      <option value="pg">Postgraduate (Masters / Research)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">Subject Focus / Stream</label>
+                    <input
+                      type="text"
+                      value={profile.stream || ''}
+                      onChange={(e) => setProfile((p) => ({ ...p, stream: e.target.value }))}
+                      placeholder="e.g. Science / JEE, Medical / NEET, Commerce, Arts"
+                      className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs text-slate-900 outline-none"
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* Conditional: If Employed */}
+              {profile.professionStatus === 'employed' && (
+                <div className="space-y-3 rounded-2xl bg-slate-50 p-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">Job Title / Role</label>
+                    <input
+                      type="text"
+                      value={profile.jobTitle || ''}
+                      onChange={(e) => setProfile((p) => ({ ...p, jobTitle: e.target.value }))}
+                      placeholder="e.g. Software Engineer, Sales Manager, Accountant"
+                      className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs text-slate-900 outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">Industry / Company Type</label>
+                    <input
+                      type="text"
+                      value={profile.companyType || ''}
+                      onChange={(e) => setProfile((p) => ({ ...p, companyType: e.target.value }))}
+                      placeholder="e.g. IT Services, Banking, Manufacturing, Retail"
+                      className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs text-slate-900 outline-none"
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* Conditional: If Job Seeker */}
+              {profile.professionStatus === 'job_seeker' && (
+                <div className="space-y-3 rounded-2xl bg-slate-50 p-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">Highest Qualification</label>
+                    <input
+                      type="text"
+                      value={profile.highestQualification || ''}
+                      onChange={(e) => setProfile((p) => ({ ...p, highestQualification: e.target.value }))}
+                      placeholder="e.g. B.Tech Computer Science, B.Com, MBA"
+                      className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs text-slate-900 outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">Target Role / Field</label>
+                    <input
+                      type="text"
+                      value={profile.targetRole || ''}
+                      onChange={(e) => setProfile((p) => ({ ...p, targetRole: e.target.value }))}
+                      placeholder="e.g. Web Developer, Business Analyst, Marketing Executive"
+                      className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs text-slate-900 outline-none"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className="mt-6 flex items-center justify-end gap-3 border-t border-slate-100 pt-4">
+              <button
+                type="button"
+                onClick={() => setProfileModalOpen(false)}
+                className="rounded-xl px-4 py-2.5 text-xs font-bold text-slate-600 hover:bg-slate-100"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                disabled={loading}
+                onClick={handleLaunchAssessment}
+                className="rounded-xl bg-[#003366] px-5 py-2.5 text-xs font-bold text-white shadow-md transition hover:bg-[#002244] disabled:opacity-50"
+              >
+                {loading ? 'Preparing Questions...' : 'Continue to Assessment →'}
               </button>
             </div>
           </div>
         </div>
-
-        {/* 4 High-Level Metric Tiles */}
-        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-sm">
-            <span className="text-[11px] font-bold text-[#8A97AC] uppercase tracking-wider">Brain Sharpness</span>
-            <div className="mt-2 flex items-baseline gap-1">
-              <span className="text-3xl font-extrabold text-[#1B254B]">{report.cognitivePercentile}</span>
-              <span className="text-xs font-bold text-[#803688]">th %ile</span>
-            </div>
-            <p className="mt-1 text-[11px] text-[#5A6B8C]">Speed & quick logic thinking</p>
-          </div>
-
-          <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-sm">
-            <span className="text-[11px] font-bold text-[#8A97AC] uppercase tracking-wider">Bounce-Back Power</span>
-            <div className="mt-2 flex items-baseline gap-1">
-              <span className="text-3xl font-extrabold text-emerald-600">{report.academicResilience}</span>
-              <span className="text-xs font-bold text-slate-400">/ 100</span>
-            </div>
-            <p className="mt-1 text-[11px] text-[#5A6B8C]">Cheering up after low marks</p>
-          </div>
-
-          <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-sm">
-            <span className="text-[11px] font-bold text-[#8A97AC] uppercase tracking-wider">Exam Hall Calmness</span>
-            <div className="mt-2 flex items-baseline gap-1">
-              <span
-                className={`text-3xl font-extrabold ${
-                  report.testAnxietyIndex > 65
-                    ? 'text-rose-600'
-                    : report.testAnxietyIndex > 45
-                    ? 'text-amber-600'
-                    : 'text-emerald-600'
-                }`}
-              >
-                {100 - report.testAnxietyIndex}
-              </span>
-              <span className="text-xs font-bold text-slate-400">/ 100</span>
-            </div>
-            <p className="mt-1 text-[11px] text-[#5A6B8C]">
-              {report.testAnxietyIndex > 65
-                ? 'Gets nervous easily'
-                : report.testAnxietyIndex > 45
-                ? 'Normal exam butterflies'
-                : 'Cool and steady composure'}
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-sm">
-            <span className="text-[11px] font-bold text-[#8A97AC] uppercase tracking-wider">Honesty & Fair Play</span>
-            <div className="mt-2 flex items-baseline gap-1">
-              <span className="text-3xl font-extrabold text-[#803688]">{report.honestyHumility}</span>
-              <span className="text-xs font-bold text-slate-400">/ 100</span>
-            </div>
-            <p className="mt-1 text-[11px] text-[#5A6B8C]">Refusing to cheat or copy</p>
-          </div>
-        </div>
-
-        {/* Detailed Breakdowns Grid */}
-        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
-          {/* Card 1: Cognitive Aptitude Bars */}
-          <div className="rounded-3xl border border-[#E2E8F0] bg-white p-6 shadow-sm">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <h3 className="font-display text-base font-bold text-[#1B254B]">
-                How Your Brain Solves Puzzles
-              </h3>
-              <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">
-                Quick Thinking
-              </span>
-            </div>
-
-            <div className="mt-6 space-y-4">
-              {[
-                { label: 'Logical Deductions & Rankings', val: report.cognitiveBreakdown.logical, color: '#3B82F6' },
-                { label: 'Number Patterns & Math Logic', val: report.cognitiveBreakdown.numerical, color: '#803688' },
-                { label: 'Shape Sequences & Diagram Puzzles', val: report.cognitiveBreakdown.abstract, color: '#059669' },
-                { label: '3D Shapes & Dice Visualization', val: report.cognitiveBreakdown.spatial, color: '#D97706' },
-              ].map((row) => (
-                <div key={row.label}>
-                  <div className="flex justify-between text-xs font-bold text-[#1B254B] mb-1">
-                    <span>{row.label}</span>
-                    <span style={{ color: row.color }}>{row.val}%</span>
-                  </div>
-                  <div className="h-2.5 w-full rounded-full bg-slate-100 overflow-hidden">
-                    <div
-                      className="h-full rounded-full transition-all duration-700"
-                      style={{ width: `${row.val}%`, backgroundColor: row.color }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Card 2: Big Five & Behavioral Work-Style */}
-          <div className="rounded-3xl border border-[#E2E8F0] bg-white p-6 shadow-sm">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <h3 className="font-display text-base font-bold text-[#1B254B]">
-                Your Study Style & Focus Habits
-              </h3>
-              <span className="text-xs font-bold text-purple-600 bg-purple-50 px-2 py-0.5 rounded">
-                Daily Routine
-              </span>
-            </div>
-
-            <div className="mt-6 space-y-4">
-              {[
-                { label: 'Study Discipline & Homework Routine', val: report.oceanProfile.conscientiousness, color: '#803688' },
-                { label: 'Curiosity to Learn New Concepts', val: report.oceanProfile.openness, color: '#3B82F6' },
-                { label: 'Staying Calm Under Test Pressure', val: report.oceanProfile.emotionalStability, color: '#059669' },
-                { label: 'Helping Friends & Sharing Notes', val: report.oceanProfile.agreeableness, color: '#0284C7' },
-                { label: 'Asking Doubts & Speaking Up in Class', val: report.oceanProfile.extraversion, color: '#E11D48' },
-              ].map((row) => (
-                <div key={row.label}>
-                  <div className="flex justify-between text-xs font-bold text-[#1B254B] mb-1">
-                    <span>{row.label}</span>
-                    <span style={{ color: row.color }}>{row.val}%</span>
-                  </div>
-                  <div className="h-2.5 w-full rounded-full bg-slate-100 overflow-hidden">
-                    <div
-                      className="h-full rounded-full transition-all duration-700"
-                      style={{ width: `${row.val}%`, backgroundColor: row.color }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Situational Judgment & Mentor Advice Analysis */}
-        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
-          {/* SJT Competency Card */}
-          <div className="rounded-3xl border border-[#E2E8F0] bg-white p-6 shadow-sm">
-            <h3 className="font-display text-base font-bold text-[#1B254B] border-b border-slate-100 pb-3">
-              Handling Tricky School Situations
-            </h3>
-            <div className="mt-4 space-y-3">
-              <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
-                <div className="flex justify-between text-xs font-bold text-[#1B254B]">
-                  <span>Smart Exam Decisions</span>
-                  <span className="text-[#803688]">{report.sjtCompetencies.decisionMaking}%</span>
-                </div>
-                <p className="mt-1 text-xs text-[#5A6B8C]">
-                  Skipping time-wasting questions and solving easier questions first to grab guaranteed marks.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
-                <div className="flex justify-between text-xs font-bold text-[#1B254B]">
-                  <span>Honesty & Fair Play</span>
-                  <span className="text-emerald-600">{report.sjtCompetencies.academicEthics}%</span>
-                </div>
-                <p className="mt-1 text-xs text-[#5A6B8C]">
-                  Saying no to cheating, leaked test papers, and preparing with true self-respect.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Faculty Advice Card */}
-          <div className="rounded-3xl border border-purple-200 bg-gradient-to-br from-[#FAF5FF] to-white p-6 shadow-sm">
-            <div className="flex items-center gap-2 text-xs font-bold text-[#803688]">
-              <span>👨‍🏫</span>
-              <span>TEACHER & MENTOR DIRECTIVE</span>
-            </div>
-            <h3 className="mt-2 font-display text-base font-bold text-[#1B254B]">
-              Mentor Guidance for You
-            </h3>
-            <p className="mt-3 text-xs leading-relaxed text-[#334155] font-medium bg-white p-4 rounded-2xl border border-purple-100 shadow-sm">
-              &quot;{report.facultyAdvice}&quot;
-            </p>
-            <div className="mt-4 flex items-center justify-between text-xs font-bold">
-              <span className="text-[#5A6B8C]">Study Stress Level:</span>
-              <span
-                className={`rounded-full px-2.5 py-0.5 text-xs font-extrabold uppercase ${
-                  report.burnoutRisk === 'high'
-                    ? 'bg-rose-100 text-rose-700'
-                    : report.burnoutRisk === 'moderate'
-                    ? 'bg-amber-100 text-amber-700'
-                    : 'bg-emerald-100 text-emerald-700'
-                }`}
-              >
-                {report.burnoutRisk === 'high' ? 'High Stress' : report.burnoutRisk === 'moderate' ? 'Moderate Stress' : 'Balanced & Calm'}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Career & Stream Fit Recommendations */}
-        <div className="mt-10">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="font-display text-xl font-extrabold text-[#003366]">
-                Your Best Matching College & Career Streams
-              </h2>
-              <p className="text-xs text-[#5A6B8C]">
-                Calculated based on what you enjoy doing and how your brain solves problems:
-              </p>
-            </div>
-            <span className="text-xs font-bold text-[#803688] bg-[#F5E6F8] px-3 py-1 rounded-full">
-              Stream Fit
-            </span>
-          </div>
-
-          <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
-            {report.streamRecommendations.slice(0, 4).map((stream) => (
-              <div
-                key={stream.stream}
-                className="relative rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-sm transition hover:shadow-md"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[11px] font-bold text-slate-700">
-                    {stream.category}
-                  </span>
-                  <div className="flex items-center gap-1">
-                    <span className="text-xl font-extrabold text-[#803688]">{stream.matchPct}%</span>
-                    <span className="text-[11px] font-bold text-slate-400">Match</span>
-                  </div>
-                </div>
-
-                <h4 className="mt-3 font-display text-base font-bold text-[#1B254B]">{stream.stream}</h4>
-                <p className="mt-1 text-xs text-[#5A6B8C] leading-relaxed">{stream.description}</p>
-
-                <div className="mt-4 rounded-xl bg-purple-50/70 p-3 text-xs text-[#803688]">
-                  <strong>What to focus on in school:</strong> {stream.recommendedFocus}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Personalized Study Habit Directives */}
-        <div className="mt-10 rounded-3xl border border-[#E2E8F0] bg-white p-6 sm:p-8 shadow-sm">
-          <h3 className="font-display text-lg font-bold text-[#1B254B]">
-            Simple Study Tips Just for You
-          </h3>
-          <p className="text-xs text-[#5A6B8C] mt-1">
-            Helpful daily habits tailored to your study style and exam composure:
-          </p>
-
-          <div className="mt-6 space-y-3">
-            {report.studyHabitAdvice.map((tip, idx) => (
-              <div key={idx} className="flex items-start gap-3 rounded-2xl border border-slate-100 bg-slate-50 p-4">
-                <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-[#803688] text-xs font-bold text-white">
-                  {idx + 1}
-                </span>
-                <p className="text-xs text-[#334155] leading-relaxed pt-0.5 font-medium">{tip}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return null;
+      )}
+    </div>
+  );
 }

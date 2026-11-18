@@ -95,6 +95,93 @@ export const api = {
   },
 
   psychometric: {
+    getCards: () =>
+      request<
+        Array<{
+          id: string;
+          name: string;
+          description: string;
+          subtopics: string[];
+          bestFor: string;
+          badge: string;
+          estimatedMinutes: number;
+        }>
+      >('/psychometric/cards'),
+
+    startCardSession: (body: {
+      cardId: string;
+      profile: {
+        age: number;
+        professionStatus: 'student' | 'employed' | 'job_seeker';
+        studentLevel?: 'school' | 'intermediate' | 'ug' | 'pg';
+        stream?: string;
+        jobTitle?: string;
+        companyType?: string;
+        highestQualification?: string;
+        targetRole?: string;
+      };
+    }) =>
+      request<{
+        session: { id: string; status: string; currentSection: string };
+        exam: {
+          id: string;
+          cardId?: string;
+          title: string;
+          description: string;
+          generatedByAi: boolean;
+          sections: Array<{
+            id: string;
+            name: string;
+            description: string;
+            timeLimitSeconds?: number;
+            items: Array<{
+              id: string;
+              section: string;
+              construct: string;
+              subFacet?: string;
+              itemType: string;
+              scenarioText?: string;
+              promptText: string;
+              options?: Array<{ id: string; text: string }>;
+              correctAnswer?: string;
+              isReverseKeyed?: boolean;
+              orderIndex: number;
+            }>;
+          }>;
+        };
+        card: {
+          id: string;
+          name: string;
+          description: string;
+          subtopics: string[];
+          bestFor: string;
+          badge: string;
+          estimatedMinutes: number;
+        };
+        answeredCount: number;
+      }>('/psychometric/session/card', {
+        method: 'POST',
+        body: JSON.stringify(body),
+      }),
+
+    getHistory: () =>
+      request<
+        Array<{
+          sessionId: string;
+          cardId: string;
+          completedAt: string;
+          cognitivePercentile: number;
+          summary: string | null;
+          whatYouCanBecome: Array<{
+            role: string;
+            field: string;
+            matchPct: number;
+            whyYouFit: string;
+          }>;
+          coreStrengths: string[];
+        }>
+      >('/psychometric/history'),
+
     getSession: (targetExam?: string) =>
       request<{
         session: { id: string; status: string; currentSection: string };

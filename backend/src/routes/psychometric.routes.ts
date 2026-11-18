@@ -8,9 +8,12 @@ export function createPsychometricRoutes(): Router {
 
   router.use(requireAuth);
 
+  router.get('/cards', controller.getCards);
+  router.post('/session/card', controller.startCardSession);
   router.get('/session', controller.getSession);
   router.post('/answer', controller.saveAnswer);
   router.post('/submit', controller.submitSession);
+  router.get('/history', controller.getHistory);
   router.get('/report', controller.getReport);
 
   return router;
