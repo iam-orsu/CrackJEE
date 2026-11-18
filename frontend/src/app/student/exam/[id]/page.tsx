@@ -72,7 +72,7 @@ export default function StudentExamCbtPage() {
       .catch((err) => {
         // If already submitted, redirect to result
         if (err.message?.includes('already submitted')) {
-          router.replace(`/student-portal/result/${examId}`);
+          router.replace(`/student/result/${examId}`);
           return;
         }
         setError(err instanceof Error ? err.message : 'Failed to launch exam');
@@ -190,7 +190,7 @@ export default function StudentExamCbtPage() {
     setSubmitting(true);
     try {
       await studentSubmitExam(examId, answersRef.current, timeTakenRef.current);
-      router.replace(`/student-portal/result/${examId}`);
+      router.replace(`/student/result/${examId}`);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Submission failed');
       setSubmitting(false);
@@ -208,7 +208,7 @@ export default function StudentExamCbtPage() {
       <div className="grid min-h-screen place-items-center bg-[#FBFCFE] bg-page-wash p-5 font-dm">
         <div className="w-full max-w-[460px] rounded-[28px] border-[2.5px] border-[#003366] bg-white p-6 shadow-[7px_9px_0_#C6D2F8]">
           <div className={ERROR_BANNER} role="alert">{error}</div>
-          <Link href="/student-portal" className={cx(BUTTON_SECONDARY, 'mt-4 w-full', FOCUS_RING)}>
+          <Link href="/student" className={cx(BUTTON_SECONDARY, 'mt-4 w-full', FOCUS_RING)}>
             Back to dashboard
           </Link>
         </div>

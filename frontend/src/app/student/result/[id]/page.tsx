@@ -104,7 +104,7 @@ export default function StudentExamResultPage() {
           <p className="rounded-2xl border border-[#F4C7C7] bg-[#FEF2F2] px-4 py-3 text-[13px] font-semibold text-[#B42318]" role="alert">
             {error || 'Result not found'}
           </p>
-          <Link href="/student-portal" className={`${btn} mt-4`}>
+          <Link href="/student" className={`${btn} mt-4`}>
             <ArrowLeftIcon />
             Back to student dashboard
           </Link>
@@ -164,7 +164,7 @@ export default function StudentExamResultPage() {
           <Link href="/" aria-label="JEENEET.ai home" className="shrink-0 rounded-xl">
             <Image src="/logo.png" alt="JEENEET.ai" width={118} height={48} priority className="block h-12 w-auto sm:h-14" />
           </Link>
-          <Link href="/student-portal" className={SECONDARY_BTN}>
+          <Link href="/student" className={SECONDARY_BTN}>
             <ArrowLeftIcon />
             Dashboard
           </Link>
@@ -233,7 +233,7 @@ export default function StudentExamResultPage() {
 
               <div className="flex flex-col gap-2.5">
                 <a href="#solutions" className={btn}>Step-by-step solutions</a>
-                <Link href="/student-portal" className={SECONDARY_BTN}>Back to dashboard</Link>
+                <Link href="/student" className={SECONDARY_BTN}>Back to dashboard</Link>
               </div>
             </div>
           </section>

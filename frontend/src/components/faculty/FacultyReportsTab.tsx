@@ -244,7 +244,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
 
             {report.rankList.length === 0 ? (
               <div className="rounded-3xl border border-dashed border-[#003366]/20 bg-white px-5 py-9 text-center text-[13.5px] font-medium text-[#5A6B8C]">
-                No student has submitted this exam yet. Students can take the test at <strong>/student-portal</strong>.
+                No student has submitted this exam yet. Students can take the test at <strong>/student</strong>.
               </div>
             ) : (
               <div className="overflow-x-auto">

@@ -82,7 +82,7 @@ export default function StudentPortalLoginPage() {
   // Already signed in on this device? Go straight to the dashboard.
   useEffect(() => {
     studentMe()
-      .then(() => router.replace('/student-portal'))
+      .then(() => router.replace('/student'))
       .catch(() => setChecking(false));
   }, [router]);
 
@@ -92,7 +92,7 @@ export default function StudentPortalLoginPage() {
     setError('');
     try {
       await studentLogin(identifier, password);
-      router.replace('/student-portal');
+      router.replace('/student');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Invalid roll number or password');
       setBusy(false);

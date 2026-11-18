@@ -94,12 +94,12 @@ export default function StudentPortalPage() {
         setStudent(res.student);
         void loadExams();
       })
-      .catch(() => router.replace('/student-portal/login'));
+      .catch(() => router.replace('/student/login'));
   }, [router, loadExams]);
 
   async function handleLogout() {
     await studentLogout();
-    router.replace('/student-portal/login');
+    router.replace('/student/login');
   }
 
   if (!student) {
@@ -204,7 +204,7 @@ export default function StudentPortalPage() {
                       </div>
 
                       <Link
-                        href={`/student-portal/exam/${exam.id}`}
+                        href={`/student/exam/${exam.id}`}
                         className={cx(BUTTON_PRIMARY, 'w-full', FOCUS_RING)}
                       >
                         {exam.status === 'in_progress' ? 'Resume exam' : 'Start mock exam'}
@@ -288,7 +288,7 @@ export default function StudentPortalPage() {
                       </div>
 
                       <Link
-                        href={`/student-portal/result/${exam.id}`}
+                        href={`/student/result/${exam.id}`}
                         className={cx(BUTTON_SECONDARY, 'w-full', FOCUS_RING)}
                       >
                         View scorecard and solutions

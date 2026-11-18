@@ -278,7 +278,7 @@ export function FacultyBatchesTab() {
 
   function copyCredentials() {
     if (!createdCredentials) return;
-    const text = `Student Portal Credentials\nPortal: /student-portal\nRoll Number: ${createdCredentials.rollNumber}${createdCredentials.email ? `\nEmail: ${createdCredentials.email}` : ''}\nPassword: ${createdCredentials.password}`;
+    const text = `Student Portal Credentials\nPortal: /student\nRoll Number: ${createdCredentials.rollNumber}${createdCredentials.email ? `\nEmail: ${createdCredentials.email}` : ''}\nPassword: ${createdCredentials.password}`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
@@ -356,7 +356,7 @@ export function FacultyBatchesTab() {
               </button>
             </div>
             <div className="mt-0.5 text-[12px] text-[#15803D]">
-              Students can sign in directly at <strong>/student-portal</strong> using their Roll Number (or Email) and Password.
+              Students can sign in directly at <strong>/student</strong> using their Roll Number (or Email) and Password.
             </div>
           </div>
           <div className="flex gap-2">

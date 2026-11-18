@@ -17,6 +17,20 @@ const config: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/student-portal',
+        destination: '/student',
+        permanent: true,
+      },
+      {
+        source: '/student-portal/:path*',
+        destination: '/student/:path*',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default config;
