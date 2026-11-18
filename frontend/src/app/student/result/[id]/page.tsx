@@ -407,7 +407,7 @@ export default function StudentExamResultPage() {
                     Candidate Response Review
                   </h2>
                   <p className="mt-1 text-[13px] text-[#5A6B8C]">
-                    Review your chosen responses and behavioral trait indicators. (There are no right or wrong answers).
+                    Review the questions and your recorded choices.
                   </p>
                 </div>
 
@@ -501,24 +501,6 @@ export default function StudentExamResultPage() {
                                 </div>
                               );
                             })}
-                          </div>
-                        )}
-
-                        {/* Behavioral Trait Rubric */}
-                        {(q.correctAnswer || q.explanation) && (
-                          <div className="rounded-[16px] border-l-[5px] border-[#803688] bg-[#FBF5FC] p-4 text-[13.5px] leading-relaxed text-[#3B2450]">
-                            <p className="mb-1 text-[11px] font-extrabold uppercase tracking-wider text-[#803688]">
-                              Behavioral Trait Rubric &amp; Insight
-                            </p>
-                            <div
-                              dangerouslySetInnerHTML={{
-                                __html: renderExplanationHtml(
-                                  q.correctAnswer.startsWith('Trait Rubric')
-                                    ? `${q.correctAnswer}\n\n${q.explanation}`
-                                    : q.explanation || q.correctAnswer
-                                ),
-                              }}
-                            />
                           </div>
                         )}
                       </article>
