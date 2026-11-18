@@ -30,7 +30,8 @@ export class AuthService {
     email: string;
     password: string;
     class: '11' | '12' | 'Dropper';
-    targetExam: 'Main' | 'Advanced' | 'Both' | 'NEET';
+    targetExam: 'Main' | 'Advanced' | 'Both' | 'NEET' | 'Psychometric';
+    hasPsychometric?: boolean;
     currentLevel: 'beginner' | 'intermediate' | 'advanced';
   }) {
     const existing = await this.users.existsByEmail(input.email);
@@ -43,6 +44,7 @@ export class AuthService {
       passwordHash,
       class: input.class,
       targetExam: input.targetExam,
+      hasPsychometric: input.hasPsychometric ?? false,
       currentLevel: input.currentLevel,
     });
 

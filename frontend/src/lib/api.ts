@@ -73,6 +73,7 @@ export const api = {
       password: string;
       class: string;
       targetExam: string;
+      hasPsychometric?: boolean;
       currentLevel: string;
     }) => request<{ user: import('@/types').User; expiresAt: string }>('/auth/register', {
       method: 'POST',
@@ -91,6 +92,57 @@ export const api = {
 
     // Revokes the session on the server and clears the cookie
     logout: () => request<void>('/auth/logout', { method: 'POST' }),
+  },
+
+  psychometric: {
+    getSession: (targetExam?: string) =>
+      request<{
+        session: { id: string; status: string; currentSection: string };
+        exam: {
+          id: string;
+          title: string;
+          description: string;
+          generatedByAi: boolean;
+          sections: Array<{
+            id: string;
+            name: string;
+            description: string;
+            timeLimitSeconds?: number;
+            items: Array<{
+              id: string;
+              section: string;
+              construct: string;
+              subFacet?: string;
+              itemType: string;
+              scenarioText?: string;
+              promptText: string;
+              options?: Array<{ id: string; text: string }>;
+              correctAnswer?: string;
+              isReverseKeyed?: boolean;
+              orderIndex: number;
+            }>;
+          }>;
+        };
+        answeredCount: number;
+      }>(`/psychometric/session${targetExam ? `?targetExam=${encodeURIComponent(targetExam)}` : ''}`),
+
+    saveAnswer: (body: {
+      sessionId: string;
+      item: Record<string, unknown>;
+      answer: string;
+      timeSpentMs?: number;
+    }) => request<{ id: string; answer: string; score: number }>('/psychometric/answer', {
+      method: 'POST',
+      body: JSON.stringify(body),
+    }),
+
+    submit: (sessionId: string) =>
+      request<Record<string, unknown>>('/psychometric/submit', {
+        method: 'POST',
+        body: JSON.stringify({ sessionId }),
+      }),
+
+    getReport: () => request<Record<string, unknown> | null>('/psychometric/report'),
   },
 
   questions: {

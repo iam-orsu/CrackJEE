@@ -13,6 +13,7 @@ export class UserRepository {
         email: true,
         class: true,
         targetExam: true,
+        hasPsychometric: true,
         currentLevel: true,
         passwordHash: true,
       },
@@ -32,18 +33,22 @@ export class UserRepository {
     passwordHash: string;
     class: string;
     targetExam: string;
+    hasPsychometric?: boolean;
     currentLevel: string;
   }) {
     return this.prisma.user.create({
-      data,
-      select: { id: true, name: true, email: true, class: true, targetExam: true, currentLevel: true },
+      data: {
+        ...data,
+        hasPsychometric: data.hasPsychometric ?? false,
+      },
+      select: { id: true, name: true, email: true, class: true, targetExam: true, hasPsychometric: true, currentLevel: true },
     });
   }
 
   public findSafeById(id: string) {
     return this.prisma.user.findUnique({
       where: { id },
-      select: { id: true, name: true, email: true, class: true, targetExam: true, currentLevel: true, createdAt: true },
+      select: { id: true, name: true, email: true, class: true, targetExam: true, hasPsychometric: true, currentLevel: true, createdAt: true },
     });
   }
 

@@ -13,6 +13,7 @@ type FormState = {
   password: string;
   class: '11' | '12' | 'Dropper';
   targetExam: 'Main' | 'Advanced' | 'Both' | 'NEET';
+  hasPsychometric: boolean;
   currentLevel: 'beginner' | 'intermediate' | 'advanced';
 };
 
@@ -68,6 +69,7 @@ export default function RegisterPage() {
     password: '',
     class: '12',
     targetExam: 'Main',
+    hasPsychometric: true,
     currentLevel: 'beginner',
   });
   const [error, setError] = useState('');
@@ -266,6 +268,67 @@ export default function RegisterPage() {
                     ))}
                   </div>
                 </div>
+              </div>
+
+              <div className="rg-field" style={{ marginTop: 2, marginBottom: 14 }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 }}>
+                  <span className="rg-label" style={{ marginBottom: 0 }}>Behavioral & Career Diagnostic</span>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: '#803688', background: '#F5E6F8', padding: '2px 8px', borderRadius: 999 }}>
+                    Multi-Select Add-on
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  className={`rg-psych-card${form.hasPsychometric ? ' on' : ''}`}
+                  onClick={() => set('hasPsychometric', !form.hasPsychometric)}
+                  aria-pressed={form.hasPsychometric}
+                  style={{
+                    width: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 12,
+                    padding: '10px 14px',
+                    borderRadius: 12,
+                    border: form.hasPsychometric ? '2px solid #803688' : '1px solid #D6DCE7',
+                    background: form.hasPsychometric ? 'linear-gradient(135deg, #FBF4FC 0%, #F5E8F8 100%)' : '#FFFFFF',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    transition: 'all 0.2s ease',
+                  }}
+                >
+                  <span
+                    style={{
+                      width: 22,
+                      height: 22,
+                      borderRadius: 6,
+                      display: 'grid',
+                      placeItems: 'center',
+                      background: form.hasPsychometric ? '#803688' : '#ECEFF5',
+                      color: form.hasPsychometric ? '#FFFFFF' : '#8A97AC',
+                      fontWeight: 800,
+                      fontSize: 14,
+                      flexShrink: 0,
+                    }}
+                  >
+                    {form.hasPsychometric ? '✓' : '+'}
+                  </span>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <strong style={{ fontSize: 13, color: '#1B254B', fontWeight: 700 }}>
+                        Include Psychometric & Behavioral Test
+                      </strong>
+                      <span style={{ fontSize: 10, fontWeight: 800, color: '#008060', background: '#E3F6ED', padding: '1px 5px', borderRadius: 4 }}>
+                        LIVE AI
+                      </span>
+                    </div>
+                    <small style={{ fontSize: 11, color: '#5A6B8C', display: 'block', marginTop: 2 }}>
+                      Evaluates cognitive logic, test anxiety, resilience, study habits & recommended career streams
+                    </small>
+                  </div>
+                </button>
+                <p className="rg-hint" style={{ marginTop: 4 }}>
+                  Enables taking both your target exam ({form.targetExam === 'NEET' ? 'NEET UG' : 'JEE'}) + the live AI Psychometric test.
+                </p>
               </div>
 
               <div className="rg-field">

@@ -15,6 +15,7 @@ model User {
   passwordHash String
   class        String
   targetExam   String
+  hasPsychometric Boolean  @default(false)
   currentLevel String   @default("beginner")
   createdAt    DateTime @default(now())
 
@@ -22,6 +23,8 @@ model User {
   topicProgress  TopicProgress[]
   topicMasteries StudentTopicMastery[]
   mockExams      MockExam[]
+  psychometricSessions PsychometricSession[]
+  psychometricReports  PsychometricReport[]
 }
 
 model Topic {
@@ -330,3 +333,87 @@ model FacultyStudentExam {
   @@index([assignmentId, totalScore])
   @@index([studentId])
 }
+
+// ==========================================
+// Psychometric & Behavioral Assessment Engine
+// ==========================================
+
+model PsychometricItem {
+  id             String   @id @default(cuid())
+  section        String   // "COGNITIVE" | "BEHAVIORAL" | "ANXIETY" | "SJT" | "RIASEC"
+  construct      String   // e.g., "CONSCIENTIOUSNESS", "NUMERICAL", "TEST_ANXIETY", "ETHICS", etc.
+  subFacet       String?
+  itemType       String   // "LIKERT_5" | "LIKERT_4" | "SCENARIO_LIKERT_5" | "COGNITIVE_MCQ" | "RIASEC_RATING"
+  scenarioText   String?  @db.Text
+  promptText     String   @db.Text
+  options        Json?    // [{ id: "A", text: "..." }]
+  correctAnswer  String?  // For cognitive MCQs
+  isReverseKeyed Boolean  @default(false)
+  orderIndex     Int      @default(0)
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+
+  responses      PsychometricResponse[]
+
+  @@index([section, construct])
+}
+
+model PsychometricSession {
+  id               String    @id @default(cuid())
+  userId           String
+  status           String    @default("in_progress") // "in_progress" | "completed"
+  currentSection   String    @default("COGNITIVE")
+  timeTakenSeconds Int       @default(0)
+  startedAt        DateTime  @default(now())
+  completedAt      DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  user             User                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  responses        PsychometricResponse[]
+  report           PsychometricReport?
+
+  @@index([userId, status])
+}
+
+model PsychometricResponse {
+  id          String   @id @default(cuid())
+  sessionId   String
+  itemId      String
+  answer      String   // "1".."5", "A", etc.
+  score       Float    // reverse-keyed or scored numeric value
+  timeSpentMs Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  session     PsychometricSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  item        PsychometricItem    @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  @@unique([sessionId, itemId])
+  @@index([sessionId])
+}
+
+model PsychometricReport {
+  id                   String   @id @default(cuid())
+  sessionId            String   @unique
+  userId               String
+  cognitivePercentile  Float    @default(0)
+  cognitiveBreakdown   Json     // { numerical: 80, logical: 85, abstract: 75, spatial: 70 }
+  oceanProfile         Json     // { openness: 78, conscientiousness: 88, extraversion: 52, agreeableness: 70, neuroticism: 40 }
+  honestyHumility      Float    @default(0) // HEXACO H factor
+  testAnxietyIndex     Float    @default(0) // TAI 0-100
+  academicResilience   Float    @default(0) // ARS-30 0-100
+  sjtCompetencies      Json     // { decisionMaking: 80, academicEthics: 85, stressTolerance: 75 }
+  riasecCode           String   @default("IRE")
+  riasecScores         Json     // { R: 28, I: 38, A: 14, S: 18, E: 24, C: 22 }
+  streamRecommendations Json    // [{ stream: "Computer Science & AI", matchPct: 95 }, ...]
+  studyHabitAdvice     Json     // ["...", "..."]
+  burnoutRisk          String   @default("low") // "low" | "moderate" | "high"
+  facultyAdvice        String?  @db.Text
+  createdAt            DateTime @default(now())
+
+  session              PsychometricSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  user                 User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+

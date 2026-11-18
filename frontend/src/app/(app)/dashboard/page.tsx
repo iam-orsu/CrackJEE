@@ -195,6 +195,41 @@ export default function DashboardPage() {
       <div className="relative mx-auto flex w-full flex-col gap-6 px-1 pb-10 sm:px-2 xl:gap-8">
         {error && <div role="alert" className="rounded-2xl border border-[#F4C7C7] bg-[#FEF2F2] px-4 py-3 text-[13px] font-semibold text-[#B42318]">{error}</div>}
 
+        {/* Psychometric & Behavioral Test Diagnostic Banner */}
+        <section className="dz-rise relative overflow-hidden rounded-[28px] border border-purple-200 bg-gradient-to-r from-[#FAF5FF] via-[#F3E8FF] to-[#FDF4FF] p-6 text-[#1B254B] shadow-sm">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#803688] text-2xl text-white shadow-md">
+                🧠
+              </span>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-[#803688]">
+                    Psychometric & Behavioral Diagnostic
+                  </span>
+                  <span className="rounded bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800">
+                    Live AI Engine
+                  </span>
+                </div>
+                <h3 className="mt-1 font-display text-base sm:text-lg font-bold text-[#1B254B]">
+                  Discover Your Cognitive Agility, Exam Stress Resilience & Dream Engineering/Medical Branch
+                </h3>
+                <p className="mt-0.5 text-xs text-[#5A6B8C]">
+                  Timed logic puzzles, realistic situational dilemmas, exam hall panic coping & Holland RIASEC stream matching.
+                </p>
+              </div>
+            </div>
+
+            <Link
+              href="/psychometric"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#803688] px-5 py-3 text-xs font-extrabold text-white shadow-md transition hover:bg-[#6C2B74]"
+            >
+              <span>Take Assessment</span>
+              <span>→</span>
+            </Link>
+          </div>
+        </section>
+
         {/* Hero: white panel with the landing page's blob at the bottom right */}
         <section className="dz-rise relative overflow-hidden rounded-[36px] border border-[#003366]/10 bg-white p-6 text-[#003366] sm:p-8 xl:p-10">
           <div aria-hidden className="pointer-events-none absolute inset-0">

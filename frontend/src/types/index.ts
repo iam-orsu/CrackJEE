@@ -3,7 +3,8 @@ export interface User {
   name: string;
   email: string;
   class: '11' | '12' | 'Dropper';
-  targetExam: 'Main' | 'Advanced' | 'Both' | 'NEET';
+  targetExam: 'Main' | 'Advanced' | 'Both' | 'NEET' | 'Psychometric';
+  hasPsychometric?: boolean;
   currentLevel: 'beginner' | 'intermediate' | 'advanced';
   createdAt?: string;
 }
