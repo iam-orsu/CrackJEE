@@ -243,9 +243,10 @@ export class MockGeneratorService {
     topic: string,
     topicId: string,
     count = 5,
+    excludeQuestionIds?: Set<string>,
   ): Promise<MockPoolItem[]> {
     const questionType: QuestionType = 'mcq_single';
-    const seen = await this.mockData.loadSeenQuestionIds(userId, examType);
+    const seen = excludeQuestionIds ?? (await this.mockData.loadSeenQuestionIds(userId, examType));
     const existing = await this.questionRepo.findMockBankSlots(examType, [
       { subject, topic, difficulty: 'intermediate', questionType },
       { subject, topic, difficulty: 'beginner', questionType },
@@ -421,6 +422,7 @@ export class MockGeneratorService {
     difficultyMode: 'easy' | 'medium' | 'hard',
     paperNumber?: number,
   ): Promise<void> {
+    const seen = await this.mockData.loadSeenQuestionIds(userId, examType, examId);
     const completedMocks = await this.mockRepo.countSubmittedForUser(userId, examType);
     const resolvedPaperNumber = paperNumber ?? ((completedMocks % 50) + 1);
     const planKey = `ladder:paper:${resolvedPaperNumber}`;
@@ -434,7 +436,8 @@ export class MockGeneratorService {
         (items) =>
           items.length === expectedTotal &&
           items.some((i) => i.questionType === 'matrix_match') &&
-          items.some((i) => i.hasDiagram),
+          items.some((i) => i.hasDiagram) &&
+          items.every((i) => !seen.has(i.questionId)),
       );
 
     let poolItems = await reuse();
@@ -442,14 +445,18 @@ export class MockGeneratorService {
       logger.info({ examId, examType, paperNumber: resolvedPaperNumber, planKey }, '[mockPool] Reused shared global ladder paper');
     } else {
       logger.info({ examId, examType, paperNumber: resolvedPaperNumber, planKey }, '[mockPool] Generating fresh shared global ladder paper');
-      poolItems = await runOnce<MockPoolItem[]>(`mockpaper:gen:${examType}:${planKey}`, {
+      const lockKey = seen.size === 0
+        ? `mockpaper:gen:${examType}:${planKey}`
+        : `mockpaper:gen:${examType}:${planKey}:${userId}`;
+
+      poolItems = await runOnce<MockPoolItem[]>(lockKey, {
         lockSeconds: MOCK_CONSTANTS.LOCK_SECONDS,
         waitMs: MOCK_CONSTANTS.LOCK_WAIT_MS,
         readShared: reuse,
         produce: async () => {
           const stored = await reuse();
           if (stored) return stored;
-          const fresh = await this.generateFreshPaper(examType, difficultyMode, topicsBySubject, new Set());
+          const fresh = await this.generateFreshPaper(examType, difficultyMode, topicsBySubject, seen);
           try {
             await this.mockData.saveStoredPaper(examType, difficultyMode, fresh, planKey);
           } catch (saveErr) {
@@ -490,6 +497,7 @@ export class MockGeneratorService {
             topWeak.topic.name,
             topWeak.topic.id,
             5,
+            new Set([...seen, ...poolItems.map((p) => p.questionId)]),
           );
           if (weakItems.length > 0) {
             logger.info(

@@ -44,7 +44,7 @@ export class MockDataService {
     planKey: string,
     accept: (items: MockPoolItem[]) => boolean,
   ): Promise<MockPoolItem[] | null> {
-    const exact = await this.mockRepo.findStoredPapersByPlanKey(examType, planKey, 5);
+    const exact = await this.mockRepo.findStoredPapersByPlanKey(examType, planKey, 10);
     for (const candidate of exact) {
       const items = candidate.items as unknown as MockPoolItem[];
       if (items.length >= MOCK_CONSTANTS.MIN_PAPER_QUESTIONS && accept(items)) return items;
@@ -107,8 +107,9 @@ export class MockDataService {
   public async loadSeenQuestionIds(
     userId: string,
     examType: 'Main' | 'Advanced' | 'NEET',
+    excludeExamId?: string,
   ): Promise<Set<string>> {
-    const rows = await this.mockRepo.findSeenQuestionIds(userId, examType);
+    const rows = await this.mockRepo.findSeenQuestionIds(userId, examType, excludeExamId);
     return new Set(rows.map((r) => r.questionId));
   }
 

@@ -331,10 +331,17 @@ export class MockExamRepository {
     });
   }
 
-  public findSeenQuestionIds(userId: string, examType: string) {
+  public findSeenQuestionIds(userId: string, examType: string, excludeExamId?: string) {
     return this.prisma.mockExamQuestion.findMany({
-      where: { exam: { userId, examType, status: { in: ['submitted', 'in_progress', 'ready'] } } },
+      where: {
+        exam: {
+          userId,
+          examType,
+          ...(excludeExamId ? { id: { not: excludeExamId } } : {}),
+        },
+      },
       select: { questionId: true },
+      distinct: ['questionId'],
     });
   }
 
