@@ -1023,11 +1023,12 @@ Format as JSON:
     const cohortInfo = targetProfile
       ? `\nTARGET CANDIDATE AUDIENCE COHORT:
 - Target Education / Level: ${targetProfile.studentLevel || 'Intermediate / Higher Secondary'} ${targetProfile.schoolClass ? `(${targetProfile.schoolClass})` : ''}
-- Stream / Branch: ${targetProfile.stream || 'Science & Engineering'}
+- What They Are Studying (Stream / Branch / Subject): ${targetProfile.stream || 'General'}
 - Target Age Group: ${targetProfile.ageGroup || (targetProfile.age ? `${targetProfile.age} years old` : '16-18 years')}
 
-COHORT CALIBRATION:
-- Calibrate question difficulty, scenario stakes, dilemmas, and vocabulary directly to the maturity and lived experience of this target group (e.g. school students: academics, teamwork, curiosity, peer dynamics; college/engineers: system design trade-offs, architecture, deadlines, campus startups).\n`
+COHORT & STREAM CALIBRATION:
+- CRITICAL: Generate questions, situational dilemmas, and reasoning puzzles directly calibrated around what they are studying ("${targetProfile.stream || 'General'}"). If they are studying Medical, use healthcare, biology, clinical scenarios, or diagnostic dilemmas. If Science, use empirical inquiry, experiment design, physical/chemical principles. If Computer Science, use coding dilemmas, system design, or tech decisions. If Commerce/Business, use financial trade-offs, market decisions, or resource allocation.
+- Calibrate language and dilemma maturity to the target age group ("${targetProfile.ageGroup || '16-18 years'}"). For 12-14 years, keep situations age-appropriate (school projects, clubs, curiosity, ethical peer choices) without overly corporate jargon.\n`
       : '';
 
     const prompt = `You are an expert talent evaluator and practical psychometrician creating an assessment paper for faculty.

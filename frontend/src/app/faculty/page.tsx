@@ -158,7 +158,7 @@ export default function FacultyPage() {
   // Target Candidate Profile for Psychometric calibration
   const [targetLevel, setTargetLevel] = useState<'school' | 'intermediate' | 'ug' | 'pg' | 'professional'>('intermediate');
   const [schoolClass, setSchoolClass] = useState<'class_6' | 'class_7' | 'class_8' | 'class_9' | 'class_10'>('class_10');
-  const [targetStream, setTargetStream] = useState('Science & Engineering / Computer Science');
+  const [targetStream, setTargetStream] = useState('Science');
   const [targetAgeGroup, setTargetAgeGroup] = useState('16-18 (Intermediate / 11th-12th)');
 
   const selectedSubjects = useMemo(() => {
@@ -894,8 +894,27 @@ export default function FacultyPage() {
                                     </select>
                                   </div>
 
-                                  {targetLevel === 'school' ? (
-                                    <div className={FIELD}>
+                                  <div className={FIELD}>
+                                    <label className={LABEL} htmlFor="target-age">
+                                      Target Age Group
+                                    </label>
+                                    <select
+                                      id="target-age"
+                                      className={SELECT}
+                                      value={targetAgeGroup}
+                                      onChange={(e) => setTargetAgeGroup(e.target.value)}
+                                    >
+                                      <option value="12-14 (Middle School)">12–14 years (Middle School / Junior)</option>
+                                      <option value="14-16 (High School)">14–16 years (High School)</option>
+                                      <option value="16-18 (Intermediate / 11th-12th)">16–18 years (Intermediate / 11th-12th)</option>
+                                      <option value="18-22 (UG / College)">18–22 years (Undergraduate / College)</option>
+                                      <option value="22-26 (PG / Masters)">22–26 years (Postgraduate / Masters)</option>
+                                      <option value="26+ (Working Professional)">26+ years (Working Professional)</option>
+                                    </select>
+                                  </div>
+
+                                  {targetLevel === 'school' && (
+                                    <div className={cx(FIELD, 'sm:col-span-2')}>
                                       <label className={LABEL} htmlFor="school-class">
                                         Exact School Class
                                       </label>
@@ -912,44 +931,23 @@ export default function FacultyPage() {
                                         <option value="class_10">Class 10 (Secondary Board)</option>
                                       </select>
                                     </div>
-                                  ) : (
-                                    <div className={FIELD}>
-                                      <label className={LABEL} htmlFor="target-age">
-                                        Target Age Group
-                                      </label>
-                                      <select
-                                        id="target-age"
-                                        className={SELECT}
-                                        value={targetAgeGroup}
-                                        onChange={(e) => setTargetAgeGroup(e.target.value)}
-                                      >
-                                        <option value="14-16 (High School)">14–16 years (High School)</option>
-                                        <option value="16-18 (Intermediate / 11th-12th)">16–18 years (Intermediate / 11th-12th)</option>
-                                        <option value="18-22 (UG / College)">18–22 years (Undergraduate / College)</option>
-                                        <option value="22-26 (PG / Masters)">22–26 years (Postgraduate / Masters)</option>
-                                        <option value="26+ (Working Professional)">26+ years (Working Professional)</option>
-                                      </select>
-                                    </div>
                                   )}
 
                                   <div className={cx(FIELD, 'sm:col-span-2')}>
                                     <label className={LABEL} htmlFor="target-stream">
-                                      Stream / Target Branch Focus
+                                      What are they studying? <span className="font-normal text-[#5A6B8C]">(Stream / Branch / Domain)</span>
                                     </label>
-                                    <select
+                                    <input
                                       id="target-stream"
-                                      className={SELECT}
+                                      type="text"
+                                      className={INPUT}
+                                      placeholder="e.g. Science, Medical, Computer Science, Commerce, Engineering"
                                       value={targetStream}
                                       onChange={(e) => setTargetStream(e.target.value)}
-                                    >
-                                      <option value="Science & Engineering / Computer Science">Science &amp; Engineering / Computer Science</option>
-                                      <option value="Medical / Healthcare / Biology">Medical / Healthcare / Biology</option>
-                                      <option value="Commerce / Finance / Business Management">Commerce / Finance / Business Management</option>
-                                      <option value="Humanities / Social Sciences / Law">Humanities / Social Sciences / Law</option>
-                                      <option value="General Aptitude & Problem Solving">General Aptitude &amp; Problem Solving</option>
-                                    </select>
+                                      maxLength={120}
+                                    />
                                     <p className="mt-1 text-[11px] text-[#5A6B8C]">
-                                      The AI engine tailors scenarios, difficulty, and stakes to this demographic.
+                                      Manually enter what students are studying (e.g. Science, Medical, Commerce, Computer Science). Questions and scenarios will be dynamically generated based on this parameter.
                                     </p>
                                   </div>
                                 </div>
