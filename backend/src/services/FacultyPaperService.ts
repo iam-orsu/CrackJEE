@@ -109,6 +109,36 @@ function resolveSlotQuestionType(
   return 'integer';
 }
 
+export const ABSTRACT_NON_DIAGRAM_TOPICS = new Set<string>([
+  'permutations and combinations',
+  'permutations & combinations',
+  'binomial theorem',
+  'mathematical reasoning',
+  'statistics',
+  'matrices',
+  'determinants',
+  'sets and relations',
+  'principle of mathematical induction',
+  'units and dimensions',
+  'units and measurements',
+]);
+
+export function isTopicDiagramCompatible(subject: Subject, topic: string): boolean {
+  if (subject === 'Botany' || subject === 'Zoology') return true;
+  if (subject === 'Physics') {
+    return !topic.toLowerCase().includes('units');
+  }
+  if (subject === 'Chemistry') {
+    return true;
+  }
+  // For Mathematics: check abstract topics
+  const normalized = topic.trim().toLowerCase();
+  for (const nonDiag of ABSTRACT_NON_DIAGRAM_TOPICS) {
+    if (normalized.includes(nonDiag)) return false;
+  }
+  return true;
+}
+
 function buildPaperSlots(input: CreateFacultyPaperInput): PaperSlot[] {
   const sortedSelections = [...input.selections].sort(
     (a, b) => (SUBJECT_ORDER[a.subject] ?? 9) - (SUBJECT_ORDER[b.subject] ?? 9) || a.topic.localeCompare(b.topic),
@@ -241,25 +271,30 @@ function buildPaperSlots(input: CreateFacultyPaperInput): PaperSlot[] {
     }
   }
 
-  // Mandatory diagram guarantee: At least 2 diagram questions for any paper >= 2 questions (or 15% if larger)
-  const diagramQuota = Math.min(slots.length, Math.max(2, Math.round(slots.length * 0.15)));
-  let assignedDiagrams = 0;
+  // Check which slots belong to diagram-compatible topics
+  const diagramCapableSlots = slots.filter((s) => isTopicDiagramCompatible(s.subject, s.topic));
 
-  // First pass: assign to MCQ / multi / integer slots (ideal for visual diagrams)
-  for (const s of slots) {
-    if (assignedDiagrams >= diagramQuota) break;
-    if (s.questionType !== 'matrix_match') {
-      s.requiresDiagram = true;
-      assignedDiagrams++;
+  if (diagramCapableSlots.length > 0) {
+    // Mandatory diagram guarantee: At least 2 diagram questions (or 15% if larger), capped by available diagram-capable slots
+    const diagramQuota = Math.min(diagramCapableSlots.length, Math.max(2, Math.round(slots.length * 0.15)));
+    let assignedDiagrams = 0;
+
+    // First pass: assign to MCQ / multi / integer slots in diagram-capable topics
+    for (const s of diagramCapableSlots) {
+      if (assignedDiagrams >= diagramQuota) break;
+      if (s.questionType !== 'matrix_match') {
+        s.requiresDiagram = true;
+        assignedDiagrams++;
+      }
     }
-  }
 
-  // Second pass: if diagram quota not met yet (e.g., all matrix_match), assign to remaining slots
-  for (const s of slots) {
-    if (assignedDiagrams >= diagramQuota) break;
-    if (!s.requiresDiagram) {
-      s.requiresDiagram = true;
-      assignedDiagrams++;
+    // Second pass: assign to remaining diagram-capable slots if needed
+    for (const s of diagramCapableSlots) {
+      if (assignedDiagrams >= diagramQuota) break;
+      if (!s.requiresDiagram) {
+        s.requiresDiagram = true;
+        assignedDiagrams++;
+      }
     }
   }
 
@@ -635,13 +670,15 @@ export class FacultyPaperService {
 
       for (let attempt = 1; attempt <= MAX_AI_ATTEMPTS; attempt++) {
         try {
+          // On first attempt, honor requiresDiagram if requested. On retry, relax it so generation never gets blocked.
+          const mustRequireDiagram = slot.requiresDiagram && attempt === 1;
           const generated = await deepSeekService.generateFacultyQuestion({
             examType,
             subject: slot.subject,
             topic: slot.topic,
             difficulty: slot.difficulty,
             questionType: slot.questionType,
-            requiresDiagram: slot.requiresDiagram,
+            requiresDiagram: mustRequireDiagram,
           });
           const verified = await deepSeekService.blindVerifyFacultyQuestion({
             examType,

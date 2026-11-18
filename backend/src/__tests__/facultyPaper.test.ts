@@ -1,6 +1,6 @@
 import { describe, it, before, after } from 'node:test';
 import assert from 'node:assert/strict';
-import { FacultyPaperService, type CreateFacultyPaperInput } from '../services/FacultyPaperService';
+import { FacultyPaperService, isTopicDiagramCompatible, type CreateFacultyPaperInput } from '../services/FacultyPaperService';
 import type { FacultyPaperItem, FacultyPaperSelection } from '../repositories/FacultyRepository';
 import { deepSeekService } from '../services/DeepSeekService';
 import type { Subject, QuestionType } from '../types';
@@ -329,6 +329,68 @@ describe('FacultyPaperService slot allocation and rules', () => {
 
     const diagramItems = savedItems.filter((item) => item.diagram !== null);
     assert.ok(diagramItems.length >= 2, `Expected at least 2 diagram items in 10-question faculty paper, got ${diagramItems.length}`);
+  });
+
+  it('isTopicDiagramCompatible correctly identifies abstract vs visual topics', () => {
+    assert.equal(isTopicDiagramCompatible('Mathematics', 'Permutations and Combinations'), false);
+    assert.equal(isTopicDiagramCompatible('Mathematics', 'Binomial Theorem'), false);
+    assert.equal(isTopicDiagramCompatible('Mathematics', 'Matrices'), false);
+    assert.equal(isTopicDiagramCompatible('Mathematics', 'Coordinate Geometry'), true);
+    assert.equal(isTopicDiagramCompatible('Physics', 'Kinematics'), true);
+    assert.equal(isTopicDiagramCompatible('Physics', 'Current Electricity'), true);
+    assert.equal(isTopicDiagramCompatible('Chemistry', 'Hydrocarbons'), true);
+    assert.equal(isTopicDiagramCompatible('Botany', 'Plant Kingdom'), true);
+  });
+
+  it('gracefully handles abstract-only topic selection without forcing diagrams or failing', async () => {
+    let savedItems: any[] = [];
+    const fakeRepo: any = {
+      createPaper: async (data: any) => ({
+        id: 'test-paper-abstract',
+        paperCode: 'FP-ABS',
+        facultyId: data.facultyId,
+        title: data.title,
+        examType: data.examType,
+        difficulty: data.difficulty,
+        questionCount: data.questionCount,
+        selections: data.selections,
+        items: [],
+        status: 'ready',
+        verifiedCount: 0,
+      }),
+      updatePaperState: async (_id: string, update: any) => {
+        if (update.items) savedItems = update.items;
+      },
+    };
+
+    const fallbackQuestions: any[] = Array.from({ length: 5 }, (_, i) => ({
+      id: `p_${i + 1}`,
+      questionText: `Permutation question ${i + 1}`,
+      questionType: 'mcq_single',
+      options: ['120', '720', '5040', '24'],
+      answer: 'B',
+      explanation: 'Formula n!',
+      diagram: null,
+    }));
+
+    const fakeQRepo: any = {
+      findFacultyFallbackQuestions: async () => fallbackQuestions,
+    };
+
+    const service = new FacultyPaperService(fakeRepo, fakeQRepo);
+    await service.startPaper('faculty-123', {
+      examType: 'Main',
+      difficulty: 'intermediate',
+      questionCount: 5,
+      selections: [{ subject: 'Mathematics', topic: 'Permutations and Combinations' }],
+    });
+
+    await service.waitForActiveGenerations();
+
+    // Abstract paper generates cleanly with 5 questions, all diagram: null
+    assert.equal(savedItems.length, 5);
+    const diagramItems = savedItems.filter((item) => item.diagram !== null);
+    assert.equal(diagramItems.length, 0, 'Abstract topics should not have diagrams forced onto them');
   });
 });
 
