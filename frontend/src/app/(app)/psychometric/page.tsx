@@ -175,6 +175,8 @@ export default function PsychometricPage() {
     return Object.keys(answers).length;
   }, [answers]);
 
+  const unansweredCount = Math.max(0, allItems.length - totalAnswered);
+
   async function handleSelectAnswer(val: string) {
     if (!currentItem || !sessionId) return;
     setAnswers((prev) => ({ ...prev, [currentItem.id]: val }));
@@ -383,9 +385,10 @@ export default function PsychometricPage() {
             <button
               type="button"
               onClick={() => setShowSubmitModal(true)}
-              className="rounded-xl bg-[#803688] px-4 py-2 text-xs font-extrabold text-white shadow transition hover:bg-[#6C2B74]"
+              className="rounded-xl border border-rose-200 bg-rose-50 px-3.5 py-1.5 text-xs font-bold text-rose-700 shadow-sm transition hover:bg-rose-100 flex items-center gap-1.5 active:scale-95"
             >
-              Submit Test
+              <span>🛑</span>
+              <span>End Exam</span>
             </button>
           </div>
         </div>
@@ -677,6 +680,16 @@ export default function PsychometricPage() {
               ← Previous
             </button>
 
+            {/* End Exam Button Always Accessible */}
+            <button
+              type="button"
+              onClick={() => setShowSubmitModal(true)}
+              className="rounded-xl border border-rose-200 bg-rose-50/80 px-4 py-2.5 text-xs font-bold text-rose-700 transition hover:bg-rose-100 flex items-center gap-1.5 shadow-sm active:scale-95"
+            >
+              <span>🛑</span>
+              <span>End Exam</span>
+            </button>
+
             <button
               type="button"
               onClick={() => {
@@ -693,37 +706,105 @@ export default function PsychometricPage() {
             >
               {activeQIdx < currentSection.items.length - 1 || activeSecIdx < exam.sections.length - 1
                 ? 'Next Question →'
-                : 'Review & Finish Test'}
+                : 'Review & Submit Test'}
             </button>
           </div>
         </div>
 
-        {/* Confirmation Modal */}
+        {/* Confirmation & Warning Modal */}
         {showSubmitModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
-            <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl">
-              <h3 className="font-display text-lg font-extrabold text-[#1B254B]">Finish Your Assessment?</h3>
-              <p className="mt-2 text-xs text-[#5A6B8C] leading-relaxed">
-                You have answered <strong>{totalAnswered}</strong> out of {allItems.length} questions.
-                Submitting will generate your personalized mindset, study habit, and career guidance report!
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
+            <div className="w-full max-w-lg rounded-3xl bg-white p-6 sm:p-7 shadow-2xl border border-slate-100">
+              <div className="flex items-center gap-3">
+                <div
+                  className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl ${
+                    unansweredCount > 0 ? 'bg-amber-100 text-amber-700' : 'bg-purple-100 text-[#803688]'
+                  }`}
+                >
+                  <span className="text-xl">{unansweredCount > 0 ? '⚠️' : '🎓'}</span>
+                </div>
+                <div>
+                  <h3 className="font-display text-lg font-extrabold text-[#1B254B]">
+                    {unansweredCount > 0 ? 'End Exam With Unanswered Questions?' : 'End & Submit Exam?'}
+                  </h3>
+                  <p className="text-xs text-[#5A6B8C]">
+                    Student Mindset & Career Guidance Test
+                  </p>
+                </div>
+              </div>
+
+              {/* Warning Alert if questions are left unanswered */}
+              {unansweredCount > 0 ? (
+                <div className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-4">
+                  <div className="flex items-center gap-2 text-xs font-extrabold text-amber-800">
+                    <span>⚠️</span>
+                    <span>WARNING: SOME QUESTIONS ARE NOT SUBMITTED</span>
+                  </div>
+                  <p className="mt-1.5 text-xs text-amber-950 leading-relaxed font-medium">
+                    You have <strong>{unansweredCount} unanswered question{unansweredCount > 1 ? 's' : ''}</strong> out of {allItems.length} total questions.
+                    If you end the exam now, unanswered questions will not be evaluated and your report will be generated using only your answered responses.
+                  </p>
+
+                  <div className="mt-3 flex items-center gap-2 pt-2 border-t border-amber-200/60 text-xs font-bold">
+                    <span className="rounded-lg bg-emerald-100 text-emerald-800 px-2.5 py-1">
+                      ✓ Answered: {totalAnswered}
+                    </span>
+                    <span className="rounded-lg bg-rose-100 text-rose-800 px-2.5 py-1">
+                      ✗ Unanswered: {unansweredCount}
+                    </span>
+                  </div>
+                </div>
+              ) : (
+                <div className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
+                  <p className="text-xs text-emerald-950 font-semibold leading-relaxed">
+                    🎉 <strong>Great job!</strong> You have answered all <strong>{allItems.length}</strong> questions.
+                    Submitting will analyze your responses and generate your personalized guidance report.
+                  </p>
+                </div>
+              )}
+
+              <p className="mt-4 text-xs text-[#5A6B8C] leading-relaxed">
+                Are you sure you want to end the test and exit to your results?
               </p>
 
-              <div className="mt-6 flex justify-end gap-3">
+              <div className="mt-6 flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-100">
                 <button
                   type="button"
                   onClick={() => setShowSubmitModal(false)}
-                  className="rounded-xl border border-slate-200 px-4 py-2 text-xs font-bold text-slate-600 hover:bg-slate-50"
+                  className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-bold text-slate-700 hover:bg-slate-50 transition"
                 >
-                  Continue Test
+                  ← Continue Test
                 </button>
-                <button
-                  type="button"
-                  onClick={handleSubmitFinal}
-                  disabled={loading}
-                  className="rounded-xl bg-[#803688] px-5 py-2 text-xs font-extrabold text-white shadow hover:bg-[#6C2B74]"
-                >
-                  {loading ? 'Evaluating...' : 'Yes, Submit & View Report'}
-                </button>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowSubmitModal(false);
+                      setView('intro');
+                    }}
+                    className="rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs font-semibold text-slate-500 hover:bg-slate-50 hover:text-rose-600 transition"
+                    title="Exit to home screen"
+                  >
+                    Exit Without Submitting
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleSubmitFinal}
+                    disabled={loading}
+                    className="rounded-xl bg-rose-600 px-5 py-2.5 text-xs font-extrabold text-white shadow-md hover:bg-rose-700 transition active:scale-95 disabled:opacity-50"
+                  >
+                    {loading ? (
+                      <span className="flex items-center gap-1.5">
+                        <span className="h-3 w-3 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                        Submitting...
+                      </span>
+                    ) : (
+                      'Yes, End Exam & Submit'
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
