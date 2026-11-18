@@ -101,17 +101,17 @@ const FREQUENCY_SCALE = [
 ];
 
 const EFFECTIVENESS_SCALE = [
-  { val: '1', label: 'Highly Ineffective', color: '#E11D48', bg: '#FFE4E6' },
-  { val: '2', label: 'Somewhat Ineffective', color: '#EA580C', bg: '#FFEDD5' },
-  { val: '3', label: 'Effective', color: '#059669', bg: '#D1FAE5' },
-  { val: '4', label: 'Highly Effective', color: '#803688', bg: '#F5E6F8' },
+  { val: '1', label: 'Very Bad Idea', color: '#E11D48', bg: '#FFE4E6' },
+  { val: '2', label: 'Not Very Helpful', color: '#EA580C', bg: '#FFEDD5' },
+  { val: '3', label: 'Helpful & Good', color: '#059669', bg: '#D1FAE5' },
+  { val: '4', label: 'Super Effective', color: '#803688', bg: '#F5E6F8' },
 ];
 
 const PASSION_SCALE = [
   { val: '1', label: 'Not Interested', color: '#64748B', bg: '#F1F5F9' },
-  { val: '2', label: 'Slightly Curious', color: '#0284C7', bg: '#E0F2FE' },
+  { val: '2', label: 'A Little Curious', color: '#0284C7', bg: '#E0F2FE' },
   { val: '3', label: 'Interested', color: '#059669', bg: '#D1FAE5' },
-  { val: '4', label: 'Extremely Passionate', color: '#803688', bg: '#F5E6F8' },
+  { val: '4', label: 'Love It / Passionate', color: '#803688', bg: '#F5E6F8' },
 ];
 
 export default function PsychometricPage() {
@@ -158,7 +158,7 @@ export default function PsychometricPage() {
       setActiveSecIdx(0);
       setActiveQIdx(0);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to launch live psychometric exam');
+      setError(err instanceof Error ? err.message : 'Failed to launch test');
     } finally {
       setLoading(false);
     }
@@ -178,30 +178,32 @@ export default function PsychometricPage() {
   async function handleSelectAnswer(val: string) {
     if (!currentItem || !sessionId) return;
     setAnswers((prev) => ({ ...prev, [currentItem.id]: val }));
-    setSavingStatus('Saving...');
+
     try {
+      setSavingStatus('Saving...');
       await api.psychometric.saveAnswer({
         sessionId,
         item: currentItem as unknown as Record<string, unknown>,
         answer: val,
-        timeSpentMs: 1500,
       });
-      setSavingStatus('Saved ✓');
+      setSavingStatus('Saved');
+      setTimeout(() => setSavingStatus(''), 1500);
     } catch {
-      setSavingStatus('Saved locally');
+      setSavingStatus('Offline (saved locally)');
     }
   }
 
   async function handleSubmitFinal() {
     if (!sessionId) return;
     setLoading(true);
+    setError('');
     try {
       const rep = await api.psychometric.submit(sessionId);
       setReport(rep as unknown as ReportData);
       setView('report');
       setShowSubmitModal(false);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to submit psychometric exam');
+      setError(err instanceof Error ? err.message : 'Failed to submit test');
     } finally {
       setLoading(false);
     }
@@ -221,14 +223,14 @@ export default function PsychometricPage() {
           <div className="relative z-10 max-w-2xl">
             <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold backdrop-blur-md">
               <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-              Live AI Assessment Engine
+              For Students in Class 6 to 12 & Droppers
             </span>
             <h1 className="mt-4 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
-              Psychometric & Behavioral Diagnostic Battery
+              Student Mindset & Career Guidance Test
             </h1>
             <p className="mt-3 text-base text-purple-100/90 leading-relaxed">
-              Scientifically evaluates your cognitive agility, exam hall panic resilience, decision-making dilemmas,
-              and matches your unique psychological blueprint to optimal engineering and medical streams.
+              Discover your brain strengths, daily study habits, exam confidence, and best college career streams in just 15 minutes.
+              No complex formulas—just fun puzzles and real everyday school situations!
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -241,11 +243,11 @@ export default function PsychometricPage() {
                 {loading ? (
                   <>
                     <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#1E1B4B] border-t-transparent" />
-                    Generating Live AI Assessment...
+                    Preparing Your Test Questions...
                   </>
                 ) : (
                   <>
-                    <span>Start Live Assessment</span>
+                    <span>Start Your Test</span>
                     <span>→</span>
                   </>
                 )}
@@ -268,59 +270,59 @@ export default function PsychometricPage() {
 
         {/* Section Breakdown Grid */}
         <div className="mt-10">
-          <h2 className="text-xl font-extrabold text-[#003366]">What This Assessment Measures</h2>
+          <h2 className="text-xl font-extrabold text-[#003366]">What This Test Measures</h2>
           <p className="text-sm text-[#5A6B8C]">
-            Covering five internationally validated psychometric frameworks (CHC Theory, Big Five/HEXACO, SJT, ARS-30, and Holland RIASEC):
+            A complete 5-part assessment designed specifically for Indian school and competitive exam students:
           </p>
 
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 num: '01',
-                title: 'Cognitive Aptitude',
-                framework: 'Cattell–Horn–Carroll (CHC Theory)',
-                desc: 'Evaluates fluid induction, quantitative logic, abstract matrix patterns, and 3D spatial rotation under timed conditions.',
-                badge: 'Timed MCQs',
+                title: 'Brain Puzzles & Quick Logic',
+                framework: 'Mental Speed & Problem Solving',
+                desc: 'Fun number patterns, shape sequences, class rankings, and dice puzzles that test your quick thinking.',
+                badge: 'Brain Teasers',
                 color: '#3B82F6',
               },
               {
                 num: '02',
-                title: 'Behavioral & Work-Style',
-                framework: 'Big Five (OCEAN) + HEXACO',
-                desc: 'Measures conscientious study discipline, curiosity, emotional stability, and uncompromising academic integrity.',
-                badge: '5-Point Likert',
+                title: 'Daily Study Habits & Focus',
+                framework: 'How You Study at Home',
+                desc: 'How you handle mobile phone distractions, mistake notebooks, asking doubts, and helping classmates.',
+                badge: 'Daily Habits',
                 color: '#803688',
               },
               {
                 num: '03',
-                title: 'Situational Judgment (SJT)',
-                framework: 'Critical Decision Vignettes',
-                desc: 'Presents realistic exam-hall crises, negative marks triage, and peer integrity dilemmas with 5-point agreement scales.',
-                badge: 'Scenario Based',
+                title: 'What Would You Do? (Real Situations)',
+                framework: 'Smart Exam Decisions',
+                desc: 'Handling exam time running out, peer pressure to copy, and bouncing back after silly mistakes.',
+                badge: 'Real Scenarios',
                 color: '#D97706',
               },
               {
                 num: '04',
-                title: 'Anxiety & Resilience',
-                framework: 'Spielberger TAI & Cassidy ARS-30',
-                desc: 'Distinguishes between productive exam adrenaline and somatic panic, assessing your bounce-back speed after tough tests.',
-                badge: 'Stress Meter',
+                title: 'Exam Tension & Confidence',
+                framework: 'Staying Cool Under Pressure',
+                desc: 'Understanding pre-exam butterflies, blanking out on formulas, and recovering fast after low marks.',
+                badge: 'Exam Composure',
                 color: '#E11D48',
               },
               {
                 num: '05',
-                title: 'Career & Stream Profiler',
-                framework: 'Holland RIASEC Model',
-                desc: 'Maps your natural interests to specialized fields like AI, Robotics, Clinical Surgery, Biotechnology, or Pure Research.',
-                badge: 'Branch Fit %',
+                title: 'Your Interests & Dream Careers',
+                framework: 'Discover Your Best College Branch',
+                desc: 'Explore what you love most: Coding & Games, Robots, Doctors/Medicine, Space Rockets (ISRO), or Business.',
+                badge: 'Career Match',
                 color: '#059669',
               },
               {
                 num: '06',
-                title: 'Faculty Mentorship View',
-                framework: 'Behavioral Warning Alerts',
-                desc: 'Provides professors and mentors with psychological context (e.g. high-ability students who freeze on negative marking).',
-                badge: 'Actionable',
+                title: 'Teacher & Mentor Guidance',
+                framework: 'Friendly Advice for Parents & Teachers',
+                desc: 'Clear, personalized study tips and guidance notes to help your teachers and mentors guide you better.',
+                badge: 'Mentor Tips',
                 color: '#4F46E5',
               },
             ].map((card) => (
@@ -366,7 +368,7 @@ export default function PsychometricPage() {
               </span>
               {exam.generatedByAi && (
                 <span className="rounded bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700">
-                  LIVE AI FRESH
+                  LIVE FRESH
                 </span>
               )}
             </div>
@@ -432,7 +434,7 @@ export default function PsychometricPage() {
             </div>
             {isCognitive && (
               <span className="inline-flex items-center gap-1 text-xs font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full">
-                ⏱ Timed Problem Solving
+                ⏱ Quick Thinking Puzzle
               </span>
             )}
           </div>
@@ -442,7 +444,7 @@ export default function PsychometricPage() {
             <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50/70 p-5">
               <div className="flex items-center gap-2 text-xs font-extrabold text-amber-800">
                 <span>📋</span>
-                <span>REALISTIC ACADEMIC SCENARIO</span>
+                <span>EVERYDAY SCHOOL & EXAM SITUATION</span>
               </div>
               <p className="mt-2 text-sm text-amber-950 leading-relaxed font-medium">
                 {currentItem.scenarioText}
@@ -464,10 +466,10 @@ export default function PsychometricPage() {
               <div>
                 <div className="mb-3 flex items-center justify-between">
                   <p className="text-xs font-bold tracking-wide uppercase text-[#8A97AC]">
-                    Select your level of agreement:
+                    How much do you agree with this statement?
                   </p>
                   <span className="text-[11px] font-semibold text-[#803688] bg-[#F5E6F8] px-2 py-0.5 rounded-full">
-                    Agreement Rating
+                    Your Opinion
                   </span>
                 </div>
                 <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-5">
@@ -512,8 +514,10 @@ export default function PsychometricPage() {
                 <div>
                   <p className="mb-3 text-xs font-bold tracking-wide uppercase text-[#8A97AC]">
                     {currentItem.itemType === 'SCENARIO_ACTION_MCQ'
-                      ? 'Choose your immediate reaction / course of action:'
-                      : 'Select the best option:'}
+                      ? 'What would you do in this situation?'
+                      : currentItem.itemType === 'PREFERENCE_CHOICE'
+                      ? 'Which approach best describes you?'
+                      : 'Choose the correct answer:'}
                   </p>
                   <div className="grid grid-cols-1 gap-3">
                     {currentItem.options.map((opt) => {
@@ -548,7 +552,7 @@ export default function PsychometricPage() {
             {currentItem.itemType === 'FREQUENCY_SCALE' && (
               <div>
                 <p className="mb-3 text-xs font-bold tracking-wide uppercase text-[#8A97AC]">
-                  How frequently does this occur in your routine?
+                  How often does this happen with you?
                 </p>
                 <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-5">
                   {FREQUENCY_SCALE.map((opt) => {
@@ -588,7 +592,7 @@ export default function PsychometricPage() {
             {currentItem.itemType === 'EFFECTIVENESS_SCALE' && (
               <div>
                 <p className="mb-3 text-xs font-bold tracking-wide uppercase text-[#8A97AC]">
-                  Rate the effectiveness of this strategy:
+                  What do you think of this idea / strategy?
                 </p>
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
                   {EFFECTIVENESS_SCALE.map((opt) => {
@@ -598,25 +602,20 @@ export default function PsychometricPage() {
                         key={opt.val}
                         type="button"
                         onClick={() => handleSelectAnswer(opt.val)}
-                        className={`flex items-center justify-between sm:justify-center gap-3 rounded-2xl p-4 text-center transition ${
+                        className={`flex items-center justify-between rounded-2xl p-4 transition ${
                           selected
-                            ? 'ring-2 ring-offset-2 ring-purple-600 font-extrabold shadow-sm'
+                            ? 'ring-2 ring-offset-2 ring-[#803688] font-extrabold shadow-sm'
                             : 'border border-[#E2E8F0] bg-white hover:bg-slate-50'
                         }`}
                         style={{ backgroundColor: selected ? opt.bg : undefined }}
                       >
-                        <span
-                          className="flex h-6 w-6 items-center justify-center rounded-full text-xs font-extrabold"
-                          style={{
-                            backgroundColor: selected ? opt.color : '#F1F5F9',
-                            color: selected ? '#FFFFFF' : '#64748B',
-                          }}
-                        >
-                          {opt.val}
-                        </span>
                         <span className="text-xs font-bold" style={{ color: selected ? opt.color : '#334155' }}>
                           {opt.label}
                         </span>
+                        <span
+                          className="h-3 w-3 rounded-full"
+                          style={{ backgroundColor: selected ? opt.color : '#CBD5E1' }}
+                        />
                       </button>
                     );
                   })}
@@ -625,10 +624,10 @@ export default function PsychometricPage() {
             )}
 
             {/* 5. PASSION & INTEREST SCALE */}
-            {(currentItem.itemType === 'PASSION_SCALE' || currentItem.itemType === 'RIASEC_RATING') && (
+            {currentItem.itemType === 'PASSION_SCALE' && (
               <div>
                 <p className="mb-3 text-xs font-bold tracking-wide uppercase text-[#8A97AC]">
-                  Rate your genuine interest / passion in this area:
+                  How interested are you in this activity or field?
                 </p>
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
                   {PASSION_SCALE.map((opt) => {
@@ -638,21 +637,15 @@ export default function PsychometricPage() {
                         key={opt.val}
                         type="button"
                         onClick={() => handleSelectAnswer(opt.val)}
-                        className={`flex items-center justify-between sm:justify-center gap-3 rounded-2xl p-4 text-center transition ${
+                        className={`flex flex-col items-center justify-center rounded-2xl p-4 text-center transition ${
                           selected
-                            ? 'ring-2 ring-offset-2 ring-[#803688] font-extrabold shadow-sm'
+                            ? 'ring-2 ring-offset-2 ring-purple-600 font-extrabold shadow-sm'
                             : 'border border-[#E2E8F0] bg-white hover:bg-slate-50'
                         }`}
                         style={{ backgroundColor: selected ? opt.bg : undefined }}
                       >
-                        <span
-                          className="flex h-6 w-6 items-center justify-center rounded-full text-xs font-extrabold"
-                          style={{
-                            backgroundColor: selected ? opt.color : '#F1F5F9',
-                            color: selected ? '#FFFFFF' : '#64748B',
-                          }}
-                        >
-                          {opt.val}
+                        <span className="text-xl mb-1">
+                          {opt.val === '1' ? '⚪' : opt.val === '2' ? '🔍' : opt.val === '3' ? '⭐' : '🔥'}
                         </span>
                         <span className="text-xs font-bold" style={{ color: selected ? opt.color : '#334155' }}>
                           {opt.label}
@@ -700,7 +693,7 @@ export default function PsychometricPage() {
             >
               {activeQIdx < currentSection.items.length - 1 || activeSecIdx < exam.sections.length - 1
                 ? 'Next Question →'
-                : 'Review & Submit'}
+                : 'Review & Finish Test'}
             </button>
           </div>
         </div>
@@ -709,10 +702,10 @@ export default function PsychometricPage() {
         {showSubmitModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
             <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl">
-              <h3 className="font-display text-lg font-extrabold text-[#1B254B]">Submit Psychometric Assessment?</h3>
+              <h3 className="font-display text-lg font-extrabold text-[#1B254B]">Finish Your Assessment?</h3>
               <p className="mt-2 text-xs text-[#5A6B8C] leading-relaxed">
                 You have answered <strong>{totalAnswered}</strong> out of {allItems.length} questions.
-                Submitting will analyze your responses and generate your multi-dimensional psychological and career report.
+                Submitting will generate your personalized mindset, study habit, and career guidance report!
               </p>
 
               <div className="mt-6 flex justify-end gap-3">
@@ -751,13 +744,13 @@ export default function PsychometricPage() {
             <div>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold backdrop-blur-md">
                 <span>🎓</span>
-                <span>Psychometric & Behavioral Profile</span>
+                <span>Student Mindset & Career Guidance Report</span>
               </span>
               <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight">
-                {user?.name || 'Student'} Diagnostic Report
+                {user?.name || 'Student'}&apos;s Personal Discovery Report
               </h1>
               <p className="mt-1 text-xs text-purple-200">
-                Target: {user?.targetExam || 'JEE / NEET'} · Completed on{' '}
+                Target: {user?.targetExam || 'School / JEE / NEET'} · Completed on{' '}
                 {new Date(report.createdAt).toLocaleDateString()}
               </p>
             </div>
@@ -765,7 +758,7 @@ export default function PsychometricPage() {
             <div className="flex items-center gap-3">
               <div className="rounded-2xl bg-white/10 p-3.5 text-center backdrop-blur-sm border border-white/10">
                 <span className="block text-[10px] font-bold tracking-wider uppercase text-purple-200">
-                  Holland Code
+                  Career Match Code
                 </span>
                 <span className="font-mono text-2xl font-extrabold text-white">{report.riasecCode}</span>
               </div>
@@ -774,7 +767,7 @@ export default function PsychometricPage() {
                 onClick={() => setView('intro')}
                 className="rounded-xl bg-white/15 px-4 py-3 text-xs font-bold text-white transition hover:bg-white/25"
               >
-                Retake Exam
+                Retake Test
               </button>
             </div>
           </div>
@@ -783,25 +776,25 @@ export default function PsychometricPage() {
         {/* 4 High-Level Metric Tiles */}
         <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
           <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-sm">
-            <span className="text-[11px] font-bold text-[#8A97AC] uppercase tracking-wider">Cognitive Aptitude</span>
+            <span className="text-[11px] font-bold text-[#8A97AC] uppercase tracking-wider">Brain Sharpness</span>
             <div className="mt-2 flex items-baseline gap-1">
               <span className="text-3xl font-extrabold text-[#1B254B]">{report.cognitivePercentile}</span>
               <span className="text-xs font-bold text-[#803688]">th %ile</span>
             </div>
-            <p className="mt-1 text-[11px] text-[#5A6B8C]">CHC Fluid Reasoning Benchmarked</p>
+            <p className="mt-1 text-[11px] text-[#5A6B8C]">Speed & quick logic thinking</p>
           </div>
 
           <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-sm">
-            <span className="text-[11px] font-bold text-[#8A97AC] uppercase tracking-wider">Exam Resilience</span>
+            <span className="text-[11px] font-bold text-[#8A97AC] uppercase tracking-wider">Bounce-Back Power</span>
             <div className="mt-2 flex items-baseline gap-1">
               <span className="text-3xl font-extrabold text-emerald-600">{report.academicResilience}</span>
               <span className="text-xs font-bold text-slate-400">/ 100</span>
             </div>
-            <p className="mt-1 text-[11px] text-[#5A6B8C]">Bounce-back after low marks</p>
+            <p className="mt-1 text-[11px] text-[#5A6B8C]">Cheering up after low marks</p>
           </div>
 
           <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-sm">
-            <span className="text-[11px] font-bold text-[#8A97AC] uppercase tracking-wider">Exam Anxiety</span>
+            <span className="text-[11px] font-bold text-[#8A97AC] uppercase tracking-wider">Exam Hall Calmness</span>
             <div className="mt-2 flex items-baseline gap-1">
               <span
                 className={`text-3xl font-extrabold ${
@@ -812,48 +805,48 @@ export default function PsychometricPage() {
                     : 'text-emerald-600'
                 }`}
               >
-                {report.testAnxietyIndex}
+                {100 - report.testAnxietyIndex}
               </span>
               <span className="text-xs font-bold text-slate-400">/ 100</span>
             </div>
             <p className="mt-1 text-[11px] text-[#5A6B8C]">
               {report.testAnxietyIndex > 65
-                ? 'High Panic Tendency'
+                ? 'Gets nervous easily'
                 : report.testAnxietyIndex > 45
-                ? 'Manageable Adrenaline'
-                : 'Calm Exam Composure'}
+                ? 'Normal exam butterflies'
+                : 'Cool and steady composure'}
             </p>
           </div>
 
           <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-sm">
-            <span className="text-[11px] font-bold text-[#8A97AC] uppercase tracking-wider">Academic Integrity</span>
+            <span className="text-[11px] font-bold text-[#8A97AC] uppercase tracking-wider">Honesty & Fair Play</span>
             <div className="mt-2 flex items-baseline gap-1">
               <span className="text-3xl font-extrabold text-[#803688]">{report.honestyHumility}</span>
               <span className="text-xs font-bold text-slate-400">/ 100</span>
             </div>
-            <p className="mt-1 text-[11px] text-[#5A6B8C]">HEXACO H Factor (Anti-Cheating)</p>
+            <p className="mt-1 text-[11px] text-[#5A6B8C]">Refusing to cheat or copy</p>
           </div>
         </div>
 
         {/* Detailed Breakdowns Grid */}
         <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
-          {/* Card 1: Cognitive Aptitude Hexagon / Bars */}
+          {/* Card 1: Cognitive Aptitude Bars */}
           <div className="rounded-3xl border border-[#E2E8F0] bg-white p-6 shadow-sm">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <h3 className="font-display text-base font-bold text-[#1B254B]">
-                Cognitive Aptitude Profile (CHC Theory)
+                How Your Brain Solves Puzzles
               </h3>
               <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">
-                Mental Speed & Power
+                Quick Thinking
               </span>
             </div>
 
             <div className="mt-6 space-y-4">
               {[
-                { label: 'Logical Deduction & Syllogisms', val: report.cognitiveBreakdown.logical, color: '#3B82F6' },
-                { label: 'Numerical Logic & Series', val: report.cognitiveBreakdown.numerical, color: '#803688' },
-                { label: 'Abstract Matrix Pattern Induction', val: report.cognitiveBreakdown.abstract, color: '#059669' },
-                { label: '3D Spatial Visualization & Rotation', val: report.cognitiveBreakdown.spatial, color: '#D97706' },
+                { label: 'Logical Deductions & Rankings', val: report.cognitiveBreakdown.logical, color: '#3B82F6' },
+                { label: 'Number Patterns & Math Logic', val: report.cognitiveBreakdown.numerical, color: '#803688' },
+                { label: 'Shape Sequences & Diagram Puzzles', val: report.cognitiveBreakdown.abstract, color: '#059669' },
+                { label: '3D Shapes & Dice Visualization', val: report.cognitiveBreakdown.spatial, color: '#D97706' },
               ].map((row) => (
                 <div key={row.label}>
                   <div className="flex justify-between text-xs font-bold text-[#1B254B] mb-1">
@@ -875,20 +868,20 @@ export default function PsychometricPage() {
           <div className="rounded-3xl border border-[#E2E8F0] bg-white p-6 shadow-sm">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <h3 className="font-display text-base font-bold text-[#1B254B]">
-                Behavioral & Personality Dimensions (OCEAN)
+                Your Study Style & Focus Habits
               </h3>
               <span className="text-xs font-bold text-purple-600 bg-purple-50 px-2 py-0.5 rounded">
-                Work-Style
+                Daily Routine
               </span>
             </div>
 
             <div className="mt-6 space-y-4">
               {[
-                { label: 'Conscientiousness (Study Discipline & Routine)', val: report.oceanProfile.conscientiousness, color: '#803688' },
-                { label: 'Openness to Complex Problem Solving', val: report.oceanProfile.openness, color: '#3B82F6' },
-                { label: 'Emotional Stability Under Exam Stress', val: report.oceanProfile.emotionalStability, color: '#059669' },
-                { label: 'Agreeableness & Peer Knowledge Sharing', val: report.oceanProfile.agreeableness, color: '#0284C7' },
-                { label: 'Extraversion & Active Doubt Clearing', val: report.oceanProfile.extraversion, color: '#E11D48' },
+                { label: 'Study Discipline & Homework Routine', val: report.oceanProfile.conscientiousness, color: '#803688' },
+                { label: 'Curiosity to Learn New Concepts', val: report.oceanProfile.openness, color: '#3B82F6' },
+                { label: 'Staying Calm Under Test Pressure', val: report.oceanProfile.emotionalStability, color: '#059669' },
+                { label: 'Helping Friends & Sharing Notes', val: report.oceanProfile.agreeableness, color: '#0284C7' },
+                { label: 'Asking Doubts & Speaking Up in Class', val: report.oceanProfile.extraversion, color: '#E11D48' },
               ].map((row) => (
                 <div key={row.label}>
                   <div className="flex justify-between text-xs font-bold text-[#1B254B] mb-1">
@@ -907,31 +900,31 @@ export default function PsychometricPage() {
           </div>
         </div>
 
-        {/* Situational Judgment & Exam Anxiety Analysis */}
+        {/* Situational Judgment & Mentor Advice Analysis */}
         <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
           {/* SJT Competency Card */}
           <div className="rounded-3xl border border-[#E2E8F0] bg-white p-6 shadow-sm">
             <h3 className="font-display text-base font-bold text-[#1B254B] border-b border-slate-100 pb-3">
-              Situational Judgment & Exam Room Triage (SJT)
+              Handling Tricky School Situations
             </h3>
             <div className="mt-4 space-y-3">
               <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
                 <div className="flex justify-between text-xs font-bold text-[#1B254B]">
-                  <span>Tactical Exam Decision Making</span>
+                  <span>Smart Exam Decisions</span>
                   <span className="text-[#803688]">{report.sjtCompetencies.decisionMaking}%</span>
                 </div>
                 <p className="mt-1 text-xs text-[#5A6B8C]">
-                  Ability to abandon time-sink questions and triage easier questions under ticking clocks.
+                  Skipping time-wasting questions and solving easier questions first to grab guaranteed marks.
                 </p>
               </div>
 
               <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
                 <div className="flex justify-between text-xs font-bold text-[#1B254B]">
-                  <span>Academic Ethics & Anti-Cheating</span>
+                  <span>Honesty & Fair Play</span>
                   <span className="text-emerald-600">{report.sjtCompetencies.academicEthics}%</span>
                 </div>
                 <p className="mt-1 text-xs text-[#5A6B8C]">
-                  Firm refusal to participate in leaked keys, peer whispering, or false progress claims.
+                  Saying no to cheating, leaked test papers, and preparing with true self-respect.
                 </p>
               </div>
             </div>
@@ -941,16 +934,16 @@ export default function PsychometricPage() {
           <div className="rounded-3xl border border-purple-200 bg-gradient-to-br from-[#FAF5FF] to-white p-6 shadow-sm">
             <div className="flex items-center gap-2 text-xs font-bold text-[#803688]">
               <span>👨‍🏫</span>
-              <span>PROFESSOR & MENTOR DIRECTIVE</span>
+              <span>TEACHER & MENTOR DIRECTIVE</span>
             </div>
             <h3 className="mt-2 font-display text-base font-bold text-[#1B254B]">
-              Institutional Mentorship Note
+              Mentor Guidance for You
             </h3>
             <p className="mt-3 text-xs leading-relaxed text-[#334155] font-medium bg-white p-4 rounded-2xl border border-purple-100 shadow-sm">
               &quot;{report.facultyAdvice}&quot;
             </p>
             <div className="mt-4 flex items-center justify-between text-xs font-bold">
-              <span className="text-[#5A6B8C]">Burnout Risk Indicator:</span>
+              <span className="text-[#5A6B8C]">Study Stress Level:</span>
               <span
                 className={`rounded-full px-2.5 py-0.5 text-xs font-extrabold uppercase ${
                   report.burnoutRisk === 'high'
@@ -960,7 +953,7 @@ export default function PsychometricPage() {
                     : 'bg-emerald-100 text-emerald-700'
                 }`}
               >
-                {report.burnoutRisk} Risk
+                {report.burnoutRisk === 'high' ? 'High Stress' : report.burnoutRisk === 'moderate' ? 'Moderate Stress' : 'Balanced & Calm'}
               </span>
             </div>
           </div>
@@ -971,14 +964,14 @@ export default function PsychometricPage() {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="font-display text-xl font-extrabold text-[#003366]">
-                Recommended Engineering & Medical Streams
+                Your Best Matching College & Career Streams
               </h2>
               <p className="text-xs text-[#5A6B8C]">
-                Calculated by cross-matching your Holland RIASEC code ({report.riasecCode}) with your cognitive reasoning patterns:
+                Calculated based on what you enjoy doing and how your brain solves problems:
               </p>
             </div>
             <span className="text-xs font-bold text-[#803688] bg-[#F5E6F8] px-3 py-1 rounded-full">
-              Holland RIASEC Fit
+              Stream Fit
             </span>
           </div>
 
@@ -1002,7 +995,7 @@ export default function PsychometricPage() {
                 <p className="mt-1 text-xs text-[#5A6B8C] leading-relaxed">{stream.description}</p>
 
                 <div className="mt-4 rounded-xl bg-purple-50/70 p-3 text-xs text-[#803688]">
-                  <strong>Target Preparation Focus:</strong> {stream.recommendedFocus}
+                  <strong>What to focus on in school:</strong> {stream.recommendedFocus}
                 </div>
               </div>
             ))}
@@ -1012,10 +1005,10 @@ export default function PsychometricPage() {
         {/* Personalized Study Habit Directives */}
         <div className="mt-10 rounded-3xl border border-[#E2E8F0] bg-white p-6 sm:p-8 shadow-sm">
           <h3 className="font-display text-lg font-bold text-[#1B254B]">
-            Actionable Psychological & Study Directives
+            Simple Study Tips Just for You
           </h3>
           <p className="text-xs text-[#5A6B8C] mt-1">
-            Tailored study habits based on your anxiety profile and conscientiousness levels:
+            Helpful daily habits tailored to your study style and exam composure:
           </p>
 
           <div className="mt-6 space-y-3">

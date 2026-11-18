@@ -446,46 +446,46 @@ export class PsychometricService {
   ): StreamFit[] {
     const list: StreamFit[] = [
       {
-        stream: 'Computer Science, AI & Software Systems',
+        stream: 'Computer Science, AI & Game Development',
         category: 'Engineering',
         matchPct: Math.min(98, Math.round(riasec.I * 0.4 + riasec.C * 0.3 + cog.logical * 0.2 + 15)),
-        description: 'Architecting intelligent algorithms, data systems, deep neural networks, and scalable software backends.',
-        recommendedFocus: 'Focus on Discrete Mathematics, Advanced Algebra, and Logic Induction in JEE preparation.',
+        description: 'Building mobile apps, smart AI software, computer games, and solving logic puzzles.',
+        recommendedFocus: 'Strengthen Maths logic, algebra, and practice quick problem-solving puzzles.',
       },
       {
-        stream: 'Robotics, Mechanical & Aerospace Engineering',
+        stream: 'Robotics, Mechanical & Automobile Engineering',
         category: 'Engineering',
         matchPct: Math.min(97, Math.round(riasec.R * 0.45 + riasec.I * 0.3 + cog.spatial * 0.2 + 10)),
-        description: 'Designing physical robotic actuators, propulsion dynamics, flight mechanics, and mechatronic systems.',
-        recommendedFocus: 'Master Classical Mechanics, Rotational Dynamics, and Vectors in Physics.',
+        description: 'Designing robots, electric cars, drones, and understanding how machines and engines work.',
+        recommendedFocus: 'Focus on Physics mechanics, motion, force, and practical science experiments.',
       },
       {
-        stream: 'Clinical Medicine, Surgery & Biomedical Care (MBBS)',
+        stream: 'Doctor & Healthcare (MBBS / Medical Sciences)',
         category: 'Medical',
         matchPct: Math.min(96, Math.round(riasec.I * 0.35 + riasec.S * 0.35 + riasec.R * 0.2 + ocean.conscientiousness * 0.1)),
-        description: 'Patient diagnosis, physiological anatomy, surgical precision, pathology, and healthcare leadership.',
-        recommendedFocus: 'High-speed factual recall and conceptual depth in Human Physiology and Organic Chemistry.',
+        description: 'Treating patients, studying human biology and medicine, and saving lives as a doctor or surgeon.',
+        recommendedFocus: 'Master Biology diagrams, human physiology, and thorough NCERT textbook revision.',
       },
       {
-        stream: 'Biotechnology, Genetic Engineering & Bioinformatics',
-        category: 'Interdisciplinary',
-        matchPct: Math.min(95, Math.round(riasec.I * 0.45 + riasec.R * 0.25 + cog.abstract * 0.2 + 10)),
-        description: 'CRISPR gene editing, molecular therapeutics, protein engineering, and computational biology.',
-        recommendedFocus: 'Deep dive into Biomolecules, Genetics, and Physical Chemistry equilibrium.',
+        stream: 'Space Science & Aeronautical Engineering (ISRO / Aerospace)',
+        category: 'Engineering',
+        matchPct: Math.min(96, Math.round(riasec.I * 0.5 + riasec.R * 0.25 + cog.spatial * 0.2 + 5)),
+        description: 'Designing space rockets, satellites, telescopes, and exploring planets and astronomy with ISRO.',
+        recommendedFocus: 'Build strong fundamentals in Physics, gravitation, optics, and 3D geometry.',
       },
       {
-        stream: 'Electronics, VLSI & Micro-Robotics',
+        stream: 'Electronics, Smart Gadgets & Microchips',
         category: 'Engineering',
         matchPct: Math.min(94, Math.round(riasec.R * 0.35 + riasec.I * 0.35 + cog.numerical * 0.2 + 10)),
-        description: 'Semiconductor device physics, microprocessor architecture, quantum computing chips, and embedded IoT.',
-        recommendedFocus: 'Electrodynamics, Modern Physics, and Semiconductor electronics.',
+        description: 'Creating smartphone hardware, microchips, drone circuits, and smart electronic devices.',
+        recommendedFocus: 'Focus on electricity, magnetism, semiconductor physics, and circuit logic.',
       },
       {
-        stream: 'Pure Scientific Research & Theoretical Physics',
-        category: 'Research',
-        matchPct: Math.min(96, Math.round(riasec.I * 0.5 + ocean.openness * 0.3 + cog.abstract * 0.2)),
-        description: 'Unraveling cosmological principles, quantum theory, and mathematical conjectures in premier research institutes.',
-        recommendedFocus: 'Derivation-from-first-principles and unconventional multi-concept JEE Advanced problems.',
+        stream: 'Business, Startups & Management',
+        category: 'Interdisciplinary',
+        matchPct: Math.min(95, Math.round(riasec.E * 0.45 + riasec.C * 0.3 + ocean.conscientiousness * 0.2 + 10)),
+        description: 'Starting your own company, leading teams, understanding business, marketing, and finance.',
+        recommendedFocus: 'Develop strong communication, quantitative aptitude, and project planning skills.',
       },
     ];
 
@@ -496,39 +496,39 @@ export class PsychometricService {
     const tips: string[] = [];
 
     if (data.anxiety > 60) {
-      tips.push('Exam-Hall Stress Protocol: Practice the 4-7-8 breathing technique before opening test booklets. If the first 2 questions look tough, immediately skip to familiar confidence-builder topics.');
+      tips.push('Exam Tension Control: Take 3 slow, deep breaths before reading the question paper. If the first question looks scary, do not panic—skip it immediately and solve the easiest questions first to build your confidence!');
     } else {
-      tips.push('Stress Resilience: You demonstrate steady composure under testing pressure. Maintain this baseline by simulating strict timed exam conditions weekly.');
+      tips.push('Calm Exam Composure: You stay cool and composed under exam conditions. Keep practicing with a timer at home to maintain this calm focus.');
     }
 
     if (data.conscientiousness > 75) {
-      tips.push('Study Discipline: Exceptional daily discipline. Be mindful not to over-study during final revision weeks; schedule mandatory 45-minute daily physical exercise.');
+      tips.push('Excellent Daily Discipline: You have great study consistency. Remember to take a 15-minute break every 2 hours and get at least 7 hours of good sleep before exam days.');
     } else {
-      tips.push('Pacing & Structure: Break long study blocks into 50-minute Pomodoro sprints followed by 10-minute active recall walks to counter procrastination.');
+      tips.push('Phone & Distraction Tip: Keep your phone in another room or turn on Do Not Disturb for 45-minute focused study sessions. Small uninterrupted study bursts work wonders!');
     }
 
     if (data.cognitive > 80) {
-      tips.push('Cognitive Agility: Your fluid analytical reasoning is top-tier. Prioritize multi-concept JEE Advanced / high-difficulty NEET linkage questions to maximize your rank ceiling.');
+      tips.push('Quick Brain & Problem Solving: Your logical thinking is very sharp! Challenge yourself with tricky Olympiad/Advanced puzzle questions to push your potential.');
     } else {
-      tips.push('Foundation Fortification: Focus on mastering NCERT fundamentals and standard PYQs before attempting esoteric advanced problems.');
+      tips.push('Building Strong Basics: Focus on reading NCERT chapter examples and practicing basic exercise questions before jumping into difficult reference books.');
     }
 
-    tips.push('Error Analysis Routine: Dedicate 30 minutes after every mock exam strictly to log unforced negative marks in your personal error journal.');
+    tips.push('The Mistake Notebook Habit: Maintain a 100-page notebook strictly for questions you got wrong. Re-solving them on Sundays guarantees you will never repeat the same silly mistake in final exams.');
 
     return tips;
   }
 
   private generateFacultyAdvice(data: { anxiety: number; cognitive: number; resilience: number; honesty: number }): string {
     if (data.anxiety > 65 && data.cognitive > 75) {
-      return 'High-Potential / High-Anxiety Profile: Student possesses top-tier analytical ability but risks underperforming due to exam-hall somatic stress. Mentors should encourage without score-pressure and practice rapid-skipping techniques.';
+      return 'Sharp Mind but Needs Encouragement: Student has excellent problem-solving ability, but can get nervous under exam pressure. Teachers and parents should focus on positive praise and teach question-skipping strategy without scolding on marks.';
     }
     if (data.cognitive > 75 && data.resilience > 70) {
-      return 'Prime Top-Rank Contender: Excellent problem-solving stamina and psychological resilience. Provide advanced problem sets and competitive peer discussions.';
+      return 'High Achiever Potential: Strong logical thinking and great bounce-back attitude after difficult tests. Provide challenging practice problems and mentor for top ranks.';
     }
     if (data.anxiety <= 50 && data.resilience > 70) {
-      return 'Mentally Resilient & Grounded: Stable emotional composure. Guide on systematic revision and formula retrieval speed.';
+      return 'Calm & Steady Learner: Shows balanced emotional maturity and good study dedication. Regular syllabus revision will yield consistent high performance.';
     }
-    return 'Balanced Academic Learner: Benefits from structured weekly milestones and positive feedback reinforcement on concept masteries.';
+    return 'Enthusiastic Learner: Benefits from friendly encouragement, clear daily study timetables, and celebrating small improvements in weekly tests.';
   }
 }
 
