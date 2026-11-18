@@ -8,6 +8,7 @@ import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchLis
 import {
   facultyAcceptDraftQuestion,
   facultyDeleteQuestion,
+  facultyDownloadExcel,
   facultyDownloadPdf,
   facultyGenerateDraftQuestion,
   facultyUpdateQuestion,
@@ -28,6 +29,9 @@ function isOptionSelected(correctAnswer: string, letter: string): boolean {
 
 /** Shared renderer used by both saved question cards and Sparkle draft candidate previews. */
 function QuestionContent({ item }: { item: FacultyPaperItem }) {
+  const isPsychometric = item.subject === 'Psychometric';
+  const isCognitive = isPsychometric && item.topic.toLowerCase().includes('cognitive');
+
   return (
     <>
       <div className="text-[14px] leading-[1.65] text-[#0F172A]">
@@ -47,8 +51,8 @@ function QuestionContent({ item }: { item: FacultyPaperItem }) {
       {item.questionType !== 'integer' && item.options.length > 0 && (
         <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
           {item.options.map((opt, idx) => {
-            const letter = LETTERS[idx]!;
-            const isCorrect = isOptionSelected(item.correctAnswer, letter);
+            const letter = LETTERS[idx] || String(idx + 1);
+            const isCorrect = (!isPsychometric || isCognitive) && isOptionSelected(item.correctAnswer, letter);
             return (
               <div key={letter} className={cx('flex items-baseline gap-2 rounded-xl border border-[#CBD5E1] bg-white px-2.5 py-2 text-[13px] font-medium text-[#0F172A] [print-color-adjust:exact]', isCorrect && 'border-[#86EFAC] bg-[#F0FDF4]')}>
                 <span className="font-extrabold text-[#64748B]">{letter})</span>
@@ -59,11 +63,18 @@ function QuestionContent({ item }: { item: FacultyPaperItem }) {
         </div>
       )}
 
-      <div className="mt-2.5 inline-block rounded-lg border border-[#BBF7D0] bg-[#F0FDF4] px-2.5 py-1.5 text-[13px] font-bold text-[#15803D] [print-color-adjust:exact]">Answer: {item.correctAnswer}</div>
+      {isPsychometric ? (
+        <div className="mt-2.5 rounded-lg border border-[#BBF7D0] bg-[#F0FDF4] px-2.5 py-1.5 text-[13px] text-[#15803D] [print-color-adjust:exact]">
+          <strong className="text-[#003366]">Behavioral Rubric / Trait Indicator: </strong>
+          <span className="font-semibold">{item.correctAnswer}</span>
+        </div>
+      ) : (
+        <div className="mt-2.5 inline-block rounded-lg border border-[#BBF7D0] bg-[#F0FDF4] px-2.5 py-1.5 text-[13px] font-bold text-[#15803D] [print-color-adjust:exact]">Answer: {item.correctAnswer}</div>
+      )}
 
       {item.explanation && (
         <div className="mt-2.5 rounded-lg border-l-[3px] border-l-[#94A3B8] bg-[#F8FAFC] px-3 py-2.5 text-[13px] leading-relaxed text-[#334155]">
-          <strong>Solution: </strong>
+          <strong>{isPsychometric ? 'AI Psychological & Trait Evaluation: ' : 'Solution: '}</strong>
           <MathText text={item.explanation} />
         </div>
       )}
@@ -528,6 +539,7 @@ export function FacultyPaperPreview({
   const [deletingPaper, setDeletingPaper] = useState(false);
   const [addSparkleOpen, setAddSparkleOpen] = useState(false);
   const [downloadingPdf, setDownloadingPdf] = useState<string | null>(null);
+  const [downloadingExcel, setDownloadingExcel] = useState(false);
 
   async function handleDownloadPdf(mode: 'questions' | 'solutions' | 'key') {
     setDownloadingPdf(mode);
@@ -537,6 +549,17 @@ export function FacultyPaperPreview({
       onError(err instanceof Error ? err.message : 'Failed to download PDF');
     } finally {
       setDownloadingPdf(null);
+    }
+  }
+
+  async function handleDownloadExcel() {
+    setDownloadingExcel(true);
+    try {
+      await facultyDownloadExcel(paper.id);
+    } catch (err) {
+      onError(err instanceof Error ? err.message : 'Excel export failed');
+    } finally {
+      setDownloadingExcel(false);
     }
   }
 
@@ -582,11 +605,25 @@ export function FacultyPaperPreview({
             <h2 className="font-display text-[18px] font-extrabold leading-tight tracking-[-0.02em] text-[#003366]">{paper.title}</h2>
           </div>
           <p className="mt-1 text-[13px] font-medium text-[#5A6B8C]">
-            {paper.examType === 'NEET' ? 'NEET-UG' : `JEE ${paper.examType}`} · {paper.difficulty}
+            {paper.examType === 'Psychometric'
+              ? 'Psychometric & Behavioral Assessment'
+              : paper.examType === 'NEET'
+              ? 'NEET-UG'
+              : `JEE ${paper.examType}`} · {paper.difficulty}
             {!isGenerating && ` · ${paper.questionCount} Questions`}
           </p>
           {paper.status === 'ready' && (
             <div className="mt-3 flex flex-wrap gap-2">
+              {paper.examType === 'Psychometric' && (
+                <button
+                  type="button"
+                  disabled={downloadingExcel}
+                  onClick={() => void handleDownloadExcel()}
+                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#107C41] bg-white px-3 py-1.5 text-[12.5px] font-extrabold text-[#107C41] no-underline shadow-[0_4px_0_#A3D9B5] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#A3D9B5] active:translate-y-[3px] active:shadow-[0_1px_0_#A3D9B5] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                >
+                  {downloadingExcel ? 'Exporting...' : 'Export to Excel (.csv)'}
+                </button>
+              )}
               <button
                 type="button"
                 disabled={downloadingPdf !== null}

@@ -145,4 +145,26 @@ describe('Psychometric Engine & Framework Coverage', () => {
     assert.equal(reverseKey(4), 2);
     assert.equal(reverseKey(5), 1);
   });
+
+  it('supports multi-card combined assessment decision combining multiple domains', async () => {
+    const profile: CandidateProfile = {
+      age: 18,
+      professionStatus: 'student',
+      studentLevel: 'intermediate',
+      stream: 'Science',
+    };
+
+    const decision = await service.decideCareerAndOutcome(
+      'cognitive_ability,behavioral_work_style',
+      profile,
+      [
+        { promptText: 'Number sequence puzzle', answer: 'B', construct: 'Numerical reasoning' },
+        { promptText: 'Work under pressure with multiple tasks', answer: '4', construct: 'Planning and organization' },
+      ],
+    );
+
+    assert.ok(decision.summary && decision.summary.length > 10);
+    assert.ok(decision.whatYouCanBecome.length >= 2);
+    assert.ok(decision.coreStrengths.length >= 2);
+  });
 });

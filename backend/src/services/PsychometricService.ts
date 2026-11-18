@@ -10,6 +10,7 @@ import {
   PSYCHOMETRIC_CARDS,
   findCardDef,
   type CandidateProfile,
+  type PsychometricCardDef,
 } from '../data/psychometricCards';
 import { AppError } from '../utils/AppError';
 import { logger } from '../utils/logger';
@@ -78,31 +79,67 @@ export class PsychometricService {
    */
   public async startCardSession(
     userId: string,
-    cardId: string,
+    cardIdOrIds: string | string[],
     profile: CandidateProfile,
   ) {
-    const cardDef = findCardDef(cardId) ?? PSYCHOMETRIC_CARDS[0]!;
+    const rawIds = Array.isArray(cardIdOrIds)
+      ? cardIdOrIds
+      : cardIdOrIds.split(',').map((s) => s.trim()).filter(Boolean);
+    const cardDefs = rawIds
+      .map((id) => findCardDef(id))
+      .filter((c): c is PsychometricCardDef => Boolean(c));
+    const effectiveCardDefs = cardDefs.length > 0 ? cardDefs : [PSYCHOMETRIC_CARDS[0]!];
 
-    // 1. Generate dynamic AI exam
-    const exam = await deepSeekPsychometricService.generateCardExam(cardDef.id, profile);
+    // 1. Generate dynamic AI exams for each selected card in parallel
+    const cardExams = await Promise.all(
+      effectiveCardDefs.map((card) =>
+        deepSeekPsychometricService.generateCardExam(card.id, profile),
+      ),
+    );
+
+    let globalOrder = 1;
+    const combinedSections = cardExams.flatMap((cardExam, cardIdx) =>
+      cardExam.sections.map((sec, secIdx) => ({
+        ...sec,
+        id: `sec_${effectiveCardDefs[cardIdx]?.id || 'card'}_${secIdx + 1}`,
+        items: sec.items.map((item) => ({
+          ...item,
+          orderIndex: globalOrder++,
+        })),
+      })),
+    );
+
+    const sectionIdList = effectiveCardDefs.map((c) => c.id).join(',');
+
+    const combinedExam: GeneratedPsychometricExam = {
+      id: `psy_multi_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`,
+      cardId: sectionIdList,
+      title:
+        effectiveCardDefs.length === 1
+          ? effectiveCardDefs[0]!.name
+          : effectiveCardDefs.map((c) => c.name).join(' + '),
+      description: effectiveCardDefs.map((c) => c.description).join(' | '),
+      generatedByAi: cardExams.every((e) => e.generatedByAi),
+      sections: combinedSections,
+    };
 
     // 2. Create in_progress session in DB
     const session = await this.prisma.psychometricSession.create({
       data: {
         userId,
         status: 'in_progress',
-        currentSection: cardDef.id,
+        currentSection: sectionIdList,
       },
     });
 
     // 3. Pre-create generated items in DB so student responses link cleanly
-    const allItems = exam.sections.flatMap((s) => s.items);
+    const allItems = combinedExam.sections.flatMap((s) => s.items);
     for (const it of allItems) {
       await this.prisma.psychometricItem.upsert({
         where: { id: it.id },
         create: {
           id: it.id,
-          section: (it.section as any) || cardDef.id,
+          section: (it.section as any) || effectiveCardDefs[0]!.id,
           construct: it.construct,
           subFacet: it.subFacet ?? null,
           itemType: it.itemType,
@@ -122,8 +159,9 @@ export class PsychometricService {
 
     return {
       session,
-      exam,
-      card: cardDef,
+      exam: combinedExam,
+      card: effectiveCardDefs[0]!,
+      cards: effectiveCardDefs,
       answeredCount: 0,
     };
   }
@@ -166,6 +204,67 @@ export class PsychometricService {
   }
 
   /**
+   * Retrieves the current in-progress session for session resilience across refreshes.
+   */
+  public async getActiveSession(userId: string) {
+    const existing = await this.prisma.psychometricSession.findFirst({
+      where: { userId, status: 'in_progress' },
+      include: {
+        responses: {
+          include: { item: true },
+        },
+      },
+      orderBy: { createdAt: 'desc' },
+    });
+
+    if (!existing) return { active: false };
+
+    // Expire abandoned sessions older than 7 days
+    if (Date.now() - existing.createdAt.getTime() > 7 * 24 * 3600 * 1000) {
+      await this.prisma.psychometricSession.update({
+        where: { id: existing.id },
+        data: { status: 'abandoned' },
+      });
+      return { active: false };
+    }
+
+    const answers: Record<string, string> = {};
+    for (const r of existing.responses) {
+      answers[r.itemId] = r.answer;
+    }
+
+    return {
+      active: true,
+      session: {
+        id: existing.id,
+        currentSection: existing.currentSection,
+        status: existing.status,
+        createdAt: existing.createdAt.toISOString(),
+      },
+      answeredCount: existing.responses.length,
+      answers,
+    };
+  }
+
+  /**
+   * Discards an in-progress session so candidate can start a fresh assessment.
+   */
+  public async discardSession(userId: string, sessionId?: string) {
+    if (sessionId) {
+      await this.prisma.psychometricSession.updateMany({
+        where: { id: sessionId, userId, status: 'in_progress' },
+        data: { status: 'abandoned' },
+      });
+    } else {
+      await this.prisma.psychometricSession.updateMany({
+        where: { userId, status: 'in_progress' },
+        data: { status: 'abandoned' },
+      });
+    }
+    return { success: true };
+  }
+
+  /**
    * Records a student's answer for an item.
    */
   public async saveAnswer(params: {
@@ -194,15 +293,15 @@ export class PsychometricService {
         data: {
           id: item.id,
           section: (item.section as any) || session.currentSection,
-          construct: item.construct,
-          subFacet: item.subFacet,
-          itemType: item.itemType,
-          scenarioText: item.scenarioText,
+          construct: item.construct || 'General',
+          subFacet: item.subFacet || null,
+          itemType: item.itemType || 'AGREEMENT_LIKERT',
+          scenarioText: item.scenarioText || null,
           promptText: item.promptText,
-          options: item.options as unknown as Prisma.InputJsonValue,
-          correctAnswer: item.correctAnswer,
+          options: (item.options as unknown as Prisma.InputJsonValue) ?? Prisma.JsonNull,
+          correctAnswer: item.correctAnswer || null,
           isReverseKeyed: item.isReverseKeyed ?? false,
-          orderIndex: item.orderIndex,
+          orderIndex: item.orderIndex ?? 0,
         },
       });
     }
@@ -268,7 +367,9 @@ export class PsychometricService {
     const responses = session.responses;
 
     // 1. Cognitive Aptitude Scoring
-    const cogResponses = responses.filter((r) => r.item.section === 'COGNITIVE' || session.currentSection === 'cognitive_ability');
+    const cogResponses = responses.filter(
+      (r) => r.item.section === 'COGNITIVE' || session.currentSection.includes('cognitive_ability'),
+    );
     let cogCorrect = 0;
     let numCorrect = 0, numTotal = 0;
     let logCorrect = 0, logTotal = 0;
@@ -297,7 +398,13 @@ export class PsychometricService {
     };
 
     // 2. Behavioral & Big Five Scoring (0 - 100)
-    const behResponses = responses.filter((r) => r.item.section === 'BEHAVIORAL' || session.currentSection === 'personality');
+    const behResponses = responses.filter(
+      (r) =>
+        r.item.section === 'BEHAVIORAL' ||
+        session.currentSection.includes('personality') ||
+        session.currentSection.includes('behavioral_work_style') ||
+        session.currentSection.includes('motivation_work_values'),
+    );
     const calcConstructAvg = (constructName: string, fallback: number = 70) => {
       const matches = behResponses.filter((r) => r.item.construct?.toUpperCase().includes(constructName));
       if (matches.length === 0) return fallback;
@@ -316,7 +423,13 @@ export class PsychometricService {
     const honestyHumility = calcConstructAvg('HONESTY', 88);
 
     // 3. Situational Judgment Scenarios (SJT) Scoring
-    const sjtResponses = responses.filter((r) => r.item.section === 'SJT' || session.currentSection === 'situational_judgment');
+    const sjtResponses = responses.filter(
+      (r) =>
+        r.item.section === 'SJT' ||
+        session.currentSection.includes('situational_judgment') ||
+        session.currentSection.includes('integrity_risk') ||
+        session.currentSection.includes('emotional_intelligence'),
+    );
     const calcAvg = (itemsList: typeof sjtResponses, fallback: number = 75) => {
       if (itemsList.length === 0) return fallback;
       const sum = itemsList.reduce((acc, curr) => acc + curr.score, 0);

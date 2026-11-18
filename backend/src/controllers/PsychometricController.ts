@@ -17,24 +17,27 @@ const candidateProfileSchema = z.object({
 });
 
 const startCardSchema = z.object({
-  cardId: z.string().min(1),
+  cardId: z.string().optional(),
+  cardIds: z.array(z.string().min(1)).optional(),
   profile: candidateProfileSchema,
+}).refine((data) => Boolean(data.cardId || (data.cardIds && data.cardIds.length > 0)), {
+  message: 'Must provide cardId or cardIds',
 });
 
 const saveAnswerSchema = z.object({
   sessionId: z.string().min(1),
   item: z.object({
     id: z.string(),
-    section: z.string(),
-    construct: z.string(),
-    subFacet: z.string().optional(),
-    itemType: z.string(),
-    scenarioText: z.string().optional(),
+    section: z.string().nullish(),
+    construct: z.string().nullish(),
+    subFacet: z.string().nullish(),
+    itemType: z.string().nullish(),
+    scenarioText: z.string().nullish(),
     promptText: z.string(),
-    options: z.array(z.object({ id: z.string(), text: z.string() })).optional(),
-    correctAnswer: z.string().optional(),
-    isReverseKeyed: z.boolean().optional(),
-    orderIndex: z.number().default(0),
+    options: z.array(z.object({ id: z.string(), text: z.string() })).nullish(),
+    correctAnswer: z.string().nullish(),
+    isReverseKeyed: z.boolean().nullish(),
+    orderIndex: z.number().nullish(),
   }),
   answer: z.string().min(1),
   timeSpentMs: z.number().optional().default(0),
@@ -67,9 +70,14 @@ export class PsychometricController {
         throw new AppError(400, parsed.error.errors[0]?.message ?? 'Invalid request');
       }
 
+      const cardIds =
+        parsed.data.cardIds && parsed.data.cardIds.length > 0
+          ? parsed.data.cardIds
+          : [parsed.data.cardId!];
+
       const result = await this.service.startCardSession(
         userId,
-        parsed.data.cardId,
+        cardIds,
         parsed.data.profile as any,
       );
       res.json({ success: true, data: result });
@@ -85,6 +93,31 @@ export class PsychometricController {
 
       const targetExam = (req.query.targetExam as string) || 'Main';
       const result = await this.service.getOrCreateSession(userId, targetExam);
+      res.json({ success: true, data: result });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly getActiveSession = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const userId = req.user?.userId;
+      if (!userId) throw new AppError(401, 'Unauthorized');
+
+      const result = await this.service.getActiveSession(userId);
+      res.json({ success: true, data: result });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly discardSession = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const userId = req.user?.userId;
+      if (!userId) throw new AppError(401, 'Unauthorized');
+
+      const sessionId = req.body?.sessionId as string | undefined;
+      const result = await this.service.discardSession(userId, sessionId);
       res.json({ success: true, data: result });
     } catch (err) {
       next(err);

@@ -39,6 +39,19 @@ export interface CareerDecisionResult {
   actionableNextSteps: string[];
 }
 
+export interface FacultyPsychometricItem {
+  number: number;
+  domain: string;
+  questionModel: 'AGREEMENT_LIKERT' | 'FREQUENCY_SCALE' | 'SCENARIO_ACTION_MCQ' | 'COGNITIVE_MCQ' | 'PASSION_SCALE';
+  scenarioText?: string | null;
+  questionText: string;
+  options: string[];
+  correctAnswer: string;
+  explanation: string;
+  traitPersonaMapping: string;
+  radicalFeedbackNote: string;
+}
+
 const PSYCHOMETRIC_SYSTEM_PROMPT = `You are a real-world career mentor and practical psychometrician.
 You anchor all evaluations in authoritative scientific frameworks:
 - Cognitive & Aptitude: Cattell–Horn–Carroll (CHC Theory: Fluid reasoning Gf, visual-spatial Gv, working memory), Spearman's g Model, Bloom's Taxonomy (Analyze, Evaluate), and Critical Thinking.
@@ -271,13 +284,19 @@ Format output as JSON:
       construct?: string;
     }>,
   ): Promise<CareerDecisionResult> {
-    const cardDef = findCardDef(cardId) ?? PSYCHOMETRIC_CARDS[0]!;
+    const rawIds = cardId.split(',').map((s) => s.trim()).filter(Boolean);
+    const cardDefs = rawIds
+      .map((id) => findCardDef(id))
+      .filter((c): c is PsychometricCardDef => Boolean(c));
+    const effectiveCards = cardDefs.length > 0 ? cardDefs : [PSYCHOMETRIC_CARDS[0]!];
+    const cardNames = effectiveCards.map((c) => c.name).join(' + ');
+    const allFrameworks = Array.from(new Set(effectiveCards.flatMap((c) => c.frameworks)));
     const profileSummary = this.describeProfile(profile);
 
     if (this.hasApiKey() && !this.breaker.isOpen()) {
       try {
-        const prompt = `You are a real-world career mentor. A candidate just finished the "${cardDef.name}" assessment.
-Frameworks Evaluated: ${cardDef.frameworks.join(', ')}
+        const prompt = `You are a real-world career mentor. A candidate just finished the assessment covering: "${cardNames}".
+Frameworks Evaluated: ${allFrameworks.join(', ')}
 
 CANDIDATE BACKGROUND:
 ${profileSummary}
@@ -288,7 +307,7 @@ ${responses.map((r, i) => `${i + 1}. [${r.construct || 'Area'}] ${r.promptText} 
 RULES:
 - Plain everyday conversational English. No fancy posh buzzwords (NO "resilience", "determination", "grit").
 - NEVER use the word "tuition".
-- Recommend 3 to 4 specific, real-world career paths or roles they can become based on their answers and background.
+- Recommend 3 to 4 specific, real-world career paths or roles they can become based on their answers across all evaluated domains.
 - Give concrete reasons why their mindset, cognitive style, and problem-solving tendencies fit.
 
 Format as JSON:
@@ -336,7 +355,7 @@ Format as JSON:
       }
     }
 
-    return this.fallbackCareerDecision(cardDef, profile);
+    return this.fallbackCareerDecision(effectiveCards[0]!, profile);
   }
 
   private describeProfile(profile: CandidateProfile): string {
@@ -936,6 +955,451 @@ Format as JSON:
         'Connect with professionals currently in your top recommended role to understand their day-to-day work.',
       ],
     };
+  }
+
+  /**
+   * Generates a faculty-configured psychometric evaluation paper tailored to an evaluation goal,
+   * guaranteeing diversity across all question models and opinion-based behavioral trait mapping.
+   */
+  public async generateFacultyPsychometricPaper(input: {
+    domains: string[];
+    examGoal?: string;
+    questionCount: number;
+    title?: string;
+    organization?: string;
+  }): Promise<FacultyPsychometricItem[]> {
+    const goalText = input.examGoal?.trim() || 'Assess student general aptitude, entrepreneurial mindset, and technical problem-solving attitude';
+    const rawDomains = input.domains.length > 0 ? input.domains : PSYCHOMETRIC_CARDS.map((c) => c.name);
+    // Resolve card names
+    const resolvedDomains = rawDomains.map((d) => {
+      const byId = findCardDef(d);
+      return byId ? byId.name : d;
+    });
+
+    if (this.hasApiKey() && !this.breaker.isOpen()) {
+      try {
+        const liveItems = await this.callFacultyAiGeneration(resolvedDomains, goalText, input.questionCount);
+        if (liveItems && liveItems.length >= Math.min(input.questionCount, 5)) {
+          logger.info({ count: liveItems.length, goal: goalText }, 'Generated live faculty psychometric paper via DeepSeek');
+          return liveItems;
+        }
+      } catch (err) {
+        logger.warn({ err, goal: goalText }, 'DeepSeek faculty paper generation failed, using calibrated fallback');
+      }
+    }
+
+    return this.generateFacultyPsychometricFallback(resolvedDomains, goalText, input.questionCount);
+  }
+
+  private async callFacultyAiGeneration(
+    domains: string[],
+    examGoal: string,
+    questionCount: number,
+  ): Promise<FacultyPsychometricItem[] | null> {
+    const prompt = `You are an expert talent evaluator and practical psychometrician creating an assessment paper for faculty.
+
+EVALUATION GOAL / FACULTY TARGET:
+"${examGoal}"
+
+ASSESSMENT DOMAINS TO COVER:
+${domains.map((d, i) => `${i + 1}. ${d}`).join('\n')}
+
+TOTAL QUESTIONS REQUIRED: ${questionCount}
+
+CRITICAL RULES AND REQUIREMENTS:
+1. OPINION AND BEHAVIORAL TRAIT BASED EVALUATION:
+   - This assessment is NOT a pass/fail school test with rigid right/wrong answers.
+   - Every question evaluates behavioral preferences, thinking style, risk tolerance, autonomy, collaboration, or cognitive aptitude.
+   - For cognitive logic questions, specify the objective key in "correctAnswer".
+   - For all opinion, personality, situational, and behavioral questions, describe the Trait Rubric in "correctAnswer" explaining what option choices signify (e.g., "Trait Rubric: A=High Bold Risk, B=Systematic Mitigation, C=Consensus, D=Avoidance").
+   - In "explanation", provide clear AI guidelines on how choices map to the evaluation goal ("${examGoal}").
+
+2. MANDATORY QUESTION MODEL DIVERSITY (AT LEAST 1 QUESTION PER MODEL):
+   Across the ${questionCount} questions, you MUST include AT LEAST ONE question from EACH of these 5 psychometric models:
+   - "AGREEMENT_LIKERT": 5 options (Strongly Disagree, Disagree, Neutral, Agree, Strongly Agree)
+   - "FREQUENCY_SCALE": 5 options (Never, Rarely, Sometimes, Often, Always)
+   - "SCENARIO_ACTION_MCQ": Vivid 2-4 sentence realistic dilemma situation with 4 concrete behavioral action choices
+   - "COGNITIVE_MCQ": Objective technical reasoning or logic puzzle tailored to the evaluation goal (4 options)
+   - "PASSION_SCALE": 4 options (Not Interested, Slightly Interested, Interested, Passionate)
+
+3. CALIBRATE TO THE FACULTY GOAL:
+   - Calibrate scenarios, logic problems, and behavioral questions directly to: "${examGoal}".
+   - If assessing computer science and entrepreneurship, scenarios should feature startup decisions, tech trade-offs, code shipping deadlines, risk appetite, team friction, and algorithmic reasoning.
+
+4. RADICAL ANSWER ONE-LINER FEEDBACK:
+   - In "radicalFeedbackNote", write a sharp, single-sentence diagnostic observation for extreme, reckless, or unusual answers (e.g., "Extreme risk tolerance without validation indicates entrepreneurial zeal but severe susceptibility to preventable operational blindspots.").
+
+5. TONE & VOCABULARY RULES:
+   - Simple, plain, down-to-earth conversational English.
+   - ZERO emojis anywhere.
+   - NEVER use the forbidden word "tuition".
+
+Format output strictly as JSON:
+{
+  "items": [
+    {
+      "number": 1,
+      "domain": "Domain Name",
+      "questionModel": "COGNITIVE_MCQ | SCENARIO_ACTION_MCQ | AGREEMENT_LIKERT | FREQUENCY_SCALE | PASSION_SCALE",
+      "scenarioText": "Vivid 2-4 sentence realistic story, or null if direct statement",
+      "questionText": "Question or statement in plain English",
+      "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+      "correctAnswer": "Trait Rubric or Correct Key",
+      "explanation": "AI evaluation guidelines explaining what each choice indicates",
+      "traitPersonaMapping": "Core trait evaluated (e.g. Entrepreneurial Risk Appetite / Systems Thinking)",
+      "radicalFeedbackNote": "One-liner observation for extreme or standout answers"
+    }
+  ]
+}`;
+
+    const completion = await this.withSlot(() =>
+      this.getClient().chat.completions.create({
+        model: 'deepseek-chat',
+        temperature: 0.6,
+        max_tokens: 4000,
+        messages: [
+          { role: 'system', content: PSYCHOMETRIC_SYSTEM_PROMPT },
+          { role: 'user', content: prompt },
+        ],
+      }),
+    );
+
+    const raw = completion.choices[0]?.message?.content ?? '';
+    const cleaned = raw.trim().replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '').trim();
+    const parsed = JSON.parse(cleaned) as { items?: FacultyPsychometricItem[] };
+
+    if (!parsed.items || !Array.isArray(parsed.items) || parsed.items.length === 0) {
+      return null;
+    }
+
+    return parsed.items.map((item, idx) => ({
+      ...item,
+      number: idx + 1,
+      domain: item.domain || domains[idx % domains.length] || 'Cognitive Ability Tests',
+      questionModel: item.questionModel || 'SCENARIO_ACTION_MCQ',
+      options: Array.isArray(item.options) && item.options.length > 0 ? item.options : ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
+      correctAnswer: item.correctAnswer || 'Trait Rubric: Evaluated holistically based on candidate choice',
+      explanation: item.explanation || 'Evaluates behavioral and cognitive orientation toward target goals.',
+      traitPersonaMapping: item.traitPersonaMapping || 'Behavioral Competency',
+      radicalFeedbackNote: item.radicalFeedbackNote || 'Outlier choices signal strong individualist preferences needing balanced mentoring.',
+    }));
+  }
+
+  private generateFacultyPsychometricFallback(
+    domains: string[],
+    examGoal: string,
+    questionCount: number,
+  ): FacultyPsychometricItem[] {
+    const pool: Array<Omit<FacultyPsychometricItem, 'number'>> = [
+      {
+        domain: 'Cognitive Ability Tests',
+        questionModel: 'COGNITIVE_MCQ',
+        scenarioText: 'A high-load web application processes data requests through 3 sequential microservices: Ingestion (takes 20ms), Processing (takes 60ms), and Storage (takes 40ms). Currently, only 1 instance of each runs sequentially.',
+        questionText: 'To double the overall system throughput at the lowest infrastructure cost, which single microservice instance must you duplicate first?',
+        options: [
+          'Duplicate Ingestion (20ms)',
+          'Duplicate Processing (60ms)',
+          'Duplicate Storage (40ms)',
+          'Duplicate all three simultaneously',
+        ],
+        correctAnswer: 'Duplicate Processing (60ms)',
+        explanation: 'Processing is the primary bottleneck at 60ms per task (maximum 16.6 req/sec). Duplicating Processing reduces the bottleneck to 30ms, immediately shifting throughput to Storage (40ms, 25 req/sec). Duplicating Ingestion yields zero throughput gain.',
+        traitPersonaMapping: 'Bottleneck Identification & Systems Optimization',
+        radicalFeedbackNote: 'Choosing to duplicate all three simultaneously without isolating the bottleneck signals impulsive resource waste rather than rigorous analytical discipline.',
+      },
+      {
+        domain: 'Personality Tests',
+        questionModel: 'AGREEMENT_LIKERT',
+        scenarioText: null,
+        questionText: 'When starting a project, I prefer to figure out the path as I go rather than follow an existing step-by-step procedure.',
+        options: [
+          'Strongly Disagree',
+          'Disagree',
+          'Neutral',
+          'Agree',
+          'Strongly Agree',
+        ],
+        correctAnswer: 'Trait Rubric: 1-2 = High Structured Preference, 3 = Balanced Execution, 4-5 = High Entrepreneurial Autonomy & Ambiguity Tolerance',
+        explanation: 'Measures comfort with ambiguity and need for structure. High agreement strongly correlates with startup founding and product exploration readiness; low agreement indicates preference for established corporate frameworks and risk-mitigated processes.',
+        traitPersonaMapping: 'Autonomy vs Procedural Dependence',
+        radicalFeedbackNote: 'Strongly Disagree indicates severe dependence on predefined instructions, requiring close structural oversight when placed in fast-evolving project environments.',
+      },
+      {
+        domain: 'Situational Judgment Tests (SJT)',
+        questionModel: 'SCENARIO_ACTION_MCQ',
+        scenarioText: 'You are leading a software prototype build with your team. With three days left before demonstrating to prospective angel investors, a critical feature contains an edge-case bug that causes intermittent crashes in 5% of runs. A complete refactor requires 5 days.',
+        questionText: 'What is your immediate course of action?',
+        options: [
+          'Delay the investor demo by a week to ensure the architecture is clean and completely bug-free.',
+          'Disable or flag the buggy edge-case feature for the live demo, showcase the rock-solid core value proposition, and openly explain the roadmap fix.',
+          'Attempt an all-night hacky patch without automated tests and hope the 5% edge case does not trigger during the presentation.',
+          'Hand off the prototype to a teammate and let them present so you can focus on coding the refactor.',
+        ],
+        correctAnswer: 'Trait Rubric: A = Perfectionist Risk Aversion, B = Pragmatic Entrepreneurial Agility & Transparent Communication, C = Reckless Technical Debt, D = Leadership Abdication',
+        explanation: 'Option B demonstrates mature startup leadership by prioritizing core product delivery while maintaining absolute transparency with stakeholders. Option A reflects perfectionism that can kill early-stage momentum.',
+        traitPersonaMapping: 'Pragmatic Trade-off Management & Investor Stakeholder Handling',
+        radicalFeedbackNote: 'Selecting Option C reveals dangerous willingness to conceal flaws and ship unverified code under pressure, signaling high risk of production crashes.',
+      },
+      {
+        domain: 'Emotional Intelligence (EI) Tests',
+        questionModel: 'SCENARIO_ACTION_MCQ',
+        scenarioText: 'During a sprint retrospective, a fellow developer aggressively criticizes your database schema in front of the entire team, claiming your design will fail under peak load. You spent two weeks designing and validating it.',
+        questionText: 'How do you handle this confrontation in the meeting?',
+        options: [
+          'Defend your authority immediately and point out several design mistakes the colleague made on earlier modules.',
+          'Remain calm, thank them for raising performance concerns, ask them to share their specific load test numbers, and schedule a 20-minute working session to benchmark together.',
+          'Remain completely silent during the meeting, but file a formal grievance with the project manager afterward.',
+          'Concede immediately and offer to rebuild the schema to avoid team friction.',
+        ],
+        correctAnswer: 'Trait Rubric: A = Defensive Ego Reactivity, B = High Emotional Regulation & Constructive Collaboration, C = Passive-Aggressive Conflict Avoidance, D = Submissive Insecurity',
+        explanation: 'Option B isolates technical facts from personal emotion, protecting psychological safety while addressing valid engineering concerns productively.',
+        traitPersonaMapping: 'Emotion Regulation & Constructive Conflict Resolution',
+        radicalFeedbackNote: 'Selecting Option A indicates fragile ego defenses and retaliatory tendencies under public feedback, which quickly poisons engineering culture.',
+      },
+      {
+        domain: 'Motivation and Work-Values Tests',
+        questionModel: 'PASSION_SCALE',
+        scenarioText: null,
+        questionText: 'Pitching an unproven technical concept to skepticism from clients or investors to secure your first backing.',
+        options: [
+          'Not Interested',
+          'Slightly Interested',
+          'Interested',
+          'Passionate',
+        ],
+        correctAnswer: 'Trait Rubric: 1-2 = Technical Purest / Internal Contributor, 3 = Receptive to External Roles, 4 = High Enterprising & Founder Drive',
+        explanation: 'Directly measures enterprising motivation under Holland RIASEC and Self-Determination Theory. Candidates scoring Passionate possess the persuasive resilience essential for startup early-stage survival.',
+        traitPersonaMapping: 'Enterprising Drive & Commercial Persuasion',
+        radicalFeedbackNote: 'Not Interested indicates the candidate is purely driven by internal technical crafting and should not be placed in founder-facing or business development tracks.',
+      },
+      {
+        domain: 'Behavioral and Work-Style Assessments',
+        questionModel: 'FREQUENCY_SCALE',
+        scenarioText: null,
+        questionText: 'When working on complex problems, I release imperfect early drafts to get real user feedback rather than polishing privately until finished.',
+        options: [
+          'Never',
+          'Rarely',
+          'Sometimes',
+          'Often',
+          'Always',
+        ],
+        correctAnswer: 'Trait Rubric: 1-2 = Waterfall Polish / Perfectionism, 3 = Moderate Iteration, 4-5 = Agile Rapid Prototyping & Feedback Responsiveness',
+        explanation: 'Measures lean startup iteration versus perfectionist hesitation. Fast feedback loops are critical for product-market fit.',
+        traitPersonaMapping: 'Iterative Velocity vs Private Perfectionism',
+        radicalFeedbackNote: 'Never indicates significant risk of building features in isolation for months without confirming whether customers actually want them.',
+      },
+      {
+        domain: 'Career Interest Tests',
+        questionModel: 'PASSION_SCALE',
+        scenarioText: null,
+        questionText: 'Designing end-to-end software architectures from scratch to solve a completely new business problem.',
+        options: [
+          'Not Interested',
+          'Slightly Interested',
+          'Interested',
+          'Passionate',
+        ],
+        correctAnswer: 'Trait Rubric: 1-2 = Maintenance / Routine Orientation, 3 = Standard Engineering, 4 = High Investigative / Creative Innovation',
+        explanation: 'Assesses passion for Greenfield system design and technological problem creation versus maintenance tasks.',
+        traitPersonaMapping: 'Greenfield Technical Creation Interest',
+        radicalFeedbackNote: 'Not Interested suggests a preference for strictly routine operations rather than creative product architecture.',
+      },
+      {
+        domain: 'Integrity and Risk-Related Assessments',
+        questionModel: 'SCENARIO_ACTION_MCQ',
+        scenarioText: 'A major competitor announces they will launch a competing feature tomorrow. Your product team asks you to bypass security audits and ship your version tonight to claim market first-mover advantage.',
+        questionText: 'What is your principled decision?',
+        options: [
+          'Ship immediately tonight. Gaining market share first is all that matters in early-stage startups.',
+          'Refuse to ship without the security audit, but run an emergency expedited 4-hour audit with the security team on critical attack surfaces before releasing.',
+          'Secretly alert the competitor that your team has a better product.',
+          'Resign on the spot in protest.',
+        ],
+        correctAnswer: 'Trait Rubric: A = Reckless Ethical Compromise, B = High Ethical Integrity with Business Urgency, C = Corporate Disloyalty, D = Extreme Overreaction',
+        explanation: 'Option B demonstrates mature integrity: balancing business competitive urgency with non-negotiable security standards rather than sacrificing user trust for vanity speed.',
+        traitPersonaMapping: 'Ethical Risk Judgment & Prudent Urgency',
+        radicalFeedbackNote: 'Option A indicates acute vulnerability to compromising ethics and user data for short-term competitive optical wins.',
+      },
+      {
+        domain: 'Cognitive Ability Tests',
+        questionModel: 'COGNITIVE_MCQ',
+        scenarioText: 'An algorithm has a time complexity of O(N log N) while an alternate approach is O(N^2). For N = 100, the first takes 0.2 seconds and the second takes 0.1 seconds due to low constant factors.',
+        questionText: 'At approximately what value of N will the O(N log N) algorithm decisively outperform the O(N^2) algorithm in execution time?',
+        options: [
+          'Never, the lower constant factor will always win',
+          'Between N = 500 and N = 1,000 as the quadratic curve steepens',
+          'Only when N exceeds 10,000,000',
+          'Immediately at N = 101',
+        ],
+        correctAnswer: 'Between N = 500 and N = 1,000 as the quadratic curve steepens',
+        explanation: 'Asymptotic complexity dominates as input size scales. At small N, constant factor overhead matters, but O(N^2) grows quadratically while O(N log N) scales sub-quadratically, crossing over in the mid-hundreds.',
+        traitPersonaMapping: 'Algorithmic Scalability & Complexity Deduction',
+        radicalFeedbackNote: 'Believing the constant factor will always win indicates a fundamental misunderstanding of computational growth rates and system scalability.',
+      },
+      {
+        domain: 'Behavioral and Work-Style Assessments',
+        questionModel: 'AGREEMENT_LIKERT',
+        scenarioText: null,
+        questionText: 'I would rather take personal responsibility for a high-risk project outcome than share blame on a safe, ordinary assignment.',
+        options: [
+          'Strongly Disagree',
+          'Disagree',
+          'Neutral',
+          'Agree',
+          'Strongly Agree',
+        ],
+        correctAnswer: 'Trait Rubric: 1-2 = Blame Aversion / Diffusion, 3 = Moderate Ownership, 4-5 = Radical Accountability & High Stakes Appetite',
+        explanation: 'Measures ownership mindset and appetite for personal accountability, an essential prerequisite for entrepreneurs and technical founders.',
+        traitPersonaMapping: 'Extreme Ownership & Risk Bearing',
+        radicalFeedbackNote: 'Strongly Disagree highlights strong deflection instincts that prevent effective ownership in high-stakes environments.',
+      },
+      {
+        domain: 'Situational Judgment Tests (SJT)',
+        questionModel: 'SCENARIO_ACTION_MCQ',
+        scenarioText: 'Your initial customer cohort is dissatisfied with your beta software. 80% complain that the user interface is confusing, even though your underlying algorithm is superior to competitors.',
+        questionText: 'How do you respond to this customer feedback?',
+        options: [
+          'Send emails explaining why their mental model is wrong and write longer documentation tutorials.',
+          'Schedule direct screen-share interviews with 5 frustrated users, observe where they get stuck, and redesign the user workflow around their actual behavior.',
+          'Ignore the feedback and wait for smarter technical users to discover the product.',
+          'Immediately scrap the entire algorithm and build a completely different app idea.',
+        ],
+        correctAnswer: 'Trait Rubric: A = Intellectual Arrogance, B = Customer Obsession & Empirical Problem Solving, C = Delusional Inaction, D = Premature Abandonment',
+        explanation: 'Option B exemplifies the core entrepreneurial competency: deep listening, humility before user friction, and iterative interface adaptation.',
+        traitPersonaMapping: 'Customer Centricity & Empathy in Product Iteration',
+        radicalFeedbackNote: 'Choosing Option A or C reveals dangerous intellectual arrogance that rejects customer realities in favor of personal theoretical bias.',
+      },
+      {
+        domain: 'Emotional Intelligence (EI) Tests',
+        questionModel: 'FREQUENCY_SCALE',
+        scenarioText: null,
+        questionText: 'When an unexpected crisis hits a project, I stay level-headed and focus on next steps before expressing frustration.',
+        options: [
+          'Never',
+          'Rarely',
+          'Sometimes',
+          'Often',
+          'Always',
+        ],
+        correctAnswer: 'Trait Rubric: 1-2 = High Emotional Volatility, 3 = Average Stress Tolerance, 4-5 = High Stress Composure & Leadership Equanimity',
+        explanation: 'Evaluates emotional composure under high stress, directly predicting executive presence during organizational turbulence.',
+        traitPersonaMapping: 'Crisis Equanimity & Emotional Self-Control',
+        radicalFeedbackNote: 'Never indicates severe emotional contagion risks that destabilize team morale during critical production fires.',
+      },
+      {
+        domain: 'Motivation and Work-Values Tests',
+        questionModel: 'AGREEMENT_LIKERT',
+        scenarioText: null,
+        questionText: 'Having the freedom to choose what I build and how I build it is more important to me than having high job predictability.',
+        options: [
+          'Strongly Disagree',
+          'Disagree',
+          'Neutral',
+          'Agree',
+          'Strongly Agree',
+        ],
+        correctAnswer: 'Trait Rubric: 1-2 = Security & Predictability Orientation, 3 = Balanced Priorities, 4-5 = High Autonomy & Entrepreneurial Value',
+        explanation: 'Direct measure of Schwartz human value of Self-Direction versus Security. Predicts willingness to leave corporate comfort to build ventures.',
+        traitPersonaMapping: 'Self-Direction vs Structural Security',
+        radicalFeedbackNote: 'Strongly Disagree signals deep reliance on organizational security, making startup bootstrapping psychologically exhausting.',
+      },
+      {
+        domain: 'Personality Tests',
+        questionModel: 'FREQUENCY_SCALE',
+        scenarioText: null,
+        questionText: 'When things go wrong on a project, I immediately inspect my own choices before pointing fingers at teammates or external circumstances.',
+        options: [
+          'Never',
+          'Rarely',
+          'Sometimes',
+          'Often',
+          'Always',
+        ],
+        correctAnswer: 'Trait Rubric: 1-2 = External Locus of Control / Blame Attribution, 3 = Balanced Locus, 4-5 = Internal Locus of Control',
+        explanation: 'Internal locus of control is the single most verified psychological predictor of long-term entrepreneurial resilience and learning velocity.',
+        traitPersonaMapping: 'Internal Locus of Control & Reflective Humility',
+        radicalFeedbackNote: 'Never indicates persistent victim mentality and refusal to learn from tactical errors.',
+      },
+      {
+        domain: 'Integrity and Risk-Related Assessments',
+        questionModel: 'AGREEMENT_LIKERT',
+        scenarioText: null,
+        questionText: 'If a rule slows down rapid innovation without a clear safety or ethical justification, it is acceptable to challenge or respectfully bypass it.',
+        options: [
+          'Strongly Disagree',
+          'Disagree',
+          'Neutral',
+          'Agree',
+          'Strongly Agree',
+        ],
+        correctAnswer: 'Trait Rubric: 1-2 = Rigid Bureaucratic Conformity, 3 = Cautious Questioning, 4-5 = Constructive Non-Conformity & Innovation Agility',
+        explanation: 'Measures constructive non-conformity. Successful innovators question bureaucratic dead-weight while respecting genuine ethical boundaries.',
+        traitPersonaMapping: 'Constructive Non-Conformity vs Blind Obedience',
+        radicalFeedbackNote: 'Strongly Disagree indicates blind deference to rules even when counterproductive, hindering innovative breakthroughs.',
+      },
+      {
+        domain: 'Career Interest Tests',
+        questionModel: 'PASSION_SCALE',
+        scenarioText: null,
+        questionText: 'Leading a cross-functional team of engineers, designers, and marketers to bring a prototype into paying customer hands.',
+        options: [
+          'Not Interested',
+          'Slightly Interested',
+          'Interested',
+          'Passionate',
+        ],
+        correctAnswer: 'Trait Rubric: 1-2 = Individual Contributor Specialist, 3 = Capable Collaborator, 4 = High Enterprising Leadership & Product Management Fit',
+        explanation: 'Evaluates passion for general management and orchestrating diverse talents to achieve market outcomes.',
+        traitPersonaMapping: 'Cross-Functional Venture Leadership',
+        radicalFeedbackNote: 'Not Interested indicates strong preference for solitary individual specialist tasks rather than leadership tracks.',
+      },
+    ];
+
+    // Filter by selected domains if matching, or keep rich mix
+    const filtered = pool.filter((item) =>
+      domains.length === 0 || domains.some((d) => item.domain.toLowerCase().includes(d.toLowerCase())),
+    );
+    const candidatePool = filtered.length >= 5 ? filtered : pool;
+
+    // Ensure all 5 models are present in the final result:
+    // 'AGREEMENT_LIKERT', 'FREQUENCY_SCALE', 'SCENARIO_ACTION_MCQ', 'COGNITIVE_MCQ', 'PASSION_SCALE'
+    const result: FacultyPsychometricItem[] = [];
+    const models: Array<FacultyPsychometricItem['questionModel']> = [
+      'COGNITIVE_MCQ',
+      'SCENARIO_ACTION_MCQ',
+      'AGREEMENT_LIKERT',
+      'FREQUENCY_SCALE',
+      'PASSION_SCALE',
+    ];
+
+    // Pick at least 1 for each mandatory model
+    for (const m of models) {
+      const match = candidatePool.find((item) => item.questionModel === m && !result.some((r) => r.questionText === item.questionText));
+      if (match) {
+        result.push({
+          ...match,
+          number: result.length + 1,
+        });
+      }
+    }
+
+    // Fill the remainder up to questionCount
+    let poolIdx = 0;
+    while (result.length < questionCount) {
+      const candidate = candidatePool[poolIdx % candidatePool.length]!;
+      // Create unique variant if duplicated
+      const isDupe = result.some((r) => r.questionText === candidate.questionText);
+      const text = isDupe ? `${candidate.questionText} (Context: Applied to ${examGoal.slice(0, 40)})` : candidate.questionText;
+      result.push({
+        ...candidate,
+        number: result.length + 1,
+        questionText: text,
+      });
+      poolIdx++;
+    }
+
+    return result.slice(0, questionCount).map((item, idx) => ({ ...item, number: idx + 1 }));
   }
 
   /**

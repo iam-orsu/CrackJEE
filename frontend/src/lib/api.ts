@@ -133,7 +133,8 @@ export const api = {
       >('/psychometric/cards'),
 
     startCardSession: (body: {
-      cardId: string;
+      cardId?: string;
+      cardIds?: string[];
       profile: {
         age: number;
         professionStatus: 'student' | 'employed' | 'job_seeker';
@@ -237,6 +238,20 @@ export const api = {
         };
         answeredCount: number;
       }>(`/psychometric/session${targetExam ? `?targetExam=${encodeURIComponent(targetExam)}` : ''}`),
+
+    getActiveSession: () =>
+      request<{
+        active: boolean;
+        session?: { id: string; currentSection: string; status: string; createdAt: string };
+        answeredCount?: number;
+        answers?: Record<string, string>;
+      }>('/psychometric/active-session'),
+
+    discardSession: (sessionId?: string) =>
+      request<{ success: boolean }>('/psychometric/session/discard', {
+        method: 'POST',
+        body: JSON.stringify({ sessionId }),
+      }),
 
     saveAnswer: (body: {
       sessionId: string;

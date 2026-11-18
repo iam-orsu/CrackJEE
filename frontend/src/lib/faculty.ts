@@ -2,7 +2,7 @@ import type { DiagramTemplate } from '@/types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || '/api/v1';
 
-export type FacultyExamType = 'Main' | 'Advanced' | 'NEET';
+export type FacultyExamType = 'Main' | 'Advanced' | 'NEET' | 'Psychometric';
 export type FacultyDifficulty = 'beginner' | 'intermediate' | 'advanced' | 'mixed';
 export type FacultyQuestionType = 'mcq_single' | 'mcq_multi' | 'integer' | 'matrix_match';
 export type FacultyQuestionTypePref = 'auto' | FacultyQuestionType;
@@ -17,7 +17,7 @@ export interface FacultyUser {
 }
 
 export interface FacultyPaperSelection {
-  subject: 'Physics' | 'Chemistry' | 'Mathematics' | 'Botany' | 'Zoology';
+  subject: 'Physics' | 'Chemistry' | 'Mathematics' | 'Botany' | 'Zoology' | 'Psychometric';
   topic: string;
   mcqCount?: number;
   integerCount?: number;
@@ -39,7 +39,7 @@ export interface FacultyPaperSelection {
 
 export interface FacultyPaperItem {
   number: number;
-  subject: 'Physics' | 'Chemistry' | 'Mathematics' | 'Botany' | 'Zoology';
+  subject: 'Physics' | 'Chemistry' | 'Mathematics' | 'Botany' | 'Zoology' | 'Psychometric';
   topic: string;
   difficulty?: FacultyDifficulty;
   questionType: FacultyQuestionType;
@@ -58,6 +58,7 @@ export interface FacultyPaperSummary {
   title: string;
   organization?: string | null;
   examType: FacultyExamType;
+  examGoal?: string | null;
   difficulty: FacultyDifficulty;
   questionCount: number;
   selections: FacultyPaperSelection[];
@@ -125,7 +126,8 @@ export async function facultyCreatePaper(input: {
   title?: string;
   organization?: string;
   examType: FacultyExamType;
-  difficulty: FacultyDifficulty;
+  examGoal?: string;
+  difficulty?: FacultyDifficulty;
   difficultyDistribution?: { beginner: number; intermediate: number; advanced: number };
   questionCount: number;
   questionType?: FacultyQuestionTypePref;
@@ -139,6 +141,34 @@ export async function facultyCreatePaper(input: {
 
 export async function facultyGetPaper(id: string) {
   return facultyFetch<{ paper: FacultyPaper }>(`/papers/${encodeURIComponent(id)}`);
+}
+
+export async function facultyDownloadExcel(id: string): Promise<void> {
+  const res = await fetch(`${API_URL}/faculty/papers/${encodeURIComponent(id)}/excel`, {
+    credentials: 'same-origin',
+  });
+
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new FacultyError(res.status, err.error ?? `Failed to download Excel (${res.status})`);
+  }
+
+  const blob = await res.blob();
+  const disposition = res.headers.get('content-disposition');
+  let filename = `Paper-Psychometric-Matrix.csv`;
+  if (disposition) {
+    const match = disposition.match(/filename="?([^";]+)"?/);
+    if (match?.[1]) filename = match[1];
+  }
+
+  const downloadUrl = window.URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = downloadUrl;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  window.URL.revokeObjectURL(downloadUrl);
 }
 
 export async function facultyDownloadPdf(id: string, mode: PrintMode = 'questions'): Promise<void> {

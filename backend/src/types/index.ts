@@ -1,8 +1,8 @@
 import type { Request } from 'express';
 
-export type Subject = 'Mathematics' | 'Physics' | 'Chemistry' | 'Botany' | 'Zoology';
+export type Subject = 'Mathematics' | 'Physics' | 'Chemistry' | 'Botany' | 'Zoology' | 'Psychometric';
 export type Difficulty = 'beginner' | 'intermediate' | 'advanced';
-export type ExamType = 'Main' | 'Advanced' | 'Both' | 'NEET';
+export type ExamType = 'Main' | 'Advanced' | 'Both' | 'NEET' | 'Psychometric';
 export type StudentClass = '11' | '12' | 'Dropper';
 export type QuestionType = 'mcq_single' | 'mcq_multi' | 'integer' | 'matrix_match';
 export type QuestionTypeCounts = Partial<Record<QuestionType, number>>;

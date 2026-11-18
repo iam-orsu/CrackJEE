@@ -18,6 +18,7 @@ export function createFacultyRoutes(controller = new FacultyController()): Route
   router.post('/papers', guard, controller.createPaper);
   router.get('/papers/:id', guard, controller.getPaper);
   router.get('/papers/:id/pdf', guard, controller.downloadPaperPdf);
+  router.get('/papers/:id/excel', guard, controller.downloadPaperExcel);
   router.post('/papers/:id/draft-question', guard, controller.generateDraftQuestion);
   router.post('/papers/:id/questions/accept', guard, controller.acceptDraftQuestion);
   router.post('/papers/:id/questions/:number/accept', guard, controller.acceptDraftQuestion);

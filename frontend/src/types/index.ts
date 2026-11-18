@@ -77,7 +77,7 @@ export interface DashboardData {
   overall: { mine: number | null; platformAvg: number | null; topAvg: number | null; examType: string | null };
 }
 
-export type Subject = 'Mathematics' | 'Physics' | 'Chemistry' | 'Botany' | 'Zoology';
+export type Subject = 'Mathematics' | 'Physics' | 'Chemistry' | 'Botany' | 'Zoology' | 'Psychometric';
 export type Difficulty = 'beginner' | 'intermediate' | 'advanced';
 
 /* ── Question paper row (practice page) ───────────────────────── */
