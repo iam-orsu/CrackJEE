@@ -493,7 +493,7 @@ export default function PsychometricPage() {
   }
 
   async function handleSubmitAssessment() {
-    if (!sessionId) return;
+    if (!sessionId || loading) return;
     setLoading(true);
     setError('');
     try {
@@ -975,9 +975,12 @@ export default function PsychometricPage() {
                 type="button"
                 disabled={loading}
                 onClick={handleSubmitAssessment}
-                className="rounded-xl bg-emerald-600 px-6 py-2.5 text-xs font-bold text-white shadow-md transition hover:bg-emerald-700 active:scale-95 disabled:opacity-50 cursor-pointer"
+                className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-2.5 text-xs font-bold text-white shadow-md transition hover:bg-emerald-700 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
               >
-                {loading ? 'Analyzing Your Responses...' : 'Submit & View Career Decision'}
+                {loading && (
+                  <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                )}
+                <span>{loading ? 'Analyzing Your Responses...' : 'Submit & View Career Decision'}</span>
               </button>
             </div>
           )}

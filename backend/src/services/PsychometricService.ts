@@ -284,13 +284,12 @@ export class PsychometricService {
       throw new AppError(404, 'Active psychometric session not found');
     }
 
-    let dbItem = await this.prisma.psychometricItem.findUnique({
-      where: { id: item.id },
-    });
-
-    if (!dbItem) {
-      dbItem = await this.prisma.psychometricItem.create({
-        data: {
+    let dbItem: any;
+    try {
+      dbItem = await this.prisma.psychometricItem.upsert({
+        where: { id: item.id },
+        update: {},
+        create: {
           id: item.id,
           section: (item.section as any) || session.currentSection,
           construct: item.construct || 'General',
@@ -304,6 +303,12 @@ export class PsychometricService {
           orderIndex: item.orderIndex ?? 0,
         },
       });
+    } catch {
+      // In case of concurrent write collision, query the existing item
+      dbItem = await this.prisma.psychometricItem.findUnique({
+        where: { id: item.id },
+      });
+      if (!dbItem) throw new AppError(500, 'Failed to resolve psychometric item');
     }
 
     let score = 0;
@@ -362,6 +367,15 @@ export class PsychometricService {
 
     if (!session) {
       throw new AppError(404, 'Psychometric session not found');
+    }
+
+    if (session.status === 'completed') {
+      const existingReport = await this.prisma.psychometricReport.findUnique({
+        where: { sessionId },
+      });
+      if (existingReport) {
+        return this.formatReport(existingReport);
+      }
     }
 
     const responses = session.responses;
@@ -613,7 +627,10 @@ export class PsychometricService {
     });
 
     if (!report) return null;
+    return this.formatReport(report);
+  }
 
+  private formatReport(report: any): PsychometricReportData {
     const rec = (report.streamRecommendations as any) || {};
     const streamFits = Array.isArray(rec) ? rec : rec.fits || [];
     const careerDecision = Array.isArray(rec) ? undefined : rec.careerDecision;
@@ -636,7 +653,7 @@ export class PsychometricService {
       studyHabitAdvice: report.studyHabitAdvice as any,
       burnoutRisk: report.burnoutRisk as any,
       facultyAdvice: report.facultyAdvice ?? '',
-      createdAt: report.createdAt.toISOString(),
+      createdAt: report.createdAt instanceof Date ? report.createdAt.toISOString() : String(report.createdAt),
     };
   }
 

@@ -660,9 +660,13 @@ export class FacultyPaperService {
       lastFlushCount = completed.length;
       const snapshot = [...completed].sort((a, b) => a.number - b.number);
       const verifiedCount = snapshot.filter((i) => i.verified).length;
-      flushChain = flushChain.then(() =>
-        this.facultyRepo.updatePaperState(paperId, { items: snapshot, verifiedCount }).then(() => undefined),
-      );
+      flushChain = flushChain
+        .catch((e) => {
+          logger.warn({ err: e, paperId }, 'Intermediate paper flush failed, will retry on next cycle');
+        })
+        .then(() =>
+          this.facultyRepo.updatePaperState(paperId, { items: snapshot, verifiedCount }).then(() => undefined),
+        );
     };
 
     const worker = async () => {

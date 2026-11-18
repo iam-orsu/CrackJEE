@@ -167,4 +167,9 @@ describe('Psychometric Engine & Framework Coverage', () => {
     assert.ok(decision.whatYouCanBecome.length >= 2);
     assert.ok(decision.coreStrengths.length >= 2);
   });
+
+  it('exposes circuit breaker state properly', () => {
+    const circuitState = service.getCircuitState();
+    assert.ok(['closed', 'open', 'half-open'].includes(circuitState));
+  });
 });

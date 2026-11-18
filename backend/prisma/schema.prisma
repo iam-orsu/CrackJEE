@@ -129,6 +129,7 @@ model MockExamQuestion {
 
   @@index([examId])
   @@index([examId, subject])
+  @@index([questionId])
 }
 
 // A generated paper that any student can be given for its exam type and difficulty.
@@ -277,6 +278,7 @@ model FacultyStudent {
 
   @@unique([facultyId, rollNumber])
   @@index([facultyId, batchId])
+  @@index([batchId])
   @@index([rollNumber])
   @@index([email])
 }
@@ -395,6 +397,7 @@ model PsychometricResponse {
 
   @@unique([sessionId, itemId])
   @@index([sessionId])
+  @@index([itemId])
 }
 
 model PsychometricReport {

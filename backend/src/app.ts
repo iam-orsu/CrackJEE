@@ -8,6 +8,7 @@ import { requestIdMiddleware } from './middlewares/requestId.middleware';
 import { apiLimiter } from './middlewares/rateLimiter.middleware';
 import { errorHandlerMiddleware } from './middlewares/errorHandler.middleware';
 import { deepSeekService } from './services/DeepSeekService';
+import { deepSeekPsychometricService } from './services/DeepSeekPsychometricService';
 import { logger } from './utils/logger';
 import { incCounter, renderMetrics } from './utils/metrics';
 
@@ -39,7 +40,7 @@ export function createApp(): express.Express {
   app.use(requestIdMiddleware);
   app.use(helmet(helmetOptions));
   app.use(cors(buildCorsOptions()));
-  app.use(express.json({ limit: '10kb' }));
+  app.use(express.json({ limit: '2mb' }));
   app.use(apiLimiter);
 
   app.use((req, res, next) => {
@@ -81,6 +82,7 @@ export function createApp(): express.Express {
         db: 'up',
         deepseek: deepseekState,
         deepseekCircuit: deepSeekService.getCircuitState(),
+        psychometricCircuit: deepSeekPsychometricService.getCircuitState(),
         ts: new Date().toISOString(),
       });
     } catch {

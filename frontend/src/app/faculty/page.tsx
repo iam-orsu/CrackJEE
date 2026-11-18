@@ -286,9 +286,10 @@ export default function FacultyPage() {
   // Poll active generating paper every 2.5s
   useEffect(() => {
     if (!faculty || !activePaper || activePaper.status !== 'generating') return;
+    const paperId = activePaper.id;
     const timer = setInterval(async () => {
       try {
-        const res = await facultyGetPaper(activePaper.id);
+        const res = await facultyGetPaper(paperId);
         setActivePaper(res.paper);
         if (res.paper.status !== 'generating') {
           const listRes = await facultyListPapers();
@@ -301,7 +302,8 @@ export default function FacultyPage() {
       }
     }, 2500);
     return () => clearInterval(timer);
-  }, [faculty, activePaper]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [faculty, activePaper?.id, activePaper?.status]);
 
   const visibleTopics = useMemo(() => {
     const all = topicsBySubject[activeSubject] ?? [];

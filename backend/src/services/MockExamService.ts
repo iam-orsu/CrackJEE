@@ -166,7 +166,11 @@ export class MockExamService {
     if (!exam || exam.userId !== userId) throw new AppError(404, 'Exam not found');
 
     if (exam.status === 'submitted') {
-      const existing = await this.mockRepo.findResultByExamId(examId);
+      let existing = await this.mockRepo.findResultByExamId(examId);
+      if (!existing) {
+        await new Promise((r) => setTimeout(r, 200));
+        existing = await this.mockRepo.findResultByExamId(examId);
+      }
       if (existing) return { resultId: existing.id };
       throw new AppError(400, 'Already submitted');
     }

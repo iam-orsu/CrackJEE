@@ -117,6 +117,10 @@ export class DeepSeekPsychometricService {
     return this.client;
   }
 
+  public getCircuitState() {
+    return this.breaker.getState();
+  }
+
   /**
    * Generates a completely dynamic, on-demand assessment exam for one of the 8 modular cards
    * based on the candidate's age, education, and profession profile.
@@ -128,14 +132,16 @@ export class DeepSeekPsychometricService {
     const cardDef = findCardDef(cardId) ?? PSYCHOMETRIC_CARDS[0]!;
     const examId = `psy_${cardDef.id}_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`;
 
-    if (this.hasApiKey() && !this.breaker.isOpen()) {
+    if (this.hasApiKey() && this.breaker.canAttempt()) {
       try {
         const liveExam = await this.callCardAiGeneration(examId, cardDef, profile);
         if (liveExam && liveExam.sections.length > 0 && liveExam.sections[0]!.items.length > 0) {
+          this.breaker.recordSuccess();
           logger.info({ examId, cardId: cardDef.id, profile }, 'Generated fresh AI card assessment');
           return liveExam;
         }
       } catch (err) {
+        this.breaker.recordFailure();
         logger.warn({ err, cardId: cardDef.id }, 'DeepSeek card generation failed, using structured fallback');
       }
     }
@@ -293,7 +299,7 @@ Format output as JSON:
     const allFrameworks = Array.from(new Set(effectiveCards.flatMap((c) => c.frameworks)));
     const profileSummary = this.describeProfile(profile);
 
-    if (this.hasApiKey() && !this.breaker.isOpen()) {
+    if (this.hasApiKey() && this.breaker.canAttempt()) {
       try {
         const prompt = `You are a real-world career mentor. A candidate just finished the assessment covering: "${cardNames}".
 Frameworks Evaluated: ${allFrameworks.join(', ')}
@@ -348,9 +354,11 @@ Format as JSON:
         const parsed = JSON.parse(cleaned) as CareerDecisionResult;
 
         if (parsed.whatYouCanBecome && Array.isArray(parsed.whatYouCanBecome)) {
+          this.breaker.recordSuccess();
           return parsed;
         }
       } catch (err) {
+        this.breaker.recordFailure();
         logger.warn({ err }, 'DeepSeek career decision generation failed, using fallback');
       }
     }
@@ -976,14 +984,16 @@ Format as JSON:
       return byId ? byId.name : d;
     });
 
-    if (this.hasApiKey() && !this.breaker.isOpen()) {
+    if (this.hasApiKey() && this.breaker.canAttempt()) {
       try {
         const liveItems = await this.callFacultyAiGeneration(resolvedDomains, goalText, input.questionCount);
         if (liveItems && liveItems.length >= Math.min(input.questionCount, 5)) {
+          this.breaker.recordSuccess();
           logger.info({ count: liveItems.length, goal: goalText }, 'Generated live faculty psychometric paper via DeepSeek');
           return liveItems;
         }
       } catch (err) {
+        this.breaker.recordFailure();
         logger.warn({ err, goal: goalText }, 'DeepSeek faculty paper generation failed, using calibrated fallback');
       }
     }

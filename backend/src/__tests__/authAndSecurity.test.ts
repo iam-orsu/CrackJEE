@@ -4,6 +4,8 @@ import jwt from 'jsonwebtoken';
 import { requireFaculty, setFacultyCookie, clearFacultyCookie, FACULTY_COOKIE } from '../middlewares/facultyAuth.middleware';
 import { requireAdmin, setAdminCookie, clearAdminCookie, ADMIN_COOKIE } from '../middlewares/adminAuth.middleware';
 import { sessionStartOf, isSessionTooOld, SESSION_MAX_MS } from '../middlewares/auth.middleware';
+import { errorHandlerMiddleware } from '../middlewares/errorHandler.middleware';
+import { AppError } from '../utils/AppError';
 
 const TEST_SECRET = 'test-jwt-secret-for-security-tests-crackjee-2026';
 
@@ -215,5 +217,50 @@ describe('Session Lifetime & Cookie Security Flags', () => {
 
     clearAdminCookie(res);
     assert.ok(appendedCookies[3].includes('Max-Age=0'));
+  });
+
+  it('errorHandlerMiddleware maps standard HTTP status errors (e.g. 413)', () => {
+    let statusCode = 0;
+    let jsonBody: any = null;
+    const res: any = {
+      status: (code: number) => { statusCode = code; return res; },
+      json: (data: any) => { jsonBody = data; },
+    };
+
+    const payloadTooLargeErr = { status: 413, message: 'request entity too large' };
+    errorHandlerMiddleware(payloadTooLargeErr, {} as any, res, () => {});
+    assert.equal(statusCode, 413);
+    assert.equal(jsonBody.success, false);
+    assert.equal(jsonBody.error, 'request entity too large');
+  });
+
+  it('errorHandlerMiddleware maps Prisma P2002 to 409 conflict', () => {
+    let statusCode = 0;
+    let jsonBody: any = null;
+    const res: any = {
+      status: (code: number) => { statusCode = code; return res; },
+      json: (data: any) => { jsonBody = data; },
+    };
+
+    const prismaP2002 = { code: 'P2002', message: 'Unique constraint failed' };
+    errorHandlerMiddleware(prismaP2002, {} as any, res, () => {});
+    assert.equal(statusCode, 409);
+    assert.equal(jsonBody.success, false);
+    assert.ok(jsonBody.error.includes('duplicate'));
+  });
+
+  it('errorHandlerMiddleware maps Prisma P2025 to 404 not found', () => {
+    let statusCode = 0;
+    let jsonBody: any = null;
+    const res: any = {
+      status: (code: number) => { statusCode = code; return res; },
+      json: (data: any) => { jsonBody = data; },
+    };
+
+    const prismaP2025 = { code: 'P2025', message: 'Record to update not found' };
+    errorHandlerMiddleware(prismaP2025, {} as any, res, () => {});
+    assert.equal(statusCode, 404);
+    assert.equal(jsonBody.success, false);
+    assert.ok(jsonBody.error.includes('not found'));
   });
 });
