@@ -993,10 +993,15 @@ Format as JSON:
 
     if (this.hasApiKey() && this.breaker.canAttempt()) {
       try {
-        const liveItems = await this.callFacultyAiGeneration(resolvedDomains, goalText, input.questionCount, input.targetProfile);
+        const liveItems = await this.generateFacultyAiPaperChunked(
+          resolvedDomains,
+          goalText,
+          input.questionCount,
+          input.targetProfile,
+        );
         if (liveItems && liveItems.length >= Math.min(input.questionCount, 5)) {
           this.breaker.recordSuccess();
-          logger.info({ count: liveItems.length, goal: goalText }, 'Generated live faculty psychometric paper via DeepSeek');
+          logger.info({ count: liveItems.length, goal: goalText }, 'Generated live faculty psychometric paper via DeepSeek chunks');
           return liveItems;
         }
       } catch (err) {
@@ -1008,10 +1013,111 @@ Format as JSON:
     return this.generateFacultyPsychometricFallback(resolvedDomains, goalText, input.questionCount);
   }
 
-  private async callFacultyAiGeneration(
+  private async generateFacultyAiPaperChunked(
     domains: string[],
     examGoal: string,
     questionCount: number,
+    targetProfile?: {
+      studentLevel?: string;
+      schoolClass?: string;
+      stream?: string;
+      ageGroup?: string;
+      age?: number;
+    },
+  ): Promise<FacultyPsychometricItem[] | null> {
+    const CHUNK_SIZE = 8;
+    const chunkCounts: number[] = [];
+    let rem = questionCount;
+    while (rem > 0) {
+      const take = Math.min(rem, CHUNK_SIZE);
+      chunkCounts.push(take);
+      rem -= take;
+    }
+
+    const chunkPromises = chunkCounts.map((count, idx) =>
+      this.callFacultyAiChunk(
+        idx,
+        chunkCounts.length,
+        count,
+        domains,
+        examGoal,
+        targetProfile,
+      ),
+    );
+
+    const chunkResults = await Promise.all(chunkPromises);
+    const collected: FacultyPsychometricItem[] = [];
+    const seenTexts = new Set<string>();
+
+    for (const chunk of chunkResults) {
+      if (!chunk) continue;
+      for (const item of chunk) {
+        const normalized = item.questionText.trim().toLowerCase();
+        if (!seenTexts.has(normalized)) {
+          seenTexts.add(normalized);
+          collected.push(item);
+        }
+      }
+    }
+
+    // If slightly short due to duplicate filtering, make quick supplementary calls to top up
+    let attempts = 0;
+    while (collected.length < questionCount && attempts < 2) {
+      attempts++;
+      const needed = questionCount - collected.length;
+      try {
+        const supplement = await this.callFacultyAiChunk(
+          chunkCounts.length + attempts,
+          chunkCounts.length + 2,
+          Math.min(needed + 2, 8),
+          domains,
+          examGoal,
+          targetProfile,
+        );
+        if (supplement && supplement.length > 0) {
+          for (const item of supplement) {
+            const normalized = item.questionText.trim().toLowerCase();
+            if (!seenTexts.has(normalized) && collected.length < questionCount) {
+              seenTexts.add(normalized);
+              collected.push(item);
+            }
+          }
+        } else {
+          break;
+        }
+      } catch {
+        break;
+      }
+    }
+
+    if (collected.length < Math.min(questionCount, 5)) {
+      return null;
+    }
+
+    // If still missing a few to reach exact questionCount, pad with fresh unique items from fallback pool
+    if (collected.length < questionCount) {
+      const fallbackItems = this.generateFacultyPsychometricFallback(domains, examGoal, questionCount);
+      for (const item of fallbackItems) {
+        const normalized = item.questionText.trim().toLowerCase();
+        if (!seenTexts.has(normalized) && collected.length < questionCount) {
+          seenTexts.add(normalized);
+          collected.push(item);
+        }
+      }
+    }
+
+    return collected.slice(0, questionCount).map((item, idx) => ({
+      ...item,
+      number: idx + 1,
+    }));
+  }
+
+  private async callFacultyAiChunk(
+    chunkIndex: number,
+    totalChunks: number,
+    count: number,
+    domains: string[],
+    examGoal: string,
     targetProfile?: {
       studentLevel?: string;
       schoolClass?: string;
@@ -1027,104 +1133,102 @@ Format as JSON:
 - Target Age Group: ${targetProfile.ageGroup || (targetProfile.age ? `${targetProfile.age} years old` : '16-18 years')}
 
 COHORT & STREAM CALIBRATION:
-- CRITICAL: Generate questions, situational dilemmas, and reasoning puzzles directly calibrated around what they are studying ("${targetProfile.stream || 'General'}"). If they are studying Medical, use healthcare, biology, clinical scenarios, or diagnostic dilemmas. If Science, use empirical inquiry, experiment design, physical/chemical principles. If Computer Science, use coding dilemmas, system design, or tech decisions. If Commerce/Business, use financial trade-offs, market decisions, or resource allocation.
-- Calibrate language and dilemma maturity to the target age group ("${targetProfile.ageGroup || '16-18 years'}"). For 12-14 years, keep situations age-appropriate (school projects, clubs, curiosity, ethical peer choices) without overly corporate jargon.\n`
+- CRITICAL: Generate questions, situational dilemmas, and reasoning puzzles directly calibrated around what they are studying ("${targetProfile.stream || 'General'}"). If Medical, use healthcare, biology, clinical curiosity, lab measurements. If Science, use physics/chemistry experiments, observation logic. If Computer Science, use beginner coding logic, simple website for school club, debugging steps. If Commerce, use budgeting, resource dividing, student business stall.
+- Calibrate language and dilemma maturity to the target age group ("${targetProfile.ageGroup || '16-18 years'}"). Keep scenarios age-appropriate without corporate jargon.\n`
       : '';
 
-    const prompt = `You are an expert talent evaluator and practical psychometrician creating an assessment paper for faculty.
+    const prompt = `You are an educational talent evaluator and practical psychometrician creating questions for a faculty test paper.
 
 EVALUATION GOAL / FACULTY TARGET:
 "${examGoal}"
 ${cohortInfo}
-ASSESSMENT DOMAINS TO COVER:
+DOMAINS TO COVER:
 ${domains.map((d, i) => `${i + 1}. ${d}`).join('\n')}
 
-TOTAL QUESTIONS REQUIRED: ${questionCount}
+BATCH: Section ${chunkIndex + 1} of ${totalChunks}
+GENERATE EXACTLY ${count} 100% ORIGINAL, UNIQUE QUESTIONS.
 
 CRITICAL RULES AND REQUIREMENTS:
-1. OPINION AND BEHAVIORAL TRAIT BASED EVALUATION:
-   - This assessment is NOT a pass/fail school test with rigid right/wrong answers.
-   - Every question evaluates behavioral preferences, thinking style, risk tolerance, autonomy, collaboration, or cognitive aptitude.
-   - For cognitive logic questions, specify the objective key in "correctAnswer".
-   - For all opinion, personality, situational, and behavioral questions, describe the Trait Rubric in "correctAnswer" explaining what option choices signify (e.g., "Trait Rubric: A=High Bold Risk, B=Systematic Mitigation, C=Consensus, D=Avoidance").
-   - In "explanation", provide clear AI guidelines on how choices map to the evaluation goal ("${examGoal}").
+1. QUESTION MODEL DIVERSITY:
+   Distribute these question models across the ${count} questions:
+   - "COGNITIVE_MCQ": Objective problem-solving or practical reasoning puzzle with 4 options (specify correct key in "correctAnswer")
+   - "SCENARIO_ACTION_MCQ": Vivid 2-3 sentence realistic dilemma with 4 behavioral choices
+   - "AGREEMENT_LIKERT": 5 options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"]
+   - "FREQUENCY_SCALE": 5 options: ["Never", "Rarely", "Sometimes", "Often", "Always"]
+   - "PASSION_SCALE": 4 options: ["Not Interested", "Slightly Interested", "Interested", "Passionate"]
 
-2. MANDATORY QUESTION MODEL DIVERSITY (AT LEAST 1 QUESTION PER MODEL):
-   Across the ${questionCount} questions, you MUST include AT LEAST ONE question from EACH of these 5 psychometric models:
-   - "AGREEMENT_LIKERT": 5 options (Strongly Disagree, Disagree, Neutral, Agree, Strongly Agree)
-   - "FREQUENCY_SCALE": 5 options (Never, Rarely, Sometimes, Often, Always)
-   - "SCENARIO_ACTION_MCQ": Vivid 2-4 sentence realistic dilemma situation with 4 concrete behavioral action choices
-   - "COGNITIVE_MCQ": Objective technical reasoning or logic puzzle tailored to the evaluation goal (4 options)
-   - "PASSION_SCALE": 4 options (Not Interested, Slightly Interested, Interested, Passionate)
+2. 100% STUDENT-LEVEL SITUATIONS & CONVERSATIONAL VOCABULARY:
+   - ZERO corporate or senior tech buzzwords (NEVER write "microservices", "throughput", "infrastructure cost", "sprint retrospective", "database schema under peak load", "asymptotic complexity", "KPIs", "refactoring", "angel investors", "stakeholders").
+   - Frame scenarios around student experiences: school/college lab experiments, simple beginner code or student club websites, group project assignments, exam schedules, study habits, peer teamwork, broken lab equipment, or practical logic puzzles.
+   - Any 12–18 year old student must easily understand every word without asking an adult or checking a dictionary.
 
-3. CALIBRATE TO THE TARGET STUDENT LEVEL & WHAT THEY STUDY:
-   - Calibrate scenarios, logic problems, and behavioral questions directly to the candidate education level and what they are studying.
-   - ABSOLUTE PROHIBITION ON SENIOR SOFTWARE / CORPORATE JARGON:
-     * NEVER use senior corporate or complex tech buzzwords (NEVER write "microservices", "throughput", "infrastructure cost", "sprint retrospective", "database schema under peak load", "asymptotic complexity", "O(N log N)", "KPIs", "refactoring", "angel investors", "stakeholders").
-     * These questions are for young STUDENTS (school, 11th-12th, or college beginners), NOT senior software architects with 10 years of experience!
-   - Frame scenarios around real student experiences:
-     * Science / Medical: science lab experiments, biology study projects, physics models, deciding who records measurements, handling unexpected errors in data, sharing lab equipment, working together on a practical exam.
-     * Computer Science / Tech: writing a simple beginner program, fixing an error in a school coding project, building a simple website for a student club, organizing files or tasks in a group project, simple everyday logic puzzles with steps or numbers.
-     * General / School: working on group presentations, preparing for exams, managing study schedules, solving disagreements with project partners, deciding whether to try an original creative approach or stick to standard steps.
+3. CONCISE RUBRIC & EXPLANATION:
+   - In "explanation", write 1-2 concise sentences explaining what option choices indicate for the goal ("${examGoal}").
+   - In "radicalFeedbackNote", write a sharp, single-sentence diagnostic note for outlier choices.
+   - In "correctAnswer", provide the key for cognitive MCQ, or the Trait Rubric summary for opinion questions (e.g. "Trait Rubric: A=Bold Initiative, B=Cautious Mitigation, C=Consensus, D=Avoidance").
 
-4. RADICAL ANSWER ONE-LINER FEEDBACK:
-   - In "radicalFeedbackNote", write a sharp, single-sentence diagnostic observation for extreme, reckless, or unusual answers in plain conversational English.
+4. ZERO EMOJIS. NEVER use the forbidden word "tuition".
 
-5. TONE & VOCABULARY RULES:
-   - 100% PLAIN, SIMPLE, CONVERSATIONAL STUDENT-LEVEL ENGLISH.
-   - Any 12–18 year old student must be able to read and understand every word easily without asking an adult or checking a dictionary.
-   - ZERO emojis anywhere.
-   - NEVER use the forbidden word "tuition".
-
-Format output strictly as JSON:
+Format output strictly as a JSON object:
 {
   "items": [
     {
-      "number": 1,
       "domain": "Domain Name",
       "questionModel": "COGNITIVE_MCQ | SCENARIO_ACTION_MCQ | AGREEMENT_LIKERT | FREQUENCY_SCALE | PASSION_SCALE",
-      "scenarioText": "Vivid 2-4 sentence realistic story, or null if direct statement",
-      "questionText": "Question or statement in plain English",
+      "scenarioText": "Vivid 2-3 sentence realistic story, or null if direct statement",
+      "questionText": "Question or statement in plain student English",
       "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
       "correctAnswer": "Trait Rubric or Correct Key",
-      "explanation": "AI evaluation guidelines explaining what each choice indicates",
-      "traitPersonaMapping": "Core trait evaluated (e.g. Entrepreneurial Risk Appetite / Systems Thinking)",
-      "radicalFeedbackNote": "One-liner observation for extreme or standout answers"
+      "explanation": "Concise 1-2 sentence rubric explanation",
+      "traitPersonaMapping": "Core trait evaluated",
+      "radicalFeedbackNote": "One-liner observation for extreme choices"
     }
   ]
 }`;
 
-    const completion = await this.withSlot(() =>
-      this.getClient().chat.completions.create({
-        model: 'deepseek-chat',
-        temperature: 0.6,
-        max_tokens: 4000,
-        messages: [
-          { role: 'system', content: PSYCHOMETRIC_SYSTEM_PROMPT },
-          { role: 'user', content: prompt },
-        ],
-      }),
-    );
+    try {
+      const completion = await this.withSlot(() =>
+        this.getClient().chat.completions.create({
+          model: 'deepseek-chat',
+          temperature: 0.7,
+          max_tokens: 3500,
+          response_format: { type: 'json_object' },
+          messages: [
+            {
+              role: 'system',
+              content:
+                'You are an educational psychometric assessment assistant. You generate unique student-friendly psychometric questions. Output MUST be ONLY a valid JSON object matching the requested schema.',
+            },
+            { role: 'user', content: prompt },
+          ],
+        }),
+      );
 
-    const raw = completion.choices[0]?.message?.content ?? '';
-    const cleaned = raw.trim().replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '').trim();
-    const parsed = JSON.parse(cleaned) as { items?: FacultyPsychometricItem[] };
+      const raw = completion.choices[0]?.message?.content ?? '';
+      const cleaned = raw.trim().replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '').trim();
+      const parsed = JSON.parse(cleaned) as { items?: FacultyPsychometricItem[] };
 
-    if (!parsed.items || !Array.isArray(parsed.items) || parsed.items.length === 0) {
+      if (!parsed.items || !Array.isArray(parsed.items) || parsed.items.length === 0) {
+        return null;
+      }
+
+      return parsed.items.map((item, idx) => ({
+        ...item,
+        number: idx + 1,
+        domain: item.domain || domains[idx % domains.length] || 'Cognitive Ability Tests',
+        questionModel: item.questionModel || 'SCENARIO_ACTION_MCQ',
+        options: Array.isArray(item.options) && item.options.length > 0
+          ? item.options
+          : ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
+        correctAnswer: item.correctAnswer || 'Trait Rubric: Evaluated holistically based on candidate choice',
+        explanation: item.explanation || 'Evaluates behavioral and cognitive orientation toward target goals.',
+        traitPersonaMapping: item.traitPersonaMapping || 'Behavioral Competency',
+        radicalFeedbackNote: item.radicalFeedbackNote || 'Outlier choices signal strong individualist preferences needing balanced mentoring.',
+      }));
+    } catch (err) {
+      logger.warn({ err, chunkIndex }, 'Failed to generate psychometric chunk from DeepSeek');
       return null;
     }
-
-    return parsed.items.map((item, idx) => ({
-      ...item,
-      number: idx + 1,
-      domain: item.domain || domains[idx % domains.length] || 'Cognitive Ability Tests',
-      questionModel: item.questionModel || 'SCENARIO_ACTION_MCQ',
-      options: Array.isArray(item.options) && item.options.length > 0 ? item.options : ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
-      correctAnswer: item.correctAnswer || 'Trait Rubric: Evaluated holistically based on candidate choice',
-      explanation: item.explanation || 'Evaluates behavioral and cognitive orientation toward target goals.',
-      traitPersonaMapping: item.traitPersonaMapping || 'Behavioral Competency',
-      radicalFeedbackNote: item.radicalFeedbackNote || 'Outlier choices signal strong individualist preferences needing balanced mentoring.',
-    }));
   }
 
   private generateFacultyPsychometricFallback(
