@@ -389,6 +389,47 @@ curl -s https://jeeneet.ai/health && echo ""
 
 ---
 
+## 👥 Part 4: Faculty Portal — Bulk Student Upload via CSV
+
+Faculty members can create student accounts one-by-one or import dozens/hundreds of students at once using a `.csv` file.
+
+### How to Import Students in Bulk
+1. Log in to the Faculty Portal at **`/faculty`**.
+2. Navigate to **Batches & Students** and click **"+ Add Student"**.
+3. Select the **"Bulk Upload (CSV)"** tab.
+4. *(Optional)* Click **"Download Sample CSV"** to download a ready-to-fill template.
+5. Upload or drag-and-drop your `.csv` file. The portal parses and previews all valid student records and highlights any formatting errors.
+6. Select the target batch from the dropdown (or specify batch codes in the CSV) and click **"Create Students"**.
+
+---
+
+### CSV File Format & Specification
+
+Create a standard comma-separated `.csv` file with the following header row:
+
+```csv
+name,rollNumber,email,password,batchCode
+Sumanth Varma,JEE-2026-042,sumanth@example.com,Welcome@123,TARGET-26
+Priya Sharma,JEE-2026-043,priya@example.com,Welcome@123,TARGET-26
+Rahul Reddy,JEE-2026-044,,,TARGET-26
+Ananya Patel,NEET-2026-015,ananya@example.com,Pass@456,NEET-CRACK
+```
+
+#### Column Reference:
+
+| Column Header | Required? | Description & Rules |
+| :--- | :--- | :--- |
+| **`name`** | **Yes** | Full name of the student (e.g. `Sumanth Varma`). |
+| **`rollNumber`** | **Yes** | Unique student roll number or institutional ID (e.g. `JEE-2026-042`). Used by the student as their login username. |
+| **`email`** | No | Registered email address (e.g. `sumanth@example.com`). Can be left blank. |
+| **`password`** | No | Initial login password. **If left blank, the student's password automatically defaults to their `rollNumber`**. |
+| **`batchCode`** | No | The target batch code (e.g. `TARGET-26`). If omitted in the CSV row, the student is assigned to the batch currently selected in the portal dropdown. |
+
+> [!TIP]
+> **Flexible Header Aliases:** The CSV parser also recognizes common variations such as `student_name` or `fullName` for `name`, `roll_no` or `roll` for `rollNumber`, and `batch` for `batchCode`.
+
+---
+
 ## 📌 Useful Server Cheatsheet
 
 | Task | Command |
