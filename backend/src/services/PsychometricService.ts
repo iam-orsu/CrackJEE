@@ -204,6 +204,67 @@ export class PsychometricService {
   }
 
   /**
+   * Retrieves the current in-progress session for session resilience across refreshes.
+   */
+  public async getActiveSession(userId: string) {
+    const existing = await this.prisma.psychometricSession.findFirst({
+      where: { userId, status: 'in_progress' },
+      include: {
+        responses: {
+          include: { item: true },
+        },
+      },
+      orderBy: { createdAt: 'desc' },
+    });
+
+    if (!existing) return { active: false };
+
+    // Expire abandoned sessions older than 7 days
+    if (Date.now() - existing.createdAt.getTime() > 7 * 24 * 3600 * 1000) {
+      await this.prisma.psychometricSession.update({
+        where: { id: existing.id },
+        data: { status: 'abandoned' },
+      });
+      return { active: false };
+    }
+
+    const answers: Record<string, string> = {};
+    for (const r of existing.responses) {
+      answers[r.itemId] = r.answer;
+    }
+
+    return {
+      active: true,
+      session: {
+        id: existing.id,
+        currentSection: existing.currentSection,
+        status: existing.status,
+        createdAt: existing.createdAt.toISOString(),
+      },
+      answeredCount: existing.responses.length,
+      answers,
+    };
+  }
+
+  /**
+   * Discards an in-progress session so candidate can start a fresh assessment.
+   */
+  public async discardSession(userId: string, sessionId?: string) {
+    if (sessionId) {
+      await this.prisma.psychometricSession.updateMany({
+        where: { id: sessionId, userId, status: 'in_progress' },
+        data: { status: 'abandoned' },
+      });
+    } else {
+      await this.prisma.psychometricSession.updateMany({
+        where: { userId, status: 'in_progress' },
+        data: { status: 'abandoned' },
+      });
+    }
+    return { success: true };
+  }
+
+  /**
    * Records a student's answer for an item.
    */
   public async saveAnswer(params: {

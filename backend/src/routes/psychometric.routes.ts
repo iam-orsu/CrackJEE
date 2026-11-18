@@ -11,6 +11,8 @@ export function createPsychometricRoutes(): Router {
   router.get('/cards', controller.getCards);
   router.post('/session/card', controller.startCardSession);
   router.get('/session', controller.getSession);
+  router.get('/active-session', controller.getActiveSession);
+  router.post('/session/discard', controller.discardSession);
   router.post('/answer', controller.saveAnswer);
   router.post('/submit', controller.submitSession);
   router.get('/history', controller.getHistory);

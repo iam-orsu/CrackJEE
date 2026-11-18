@@ -106,6 +106,59 @@ const PASSION_SCALE = [
   { val: '4', label: 'Love It / Passionate', color: '#2563EB', bg: '#DBEAFE' },
 ];
 
+const PSY_STORAGE_KEY = 'psychometric_active_session_v1';
+
+interface PersistedSessionState {
+  sessionId: string;
+  exam: ExamData;
+  cardIds: string[];
+  activeQIdx: number;
+  answers: Record<string, string>;
+  updatedAt: number;
+}
+
+function saveLocalSession(data: PersistedSessionState) {
+  try {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(PSY_STORAGE_KEY, JSON.stringify(data));
+    }
+  } catch {
+    // Ignore quota errors
+  }
+}
+
+function getLocalSession(): PersistedSessionState | null {
+  try {
+    if (typeof window !== 'undefined') {
+      const raw = localStorage.getItem(PSY_STORAGE_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      if (
+        parsed &&
+        typeof parsed.sessionId === 'string' &&
+        parsed.exam &&
+        Array.isArray(parsed.exam.sections) &&
+        Date.now() - (parsed.updatedAt || 0) < 48 * 3600 * 1000
+      ) {
+        return parsed as PersistedSessionState;
+      }
+    }
+  } catch {
+    // Ignore
+  }
+  return null;
+}
+
+function clearLocalSession() {
+  try {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem(PSY_STORAGE_KEY);
+    }
+  } catch {
+    // Ignore
+  }
+}
+
 export default function PsychometricPage() {
   const [view, setView] = useState<ViewState>('hub');
   const [cards, setCards] = useState<PsychometricCardDef[]>([]);
@@ -114,6 +167,14 @@ export default function PsychometricPage() {
   const [pendingStart, setPendingStart] = useState(false);
   const [profileSaved, setProfileSaved] = useState(false);
   const [saveNotice, setSaveNotice] = useState('');
+  const [resumedNotice, setResumedNotice] = useState('');
+  const [exitModalOpen, setExitModalOpen] = useState(false);
+
+  const [activeServerSession, setActiveServerSession] = useState<{
+    id: string;
+    currentSection: string;
+    answeredCount: number;
+  } | null>(null);
 
   const [profile, setProfile] = useState<CandidateProfile>({
     age: 16,
@@ -146,22 +207,22 @@ export default function PsychometricPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // Load cards and profile from localStorage / API on mount
+  // 1. Restore active session on mount if page was refreshed or re-opened
   useEffect(() => {
     async function init() {
-      try {
-        const [cardsData, histData] = await Promise.all([
-          api.psychometric.getCards().catch(() => []),
-          api.psychometric.getHistory().catch(() => []),
-        ]);
-        if (cardsData && cardsData.length > 0) {
-          setCards(cardsData);
-        }
-        if (histData && Array.isArray(histData)) {
-          setHistory(histData);
-        }
-      } catch (err) {
-        console.error('Failed to load assessment cards:', err);
+      // Check local persisted session first (handles page refresh, tab re-open)
+      const local = getLocalSession();
+      if (local && local.sessionId && local.exam && local.exam.sections?.length > 0) {
+        setExam(local.exam);
+        setSessionId(local.sessionId);
+        setAnswers(local.answers || {});
+        setActiveQIdx(local.activeQIdx || 0);
+        setSelectedCardIds(local.cardIds || ['cognitive_ability']);
+        setView('exam');
+        setResumedNotice(
+          `Resumed in-progress assessment at Question ${(local.activeQIdx || 0) + 1}. All previous answers were restored.`,
+        );
+        setTimeout(() => setResumedNotice(''), 7000);
       }
 
       // Check stored candidate profile
@@ -178,9 +239,50 @@ export default function PsychometricPage() {
       } catch {
         // Ignore local storage error
       }
+
+      // Load cards, history, and active server session in parallel
+      try {
+        const [cardsData, histData, activeData] = await Promise.all([
+          api.psychometric.getCards().catch(() => []),
+          api.psychometric.getHistory().catch(() => []),
+          api.psychometric.getActiveSession().catch(() => null),
+        ]);
+        if (cardsData && cardsData.length > 0) {
+          setCards(cardsData);
+        }
+        if (histData && Array.isArray(histData)) {
+          setHistory(histData);
+        }
+        if (activeData?.active && activeData.session) {
+          setActiveServerSession({
+            id: activeData.session.id,
+            currentSection: activeData.session.currentSection,
+            answeredCount: activeData.answeredCount || 0,
+          });
+
+          // If local session matches, merge server-persisted answers
+          if (local && local.sessionId === activeData.session.id && activeData.answers) {
+            setAnswers((prev) => ({ ...(activeData.answers || {}), ...prev }));
+          }
+        }
+      } catch (err) {
+        console.error('Failed to load assessment data:', err);
+      }
     }
     init();
   }, []);
+
+  // 2. Prevent accidental tab closure or browser reload during an active exam
+  useEffect(() => {
+    function handleBeforeUnload(e: BeforeUnloadEvent) {
+      if (view === 'exam' && sessionId) {
+        e.preventDefault();
+        e.returnValue = '';
+      }
+    }
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, [view, sessionId]);
 
   function toggleCardSelection(id: string) {
     setSelectedCardIds((prev) =>
@@ -249,11 +351,25 @@ export default function PsychometricPage() {
         profile,
       });
 
-      setExam(res.exam as ExamData);
-      setSessionId(res.session.id);
+      const examData = res.exam as ExamData;
+      const newSessionId = res.session.id;
+
+      setExam(examData);
+      setSessionId(newSessionId);
       setAnswers({});
       setActiveQIdx(0);
       setView('exam');
+      setActiveServerSession(null);
+
+      // Persist active session immediately
+      saveLocalSession({
+        sessionId: newSessionId,
+        exam: examData,
+        cardIds,
+        activeQIdx: 0,
+        answers: {},
+        updatedAt: Date.now(),
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to launch assessment');
     } finally {
@@ -272,6 +388,40 @@ export default function PsychometricPage() {
       return;
     }
     launchMultiCardExam(selectedCardIds);
+  }
+
+  function handleResumeActiveSession() {
+    const local = getLocalSession();
+    if (local && local.sessionId && local.exam) {
+      setExam(local.exam);
+      setSessionId(local.sessionId);
+      setAnswers(local.answers || {});
+      setActiveQIdx(local.activeQIdx || 0);
+      setView('exam');
+      setResumedNotice('Resumed in-progress assessment. All previous answers were restored.');
+      setTimeout(() => setResumedNotice(''), 6000);
+    } else if (activeServerSession) {
+      const rawIds = activeServerSession.currentSection.split(',').map((s) => s.trim()).filter(Boolean);
+      launchMultiCardExam(rawIds.length > 0 ? rawIds : ['cognitive_ability']);
+    }
+  }
+
+  async function handleDiscardActiveSession() {
+    const targetSessionId = sessionId || activeServerSession?.id;
+    clearLocalSession();
+    setActiveServerSession(null);
+    setExam(null);
+    setSessionId('');
+    setAnswers({});
+    setActiveQIdx(0);
+    setView('hub');
+    setExitModalOpen(false);
+
+    try {
+      await api.psychometric.discardSession(targetSessionId);
+    } catch {
+      // Ignore
+    }
   }
 
   const currentQuestions = useMemo(() => {
@@ -296,9 +446,37 @@ export default function PsychometricPage() {
 
   const currentQ = currentQuestions[activeQIdx];
 
+  function handleJumpToQuestion(idx: number) {
+    const clamped = Math.max(0, Math.min(currentQuestions.length - 1, idx));
+    setActiveQIdx(clamped);
+    if (exam && sessionId) {
+      saveLocalSession({
+        sessionId,
+        exam,
+        cardIds: selectedCardIds,
+        activeQIdx: clamped,
+        answers,
+        updatedAt: Date.now(),
+      });
+    }
+  }
+
   async function handleSelectAnswer(val: string) {
     if (!currentQ || !sessionId) return;
-    setAnswers((prev) => ({ ...prev, [currentQ.id]: val }));
+    const nextAnswers = { ...answers, [currentQ.id]: val };
+    setAnswers(nextAnswers);
+
+    // Save to local storage immediately
+    if (exam) {
+      saveLocalSession({
+        sessionId,
+        exam,
+        cardIds: selectedCardIds,
+        activeQIdx,
+        answers: nextAnswers,
+        updatedAt: Date.now(),
+      });
+    }
 
     try {
       setSavingStatus('Saving...');
@@ -319,21 +497,31 @@ export default function PsychometricPage() {
     setLoading(true);
     setError('');
     try {
-      // Ensure the active question's answer is synced if present in local state
-      if (currentQ && answers[currentQ.id]) {
-        await api.psychometric
-          .saveAnswer({
-            sessionId,
-            item: currentQ as unknown as Record<string, unknown>,
-            answer: answers[currentQ.id]!,
-          })
-          .catch(() => {});
+      // Flush all answered questions to server in case any were saved locally
+      if (currentQuestions.length > 0) {
+        const itemsToSync = currentQuestions.filter((q) => answers[q.id]);
+        await Promise.all(
+          itemsToSync.map((q) =>
+            api.psychometric
+              .saveAnswer({
+                sessionId,
+                item: q as unknown as Record<string, unknown>,
+                answer: answers[q.id]!,
+              })
+              .catch(() => {}),
+          ),
+        );
       }
 
       const rep = await api.psychometric.submit(sessionId);
       const repData = rep as unknown as ReportData;
       setReport(repData);
       setView('report');
+
+      // Clear local session once submitted
+      clearLocalSession();
+      setActiveServerSession(null);
+
       // Refresh history
       api.psychometric.getHistory().then((h) => setHistory(h || [])).catch(() => {});
     } catch (err) {
@@ -549,12 +737,26 @@ export default function PsychometricPage() {
           </div>
           <button
             type="button"
-            onClick={() => setView('hub')}
+            onClick={() => setExitModalOpen(true)}
             className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50"
           >
             Exit Assessment
           </button>
         </div>
+
+        {/* Resumed Toast Notice */}
+        {resumedNotice && (
+          <div className="mt-4 flex items-center justify-between rounded-xl border border-blue-200 bg-blue-50 p-3 text-xs font-bold text-blue-900 shadow-sm animate-fade-in">
+            <span>{resumedNotice}</span>
+            <button
+              type="button"
+              onClick={() => setResumedNotice('')}
+              className="text-xs text-blue-600 hover:text-blue-800"
+            >
+              Dismiss
+            </button>
+          </div>
+        )}
 
         {/* Progress Bar */}
         <div className="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-slate-100">
@@ -573,7 +775,7 @@ export default function PsychometricPage() {
               <button
                 key={q.id || idx}
                 type="button"
-                onClick={() => setActiveQIdx(idx)}
+                onClick={() => handleJumpToQuestion(idx)}
                 className={`flex h-7 w-7 items-center justify-center rounded-lg text-xs font-bold transition ${
                   isCurrent
                     ? 'bg-blue-600 text-white ring-2 ring-blue-400 ring-offset-1'
@@ -744,7 +946,7 @@ export default function PsychometricPage() {
           <button
             type="button"
             disabled={activeQIdx === 0}
-            onClick={() => setActiveQIdx((prev) => Math.max(0, prev - 1))}
+            onClick={() => handleJumpToQuestion(activeQIdx - 1)}
             className="rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-xs font-bold text-slate-700 shadow-sm transition hover:bg-slate-50 disabled:opacity-40"
           >
             Previous
@@ -753,7 +955,7 @@ export default function PsychometricPage() {
           {activeQIdx < totalQ - 1 ? (
             <button
               type="button"
-              onClick={() => setActiveQIdx((prev) => Math.min(totalQ - 1, prev + 1))}
+              onClick={() => handleJumpToQuestion(activeQIdx + 1)}
               className="rounded-xl bg-[#003366] px-6 py-2.5 text-xs font-bold text-white shadow-sm transition hover:bg-[#002244]"
             >
               Next Question
@@ -866,6 +1068,43 @@ export default function PsychometricPage() {
           >
             Dismiss
           </button>
+        </div>
+      )}
+
+      {/* Active Session Recovery Banner (if user has an in-progress session) */}
+      {(activeServerSession || getLocalSession()) && (
+        <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border-2 border-blue-500 bg-blue-50/90 p-5 shadow-sm">
+          <div className="flex items-start gap-3">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white font-bold text-sm">
+              !
+            </span>
+            <div>
+              <h3 className="text-sm font-bold text-blue-950">
+                You have an assessment currently in progress
+              </h3>
+              <p className="text-xs text-blue-800 mt-0.5">
+                {activeServerSession
+                  ? `${activeServerSession.answeredCount} questions already recorded. All previous answers are saved.`
+                  : 'Your questions and previous answers are preserved and ready to resume.'}
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={handleDiscardActiveSession}
+              className="rounded-xl border border-rose-200 bg-white px-4 py-2 text-xs font-bold text-rose-700 hover:bg-rose-50 transition"
+            >
+              Discard & Start Fresh
+            </button>
+            <button
+              type="button"
+              onClick={handleResumeActiveSession}
+              className="rounded-xl bg-blue-600 px-5 py-2 text-xs font-bold text-white shadow-sm hover:bg-blue-700 transition"
+            >
+              Resume Assessment →
+            </button>
+          </div>
         </div>
       )}
 
@@ -1345,6 +1584,44 @@ export default function PsychometricPage() {
                 className="rounded-xl bg-emerald-600 px-6 py-2.5 text-xs font-bold text-white shadow-md transition hover:bg-emerald-700"
               >
                 Save Background Details
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Exit Confirmation Modal */}
+      {exitModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+          <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl animate-fade-in">
+            <h3 className="text-base font-bold text-slate-900">Exit Assessment?</h3>
+            <p className="mt-2 text-xs text-slate-600 leading-relaxed">
+              Your answered questions are safely stored. You can return to the dashboard and resume this test anytime, or discard it to start fresh.
+            </p>
+            <div className="mt-6 flex flex-col sm:flex-row items-center justify-end gap-2.5">
+              <button
+                type="button"
+                onClick={() => setExitModalOpen(false)}
+                className="w-full sm:w-auto rounded-xl border border-slate-200 px-4 py-2 text-xs font-bold text-slate-600 hover:bg-slate-50"
+              >
+                Continue Assessment
+              </button>
+              <button
+                type="button"
+                onClick={handleDiscardActiveSession}
+                className="w-full sm:w-auto rounded-xl border border-rose-200 px-4 py-2 text-xs font-bold text-rose-700 hover:bg-rose-50"
+              >
+                Discard Assessment
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setExitModalOpen(false);
+                  setView('hub');
+                }}
+                className="w-full sm:w-auto rounded-xl bg-[#003366] px-5 py-2 text-xs font-bold text-white hover:bg-[#002244]"
+              >
+                Save & Exit to Hub
               </button>
             </div>
           </div>

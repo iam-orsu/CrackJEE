@@ -99,6 +99,31 @@ export class PsychometricController {
     }
   };
 
+  public readonly getActiveSession = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const userId = req.user?.userId;
+      if (!userId) throw new AppError(401, 'Unauthorized');
+
+      const result = await this.service.getActiveSession(userId);
+      res.json({ success: true, data: result });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly discardSession = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const userId = req.user?.userId;
+      if (!userId) throw new AppError(401, 'Unauthorized');
+
+      const sessionId = req.body?.sessionId as string | undefined;
+      const result = await this.service.discardSession(userId, sessionId);
+      res.json({ success: true, data: result });
+    } catch (err) {
+      next(err);
+    }
+  };
+
   public readonly saveAnswer = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
       const userId = req.user?.userId;
