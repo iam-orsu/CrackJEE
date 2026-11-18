@@ -4,11 +4,18 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { facultyLogin, facultyMe } from '@/lib/faculty';
+import { facultyGoogleLoginUrl, facultyMe } from '@/lib/faculty';
 
 const HEAD = 'font-display';
-const FIELD = 'h-[54px] w-full rounded-2xl border-[2.5px] border-[#003366] bg-white text-[15px] font-semibold text-[#003366] shadow-[0_5px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-[#803688] focus:shadow-[0_7px_0_#E3C9E6] motion-reduce:transition-none';
-const FOCUS_RING = 'focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#803688] focus-visible:outline-offset-2';
+
+const GOOGLE_MARK = (
+  <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden className="shrink-0">
+    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+    <path fill="#FBBC05" d="M10.53 28.59A14.5 14.5 0 019.75 24c0-1.59.27-3.13.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+  </svg>
+);
 
 /* The landing page's blob, reused as the panel's quiet moment */
 function Blob({ className }: { className: string }) {
@@ -65,10 +72,7 @@ const FEATURES = [
 
 export default function FacultyLoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPwd, setShowPwd] = useState(false);
-  const [busy, setBusy] = useState(false);
+  const [googleBusy, setGoogleBusy] = useState(false);
   const [error, setError] = useState('');
 
   // Someone already signed in has no business here; send them to the studio.
@@ -80,17 +84,18 @@ export default function FacultyLoginPage() {
     return () => { active = false; };
   }, [router]);
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setBusy(true);
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const oauthError = params.get('error');
+    if (!oauthError) return;
+    setError(oauthError);
+    window.history.replaceState({}, '', window.location.pathname);
+  }, []);
+
+  function handleGoogleSignIn() {
+    setGoogleBusy(true);
     setError('');
-    try {
-      await facultyLogin(email, password);
-      router.replace('/faculty');
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Sign-in failed');
-      setBusy(false);
-    }
+    window.location.assign(facultyGoogleLoginUrl('/faculty'));
   }
 
   return (
@@ -152,11 +157,11 @@ export default function FacultyLoginPage() {
               Sign in to the studio
             </h2>
             <p className="mt-2 text-[13.5px] leading-relaxed text-[#5A6B8C]">
-              Use the mentor credentials issued by your program administrator.
+              The faculty portal uses your Google account. No password to remember, no approval queue.
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="mt-7 grid gap-4" noValidate>
+          <div className="mt-7 grid gap-4">
             {error && (
               <div role="alert" className="flex items-start gap-2.5 rounded-2xl border border-[#C8202F]/25 bg-[#FDF3F4] px-4 py-3 text-[13px] font-semibold leading-relaxed text-[#C8202F]">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="mt-0.5 shrink-0">
@@ -167,87 +172,43 @@ export default function FacultyLoginPage() {
               </div>
             )}
 
-            <div>
-              <label htmlFor="faculty-email" className="mb-2 block text-[12.5px] font-extrabold text-[#003366]">
-                Faculty email
-              </label>
-              <div className="relative">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[#003366]/60">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                  <polyline points="22,6 12,13 2,6" />
-                </svg>
-                <input
-                  id="faculty-email"
-                  type="email"
-                  className={`${FIELD} pl-11 pr-4`}
-                  placeholder="you@college.edu"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  autoComplete="username"
-                  required
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="faculty-password" className="mb-2 block text-[12.5px] font-extrabold text-[#003366]">
-                Password
-              </label>
-              <div className="relative">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[#003366]/60">
-                  <rect x="3" y="11" width="18" height="11" rx="2" />
-                  <path d="M7 11V7a5 5 0 0110 0v4" />
-                </svg>
-                <input
-                  id="faculty-password"
-                  type={showPwd ? 'text' : 'password'}
-                  className={`${FIELD} pl-11 pr-14`}
-                  placeholder="Your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  autoComplete="current-password"
-                  required
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPwd((v) => !v)}
-                  aria-label={showPwd ? 'Hide password' : 'Show password'}
-                  aria-pressed={showPwd}
-                  className={`absolute right-2 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-xl text-[#003366] transition-colors duration-150 hover:bg-[#EEF2FF] ${FOCUS_RING}`}
-                >
-                  {showPwd ? (
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                      <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24" />
-                      <line x1="1" y1="1" x2="23" y2="23" />
-                    </svg>
-                  ) : (
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                      <circle cx="12" cy="12" r="3" />
-                    </svg>
-                  )}
-                </button>
-              </div>
-            </div>
-
             <button
-              type="submit"
-              disabled={busy}
-              className="mt-1 inline-flex h-[56px] w-full items-center justify-center gap-2.5 rounded-2xl bg-grad px-5 text-[15px] font-extrabold text-white shadow-[0_6px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_8px_0_#5A2560] active:translate-y-[4px] active:shadow-[0_2px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-70 motion-reduce:transition-none"
+              type="button"
+              onClick={handleGoogleSignIn}
+              disabled={googleBusy}
+              className="inline-flex h-[58px] w-full items-center justify-center gap-3 rounded-2xl border-[2.5px] border-[#003366] bg-white text-[15px] font-extrabold text-[#003366] shadow-[0_6px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_8px_0_#C6D2F8] active:translate-y-[4px] active:shadow-[0_2px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-70 motion-reduce:transition-none"
             >
-              {busy ? (
+              {googleBusy ? (
                 <>
-                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white motion-reduce:animate-none" aria-hidden />
-                  Signing in...
+                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#003366]/25 border-t-[#003366] motion-reduce:animate-none" aria-hidden />
+                  Redirecting to Google...
                 </>
               ) : (
-                'Sign in'
+                <>
+                  {GOOGLE_MARK}
+                  Continue with Google
+                </>
               )}
             </button>
-          </form>
+
+            <ul className="mt-1 grid gap-2.5">
+              {[
+                'Your faculty account is created on the first sign-in',
+                'Your Google profile photo and name carry over',
+                'Sign out any time — no password to manage',
+              ].map((point) => (
+                <li key={point} className="flex items-start gap-2.5 text-[12.5px] font-semibold leading-relaxed text-[#5A6B8C]">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="mt-[3px] shrink-0 text-[#803688]">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <p className="mt-6 text-[12.5px] leading-relaxed text-[#7A87A0]">
-            No account yet? Faculty access is created by your program administrator.
+            Trouble signing in? Your program administrator can reactivate your faculty account.
           </p>
         </section>
       </main>

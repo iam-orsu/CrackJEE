@@ -1,7 +1,11 @@
 /**
  * createFaculty.ts — CLI helper to create or update a faculty/mentor login.
  *
+ * Faculty sign in with Google, so the password is optional: the mentor signs in with
+ * the Google account that carries the same email address.
+ *
  * Usage:
+ *   npm run faculty:create -- "Dr. Rao" rao@example.com
  *   npm run faculty:create -- "Dr. Rao" rao@example.com StrongPass123!
  */
 import { loadDotEnv } from '../config/env';
@@ -12,8 +16,12 @@ import { FacultyAuthService } from '../services/FacultyAuthService';
 async function main(): Promise<void> {
   loadDotEnv();
   const [name, email, password] = process.argv.slice(2);
-  if (!name || !email || !password || password.length < 8) {
-    console.error('Usage: npm run faculty:create -- "<Name>" <email> <password (min 8 chars)>');
+  if (!name || !email) {
+    console.error('Usage: npm run faculty:create -- "<Name>" <email> [password (optional, min 8 chars)]');
+    process.exit(1);
+  }
+  if (password && password.length < 8) {
+    console.error('Password must be at least 8 characters.');
     process.exit(1);
   }
 
@@ -23,11 +31,15 @@ async function main(): Promise<void> {
     const auth = new FacultyAuthService(repo);
     const existing = await repo.findByEmail(email);
     if (existing) {
-      const updated = await auth.updateAccount(existing.id, { name, password, isActive: true });
+      const updated = await auth.updateAccount(existing.id, {
+        name,
+        isActive: true,
+        ...(password ? { password } : {}),
+      });
       console.log(`Updated existing faculty account: ${updated.email} (id=${updated.id})`);
     } else {
       const created = await auth.createAccount({ name, email, password });
-      console.log(`Created faculty account: ${created.email} (id=${created.id})`);
+      console.log(`Created faculty account: ${created.email} (id=${created.id}) — sign in with Google using ${email}`);
     }
   } finally {
     await database.disconnect();

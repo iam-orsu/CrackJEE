@@ -3,6 +3,11 @@ import type { NextConfig } from 'next';
 const config: NextConfig = {
   images: {
     unoptimized: false,
+    remotePatterns: [
+      // Google profile pictures for faculty avatars (lh3.googleusercontent.com).
+      { protocol: 'https', hostname: 'lh3.googleusercontent.com' },
+      { protocol: 'https', hostname: '*.googleusercontent.com' },
+    ],
   },
   async rewrites() {
     return [

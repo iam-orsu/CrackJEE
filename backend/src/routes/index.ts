@@ -6,6 +6,7 @@ import { createMockRoutes } from './mock.routes';
 import { createAdminRoutes } from './admin.routes';
 import { createFacultyRoutes } from './faculty.routes';
 import { createFacultyStudentRoutes } from './facultyStudent.routes';
+import { createGoogleRoutes } from './google.routes';
 import { createProgressRoutes } from './progress.routes';
 import { createPsychometricRoutes } from './psychometric.routes';
 
@@ -21,6 +22,7 @@ export function createApiV1Router(): Router {
   router.use('/admin', createAdminRoutes());
   router.use('/faculty', createFacultyRoutes());
   router.use('/faculty-student', createFacultyStudentRoutes());
+  router.use('/google', createGoogleRoutes());
   router.use('/', createProgressRoutes());
 
   return router;

@@ -134,6 +134,8 @@ export interface FacultyAccount {
   name: string;
   email: string;
   isActive: boolean;
+  googleLinked: boolean;
+  avatarUrl?: string | null;
   paperCount: number;
   createdAt: string;
 }
@@ -142,7 +144,7 @@ export function listFacultyAccounts(): Promise<FacultyAccount[]> {
   return adminFetch<FacultyAccount[]>('/faculty');
 }
 
-export function createFacultyAccount(input: { name: string; email: string; password: string }): Promise<FacultyAccount> {
+export function createFacultyAccount(input: { name: string; email: string; password?: string }): Promise<FacultyAccount> {
   return adminFetch<FacultyAccount>('/faculty', {
     method: 'POST',
     body: JSON.stringify(input),

@@ -13,6 +13,7 @@ export interface FacultyUser {
   facultyId?: string;
   name: string;
   email: string;
+  avatarUrl?: string | null;
 }
 
 export interface FacultyPaperSelection {
@@ -98,11 +99,8 @@ export async function facultyFetch<T extends object>(path: string, init: Request
   return json;
 }
 
-export async function facultyLogin(email: string, password: string) {
-  return facultyFetch<{ faculty: FacultyUser; expiresAt: string }>('/login', {
-    method: 'POST',
-    body: JSON.stringify({ email, password }),
-  });
+export function facultyGoogleLoginUrl(redirectTo = '/faculty'): string {
+  return `${API_URL}/google/start?redirect=${encodeURIComponent(redirectTo)}`;
 }
 
 export async function facultyLogout() {

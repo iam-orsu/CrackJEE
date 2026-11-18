@@ -15,6 +15,16 @@ export const AUTH_CONSTANTS = {
   DUMMY_BCRYPT_HASH: '$2a$12$e80yqZzD7Cqm/5aE6e1PkuWjWcK3pZ0G8Q6T8W3g9o3e5k5g7q4yW',
 } as const;
 
+export const GOOGLE_CONSTANTS = {
+  AUTH_ENDPOINT: 'https://accounts.google.com/o/oauth2/v2/auth',
+  TOKEN_ENDPOINT: 'https://oauth2.googleapis.com/token',
+  USERINFO_ENDPOINT: 'https://www.googleapis.com/oauth2/v3/userinfo',
+  SCOPES: 'openid email profile',
+  STATE_COOKIE: 'jee_google_state',
+  STATE_TTL_SECONDS: 600,
+  UPSTREAM_TIMEOUT_MS: 10_000,
+} as const;
+
 export const MOCK_CONSTANTS = {
   DURATION_SECONDS: 10800,
   ANSWER_GRACE_MS: 15_000,

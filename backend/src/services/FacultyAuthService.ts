@@ -1,27 +1,83 @@
 import bcrypt from 'bcrypt';
+import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
 import { AUTH_CONSTANTS } from '../config/constants';
 import { FacultyRepository } from '../repositories/FacultyRepository';
+import type { GoogleProfile } from './GoogleAuthService';
 import { AppError } from '../utils/AppError';
+
+interface GoogleFacultyAccount {
+  id: string;
+  name: string;
+  email: string;
+  isActive: boolean;
+  googleSub: string | null;
+  avatarUrl: string | null;
+}
 
 /** Handles faculty/mentor authentication and account provisioning. */
 export class FacultyAuthService {
   constructor(private readonly facultyRepo: FacultyRepository = new FacultyRepository()) {}
 
-  public async login(email: string, password: string) {
-    const normalized = email.trim().toLowerCase();
-    const faculty = await this.facultyRepo.findByEmail(normalized);
-
-    const hashToCompare = faculty ? faculty.passwordHash : AUTH_CONSTANTS.DUMMY_BCRYPT_HASH;
-    const valid = await bcrypt.compare(password, hashToCompare);
-
-    if (!faculty || !valid) {
-      throw new AppError(401, 'Invalid email or password');
+  public async loginWithGoogle(profile: GoogleProfile) {
+    if (!profile.emailVerified) {
+      throw new AppError(403, 'Your Google email address is not verified. Verify it and try again.');
     }
+
+    const email = profile.email.trim().toLowerCase();
+    const linkedAccount = await this.facultyRepo.findByGoogleSub(profile.sub);
+
+    let faculty: GoogleFacultyAccount;
+    if (linkedAccount) {
+      if (linkedAccount.email !== email) {
+        throw new AppError(403, 'This Google account is linked to a different faculty email.');
+      }
+      faculty = linkedAccount.avatarUrl === profile.picture
+        ? linkedAccount
+        : await this.facultyRepo.linkGoogleSub(linkedAccount.id, profile.sub, profile.picture);
+    } else {
+      const existing = await this.facultyRepo.findByEmail(email);
+      if (!existing) {
+        if (!this.isAutoProvisionEnabled()) {
+          throw new AppError(
+            403,
+            'No faculty account exists for this Google email. Ask your program administrator to create one.',
+          );
+        }
+        const passwordHash = await bcrypt.hash(crypto.randomBytes(32).toString('hex'), AUTH_CONSTANTS.BCRYPT_ROUNDS);
+        faculty = await this.facultyRepo.create({
+          name: profile.name || email,
+          email,
+          passwordHash,
+          googleSub: profile.sub,
+          avatarUrl: profile.picture,
+        });
+      } else if (existing.googleSub && existing.googleSub !== profile.sub) {
+        throw new AppError(
+          403,
+          'This faculty email is already linked to a different Google account.',
+        );
+      } else if (!existing.googleSub) {
+        faculty = await this.facultyRepo.linkGoogleSub(existing.id, profile.sub, profile.picture);
+      } else {
+        faculty = existing.avatarUrl === profile.picture
+          ? existing
+          : await this.facultyRepo.linkGoogleSub(existing.id, profile.sub, profile.picture);
+      }
+    }
+
     if (!faculty.isActive) {
       throw new AppError(403, 'Faculty account has been deactivated. Contact the administrator.');
     }
 
+    return this.issueSession(faculty);
+  }
+
+  private isAutoProvisionEnabled(): boolean {
+    return process.env.GOOGLE_FACULTY_AUTO_PROVISION !== 'false';
+  }
+
+  private issueSession(faculty: { id: string; name: string; email: string; avatarUrl?: string | null }) {
     const secret = process.env.JWT_SECRET;
     if (!secret) throw new AppError(500, 'Server misconfiguration');
 
@@ -39,6 +95,7 @@ export class FacultyAuthService {
         id: faculty.id,
         name: faculty.name,
         email: faculty.email,
+        avatarUrl: faculty.avatarUrl ?? null,
       },
     };
   }
@@ -50,19 +107,24 @@ export class FacultyAuthService {
       name: r.name,
       email: r.email,
       isActive: r.isActive,
+      googleLinked: r.googleSub !== null,
+      avatarUrl: r.avatarUrl ?? null,
       paperCount: r._count.papers,
       createdAt: r.createdAt.toISOString(),
     }));
   }
 
-  public async createAccount(input: { name: string; email: string; password: string }) {
+  public async createAccount(input: { name: string; email: string; password?: string }) {
     const email = input.email.trim().toLowerCase();
     const existing = await this.facultyRepo.findByEmail(email);
     if (existing) {
       throw new AppError(409, 'A faculty account with this email already exists');
     }
 
-    const passwordHash = await bcrypt.hash(input.password, AUTH_CONSTANTS.BCRYPT_ROUNDS);
+    const passwordHash = input.password
+      ? await bcrypt.hash(input.password, AUTH_CONSTANTS.BCRYPT_ROUNDS)
+      : await bcrypt.hash(crypto.randomBytes(32).toString('hex'), AUTH_CONSTANTS.BCRYPT_ROUNDS);
+
     const created = await this.facultyRepo.create({
       name: input.name,
       email,

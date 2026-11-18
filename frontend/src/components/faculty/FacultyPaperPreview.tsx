@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { ArrowLeft, Check, Landmark, Sparkles } from 'lucide-react';
 import { DiagramRenderer } from '@/components/DiagramRenderer';
 import { MathText, stripOptionPrefix } from '@/lib/math';
 import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchListTable';
@@ -152,8 +153,9 @@ function SparklePanel({
   return (
     <div className="mt-3 rounded-[22px] border border-accent/30 bg-accent-50 p-4">
       <div className="mb-2.5 flex items-center justify-between">
-        <strong className="text-[13px] text-accent-900">
-          ✨ {targetNumber !== null ? `Sparkle Replace Q${targetNumber}` : 'Sparkle Add New Question'}
+        <strong className="inline-flex items-center gap-1.5 text-[13px] text-accent-900">
+          <Sparkles className="h-[14px] w-[14px] shrink-0" aria-hidden />
+          {targetNumber !== null ? `Sparkle Replace Q${targetNumber}` : 'Sparkle Add New Question'}
         </strong>
         <button type="button" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-2 py-[3px] text-[11px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" onClick={onClose}>
           Close
@@ -212,7 +214,22 @@ function SparklePanel({
           onClick={() => void handleGenerate()}
           disabled={generating || accepting || !topic}
         >
-          {generating ? '✨ Generating verified draft…' : candidate ? '✨ Generate Another' : '✨ Generate Candidate'}
+          {generating ? (
+            <>
+              <Sparkles className="h-[13px] w-[13px] shrink-0" aria-hidden />
+              Generating verified draft…
+            </>
+          ) : candidate ? (
+            <>
+              <Sparkles className="h-[13px] w-[13px] shrink-0" aria-hidden />
+              Generate Another
+            </>
+          ) : (
+            <>
+              <Sparkles className="h-[13px] w-[13px] shrink-0" aria-hidden />
+              Generate Candidate
+            </>
+          )}
         </button>
       </div>
 
@@ -221,8 +238,15 @@ function SparklePanel({
           <div className="mb-2.5 flex flex-wrap items-center justify-between gap-2.5">
             <div className="flex flex-wrap items-center gap-2">
               <span className="rounded-lg bg-ice px-2 py-0.5 text-[11.5px] font-bold text-[#003366]">{candidate.subject} · {candidate.topic}</span>
-              <span className={candidate.verified ? 'rounded-full bg-[#DCFCE7] px-2 py-0.5 text-[11.5px] font-bold text-[#15803D]' : 'rounded-full bg-[#FEF3C7] px-2 py-0.5 text-[11.5px] font-bold text-[#B45309]'}>
-                {candidate.verified ? 'Verified ✓' : 'Unverified Draft'}
+              <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11.5px] font-bold ${candidate.verified ? 'bg-[#DCFCE7] text-[#15803D]' : 'bg-[#FEF3C7] text-[#B45309]'}`}>
+                {candidate.verified ? (
+                  <>
+                    <Check className="h-[12px] w-[12px] shrink-0" aria-hidden />
+                    Verified
+                  </>
+                ) : (
+                  'Unverified Draft'
+                )}
               </span>
             </div>
           </div>
@@ -351,7 +375,10 @@ function FacultyQuestionCard({
           <span className="rounded-lg bg-ice px-2 py-0.5 text-[11.5px] font-bold text-[#003366]">{item.subject} · {item.topic}</span>
           <span className="rounded-lg bg-ice px-2 py-0.5 text-[11.5px] font-bold text-[#003366]">{typeLabel}</span>
           {item.editedByFaculty && (
-            <span className="rounded-full bg-[#DCFCE7] px-2 py-0.5 text-[11.5px] font-bold text-[#15803D]">Edited ✓</span>
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#DCFCE7] px-2 py-0.5 text-[11.5px] font-bold text-[#15803D]">
+              <Check className="h-[12px] w-[12px] shrink-0" aria-hidden />
+              Edited
+            </span>
           )}
         </div>
         {!busy && (
@@ -362,7 +389,8 @@ function FacultyQuestionCard({
               onClick={() => { setEditing(false); setSparkleOpen((v) => !v); }}
               disabled={saving || deleting}
             >
-              ✨ {sparkleOpen ? 'Close Sparkle' : 'Sparkle Replace'}
+              <Sparkles className="h-[13px] w-[13px] shrink-0" aria-hidden />
+              {sparkleOpen ? 'Close Sparkle' : 'Sparkle Replace'}
             </button>
             <button
               type="button"
@@ -536,15 +564,17 @@ export function FacultyPaperPreview({
     <section className="rounded-[28px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
       <div className="mb-3.5">
         <button type="button" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" onClick={onBack}>
-          ← Back to Paper Stack
+          <ArrowLeft className="h-[14px] w-[14px] shrink-0" aria-hidden />
+          Back to Paper Stack
         </button>
       </div>
 
       <div className="mb-4 flex flex-wrap items-start justify-between gap-4 border-b border-[#003366]/10 pb-4">
         <div>
           {paper.organization && (
-            <div className="mb-0.5 text-[13px] font-extrabold uppercase tracking-[0.04em] text-[#003366]">
-              🏛️ {paper.organization}
+            <div className="mb-0.5 inline-flex items-center gap-1.5 text-[13px] font-extrabold uppercase tracking-[0.04em] text-[#003366]">
+              <Landmark className="h-[13px] w-[13px] shrink-0" aria-hidden />
+              {paper.organization}
             </div>
           )}
           <div className="flex flex-wrap items-center gap-2">
@@ -628,8 +658,9 @@ export function FacultyPaperPreview({
         <div className="mt-4 flex flex-col gap-2.5 border-t border-dashed border-[#003366]/20 pt-4">
           {!addSparkleOpen ? (
             <div>
-              <button type="button" className="inline-flex cursor-pointer items-center gap-1 rounded-xl border-[2.5px] border-accent bg-accent-50 px-2.5 py-1.5 text-[12px] font-extrabold text-accent transition-colors duration-150 hover:bg-accent-100 disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" onClick={() => setAddSparkleOpen(true)}>
-                ✨ Add Question (Choose Topic &amp; Preview)
+              <button type="button" className="inline-flex cursor-pointer items-center gap-1.5 rounded-xl border-[2.5px] border-accent bg-accent-50 px-2.5 py-1.5 text-[12px] font-extrabold text-accent transition-colors duration-150 hover:bg-accent-100 disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" onClick={() => setAddSparkleOpen(true)}>
+                <Sparkles className="h-[13px] w-[13px] shrink-0" aria-hidden />
+                Add Question (Choose Topic &amp; Preview)
               </button>
             </div>
           ) : (
