@@ -390,8 +390,11 @@ export default function DashboardPage() {
         {/* Insights */}
         {ins && (
           <section>
-            <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
-              <div><h2 className={`${HEAD} text-[26px] font-extrabold tracking-[-0.02em]`}>Mock insights</h2><p className="mt-1 text-[13px] text-[#5A6B8C]">{plural(ins.examsAnalysed, 'mock')} analysed. Built only from your submitted mocks.</p></div>
+            <div className="mb-3">
+              <h2 className={`${HEAD} text-[26px] font-extrabold tracking-[-0.02em]`}>Mock insights</h2>
+              <p className="mt-1 text-[13px] text-[#5A6B8C]">{plural(ins.examsAnalysed, 'mock')} analysed. Built only from your submitted mocks.</p>
+            </div>
+            <div className="mb-3">
               <InsightsTabBar tabs={TABS} active={tab} onChange={(k) => setTab(k as InsightTabKey)} />
             </div>
             <div className="mb-4">
