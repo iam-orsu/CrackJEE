@@ -1154,6 +1154,23 @@ COHORT & STREAM CALIBRATION:
 - Calibrate language and dilemma maturity to the target age group ("${targetProfile.ageGroup || '16-18 years'}"). Keep scenarios age-appropriate without corporate jargon.\n`
       : '';
 
+    const hasCognitive = domains.some((d) => {
+      const n = d.toLowerCase();
+      return n.includes('cognitive') || n.includes('numerical') || n.includes('analytical') || n.includes('abstract') || n.includes('logic');
+    });
+
+    const modelDiversityText = hasCognitive
+      ? `   - "COGNITIVE_MCQ": Objective problem-solving or practical reasoning puzzle with 4 options (specify correct key in "correctAnswer")
+   - "SCENARIO_ACTION_MCQ": Vivid 2-3 sentence realistic dilemma with 4 behavioral choices
+   - "AGREEMENT_LIKERT": 5 options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"]
+   - "FREQUENCY_SCALE": 5 options: ["Never", "Rarely", "Sometimes", "Often", "Always"]
+   - "PASSION_SCALE": 4 options: ["Not Interested", "Slightly Interested", "Interested", "Passionate"]`
+      : `   - "SCENARIO_ACTION_MCQ": Vivid 2-3 sentence realistic dilemma with 4 behavioral choices
+   - "AGREEMENT_LIKERT": 5 options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"]
+   - "FREQUENCY_SCALE": 5 options: ["Never", "Rarely", "Sometimes", "Often", "Always"]
+   - "PASSION_SCALE": 4 options: ["Not Interested", "Slightly Interested", "Interested", "Passionate"]
+   - DO NOT generate "COGNITIVE_MCQ" or objective math/science/circuit tests because Cognitive Ability Tests was NOT selected by the professor.`;
+
     const prompt = `You are an educational talent evaluator and practical psychometrician creating questions for a faculty test paper.
 
 EVALUATION GOAL / FACULTY TARGET:
@@ -1168,11 +1185,13 @@ GENERATE EXACTLY ${count} 100% ORIGINAL, UNIQUE QUESTIONS.
 CRITICAL RULES AND REQUIREMENTS:
 1. QUESTION MODEL DIVERSITY:
    Distribute these question models across the ${count} questions:
-   - "COGNITIVE_MCQ": Objective problem-solving or practical reasoning puzzle with 4 options (specify correct key in "correctAnswer")
-   - "SCENARIO_ACTION_MCQ": Vivid 2-3 sentence realistic dilemma with 4 behavioral choices
-   - "AGREEMENT_LIKERT": 5 options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"]
-   - "FREQUENCY_SCALE": 5 options: ["Never", "Rarely", "Sometimes", "Often", "Always"]
-   - "PASSION_SCALE": 4 options: ["Not Interested", "Slightly Interested", "Interested", "Passionate"]
+${modelDiversityText}
+
+CRITICAL DOMAIN RESTRICTIONS:
+- You must generate questions ONLY for the selected domains:
+${domains.map((d, i) => `  ${i + 1}. ${d}`).join('\n')}
+- Every question's "domain" field MUST match one of the exact domains above.
+${!hasCognitive ? '- STRICT EXCLUSION: Do NOT generate any Cognitive Ability, math puzzles, circuit puzzles, or logic problem questions. Cognitive was NOT selected by the professor.\n' : ''}
 
 2. 100% STUDENT-LEVEL SITUATIONS & CONVERSATIONAL VOCABULARY:
    - ZERO corporate or senior tech buzzwords (NEVER write "microservices", "throughput", "infrastructure cost", "sprint retrospective", "database schema under peak load", "asymptotic complexity", "KPIs", "refactoring", "angel investors", "stakeholders").
@@ -1229,19 +1248,43 @@ Format output strictly as a JSON object:
         return null;
       }
 
-      return parsed.items.map((item, idx) => ({
-        ...item,
-        number: idx + 1,
-        domain: item.domain || domains[idx % domains.length] || 'Cognitive Ability Tests',
-        questionModel: item.questionModel || 'SCENARIO_ACTION_MCQ',
-        options: Array.isArray(item.options) && item.options.length > 0
-          ? item.options
-          : ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
-        correctAnswer: item.correctAnswer || 'Trait Rubric: Evaluated holistically based on candidate choice',
-        explanation: item.explanation || 'Evaluates behavioral and cognitive orientation toward target goals.',
-        traitPersonaMapping: item.traitPersonaMapping || 'Behavioral Competency',
-        radicalFeedbackNote: item.radicalFeedbackNote || 'Outlier choices signal strong individualist preferences needing balanced mentoring.',
-      }));
+      const validItems = parsed.items.filter((item) => {
+        if (!hasCognitive && (
+          item.questionModel === 'COGNITIVE_MCQ' ||
+          (item.domain && item.domain.toLowerCase().includes('cognitive'))
+        )) {
+          return false;
+        }
+        return true;
+      });
+
+      const effectiveItems = validItems.length > 0 ? validItems : parsed.items;
+
+      return effectiveItems.map((item, idx) => {
+        const matchingDomain = domains.find((d) =>
+          d.toLowerCase() === (item.domain || '').toLowerCase() ||
+          (item.domain || '').toLowerCase().includes(d.toLowerCase()) ||
+          d.toLowerCase().includes((item.domain || '').toLowerCase())
+        ) || domains[idx % domains.length] || domains[0];
+
+        const model = (!hasCognitive && item.questionModel === 'COGNITIVE_MCQ')
+          ? 'SCENARIO_ACTION_MCQ'
+          : (item.questionModel || 'SCENARIO_ACTION_MCQ');
+
+        return {
+          ...item,
+          number: idx + 1,
+          domain: matchingDomain,
+          questionModel: model,
+          options: Array.isArray(item.options) && item.options.length > 0
+            ? item.options
+            : ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
+          correctAnswer: item.correctAnswer || 'Trait Rubric: Evaluated holistically based on candidate choice',
+          explanation: item.explanation || 'Evaluates behavioral orientation toward target goals.',
+          traitPersonaMapping: item.traitPersonaMapping || matchingDomain,
+          radicalFeedbackNote: item.radicalFeedbackNote || 'Outlier choices signal strong individualist preferences needing balanced mentoring.',
+        };
+      });
     } catch (err) {
       logger.warn({ err, chunkIndex }, 'Failed to generate psychometric chunk from DeepSeek');
       return null;
@@ -1553,43 +1596,72 @@ Format output strictly as a JSON object:
       },
     ];
 
-    // Filter by selected domains if matching, or keep rich mix
-    const filtered = pool.filter((item) =>
-      domains.length === 0 || domains.some((d) => item.domain.toLowerCase().includes(d.toLowerCase())),
-    );
-    const candidatePool = filtered.length >= 5 ? filtered : pool;
+    const hasCognitive = domains.some((d) => {
+      const n = d.toLowerCase();
+      return n.includes('cognitive') || n.includes('numerical') || n.includes('analytical') || n.includes('abstract') || n.includes('logic');
+    });
 
-    // Ensure all 5 models are present in the final result:
-    // 'AGREEMENT_LIKERT', 'FREQUENCY_SCALE', 'SCENARIO_ACTION_MCQ', 'COGNITIVE_MCQ', 'PASSION_SCALE'
+    // Strictly filter pool by the professor's selected domains
+    const filtered = pool.filter((item) => {
+      if (!hasCognitive && item.domain.toLowerCase().includes('cognitive')) {
+        return false;
+      }
+      if (domains.length === 0) return true;
+      return domains.some((d) => {
+        const dNorm = d.toLowerCase();
+        const itemNorm = item.domain.toLowerCase();
+        return itemNorm.includes(dNorm) || dNorm.includes(itemNorm);
+      });
+    });
+
+    // Use strictly matching items, or filter out cognitive if cognitive was not selected
+    const candidatePool = filtered.length > 0
+      ? filtered
+      : pool.filter((item) => hasCognitive || !item.domain.toLowerCase().includes('cognitive'));
+
     const result: FacultyPsychometricItem[] = [];
     const models: Array<FacultyPsychometricItem['questionModel']> = [
-      'COGNITIVE_MCQ',
+      ...(hasCognitive ? (['COGNITIVE_MCQ'] as const) : []),
       'SCENARIO_ACTION_MCQ',
       'AGREEMENT_LIKERT',
       'FREQUENCY_SCALE',
       'PASSION_SCALE',
     ];
 
-    // Pick at least 1 for each mandatory model
+    // Pick at least 1 for each allowed model if present in candidatePool
     for (const m of models) {
       const match = candidatePool.find((item) => item.questionModel === m && !result.some((r) => r.questionText === item.questionText));
       if (match) {
+        const matchingDomain = domains.find((d) =>
+          d.toLowerCase() === match.domain.toLowerCase() ||
+          match.domain.toLowerCase().includes(d.toLowerCase()) ||
+          d.toLowerCase().includes(match.domain.toLowerCase())
+        ) || domains[result.length % domains.length] || domains[0];
+
         result.push({
           ...match,
+          domain: matchingDomain,
           number: result.length + 1,
         });
       }
     }
 
-    // Fill the remainder up to questionCount
+    // Fill the remainder up to questionCount using ONLY candidatePool
     let poolIdx = 0;
     while (result.length < questionCount) {
       const candidate = candidatePool[poolIdx % candidatePool.length]!;
       // Create unique variant if duplicated
       const isDupe = result.some((r) => r.questionText === candidate.questionText);
       const text = isDupe ? `${candidate.questionText} (Context: Applied to ${examGoal.slice(0, 40)})` : candidate.questionText;
+      const matchingDomain = domains.find((d) =>
+        d.toLowerCase() === candidate.domain.toLowerCase() ||
+        candidate.domain.toLowerCase().includes(d.toLowerCase()) ||
+        d.toLowerCase().includes(candidate.domain.toLowerCase())
+      ) || domains[result.length % domains.length] || domains[0];
+
       result.push({
         ...candidate,
+        domain: matchingDomain,
         number: result.length + 1,
         questionText: text,
       });

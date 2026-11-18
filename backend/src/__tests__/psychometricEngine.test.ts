@@ -172,4 +172,29 @@ describe('Psychometric Engine & Framework Coverage', () => {
     const circuitState = service.getCircuitState();
     assert.ok(['closed', 'open', 'half-open'].includes(circuitState));
   });
+
+  it('excludes Cognitive questions when Cognitive Ability Tests is not selected', async () => {
+    const selectedDomains = [
+      'Personality Tests',
+      'Situational Judgment Tests (SJT)',
+      'Emotional Intelligence (EI) Tests',
+    ];
+
+    const items = await service.generateFacultyPsychometricPaper({
+      domains: selectedDomains,
+      questionCount: 6,
+      examGoal: 'Assess empathy, conflict handling, and personal leadership',
+    });
+
+    assert.equal(items.length, 6);
+    // Verify none of the items are Cognitive Ability or COGNITIVE_MCQ
+    for (const item of items) {
+      assert.notEqual(item.questionModel, 'COGNITIVE_MCQ');
+      assert.ok(!item.domain.toLowerCase().includes('cognitive'), `Unexpected cognitive domain: ${item.domain}`);
+      assert.ok(
+        selectedDomains.some((d) => d.toLowerCase().includes(item.domain.toLowerCase()) || item.domain.toLowerCase().includes(d.toLowerCase())),
+        `Domain "${item.domain}" must be one of the selected domains`,
+      );
+    }
+  });
 });
