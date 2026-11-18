@@ -716,5 +716,20 @@ describe('FacultyPaperService editing, mutating, and error guards', () => {
       correctAnswer: 'Trait Rubric: A = High Bold Risk, B = Structured Prudence',
     });
     assert.equal(updated.items[1]?.correctAnswer, 'Trait Rubric: A = High Bold Risk, B = Structured Prudence');
+
+    // Verify generating a Sparkle draft question on psychometric topic
+    const candidate = await service.generateDraftQuestion('fac-1', 'psy-paper-101', {
+      subject: 'Psychometric' as Subject,
+      topic: 'Cognitive Ability Tests',
+    });
+
+    assert.equal(candidate.subject, 'Psychometric');
+    assert.ok(candidate.questionText.length > 10);
+    assert.ok(candidate.options.length >= 4);
+    assert.ok(candidate.correctAnswer.length > 0);
+
+    // Verify accepting the candidate replaces the question
+    const paperWithReplaced = await service.acceptDraftQuestion('fac-1', 'psy-paper-101', 1, candidate);
+    assert.equal(paperWithReplaced.items[0]?.questionText, candidate.questionText);
   });
 });

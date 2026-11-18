@@ -194,5 +194,6 @@ export interface CandidateProfile {
 }
 
 export function findCardDef(cardId: string): PsychometricCardDef | undefined {
-  return PSYCHOMETRIC_CARDS.find((c) => c.id === cardId);
+  const norm = cardId.trim().toLowerCase();
+  return PSYCHOMETRIC_CARDS.find((c) => c.id.toLowerCase() === norm || c.name.toLowerCase() === norm);
 }

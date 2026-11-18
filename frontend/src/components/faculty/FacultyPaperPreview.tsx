@@ -109,16 +109,17 @@ function SparklePanel({
   onClose,
   onError,
 }: SparklePanelProps) {
+  const isPsychometric = examType === 'Psychometric' || initialSubject === 'Psychometric';
   const availableSubjects = Object.keys(topicsBySubject);
   const [subject, setSubject] = useState<string>(
-    availableSubjects.includes(initialSubject) ? initialSubject : (availableSubjects[0] ?? 'Physics'),
+    availableSubjects.includes(initialSubject) ? initialSubject : (availableSubjects[0] ?? (isPsychometric ? 'Psychometric' : 'Physics')),
   );
   const subjectTopics = topicsBySubject[subject] ?? [];
   const [topic, setTopic] = useState<string>(
     subjectTopics.includes(initialTopic) ? initialTopic : (subjectTopics[0] ?? initialTopic),
   );
   const [questionType, setQuestionType] = useState<FacultyQuestionType>(
-    examType === 'NEET' ? 'mcq_single' : initialType,
+    isPsychometric ? 'mcq_single' : examType === 'NEET' ? 'mcq_single' : initialType,
   );
   const [generating, setGenerating] = useState(false);
   const [accepting, setAccepting] = useState(false);
@@ -138,7 +139,7 @@ function SparklePanel({
       const res = await facultyGenerateDraftQuestion(paperId, {
         subject: subject as FacultyPaperItem['subject'],
         topic,
-        questionType,
+        questionType: isPsychometric ? 'mcq_single' : questionType,
       });
       setCandidate(res.candidate);
     } catch (err) {
@@ -175,7 +176,7 @@ function SparklePanel({
         </button>
       </div>
 
-      <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className={cx('grid grid-cols-1 gap-2.5', isPsychometric ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3')}>
         <div className="mb-2 flex flex-col gap-1.5">
           <label className="text-[12.5px] font-extrabold text-[#003366]">Subject</label>
           <select
@@ -204,20 +205,22 @@ function SparklePanel({
           </select>
         </div>
 
-        <div className="mb-2 flex flex-col gap-1.5">
-          <label className="text-[12.5px] font-extrabold text-[#003366]">Question Type</label>
-          <select
-            className="h-[46px] w-full cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
-            value={questionType}
-            disabled={generating || accepting}
-            onChange={(e) => setQuestionType(e.target.value as FacultyQuestionType)}
-          >
-            <option value="mcq_single">Single-correct MCQ</option>
-            <option value="matrix_match">Matrix Match / Match the List</option>
-            {examType !== 'NEET' && <option value="integer">Integer Type</option>}
-            {examType === 'Advanced' && <option value="mcq_multi">Multi-correct MCQ</option>}
-          </select>
-        </div>
+        {!isPsychometric && (
+          <div className="mb-2 flex flex-col gap-1.5">
+            <label className="text-[12.5px] font-extrabold text-[#003366]">Question Type</label>
+            <select
+              className="h-[46px] w-full cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+              value={questionType}
+              disabled={generating || accepting}
+              onChange={(e) => setQuestionType(e.target.value as FacultyQuestionType)}
+            >
+              <option value="mcq_single">Single-correct MCQ</option>
+              <option value="matrix_match">Matrix Match / Match the List</option>
+              {examType !== 'NEET' && <option value="integer">Integer Type</option>}
+              {examType === 'Advanced' && <option value="mcq_multi">Multi-correct MCQ</option>}
+            </select>
+          </div>
+        )}
       </div>
 
       <div className="flex flex-wrap gap-1.5">
@@ -386,7 +389,9 @@ function FacultyQuestionCard({
         <div className="flex flex-wrap items-center gap-2">
           <span className="font-display text-[15px] font-extrabold text-[#003366]">Q{item.number}</span>
           <span className="rounded-lg bg-ice px-2 py-0.5 text-[11.5px] font-bold text-[#003366]">{item.subject} · {item.topic}</span>
-          <span className="rounded-lg bg-ice px-2 py-0.5 text-[11.5px] font-bold text-[#003366]">{typeLabel}</span>
+          {item.subject !== 'Psychometric' && examType !== 'Psychometric' && (
+            <span className="rounded-lg bg-ice px-2 py-0.5 text-[11.5px] font-bold text-[#003366]">{typeLabel}</span>
+          )}
           {item.editedByFaculty && (
             <span className="inline-flex items-center gap-1 rounded-full bg-[#DCFCE7] px-2 py-0.5 text-[11.5px] font-bold text-[#15803D]">
               <Check className="h-[12px] w-[12px] shrink-0" aria-hidden />
@@ -462,7 +467,9 @@ function FacultyQuestionCard({
 
           <div className="mb-3.5 flex flex-col gap-1.5">
             <label className="text-[12.5px] font-extrabold text-[#003366]">
-              Correct Answer {item.questionType === 'mcq_multi' ? '(e.g. A,C)' : item.questionType === 'integer' ? '(non-negative integer)' : '(A, B, C, or D)'}
+              {item.subject === 'Psychometric' || examType === 'Psychometric'
+                ? 'Trait Rubric / Scoring Reference'
+                : `Correct Answer ${item.questionType === 'mcq_multi' ? '(e.g. A,C)' : item.questionType === 'integer' ? '(non-negative integer)' : '(A, B, C, or D)'}`}
             </label>
             <input
               className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
@@ -473,7 +480,11 @@ function FacultyQuestionCard({
           </div>
 
           <div className="mb-3.5 flex flex-col gap-1.5">
-            <label className="text-[12.5px] font-extrabold text-[#003366]">Step-by-step Solution</label>
+            <label className="text-[12.5px] font-extrabold text-[#003366]">
+              {item.subject === 'Psychometric' || examType === 'Psychometric'
+                ? 'Behavioral Rubric & Growth Guidance'
+                : 'Step-by-step Solution'}
+            </label>
             <textarea
               className="min-h-[76px] w-full resize-y rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2.5 text-[14px] font-semibold leading-relaxed text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
               value={draftExplain}

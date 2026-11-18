@@ -77,18 +77,18 @@ const updateQuestionSchema = z.object({
 );
 
 const draftQuestionSchema = z.object({
-  subject: z.enum(['Physics', 'Chemistry', 'Mathematics', 'Botany', 'Zoology']),
+  subject: z.enum(['Physics', 'Chemistry', 'Mathematics', 'Botany', 'Zoology', 'Psychometric']),
   topic: z.string().trim().min(1).max(120),
   questionType: z.enum(['mcq_single', 'mcq_multi', 'integer', 'matrix_match']).optional(),
 });
 
 const acceptDraftSchema = z.object({
-  subject: z.enum(['Physics', 'Chemistry', 'Mathematics', 'Botany', 'Zoology']),
+  subject: z.enum(['Physics', 'Chemistry', 'Mathematics', 'Botany', 'Zoology', 'Psychometric']),
   topic: z.string().trim().min(1).max(120),
   questionType: z.enum(['mcq_single', 'mcq_multi', 'integer', 'matrix_match']),
   questionText: z.string().min(1).max(4000),
   options: z.array(z.string().max(1000)).max(4),
-  correctAnswer: z.string().min(1).max(20),
+  correctAnswer: z.string().min(1).max(1000),
   explanation: z.string().max(4000),
   diagram: z.any().nullable(),
   verified: z.boolean(),
@@ -366,10 +366,14 @@ export class FacultyController {
       }
 
       const paper = await this.paperService.getPaper(req.faculty!.facultyId, String(req.params.id));
-      const catalog = catalogForExam(paper.examType as 'Main' | 'Advanced' | 'NEET');
-      const allowed = catalog[parsed.data.subject];
-      if (!allowed || !allowed.includes(parsed.data.topic)) {
-        throw new AppError(400, `Topic "${parsed.data.topic}" is not valid for ${paper.examType} ${parsed.data.subject}`);
+      const isPsychometric = paper.examType === 'Psychometric' || parsed.data.subject === 'Psychometric';
+
+      if (!isPsychometric) {
+        const catalog = catalogForExam(paper.examType as 'Main' | 'Advanced' | 'NEET');
+        const allowed = catalog[parsed.data.subject];
+        if (!allowed || !allowed.includes(parsed.data.topic)) {
+          throw new AppError(400, `Topic "${parsed.data.topic}" is not valid for ${paper.examType} ${parsed.data.subject}`);
+        }
       }
 
       const candidate = await this.paperService.generateDraftQuestion(req.faculty!.facultyId, paper.id, {
