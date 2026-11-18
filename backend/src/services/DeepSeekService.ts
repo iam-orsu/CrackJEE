@@ -197,22 +197,23 @@ export class DeepSeekService {
     examType: ExamType;
     difficulty: Difficulty;
     questionType: QuestionType;
+    requiresDiagram?: boolean;
     plan: Array<{ topic: string; count: number }>;
   }): Promise<Array<{ topic: string; question: GeneratedQuestion }>> {
-    const { subject, examType, difficulty, questionType, plan } = params;
+    const { subject, examType, difficulty, questionType, requiresDiagram, plan } = params;
     const total = plan.reduce((sum, p) => sum + p.count, 0);
     if (total === 0) return [];
 
     const difficultySpec = buildDifficultySpec(difficulty, examType);
     const targetLetters = Array.from({ length: total }, () => LETTERS[Math.floor(Math.random() * 4)]!);
-    const prompt = buildMixedBatchPrompt(subject, examType, questionType, plan, targetLetters, difficultySpec);
+    const prompt = buildMixedBatchPrompt(subject, examType, questionType, plan, targetLetters, difficultySpec, !!requiresDiagram);
 
     return this.withRetries(async () => {
       const response = await this.callChat({
         model: 'deepseek-chat',
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.5,
-        max_tokens: Math.min(total * 700 + 400, 8000),
+        max_tokens: Math.min(total * 850 + 500, 8000),
         response_format: { type: 'json_object' },
       });
       const content = response.choices[0]?.message?.content;
@@ -225,7 +226,7 @@ export class DeepSeekService {
       for (const rawQ of rawQuestions) {
         let question: GeneratedQuestion;
         try {
-          question = parseRawQuestion(rawQ as Record<string, unknown>, questionType, examType, false);
+          question = parseRawQuestion(rawQ as Record<string, unknown>, questionType, examType, false, !!requiresDiagram);
         } catch {
           continue;
         }

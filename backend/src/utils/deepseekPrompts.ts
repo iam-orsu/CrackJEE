@@ -8,6 +8,78 @@ import type {
   DiagramTemplate,
 } from '../types/index';
 
+export const ALLOWED_DIAGRAM_TEMPLATES = new Set<string>([
+  'inclined_plane',
+  'simple_circuit',
+  'lens_mirror',
+  'energy_profile',
+  'coordinate_geometry',
+  'projectile_motion',
+  'pulley_system',
+  'wave_diagram',
+  'capacitor_field',
+  'pv_diagram',
+  'triangle',
+  'circle_geometry',
+  'conic_section',
+  'argand_plane',
+  'molecular_geometry',
+  'mo_diagram',
+  'crystal_structure',
+  'electrochemical_cell',
+  'organic_structure',
+]);
+
+/** Validates diagram payload against the 19 supported templates and finite numeric bounds. */
+export function isValidDiagramTemplate(diagram: unknown): diagram is DiagramTemplate | null {
+  if (diagram === null || diagram === undefined) return true;
+  if (typeof diagram !== 'object' || Array.isArray(diagram)) return false;
+
+  const obj = diagram as { template?: unknown; params?: unknown };
+  if (typeof obj.template !== 'string' || !ALLOWED_DIAGRAM_TEMPLATES.has(obj.template)) return false;
+  if (!obj.params || typeof obj.params !== 'object' || Array.isArray(obj.params)) return false;
+
+  const p = obj.params as Record<string, unknown>;
+  if (obj.template === 'organic_structure') {
+    return typeof p.smiles === 'string' && p.smiles.trim().length > 0;
+  }
+  if (obj.template === 'mo_diagram') {
+    return typeof p.molecule === 'string' && p.molecule.trim().length > 0;
+  }
+  if (obj.template === 'inclined_plane' || obj.template === 'projectile_motion') {
+    if (p.angle_deg !== undefined) {
+      const deg = Number(p.angle_deg);
+      if (!Number.isFinite(deg) || deg <= 0 || deg >= 89) return false;
+    }
+  }
+  if (obj.template === 'lens_mirror') {
+    if (p.focal_length !== undefined && (!Number.isFinite(Number(p.focal_length)) || Number(p.focal_length) === 0)) {
+      return false;
+    }
+    if (p.object_distance !== undefined && (!Number.isFinite(Number(p.object_distance)) || Number(p.object_distance) <= 0)) {
+      return false;
+    }
+  }
+  if (obj.template === 'triangle' && p.angles && typeof p.angles === 'object') {
+    const a = p.angles as { A?: unknown; B?: unknown; C?: unknown };
+    const vals = [Number(a.A), Number(a.B), Number(a.C)];
+    if (vals.some((v) => !Number.isFinite(v) || v <= 0) || vals.reduce((s, v) => s + v, 0) <= 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+export function getSubjectDiagramTemplates(subject: string): string[] {
+  if (subject === 'Physics') {
+    return ['simple_circuit', 'inclined_plane', 'lens_mirror', 'projectile_motion', 'pulley_system', 'wave_diagram', 'capacitor_field', 'pv_diagram'];
+  }
+  if (subject === 'Mathematics') {
+    return ['coordinate_geometry', 'triangle', 'circle_geometry', 'conic_section', 'argand_plane'];
+  }
+  return ['organic_structure', 'electrochemical_cell', 'energy_profile', 'molecular_geometry', 'mo_diagram', 'crystal_structure'];
+}
+
 export function buildDifficultySpec(difficulty: Difficulty, examType: ExamType): string {
   if (examType === 'NEET') {
     const levelLabel = difficulty === 'beginner'
@@ -378,6 +450,7 @@ export function buildMixedBatchPrompt(
   plan: Array<{ topic: string; count: number }>,
   targetLetters: string[],
   difficultySpec: string,
+  requiresDiagram = false,
 ): string {
   const qTypeName = questionType === 'mcq_single'
     ? 'single-correct MCQ'
@@ -391,13 +464,23 @@ export function buildMixedBatchPrompt(
   const letterConstraints = (questionType === 'mcq_single' || questionType === 'matrix_match')
     ? '\n' + targetLetters.map((l, i) => `  - Question ${i + 1} correct answer MUST be at option ${l}`).join('\n')
     : '';
+
+  const allowedTemplates = getSubjectDiagramTemplates(subject);
+  const exampleDiagram = requiresDiagram
+    ? subject === 'Physics'
+      ? `{ "template": "simple_circuit", "params": { "topology": "series", "components": [{ "type": "battery", "label": "6V" }, { "type": "resistor", "label": "2Ω" }] } }`
+      : subject === 'Mathematics'
+        ? `{ "template": "coordinate_geometry", "params": { "x_range": [-5, 5], "y_range": [-5, 5], "points": [{ "x": 2, "y": 3, "label": "P(2,3)" }], "lines": [], "circles": [] } }`
+        : `{ "template": "energy_profile", "params": { "reactant_label": "A + B", "product_label": "C + D", "exothermic": true, "labels": { "ea": "Ea", "delta_h": "ΔH < 0" } } }`
+    : 'null';
+
   const exampleObj = questionType === 'mcq_single'
-    ? `{ "topic": "<one topic name>", "question": "...", "question_type": "mcq_single", "options": ["...", "...", "...", "..."], "correct_answer": "B", "diagram": null }`
+    ? `{ "topic": "<one topic name>", "question": "...", "question_type": "mcq_single", "options": ["...", "...", "...", "..."], "correct_answer": "B", "diagram": ${exampleDiagram} }`
     : questionType === 'mcq_multi'
-      ? `{ "topic": "<one topic name>", "question": "...", "question_type": "mcq_multi", "options": ["...", "...", "...", "..."], "correct_answers": ["A", "C"], "diagram": null }`
+      ? `{ "topic": "<one topic name>", "question": "...", "question_type": "mcq_multi", "options": ["...", "...", "...", "..."], "correct_answers": ["A", "C"], "diagram": ${exampleDiagram} }`
       : questionType === 'matrix_match'
-        ? `{ "topic": "<one topic name>", "question": "Match List I with List II regarding ...:\\nList I:\\nA. Term 1\\nB. Term 2\\nList II:\\nP. Prop 1\\nQ. Prop 2\\nChoose the correct answer from the options given below:", "question_type": "matrix_match", "options": ["A-P, B-Q", "A-Q, B-P", "A-P, B-P", "A-Q, B-Q"], "correct_answer": "A", "diagram": null }`
-        : `{ "topic": "<one topic name>", "question": "...", "question_type": "integer", "options": [], "correct_answer": "7", "diagram": null }`;
+        ? `{ "topic": "<one topic name>", "question": "Match List I with List II regarding ...:\\nList I:\\nA. Concept 1\\nB. Concept 2\\nC. Concept 3\\nD. Concept 4\\nList II:\\nP. Property 1\\nQ. Property 2\\nR. Property 3\\nS. Property 4\\nChoose the correct answer from the options given below:", "question_type": "matrix_match", "options": ["A-P, B-R, C-S, D-Q", "A-R, B-P, C-Q, D-S", "A-Q, B-S, C-P, D-R", "A-S, B-Q, C-R, D-P"], "correct_answer": "B", "diagram": ${exampleDiagram} }`
+        : `{ "topic": "<one topic name>", "question": "...", "question_type": "integer", "options": [], "correct_answer": "7", "diagram": ${exampleDiagram} }`;
 
   const examLabel = examType === 'NEET' ? 'NEET-UG medical entrance exam' : `JEE ${examType} competitive entrance exam`;
   const cognitiveRule = examType === 'Advanced'
@@ -405,6 +488,18 @@ export function buildMixedBatchPrompt(
     : examType === 'NEET'
       ? 'NTA NEET-UG rigor: strictly NCERT Class 11/12 grounded — precise Biology statements/Assertion-Reason, NCERT Chemistry reactions/trends, and crisp Physics numericals.'
       : 'NTA JEE Main competitive rigor: 2-3 step application, speed-accuracy numericals, and conceptual/sign traps within rationalized NCERT scope — NEVER copy school/NCERT textbook exercises or definitions.';
+
+  const diagramMandate = requiresDiagram
+    ? `
+<diagram_mandate>
+  CRITICAL REQUIREMENT — DIAGRAM IS MANDATORY:
+  Every question in this batch MUST include a valid, non-null diagram object.
+  "diagram" CANNOT BE NULL.
+  You MUST choose one of the following templates matching ${subject}:
+  ${allowedTemplates.join(', ')}
+  Fill in all required numeric and string parameters accurately matching the question text and setup.
+</diagram_mandate>`
+    : '';
 
   return `
 <context>
@@ -417,7 +512,7 @@ export function buildMixedBatchPrompt(
   ${difficultySpec}
   IMPORTANT: ${cognitiveRule}
 </difficulty_requirement>
-
+${diagramMandate}
 <task>
   Generate exactly ${total} DISTINCT ${examLabel} ${qTypeName} questions in ${subject}, split across these topics:
 ${topicLines}
@@ -441,6 +536,8 @@ ${DIAGRAM_SPEC}
   ${questionType === 'mcq_single' ? '- Each correct_answer must match its assigned option letter' : ''}
   ${questionType === 'mcq_multi' ? '- correct_answers: array of letters, never all 4 correct, never all 4 wrong' : ''}
   ${questionType === 'integer' ? '- Answer MUST be a whole number (not a fraction or decimal)' : ''}
+  ${questionType === 'matrix_match' ? '- For matrix_match: List I MUST have exactly 4 items (A, B, C, D) and List II MUST have at least 4 items (P, Q, R, S). Options must map all 4 items (e.g. A-P, B-R, C-S, D-Q). NEVER generate 2x2 or 3x3 matrix matches.' : ''}
+  ${requiresDiagram ? '- "diagram" MUST NOT be null! It must be a valid template object matching the physical problem setup.' : ''}
   - Use LaTeX delimiters ($...$) for all mathematical content
   - NEVER copy or paraphrase any NCERT example, textbook exercise, or rote school-board definition
   - Do NOT use out-of-syllabus concepts
@@ -575,6 +672,7 @@ export function parseRawQuestion(
   questionType: QuestionType,
   examType: ExamType,
   needExplanation = true,
+  requiresDiagram = false,
 ): GeneratedQuestion {
   const parsed: GeneratedQuestion = {
     question: String(raw.question ?? ''),
@@ -587,6 +685,13 @@ export function parseRawQuestion(
 
   if (!parsed.question || (needExplanation && !parsed.answer_explanation)) {
     throw new Error('Invalid question format: missing question or explanation');
+  }
+
+  // Diagram verification if mandated
+  if (requiresDiagram) {
+    if (!parsed.diagram || !isValidDiagramTemplate(parsed.diagram)) {
+      throw new Error('Question must contain a valid non-null diagram template');
+    }
   }
 
   if (questionType === 'mcq_multi') {
@@ -614,7 +719,40 @@ export function parseRawQuestion(
     }
     parsed.correct_answer = String(ansNum);
     parsed.options = [];
+  } else if (questionType === 'matrix_match') {
+    if (parsed.options.length !== 4) throw new Error('Matrix match must have exactly 4 combination options');
+
+    const qText = parsed.question;
+    const hasA = /\bA[\.\):]/.test(qText);
+    const hasB = /\bB[\.\):]/.test(qText);
+    const hasC = /\bC[\.\):]/.test(qText);
+    const hasD = /\bD[\.\):]/.test(qText);
+    const hasP = /\bP[\.\):]/.test(qText) || /\b1[\.\):]/.test(qText) || /\(P\)/i.test(qText);
+    const hasQ = /\bQ[\.\):]/.test(qText) || /\b2[\.\):]/.test(qText) || /\(Q\)/i.test(qText);
+    const hasR = /\bR[\.\):]/.test(qText) || /\b3[\.\):]/.test(qText) || /\(R\)/i.test(qText);
+    const hasS = /\bS[\.\):]/.test(qText) || /\b4[\.\):]/.test(qText) || /\(S\)/i.test(qText);
+
+    if (!hasA || !hasB || !hasC || !hasD) {
+      throw new Error('Matrix match List I must contain at least 4 items (A, B, C, D) — 2x2 or 3x3 is invalid');
+    }
+    if (!hasP || !hasQ || !hasR || !hasS) {
+      throw new Error('Matrix match List II must contain at least 4 items (P, Q, R, S) — 2x2 or 3x3 is invalid');
+    }
+
+    for (const opt of parsed.options) {
+      const matchCount = (opt.match(/[A-D]\s*[-–—→:]\s*[P-T1-5]/gi) || []).length;
+      if (matchCount < 4) {
+        throw new Error(`Matrix match option "${opt}" must map at least 4 items (A, B, C, D)`);
+      }
+    }
+
+    const letter = String(raw.correct_answer ?? '').trim().toUpperCase().charAt(0);
+    if (!['A', 'B', 'C', 'D'].includes(letter)) {
+      throw new Error(`Invalid correct_answer: "${raw.correct_answer}"`);
+    }
+    parsed.correct_answer = letter;
   } else {
+    // mcq_single
     if (parsed.options.length !== 4) throw new Error('MCQ single must have exactly 4 options');
     const letter = String(raw.correct_answer ?? '').trim().toUpperCase().charAt(0);
     if (!['A', 'B', 'C', 'D'].includes(letter)) {

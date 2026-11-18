@@ -8,10 +8,12 @@ export interface SlotKey {
   topic: string;
   difficulty: string;
   questionType: string;
+  requiresDiagram?: boolean;
 }
 
 export interface BankQuestion extends SlotKey {
   id: string;
+  diagram?: unknown;
 }
 
 export function slotKey(s: SlotKey): string {
@@ -20,8 +22,8 @@ export function slotKey(s: SlotKey): string {
 
 /**
  * For each slot, in order, pick a bank question with the same key that is not excluded (already seen by
- * the student, or already used in this paper). Returns the chosen question id per slot, or null when the
- * bank cannot cover that slot.
+ * the student, or already used in this paper). If requiresDiagram is true, only pick bank questions with
+ * diagram != null. Returns the chosen question id per slot, or null when the bank cannot cover that slot.
  */
 export function fillSlotsFromBank(
   slots: SlotKey[],
@@ -29,21 +31,35 @@ export function fillSlotsFromBank(
   exclude: Set<string>,
   random: () => number = Math.random,
 ): Array<string | null> {
-  const byKey = new Map<string, string[]>();
+  const byKey = new Map<string, Array<{ id: string; hasDiagram: boolean }>>();
   for (const q of bank) {
     if (exclude.has(q.id)) continue;
     const key = slotKey(q);
     if (!byKey.has(key)) byKey.set(key, []);
-    byKey.get(key)!.push(q.id);
+    const hasDiagram = q.diagram !== null && q.diagram !== undefined;
+    byKey.get(key)!.push({ id: q.id, hasDiagram });
   }
 
   const used = new Set<string>();
   return slots.map((slot) => {
-    const candidates = (byKey.get(slotKey(slot)) ?? []).filter((id) => !used.has(id));
+    const key = slotKey(slot);
+    const allCandidates = (byKey.get(key) ?? []).filter((item) => !used.has(item.id));
+    let candidates = allCandidates;
+
+    if (slot.requiresDiagram) {
+      candidates = allCandidates.filter((item) => item.hasDiagram);
+    } else {
+      // If the slot doesn't require a diagram, prefer non-diagram questions so diagram questions stay available for slots that do
+      const nonDiagram = allCandidates.filter((item) => !item.hasDiagram);
+      if (nonDiagram.length > 0) {
+        candidates = nonDiagram;
+      }
+    }
+
     if (candidates.length === 0) return null;
     const chosen = candidates[Math.floor(random() * candidates.length)]!;
-    used.add(chosen);
-    return chosen;
+    used.add(chosen.id);
+    return chosen.id;
   });
 }
 

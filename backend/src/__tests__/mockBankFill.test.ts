@@ -44,6 +44,27 @@ test('a question with a different difficulty does not fill the slot', () => {
   assert.deepEqual(fillSlotsFromBank([hard], bank, new Set()), [null]);
 });
 
+test('a slot requiring diagram only picks bank questions with non-null diagram', () => {
+  const bankWithDiagrams: BankQuestion[] = [
+    { id: 'q_no_diag', ...slotA, diagram: null },
+    { id: 'q_with_diag', ...slotA, diagram: { template: 'simple_circuit', params: {} } },
+  ];
+  const diagSlot: SlotKey = { ...slotA, requiresDiagram: true };
+  const normalSlot: SlotKey = { ...slotA, requiresDiagram: false };
+
+  // diagSlot MUST pick the diagram question
+  const pickDiag = fillSlotsFromBank([diagSlot], bankWithDiagrams, new Set(), () => 0);
+  assert.deepEqual(pickDiag, ['q_with_diag']);
+
+  // If no diagram question is available, diagSlot returns null for DeepSeek generation
+  const pickNoDiagAvailable = fillSlotsFromBank([diagSlot], [{ id: 'q_no_diag', ...slotA, diagram: null }], new Set(), () => 0);
+  assert.deepEqual(pickNoDiagAvailable, [null]);
+
+  // A normal slot prefers the non-diagram question to preserve diagram question for diagram slots
+  const pickNormal = fillSlotsFromBank([normalSlot], bankWithDiagrams, new Set(), () => 0);
+  assert.deepEqual(pickNormal, ['q_no_diag']);
+});
+
 test('fillPracticeSlotsWithFallbacks preserves index alignment and relaxes within subject', () => {
   const slots: PracticeSlotRequest[] = [
     { subject: 'Chemistry', topic: 'Atomic Structure', difficulty: 'beginner', questionType: 'mcq_single', bankExamType: 'Main' },

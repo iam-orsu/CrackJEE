@@ -6,29 +6,15 @@ import type {
   QuestionType,
   Subject,
 } from '../types/index';
-import { buildDifficultySpec, DIAGRAM_SPEC, parseRawQuestion } from './deepseekPrompts';
+import {
+  ALLOWED_DIAGRAM_TEMPLATES,
+  buildDifficultySpec,
+  DIAGRAM_SPEC,
+  isValidDiagramTemplate,
+  parseRawQuestion,
+} from './deepseekPrompts';
 
-export const ALLOWED_DIAGRAM_TEMPLATES = new Set<string>([
-  'inclined_plane',
-  'simple_circuit',
-  'lens_mirror',
-  'energy_profile',
-  'coordinate_geometry',
-  'projectile_motion',
-  'pulley_system',
-  'wave_diagram',
-  'capacitor_field',
-  'pv_diagram',
-  'triangle',
-  'circle_geometry',
-  'conic_section',
-  'argand_plane',
-  'molecular_geometry',
-  'mo_diagram',
-  'crystal_structure',
-  'electrochemical_cell',
-  'organic_structure',
-]);
+export { ALLOWED_DIAGRAM_TEMPLATES, isValidDiagramTemplate };
 
 /** Checks that unescaped `$` math delimiters occur in balanced pairs (ignoring `$$` blocks & `\$`). */
 export function hasBalancedMathDelimiters(text: string): boolean {
@@ -51,46 +37,6 @@ export function hasBalancedMathDelimiters(text: string): boolean {
     }
   }
   return !inDisplay && !inInline;
-}
-
-/** Validates diagram payload against the 19 supported templates and finite numeric bounds. */
-export function isValidDiagramTemplate(diagram: unknown): diagram is DiagramTemplate | null {
-  if (diagram === null || diagram === undefined) return true;
-  if (typeof diagram !== 'object' || Array.isArray(diagram)) return false;
-
-  const obj = diagram as { template?: unknown; params?: unknown };
-  if (typeof obj.template !== 'string' || !ALLOWED_DIAGRAM_TEMPLATES.has(obj.template)) return false;
-  if (!obj.params || typeof obj.params !== 'object' || Array.isArray(obj.params)) return false;
-
-  const p = obj.params as Record<string, unknown>;
-  if (obj.template === 'organic_structure') {
-    return typeof p.smiles === 'string' && p.smiles.trim().length > 0;
-  }
-  if (obj.template === 'mo_diagram') {
-    return typeof p.molecule === 'string' && p.molecule.trim().length > 0;
-  }
-  if (obj.template === 'inclined_plane' || obj.template === 'projectile_motion') {
-    if (p.angle_deg !== undefined) {
-      const deg = Number(p.angle_deg);
-      if (!Number.isFinite(deg) || deg <= 0 || deg >= 89) return false;
-    }
-  }
-  if (obj.template === 'lens_mirror') {
-    if (p.focal_length !== undefined && (!Number.isFinite(Number(p.focal_length)) || Number(p.focal_length) === 0)) {
-      return false;
-    }
-    if (p.object_distance !== undefined && (!Number.isFinite(Number(p.object_distance)) || Number(p.object_distance) <= 0)) {
-      return false;
-    }
-  }
-  if (obj.template === 'triangle' && p.angles && typeof p.angles === 'object') {
-    const a = p.angles as { A?: unknown; B?: unknown; C?: unknown };
-    const vals = [Number(a.A), Number(a.B), Number(a.C)];
-    if (vals.some((v) => !Number.isFinite(v) || v <= 0) || vals.reduce((s, v) => s + v, 0) <= 0) {
-      return false;
-    }
-  }
-  return true;
 }
 
 /** Canonicalizes an answer string (`"B"`, `"A,C"`, or `"42"`) for comparison. */

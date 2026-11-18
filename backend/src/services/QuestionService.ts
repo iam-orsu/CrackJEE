@@ -837,20 +837,32 @@ export class QuestionService {
       difficulty: Difficulty;
       examType: ExamType;
       questionType: QuestionType;
+      requiresDiagram?: boolean;
     }>,
     concurrency = 4,
   ): Promise<Question[]> {
     const neededByTopic = new Map<string, number>();
-    const groups = new Map<string, { subject: Subject; difficulty: Difficulty; examType: ExamType; questionType: QuestionType; topics: Map<string, number> }>();
+    const groups = new Map<
+      string,
+      {
+        subject: Subject;
+        difficulty: Difficulty;
+        examType: ExamType;
+        questionType: QuestionType;
+        requiresDiagram?: boolean;
+        topics: Map<string, number>;
+      }
+    >();
 
     for (const slot of slots) {
-      const key = `${slot.subject}|${slot.difficulty}|${slot.examType}|${slot.questionType}`;
+      const key = `${slot.subject}|${slot.difficulty}|${slot.examType}|${slot.questionType}|${slot.requiresDiagram ? 'diag' : 'nodiag'}`;
       if (!groups.has(key)) {
         groups.set(key, {
           subject: slot.subject,
           difficulty: slot.difficulty,
           examType: slot.examType,
           questionType: slot.questionType,
+          requiresDiagram: slot.requiresDiagram,
           topics: new Map(),
         });
       }
@@ -859,7 +871,14 @@ export class QuestionService {
       neededByTopic.set(slot.topic, (neededByTopic.get(slot.topic) ?? 0) + 1);
     }
 
-    const jobs: Array<{ subject: Subject; difficulty: Difficulty; examType: ExamType; questionType: QuestionType; plan: Array<{ topic: string; count: number }> }> = [];
+    const jobs: Array<{
+      subject: Subject;
+      difficulty: Difficulty;
+      examType: ExamType;
+      questionType: QuestionType;
+      requiresDiagram?: boolean;
+      plan: Array<{ topic: string; count: number }>;
+    }> = [];
     for (const group of groups.values()) {
       let plan: Array<{ topic: string; count: number }> = [];
       let size = 0;
@@ -896,6 +915,7 @@ export class QuestionService {
             examType: job.examType,
             difficulty: job.difficulty,
             questionType: job.questionType,
+            requiresDiagram: job.requiresDiagram,
             plan: job.plan,
           });
           const verdicts = await this.deepSeek.verifyQuestionBatch(results.map((r) => r.question));

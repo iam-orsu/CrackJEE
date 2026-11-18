@@ -19,6 +19,7 @@ type SlotInput = {
   difficulty: Difficulty;
   examType: 'Main' | 'Advanced' | 'NEET';
   questionType: QuestionType;
+  requiresDiagram?: boolean;
 };
 
 type PaperQuestion = { id: string; subject: string; topic: string; questionType: string };
@@ -90,18 +91,25 @@ export class MockGeneratorService {
       ? [{ type: 'mcq_single', count: 18 }, { type: 'matrix_match', count: 2 }, { type: 'integer', count: 5 }]
       : [{ type: 'mcq_single', count: 6 }, { type: 'mcq_multi', count: 4 }, { type: 'matrix_match', count: 2 }, { type: 'integer', count: 5 }];
 
+    // Guarantee at least 15% diagram questions per subject (Main: 4/25 = 16%, Advanced: 3/17 = 17.6%)
+    const diagramQuotaPerSubject = examType === 'Main' ? 4 : 3;
+
     const slots: SlotInput[] = [];
     for (const subject of subjects) {
       const allocatedTopics = topicsBySubject[subject] ?? [];
       let cursor = 0;
+      let diagramsAssigned = 0;
       for (const { type, count } of typePlan) {
         for (let i = 0; i < count; i++) {
+          const requiresDiagram = (type === 'mcq_single' || type === 'mcq_multi') && diagramsAssigned < diagramQuotaPerSubject;
+          if (requiresDiagram) diagramsAssigned++;
           slots.push({
             subject,
             topic: allocatedTopics[cursor++]!,
             difficulty: this.pickDifficulty(examType, Math.random(), difficultyMode),
             examType,
             questionType: type,
+            requiresDiagram,
           });
         }
       }
@@ -114,17 +122,24 @@ export class MockGeneratorService {
     topicsBySubject: Record<string, string[]>,
   ): SlotInput[] {
     const slots: SlotInput[] = [];
+    // Guarantee at least 15% diagram questions per subject in NEET (7/45 = 15.6%)
+    const diagramQuotaPerSubject = 7;
+
     for (const subject of NEET_SUBJECTS) {
       const topicList = topicsBySubject[subject] ?? [];
+      let diagramsAssigned = 0;
       for (let i = 0; i < topicList.length; i++) {
         // Guarantee 2 matrix match questions per subject in NEET
         const questionType: QuestionType = i >= topicList.length - 2 ? 'matrix_match' : 'mcq_single';
+        const requiresDiagram = questionType === 'mcq_single' && diagramsAssigned < diagramQuotaPerSubject;
+        if (requiresDiagram) diagramsAssigned++;
         slots.push({
           subject,
           topic: topicList[i]!,
           difficulty: this.pickDifficulty('Main', Math.random(), difficultyMode),
           examType: 'NEET',
           questionType,
+          requiresDiagram,
         });
       }
     }
@@ -160,6 +175,7 @@ export class MockGeneratorService {
       topic: s.topic,
       difficulty: s.difficulty,
       questionType: s.questionType,
+      requiresDiagram: s.requiresDiagram,
     }));
     const bank = await this.loadMockBank(examType, slots);
     const picks = fillSlotsFromBank(slotKeys, bank, seen);
