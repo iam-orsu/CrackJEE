@@ -1,14 +1,15 @@
 import { Router } from 'express';
 import { FacultyController } from '../controllers/FacultyController';
 import { requireFaculty } from '../middlewares/facultyAuth.middleware';
-import { authLimiter } from '../middlewares/rateLimiter.middleware';
 
-/** Mounts `/api/v1/faculty/*` mentor portal routes, isolated from student & admin auth. */
+/**
+ * Mounts `/api/v1/faculty/*` mentor portal routes, isolated from student & admin auth.
+ * Sign-in happens through Google OAuth (`/api/v1/google/*`), so there is no password route here.
+ */
 export function createFacultyRoutes(controller = new FacultyController()): Router {
   const router = Router();
   const guard = requireFaculty();
 
-  router.post('/login', authLimiter, controller.login);
   router.post('/logout', controller.logout);
   router.get('/me', guard, controller.me);
   router.get('/topics', guard, controller.getTopics);

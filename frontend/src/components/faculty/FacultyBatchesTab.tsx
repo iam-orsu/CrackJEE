@@ -2,6 +2,18 @@
 
 import React, { useCallback, useEffect, useState } from 'react';
 import {
+  Check,
+  CircleCheckBig,
+  ClipboardList,
+  Download,
+  Eye,
+  EyeOff,
+  FolderOpen,
+  User,
+  Users,
+  X,
+} from 'lucide-react';
+import {
   facultyCreateBatch,
   facultyCreateStudent,
   facultyBulkCreateStudents,
@@ -101,6 +113,7 @@ export function FacultyBatchesTab() {
   const [studentRoll, setStudentRoll] = useState('');
   const [studentEmail, setStudentEmail] = useState('');
   const [studentPassword, setStudentPassword] = useState('');
+  const [showStudentPassword, setShowStudentPassword] = useState(false);
   const [studentSubmitting, setStudentSubmitting] = useState(false);
 
   // Bulk CSV upload states
@@ -122,6 +135,7 @@ export function FacultyBatchesTab() {
     email?: string | null;
     password: string;
   } | null>(null);
+  const [showCredentialsPassword, setShowCredentialsPassword] = useState(false);
   const [copied, setCopied] = useState(false);
 
   const loadData = useCallback(async () => {
@@ -200,6 +214,7 @@ export function FacultyBatchesTab() {
         email: res.student.email,
         password: res.initialPassword || res.student.rollNumber,
       });
+      setShowCredentialsPassword(false);
       setStudentModalOpen(false);
       setStudentName('');
       setStudentRoll('');
@@ -310,8 +325,9 @@ export function FacultyBatchesTab() {
       {createdCredentials && (
         <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#9FD6B2] bg-[#EAF7EF] px-5 py-4">
           <div>
-            <div className="text-[14px] font-bold text-[#146C33]">
-              ✓ Student Created Successfully!
+            <div className="flex items-center gap-1.5 text-[14px] font-bold text-[#146C33]">
+              <CircleCheckBig className="h-[15px] w-[15px] shrink-0" aria-hidden />
+              <span>Student Created Successfully</span>
             </div>
             <div className="mt-1 text-[13px] text-[#146C33]">
               <strong>{createdCredentials.name}</strong> • Roll No:{' '}
@@ -319,7 +335,25 @@ export function FacultyBatchesTab() {
               {createdCredentials.email && (
                 <> • Email: <code>{createdCredentials.email}</code></>
               )}
-              {' '}• Password: <code>{createdCredentials.password}</code>
+            </div>
+            <div className="mt-1 flex items-center gap-1.5 text-[13px] text-[#146C33]">
+              <span>Password:</span>
+              <code className="rounded bg-white/70 px-1.5 py-0.5 font-mono">
+                {showCredentialsPassword ? createdCredentials.password : '••••••••'}
+              </code>
+              <button
+                type="button"
+                onClick={() => setShowCredentialsPassword((v) => !v)}
+                aria-label={showCredentialsPassword ? 'Hide password' : 'Show password'}
+                title={showCredentialsPassword ? 'Hide password' : 'Show password'}
+                className="inline-flex cursor-pointer items-center rounded-md border-0 bg-transparent p-1 text-[#146C33] transition-colors duration-150 hover:bg-white/60 motion-reduce:transition-none"
+              >
+                {showCredentialsPassword ? (
+                  <EyeOff className="h-[13px] w-[13px]" aria-hidden />
+                ) : (
+                  <Eye className="h-[13px] w-[13px]" aria-hidden />
+                )}
+              </button>
             </div>
             <div className="mt-0.5 text-[12px] text-[#15803D]">
               Students can sign in directly at <strong>/student-portal</strong> using their Roll Number (or Email) and Password.
@@ -327,7 +361,14 @@ export function FacultyBatchesTab() {
           </div>
           <div className="flex gap-2">
             <button type="button" className={BTN_SECONDARY_SM} onClick={copyCredentials}>
-              {copied ? '✓ Copied to Clipboard!' : 'Copy Credentials'}
+              {copied ? (
+                <>
+                  <Check className="h-[13px] w-[13px] shrink-0" aria-hidden />
+                  Copied to Clipboard
+                </>
+              ) : (
+                'Copy Credentials'
+              )}
             </button>
             <button type="button" className={BTN_GHOST_SM} onClick={() => setCreatedCredentials(null)}>
               Dismiss
@@ -370,10 +411,10 @@ export function FacultyBatchesTab() {
                           e.stopPropagation();
                           handleDeleteBatch(b.id, b.name);
                         }}
-                        className="cursor-pointer rounded-md border-0 bg-transparent px-1.5 py-0.5 text-[12px] text-[#C8202F] transition-colors duration-150 hover:bg-[#FDF3F4] motion-reduce:transition-none"
+                        className="cursor-pointer rounded-md border-0 bg-transparent px-1.5 py-0.5 text-[#C8202F] transition-colors duration-150 hover:bg-[#FDF3F4] motion-reduce:transition-none"
                         title="Delete Batch"
                       >
-                        ✕
+                        <X className="h-[13px] w-[13px]" aria-hidden />
                       </button>
                     </div>
                     <div className="mt-2 text-[15px] font-bold text-[#003366]">
@@ -387,11 +428,13 @@ export function FacultyBatchesTab() {
                   </div>
 
                   <div className="flex items-center justify-between border-t border-[#003366]/10 pt-2.5 text-[12px] text-[#5A6B8C]">
-                    <span>
-                      👥 <strong>{b._count?.students || 0}</strong> students
+                    <span className="inline-flex items-center gap-1.5">
+                      <Users className="h-[13px] w-[13px] shrink-0" aria-hidden />
+                      <strong>{b._count?.students || 0}</strong> students
                     </span>
-                    <span>
-                      📋 <strong>{b._count?.assignments || 0}</strong> exams
+                    <span className="inline-flex items-center gap-1.5">
+                      <ClipboardList className="h-[13px] w-[13px] shrink-0" aria-hidden />
+                      <strong>{b._count?.assignments || 0}</strong> exams
                     </span>
                   </div>
                 </div>
@@ -444,7 +487,6 @@ export function FacultyBatchesTab() {
                 <tr className="border-b-2 border-[#003366]/10 text-left text-[#5A6B8C]">
                   <th className="px-3 py-2.5">Roll Number</th>
                   <th className="px-3 py-2.5">Email</th>
-                  <th className="px-3 py-2.5">Password</th>
                   <th className="px-3 py-2.5">Student Name</th>
                   <th className="px-3 py-2.5">Batch</th>
                   <th className="px-3 py-2.5 text-right">Actions</th>
@@ -458,11 +500,6 @@ export function FacultyBatchesTab() {
                     </td>
                     <td className="px-3 py-3 font-medium text-[#003366]">
                       {s.email || '—'}
-                    </td>
-                    <td className="px-3 py-3 font-mono text-[12px]">
-                      <span className="rounded bg-[#EEF2FF] px-2 py-0.5 font-bold text-[#003366]" title="Default login password is Roll Number">
-                        {s.rollNumber}
-                      </span>
                     </td>
                     <td className="px-3 py-3 text-[#5A6B8C]">
                       {s.name}
@@ -557,10 +594,11 @@ export function FacultyBatchesTab() {
               </h3>
               <button
                 type="button"
-                className="text-[18px] font-bold text-[#5A6B8C] hover:text-[#003366]"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-[#5A6B8C] transition-colors hover:bg-[#F1F5F9] hover:text-[#003366]"
                 onClick={() => setStudentModalOpen(false)}
+                title="Close"
               >
-                ✕
+                <X className="h-[18px] w-[18px]" aria-hidden />
               </button>
             </div>
 
@@ -568,25 +606,27 @@ export function FacultyBatchesTab() {
             <div className="mb-4 flex rounded-xl border-[2px] border-[#003366]/15 bg-[#F8FAFC] p-1">
               <button
                 type="button"
-                className={`flex-1 rounded-lg py-1.5 text-[12.5px] font-bold transition-all ${
+                className={`inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg py-1.5 text-[12.5px] font-bold transition-colors ${
                   studentCreationMode === 'single'
                     ? 'bg-[#003366] text-white shadow-sm'
                     : 'text-[#5A6B8C] hover:text-[#003366]'
                 }`}
                 onClick={() => setStudentCreationMode('single')}
               >
-                👤 Single Student
+                <User className="h-[14px] w-[14px] shrink-0" aria-hidden />
+                Single Student
               </button>
               <button
                 type="button"
-                className={`flex-1 rounded-lg py-1.5 text-[12.5px] font-bold transition-all ${
+                className={`inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg py-1.5 text-[12.5px] font-bold transition-colors ${
                   studentCreationMode === 'bulk'
                     ? 'bg-[#003366] text-white shadow-sm'
                     : 'text-[#5A6B8C] hover:text-[#003366]'
                 }`}
                 onClick={() => setStudentCreationMode('bulk')}
               >
-                📁 Bulk Upload (CSV)
+                <FolderOpen className="h-[14px] w-[14px] shrink-0" aria-hidden />
+                Bulk Upload (CSV)
               </button>
             </div>
 
@@ -641,13 +681,29 @@ export function FacultyBatchesTab() {
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[12.5px] font-extrabold text-[#003366]">Password (Leave blank to use Roll Number)</label>
-                  <input
-                    type="text"
-                    className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
-                    placeholder="Defaults to Roll Number"
-                    value={studentPassword}
-                    onChange={(e) => setStudentPassword(e.target.value)}
-                  />
+                  <div className="relative">
+                    <input
+                      type={showStudentPassword ? 'text' : 'password'}
+                      className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 pr-12 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                      placeholder="Defaults to Roll Number"
+                      value={studentPassword}
+                      onChange={(e) => setStudentPassword(e.target.value)}
+                      autoComplete="new-password"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowStudentPassword((v) => !v)}
+                      aria-label={showStudentPassword ? 'Hide password' : 'Show password'}
+                      title={showStudentPassword ? 'Hide password' : 'Show password'}
+                      className="absolute right-1.5 top-1/2 inline-flex -translate-y-1/2 cursor-pointer items-center rounded-[10px] border-0 bg-transparent p-2 text-[#31407F] transition-colors duration-150 hover:bg-ice motion-reduce:transition-none"
+                    >
+                      {showStudentPassword ? (
+                        <EyeOff className="h-[15px] w-[15px]" aria-hidden />
+                      ) : (
+                        <Eye className="h-[15px] w-[15px]" aria-hidden />
+                      )}
+                    </button>
+                  </div>
                 </div>
                 <div className="mt-2.5 flex justify-end gap-2.5">
                   <button
@@ -692,9 +748,10 @@ export function FacultyBatchesTab() {
                   <button
                     type="button"
                     onClick={downloadSampleCsv}
-                    className="inline-flex items-center gap-1 rounded-lg border border-[#003366] bg-white px-2.5 py-1 text-[11.5px] font-extrabold text-[#003366] shadow-sm hover:bg-ice"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-[#003366] bg-white px-2.5 py-1 text-[11.5px] font-extrabold text-[#003366] shadow-sm hover:bg-ice"
                   >
-                    📥 Download CSV Template
+                    <Download className="h-[13px] w-[13px] shrink-0" aria-hidden />
+                    Download CSV Template
                   </button>
                 </div>
 
@@ -708,8 +765,9 @@ export function FacultyBatchesTab() {
                     className="block w-full text-[13px] text-[#5A6B8C] file:mr-3 file:cursor-pointer file:rounded-xl file:border-0 file:bg-[#003366] file:px-3 file:py-2 file:text-[12px] file:font-bold file:text-white hover:file:bg-[#002244]"
                   />
                   {csvFileName && (
-                    <span className="text-[12px] font-semibold text-accent">
-                      ✓ Selected: {csvFileName} ({parsedStudents.length} valid students detected)
+                    <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-accent">
+                      <Check className="h-[13px] w-[13px] shrink-0" aria-hidden />
+                      Selected: {csvFileName} ({parsedStudents.length} valid students detected)
                     </span>
                   )}
                 </div>
@@ -749,8 +807,11 @@ export function FacultyBatchesTab() {
                 {/* Bulk Results Feedback */}
                 {bulkResult && (
                   <div className="flex flex-col gap-1.5 rounded-xl border border-[#15803D]/25 bg-[#EAF7EF] p-3 text-[12.5px] text-[#146C33]">
-                    <div className="font-bold">
-                      ✓ Successfully imported {bulkResult.createdCount} of {bulkResult.total} students!
+                    <div className="inline-flex items-center gap-1.5 font-bold">
+                      <CircleCheckBig className="h-[14px] w-[14px] shrink-0" aria-hidden />
+                      <span>
+                        Successfully imported {bulkResult.createdCount} of {bulkResult.total} students
+                      </span>
                     </div>
                     {bulkResult.errorCount > 0 && (
                       <div className="mt-1 text-[11.5px] text-[#C8202F]">

@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { Landmark, Target } from 'lucide-react';
 import {
   facultyCreatePaper,
   facultyDeletePaper,
@@ -587,9 +588,20 @@ export default function FacultyPage() {
 
           <div className="flex items-center gap-2.5">
             <div className="flex items-center gap-2.5 rounded-full border border-[#003366]/10 bg-white py-1 pl-1 pr-3.5 shadow-[0_2px_0_#E3E9F7]">
-              <span aria-hidden className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-grad text-[12px] font-extrabold text-white">
-                {initials || 'F'}
-              </span>
+              {faculty.avatarUrl ? (
+                <Image
+                  src={faculty.avatarUrl}
+                  alt=""
+                  width={32}
+                  height={32}
+                  className="h-8 w-8 shrink-0 rounded-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              ) : (
+                <span aria-hidden className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-grad text-[12px] font-extrabold text-white">
+                  {initials || 'F'}
+                </span>
+              )}
               <span className="hidden min-w-0 flex-col leading-tight sm:flex">
                 <span className="max-w-[180px] truncate text-[12.5px] font-extrabold text-[#003366]">{faculty.name}</span>
                 <span className="max-w-[180px] truncate text-[11px] font-medium text-[#5A6B8C]">{faculty.email}</span>
@@ -717,7 +729,7 @@ export default function FacultyPage() {
                               <div className={FIELD}>
                                 <label className={LABEL}>Cognitive Rigor &amp; Question Difficulty</label>
                                 <div className="flex items-center gap-2.5 rounded-2xl border border-[#003366]/10 bg-[#F7F9FF] px-3.5 py-2.5 text-[12px] text-[#31407F]">
-                                  <span className="text-[18px]">🎯</span>
+                                  <Target className="h-[16px] w-[16px] shrink-0" aria-hidden />
                                   <div>
                                     <strong>Granular Topic Breakdown:</strong> Configure exact quantities of <strong>Easy</strong>, <strong>Medium</strong>, and <strong>Hard</strong> questions per topic &amp; question type below using direct integer counters.
                                   </div>
@@ -962,8 +974,9 @@ export default function FacultyPage() {
                                   <div className="flex flex-wrap items-center gap-2">
                                     <span className="rounded-lg bg-ice px-2 py-0.5 font-mono text-[11px] font-bold text-accent">{p.paperCode}</span>
                                     {p.organization && (
-                                      <span className="rounded-[4px] bg-ice px-1.5 py-px text-[11px] font-bold text-[#003366]">
-                                        🏛️ {p.organization}
+                                      <span className="inline-flex items-center gap-1.5 rounded-[4px] bg-ice px-1.5 py-px text-[11px] font-bold text-[#003366]">
+                                        <Landmark className="h-[11px] w-[11px] shrink-0" aria-hidden />
+                                        {p.organization}
                                       </span>
                                     )}
                                     <span className="font-display text-[17px] font-extrabold text-[#003366]">{p.title}</span>

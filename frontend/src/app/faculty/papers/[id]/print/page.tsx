@@ -3,6 +3,7 @@
 import React, { Suspense, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useParams, useSearchParams } from 'next/navigation';
+import { ArrowLeft, Check, ClipboardCopy } from 'lucide-react';
 import { DiagramRenderer } from '@/components/DiagramRenderer';
 import { MathText, stripOptionPrefix } from '@/lib/math';
 import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchListTable';
@@ -140,7 +141,7 @@ function FacultyPrintContent() {
     <div className="min-h-screen bg-[#E2E8F0] px-4 pb-12 pt-5 font-[system-ui] select-text print:min-h-0 print:bg-white print:p-0">
       <div className="mx-auto mb-3.5 flex max-w-[210mm] flex-wrap items-center justify-between gap-2.5 rounded-2xl border border-[#003366]/10 bg-white px-3.5 py-2.5 shadow-[0_10px_30px_-26px_rgba(0,51,102,.45)] print:hidden">
         <div className="flex flex-wrap items-center gap-2">
-          <Link href="/faculty" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none">← Back to Studio</Link>
+          <Link href="/faculty" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"><ArrowLeft className="h-[14px] w-[14px] shrink-0" aria-hidden />Back to Studio</Link>
           <Link
             href={`/faculty/papers/${paper.id}/print?mode=questions`}
             className={mode === 'questions' ? 'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none' : 'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none'}
@@ -162,7 +163,17 @@ function FacultyPrintContent() {
         </div>
         <div className="flex items-center gap-2">
           <button type="button" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" onClick={handleCopyAll}>
-            {copied ? '✓ Copied All!' : '📋 Copy Text'}
+            {copied ? (
+              <>
+                <Check className="h-[14px] w-[14px] shrink-0" aria-hidden />
+                Copied All
+              </>
+            ) : (
+              <>
+                <ClipboardCopy className="h-[14px] w-[14px] shrink-0" aria-hidden />
+                Copy Text
+              </>
+            )}
           </button>
           <button
             type="button"

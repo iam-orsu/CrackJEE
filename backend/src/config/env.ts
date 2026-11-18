@@ -68,6 +68,13 @@ export const envSchema = z.object({
   FRONTEND_URL: z.preprocess(emptyToUndefined, z.string().url().optional()),
   EXTRA_CORS_ORIGINS: z.string().optional(),
   COOKIE_SECURE: z.preprocess(emptyToUndefined, z.enum(['true', 'false']).optional()),
+  GOOGLE_CLIENT_ID: z.preprocess(emptyToUndefined, z.string().min(10).optional()),
+  GOOGLE_CLIENT_SECRET: z.preprocess(emptyToUndefined, z.string().min(10).optional()),
+  GOOGLE_CALLBACK_URL: z.preprocess(emptyToUndefined, z.string().url().optional()),
+  GOOGLE_FACULTY_AUTO_PROVISION: z.preprocess(
+    emptyToUndefined,
+    z.enum(['true', 'false']).optional(),
+  ),
   SUPERADMIN_EMAIL: z.string().optional(),
   SUPERADMIN_PASSWORD_HASH: z.string().optional(),
   SUPERADMIN_PASSWORD: z.string().optional(),

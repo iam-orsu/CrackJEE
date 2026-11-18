@@ -157,4 +157,3 @@ ALTER TABLE `MockExamResult` ADD CONSTRAINT `MockExamResult_examId_fkey` FOREIGN
 
 -- AddForeignKey
 ALTER TABLE `TopicProgress` ADD CONSTRAINT `TopicProgress_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-

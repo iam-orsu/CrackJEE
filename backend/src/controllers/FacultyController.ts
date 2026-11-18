@@ -1,22 +1,15 @@
 import type { Response, NextFunction } from 'express';
 import { z } from 'zod';
-import { FacultyAuthService } from '../services/FacultyAuthService';
 import { facultyPaperService, type FacultyPaperService } from '../services/FacultyPaperService';
 import { FacultyBatchService } from '../services/FacultyBatchService';
 import { FacultyAssignmentService } from '../services/FacultyAssignmentService';
 import { FacultyPdfService } from '../services/FacultyPdfService';
 import {
   clearFacultyCookie,
-  setFacultyCookie,
   type FacultyAuthRequest,
 } from '../middlewares/facultyAuth.middleware';
 import { getJeeTopicsForExam, NEET_TOPICS, type Subject } from '../types/index';
 import { AppError } from '../utils/AppError';
-
-const loginSchema = z.object({
-  email: z.string().trim().email().max(200),
-  password: z.string().min(1).max(200),
-});
 
 const selectionSchema = z.object({
   subject: z.enum(['Physics', 'Chemistry', 'Mathematics', 'Botany', 'Zoology']),
@@ -145,25 +138,11 @@ function catalogForExam(examType: 'Main' | 'Advanced' | 'NEET'): Record<string, 
 /** Handles faculty portal authentication, topic lookup, paper creation, editing, and PDF data retrieval. */
 export class FacultyController {
   constructor(
-    private readonly authService: FacultyAuthService = new FacultyAuthService(),
     private readonly paperService: FacultyPaperService = facultyPaperService,
     private readonly batchService: FacultyBatchService = new FacultyBatchService(),
     private readonly assignmentService: FacultyAssignmentService = new FacultyAssignmentService(),
     private readonly pdfService: FacultyPdfService = new FacultyPdfService(),
   ) {}
-
-  public readonly login = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
-    try {
-      const parsed = loginSchema.safeParse(req.body);
-      if (!parsed.success) throw new AppError(400, 'Valid email and password are required');
-
-      const result = await this.authService.login(parsed.data.email, parsed.data.password);
-      setFacultyCookie(res, result.token);
-      res.json({ success: true, faculty: result.faculty, expiresAt: result.expiresAt });
-    } catch (err) {
-      next(err);
-    }
-  };
 
   public readonly me = (req: FacultyAuthRequest, res: Response): void => {
     res.json({ success: true, faculty: req.faculty });

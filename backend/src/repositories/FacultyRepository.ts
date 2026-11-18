@@ -47,8 +47,12 @@ export class FacultyRepository {
   public async findById(id: string) {
     return database.client.faculty.findUnique({
       where: { id },
-      select: { id: true, name: true, email: true, isActive: true, createdAt: true },
+      select: { id: true, name: true, email: true, isActive: true, avatarUrl: true, createdAt: true },
     });
+  }
+
+  public async findByGoogleSub(googleSub: string) {
+    return database.client.faculty.findUnique({ where: { googleSub } });
   }
 
   public async listAllWithCounts() {
@@ -59,20 +63,38 @@ export class FacultyRepository {
         name: true,
         email: true,
         isActive: true,
+        googleSub: true,
+        avatarUrl: true,
         createdAt: true,
         _count: { select: { papers: true } },
       },
     });
   }
 
-  public async create(data: { name: string; email: string; passwordHash: string }) {
+  public async create(data: {
+    name: string;
+    email: string;
+    passwordHash: string;
+    googleSub?: string | null;
+    avatarUrl?: string | null;
+  }) {
     return database.client.faculty.create({
       data: {
         name: data.name.trim(),
         email: data.email.trim().toLowerCase(),
         passwordHash: data.passwordHash,
+        googleSub: data.googleSub ?? null,
+        avatarUrl: data.avatarUrl ?? null,
       },
-      select: { id: true, name: true, email: true, isActive: true, createdAt: true },
+      select: { id: true, name: true, email: true, isActive: true, googleSub: true, avatarUrl: true, createdAt: true },
+    });
+  }
+
+  public async linkGoogleSub(id: string, googleSub: string, avatarUrl?: string | null) {
+    return database.client.faculty.update({
+      where: { id },
+      data: { googleSub, ...(avatarUrl ? { avatarUrl } : {}) },
+      select: { id: true, name: true, email: true, isActive: true, googleSub: true, avatarUrl: true, createdAt: true },
     });
   }
 

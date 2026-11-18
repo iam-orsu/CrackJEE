@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useCallback, useEffect, useState } from 'react';
+import { ChartColumn, Clock } from 'lucide-react';
 import {
   facultyCreateAssignment,
   facultyDeleteAssignment,
@@ -166,8 +167,9 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
                     <span className="rounded-md bg-ice px-2 py-0.5 text-[11px] font-semibold text-[#003366]">
                       {a.paper.examType} • {a.paper.questionCount} Questions
                     </span>
-                    <span className="text-[12px] text-[#5A6B8C]">
-                      ⏱ {a.durationMinutes} mins
+                    <span className="inline-flex items-center gap-1.5 text-[12px] text-[#5A6B8C]">
+                      <Clock className="h-[13px] w-[13px] shrink-0" aria-hidden />
+                      {a.durationMinutes} mins
                     </span>
                   </div>
 
@@ -222,7 +224,8 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
                     className={BTN_PRIMARY}
                     onClick={() => onViewReport(a.id)}
                   >
-                    📊 View Batch Report
+                    <ChartColumn className="h-[14px] w-[14px] shrink-0" aria-hidden />
+                    View Batch Report
                   </button>
                   <button
                     type="button"

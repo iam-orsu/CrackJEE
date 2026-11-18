@@ -13,7 +13,7 @@ const loginSchema = z.object({
 const createFacultySchema = z.object({
   name: z.string().trim().min(2).max(120),
   email: z.string().trim().email().max(200),
-  password: z.string().min(8).max(200),
+  password: z.string().min(8).max(200).optional(),
 });
 
 const updateFacultySchema = z.object({

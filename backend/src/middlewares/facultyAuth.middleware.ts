@@ -12,6 +12,7 @@ export interface FacultyAuthRequest extends Request {
     facultyId: string;
     name: string;
     email: string;
+    avatarUrl?: string | null;
   };
 }
 
@@ -76,7 +77,12 @@ export function requireFaculty(repo: FacultyRepository = defaultRepo) {
         res.status(403).json({ success: false, error: 'Faculty account is inactive or missing' });
         return;
       }
-      req.faculty = { facultyId: account.id, name: account.name, email: account.email };
+      req.faculty = {
+        facultyId: account.id,
+        name: account.name,
+        email: account.email,
+        avatarUrl: account.avatarUrl ?? null,
+      };
       next();
     } catch (err) {
       next(err);

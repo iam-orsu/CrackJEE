@@ -1,6 +1,20 @@
 'use client';
 
 import React, { useEffect, useMemo, useState } from 'react';
+import {
+  Check,
+  ChevronDown,
+  ChevronUp,
+  Circle,
+  CircleCheckBig,
+  CircleMinus,
+  Eye,
+  ListTodo,
+  Medal,
+  Star,
+  TriangleExclamationPoint,
+  X,
+} from 'lucide-react';
 import { MathText, stripOptionPrefix } from '@/lib/math';
 import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchListTable';
 import {
@@ -221,8 +235,10 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
           <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
             <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2.5 font-display text-[17px] font-extrabold text-[#003366]">
               <span>Batch Leaderboard &amp; Rankings ({report.rankList.length})</span>
-              <span className="text-[12px] font-normal text-[#5A6B8C]">
-                Ranked by Total Marks Descending • Click 👁 to inspect student response sheet
+              <span className="inline-flex items-center gap-1.5 text-[12px] font-normal text-[#5A6B8C]">
+                Ranked by Total Marks Descending • Click
+                <Eye className="h-[12px] w-[12px] shrink-0" aria-hidden />
+                to inspect student response sheet
               </span>
             </div>
 
@@ -248,15 +264,23 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                   </thead>
                   <tbody>
                     {report.rankList.map((st) => {
-                      const medal =
-                        st.rank === 1 ? '🥇' : st.rank === 2 ? '🥈' : st.rank === 3 ? '🥉' : `#${st.rank}`;
+                      const onPodium = st.rank <= 3;
                       const totalAttempted = st.correctCount + st.incorrectCount;
                       const accuracy =
                         totalAttempted > 0 ? Math.round((st.correctCount / totalAttempted) * 100) : 0;
 
                       return (
                         <tr key={st.studentId} className="border-b border-[#003366]/10 transition-colors hover:bg-[#F8FAFF]">
-                          <td className="px-3 py-3 text-[14px] font-bold text-[#003366]">{medal}</td>
+                          <td className="px-3 py-3 text-[14px] font-bold text-[#003366]">
+                            {onPodium ? (
+                              <span className="inline-flex items-center gap-1.5">
+                                <Medal className="h-[14px] w-[14px] shrink-0" aria-hidden />
+                                #{st.rank}
+                              </span>
+                            ) : (
+                              `#${st.rank}`
+                            )}
+                          </td>
                           <td className="px-3 py-3 font-semibold text-accent">{st.rollNumber}</td>
                           <td className="px-3 py-3 font-medium text-[#003366]">
                             <div className="flex items-center gap-2">
@@ -265,10 +289,10 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                               <button
                                 type="button"
                                 onClick={() => handleViewSubmission(st.studentId)}
-                                className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-ice text-[13px] text-[#003366] transition hover:bg-accent hover:text-white"
+                                className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-ice text-[#003366] transition hover:bg-accent hover:text-white"
                                 title={`Inspect ${st.name}'s answered paper`}
                               >
-                                👁
+                                <Eye className="h-[13px] w-[13px]" aria-hidden />
                               </button>
                             </div>
                           </td>
@@ -330,10 +354,10 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                             <button
                               type="button"
                               onClick={() => handleViewSubmission(st.studentId)}
-                              className="inline-flex items-center gap-1.5 rounded-xl border border-[#003366]/20 bg-white px-2.5 py-1 text-[12px] font-bold text-[#003366] shadow-[0_2px_0_#C6D2F8] transition-all hover:border-accent hover:bg-[#F3E8FF] hover:text-accent hover:shadow-[0_3px_0_#E3C9E6] active:translate-y-0.5"
+                              className="inline-flex items-center gap-1.5 rounded-xl border border-[#003366]/20 bg-white px-2.5 py-1 text-[12px] font-bold text-[#003366] shadow-[0_2px_0_#C6D2F8] transition-[background,border-color,color,box-shadow] hover:border-accent hover:bg-[#F3E8FF] hover:text-accent hover:shadow-[0_3px_0_#E3C9E6] active:translate-y-0.5"
                               title="Inspect student's chosen options and question paper"
                             >
-                              <span>👁</span>
+                              <Eye className="h-[13px] w-[13px] shrink-0" aria-hidden />
                               <span>View</span>
                             </button>
                           </td>
@@ -383,14 +407,16 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                 {/* 1. Lacking / Weak Topics */}
                 <div className="rounded-2xl border border-[#C8202F]/25 bg-[#FDF3F4] p-3.5">
                   <div className="flex items-center gap-1.5 text-[13px] font-bold text-[#C8202F]">
-                    <span>⚠️ Lacking / Weak Topics</span>
+                    <TriangleExclamationPoint className="h-[14px] w-[14px] shrink-0" aria-hidden />
+                    <span>Lacking / Weak Topics</span>
                   </div>
                   <p className="mt-0.5 text-[11.5px] text-[#5A6B8C]">
                     Topics with high error rates or marks lost:
                   </p>
                   {report.revisionRecommendations.lackingTopics.length === 0 ? (
-                    <div className="mt-2 text-[12px] font-semibold text-[#146C33]">
-                      ✓ No topics below 50% accuracy.
+                    <div className="mt-2 flex items-center gap-1.5 text-[12px] font-semibold text-[#146C33]">
+                      <Check className="h-[13px] w-[13px] shrink-0" aria-hidden />
+                      <span>No topics below 50% accuracy.</span>
                     </div>
                   ) : (
                     <div className="mt-2 flex flex-col gap-1.5">
@@ -420,7 +446,8 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                 {/* 2. Strongest Topics */}
                 <div className="rounded-2xl border border-[#146C33]/25 bg-[#EAF7EF] p-3.5">
                   <div className="flex items-center gap-1.5 text-[13px] font-bold text-[#146C33]">
-                    <span>🌟 Strongest Topics</span>
+                    <Star className="h-[14px] w-[14px] shrink-0" aria-hidden />
+                    <span>Strongest Topics</span>
                   </div>
                   <p className="mt-0.5 text-[11.5px] text-[#5A6B8C]">
                     Topics with the highest score and accuracy:
@@ -450,7 +477,8 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                 {/* 3. Actionable Revision Need */}
                 <div className="rounded-2xl border border-[#003366]/15 bg-[#F8FAFF] p-3.5">
                   <div className="flex items-center gap-1.5 text-[13px] font-bold text-[#003366]">
-                    <span>📌 Actionable Revision Need</span>
+                    <ListTodo className="h-[14px] w-[14px] shrink-0" aria-hidden />
+                    <span>Actionable Revision Need</span>
                   </div>
                   <p className="mt-0.5 text-[11.5px] text-[#5A6B8C]">
                     Faculty priorities to re-teach or assign practice:
@@ -550,22 +578,30 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
 
                           {/* Status Badge */}
                           {t.isWeak ? (
-                            <span className="rounded-full bg-[#FDF3F4] px-2 py-0.5 text-[11px] font-bold text-[#C8202F]">
-                              ⚠️ Needs Revision
+                            <span className="inline-flex items-center gap-1 rounded-full bg-[#FDF3F4] px-2 py-0.5 text-[11px] font-bold text-[#C8202F]">
+                              <TriangleExclamationPoint className="h-[11px] w-[11px] shrink-0" aria-hidden />
+                              Needs Revision
                             </span>
                           ) : t.isStrong ? (
-                            <span className="rounded-full bg-[#EAF7EF] px-2 py-0.5 text-[11px] font-bold text-[#146C33]">
-                              ✅ Mastered
+                            <span className="inline-flex items-center gap-1 rounded-full bg-[#EAF7EF] px-2 py-0.5 text-[11px] font-bold text-[#146C33]">
+                              <CircleCheckBig className="h-[11px] w-[11px] shrink-0" aria-hidden />
+                              Mastered
                             </span>
                           ) : (
-                            <span className="rounded-full bg-[#FEF3C7] px-2 py-0.5 text-[11px] font-bold text-[#B45309]">
-                              🟡 Average
+                            <span className="inline-flex items-center gap-1 rounded-full bg-[#FEF3C7] px-2 py-0.5 text-[11px] font-bold text-[#B45309]">
+                              <CircleMinus className="h-[11px] w-[11px] shrink-0" aria-hidden />
+                              Average
                             </span>
                           )}
 
                           {/* Expand/Collapse Dropdown Arrow */}
-                          <span className="text-[12.5px] font-bold text-[#003366]">
-                            {isExpanded ? '▲ Close' : '▼ Inspect Questions'}
+                          <span className="inline-flex items-center gap-1 text-[12.5px] font-bold text-[#003366]">
+                            {isExpanded ? (
+                              <ChevronUp className="h-[13px] w-[13px] shrink-0" aria-hidden />
+                            ) : (
+                              <ChevronDown className="h-[13px] w-[13px] shrink-0" aria-hidden />
+                            )}
+                            {isExpanded ? 'Close' : 'Inspect Questions'}
                           </span>
                         </div>
                       </button>
@@ -697,10 +733,10 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
               <button
                 type="button"
                 onClick={() => setSubmissionModalOpen(false)}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F3F4F6] text-[16px] font-bold text-[#5A6B8C] transition hover:bg-[#E5E7EB] hover:text-[#003366]"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F3F4F6] text-[#5A6B8C] transition hover:bg-[#E5E7EB] hover:text-[#003366]"
                 title="Close"
               >
-                ✕
+                <X className="h-[16px] w-[16px]" aria-hidden />
               </button>
             </div>
 
@@ -814,17 +850,20 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                             <div>
                               {isCorrect ? (
                                 <span className="inline-flex items-center gap-1 rounded-full bg-[#EAF7EF] px-2.5 py-0.5 text-[11.5px] font-bold text-[#146C33]">
-                                  <span>✓ Correct</span>
+                                  <Check className="h-[12px] w-[12px] shrink-0" aria-hidden />
+                                  <span>Correct</span>
                                   <span>(+{q.marksAwarded})</span>
                                 </span>
                               ) : isWrong ? (
                                 <span className="inline-flex items-center gap-1 rounded-full bg-[#FDF3F4] px-2.5 py-0.5 text-[11.5px] font-bold text-[#C8202F]">
-                                  <span>✕ Incorrect</span>
+                                  <X className="h-[12px] w-[12px] shrink-0" aria-hidden />
+                                  <span>Incorrect</span>
                                   <span>({q.marksAwarded})</span>
                                 </span>
                               ) : (
                                 <span className="inline-flex items-center gap-1 rounded-full bg-[#F1F5F9] px-2.5 py-0.5 text-[11.5px] font-bold text-[#64748B]">
-                                  <span>⚪ Not Attempted</span>
+                                  <Circle className="h-[12px] w-[12px] shrink-0" aria-hidden />
+                                  <span>Not Attempted</span>
                                   <span>(0)</span>
                                 </span>
                               )}
@@ -880,15 +919,24 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                                     <div className="flex-1">
                                       <MathText text={stripOptionPrefix(optText)} />
                                       {isStudentPick && (
-                                        <div className="mt-1 text-[11px] font-bold">
-                                          {isCorrectOpt
-                                            ? '✓ Student Selected (Correct)'
-                                            : '✕ Student Selected (Incorrect)'}
+                                        <div className="mt-1 flex items-center gap-1 text-[11px] font-bold">
+                                          {isCorrectOpt ? (
+                                            <>
+                                              <Check className="h-[11px] w-[11px] shrink-0" aria-hidden />
+                                              <span>Student Selected (Correct)</span>
+                                            </>
+                                          ) : (
+                                            <>
+                                              <X className="h-[11px] w-[11px] shrink-0" aria-hidden />
+                                              <span>Student Selected (Incorrect)</span>
+                                            </>
+                                          )}
                                         </div>
                                       )}
                                       {!isStudentPick && isCorrectOpt && (
-                                        <div className="mt-1 text-[11px] font-semibold text-[#15803D]">
-                                          ✓ Correct Option
+                                        <div className="mt-1 flex items-center gap-1 text-[11px] font-semibold text-[#15803D]">
+                                          <Check className="h-[11px] w-[11px] shrink-0" aria-hidden />
+                                          <span>Correct Option</span>
                                         </div>
                                       )}
                                     </div>

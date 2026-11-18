@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useCallback, useEffect, useState } from 'react';
+import Image from 'next/image';
 import {
   AdminError,
   createFacultyAccount,
@@ -25,8 +26,6 @@ export function FacultyAccountsPanel({ onUnauthorized }: Props) {
   const [password, setPassword] = useState('');
   const [creating, setCreating] = useState(false);
 
-  const [resetId, setResetId] = useState<string | null>(null);
-  const [resetPassword, setResetPassword] = useState('');
   const [savingId, setSavingId] = useState<string | null>(null);
 
   const load = useCallback(async () => {
@@ -82,26 +81,6 @@ export function FacultyAccountsPanel({ onUnauthorized }: Props) {
     }
   }
 
-  async function handleResetPassword(id: string) {
-    if (resetPassword.length < 8) {
-      setError('Password must be at least 8 characters.');
-      return;
-    }
-    setSavingId(id);
-    setError('');
-    try {
-      const updated = await updateFacultyAccount(id, { password: resetPassword });
-      setAccounts((prev) => prev.map((a) => (a.id === id ? updated : a)));
-      setResetId(null);
-      setResetPassword('');
-    } catch (err) {
-      if (err instanceof AdminError && err.status === 401) return onUnauthorized();
-      setError(err instanceof Error ? err.message : 'Failed to reset password');
-    } finally {
-      setSavingId(null);
-    }
-  }
-
   return (
     <section className={styles.section}>
       <div className={styles.blockHead}>
@@ -139,15 +118,14 @@ export function FacultyAccountsPanel({ onUnauthorized }: Props) {
           />
         </div>
         <div style={{ flex: '1 1 170px', display: 'flex', flexDirection: 'column', gap: 4 }}>
-          <label className={styles.label}>Initial Password (min 8)</label>
+          <label className={styles.label}>Initial Password (optional)</label>
           <input
             type="password"
             minLength={8}
             className={styles.input}
-            placeholder="••••••••"
+            placeholder="Leave blank — Google sign-in only"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
         </div>
         <button type="submit" className={styles.btn} disabled={creating}>
@@ -171,12 +149,52 @@ export function FacultyAccountsPanel({ onUnauthorized }: Props) {
               <tr><td colSpan={5} className={styles.muted}>Loading faculty accounts…</td></tr>
             )}
             {!loading && accounts.length === 0 && (
-              <tr><td colSpan={5} className={styles.muted}>No faculty accounts yet. Create one above or via npm run faculty:create.</td></tr>
+              <tr><td colSpan={5} className={styles.muted}>No faculty accounts yet. Create one above — mentors sign in with Google using the same email.</td></tr>
             )}
             {accounts.map((acc) => (
               <tr key={acc.id}>
-                <td>{acc.name}</td>
-                <td className={styles.muted}>{acc.email}</td>
+                <td>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    {acc.avatarUrl ? (
+                      <Image
+                        src={acc.avatarUrl}
+                        alt=""
+                        width={32}
+                        height={32}
+                        className="h-8 w-8 shrink-0 rounded-full object-cover"
+                        referrerPolicy="no-referrer"
+                      />
+                    ) : (
+                      <span
+                        aria-hidden
+                        style={{
+                          width: 32,
+                          height: 32,
+                          borderRadius: '999px',
+                          background: '#EEF2FF',
+                          color: '#003366',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontSize: 12,
+                          fontWeight: 700,
+                          flexShrink: 0,
+                        }}
+                      >
+                        {(acc.name || acc.email).slice(0, 2).toUpperCase()}
+                      </span>
+                    )}
+                    <span className={styles.muted}>{acc.name}</span>
+                  </div>
+                </td>
+                <td>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                    <span className={styles.muted}>{acc.email}</span>
+                    {acc.googleLinked && (
+                      <span className={`${styles.pill} ${styles.pill_neutral}`}>Google linked</span>
+                    )}
+                  </div>
+                </td>
                 <td>
                   <span className={`${styles.pill} ${acc.isActive ? styles.pill_good : styles.pill_bad}`}>
                     {acc.isActive ? 'Active' : 'Inactive'}
@@ -193,43 +211,6 @@ export function FacultyAccountsPanel({ onUnauthorized }: Props) {
                     >
                       {acc.isActive ? 'Deactivate' : 'Activate'}
                     </button>
-                    {resetId === acc.id ? (
-                      <>
-                        <input
-                          type="password"
-                          minLength={8}
-                          placeholder="New password"
-                          className={styles.input}
-                          style={{ padding: '4px 8px', fontSize: 12, width: 140 }}
-                          value={resetPassword}
-                          onChange={(e) => setResetPassword(e.target.value)}
-                        />
-                        <button
-                          type="button"
-                          className={styles.textBtn}
-                          disabled={savingId === acc.id}
-                          onClick={() => void handleResetPassword(acc.id)}
-                        >
-                          Save
-                        </button>
-                        <button
-                          type="button"
-                          className={styles.textBtn}
-                          style={{ color: '#6b7280' }}
-                          onClick={() => { setResetId(null); setResetPassword(''); }}
-                        >
-                          Cancel
-                        </button>
-                      </>
-                    ) : (
-                      <button
-                        type="button"
-                        className={styles.textBtn}
-                        onClick={() => { setResetId(acc.id); setResetPassword(''); }}
-                      >
-                        Reset Password
-                      </button>
-                    )}
                   </div>
                 </td>
               </tr>

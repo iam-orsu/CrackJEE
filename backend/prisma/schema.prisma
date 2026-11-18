@@ -205,6 +205,8 @@ model Faculty {
   name         String
   email        String         @unique
   passwordHash String
+  googleSub    String?        @unique
+  avatarUrl    String?        @db.Text
   isActive     Boolean        @default(true)
   createdAt    DateTime       @default(now())
 
