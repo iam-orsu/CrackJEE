@@ -65,7 +65,7 @@ const SUBJECT_ORDER: Record<Subject, number> = {
 
 const MIXED_DIFFICULTIES: Difficulty[] = ['beginner', 'intermediate', 'advanced'];
 const GENERATION_CONCURRENCY = 4;
-const MAX_AI_ATTEMPTS = 2;
+const MAX_AI_ATTEMPTS = 3;
 
 function defaultPaperTitle(examType: FacultyExamType, selections: FacultyPaperSelection[]): string {
   const subjects = [...new Set(selections.map((s) => s.subject))];
@@ -117,7 +117,6 @@ export const ABSTRACT_NON_DIAGRAM_TOPICS = new Set<string>([
   'statistics',
   'matrices',
   'determinants',
-  'sets and relations',
   'principle of mathematical induction',
   'units and dimensions',
   'units and measurements',
@@ -670,8 +669,8 @@ export class FacultyPaperService {
 
       for (let attempt = 1; attempt <= MAX_AI_ATTEMPTS; attempt++) {
         try {
-          // On first attempt, honor requiresDiagram if requested. On retry, relax it so generation never gets blocked.
-          const mustRequireDiagram = slot.requiresDiagram && attempt === 1;
+          // Honor requiresDiagram on initial attempts; relax on final attempt so generation never gets blocked
+          const mustRequireDiagram = slot.requiresDiagram && attempt <= 2;
           const generated = await deepSeekService.generateFacultyQuestion({
             examType,
             subject: slot.subject,
