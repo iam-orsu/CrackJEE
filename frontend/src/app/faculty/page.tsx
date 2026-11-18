@@ -153,7 +153,7 @@ export default function FacultyPage() {
   const [questionType, setQuestionType] = useState<FacultyQuestionTypePref>('auto');
   const [topicConfigs, setTopicConfigs] = useState<Record<string, TopicCustomConfig>>({});
   const [examGoal, setExamGoal] = useState('');
-  const [selectedPsychometricDomains, setSelectedPsychometricDomains] = useState<string[]>(PSYCHOMETRIC_DOMAINS);
+  const [selectedPsychometricDomains, setSelectedPsychometricDomains] = useState<string[]>([]);
 
   const selectedSubjects = useMemo(() => {
     const set = new Set<Subject>();
@@ -821,7 +821,7 @@ export default function FacultyPage() {
                                 </label>
                                 <textarea
                                   id="paper-goal"
-                                  className="min-h-[86px] w-full resize-y rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2.5 text-[14px] font-semibold leading-relaxed text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-normal placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6]"
+                                  className="min-h-[96px] w-full resize-none rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2.5 text-[14px] font-semibold leading-relaxed text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-normal placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] custom-scrollbar"
                                   placeholder="e.g. Assess students' Computer Science aptitude and Entrepreneurship mindset, technical problem-solving attitude, and risk-taking preferences"
                                   value={examGoal}
                                   onChange={(e) => setExamGoal(e.target.value)}
@@ -953,7 +953,7 @@ export default function FacultyPage() {
                                 </div>
                               </div>
 
-                              <div className="flex max-h-[480px] flex-col gap-2 overflow-y-auto rounded-2xl border-[2.5px] border-[#003366]/20 bg-[#F7F9FF] p-3">
+                              <div className="flex max-h-[480px] flex-col gap-2 overflow-y-auto rounded-2xl border-[2.5px] border-[#003366]/20 bg-[#F7F9FF] p-3 custom-scrollbar pr-2">
                                 {PSYCHOMETRIC_DOMAINS.map((domain) => {
                                   const isSelected = selectedPsychometricDomains.includes(domain);
                                   const meta = PSYCHOMETRIC_DOMAIN_META[domain] || { badge: 'Assessment', desc: '' };
@@ -1163,7 +1163,7 @@ export default function FacultyPage() {
                                   onChange={(e) => setTopicSearch(e.target.value)}
                                 />
 
-                                <div className="max-h-[230px] overflow-y-auto rounded-2xl border border-[#003366]/10 bg-[#FBFCFE] p-1.5">
+                                <div className="max-h-[230px] overflow-y-auto rounded-2xl border border-[#003366]/10 bg-[#FBFCFE] p-1.5 custom-scrollbar pr-1">
                                   {visibleTopics.map((topic) => {
                                     const checked = Boolean(topicConfigs[`${activeSubject}::${topic}`]);
                                     return (
