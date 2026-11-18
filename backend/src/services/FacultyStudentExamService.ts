@@ -272,7 +272,8 @@ export class FacultyStudentExamService {
     const examType = assignment.paper.examType;
 
     // Psychometric assessments: 100% opinion and trait based - zero right/wrong scoring
-    if (examType === 'Psychometric') {
+    const isPsychometric = examType === 'Psychometric' || (items.length > 0 && items[0].subject === 'Psychometric');
+    if (isPsychometric) {
       const professorGoal = this.extractPaperGoal(assignment.paper);
       const studentName = session.student?.name || 'Student';
       const attemptedCount = items.filter((item) => Boolean(answers[String(item.number)]?.trim())).length;
@@ -472,7 +473,8 @@ export class FacultyStudentExamService {
     const items = (assignment.paper.items as unknown as FacultyPaperItem[]) || [];
     const submittedAnswers = (session.answers as Record<string, string>) || {};
 
-    if (assignment.paper.examType === 'Psychometric') {
+    const isPsychometric = assignment.paper.examType === 'Psychometric' || (items.length > 0 && items[0].subject === 'Psychometric');
+    if (isPsychometric) {
       const professorGoal = this.extractPaperGoal(assignment.paper);
       const rawBreakdown = (session.resultBreakdown as Record<string, unknown>) || {};
       let psychometricReport = (rawBreakdown.psychometricReport as any) || null;

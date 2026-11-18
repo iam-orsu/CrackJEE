@@ -293,17 +293,21 @@ export class FacultyAssignmentService {
       const studentAnswers = (sub?.answers as Record<string, string>) || {};
       const studentTopicMistakes: Record<string, number> = {};
 
-      for (const q of items) {
-        const ans = (studentAnswers[String(q.number)] || '').trim().toUpperCase();
-        if (ans && ans !== q.correctAnswer.trim().toUpperCase()) {
-          studentTopicMistakes[q.topic] = (studentTopicMistakes[q.topic] || 0) + 1;
+      if (!isPsychometric) {
+        for (const q of items) {
+          const ans = (studentAnswers[String(q.number)] || '').trim().toUpperCase();
+          if (ans && ans !== q.correctAnswer.trim().toUpperCase()) {
+            studentTopicMistakes[q.topic] = (studentTopicMistakes[q.topic] || 0) + 1;
+          }
         }
       }
 
-      const personalWeakTopics = Object.entries(studentTopicMistakes)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 3)
-        .map(([topic, mistakes]) => ({ topic, mistakes }));
+      const personalWeakTopics = isPsychometric
+        ? []
+        : Object.entries(studentTopicMistakes)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 3)
+            .map(([topic, mistakes]) => ({ topic, mistakes }));
 
       return {
         ...st,
@@ -462,6 +466,24 @@ export class FacultyAssignmentService {
     lines.push(`Exported At:,${escapeCsv(new Date().toISOString())}`);
     lines.push('');
 
+    const items = (assignment.paper.items as unknown as FacultyPaperItem[]) || [];
+
+    const computeWeakTopicsOneLiner = (sub: any): string => {
+      const studentAnswers = (sub?.answers as Record<string, string>) || {};
+      const studentTopicMistakes: Record<string, number> = {};
+      for (const q of items) {
+        const ans = (studentAnswers[String(q.number)] || '').trim().toUpperCase();
+        if (ans && ans !== q.correctAnswer.trim().toUpperCase()) {
+          studentTopicMistakes[q.topic] = (studentTopicMistakes[q.topic] || 0) + 1;
+        }
+      }
+      const top = Object.entries(studentTopicMistakes)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3)
+        .map(([topic, count]) => `${topic} (${count} mistakes)`);
+      return top.length > 0 ? top.join('; ') : 'None';
+    };
+
     if (examType === 'Main') {
       lines.push(
         [
@@ -477,6 +499,7 @@ export class FacultyAssignmentService {
           'Correct',
           'Incorrect',
           'Unattempted',
+          'Weak Topics',
           'Time Taken (mins)',
           'Submitted At',
         ]
@@ -492,6 +515,7 @@ export class FacultyAssignmentService {
         const math = sb['Mathematics']?.score ?? 0;
         const accuracy = bd.accuracyPct ?? 0;
         const timeMins = Math.round(s.timeTakenSeconds / 60);
+        const weakTopics = computeWeakTopicsOneLiner(s);
 
         lines.push(
           [
@@ -507,6 +531,7 @@ export class FacultyAssignmentService {
             s.correctCount,
             s.incorrectCount,
             s.unattemptedCount,
+            weakTopics,
             timeMins,
             s.submittedAt ? s.submittedAt.toISOString() : '',
           ]
@@ -530,6 +555,7 @@ export class FacultyAssignmentService {
           'Partial',
           'Incorrect',
           'Unattempted',
+          'Weak Topics',
           'Time Taken (mins)',
           'Submitted At',
         ]
@@ -545,6 +571,7 @@ export class FacultyAssignmentService {
         const math = sb['Mathematics']?.score ?? 0;
         const accuracy = bd.accuracyPct ?? 0;
         const timeMins = Math.round(s.timeTakenSeconds / 60);
+        const weakTopics = computeWeakTopicsOneLiner(s);
 
         lines.push(
           [
@@ -561,6 +588,7 @@ export class FacultyAssignmentService {
             s.partialCount,
             s.incorrectCount,
             s.unattemptedCount,
+            weakTopics,
             timeMins,
             s.submittedAt ? s.submittedAt.toISOString() : '',
           ]
@@ -583,6 +611,7 @@ export class FacultyAssignmentService {
           'Correct',
           'Incorrect',
           'Unattempted',
+          'Weak Topics',
           'Time Taken (mins)',
           'Submitted At',
         ]
@@ -598,6 +627,7 @@ export class FacultyAssignmentService {
         const bio = (sb['Biology']?.score ?? 0) + (sb['Botany']?.score ?? 0) + (sb['Zoology']?.score ?? 0);
         const accuracy = bd.accuracyPct ?? 0;
         const timeMins = Math.round(s.timeTakenSeconds / 60);
+        const weakTopics = computeWeakTopicsOneLiner(s);
 
         lines.push(
           [
@@ -613,6 +643,7 @@ export class FacultyAssignmentService {
             s.correctCount,
             s.incorrectCount,
             s.unattemptedCount,
+            weakTopics,
             timeMins,
             s.submittedAt ? s.submittedAt.toISOString() : '',
           ]
@@ -633,6 +664,9 @@ export class FacultyAssignmentService {
           'Total Alignment Score',
           'Max Score',
           'Behavioral Archetype',
+          'Demonstrated Strengths',
+          'Mentoring Guidance / Growth Areas',
+          'Domain Breakdown',
           'Attempted Questions',
           'Skipped Questions',
           'Time Taken (mins)',
@@ -645,7 +679,16 @@ export class FacultyAssignmentService {
       submissions.forEach((s, idx) => {
         const bd = (s.resultBreakdown as Record<string, any>) || {};
         const psy = bd.psychometricReport || {};
-        const archetype = psy.archetype || 'Balanced Profile';
+        const archetype = psy.archetype || 'Evaluating Mindset';
+        const strengths = Array.isArray(psy.strengths) && psy.strengths.length > 0
+          ? psy.strengths.slice(0, 2).join('; ')
+          : 'Collaborative problem-solving';
+        const guidance = Array.isArray(psy.guidance) && psy.guidance.length > 0
+          ? psy.guidance.slice(0, 2).map((g: string) => g.replace(/^Mentoring recommendation:\s*/i, '')).join('; ')
+          : 'Structured practice in foundational concepts';
+        const domainBreakdown = Array.isArray(psy.domainBreakdown) && psy.domainBreakdown.length > 0
+          ? psy.domainBreakdown.map((d: any) => `${d.domain}: ${d.score}% (${d.status})`).join('; ')
+          : 'N/A';
         const timeMins = Math.round(s.timeTakenSeconds / 60);
         const attempted = Math.max(0, totalQuestionCount - s.unattemptedCount);
 
@@ -657,6 +700,9 @@ export class FacultyAssignmentService {
             s.totalScore,
             100,
             archetype,
+            strengths,
+            guidance,
+            domainBreakdown,
             attempted,
             s.unattemptedCount,
             timeMins,

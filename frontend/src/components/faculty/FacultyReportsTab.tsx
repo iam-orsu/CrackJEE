@@ -982,6 +982,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                   <div className="flex flex-col gap-4">
                     {filteredQuestions.map((q) => {
                       const letters = ['A', 'B', 'C', 'D'];
+                      const isItemPsychometric = isSubPsychometric || q.subject === 'Psychometric';
                       const isCorrect = q.isCorrect;
                       const isSkipped = q.isSkipped;
                       const isWrong = !isCorrect && !isSkipped;
@@ -990,7 +991,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                         <div
                           key={q.number}
                           className={`rounded-2xl border p-4 transition-all ${
-                            isSubPsychometric
+                            isItemPsychometric
                               ? 'border-[#003366]/15 bg-white shadow-sm'
                               : isCorrect
                                 ? 'border-[#15803D]/25 bg-white shadow-sm'
@@ -1003,12 +1004,12 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                           <div className="mb-2.5 flex flex-wrap items-center justify-between gap-2">
                             <div className="flex items-center gap-2">
                               <span className={`rounded-lg px-2 py-0.5 text-[12px] font-extrabold text-white ${
-                                isSubPsychometric ? 'bg-[#803688]' : 'bg-[#003366]'
+                                isItemPsychometric ? 'bg-[#803688]' : 'bg-[#003366]'
                               }`}>
                                 Q#{q.number}
                               </span>
                               <span className={`rounded-md px-2 py-0.5 text-[11px] font-bold ${
-                                isSubPsychometric ? 'bg-[#803688]/10 text-[#803688]' : 'bg-ice text-[#003366]'
+                                isItemPsychometric ? 'bg-[#803688]/10 text-[#803688]' : 'bg-ice text-[#003366]'
                               }`}>
                                 {q.subject}
                               </span>
@@ -1022,7 +1023,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
 
                             {/* Mark / Status badge */}
                             <div>
-                              {isSubPsychometric ? (
+                              {isItemPsychometric ? (
                                 <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[11.5px] font-bold ${
                                   isSkipped ? 'bg-[#F1F5F9] text-[#64748B]' : 'bg-[#803688]/10 text-[#803688]'
                                 }`}>
@@ -1067,10 +1068,10 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                                 const isStudentPick =
                                   q.studentAnswer?.toUpperCase().trim() === letter;
                                 const isCorrectOpt =
-                                  !isSubPsychometric && q.correctAnswer.toUpperCase().includes(letter);
+                                  !isItemPsychometric && q.correctAnswer.toUpperCase().includes(letter);
 
                                 let optBorder = 'border-[#003366]/15 bg-[#F8FAFF]';
-                                if (isSubPsychometric) {
+                                if (isItemPsychometric) {
                                   if (isStudentPick) {
                                     optBorder = 'border-[#803688] bg-[#FBF5FC] text-[#803688] font-semibold shadow-sm';
                                   } else {
@@ -1093,7 +1094,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                                   >
                                     <span
                                       className={`flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full text-[10.5px] font-bold ${
-                                        isSubPsychometric
+                                        isItemPsychometric
                                           ? isStudentPick
                                             ? 'bg-[#803688] text-white'
                                             : 'bg-white text-[#003366] border border-[#CBD5F3]'
@@ -1112,7 +1113,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                                       <MathText text={stripOptionPrefix(optText)} />
                                       {isStudentPick && (
                                         <div className="mt-1 flex items-center gap-1 text-[11px] font-bold">
-                                          {isSubPsychometric ? (
+                                          {isItemPsychometric ? (
                                             <span className="rounded-full bg-[#803688] px-2 py-0.5 text-[10.5px] font-extrabold text-white">
                                               Candidate Selection
                                             </span>
@@ -1129,7 +1130,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                                           )}
                                         </div>
                                       )}
-                                      {!isSubPsychometric && !isStudentPick && isCorrectOpt && (
+                                      {!isItemPsychometric && !isStudentPick && isCorrectOpt && (
                                         <div className="mt-1 flex items-center gap-1 text-[11px] font-semibold text-[#15803D]">
                                           <Check className="h-[11px] w-[11px] shrink-0" aria-hidden />
                                           <span>Correct Option</span>
@@ -1146,7 +1147,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                                 <span className="font-semibold text-[#5A6B8C]">Student Answer: </span>
                                 <span
                                   className={`font-bold ${
-                                    isSubPsychometric
+                                    isItemPsychometric
                                       ? 'text-[#803688]'
                                       : isCorrect ? 'text-[#15803D]' : isWrong ? 'text-[#C8202F]' : 'text-[#5A6B8C]'
                                   }`}
@@ -1154,7 +1155,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                                   {q.studentAnswer ?? 'None (Skipped)'}
                                 </span>
                               </div>
-                              {!isSubPsychometric && (
+                              {!isItemPsychometric && (
                                 <div>
                                   <span className="font-semibold text-[#5A6B8C]">Correct Answer: </span>
                                   <span className="font-bold text-[#15803D]">{q.correctAnswer}</span>
@@ -1164,7 +1165,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                           )}
 
                           {/* Explanation (Purged completely for Psychometric) */}
-                          {!isSubPsychometric && q.explanation && (
+                          {!isItemPsychometric && q.explanation && (
                             <div className="mt-3 rounded-xl border border-[#003366]/10 bg-[#FAFBFD] p-3 text-[12.5px] text-[#31407F]">
                               <span className="font-bold text-[#003366]">Explanation / Solution: </span>
                               <div className="mt-1">

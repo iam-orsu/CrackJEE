@@ -233,7 +233,9 @@ export default function StudentExamCbtPage() {
       <header className="z-10 flex flex-wrap items-center justify-between gap-4 border-b-[3px] border-[#5A2560] bg-[#003366] px-4 py-3 text-white sm:px-6">
         <div className="flex min-w-0 items-center gap-3">
           <span className="shrink-0 rounded-md bg-grad px-2 py-0.5 text-[11px] font-extrabold tracking-[0.04em] text-white">
-            {session.examType} CBT
+            {session.examType === 'Psychometric' || session.questions.some((q) => q.subject === 'Psychometric')
+              ? 'Psychometric Assessment'
+              : `${session.examType} CBT`}
           </span>
           <h1 className="truncate text-[15.5px] font-extrabold">{session.title}</h1>
         </div>
@@ -317,7 +319,7 @@ export default function StudentExamCbtPage() {
                 {activeQuestion.subject} · {activeQuestion.topic}
               </span>
             </div>
-            {session.examType === 'Psychometric' ? (
+            {session.examType === 'Psychometric' || activeQuestion.subject === 'Psychometric' ? (
               <span className="rounded-full bg-accent/10 px-3 py-1 text-[12px] font-bold text-accent">
                 Opinion &amp; Behavioral Assessment · No Right/Wrong Answers
               </span>

@@ -19,6 +19,8 @@ export interface FacultyUser {
 export interface FacultyPaperSelection {
   subject: 'Physics' | 'Chemistry' | 'Mathematics' | 'Botany' | 'Zoology' | 'Psychometric';
   topic: string;
+  examGoal?: string | null;
+  targetProfile?: unknown;
   mcqCount?: number;
   integerCount?: number;
   multiCount?: number;

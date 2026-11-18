@@ -170,7 +170,9 @@ export default function StudentExamResultPage() {
       })
     : '';
 
-  const isPsychometric = assignment.examType === 'Psychometric';
+  const isPsychometric =
+    assignment.examType === 'Psychometric' ||
+    (Boolean(solutions?.length) && solutions?.some((q) => q.subject === 'Psychometric'));
 
   if (isPsychometric) {
     const attemptedCount = scorecard.attemptedCount ?? ((solutions?.length || 0) - scorecard.unattemptedCount);

@@ -328,11 +328,21 @@ export class FacultyPaperService {
 
   public async listPapers(facultyId: string) {
     const rows = await this.facultyRepo.listPapersByFaculty(facultyId);
-    return rows.map((r) => ({
-      ...r,
-      paperCode: formatPaperCode(r.paperCode, r.id),
-      selections: r.selections as unknown as FacultyPaperSelection[],
-    }));
+    return rows.map((r) => {
+      let examGoal: string | null = null;
+      if (Array.isArray(r.selections) && r.selections.length > 0) {
+        const first = r.selections[0] as Record<string, unknown>;
+        if (first && typeof first.examGoal === 'string' && first.examGoal.trim()) {
+          examGoal = first.examGoal.trim();
+        }
+      }
+      return {
+        ...r,
+        examGoal,
+        paperCode: formatPaperCode(r.paperCode, r.id),
+        selections: r.selections as unknown as FacultyPaperSelection[],
+      };
+    });
   }
 
   public async getPaper(facultyId: string, paperId: string) {
@@ -340,8 +350,16 @@ export class FacultyPaperService {
     if (!paper || paper.facultyId !== facultyId) {
       throw new AppError(404, 'Paper not found');
     }
+    let examGoal: string | null = null;
+    if (Array.isArray(paper.selections) && paper.selections.length > 0) {
+      const first = paper.selections[0] as Record<string, unknown>;
+      if (first && typeof first.examGoal === 'string' && first.examGoal.trim()) {
+        examGoal = first.examGoal.trim();
+      }
+    }
     return {
       ...paper,
+      examGoal,
       paperCode: formatPaperCode(paper.paperCode, paper.id),
       selections: paper.selections as unknown as FacultyPaperSelection[],
       items: paper.items as unknown as FacultyPaperItem[],
@@ -385,8 +403,9 @@ export class FacultyPaperService {
 
       return {
         ...paper,
+        examGoal: input.examGoal?.trim() || null,
         paperCode: formatPaperCode(paper.paperCode, paper.id),
-        selections: input.selections,
+        selections: selectionsWithGoal as unknown as FacultyPaperSelection[],
         items: [] as FacultyPaperItem[],
       };
     }

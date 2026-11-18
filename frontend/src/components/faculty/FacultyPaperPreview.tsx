@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { ArrowLeft, Check, Landmark, Sparkles } from 'lucide-react';
+import { ArrowLeft, Check, Landmark, Sparkles, Target } from 'lucide-react';
 import { DiagramRenderer } from '@/components/DiagramRenderer';
 import { MathText, stripOptionPrefix } from '@/lib/math';
 import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchListTable';
@@ -14,6 +14,7 @@ import {
   type FacultyExamType,
   type FacultyPaper,
   type FacultyPaperItem,
+  type FacultyPaperSelection,
   type FacultyQuestionType,
 } from '@/lib/faculty';
 
@@ -601,6 +602,33 @@ export function FacultyPaperPreview({
               : `JEE ${paper.examType}`} · {paper.difficulty}
             {!isGenerating && ` · ${paper.questionCount} Questions`}
           </p>
+
+          {/* Evaluation Target / Professor Goal Callout (Display only, strictly excluded from print and PDF) */}
+          {paper.examType === 'Psychometric' && (() => {
+            const firstSel = paper.selections?.[0] as (FacultyPaperSelection & { examGoal?: string }) | undefined;
+            const goalText =
+              paper.examGoal?.trim() ||
+              firstSel?.examGoal?.trim() ||
+              (!paper.title.startsWith('Psychometric Paper') ? paper.title : null);
+            if (!goalText) return null;
+
+            return (
+              <div className="print:hidden mt-3 max-w-2xl rounded-2xl border-l-[4px] border-[#803688] bg-[#FBF5FC] p-3.5 text-[#3B2450] shadow-sm">
+                <div className="mb-1 flex items-center justify-between gap-2">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-[#803688]">
+                    <Target className="h-[13px] w-[13px] shrink-0" aria-hidden />
+                    <span>Evaluation Target / Professor Goal</span>
+                  </span>
+                  <span className="rounded-full bg-[#803688]/10 px-2 py-0.5 text-[10px] font-bold text-[#803688]">
+                    Display Only · Excluded from PDF
+                  </span>
+                </div>
+                <p className="text-[13px] font-medium leading-relaxed text-[#2D1B36]">
+                  {goalText}
+                </p>
+              </div>
+            );
+          })()}
           {paper.status === 'ready' && (
             <div className="mt-3 flex flex-wrap gap-2">
               <button
