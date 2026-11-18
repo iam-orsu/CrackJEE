@@ -29,7 +29,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "tsc",
+    "build": "prisma generate && tsc",
     "start": "node dist/server.js",
     "test": "node --test dist/__tests__/*.test.js",
     "db:generate": "tsx src/scripts/prismaWithEnv.ts generate",
