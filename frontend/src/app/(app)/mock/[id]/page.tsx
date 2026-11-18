@@ -10,6 +10,7 @@ import type { MockExam, User } from '@/types';
 
 import { MathText, stripOptionPrefix } from '@/lib/math';
 import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchListTable';
+import { DiagramRenderer } from '@/components/DiagramRenderer';
 import Loader from '@/components/loader';
 import { qStatus, type QStatus } from '@/components/mock/examStatus';
 import { ExamPalette } from '@/components/mock/ExamPalette';
@@ -698,6 +699,11 @@ export default function MockExamPage() {
               <MatchListTable questionText={currentQ.questionText} />
             ) : (
               <MathText text={currentQ.questionText} />
+            )}
+            {currentQ.diagram && (
+              <div style={{ marginTop: 18, maxWidth: 440 }}>
+                <DiagramRenderer descriptor={currentQ.diagram} />
+              </div>
             )}
           </div>
 

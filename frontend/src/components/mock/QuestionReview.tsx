@@ -1,5 +1,6 @@
 import { MathText } from '@/lib/math';
 import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchListTable';
+import { DiagramRenderer } from '@/components/DiagramRenderer';
 import { AnimatedTabs } from '@/components/ui/AnimatedTabs';
 import { subjectTone } from '@/components/insights/InsightBlocks';
 import type { MockExamQuestion, MockResultBreakdown } from '@/types';
@@ -158,6 +159,12 @@ export function QuestionReview({ examId, weakPracticeUrl, isNEET, allQs, filtere
                     <MathText text={q.questionText ?? ''} />
                   )}
                 </div>
+
+                {q.diagram && (
+                  <div style={{ margin: '8px 0 16px', maxWidth: 440 }}>
+                    <DiagramRenderer descriptor={q.diagram} />
+                  </div>
+                )}
 
                 {/* Options */}
                 {q.options && q.options.length > 0 && (

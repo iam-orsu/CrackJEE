@@ -7,6 +7,7 @@ export interface MockPoolItem {
   subject: string;
   questionType: string;
   topic?: string;
+  hasDiagram?: boolean;
 }
 
 const INSIGHT_EXAM_INCLUDE = {
@@ -223,6 +224,7 @@ export class MockExamRepository {
                 subject: true,
                 topic: true,
                 difficulty: true,
+                diagram: true,
               },
             },
           },

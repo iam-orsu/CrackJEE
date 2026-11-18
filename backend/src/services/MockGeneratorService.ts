@@ -22,7 +22,7 @@ type SlotInput = {
   requiresDiagram?: boolean;
 };
 
-type PaperQuestion = { id: string; subject: string; topic: string; questionType: string };
+type PaperQuestion = { id: string; subject: string; topic: string; questionType: string; diagram?: unknown };
 
 export class MockGeneratorService {
   private readonly activeGenerations = new Set<Promise<void>>();
@@ -232,6 +232,7 @@ export class MockGeneratorService {
       subject: q.subject,
       questionType: q.questionType,
       topic: q.topic,
+      hasDiagram: !!q.diagram,
     }));
   }
 
@@ -430,7 +431,10 @@ export class MockGeneratorService {
       this.mockData.findStoredPaper(
         examType,
         planKey,
-        (items) => items.length === expectedTotal && items.some((i) => i.questionType === 'matrix_match'),
+        (items) =>
+          items.length === expectedTotal &&
+          items.some((i) => i.questionType === 'matrix_match') &&
+          items.some((i) => i.hasDiagram),
       );
 
     let poolItems = await reuse();

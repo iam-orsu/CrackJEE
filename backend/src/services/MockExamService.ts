@@ -298,6 +298,7 @@ export class MockExamService {
       difficulty: mq.question.difficulty,
       explanation: mq.question.explanation,
       answer: mq.question.answer,
+      diagram: mq.question.diagram,
     }));
 
     return { exam: { ...exam, questions }, result: exam.result };
