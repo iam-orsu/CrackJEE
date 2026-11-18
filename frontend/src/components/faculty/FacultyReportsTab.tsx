@@ -53,7 +53,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
   const [activeSubmission, setActiveSubmission] = useState<FacultyStudentSubmission | null>(null);
   const [submissionLoading, setSubmissionLoading] = useState(false);
   const [submissionError, setSubmissionError] = useState('');
-  const [submissionFilter, setSubmissionFilter] = useState<'all' | 'incorrect' | 'correct' | 'skipped'>('all');
+  const [submissionFilter, setSubmissionFilter] = useState<'all' | 'incorrect' | 'correct' | 'skipped' | 'answered'>('all');
 
   // Load assignments list for selector
   useEffect(() => {
@@ -138,14 +138,21 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
     return report.topicAnalytics.filter((t) => t.subject.toLowerCase() === selectedSubject.toLowerCase());
   }, [report, selectedSubject]);
 
+  const isSubPsychometric = activeSubmission?.assignment?.examType === 'Psychometric';
+
   // Filtered questions in submission viewer
   const filteredQuestions = useMemo(() => {
     if (!activeSubmission) return [];
+    if (isSubPsychometric) {
+      if (submissionFilter === 'answered') return activeSubmission.questions.filter((q) => !q.isSkipped);
+      if (submissionFilter === 'skipped') return activeSubmission.questions.filter((q) => q.isSkipped);
+      return activeSubmission.questions;
+    }
     if (submissionFilter === 'correct') return activeSubmission.questions.filter((q) => q.isCorrect);
     if (submissionFilter === 'incorrect') return activeSubmission.questions.filter((q) => !q.isCorrect && !q.isSkipped);
     if (submissionFilter === 'skipped') return activeSubmission.questions.filter((q) => q.isSkipped);
     return activeSubmission.questions;
-  }, [activeSubmission, submissionFilter]);
+  }, [activeSubmission, submissionFilter, isSubPsychometric]);
 
   function toggleTopic(topicKey: string) {
     setExpandedTopics((prev) => ({
@@ -211,191 +218,244 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
         </div>
       ) : (
         <>
-          {/* Summary Overview Cards */}
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
-            <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
-              <div className="text-[12px] font-semibold uppercase text-[#5A6B8C]">
-                Batch Average
-              </div>
-              <div className="my-2 font-display text-[28px] font-extrabold text-[#003366]">
-                {report.summary.avgScore}
-              </div>
-              <div className="text-[12px] text-[#5A6B8C]">Marks</div>
-            </div>
+          {(() => {
+            const isPsychometric = report.assignment?.paper?.examType === 'Psychometric';
+            return (
+              <>
+                {/* Summary Overview Cards */}
+                <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
+                  <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+                    <div className="text-[12px] font-semibold uppercase text-[#5A6B8C]">
+                      {isPsychometric ? 'Batch Alignment Avg' : 'Batch Average'}
+                    </div>
+                    <div className="my-2 font-display text-[28px] font-extrabold text-[#003366]">
+                      {report.summary.avgScore}{isPsychometric ? '%' : ''}
+                    </div>
+                    <div className="text-[12px] text-[#5A6B8C]">
+                      {isPsychometric ? 'Goal Fit' : 'Marks'}
+                    </div>
+                  </div>
 
-            <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
-              <div className="text-[12px] font-semibold uppercase text-[#5A6B8C]">
-                Highest Score
-              </div>
-              <div className="my-2 font-display text-[28px] font-extrabold text-accent">
-                {report.summary.highestScore}
-              </div>
-              <div className="text-[12px] text-[#5A6B8C]">Marks (Top Rank)</div>
-            </div>
+                  <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+                    <div className="text-[12px] font-semibold uppercase text-[#5A6B8C]">
+                      {isPsychometric ? 'Top Goal Alignment' : 'Highest Score'}
+                    </div>
+                    <div className="my-2 font-display text-[28px] font-extrabold text-accent">
+                      {report.summary.highestScore}{isPsychometric ? '%' : ''}
+                    </div>
+                    <div className="text-[12px] text-[#5A6B8C]">
+                      {isPsychometric ? 'Top Candidate Fit' : 'Marks (Top Rank)'}
+                    </div>
+                  </div>
 
-            <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
-              <div className="text-[12px] font-semibold uppercase text-[#5A6B8C]">
-                Lowest Score
-              </div>
-              <div className="my-2 font-display text-[28px] font-extrabold text-[#C8202F]">
-                {report.summary.lowestScore}
-              </div>
-              <div className="text-[12px] text-[#5A6B8C]">Marks</div>
-            </div>
+                  <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+                    <div className="text-[12px] font-semibold uppercase text-[#5A6B8C]">
+                      {isPsychometric ? 'Lowest Alignment' : 'Lowest Score'}
+                    </div>
+                    <div className="my-2 font-display text-[28px] font-extrabold text-[#C8202F]">
+                      {report.summary.lowestScore}{isPsychometric ? '%' : ''}
+                    </div>
+                    <div className="text-[12px] text-[#5A6B8C]">
+                      {isPsychometric ? 'Lowest Fit' : 'Marks'}
+                    </div>
+                  </div>
 
-            <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
-              <div className="text-[12px] font-semibold uppercase text-[#5A6B8C]">
-                Submissions
-              </div>
-              <div className="my-2 font-display text-[28px] font-extrabold text-[#003366]">
-                {report.summary.submittedCount} / {report.summary.totalEnrolled}
-              </div>
-              <div className="text-[12px] text-accent">
-                {report.summary.totalEnrolled > 0
-                  ? `${Math.round((report.summary.submittedCount / report.summary.totalEnrolled) * 100)}% turnout`
-                  : '—'}
-              </div>
-            </div>
-          </div>
+                  <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 text-center shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+                    <div className="text-[12px] font-semibold uppercase text-[#5A6B8C]">
+                      Submissions
+                    </div>
+                    <div className="my-2 font-display text-[28px] font-extrabold text-[#003366]">
+                      {report.summary.submittedCount} / {report.summary.totalEnrolled}
+                    </div>
+                    <div className="text-[12px] text-accent">
+                      {report.summary.totalEnrolled > 0
+                        ? `${Math.round((report.summary.submittedCount / report.summary.totalEnrolled) * 100)}% turnout`
+                        : '—'}
+                    </div>
+                  </div>
+                </div>
 
-          {/* Student Leaderboard Table with Eye Icon */}
-          <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
-            <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2.5 font-display text-[17px] font-extrabold text-[#003366]">
-              <span>Batch Leaderboard &amp; Rankings ({report.rankList.length})</span>
-              <span className="inline-flex items-center gap-1.5 text-[12px] font-normal text-[#5A6B8C]">
-                Ranked by Total Marks Descending • Click
-                <Eye className="h-[12px] w-[12px] shrink-0" aria-hidden />
-                to inspect student response sheet
-              </span>
-            </div>
+                {/* Student Leaderboard Table with Eye Icon */}
+                <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
+                  <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2.5 font-display text-[17px] font-extrabold text-[#003366]">
+                    <span>
+                      {isPsychometric ? 'Batch Psychometric Leaderboard' : 'Batch Leaderboard & Rankings'} ({report.rankList.length})
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-[12px] font-normal text-[#5A6B8C]">
+                      {isPsychometric
+                        ? 'Ranked by Goal Alignment Descending • Click Eye to inspect student choices'
+                        : 'Ranked by Total Marks Descending • Click Eye to inspect student response sheet'}
+                    </span>
+                  </div>
 
-            {report.rankList.length === 0 ? (
-              <div className="rounded-3xl border border-dashed border-[#003366]/20 bg-white px-5 py-9 text-center text-[13.5px] font-medium text-[#5A6B8C]">
-                No student has submitted this exam yet. Students can take the test at <strong>/student</strong>.
-              </div>
-            ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse text-[13px]">
-                  <thead>
-                    <tr className="border-b-2 border-[#003366]/10 text-left text-[#5A6B8C]">
-                      <th className="w-[50px] px-3 py-2.5">Rank</th>
-                      <th className="px-3 py-2.5">Roll Number</th>
-                      <th className="px-3 py-2.5">Student Name</th>
-                      <th className="px-3 py-2.5 text-center">Score / Max</th>
-                      <th className="px-3 py-2.5 text-center">Accuracy</th>
-                      <th className="px-3 py-2.5 text-center">Correct / Wrong / Skip</th>
-                      <th className="px-3 py-2.5">Weak Topics</th>
-                      <th className="px-3 py-2.5 text-right">Time Taken</th>
-                      <th className="px-3 py-2.5 text-center">Paper Sheet</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {report.rankList.map((st) => {
-                      const onPodium = st.rank <= 3;
-                      const totalAttempted = st.correctCount + st.incorrectCount;
-                      const accuracy =
-                        totalAttempted > 0 ? Math.round((st.correctCount / totalAttempted) * 100) : 0;
-
-                      return (
-                        <tr key={st.studentId} className="border-b border-[#003366]/10 transition-colors hover:bg-[#F8FAFF]">
-                          <td className="px-3 py-3 text-[14px] font-bold text-[#003366]">
-                            {onPodium ? (
-                              <span className="inline-flex items-center gap-1.5">
-                                <Medal className="h-[14px] w-[14px] shrink-0" aria-hidden />
-                                #{st.rank}
-                              </span>
+                  {report.rankList.length === 0 ? (
+                    <div className="rounded-3xl border border-dashed border-[#003366]/20 bg-white px-5 py-9 text-center text-[13.5px] font-medium text-[#5A6B8C]">
+                      No student has submitted this exam yet. Students can take the test at <strong>/student</strong>.
+                    </div>
+                  ) : (
+                    <div className="overflow-x-auto">
+                      <table className="w-full border-collapse text-[13px]">
+                        <thead>
+                          <tr className="border-b-2 border-[#003366]/10 text-left text-[#5A6B8C]">
+                            <th className="w-[50px] px-3 py-2.5">Rank</th>
+                            <th className="px-3 py-2.5">Roll Number</th>
+                            <th className="px-3 py-2.5">Student Name</th>
+                            {isPsychometric ? (
+                              <>
+                                <th className="px-3 py-2.5 text-center">Goal Alignment</th>
+                                <th className="px-3 py-2.5">Behavioral Archetype</th>
+                                <th className="px-3 py-2.5 text-center">Attempted / Skipped</th>
+                              </>
                             ) : (
-                              `#${st.rank}`
+                              <>
+                                <th className="px-3 py-2.5 text-center">Score / Max</th>
+                                <th className="px-3 py-2.5 text-center">Accuracy</th>
+                                <th className="px-3 py-2.5 text-center">Correct / Wrong / Skip</th>
+                                <th className="px-3 py-2.5">Weak Topics</th>
+                              </>
                             )}
-                          </td>
-                          <td className="px-3 py-3 font-semibold text-accent">{st.rollNumber}</td>
-                          <td className="px-3 py-3 font-medium text-[#003366]">
-                            <div className="flex items-center gap-2">
-                              <span>{st.name}</span>
-                              {/* Eye symbol right after student name */}
-                              <button
-                                type="button"
-                                onClick={() => handleViewSubmission(st.studentId)}
-                                className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-ice text-[#003366] transition hover:bg-accent hover:text-white"
-                                title={`Inspect ${st.name}'s answered paper`}
-                              >
-                                <Eye className="h-[13px] w-[13px]" aria-hidden />
-                              </button>
-                            </div>
-                          </td>
-                          <td className="px-3 py-3 text-center">
-                            <span
-                              className={
-                                st.totalScore >= 0 ? 'font-bold text-[#003366]' : 'font-bold text-[#C8202F]'
-                              }
-                            >
-                              {st.totalScore}
-                            </span>
-                            <span className="text-[12px] text-[#5A6B8C]"> / {st.maxScore}</span>
-                          </td>
-                          <td className="px-3 py-3 text-center">
-                            <span
-                              className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${
-                                accuracy >= 70
-                                  ? 'bg-[#EAF7EF] text-[#146C33]'
-                                  : accuracy >= 40
-                                    ? 'bg-[#FEF3C7] text-[#B45309]'
-                                    : 'bg-[#FDF3F4] text-[#C8202F]'
-                              }`}
-                            >
-                              {accuracy}%
-                            </span>
-                          </td>
-                          <td className="px-3 py-3 text-center text-[12px]">
-                            <span className="font-semibold text-[#15803D]">+{st.correctCount}</span>{' '}
-                            <span className="text-[#003366]/20">/</span>{' '}
-                            <span className="font-semibold text-[#C8202F]">-{st.incorrectCount}</span>{' '}
-                            <span className="text-[#003366]/20">/</span>{' '}
-                            <span className="text-[#5A6B8C]">{st.unattemptedCount}</span>
-                          </td>
-                          <td className="px-3 py-3 text-[11px]">
-                            {st.personalWeakTopics && st.personalWeakTopics.length > 0 ? (
-                              <div className="flex flex-wrap gap-1 max-w-[200px]">
-                                {st.personalWeakTopics.slice(0, 2).map((w, i) => (
-                                  <span
-                                    key={i}
-                                    className="rounded bg-[#FDF3F4] px-1.5 py-0.5 font-medium text-[#C8202F]"
-                                  >
-                                    {w.topic} ({w.mistakes})
-                                  </span>
-                                ))}
-                                {st.personalWeakTopics.length > 2 && (
-                                  <span className="text-[#5A6B8C]">
-                                    +{st.personalWeakTopics.length - 2} more
-                                  </span>
+                            <th className="px-3 py-2.5 text-right">Time Taken</th>
+                            <th className="px-3 py-2.5 text-center">Paper Sheet</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {report.rankList.map((st) => {
+                            const onPodium = st.rank <= 3;
+                            const totalAttempted = st.correctCount + st.incorrectCount;
+                            const accuracy =
+                              totalAttempted > 0 ? Math.round((st.correctCount / totalAttempted) * 100) : 0;
+                            const psyReport = (st.resultBreakdown as Record<string, unknown> | null)?.psychometricReport as
+                              | Record<string, unknown>
+                              | undefined;
+                            const archetype = (psyReport?.archetype as string) || 'Evaluating Mindset';
+                            const attemptedCount = Math.max(0, report.questionAnalytics.length - st.unattemptedCount);
+
+                            return (
+                              <tr key={st.studentId} className="border-b border-[#003366]/10 transition-colors hover:bg-[#F8FAFF]">
+                                <td className="px-3 py-3 text-[14px] font-bold text-[#003366]">
+                                  {onPodium ? (
+                                    <span className="inline-flex items-center gap-1.5">
+                                      <Medal className="h-[14px] w-[14px] shrink-0" aria-hidden />
+                                      #{st.rank}
+                                    </span>
+                                  ) : (
+                                    `#${st.rank}`
+                                  )}
+                                </td>
+                                <td className="px-3 py-3 font-semibold text-accent">{st.rollNumber}</td>
+                                <td className="px-3 py-3 font-medium text-[#003366]">
+                                  <div className="flex items-center gap-2">
+                                    <span>{st.name}</span>
+                                    <button
+                                      type="button"
+                                      onClick={() => handleViewSubmission(st.studentId)}
+                                      className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-ice text-[#003366] transition hover:bg-accent hover:text-white"
+                                      title={`Inspect ${st.name}'s answered paper`}
+                                    >
+                                      <Eye className="h-[13px] w-[13px]" aria-hidden />
+                                    </button>
+                                  </div>
+                                </td>
+
+                                {isPsychometric ? (
+                                  <>
+                                    <td className="px-3 py-3 text-center">
+                                      <span className="font-extrabold text-[#803688]">
+                                        {st.totalScore}%
+                                      </span>
+                                    </td>
+                                    <td className="px-3 py-3">
+                                      <span className="rounded-full bg-[#803688]/10 px-2.5 py-0.5 text-[11.5px] font-bold text-[#803688]">
+                                        {archetype}
+                                      </span>
+                                    </td>
+                                    <td className="px-3 py-3 text-center text-[12px]">
+                                      <span className="font-semibold text-[#003366]">{attemptedCount}</span>
+                                      <span className="text-[#003366]/30"> / </span>
+                                      <span className="text-[#5A6B8C]">{st.unattemptedCount}</span>
+                                    </td>
+                                  </>
+                                ) : (
+                                  <>
+                                    <td className="px-3 py-3 text-center">
+                                      <span
+                                        className={
+                                          st.totalScore >= 0 ? 'font-bold text-[#003366]' : 'font-bold text-[#C8202F]'
+                                        }
+                                      >
+                                        {st.totalScore}
+                                      </span>
+                                      <span className="text-[12px] text-[#5A6B8C]"> / {st.maxScore}</span>
+                                    </td>
+                                    <td className="px-3 py-3 text-center">
+                                      <span
+                                        className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${
+                                          accuracy >= 70
+                                            ? 'bg-[#EAF7EF] text-[#146C33]'
+                                            : accuracy >= 40
+                                              ? 'bg-[#FEF3C7] text-[#B45309]'
+                                              : 'bg-[#FDF3F4] text-[#C8202F]'
+                                        }`}
+                                      >
+                                        {accuracy}%
+                                      </span>
+                                    </td>
+                                    <td className="px-3 py-3 text-center text-[12px]">
+                                      <span className="font-semibold text-[#15803D]">+{st.correctCount}</span>{' '}
+                                      <span className="text-[#003366]/20">/</span>{' '}
+                                      <span className="font-semibold text-[#C8202F]">-{st.incorrectCount}</span>{' '}
+                                      <span className="text-[#003366]/20">/</span>{' '}
+                                      <span className="text-[#5A6B8C]">{st.unattemptedCount}</span>
+                                    </td>
+                                    <td className="px-3 py-3 text-[11px]">
+                                      {st.personalWeakTopics && st.personalWeakTopics.length > 0 ? (
+                                        <div className="flex flex-wrap gap-1 max-w-[200px]">
+                                          {st.personalWeakTopics.slice(0, 2).map((w, i) => (
+                                            <span
+                                              key={i}
+                                              className="rounded bg-[#FDF3F4] px-1.5 py-0.5 font-medium text-[#C8202F]"
+                                            >
+                                              {w.topic} ({w.mistakes})
+                                            </span>
+                                          ))}
+                                          {st.personalWeakTopics.length > 2 && (
+                                            <span className="text-[#5A6B8C]">
+                                              +{st.personalWeakTopics.length - 2} more
+                                            </span>
+                                          )}
+                                        </div>
+                                      ) : (
+                                        <span className="font-medium text-[#15803D]">None</span>
+                                      )}
+                                    </td>
+                                  </>
                                 )}
-                              </div>
-                            ) : (
-                              <span className="font-medium text-[#15803D]">None</span>
-                            )}
-                          </td>
-                          <td className="px-3 py-3 text-right text-[12px] text-[#5A6B8C]">
-                            {formatTime(st.timeTakenSeconds)}
-                          </td>
-                          <td className="px-3 py-3 text-center">
-                            <button
-                              type="button"
-                              onClick={() => handleViewSubmission(st.studentId)}
-                              className="inline-flex items-center gap-1.5 rounded-xl border border-[#003366]/20 bg-white px-2.5 py-1 text-[12px] font-bold text-[#003366] shadow-[0_2px_0_#C6D2F8] transition-[background,border-color,color,box-shadow] hover:border-accent hover:bg-[#F3E8FF] hover:text-accent hover:shadow-[0_3px_0_#E3C9E6] active:translate-y-0.5"
-                              title="Inspect student's chosen options and question paper"
-                            >
-                              <Eye className="h-[13px] w-[13px] shrink-0" aria-hidden />
-                              <span>View</span>
-                            </button>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </div>
+
+                                <td className="px-3 py-3 text-right text-[12px] text-[#5A6B8C]">
+                                  {formatTime(st.timeTakenSeconds)}
+                                </td>
+                                <td className="px-3 py-3 text-center">
+                                  <button
+                                    type="button"
+                                    onClick={() => handleViewSubmission(st.studentId)}
+                                    className="inline-flex items-center gap-1.5 rounded-xl border border-[#003366]/20 bg-white px-2.5 py-1 text-[12px] font-bold text-[#003366] shadow-[0_2px_0_#C6D2F8] transition-[background,border-color,color,box-shadow] hover:border-accent hover:bg-[#F3E8FF] hover:text-accent hover:shadow-[0_3px_0_#E3C9E6] active:translate-y-0.5"
+                                    title="Inspect student's chosen options and question paper"
+                                  >
+                                    <Eye className="h-[13px] w-[13px] shrink-0" aria-hidden />
+                                    <span>View</span>
+                                  </button>
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                </div>
+              </>
+            );
+          })()}
 
           {/* 3. Subject-Filtered, Topic-Grouped Error & Revision Analytics */}
           <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
@@ -403,22 +463,30 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
             <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-[#003366]/10 pb-4">
               <div>
                 <h3 className="font-display text-[17px] font-extrabold text-[#003366]">
-                  Question Difficulty &amp; Error Analysis
+                  {report.assignment?.paper?.examType === 'Psychometric'
+                    ? 'Psychometric Domains & Question Breakdown'
+                    : 'Question Difficulty & Error Analysis'}
                 </h3>
                 <p className="text-[12px] text-[#5A6B8C]">
-                  Topic-grouped stack: Identifies questions, batch accuracy, and marks lost per topic. Click any topic to inspect individual questions.
+                  {report.assignment?.paper?.examType === 'Psychometric'
+                    ? 'Domain-grouped stack: Response distribution and student opinion choice breakdown across each psychometric domain.'
+                    : 'Topic-grouped stack: Identifies questions, batch accuracy, and marks lost per topic. Click any topic to inspect individual questions.'}
                 </p>
               </div>
 
               {/* Subject Filter Dropdown on top right */}
               <div className="flex items-center gap-2">
-                <label className="text-[13px] font-bold text-[#003366]">Subject:</label>
+                <label className="text-[13px] font-bold text-[#003366]">
+                  {report.assignment?.paper?.examType === 'Psychometric' ? 'Domain Filter:' : 'Subject:'}
+                </label>
                 <select
                   value={selectedSubject}
                   onChange={(e) => setSelectedSubject(e.target.value)}
                   className="h-[38px] cursor-pointer rounded-xl border-[2px] border-[#003366] bg-white px-3 text-[13px] font-bold text-[#003366] shadow-[0_2px_0_#C6D2F8] outline-none transition-[border-color,box-shadow] focus:border-accent"
                 >
-                  <option value="ALL">All Subjects</option>
+                  <option value="ALL">
+                    {report.assignment?.paper?.examType === 'Psychometric' ? 'All Domains' : 'All Subjects'}
+                  </option>
                   {availableSubjects.map((sub) => (
                     <option key={sub} value={sub}>
                       {sub}
@@ -429,7 +497,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
             </div>
 
             {/* Batch & Student Revision Analytics Summary (Strongest, Lacking, Actionable Advice) */}
-            {report.revisionRecommendations && (
+            {report.assignment?.paper?.examType !== 'Psychometric' && report.revisionRecommendations && (
               <div className="mb-5 grid grid-cols-1 gap-3.5 md:grid-cols-3">
                 {/* 1. Lacking / Weak Topics */}
                 <div className="rounded-2xl border border-[#C8202F]/25 bg-[#FDF3F4] p-3.5">
@@ -535,6 +603,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                 {filteredTopics.map((t) => {
                   const topicKey = `${t.subject}-${t.topic}`;
                   const isExpanded = !!expandedTopics[topicKey];
+                  const isPaperPsy = report.assignment?.paper?.examType === 'Psychometric';
 
                   return (
                     <div
@@ -550,7 +619,9 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                         {/* Topic Name & Question Count */}
                         <div className="flex items-center gap-2.5">
                           <span className="text-[14px] font-extrabold text-[#003366]">{t.topic}</span>
-                          <span className="rounded-full bg-ice px-2 py-0.5 text-[11px] font-bold text-[#003366]">
+                          <span className={`rounded-full px-2 py-0.5 text-[11px] font-bold ${
+                            isPaperPsy ? 'bg-[#803688]/10 text-[#803688]' : 'bg-ice text-[#003366]'
+                          }`}>
                             {t.subject}
                           </span>
                           <span className="rounded-md border border-[#003366]/15 bg-white px-2 py-0.5 text-[11.5px] font-bold text-[#31407F]">
@@ -560,65 +631,87 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
 
                         {/* Topic Stats: Batch Accuracy & Marks Lost */}
                         <div className="flex flex-wrap items-center gap-3.5">
-                          {/* Accuracy Bar */}
-                          <div className="flex items-center gap-2">
-                            <span className="text-[12px] text-[#5A6B8C]">Batch Accuracy:</span>
-                            <div className="h-2 w-24 overflow-hidden rounded-full bg-[#E2E8F0]">
-                              <div
-                                className={`h-full ${
-                                  t.accuracyPct >= 70
-                                    ? 'bg-[#15803D]'
-                                    : t.accuracyPct >= 40
-                                      ? 'bg-[#D97706]'
-                                      : 'bg-[#C8202F]'
-                                }`}
-                                style={{ width: `${t.accuracyPct}%` }}
-                              />
-                            </div>
-                            <span
-                              className={`min-w-[34px] text-[12.5px] font-bold ${
-                                t.accuracyPct >= 70
-                                  ? 'text-[#15803D]'
-                                  : t.accuracyPct >= 40
-                                    ? 'text-[#D97706]'
-                                    : 'text-[#C8202F]'
-                              }`}
-                            >
-                              {t.accuracyPct}%
-                            </span>
-                          </div>
-
-                          {/* Marks Lost for that topic */}
-                          <div className="rounded-md bg-white border border-[#003366]/15 px-2 py-0.5 text-[11.5px]">
-                            <span className="text-[#5A6B8C]">Marks Lost: </span>
-                            <span className={`font-bold ${t.marksLost ? 'text-[#C8202F]' : 'text-[#15803D]'}`}>
-                              {t.marksLost || 0}
-                            </span>
-                          </div>
-
-                          {/* Correct / Wrong / Skipped Counts */}
-                          <div className="text-[12px] text-[#5A6B8C]">
-                            <span className="font-bold text-[#15803D]">+{t.correctCount}</span> /{' '}
-                            <span className="font-bold text-[#C8202F]">-{t.wrongCount}</span> /{' '}
-                            <span className="font-medium text-[#5A6B8C]">{t.skippedCount}</span>
-                          </div>
-
-                          {/* Status Badge */}
-                          {t.isWeak ? (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-[#FDF3F4] px-2 py-0.5 text-[11px] font-bold text-[#C8202F]">
-                              <TriangleExclamationPoint className="h-[11px] w-[11px] shrink-0" aria-hidden />
-                              Needs Revision
-                            </span>
-                          ) : t.isStrong ? (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-[#EAF7EF] px-2 py-0.5 text-[11px] font-bold text-[#146C33]">
-                              <CircleCheckBig className="h-[11px] w-[11px] shrink-0" aria-hidden />
-                              Mastered
-                            </span>
+                          {isPaperPsy ? (
+                            <>
+                              <div className="flex items-center gap-2">
+                                <span className="text-[12px] text-[#5A6B8C]">Response Rate:</span>
+                                <div className="h-2 w-24 overflow-hidden rounded-full bg-[#E2E8F0]">
+                                  <div
+                                    className="h-full bg-[#803688]"
+                                    style={{ width: `${t.accuracyPct}%` }}
+                                  />
+                                </div>
+                                <span className="min-w-[34px] text-[12.5px] font-bold text-[#803688]">
+                                  {t.accuracyPct}%
+                                </span>
+                              </div>
+                              <span className="inline-flex items-center gap-1 rounded-full bg-[#F3E8FF] px-2.5 py-0.5 text-[11px] font-bold text-[#803688]">
+                                Behavioral Domain
+                              </span>
+                            </>
                           ) : (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-[#FEF3C7] px-2 py-0.5 text-[11px] font-bold text-[#B45309]">
-                              <CircleMinus className="h-[11px] w-[11px] shrink-0" aria-hidden />
-                              Average
-                            </span>
+                            <>
+                              {/* Accuracy Bar */}
+                              <div className="flex items-center gap-2">
+                                <span className="text-[12px] text-[#5A6B8C]">Batch Accuracy:</span>
+                                <div className="h-2 w-24 overflow-hidden rounded-full bg-[#E2E8F0]">
+                                  <div
+                                    className={`h-full ${
+                                      t.accuracyPct >= 70
+                                        ? 'bg-[#15803D]'
+                                        : t.accuracyPct >= 40
+                                          ? 'bg-[#D97706]'
+                                          : 'bg-[#C8202F]'
+                                    }`}
+                                    style={{ width: `${t.accuracyPct}%` }}
+                                  />
+                                </div>
+                                <span
+                                  className={`min-w-[34px] text-[12.5px] font-bold ${
+                                    t.accuracyPct >= 70
+                                      ? 'text-[#15803D]'
+                                      : t.accuracyPct >= 40
+                                        ? 'text-[#D97706]'
+                                        : 'text-[#C8202F]'
+                                  }`}
+                                >
+                                  {t.accuracyPct}%
+                                </span>
+                              </div>
+
+                              {/* Marks Lost for that topic */}
+                              <div className="rounded-md bg-white border border-[#003366]/15 px-2 py-0.5 text-[11.5px]">
+                                <span className="text-[#5A6B8C]">Marks Lost: </span>
+                                <span className={`font-bold ${t.marksLost ? 'text-[#C8202F]' : 'text-[#15803D]'}`}>
+                                  {t.marksLost || 0}
+                                </span>
+                              </div>
+
+                              {/* Correct / Wrong / Skipped Counts */}
+                              <div className="text-[12px] text-[#5A6B8C]">
+                                <span className="font-bold text-[#15803D]">+{t.correctCount}</span> /{' '}
+                                <span className="font-bold text-[#C8202F]">-{t.wrongCount}</span> /{' '}
+                                <span className="font-medium text-[#5A6B8C]">{t.skippedCount}</span>
+                              </div>
+
+                              {/* Status Badge */}
+                              {t.isWeak ? (
+                                <span className="inline-flex items-center gap-1 rounded-full bg-[#FDF3F4] px-2 py-0.5 text-[11px] font-bold text-[#C8202F]">
+                                  <TriangleExclamationPoint className="h-[11px] w-[11px] shrink-0" aria-hidden />
+                                  Needs Revision
+                                </span>
+                              ) : t.isStrong ? (
+                                <span className="inline-flex items-center gap-1 rounded-full bg-[#EAF7EF] px-2 py-0.5 text-[11px] font-bold text-[#146C33]">
+                                  <CircleCheckBig className="h-[11px] w-[11px] shrink-0" aria-hidden />
+                                  Mastered
+                                </span>
+                              ) : (
+                                <span className="inline-flex items-center gap-1 rounded-full bg-[#FEF3C7] px-2 py-0.5 text-[11px] font-bold text-[#B45309]">
+                                  <CircleMinus className="h-[11px] w-[11px] shrink-0" aria-hidden />
+                                  Average
+                                </span>
+                              )}
+                            </>
                           )}
 
                           {/* Expand/Collapse Dropdown Arrow */}
@@ -628,7 +721,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                             ) : (
                               <ChevronDown className="h-[13px] w-[13px] shrink-0" aria-hidden />
                             )}
-                            {isExpanded ? 'Close' : 'Inspect Questions'}
+                            {isExpanded ? 'Close' : isPaperPsy ? 'Inspect Domain' : 'Inspect Questions'}
                           </span>
                         </div>
                       </button>
@@ -642,9 +735,13 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                                 <tr className="border-b border-[#003366]/10 text-left text-[#5A6B8C]">
                                   <th className="w-[50px] px-2.5 py-2">Q#</th>
                                   <th className="px-2.5 py-2">Type</th>
-                                  <th className="px-2.5 py-2">Difficulty</th>
-                                  <th className="min-w-[140px] px-2.5 py-2">Batch Accuracy</th>
-                                  <th className="px-2.5 py-2 text-center">Correct / Wrong / Skip</th>
+                                  <th className="px-2.5 py-2">{isPaperPsy ? 'Focus' : 'Difficulty'}</th>
+                                  <th className="min-w-[140px] px-2.5 py-2">
+                                    {isPaperPsy ? 'Response Rate' : 'Batch Accuracy'}
+                                  </th>
+                                  {!isPaperPsy && (
+                                    <th className="px-2.5 py-2 text-center">Correct / Wrong / Skip</th>
+                                  )}
                                   <th className="min-w-[200px] px-2.5 py-2">Student Option Choices</th>
                                 </tr>
                               </thead>
@@ -670,11 +767,13 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                                         <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#E2E8F0]">
                                           <div
                                             className={`h-full ${
-                                              q.accuracyPct >= 60
-                                                ? 'bg-[#15803D]'
-                                                : q.accuracyPct >= 35
-                                                  ? 'bg-[#D97706]'
-                                                  : 'bg-[#C8202F]'
+                                              isPaperPsy
+                                                ? 'bg-[#803688]'
+                                                : q.accuracyPct >= 60
+                                                  ? 'bg-[#15803D]'
+                                                  : q.accuracyPct >= 35
+                                                    ? 'bg-[#D97706]'
+                                                    : 'bg-[#C8202F]'
                                             }`}
                                             style={{ width: `${q.accuracyPct}%` }}
                                           />
@@ -684,33 +783,47 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                                         </span>
                                       </div>
                                     </td>
-                                    <td className="px-2.5 py-2.5 text-center text-[11.5px]">
-                                      <span className="font-semibold text-[#15803D]">+{q.correctCount}</span>{' '}
-                                      <span className="text-[#003366]/20">/</span>{' '}
-                                      <span className="font-semibold text-[#C8202F]">-{q.wrongCount}</span>{' '}
-                                      <span className="text-[#003366]/20">/</span>{' '}
-                                      <span className="text-[#5A6B8C]">{q.skippedCount}</span>
-                                    </td>
+                                    {!isPaperPsy && (
+                                      <td className="px-2.5 py-2.5 text-center text-[11.5px]">
+                                        <span className="font-semibold text-[#15803D]">+{q.correctCount}</span>{' '}
+                                        <span className="text-[#003366]/20">/</span>{' '}
+                                        <span className="font-semibold text-[#C8202F]">-{q.wrongCount}</span>{' '}
+                                        <span className="text-[#003366]/20">/</span>{' '}
+                                        <span className="text-[#5A6B8C]">{q.skippedCount}</span>
+                                      </td>
+                                    )}
                                     <td className="px-2.5 py-2.5">
                                       {q.optionPercentages && Object.keys(q.optionPercentages).length > 0 ? (
                                         <div className="flex flex-wrap items-center gap-1 text-[11px]">
-                                          {Object.entries(q.optionPercentages).map(([opt, pct]) => (
-                                            <span
-                                              key={opt}
-                                              className={`rounded px-1.5 py-0.5 font-medium ${
-                                                opt === q.correctAnswer
-                                                  ? 'bg-[#EAF7EF] text-[#146C33] font-bold'
-                                                  : opt === 'Skipped'
-                                                    ? 'bg-[#F1F5F9] text-[#64748B]'
-                                                    : pct > 0
-                                                      ? 'bg-[#FDF3F4] text-[#C8202F] font-semibold'
-                                                      : 'bg-[#F3E8FF] text-[#003366]'
-                                              }`}
-                                            >
-                                              {opt}: <strong className="font-bold">{pct}%</strong>
-                                              {opt === q.correctAnswer && ' (Key)'}
-                                            </span>
-                                          ))}
+                                          {Object.entries(q.optionPercentages).map(([opt, pct]) => {
+                                            if (isPaperPsy) {
+                                              return (
+                                                <span
+                                                  key={opt}
+                                                  className="rounded bg-[#F8FAFF] border border-[#003366]/10 px-1.5 py-0.5 font-medium text-[#003366]"
+                                                >
+                                                  {opt}: <strong className="font-bold">{pct}%</strong>
+                                                </span>
+                                              );
+                                            }
+                                            return (
+                                              <span
+                                                key={opt}
+                                                className={`rounded px-1.5 py-0.5 font-medium ${
+                                                  opt === q.correctAnswer
+                                                    ? 'bg-[#EAF7EF] text-[#146C33] font-bold'
+                                                    : opt === 'Skipped'
+                                                      ? 'bg-[#F1F5F9] text-[#64748B]'
+                                                      : pct > 0
+                                                        ? 'bg-[#FDF3F4] text-[#C8202F] font-semibold'
+                                                        : 'bg-[#F3E8FF] text-[#003366]'
+                                                }`}
+                                              >
+                                                {opt}: <strong className="font-bold">{pct}%</strong>
+                                                {opt === q.correctAnswer && ' (Key)'}
+                                              </span>
+                                            );
+                                          })}
                                         </div>
                                       ) : (
                                         <span className="text-[11px] text-[#5A6B8C]">—</span>
@@ -784,27 +897,52 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                 <div className="flex flex-col gap-5">
                   {/* Performance Summary Pill Header */}
                   <div className="grid grid-cols-2 gap-3 rounded-2xl bg-[#F8FAFF] p-4 sm:grid-cols-4">
-                    <div className="text-center">
-                      <div className="text-[11px] font-semibold uppercase text-[#5A6B8C]">Score</div>
-                      <div className="text-[20px] font-extrabold text-[#003366]">
-                        {activeSubmission.score.totalScore}{' '}
-                        <span className="text-[12px] font-normal text-[#5A6B8C]">
-                          / {activeSubmission.score.maxScore}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-[11px] font-semibold uppercase text-[#5A6B8C]">Correct</div>
-                      <div className="text-[20px] font-extrabold text-[#15803D]">
-                        {activeSubmission.score.correctCount}
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-[11px] font-semibold uppercase text-[#5A6B8C]">Incorrect</div>
-                      <div className="text-[20px] font-extrabold text-[#C8202F]">
-                        {activeSubmission.score.incorrectCount}
-                      </div>
-                    </div>
+                    {isSubPsychometric ? (
+                      <>
+                        <div className="text-center">
+                          <div className="text-[11px] font-semibold uppercase text-[#5A6B8C]">Goal Alignment</div>
+                          <div className="text-[20px] font-extrabold text-[#803688]">
+                            {activeSubmission.score.totalScore}%
+                          </div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-[11px] font-semibold uppercase text-[#5A6B8C]">Attempted</div>
+                          <div className="text-[20px] font-extrabold text-[#003366]">
+                            {activeSubmission.questions.filter((q) => !q.isSkipped).length}
+                          </div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-[11px] font-semibold uppercase text-[#5A6B8C]">Skipped</div>
+                          <div className="text-[20px] font-extrabold text-[#5A6B8C]">
+                            {activeSubmission.questions.filter((q) => q.isSkipped).length}
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="text-center">
+                          <div className="text-[11px] font-semibold uppercase text-[#5A6B8C]">Score</div>
+                          <div className="text-[20px] font-extrabold text-[#003366]">
+                            {activeSubmission.score.totalScore}{' '}
+                            <span className="text-[12px] font-normal text-[#5A6B8C]">
+                              / {activeSubmission.score.maxScore}
+                            </span>
+                          </div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-[11px] font-semibold uppercase text-[#5A6B8C]">Correct</div>
+                          <div className="text-[20px] font-extrabold text-[#15803D]">
+                            {activeSubmission.score.correctCount}
+                          </div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-[11px] font-semibold uppercase text-[#5A6B8C]">Incorrect</div>
+                          <div className="text-[20px] font-extrabold text-[#C8202F]">
+                            {activeSubmission.score.incorrectCount}
+                          </div>
+                        </div>
+                      </>
+                    )}
                     <div className="text-center">
                       <div className="text-[11px] font-semibold uppercase text-[#5A6B8C]">Time Taken</div>
                       <div className="text-[18px] font-extrabold text-[#31407F]">
@@ -817,7 +955,10 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                   <div className="flex items-center justify-between gap-3 border-b border-[#003366]/10 pb-3">
                     <div className="flex items-center gap-1.5">
                       <span className="text-[12.5px] font-bold text-[#003366]">Filter Questions:</span>
-                      {(['all', 'incorrect', 'correct', 'skipped'] as const).map((mode) => (
+                      {(isSubPsychometric
+                        ? (['all', 'answered', 'skipped'] as const)
+                        : (['all', 'incorrect', 'correct', 'skipped'] as const)
+                      ).map((mode) => (
                         <button
                           key={mode}
                           type="button"
@@ -849,20 +990,26 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                         <div
                           key={q.number}
                           className={`rounded-2xl border p-4 transition-all ${
-                            isCorrect
-                              ? 'border-[#15803D]/25 bg-white shadow-sm'
-                              : isWrong
-                                ? 'border-[#C8202F]/25 bg-white shadow-sm'
-                                : 'border-[#003366]/15 bg-white shadow-sm'
+                            isSubPsychometric
+                              ? 'border-[#003366]/15 bg-white shadow-sm'
+                              : isCorrect
+                                ? 'border-[#15803D]/25 bg-white shadow-sm'
+                                : isWrong
+                                  ? 'border-[#C8202F]/25 bg-white shadow-sm'
+                                  : 'border-[#003366]/15 bg-white shadow-sm'
                           }`}
                         >
                           {/* Question Meta Bar */}
                           <div className="mb-2.5 flex flex-wrap items-center justify-between gap-2">
                             <div className="flex items-center gap-2">
-                              <span className="rounded-lg bg-[#003366] px-2 py-0.5 text-[12px] font-extrabold text-white">
+                              <span className={`rounded-lg px-2 py-0.5 text-[12px] font-extrabold text-white ${
+                                isSubPsychometric ? 'bg-[#803688]' : 'bg-[#003366]'
+                              }`}>
                                 Q#{q.number}
                               </span>
-                              <span className="rounded-md bg-ice px-2 py-0.5 text-[11px] font-bold text-[#003366]">
+                              <span className={`rounded-md px-2 py-0.5 text-[11px] font-bold ${
+                                isSubPsychometric ? 'bg-[#803688]/10 text-[#803688]' : 'bg-ice text-[#003366]'
+                              }`}>
                                 {q.subject}
                               </span>
                               <span className="rounded-md border border-[#003366]/15 bg-white px-2 py-0.5 text-[11px] font-semibold text-[#5A6B8C]">
@@ -873,9 +1020,15 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                               </span>
                             </div>
 
-                            {/* Mark badge */}
+                            {/* Mark / Status badge */}
                             <div>
-                              {isCorrect ? (
+                              {isSubPsychometric ? (
+                                <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[11.5px] font-bold ${
+                                  isSkipped ? 'bg-[#F1F5F9] text-[#64748B]' : 'bg-[#803688]/10 text-[#803688]'
+                                }`}>
+                                  {isSkipped ? 'Skipped' : 'Response Recorded'}
+                                </span>
+                              ) : isCorrect ? (
                                 <span className="inline-flex items-center gap-1 rounded-full bg-[#EAF7EF] px-2.5 py-0.5 text-[11.5px] font-bold text-[#146C33]">
                                   <Check className="h-[12px] w-[12px] shrink-0" aria-hidden />
                                   <span>Correct</span>
@@ -914,15 +1067,23 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                                 const isStudentPick =
                                   q.studentAnswer?.toUpperCase().trim() === letter;
                                 const isCorrectOpt =
-                                  q.correctAnswer.toUpperCase().includes(letter);
+                                  !isSubPsychometric && q.correctAnswer.toUpperCase().includes(letter);
 
                                 let optBorder = 'border-[#003366]/15 bg-[#F8FAFF]';
-                                if (isStudentPick && isCorrectOpt) {
-                                  optBorder = 'border-[#15803D] bg-[#EAF7EF] text-[#146C33] font-medium';
-                                } else if (isStudentPick && !isCorrectOpt) {
-                                  optBorder = 'border-[#C8202F] bg-[#FDF3F4] text-[#C8202F] font-medium';
-                                } else if (isCorrectOpt) {
-                                  optBorder = 'border-[#15803D] border-dashed bg-[#F0FDF4] text-[#15803D]';
+                                if (isSubPsychometric) {
+                                  if (isStudentPick) {
+                                    optBorder = 'border-[#803688] bg-[#FBF5FC] text-[#803688] font-semibold shadow-sm';
+                                  } else {
+                                    optBorder = 'border-[#CBD5F3] bg-white text-[#5A6B8C]';
+                                  }
+                                } else {
+                                  if (isStudentPick && isCorrectOpt) {
+                                    optBorder = 'border-[#15803D] bg-[#EAF7EF] text-[#146C33] font-medium';
+                                  } else if (isStudentPick && !isCorrectOpt) {
+                                    optBorder = 'border-[#C8202F] bg-[#FDF3F4] text-[#C8202F] font-medium';
+                                  } else if (isCorrectOpt) {
+                                    optBorder = 'border-[#15803D] border-dashed bg-[#F0FDF4] text-[#15803D]';
+                                  }
                                 }
 
                                 return (
@@ -932,13 +1093,17 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                                   >
                                     <span
                                       className={`flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full text-[10.5px] font-bold ${
-                                        isStudentPick && isCorrectOpt
-                                          ? 'bg-[#15803D] text-white'
-                                          : isStudentPick && !isCorrectOpt
-                                            ? 'bg-[#C8202F] text-white'
-                                            : isCorrectOpt
-                                              ? 'bg-[#15803D] text-white'
-                                              : 'bg-white text-[#003366] border border-[#003366]/20'
+                                        isSubPsychometric
+                                          ? isStudentPick
+                                            ? 'bg-[#803688] text-white'
+                                            : 'bg-white text-[#003366] border border-[#CBD5F3]'
+                                          : isStudentPick && isCorrectOpt
+                                            ? 'bg-[#15803D] text-white'
+                                            : isStudentPick && !isCorrectOpt
+                                              ? 'bg-[#C8202F] text-white'
+                                              : isCorrectOpt
+                                                ? 'bg-[#15803D] text-white'
+                                                : 'bg-white text-[#003366] border border-[#003366]/20'
                                       }`}
                                     >
                                       {letter}
@@ -947,7 +1112,11 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                                       <MathText text={stripOptionPrefix(optText)} />
                                       {isStudentPick && (
                                         <div className="mt-1 flex items-center gap-1 text-[11px] font-bold">
-                                          {isCorrectOpt ? (
+                                          {isSubPsychometric ? (
+                                            <span className="rounded-full bg-[#803688] px-2 py-0.5 text-[10.5px] font-extrabold text-white">
+                                              Candidate Selection
+                                            </span>
+                                          ) : isCorrectOpt ? (
                                             <>
                                               <Check className="h-[11px] w-[11px] shrink-0" aria-hidden />
                                               <span>Student Selected (Correct)</span>
@@ -960,7 +1129,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                                           )}
                                         </div>
                                       )}
-                                      {!isStudentPick && isCorrectOpt && (
+                                      {!isSubPsychometric && !isStudentPick && isCorrectOpt && (
                                         <div className="mt-1 flex items-center gap-1 text-[11px] font-semibold text-[#15803D]">
                                           <Check className="h-[11px] w-[11px] shrink-0" aria-hidden />
                                           <span>Correct Option</span>
@@ -977,21 +1146,25 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                                 <span className="font-semibold text-[#5A6B8C]">Student Answer: </span>
                                 <span
                                   className={`font-bold ${
-                                    isCorrect ? 'text-[#15803D]' : isWrong ? 'text-[#C8202F]' : 'text-[#5A6B8C]'
+                                    isSubPsychometric
+                                      ? 'text-[#803688]'
+                                      : isCorrect ? 'text-[#15803D]' : isWrong ? 'text-[#C8202F]' : 'text-[#5A6B8C]'
                                   }`}
                                 >
                                   {q.studentAnswer ?? 'None (Skipped)'}
                                 </span>
                               </div>
-                              <div>
-                                <span className="font-semibold text-[#5A6B8C]">Correct Answer: </span>
-                                <span className="font-bold text-[#15803D]">{q.correctAnswer}</span>
-                              </div>
+                              {!isSubPsychometric && (
+                                <div>
+                                  <span className="font-semibold text-[#5A6B8C]">Correct Answer: </span>
+                                  <span className="font-bold text-[#15803D]">{q.correctAnswer}</span>
+                                </div>
+                              )}
                             </div>
                           )}
 
-                          {/* Explanation */}
-                          {q.explanation && (
+                          {/* Explanation (Purged completely for Psychometric) */}
+                          {!isSubPsychometric && q.explanation && (
                             <div className="mt-3 rounded-xl border border-[#003366]/10 bg-[#FAFBFD] p-3 text-[12.5px] text-[#31407F]">
                               <span className="font-bold text-[#003366]">Explanation / Solution: </span>
                               <div className="mt-1">

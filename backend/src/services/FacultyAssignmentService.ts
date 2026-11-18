@@ -102,6 +102,8 @@ export class FacultyAssignmentService {
       throw new AppError(404, 'Assignment not found');
     }
 
+    const examType = assignment.paper.examType;
+    const isPsychometric = examType === 'Psychometric';
     const items = (assignment.paper.items as unknown as FacultyPaperItem[]) || [];
     const submissions = assignment.studentExams.filter((e) => e.status === 'submitted');
     const totalEnrolled = assignment.batch.students.length;
@@ -113,10 +115,10 @@ export class FacultyAssignmentService {
       name: s.student.name,
       rollNumber: s.student.rollNumber,
       totalScore: s.totalScore,
-      maxScore: s.maxScore,
+      maxScore: isPsychometric ? 100 : s.maxScore,
       timeTakenSeconds: s.timeTakenSeconds,
-      correctCount: s.correctCount,
-      incorrectCount: s.incorrectCount,
+      correctCount: isPsychometric ? 0 : s.correctCount,
+      incorrectCount: isPsychometric ? 0 : s.incorrectCount,
       unattemptedCount: s.unattemptedCount,
       submittedAt: s.submittedAt?.toISOString() ?? null,
       resultBreakdown: s.resultBreakdown,
@@ -147,16 +149,22 @@ export class FacultyAssignmentService {
             optionDistribution.other = (optionDistribution.other || 0) + 1;
           }
 
-          if (ans === q.correctAnswer.trim().toUpperCase()) {
-            correctCount++;
-          } else {
-            wrongCount++;
+          if (!isPsychometric) {
+            if (ans === q.correctAnswer.trim().toUpperCase()) {
+              correctCount++;
+            } else {
+              wrongCount++;
+            }
           }
         }
       }
 
-      const totalAttempted = correctCount + wrongCount;
-      const accuracyPct = totalAttempted > 0 ? Math.round((correctCount / totalAttempted) * 100) : 0;
+      const totalAttempted = isPsychometric
+        ? submissions.length - skippedCount
+        : correctCount + wrongCount;
+      const accuracyPct = isPsychometric
+        ? (submissions.length > 0 ? Math.round((totalAttempted / submissions.length) * 100) : 100)
+        : (totalAttempted > 0 ? Math.round((correctCount / totalAttempted) * 100) : 0);
       const totalStudents = submissions.length || 1;
 
       const optionPercentages = {
@@ -176,8 +184,8 @@ export class FacultyAssignmentService {
         difficulty: q.difficulty || 'medium',
         questionText: q.questionText,
         options: q.options || [],
-        correctAnswer: q.correctAnswer,
-        explanation: q.explanation || null,
+        correctAnswer: isPsychometric ? '' : q.correctAnswer,
+        explanation: isPsychometric ? null : (q.explanation || null),
         correctCount,
         wrongCount,
         skippedCount,
@@ -230,6 +238,19 @@ export class FacultyAssignmentService {
     }
 
     const topicAnalytics = Array.from(topicMap.values()).map((t) => {
+      if (isPsychometric) {
+        const attempted = submissions.length * t.questionCount - t.skippedCount;
+        const totalPossible = (submissions.length || 1) * t.questionCount;
+        const participationPct = totalPossible > 0 ? Math.round((attempted / totalPossible) * 100) : 100;
+        return {
+          ...t,
+          accuracyPct: participationPct,
+          marksLost: 0,
+          negativeMarks: 0,
+          isWeak: false,
+          isStrong: false,
+        };
+      }
       const accuracyPct = t.totalAttempts > 0 ? Math.round((t.correctCount / t.totalAttempts) * 100) : 0;
       const marksLost = (t.wrongCount * 5) + (t.skippedCount * 4);
       const negativeMarks = t.wrongCount * 1;
@@ -353,13 +374,17 @@ export class FacultyAssignmentService {
       throw new AppError(404, 'Student submission not found');
     }
 
+    const examType = assignment.paper.examType;
+    const isPsychometric = examType === 'Psychometric';
     const items = (assignment.paper.items as unknown as FacultyPaperItem[]) || [];
     const studentAnswers = (exam.answers as Record<string, string>) || {};
 
     const questions = items.map((q) => {
       const studentAnswer = (studentAnswers[String(q.number)] || '').trim();
       const isSkipped = !studentAnswer;
-      const isCorrect = !isSkipped && studentAnswer.toUpperCase() === q.correctAnswer.trim().toUpperCase();
+      const isCorrect = isPsychometric
+        ? null
+        : (!isSkipped && studentAnswer.toUpperCase() === q.correctAnswer.trim().toUpperCase());
 
       return {
         number: q.number,
@@ -369,12 +394,12 @@ export class FacultyAssignmentService {
         difficulty: q.difficulty || 'medium',
         questionText: q.questionText,
         options: q.options || [],
-        correctAnswer: q.correctAnswer,
+        correctAnswer: isPsychometric ? '' : q.correctAnswer,
         studentAnswer: isSkipped ? null : studentAnswer,
         isCorrect,
         isSkipped,
-        marksAwarded: isCorrect ? 4 : isSkipped ? 0 : -1,
-        explanation: q.explanation || null,
+        marksAwarded: isPsychometric ? null : (isCorrect ? 4 : isSkipped ? 0 : -1),
+        explanation: isPsychometric ? null : (q.explanation || null),
       };
     });
 
@@ -396,9 +421,9 @@ export class FacultyAssignmentService {
       },
       score: {
         totalScore: exam.totalScore,
-        maxScore: exam.maxScore,
-        correctCount: exam.correctCount,
-        incorrectCount: exam.incorrectCount,
+        maxScore: isPsychometric ? 100 : exam.maxScore,
+        correctCount: isPsychometric ? 0 : exam.correctCount,
+        incorrectCount: isPsychometric ? 0 : exam.incorrectCount,
         unattemptedCount: exam.unattemptedCount,
         timeTakenSeconds: exam.timeTakenSeconds,
         submittedAt: exam.submittedAt?.toISOString() ?? null,
@@ -597,6 +622,9 @@ export class FacultyAssignmentService {
       });
     } else {
       // Psychometric & Behavioral Assessment
+      const paperItems = (assignment.paper.items as unknown as FacultyPaperItem[]) || [];
+      const totalQuestionCount = paperItems.length || assignment.paper.questionCount || 24;
+
       lines.push(
         [
           'Rank',
@@ -604,9 +632,9 @@ export class FacultyAssignmentService {
           'Student Name',
           'Total Alignment Score',
           'Max Score',
-          'Accuracy %',
+          'Behavioral Archetype',
           'Attempted Questions',
-          'Unattempted Questions',
+          'Skipped Questions',
           'Time Taken (mins)',
           'Submitted At',
         ]
@@ -616,9 +644,10 @@ export class FacultyAssignmentService {
 
       submissions.forEach((s, idx) => {
         const bd = (s.resultBreakdown as Record<string, any>) || {};
-        const accuracy = bd.accuracyPct ?? 0;
+        const psy = bd.psychometricReport || {};
+        const archetype = psy.archetype || 'Balanced Profile';
         const timeMins = Math.round(s.timeTakenSeconds / 60);
-        const attempted = s.correctCount + s.incorrectCount + s.partialCount;
+        const attempted = Math.max(0, totalQuestionCount - s.unattemptedCount);
 
         lines.push(
           [
@@ -626,8 +655,8 @@ export class FacultyAssignmentService {
             s.student.rollNumber,
             s.student.name,
             s.totalScore,
-            s.maxScore,
-            `${accuracy}%`,
+            100,
+            archetype,
             attempted,
             s.unattemptedCount,
             timeMins,

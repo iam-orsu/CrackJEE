@@ -378,9 +378,9 @@ export interface FacultyStudentSubmission {
     options: string[];
     correctAnswer: string;
     studentAnswer: string | null;
-    isCorrect: boolean;
+    isCorrect: boolean | null;
     isSkipped: boolean;
-    marksAwarded: number;
+    marksAwarded: number | null;
     explanation?: string | null;
   }>;
 }
