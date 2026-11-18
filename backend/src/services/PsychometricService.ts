@@ -232,15 +232,15 @@ export class PsychometricService {
         data: {
           id: item.id,
           section: (item.section as any) || session.currentSection,
-          construct: item.construct,
-          subFacet: item.subFacet,
-          itemType: item.itemType,
-          scenarioText: item.scenarioText,
+          construct: item.construct || 'General',
+          subFacet: item.subFacet || null,
+          itemType: item.itemType || 'AGREEMENT_LIKERT',
+          scenarioText: item.scenarioText || null,
           promptText: item.promptText,
-          options: item.options as unknown as Prisma.InputJsonValue,
-          correctAnswer: item.correctAnswer,
+          options: (item.options as unknown as Prisma.InputJsonValue) ?? Prisma.JsonNull,
+          correctAnswer: item.correctAnswer || null,
           isReverseKeyed: item.isReverseKeyed ?? false,
-          orderIndex: item.orderIndex,
+          orderIndex: item.orderIndex ?? 0,
         },
       });
     }

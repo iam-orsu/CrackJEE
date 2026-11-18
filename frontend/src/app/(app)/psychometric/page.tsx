@@ -319,6 +319,17 @@ export default function PsychometricPage() {
     setLoading(true);
     setError('');
     try {
+      // Ensure the active question's answer is synced if present in local state
+      if (currentQ && answers[currentQ.id]) {
+        await api.psychometric
+          .saveAnswer({
+            sessionId,
+            item: currentQ as unknown as Record<string, unknown>,
+            answer: answers[currentQ.id]!,
+          })
+          .catch(() => {});
+      }
+
       const rep = await api.psychometric.submit(sessionId);
       const repData = rep as unknown as ReportData;
       setReport(repData);
@@ -553,6 +564,31 @@ export default function PsychometricPage() {
           />
         </div>
 
+        {/* Quick Question Navigation Palette */}
+        <div className="mt-4 flex flex-wrap items-center gap-1.5">
+          {currentQuestions.map((q, idx) => {
+            const isAnswered = Boolean(answers[q.id]);
+            const isCurrent = idx === activeQIdx;
+            return (
+              <button
+                key={q.id || idx}
+                type="button"
+                onClick={() => setActiveQIdx(idx)}
+                className={`flex h-7 w-7 items-center justify-center rounded-lg text-xs font-bold transition ${
+                  isCurrent
+                    ? 'bg-blue-600 text-white ring-2 ring-blue-400 ring-offset-1'
+                    : isAnswered
+                    ? 'border border-emerald-300 bg-emerald-100 text-emerald-800 hover:bg-emerald-200'
+                    : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                }`}
+                title={`Question ${idx + 1}: ${isAnswered ? 'Answered' : 'Not answered'}`}
+              >
+                {idx + 1}
+              </button>
+            );
+          })}
+        </div>
+
         {/* Question Card */}
         <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
           {/* Section banner if exam has multiple sections */}
@@ -723,14 +759,25 @@ export default function PsychometricPage() {
               Next Question
             </button>
           ) : (
-            <button
-              type="button"
-              disabled={loading || !isAllAnswered}
-              onClick={handleSubmitAssessment}
-              className="rounded-xl bg-emerald-600 px-6 py-2.5 text-xs font-bold text-white shadow-md transition hover:bg-emerald-700 disabled:opacity-50"
-            >
-              {loading ? 'Analyzing Your Responses...' : 'Submit & View Career Decision'}
-            </button>
+            <div className="flex items-center gap-3">
+              {isAllAnswered ? (
+                <span className="text-xs font-semibold text-emerald-600">
+                  All {totalQ} answered
+                </span>
+              ) : (
+                <span className="text-xs text-amber-700 font-medium">
+                  {answeredCount} of {totalQ} answered
+                </span>
+              )}
+              <button
+                type="button"
+                disabled={loading}
+                onClick={handleSubmitAssessment}
+                className="rounded-xl bg-emerald-600 px-6 py-2.5 text-xs font-bold text-white shadow-md transition hover:bg-emerald-700 active:scale-95 disabled:opacity-50 cursor-pointer"
+              >
+                {loading ? 'Analyzing Your Responses...' : 'Submit & View Career Decision'}
+              </button>
+            </div>
           )}
         </div>
 
