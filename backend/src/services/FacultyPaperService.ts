@@ -5,13 +5,14 @@ import {
 } from '../repositories/FacultyRepository';
 import { QuestionRepository } from '../repositories/QuestionRepository';
 import { deepSeekService } from './DeepSeekService';
+import { deepSeekPsychometricService } from './DeepSeekPsychometricService';
 import type { DiagramTemplate, Difficulty, QuestionType, Subject, DifficultyDistribution } from '../types/index';
 import { AppError } from '../utils/AppError';
 import { isValidDiagramTemplate, hasBalancedMathDelimiters, normalizeFacultyAnswer } from '../utils/facultyPrompts';
 import { logger } from '../utils/logger';
 import { planDifficultySlots } from '../utils/questionUtils';
 
-export type FacultyExamType = 'Main' | 'Advanced' | 'NEET';
+export type FacultyExamType = 'Main' | 'Advanced' | 'NEET' | 'Psychometric';
 export type FacultyDifficulty = Difficulty | 'mixed';
 export type FacultyQuestionTypePref = 'auto' | QuestionType;
 
@@ -19,6 +20,7 @@ export interface CreateFacultyPaperInput {
   title?: string;
   organization?: string;
   examType: FacultyExamType;
+  examGoal?: string;
   difficulty: FacultyDifficulty;
   difficultyDistribution?: DifficultyDistribution;
   questionCount: number;
@@ -61,13 +63,21 @@ const SUBJECT_ORDER: Record<Subject, number> = {
   Mathematics: 2,
   Botany: 3,
   Zoology: 4,
+  Psychometric: 5,
 };
 
 const MIXED_DIFFICULTIES: Difficulty[] = ['beginner', 'intermediate', 'advanced'];
 const GENERATION_CONCURRENCY = 4;
 const MAX_AI_ATTEMPTS = 3;
 
-function defaultPaperTitle(examType: FacultyExamType, selections: FacultyPaperSelection[]): string {
+function defaultPaperTitle(examType: FacultyExamType, selections: FacultyPaperSelection[], examGoal?: string): string {
+  if (examType === 'Psychometric') {
+    if (examGoal && examGoal.trim()) {
+      const trimmed = examGoal.trim();
+      return trimmed.length > 50 ? `Psychometric: ${trimmed.slice(0, 47)}...` : `Psychometric: ${trimmed}`;
+    }
+    return 'Psychometric & Behavioral Assessment';
+  }
   const subjects = [...new Set(selections.map((s) => s.subject))];
   const subjectLabel = subjects.length === 1 ? subjects[0]! : 'Combined';
   const examLabel = examType === 'NEET' ? 'NEET-UG' : `JEE ${examType}`;
@@ -332,6 +342,37 @@ export class FacultyPaperService {
   }
 
   public async startPaper(facultyId: string, input: CreateFacultyPaperInput) {
+    if (input.examType === 'Psychometric') {
+      const title = input.title?.trim()
+        ? input.title.trim()
+        : defaultPaperTitle(input.examType, input.selections, input.examGoal);
+      const paper = await this.facultyRepo.createPaper({
+        facultyId,
+        title,
+        organization: input.organization?.trim() || null,
+        examType: input.examType,
+        difficulty: 'intermediate',
+        questionCount: input.questionCount,
+        selections: input.selections,
+      });
+
+      const job = this.runPsychometricGeneration(paper.id, input)
+        .catch((err) => {
+          logger.error({ err, paperId: paper.id }, 'Unhandled psychometric faculty paper generation failure');
+        })
+        .finally(() => {
+          this.activeJobs.delete(job);
+        });
+      this.activeJobs.add(job);
+
+      return {
+        ...paper,
+        paperCode: formatPaperCode(paper.paperCode, paper.id),
+        selections: input.selections,
+        items: [] as FacultyPaperItem[],
+      };
+    }
+
     const title = input.title?.trim() ? input.title.trim() : defaultPaperTitle(input.examType, input.selections);
     const effectiveDifficulty = input.examType === 'Advanced' ? 'advanced' : input.difficulty;
     const normalizedInput: CreateFacultyPaperInput = { ...input, difficulty: effectiveDifficulty };
@@ -393,7 +434,8 @@ export class FacultyPaperService {
       throw new AppError(400, 'Unbalanced $ math delimiters in explanation');
     }
 
-    if (current.questionType !== 'integer') {
+    const isPsychometric = current.subject === 'Psychometric';
+    if (!isPsychometric && current.questionType !== 'integer') {
       if (nextOptions.length !== 4 || nextOptions.some((o) => !o)) {
         throw new AppError(400, 'MCQ questions require exactly 4 non-empty options');
       }
@@ -402,7 +444,9 @@ export class FacultyPaperService {
       }
     }
 
-    const canonicalAnswer = normalizeFacultyAnswer(current.questionType, rawAnswer);
+    const canonicalAnswer = isPsychometric
+      ? (rawAnswer ? rawAnswer.trim() : current.correctAnswer)
+      : normalizeFacultyAnswer(current.questionType, rawAnswer);
     if (!canonicalAnswer) {
       throw new AppError(400, `Invalid answer format for ${current.questionType}`);
     }
@@ -658,12 +702,177 @@ export class FacultyPaperService {
     });
   }
 
+  private async runPsychometricGeneration(paperId: string, input: CreateFacultyPaperInput): Promise<void> {
+    try {
+      const domains = input.selections.map((s) => s.topic);
+      const psychometricItems = await deepSeekPsychometricService.generateFacultyPsychometricPaper({
+        domains,
+        examGoal: input.examGoal,
+        questionCount: input.questionCount,
+        title: input.title,
+        organization: input.organization,
+      });
+
+      const items: FacultyPaperItem[] = psychometricItems.map((q) => {
+        const promptFull = q.scenarioText
+          ? `**Scenario:** ${q.scenarioText}\n\n**Question:** ${q.questionText}`
+          : q.questionText;
+        const fullExplanation = `${q.explanation}\n\n**Trait / Persona Fit:** ${q.traitPersonaMapping}\n\n**Radical Answer Flag:** ${q.radicalFeedbackNote}`;
+        return {
+          number: q.number,
+          subject: 'Psychometric' as Subject,
+          topic: q.domain,
+          difficulty: 'intermediate',
+          questionType: 'mcq_single',
+          questionText: promptFull,
+          options: q.options,
+          correctAnswer: q.correctAnswer,
+          explanation: fullExplanation,
+          diagram: null,
+          verified: true,
+        };
+      });
+
+      await this.facultyRepo.updatePaperState(paperId, {
+        status: 'ready',
+        items,
+        questionCount: items.length,
+        verifiedCount: items.length,
+        errorMessage: null,
+      });
+    } catch (err) {
+      const errMsg = err instanceof Error ? err.message : 'Psychometric generation failed';
+      logger.error({ err, paperId }, 'Psychometric paper generation failed');
+      await this.facultyRepo.updatePaperState(paperId, {
+        status: 'error',
+        errorMessage: errMsg,
+      });
+    }
+  }
+
+  public exportPaperToCsv(paper: {
+    paperCode?: string | null;
+    title: string;
+    organization?: string | null;
+    examType: string;
+    difficulty: string;
+    questionCount: number;
+    items: FacultyPaperItem[];
+  }): string {
+    const escapeCsv = (val: unknown): string => {
+      if (val === null || val === undefined) return '""';
+      const str = String(val).replace(/"/g, '""');
+      return `"${str}"`;
+    };
+
+    const lines: string[] = [];
+    lines.push('\uFEFF'); // UTF-8 BOM
+    lines.push(`Paper Code:,${escapeCsv(paper.paperCode || '')}`);
+    lines.push(`Title:,${escapeCsv(paper.title)}`);
+    lines.push(`Organization:,${escapeCsv(paper.organization || 'General')}`);
+    lines.push(`Assessment Type:,${escapeCsv(paper.examType)}`);
+    lines.push(`Question Count:,${escapeCsv(paper.questionCount)}`);
+    lines.push('');
+
+    const headers = [
+      'Question #',
+      'Domain / Area',
+      'Question Model',
+      'Scenario Context',
+      'Question Prompt',
+      'Option A',
+      'Option B',
+      'Option C',
+      'Option D',
+      'Option E',
+      'Trait Rubric / Scoring Key',
+      'AI Evaluation Guidelines',
+      'Radical Answer Observation Flag',
+      'Candidate Response (Fill in)',
+      'Candidate Persona Fit (Fill in)',
+    ];
+    lines.push(headers.map(escapeCsv).join(','));
+
+    for (const item of paper.items) {
+      let scenario = '';
+      let prompt = item.questionText;
+      if (item.questionText.startsWith('**Scenario:**')) {
+        const parts = item.questionText.split('**Question:**');
+        if (parts.length === 2) {
+          scenario = parts[0]!.replace('**Scenario:**', '').trim();
+          prompt = parts[1]!.trim();
+        }
+      }
+
+      let evalGuide = item.explanation;
+      let personaFit = '';
+      let radicalFlag = '';
+
+      if (evalGuide.includes('**Trait / Persona Fit:**')) {
+        const parts = evalGuide.split('**Trait / Persona Fit:**');
+        evalGuide = parts[0]!.trim();
+        const subParts = parts[1]!.split('**Radical Answer Flag:**');
+        personaFit = subParts[0]!.trim();
+        if (subParts.length > 1) {
+          radicalFlag = subParts[1]!.trim();
+        }
+      } else if (evalGuide.includes('**Radical Answer Flag:**')) {
+        const parts = evalGuide.split('**Radical Answer Flag:**');
+        evalGuide = parts[0]!.trim();
+        radicalFlag = parts[1]!.trim();
+      }
+
+      let model = 'Behavioral Dilemma MCQ';
+      if (item.options.length === 5 && item.options[0]?.includes('Strongly Disagree')) {
+        model = 'Agreement Likert Scale (5-pt)';
+      } else if (item.options.length === 5 && item.options[0]?.includes('Never')) {
+        model = 'Frequency Scale (5-pt)';
+      } else if (item.options.length === 4 && item.options[0]?.includes('Not Interested')) {
+        model = 'Passion / Interest Scale (4-pt)';
+      } else if (item.topic.toLowerCase().includes('cognitive')) {
+        model = 'Cognitive Logic MCQ';
+      } else if (scenario.length > 0) {
+        model = 'Situational Judgment Dilemma MCQ';
+      }
+
+      const optA = item.options[0] ?? '';
+      const optB = item.options[1] ?? '';
+      const optC = item.options[2] ?? '';
+      const optD = item.options[3] ?? '';
+      const optE = item.options[4] ?? '';
+
+      const row = [
+        item.number,
+        item.topic,
+        model,
+        scenario,
+        prompt,
+        optA,
+        optB,
+        optC,
+        optD,
+        optE,
+        item.correctAnswer,
+        evalGuide,
+        radicalFlag || 'Outlier choice flags distinctive individualist preferences',
+        '',
+        personaFit || 'Entrepreneurial & Technical Aptitude',
+      ];
+      lines.push(row.map(escapeCsv).join(','));
+    }
+
+    return lines.join('\r\n');
+  }
+
   private async buildSlotItem(
     examType: FacultyExamType,
     slot: PaperSlot,
     usedBankIds: Set<string>,
     usedTexts: Set<string>,
   ): Promise<FacultyPaperItem> {
+    const academicExamType: 'Main' | 'Advanced' | 'NEET' =
+      examType === 'Advanced' ? 'Advanced' : examType === 'NEET' ? 'NEET' : 'Main';
+
     if (deepSeekService.isAvailable()) {
       let unverifiedCandidate: FacultyPaperItem | null = null;
 
@@ -672,7 +881,7 @@ export class FacultyPaperService {
           // Honor requiresDiagram on initial attempts; relax on final attempt so generation never gets blocked
           const mustRequireDiagram = slot.requiresDiagram && attempt <= 2;
           const generated = await deepSeekService.generateFacultyQuestion({
-            examType,
+            examType: academicExamType,
             subject: slot.subject,
             topic: slot.topic,
             difficulty: slot.difficulty,
@@ -680,7 +889,7 @@ export class FacultyPaperService {
             requiresDiagram: mustRequireDiagram,
           });
           const verified = await deepSeekService.blindVerifyFacultyQuestion({
-            examType,
+            examType: academicExamType,
             subject: slot.subject,
             topic: slot.topic,
             question: generated,

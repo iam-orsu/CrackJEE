@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Landmark, Target } from 'lucide-react';
+import { Check, Landmark, Target } from 'lucide-react';
 import {
   facultyCreatePaper,
   facultyDeletePaper,
@@ -56,12 +56,65 @@ const COUNT_PRESETS: Record<FacultyExamType, Array<{ count: number; label: strin
     { count: 90, label: '90 (Half)' },
     { count: 180, label: '180 (NTA Full)' },
   ],
+  Psychometric: [
+    { count: 16, label: '16 (Diagnostic)' },
+    { count: 24, label: '24 (Standard)' },
+    { count: 32, label: '32 (Comprehensive)' },
+    { count: 48, label: '48 (In-Depth)' },
+  ],
 };
 
 const DEFAULT_COUNT: Record<FacultyExamType, number> = {
   Main: 75,
   Advanced: 54,
   NEET: 180,
+  Psychometric: 24,
+};
+
+const PSYCHOMETRIC_DOMAINS = [
+  'Cognitive Ability Tests',
+  'Personality Tests',
+  'Situational Judgment Tests (SJT)',
+  'Emotional Intelligence (EI) Tests',
+  'Motivation and Work-Values Tests',
+  'Behavioral and Work-Style Assessments',
+  'Career Interest Tests',
+  'Integrity and Risk-Related Assessments',
+];
+
+const PSYCHOMETRIC_DOMAIN_META: Record<string, { badge: string; desc: string }> = {
+  'Cognitive Ability Tests': {
+    badge: 'Analytical',
+    desc: 'Numerical, verbal, logical, abstract reasoning, and critical problem solving.',
+  },
+  'Personality Tests': {
+    badge: 'Behavioral',
+    desc: 'Big Five / OCEAN, HEXACO, DISC, introversion/extraversion, and emotional stability.',
+  },
+  'Situational Judgment Tests (SJT)': {
+    badge: 'Real Situations',
+    desc: 'Real-world dilemmas, stakeholder management, conflict resolution, and trade-offs.',
+  },
+  'Emotional Intelligence (EI) Tests': {
+    badge: 'People Skills',
+    desc: 'Self-awareness, emotional regulation under pressure, empathy, and social leadership.',
+  },
+  'Motivation and Work-Values Tests': {
+    badge: 'Drivers & Purpose',
+    desc: 'Autonomy, ambition, achievement, and organizational work values.',
+  },
+  'Behavioral and Work-Style Assessments': {
+    badge: 'Execution Style',
+    desc: 'Planning, adaptability, attention to detail, execution velocity, and teamwork.',
+  },
+  'Career Interest Tests': {
+    badge: 'Career Matching',
+    desc: 'Holland RIASEC code alignment across technology, business, and creative paths.',
+  },
+  'Integrity and Risk-Related Assessments': {
+    badge: 'Ethics & Trust',
+    desc: 'Ethical decision-making, accountability, risk judgment, and compliance.',
+  },
 };
 
 type ClassValue = string | false | null | undefined;
@@ -99,6 +152,8 @@ export default function FacultyPage() {
   const [questionCountStr, setQuestionCountStr] = useState('75');
   const [questionType, setQuestionType] = useState<FacultyQuestionTypePref>('auto');
   const [topicConfigs, setTopicConfigs] = useState<Record<string, TopicCustomConfig>>({});
+  const [examGoal, setExamGoal] = useState('');
+  const [selectedPsychometricDomains, setSelectedPsychometricDomains] = useState<string[]>(PSYCHOMETRIC_DOMAINS);
 
   const selectedSubjects = useMemo(() => {
     const set = new Set<Subject>();
@@ -190,7 +245,7 @@ export default function FacultyPage() {
   async function handleExamTypeChange(nextExam: FacultyExamType) {
     setExamType(nextExam);
     setTopicSearch('');
-    const defaultCnt = DEFAULT_COUNT[nextExam];
+    const defaultCnt = DEFAULT_COUNT[nextExam] || 24;
     setQuestionCount(defaultCnt);
     setQuestionCountStr(String(defaultCnt));
     if (nextExam === 'Advanced') {
@@ -199,6 +254,14 @@ export default function FacultyPage() {
       setQuestionType('mcq_single');
     } else {
       setQuestionType('auto');
+    }
+
+    if (nextExam === 'Psychometric') {
+      setSubjects(['Psychometric']);
+      setTopicsBySubject({ Psychometric: PSYCHOMETRIC_DOMAINS });
+      setActiveSubject('Psychometric');
+      setTopicConfigs({});
+      return;
     }
 
     try {
@@ -433,6 +496,43 @@ export default function FacultyPage() {
     const activeCount = !isNaN(parsedCount) && parsedCount >= 1 && parsedCount <= 180 ? parsedCount : questionCount;
     if (activeCount !== questionCount) {
       setQuestionCount(activeCount);
+    }
+
+    if (examType === 'Psychometric') {
+      const activeDomains = selectedPsychometricDomains.length > 0
+        ? selectedPsychometricDomains
+        : PSYCHOMETRIC_DOMAINS;
+
+      const selections: FacultyPaperSelection[] = activeDomains.map((domain) => ({
+        subject: 'Psychometric' as Subject,
+        topic: domain,
+        mcqCount: Math.max(1, Math.floor(activeCount / activeDomains.length)),
+      }));
+
+      setCreating(true);
+      setError('');
+      try {
+        const res = await facultyCreatePaper({
+          title: title.trim() || undefined,
+          organization: organization.trim() || undefined,
+          examType: 'Psychometric',
+          examGoal: examGoal.trim() || undefined,
+          difficulty: 'intermediate',
+          questionCount: activeCount,
+          questionType: 'mcq_single',
+          selections,
+        });
+        const listRes = await facultyListPapers();
+        setPapers(listRes.papers);
+        setActivePaperTopics({ Psychometric: PSYCHOMETRIC_DOMAINS });
+        setActivePaper(res.paper);
+        setBuilderOpen(false);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Could not create psychometric assessment paper');
+      } finally {
+        setCreating(false);
+      }
+      return;
     }
 
     const selections: FacultyPaperSelection[] = [];
@@ -683,61 +783,79 @@ export default function FacultyPage() {
                           )}
                         </div>
 
-                        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-                          <div>
-                            <div className={FIELD}>
-                              <label className={LABEL} htmlFor="paper-title">Paper Title (optional, neutral)</label>
-                              <input
-                                id="paper-title"
-                                className={INPUT}
-                                placeholder="e.g. Week 4 Rotational Motion & Electrochemistry"
-                                value={title}
-                                onChange={(e) => setTitle(e.target.value)}
-                                maxLength={120}
-                              />
-                            </div>
+                        {/* 1. EXAM PATTERN SELECTOR (FIRST POSITION) */}
+                        <div className="mb-4 rounded-2xl border border-[#003366]/15 bg-[#F7F9FF] p-4">
+                          <div className={FIELD}>
+                            <label className="text-[13px] font-black text-[#003366]" htmlFor="paper-exam">
+                              Exam Pattern (Select First)
+                            </label>
+                            <select
+                              id="paper-exam"
+                              className={SELECT}
+                              value={examType}
+                              onChange={(e) => void handleExamTypeChange(e.target.value as FacultyExamType)}
+                            >
+                              <option value="Main">JEE Main (NTA Rationalized)</option>
+                              <option value="Advanced">JEE Advanced (IIT Rigor Only)</option>
+                              <option value="NEET">NEET-UG (NCERT Medical)</option>
+                              <option value="Psychometric">Psychometric &amp; Behavioral Assessment</option>
+                            </select>
+                            <p className="mt-1 text-[12px] text-[#5A6B8C]">
+                              {examType === 'Psychometric'
+                                ? 'Customized psychometric & behavioral paper with evaluation goal calibration. Opinion-based, covers all 5 question models, and exports to Excel.'
+                                : 'Select the examination standard to configure topics, cognitive difficulty distribution, and paper pattern.'}
+                            </p>
+                          </div>
+                        </div>
 
-                            <div className={FIELD}>
-                              <label className={LABEL} htmlFor="paper-org">
-                                College / Organization Name <span className="font-normal text-[#5A6B8C]">(optional)</span>
-                              </label>
-                              <input
-                                id="paper-org"
-                                className={INPUT}
-                                placeholder="Enter college or organization name"
-                                value={organization}
-                                onChange={(e) => setOrganization(e.target.value)}
-                                maxLength={120}
-                              />
-                            </div>
-
-                            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+                        {examType === 'Psychometric' ? (
+                          /* PSYCHOMETRIC ASSESSMENT CREATION VIEW */
+                          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                            <div>
+                              {/* Exam Goal Prompt Box */}
                               <div className={FIELD}>
-                                <label className={LABEL} htmlFor="paper-exam">Exam Pattern</label>
-                                <select
-                                  id="paper-exam"
-                                  className={SELECT}
-                                  value={examType}
-                                  onChange={(e) => void handleExamTypeChange(e.target.value as FacultyExamType)}
-                                >
-                                  <option value="Main">JEE Main (NTA Rationalized)</option>
-                                  <option value="Advanced">JEE Advanced (IIT Rigor Only)</option>
-                                  <option value="NEET">NEET-UG (NCERT Medical)</option>
-                                </select>
+                                <label className={LABEL} htmlFor="paper-goal">
+                                  Exam Goal / Evaluation Target <span className="font-normal text-[#5A6B8C]">(AI Calibration Focus)</span>
+                                </label>
+                                <textarea
+                                  id="paper-goal"
+                                  className="min-h-[86px] w-full resize-y rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2.5 text-[14px] font-semibold leading-relaxed text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-normal placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6]"
+                                  placeholder="e.g. Assess students' Computer Science aptitude and Entrepreneurship mindset, technical problem-solving attitude, and risk-taking preferences"
+                                  value={examGoal}
+                                  onChange={(e) => setExamGoal(e.target.value)}
+                                  maxLength={500}
+                                />
+                                <p className="mt-1 text-[11.5px] text-[#5A6B8C]">
+                                  The AI engine calibrates cognitive logic puzzles, situational dilemmas, emotional traits, and career inclinations directly to this goal. Generates questions without rigid right/wrong answers and flags radical responses for Excel export.
+                                </p>
                               </div>
 
                               <div className={FIELD}>
-                                <label className={LABEL}>Cognitive Rigor &amp; Question Difficulty</label>
-                                <div className="flex items-center gap-2.5 rounded-2xl border border-[#003366]/10 bg-[#F7F9FF] px-3.5 py-2.5 text-[12px] text-[#31407F]">
-                                  <Target className="h-[16px] w-[16px] shrink-0" aria-hidden />
-                                  <div>
-                                    <strong>Granular Topic Breakdown:</strong> Configure exact quantities of <strong>Easy</strong>, <strong>Medium</strong>, and <strong>Hard</strong> questions per topic &amp; question type below using direct integer counters.
-                                  </div>
-                                </div>
+                                <label className={LABEL} htmlFor="paper-title">Paper Title (optional, neutral)</label>
+                                <input
+                                  id="paper-title"
+                                  className={INPUT}
+                                  placeholder="e.g. Computer Science &amp; Entrepreneurship Diagnostic"
+                                  value={title}
+                                  onChange={(e) => setTitle(e.target.value)}
+                                  maxLength={120}
+                                />
                               </div>
-                            </div>
 
-                            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+                              <div className={FIELD}>
+                                <label className={LABEL} htmlFor="paper-org">
+                                  College / Organization Name <span className="font-normal text-[#5A6B8C]">(optional)</span>
+                                </label>
+                                <input
+                                  id="paper-org"
+                                  className={INPUT}
+                                  placeholder="Enter college or organization name"
+                                  value={organization}
+                                  onChange={(e) => setOrganization(e.target.value)}
+                                  maxLength={120}
+                                />
+                              </div>
+
                               <div className={FIELD}>
                                 <label className={LABEL} htmlFor="paper-count">
                                   Question Count (1–180)
@@ -748,7 +866,7 @@ export default function FacultyPage() {
                                   min={1}
                                   max={180}
                                   className={INPUT}
-                                  placeholder="e.g. 75"
+                                  placeholder="e.g. 24"
                                   value={questionCountStr}
                                   onChange={(e) => {
                                     const raw = e.target.value;
@@ -762,7 +880,7 @@ export default function FacultyPage() {
                                   onBlur={() => {
                                     const parsed = parseInt(questionCountStr, 10);
                                     if (questionCountStr.trim() === '' || isNaN(parsed) || parsed < 1) {
-                                      const fallback = questionCount >= 1 ? questionCount : (DEFAULT_COUNT[examType] || 75);
+                                      const fallback = questionCount >= 1 ? questionCount : 24;
                                       setQuestionCount(fallback);
                                       setQuestionCountStr(String(fallback));
                                     } else if (parsed > 180) {
@@ -776,7 +894,7 @@ export default function FacultyPage() {
                                   required
                                 />
                                 <div className="mt-1 flex flex-wrap gap-1.5">
-                                  {COUNT_PRESETS[examType].map((p) => (
+                                  {COUNT_PRESETS.Psychometric.map((p) => (
                                     <button
                                       key={p.count}
                                       type="button"
@@ -784,7 +902,6 @@ export default function FacultyPage() {
                                       onClick={() => {
                                         setQuestionCount(p.count);
                                         setQuestionCountStr(String(p.count));
-                                        applyPresetAcrossTopics(p.count);
                                       }}
                                     >
                                       {p.label}
@@ -793,124 +910,299 @@ export default function FacultyPage() {
                                 </div>
                               </div>
 
-                              <div className={FIELD}>
-                                <label className={LABEL} htmlFor="paper-qtype">Quick Batch Mix</label>
-                                <select
-                                  id="paper-qtype"
-                                  className={SELECT}
-                                  value={questionType}
-                                  onChange={(e) => {
-                                    const next = e.target.value as FacultyQuestionTypePref;
-                                    setQuestionType(next);
-                                    if (next === 'mcq_single') {
-                                      applyPresetToAll(5, 0, 0, 0);
-                                    } else if (next === 'integer') {
-                                      applyPresetToAll(0, 5, 0, 0);
-                                    } else if (next === 'mcq_multi') {
-                                      applyPresetToAll(0, 0, 5, 0);
-                                    } else if (next === 'matrix_match') {
-                                      applyPresetToAll(0, 0, 0, 5);
-                                    } else {
-                                      applyPresetToAll(examType === 'Advanced' ? 3 : 5, 1, examType === 'Advanced' ? 2 : 0, 0);
-                                    }
-                                  }}
-                                >
-                                  {examType === 'NEET' ? (
-                                    <>
-                                      <option value="auto">NEET Standard Mix (MCQ + Match List)</option>
-                                      <option value="mcq_single">Single-correct MCQ Only</option>
-                                      <option value="matrix_match">Matrix Match (Match the List) Only</option>
-                                    </>
-                                  ) : (
-                                    <>
-                                      <option value="auto">Official Pattern Mix (5 MCQ + 1 Int)</option>
-                                      <option value="mcq_single">Single-correct Only</option>
-                                      <option value="integer">Integer Only</option>
-                                      {examType === 'Advanced' && <option value="mcq_multi">Multi-correct Only</option>}
-                                      <option value="matrix_match">Matrix Match (Match the List) Only</option>
-                                    </>
-                                  )}
-                                </select>
+                              {/* Question Model Diversity Checklist */}
+                              <div className="mt-2 rounded-2xl border border-[#003366]/10 bg-[#F7F9FF] p-3.5 text-[12.5px] text-[#31407F]">
+                                <div className="font-extrabold text-[#003366]">Mandatory Question Model Diversity (At least 1 from each model)</div>
+                                <div className="mt-2 grid grid-cols-1 gap-1.5 text-[12px]">
+                                  <div className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#15803D]" /> 5-point Agreement Scale (Strongly Disagree to Agree)</div>
+                                  <div className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#15803D]" /> 5-point Frequency Scale (Never to Always)</div>
+                                  <div className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#15803D]" /> Real-world Situational Judgment Dilemma (SJT)</div>
+                                  <div className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#15803D]" /> Cognitive Logic &amp; Domain Aptitude MCQ</div>
+                                  <div className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#15803D]" /> 4-point Passion / Career Interest Scale</div>
+                                </div>
+                                <div className="mt-2 border-t border-[#003366]/10 pt-2 text-[11px] text-[#5A6B8C]">
+                                  Opinion &amp; trait based. Evaluates persona fit (e.g. Entrepreneurial Fit), flags radical answers, and exports to Excel (.csv).
+                                </div>
                               </div>
                             </div>
-                          </div>
 
-                          <div>
-                            <div className={FIELD}>
-                              <div className="flex items-center justify-between">
-                                <label className={LABEL}>Topics ({selectedTopicsCount} selected)</label>
-                                {selectedTopicsCount > 0 && (
+                            {/* Right column: 8 Psychometric Domains */}
+                            <div>
+                              <div className="mb-2.5 flex flex-wrap items-center justify-between gap-2">
+                                <label className={LABEL}>
+                                  Psychometric Domains ({selectedPsychometricDomains.length}/8 selected)
+                                </label>
+                                <div className="flex gap-1.5">
                                   <button
                                     type="button"
-                                    className={cx(MICRO_BTN, MICRO_OFF)}
-                                    onClick={() => setTopicConfigs({})}
+                                    className="text-[12px] font-bold text-accent underline hover:text-[#5A2560]"
+                                    onClick={() => setSelectedPsychometricDomains(PSYCHOMETRIC_DOMAINS)}
                                   >
-                                    Clear all
+                                    Select All
                                   </button>
-                                )}
-                              </div>
-
-                              <div className="mb-2.5 flex flex-wrap gap-1.5">
-                                {subjects.map((subj) => (
+                                  <span className="text-[#CBD5E1]">|</span>
                                   <button
-                                    key={subj}
                                     type="button"
-                                    className={cx('cursor-pointer rounded-xl border-[2px] border-[#003366]/15 bg-white px-2.5 py-1.5 text-[12.5px] font-bold text-[#003366] transition-colors duration-150 hover:bg-ice motion-reduce:transition-none', activeSubject === subj && 'border-transparent bg-grad text-white')}
-                                    onClick={() => setActiveSubject(subj)}
+                                    className="text-[12px] font-bold text-[#5A6B8C] underline hover:text-[#003366]"
+                                    onClick={() => setSelectedPsychometricDomains([])}
                                   >
-                                    {subj}
+                                    Clear
                                   </button>
-                                ))}
+                                </div>
                               </div>
 
-                              <input
-                                className={cx(INPUT, 'mb-2')}
-                                placeholder={`Filter ${activeSubject} topics...`}
-                                value={topicSearch}
-                                onChange={(e) => setTopicSearch(e.target.value)}
-                              />
-
-                              <div className="max-h-[230px] overflow-y-auto rounded-2xl border border-[#003366]/10 bg-[#FBFCFE] p-1.5">
-                                {visibleTopics.map((topic) => {
-                                  const checked = Boolean(topicConfigs[`${activeSubject}::${topic}`]);
+                              <div className="flex max-h-[480px] flex-col gap-2 overflow-y-auto rounded-2xl border-[2.5px] border-[#003366]/20 bg-[#F7F9FF] p-3">
+                                {PSYCHOMETRIC_DOMAINS.map((domain) => {
+                                  const isSelected = selectedPsychometricDomains.includes(domain);
+                                  const meta = PSYCHOMETRIC_DOMAIN_META[domain] || { badge: 'Assessment', desc: '' };
                                   return (
-                                    <label key={topic} className="flex cursor-pointer items-center gap-2 rounded-xl px-2 py-1.5 text-[12.5px] font-medium text-[#003366] transition-colors duration-150 hover:bg-ice motion-reduce:transition-none">
+                                    <label
+                                      key={domain}
+                                      className={cx(
+                                        'flex cursor-pointer items-start gap-3 rounded-xl border p-3 transition-colors',
+                                        isSelected ? 'border-[#003366] bg-white shadow-sm' : 'border-[#CBD5E1] bg-white/60 opacity-80 hover:opacity-100',
+                                      )}
+                                    >
                                       <input
                                         type="checkbox"
-                                        checked={checked}
-                                        onChange={() => toggleSelection(activeSubject as Subject, topic)}
+                                        className="mt-1 h-4 w-4 rounded border-[#003366] text-accent focus:ring-accent"
+                                        checked={isSelected}
+                                        onChange={(e) => {
+                                          if (e.target.checked) {
+                                            setSelectedPsychometricDomains((prev) => [...prev, domain]);
+                                          } else {
+                                            setSelectedPsychometricDomains((prev) => prev.filter((d) => d !== domain));
+                                          }
+                                        }}
                                       />
-                                      <span>{topic}</span>
+                                      <div className="flex-1">
+                                        <div className="flex items-center gap-2">
+                                          <span className="font-display text-[13.5px] font-extrabold text-[#003366]">{domain}</span>
+                                          <span className="rounded-md bg-ice px-2 py-0.5 text-[10.5px] font-bold text-accent">{meta.badge}</span>
+                                        </div>
+                                        <p className="mt-0.5 text-[12px] leading-snug text-[#5A6B8C]">{meta.desc}</p>
+                                      </div>
                                     </label>
                                   );
                                 })}
-                                {visibleTopics.length === 0 && (
-                                  <p className="mt-1 p-1.5 text-[13px] font-medium text-[#5A6B8C]">No topics match.</p>
-                                )}
                               </div>
-
-                              {selectedTopicsCount > 0 && (
-                                <div className="mt-2 flex flex-wrap gap-1.5">
-                                  {Object.values(topicConfigs).map((cfg) => (
-                                    <span key={`${cfg.subject}::${cfg.topic}`} className="inline-flex items-center gap-1.5 rounded-full border border-accent/25 bg-accent-50 px-2 py-0.5 text-[11.5px] font-bold text-accent">
-                                      {cfg.subject.slice(0, 4)}: {cfg.topic} ({getTopicTotal(cfg)} Qs)
-                                      <button
-                                        type="button"
-                                        className="cursor-pointer border-0 bg-transparent p-0 text-[13px] leading-none text-accent transition-colors duration-150 hover:text-accent-900"
-                                        aria-label={`Remove ${cfg.topic}`}
-                                        onClick={() => toggleSelection(cfg.subject, cfg.topic)}
-                                      >
-                                        ×
-                                      </button>
-                                    </span>
-                                  ))}
-                                </div>
-                              )}
                             </div>
                           </div>
-                        </div>
+                        ) : (
+                          /* STANDARD JEE / NEET EXAM CREATION VIEW */
+                          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                            <div>
+                              <div className={FIELD}>
+                                <label className={LABEL} htmlFor="paper-title">Paper Title (optional, neutral)</label>
+                                <input
+                                  id="paper-title"
+                                  className={INPUT}
+                                  placeholder="e.g. Week 4 Rotational Motion & Electrochemistry"
+                                  value={title}
+                                  onChange={(e) => setTitle(e.target.value)}
+                                  maxLength={120}
+                                />
+                              </div>
 
-                        {selectedTopicsCount > 0 && (
+                              <div className={FIELD}>
+                                <label className={LABEL} htmlFor="paper-org">
+                                  College / Organization Name <span className="font-normal text-[#5A6B8C]">(optional)</span>
+                                </label>
+                                <input
+                                  id="paper-org"
+                                  className={INPUT}
+                                  placeholder="Enter college or organization name"
+                                  value={organization}
+                                  onChange={(e) => setOrganization(e.target.value)}
+                                  maxLength={120}
+                                />
+                              </div>
+
+                              <div className={FIELD}>
+                                <label className={LABEL}>Cognitive Rigor &amp; Question Difficulty</label>
+                                <div className="flex items-center gap-2.5 rounded-2xl border border-[#003366]/10 bg-[#F7F9FF] px-3.5 py-2.5 text-[12px] text-[#31407F]">
+                                  <Target className="h-[16px] w-[16px] shrink-0" aria-hidden />
+                                  <div>
+                                    <strong>Granular Topic Breakdown:</strong> Configure exact quantities of <strong>Easy</strong>, <strong>Medium</strong>, and <strong>Hard</strong> questions per topic &amp; question type below using direct integer counters.
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+                                <div className={FIELD}>
+                                  <label className={LABEL} htmlFor="paper-count">
+                                    Question Count (1–180)
+                                  </label>
+                                  <input
+                                    id="paper-count"
+                                    type="number"
+                                    min={1}
+                                    max={180}
+                                    className={INPUT}
+                                    placeholder="e.g. 75"
+                                    value={questionCountStr}
+                                    onChange={(e) => {
+                                      const raw = e.target.value;
+                                      setQuestionCountStr(raw);
+                                      if (raw.trim() === '') return;
+                                      const parsed = parseInt(raw, 10);
+                                      if (!isNaN(parsed) && parsed >= 1 && parsed <= 180) {
+                                        setQuestionCount(parsed);
+                                      }
+                                    }}
+                                    onBlur={() => {
+                                      const parsed = parseInt(questionCountStr, 10);
+                                      if (questionCountStr.trim() === '' || isNaN(parsed) || parsed < 1) {
+                                        const fallback = questionCount >= 1 ? questionCount : (DEFAULT_COUNT[examType] || 75);
+                                        setQuestionCount(fallback);
+                                        setQuestionCountStr(String(fallback));
+                                      } else if (parsed > 180) {
+                                        setQuestionCount(180);
+                                        setQuestionCountStr('180');
+                                      } else {
+                                        setQuestionCount(parsed);
+                                        setQuestionCountStr(String(parsed));
+                                      }
+                                    }}
+                                    required
+                                  />
+                                  <div className="mt-1 flex flex-wrap gap-1.5">
+                                    {COUNT_PRESETS[examType]?.map((p) => (
+                                      <button
+                                        key={p.count}
+                                        type="button"
+                                        className={cx(MICRO_BTN, questionCount === p.count ? MICRO_ON : MICRO_OFF)}
+                                        onClick={() => {
+                                          setQuestionCount(p.count);
+                                          setQuestionCountStr(String(p.count));
+                                          applyPresetAcrossTopics(p.count);
+                                        }}
+                                      >
+                                        {p.label}
+                                      </button>
+                                    ))}
+                                  </div>
+                                </div>
+
+                                <div className={FIELD}>
+                                  <label className={LABEL} htmlFor="paper-qtype">Quick Batch Mix</label>
+                                  <select
+                                    id="paper-qtype"
+                                    className={SELECT}
+                                    value={questionType}
+                                    onChange={(e) => {
+                                      const next = e.target.value as FacultyQuestionTypePref;
+                                      setQuestionType(next);
+                                      if (next === 'mcq_single') {
+                                        applyPresetToAll(5, 0, 0, 0);
+                                      } else if (next === 'integer') {
+                                        applyPresetToAll(0, 5, 0, 0);
+                                      } else if (next === 'mcq_multi') {
+                                        applyPresetToAll(0, 0, 5, 0);
+                                      } else if (next === 'matrix_match') {
+                                        applyPresetToAll(0, 0, 0, 5);
+                                      } else {
+                                        applyPresetToAll(examType === 'Advanced' ? 3 : 5, 1, examType === 'Advanced' ? 2 : 0, 0);
+                                      }
+                                    }}
+                                  >
+                                    {examType === 'NEET' ? (
+                                      <>
+                                        <option value="auto">NEET Standard Mix (MCQ + Match List)</option>
+                                        <option value="mcq_single">Single-correct MCQ Only</option>
+                                        <option value="matrix_match">Matrix Match (Match the List) Only</option>
+                                      </>
+                                    ) : (
+                                      <>
+                                        <option value="auto">Official Pattern Mix (5 MCQ + 1 Int)</option>
+                                        <option value="mcq_single">Single-correct Only</option>
+                                        <option value="integer">Integer Only</option>
+                                        {examType === 'Advanced' && <option value="mcq_multi">Multi-correct Only</option>}
+                                        <option value="matrix_match">Matrix Match (Match the List) Only</option>
+                                      </>
+                                    )}
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div>
+                              <div className={FIELD}>
+                                <div className="flex items-center justify-between">
+                                  <label className={LABEL}>Topics ({selectedTopicsCount} selected)</label>
+                                  {selectedTopicsCount > 0 && (
+                                    <button
+                                      type="button"
+                                      className={cx(MICRO_BTN, MICRO_OFF)}
+                                      onClick={() => setTopicConfigs({})}
+                                    >
+                                      Clear all
+                                    </button>
+                                  )}
+                                </div>
+
+                                <div className="mb-2.5 flex flex-wrap gap-1.5">
+                                  {subjects.map((subj) => (
+                                    <button
+                                      key={subj}
+                                      type="button"
+                                      className={cx('cursor-pointer rounded-xl border-[2px] border-[#003366]/15 bg-white px-2.5 py-1.5 text-[12.5px] font-bold text-[#003366] transition-colors duration-150 hover:bg-ice motion-reduce:transition-none', activeSubject === subj && 'border-transparent bg-grad text-white')}
+                                      onClick={() => setActiveSubject(subj)}
+                                    >
+                                      {subj}
+                                    </button>
+                                  ))}
+                                </div>
+
+                                <input
+                                  className={cx(INPUT, 'mb-2')}
+                                  placeholder={`Filter ${activeSubject} topics...`}
+                                  value={topicSearch}
+                                  onChange={(e) => setTopicSearch(e.target.value)}
+                                />
+
+                                <div className="max-h-[230px] overflow-y-auto rounded-2xl border border-[#003366]/10 bg-[#FBFCFE] p-1.5">
+                                  {visibleTopics.map((topic) => {
+                                    const checked = Boolean(topicConfigs[`${activeSubject}::${topic}`]);
+                                    return (
+                                      <label key={topic} className="flex cursor-pointer items-center gap-2 rounded-xl px-2 py-1.5 text-[12.5px] font-medium text-[#003366] transition-colors duration-150 hover:bg-ice motion-reduce:transition-none">
+                                        <input
+                                          type="checkbox"
+                                          checked={checked}
+                                          onChange={() => toggleSelection(activeSubject as Subject, topic)}
+                                        />
+                                        <span>{topic}</span>
+                                      </label>
+                                    );
+                                  })}
+                                  {visibleTopics.length === 0 && (
+                                    <p className="mt-1 p-1.5 text-[13px] font-medium text-[#5A6B8C]">No topics match.</p>
+                                  )}
+                                </div>
+
+                                {selectedTopicsCount > 0 && (
+                                  <div className="mt-2 flex flex-wrap gap-1.5">
+                                    {Object.values(topicConfigs).map((cfg) => (
+                                      <span key={`${cfg.subject}::${cfg.topic}`} className="inline-flex items-center gap-1.5 rounded-full border border-accent/25 bg-accent-50 px-2 py-0.5 text-[11.5px] font-bold text-accent">
+                                        {cfg.subject.slice(0, 4)}: {cfg.topic} ({getTopicTotal(cfg)} Qs)
+                                        <button
+                                          type="button"
+                                          className="cursor-pointer border-0 bg-transparent p-0 text-[13px] leading-none text-accent transition-colors duration-150 hover:text-accent-900"
+                                          aria-label={`Remove ${cfg.topic}`}
+                                          onClick={() => toggleSelection(cfg.subject, cfg.topic)}
+                                        >
+                                          ×
+                                        </button>
+                                      </span>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
+                        {examType !== 'Psychometric' && selectedTopicsCount > 0 && (
                           <div className="mt-5">
                             <TopicBreakdownConfig
                               selectedSubjects={selectedSubjects}
@@ -932,12 +1224,17 @@ export default function FacultyPage() {
                             className={BTN_PRIMARY}
                             disabled={
                               creating ||
-                              selectedTopicsCount === 0 ||
-                              totalCalculatedCount !== questionCount
+                              (examType === 'Psychometric'
+                                ? selectedPsychometricDomains.length === 0
+                                : selectedTopicsCount === 0 || totalCalculatedCount !== questionCount)
                             }
                           >
                             {creating
                               ? 'Starting generation...'
+                              : examType === 'Psychometric'
+                              ? selectedPsychometricDomains.length === 0
+                                ? 'Select at least 1 domain above'
+                                : `Generate ${questionCount}-Question Psychometric Paper`
                               : selectedTopicsCount === 0
                               ? 'Select at least 1 topic above'
                               : totalCalculatedCount > questionCount

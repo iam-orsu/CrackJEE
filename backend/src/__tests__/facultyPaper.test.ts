@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { FacultyPaperService, isTopicDiagramCompatible, type CreateFacultyPaperInput } from '../services/FacultyPaperService';
 import type { FacultyPaperItem, FacultyPaperSelection } from '../repositories/FacultyRepository';
 import { deepSeekService } from '../services/DeepSeekService';
+import { deepSeekPsychometricService } from '../services/DeepSeekPsychometricService';
 import type { Subject, QuestionType } from '../types';
 
 describe('FacultyPaperService slot allocation and rules', () => {
@@ -395,6 +396,17 @@ describe('FacultyPaperService slot allocation and rules', () => {
 });
 
 describe('FacultyPaperService editing, mutating, and error guards', () => {
+  let origPsyHasApiKey: any;
+
+  before(() => {
+    origPsyHasApiKey = (deepSeekPsychometricService as any).hasApiKey.bind(deepSeekPsychometricService);
+    (deepSeekPsychometricService as any).hasApiKey = () => false;
+  });
+
+  after(() => {
+    (deepSeekPsychometricService as any).hasApiKey = origPsyHasApiKey;
+  });
+
   const samplePaper = {
     id: 'paper-456',
     paperCode: 'FP-456XYZ',
@@ -603,5 +615,106 @@ describe('FacultyPaperService editing, mutating, and error guards', () => {
     const receivedDate: Date = cutoffReceived!;
     const diffMs = Date.now() - receivedDate.getTime();
     assert.ok(diffMs >= 9 * 60 * 1000 && diffMs <= 11 * 60 * 1000);
+  });
+
+  it('generates a faculty psychometric paper with goal calibration, model diversity, and CSV export', async () => {
+    let savedState: any = null;
+    const fakeRepo: any = {
+      createPaper: async (data: any) => ({
+        id: 'psy-paper-101',
+        paperCode: 'FP-PSY101',
+        facultyId: data.facultyId,
+        title: data.title,
+        examType: data.examType,
+        difficulty: data.difficulty,
+        questionCount: data.questionCount,
+        selections: data.selections,
+        items: [],
+        status: 'generating',
+        verifiedCount: 0,
+      }),
+      updatePaperState: async (_id: string, state: any) => {
+        savedState = state;
+      },
+      findPaperById: async () => ({
+        id: 'psy-paper-101',
+        paperCode: 'FP-PSY101',
+        facultyId: 'fac-1',
+        title: 'Psychometric CS & Entrepreneurship Assessment',
+        examType: 'Psychometric',
+        difficulty: 'intermediate',
+        questionCount: 16,
+        selections: [{ subject: 'Psychometric', topic: 'Cognitive Ability Tests' }],
+        items: savedState?.items || [],
+        status: savedState?.status || 'ready',
+        verifiedCount: savedState?.verifiedCount || 16,
+      }),
+    };
+
+    const service = new FacultyPaperService(fakeRepo, {} as any);
+    const paper = await service.startPaper('fac-1', {
+      title: 'Psychometric CS & Entrepreneurship Assessment',
+      organization: 'Tech Institute',
+      examType: 'Psychometric',
+      examGoal: "Assess student's Computer Science aptitude and Entrepreneurship mindset",
+      difficulty: 'intermediate',
+      questionCount: 16,
+      selections: [
+        { subject: 'Psychometric' as Subject, topic: 'Cognitive Ability Tests' },
+        { subject: 'Psychometric' as Subject, topic: 'Personality Tests' },
+        { subject: 'Psychometric' as Subject, topic: 'Situational Judgment Tests (SJT)' },
+        { subject: 'Psychometric' as Subject, topic: 'Motivation and Work-Values Tests' },
+      ],
+    });
+
+    assert.equal(paper.id, 'psy-paper-101');
+    assert.equal(paper.examType, 'Psychometric');
+
+    // Wait for the background psychometric generation job to complete
+    await service.waitForActiveGenerations();
+
+    assert.ok(savedState !== null);
+    assert.equal(savedState.status, 'ready');
+    assert.equal(savedState.items.length, 16);
+
+    // Verify all 5 psychometric question models are represented in the generated items
+    const hasLikert = savedState.items.some((i: any) => i.options.length === 5 && i.options.includes('Strongly Disagree'));
+    const hasFrequency = savedState.items.some((i: any) => i.options.length === 5 && i.options.includes('Never'));
+    const hasPassion = savedState.items.some((i: any) => i.options.length === 4 && i.options.includes('Passionate'));
+    const hasScenario = savedState.items.some((i: any) => i.questionText.includes('**Scenario:**'));
+    const hasCognitive = savedState.items.some((i: any) => i.topic.includes('Cognitive'));
+
+    assert.ok(hasLikert, 'Must include 5-point Agreement Likert model');
+    assert.ok(hasFrequency, 'Must include 5-point Frequency scale model');
+    assert.ok(hasPassion, 'Must include 4-point Passion/Interest scale model');
+    assert.ok(hasScenario, 'Must include SJT scenario action dilemma model');
+    assert.ok(hasCognitive, 'Must include Cognitive aptitude puzzle model');
+
+    // Verify opinion-based evaluation rubric and radical answer flags in explanation
+    const itemWithRadicalFlag = savedState.items.find((i: any) => i.explanation.includes('**Radical Answer Flag:**'));
+    assert.ok(itemWithRadicalFlag, 'Explanation must include radical answer observation note');
+
+    // Verify CSV export
+    const csv = service.exportPaperToCsv({
+      paperCode: 'FP-PSY101',
+      title: 'Psychometric CS & Entrepreneurship Assessment',
+      organization: 'Tech Institute',
+      examType: 'Psychometric',
+      difficulty: 'intermediate',
+      questionCount: 16,
+      items: savedState.items,
+    });
+
+    assert.ok(csv.startsWith('\uFEFF'), 'CSV must include UTF-8 BOM for Excel');
+    assert.ok(csv.includes('FP-PSY101'), 'CSV must include paper code');
+    assert.ok(csv.includes('Psychometric CS & Entrepreneurship Assessment'), 'CSV must include title');
+    assert.ok(csv.includes('Radical Answer Observation Flag'), 'CSV must include radical flag column header');
+    assert.ok(csv.includes('Candidate Persona Fit'), 'CSV must include persona fit column');
+
+    // Verify updating a question with trait rubric text is permitted
+    const updated = await service.updateQuestion('fac-1', 'psy-paper-101', 2, {
+      correctAnswer: 'Trait Rubric: A = High Bold Risk, B = Structured Prudence',
+    });
+    assert.equal(updated.items[1]?.correctAnswer, 'Trait Rubric: A = High Bold Risk, B = Structured Prudence');
   });
 });

@@ -9,10 +9,11 @@ import {
   type FacultyAuthRequest,
 } from '../middlewares/facultyAuth.middleware';
 import { getJeeTopicsForExam, NEET_TOPICS, type Subject } from '../types/index';
+import { findCardDef, PSYCHOMETRIC_CARDS } from '../data/psychometricCards';
 import { AppError } from '../utils/AppError';
 
 const selectionSchema = z.object({
-  subject: z.enum(['Physics', 'Chemistry', 'Mathematics', 'Botany', 'Zoology']),
+  subject: z.enum(['Physics', 'Chemistry', 'Mathematics', 'Botany', 'Zoology', 'Psychometric']),
   topic: z.string().trim().min(1).max(120),
   mcqCount: z.number().int().min(0).max(180).optional(),
   integerCount: z.number().int().min(0).max(180).optional(),
@@ -35,8 +36,9 @@ const selectionSchema = z.object({
 const createPaperSchema = z.object({
   title: z.string().trim().max(120).optional(),
   organization: z.string().trim().max(120).optional(),
-  examType: z.enum(['Main', 'Advanced', 'NEET']),
-  difficulty: z.enum(['beginner', 'intermediate', 'advanced', 'mixed']),
+  examType: z.enum(['Main', 'Advanced', 'NEET', 'Psychometric']),
+  examGoal: z.string().trim().max(1000).optional(),
+  difficulty: z.enum(['beginner', 'intermediate', 'advanced', 'mixed']).optional().default('intermediate'),
   difficultyDistribution: z
     .object({
       beginner: z.number().min(0).max(100),
@@ -52,7 +54,7 @@ const createPaperSchema = z.object({
 const updateQuestionSchema = z.object({
   questionText: z.string().min(1).max(4000).optional(),
   options: z.array(z.string().min(1).max(1000)).length(4).optional(),
-  correctAnswer: z.string().min(1).max(20).optional(),
+  correctAnswer: z.string().min(1).max(1000).optional(),
   explanation: z.string().max(4000).optional(),
   removeDiagram: z.boolean().optional(),
 }).refine(
@@ -131,7 +133,10 @@ function parseQuestionNumber(raw: unknown): number {
   return num;
 }
 
-function catalogForExam(examType: 'Main' | 'Advanced' | 'NEET'): Record<string, string[]> {
+function catalogForExam(examType: 'Main' | 'Advanced' | 'NEET' | 'Psychometric'): Record<string, string[]> {
+  if (examType === 'Psychometric') {
+    return { Psychometric: PSYCHOMETRIC_CARDS.map((c) => c.name) };
+  }
   return examType === 'NEET' ? NEET_TOPICS : getJeeTopicsForExam(examType);
 }
 
@@ -155,7 +160,13 @@ export class FacultyController {
 
   public readonly getTopics = (req: FacultyAuthRequest, res: Response): void => {
     const rawExam = String(req.query.examType ?? 'Main');
-    const examType = rawExam === 'NEET' ? 'NEET' : rawExam === 'Advanced' ? 'Advanced' : 'Main';
+    const examType = rawExam === 'Psychometric'
+      ? 'Psychometric'
+      : rawExam === 'NEET'
+      ? 'NEET'
+      : rawExam === 'Advanced'
+      ? 'Advanced'
+      : 'Main';
     const topics = catalogForExam(examType);
     res.json({ success: true, examType, subjects: Object.keys(topics), topics });
   };
@@ -189,15 +200,20 @@ export class FacultyController {
 
       for (const sel of parsed.data.selections) {
         const allowedTopics = catalog[sel.subject];
-        if (!allowedTopics || !allowedTopics.includes(sel.topic)) {
+        let normalizedTopic = sel.topic;
+        if (parsed.data.examType === 'Psychometric') {
+          const byId = findCardDef(sel.topic);
+          if (byId) normalizedTopic = byId.name;
+        }
+        if (!allowedTopics || (!allowedTopics.includes(sel.topic) && !allowedTopics.includes(normalizedTopic))) {
           throw new AppError(400, `Topic "${sel.topic}" is not valid for ${parsed.data.examType} ${sel.subject}`);
         }
-        const key = `${sel.subject}::${sel.topic}`;
+        const key = `${sel.subject}::${normalizedTopic}`;
         if (!seen.has(key)) {
           seen.add(key);
           validSelections.push({
             subject: sel.subject as Subject,
-            topic: sel.topic,
+            topic: normalizedTopic,
             mcqCount: sel.mcqCount,
             integerCount: sel.integerCount,
             multiCount: sel.multiCount,
@@ -210,6 +226,7 @@ export class FacultyController {
         title: parsed.data.title,
         organization: parsed.data.organization,
         examType: parsed.data.examType,
+        examGoal: parsed.data.examGoal,
         difficulty: parsed.data.difficulty,
         difficultyDistribution: parsed.data.difficultyDistribution,
         questionCount: parsed.data.questionCount,
@@ -218,6 +235,20 @@ export class FacultyController {
       });
 
       res.status(201).json({ success: true, paper });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly downloadPaperExcel = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const paperId = String(req.params.id);
+      const paper = await this.paperService.getPaper(req.faculty!.facultyId, paperId);
+      const csv = this.paperService.exportPaperToCsv(paper);
+      const filename = `${paper.paperCode || 'Paper'}-Psychometric-Evaluation-Matrix.csv`;
+      res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+      res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+      res.send(csv);
     } catch (err) {
       next(err);
     }
