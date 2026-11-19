@@ -28,7 +28,10 @@ test('Mock paper reuse: brand new user reuses existing stored ladder paper', asy
     items.length === 75 &&
     items.some((i) => i.questionType === 'matrix_match') &&
     items.some((i) => i.hasDiagram) &&
-    items.every((i) => !seen.has(i.questionId)),
+    items.every((i) => {
+      const qId = i.questionId || (i as any).id;
+      return !!qId && !seen.has(qId);
+    }),
   );
 
   assert.ok(result !== null);
@@ -52,7 +55,10 @@ test('Mock paper reuse: returning user who took the paper in the morning rejects
     items.length === 75 &&
     items.some((i) => i.questionType === 'matrix_match') &&
     items.some((i) => i.hasDiagram) &&
-    items.every((i) => !seen.has(i.questionId)),
+    items.every((i) => {
+      const qId = i.questionId || (i as any).id;
+      return !!qId && !seen.has(qId);
+    }),
   );
 
   assert.equal(result, null, 'Stored paper with seen questions must be rejected');
@@ -77,9 +83,43 @@ test('Mock paper reuse: returning user reuses an alternative stored paper that h
     items.length === 75 &&
     items.some((i) => i.questionType === 'matrix_match') &&
     items.some((i) => i.hasDiagram) &&
-    items.every((i) => !seen.has(i.questionId)),
+    items.every((i) => {
+      const qId = i.questionId || (i as any).id;
+      return !!qId && !seen.has(qId);
+    }),
   );
 
   assert.ok(result !== null);
   assert.equal(result![0]!.questionId, 'p1_fresh_q1');
+});
+
+test('Mock paper reuse: rejects stored papers when items format uses id field and is in seen', async () => {
+  const legacyItems = Array.from({ length: 75 }, (_, i) => ({
+    id: `legacy_q${i + 1}`,
+    subject: i < 25 ? 'Physics' : i < 50 ? 'Chemistry' : 'Mathematics',
+    questionType: i === 0 ? 'matrix_match' : 'mcq_single',
+    topic: 'Units and Dimensions',
+    hasDiagram: i === 0,
+  }));
+
+  const mockRepo = {
+    findStoredPapersByPlanKey: async () => [
+      { id: 'stored_legacy', examType: 'Main', planKey: 'ladder:paper:1', items: legacyItems },
+    ],
+  };
+
+  const service = new MockDataService(mockRepo as any);
+  const seen = new Set(['legacy_q1']); // Seen at least one question
+
+  const result = await service.findStoredPaper('Main', 'ladder:paper:1', (items) =>
+    items.length === 75 &&
+    items.some((i) => i.questionType === 'matrix_match') &&
+    items.some((i) => i.hasDiagram) &&
+    items.every((i) => {
+      const qId = (i as any).questionId || (i as any).id;
+      return !!qId && !seen.has(qId);
+    }),
+  );
+
+  assert.equal(result, null, 'Legacy stored paper with seen questions must be rejected');
 });

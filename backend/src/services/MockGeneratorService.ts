@@ -437,7 +437,10 @@ export class MockGeneratorService {
           items.length === expectedTotal &&
           items.some((i) => i.questionType === 'matrix_match') &&
           items.some((i) => i.hasDiagram) &&
-          items.every((i) => !seen.has(i.questionId)),
+          items.every((i) => {
+            const qId = i.questionId || (i as unknown as { id?: string }).id;
+            return !!qId && !seen.has(qId);
+          }),
       );
 
     let poolItems = await reuse();

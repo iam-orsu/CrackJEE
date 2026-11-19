@@ -331,18 +331,30 @@ export class MockExamRepository {
     });
   }
 
-  public findSeenQuestionIds(userId: string, examType: string, excludeExamId?: string) {
-    return this.prisma.mockExamQuestion.findMany({
-      where: {
-        exam: {
-          userId,
-          examType,
-          ...(excludeExamId ? { id: { not: excludeExamId } } : {}),
+  public async findSeenQuestionIds(userId: string, examType?: string, excludeExamId?: string) {
+    const [mockQuestions, attempts] = await Promise.all([
+      this.prisma.mockExamQuestion.findMany({
+        where: {
+          exam: {
+            userId,
+            ...(examType ? { examType } : {}),
+            ...(excludeExamId ? { id: { not: excludeExamId } } : {}),
+          },
         },
-      },
-      select: { questionId: true },
-      distinct: ['questionId'],
-    });
+        select: { questionId: true },
+        distinct: ['questionId'],
+      }),
+      this.prisma.studentAttempt.findMany({
+        where: { userId },
+        select: { questionId: true },
+        distinct: ['questionId'],
+      }),
+    ]);
+
+    const seenIds = new Set<string>();
+    for (const r of mockQuestions) seenIds.add(r.questionId);
+    for (const r of attempts) seenIds.add(r.questionId);
+    return Array.from(seenIds).map((questionId) => ({ questionId }));
   }
 
   public findSubmittedForInsights(userId: string, take: number) {
