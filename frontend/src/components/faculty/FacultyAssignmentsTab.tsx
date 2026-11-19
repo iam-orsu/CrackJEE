@@ -35,7 +35,7 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
   const [selectedBatchId, setSelectedBatchId] = useState('');
   const [title, setTitle] = useState('');
   const [instructions, setInstructions] = useState('');
-  const [durationMinutes, setDurationMinutes] = useState(180);
+  const [durationMinutes, setDurationMinutes] = useState<number | ''>(60);
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
   const [showSolutions, setShowSolutions] = useState(true);
@@ -79,7 +79,7 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
         batchId: selectedBatchId,
         title: title.trim(),
         instructions: instructions.trim() || undefined,
-        durationMinutes,
+        durationMinutes: typeof durationMinutes === 'number' && durationMinutes >= 10 ? durationMinutes : 60,
         startTime: startTime ? new Date(startTime).toISOString() : null,
         endTime: endTime ? new Date(endTime).toISOString() : null,
         showSolutions,
@@ -316,8 +316,24 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
                   className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                   min={10}
                   max={360}
+                  placeholder="e.g. 60"
                   value={durationMinutes}
-                  onChange={(e) => setDurationMinutes(Number(e.target.value))}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    if (val === '') {
+                      setDurationMinutes('');
+                      return;
+                    }
+                    const num = parseInt(val, 10);
+                    setDurationMinutes(isNaN(num) ? '' : num);
+                  }}
+                  onBlur={() => {
+                    if (durationMinutes === '' || durationMinutes < 10) {
+                      setDurationMinutes(60);
+                    } else if (durationMinutes > 360) {
+                      setDurationMinutes(360);
+                    }
+                  }}
                 />
               </div>
 

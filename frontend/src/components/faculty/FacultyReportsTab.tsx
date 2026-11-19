@@ -1045,7 +1045,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                   {/* Questions List */}
                   <div className="flex flex-col gap-4">
                     {filteredQuestions.map((q) => {
-                      const letters = ['A', 'B', 'C', 'D'];
+                      const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
                       const isItemPsychometric = isSubPsychometric || q.subject === 'Psychometric';
                       const isCorrect = q.isCorrect;
                       const isSkipped = q.isSkipped;
@@ -1128,7 +1128,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                           {q.options && q.options.length > 0 ? (
                             <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
                               {q.options.map((optText, idx) => {
-                                const letter = letters[idx]!;
+                                const letter = letters[idx] || String.fromCharCode(65 + idx);
                                 const isStudentPick =
                                   q.studentAnswer?.toUpperCase().trim() === letter;
                                 const isCorrectOpt =

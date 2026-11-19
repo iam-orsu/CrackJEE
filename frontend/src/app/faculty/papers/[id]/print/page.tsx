@@ -9,7 +9,7 @@ import { MathText, stripOptionPrefix } from '@/lib/math';
 import { MatchListTable, parseMatchQuestion } from '@/components/common/MatchListTable';
 import { facultyDownloadPdf, facultyGetPaper, type FacultyPaper, type PrintMode } from '@/lib/faculty';
 
-const LETTERS = ['A', 'B', 'C', 'D'];
+const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
 type ClassValue = string | false | null | undefined;
 const cx = (...parts: ClassValue[]) => parts.filter(Boolean).join(' ');
@@ -256,7 +256,7 @@ function FacultyPrintContent() {
                       {item.questionType !== 'integer' && item.options.length > 0 ? (
                         <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
                           {item.options.map((opt, idx) => {
-                            const letter = LETTERS[idx]!;
+                            const letter = LETTERS[idx] || String.fromCharCode(65 + idx);
                             const highlight = mode === 'solutions' && paper.examType !== 'Psychometric' && isCorrectOption(item.correctAnswer, letter);
                             return (
                               <div

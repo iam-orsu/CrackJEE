@@ -11,7 +11,7 @@ import { MathText, stripOptionPrefix } from '@/lib/math';
 import styles from './superadmin.module.css';
 import Loader from '@/components/loader';
 
-const LETTERS = ['A', 'B', 'C', 'D'];
+const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
 function fmtDate(iso: string | null): string {
   if (!iso) return '—';
