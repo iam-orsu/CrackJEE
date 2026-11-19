@@ -905,6 +905,7 @@ export class QuestionService {
 
     const allGenerated: Question[] = [];
     const seenIds = new Set<string>();
+    const generatedTexts = new Set<string>();
     let cursor = 0;
 
     const worker = async (): Promise<void> => {
@@ -952,9 +953,14 @@ export class QuestionService {
 
           for (const q of created) {
             const left = neededByTopic.get(q.topic) ?? 0;
-            if (left <= 0 || seenIds.has(q.id)) continue;
+            const norm = normalizeQuestionText(q.questionText);
+            if (left <= 0 || seenIds.has(q.id) || (norm && generatedTexts.has(norm))) continue;
             neededByTopic.set(q.topic, left - 1);
             seenIds.add(q.id);
+            if (norm) {
+              generatedTexts.add(norm);
+              if (seenTexts) seenTexts.add(norm);
+            }
             allGenerated.push(q);
           }
         } catch (err) {

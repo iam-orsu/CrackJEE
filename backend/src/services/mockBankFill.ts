@@ -3,6 +3,8 @@
  * the slots the bank cannot cover. Pure function: no database, so it can be unit tested.
  */
 
+import { isTopicDiagramCompatible } from '../utils/deepseekPrompts';
+
 export interface SlotKey {
   subject: string;
   topic: string;
@@ -60,7 +62,10 @@ export function fillSlotsFromBank(
     );
     let candidates = allCandidates;
 
-    if (slot.requiresDiagram) {
+    if (!isTopicDiagramCompatible(slot.subject, slot.topic)) {
+      // Incompatible topics (e.g. Units & Dimensions, Permutations) MUST never have a diagram attached
+      candidates = allCandidates.filter((item) => !item.hasDiagram);
+    } else if (slot.requiresDiagram) {
       candidates = allCandidates.filter((item) => item.hasDiagram);
     } else {
       // If the slot doesn't require a diagram, prefer non-diagram questions so diagram questions stay available for slots that do

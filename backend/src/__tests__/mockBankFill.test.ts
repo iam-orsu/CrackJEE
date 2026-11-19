@@ -106,3 +106,40 @@ test('fillSlotsFromBank ensures two slots in the same paper never receive the sa
   assert.equal(picks[0], 'q_copy1');
   assert.equal(picks[1], 'q_unique', 'Second slot must not pick copy2 since it shares identical text with copy1');
 });
+
+test('fillSlotsFromBank strictly rejects bank questions with diagrams for non-diagram-compatible topics', () => {
+  const unitsSlot: SlotKey = {
+    subject: 'Physics',
+    topic: 'Units and Dimensions',
+    difficulty: 'intermediate',
+    questionType: 'mcq_single',
+    requiresDiagram: false,
+  };
+
+  // Bank only contains an erroneous legacy question that has a diagram attached
+  const corruptedBank: BankQuestion[] = [
+    {
+      id: 'q_corrupted_units',
+      ...unitsSlot,
+      questionText: 'In a hypothetical system of units...',
+      diagram: { template: 'inclined_plane', params: { angle_deg: 30 } },
+    },
+  ];
+
+  // Incompatible topics MUST never return questions with diagrams
+  const picks = fillSlotsFromBank([unitsSlot], corruptedBank, new Set(), () => 0);
+  assert.deepEqual(picks, [null], 'Slot for Units and Dimensions must strictly reject candidates with diagrams');
+
+  // If a non-diagram candidate is added, it is accepted
+  const cleanBank: BankQuestion[] = [
+    ...corruptedBank,
+    {
+      id: 'q_clean_units',
+      ...unitsSlot,
+      questionText: 'Which of the following physical quantities has dimensional formula ML2T-3?',
+      diagram: null,
+    },
+  ];
+  const picksClean = fillSlotsFromBank([unitsSlot], cleanBank, new Set(), () => 0);
+  assert.deepEqual(picksClean, ['q_clean_units']);
+});

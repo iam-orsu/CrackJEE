@@ -80,6 +80,42 @@ export function getSubjectDiagramTemplates(subject: string): string[] {
   return ['organic_structure', 'electrochemical_cell', 'energy_profile', 'molecular_geometry', 'mo_diagram', 'crystal_structure'];
 }
 
+export const ABSTRACT_NON_DIAGRAM_TOPICS = new Set<string>([
+  'permutations and combinations',
+  'permutations & combinations',
+  'binomial theorem',
+  'mathematical reasoning',
+  'statistics',
+  'matrices',
+  'determinants',
+  'principle of mathematical induction',
+  'probability',
+  'sequences and series',
+  'differential equations',
+  'quadratic equations',
+  'units and dimensions',
+  'units and measurements',
+  'units & dimensions',
+  'units, dimensions and errors',
+  'physical world and measurement',
+]);
+
+export function isTopicDiagramCompatible(subject: Subject | string, topic: string): boolean {
+  if (subject === 'Botany' || subject === 'Zoology') return true;
+  const normalized = topic.trim().toLowerCase();
+  if (subject === 'Physics') {
+    return !normalized.includes('unit') && !normalized.includes('measurement') && !normalized.includes('error');
+  }
+  if (subject === 'Chemistry') {
+    return true;
+  }
+  // For Mathematics: check abstract topics
+  for (const nonDiag of ABSTRACT_NON_DIAGRAM_TOPICS) {
+    if (normalized.includes(nonDiag)) return false;
+  }
+  return true;
+}
+
 export function buildDifficultySpec(difficulty: Difficulty, examType: ExamType): string {
   if (examType === 'NEET') {
     const levelLabel = difficulty === 'beginner'

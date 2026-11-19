@@ -9,6 +9,7 @@ export interface MockPoolItem {
   questionType: string;
   topic?: string;
   hasDiagram?: boolean;
+  questionText?: string;
 }
 
 const INSIGHT_EXAM_INCLUDE = {

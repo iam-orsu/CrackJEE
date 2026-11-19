@@ -126,34 +126,8 @@ function resolveSlotQuestionType(
   return 'integer';
 }
 
-export const ABSTRACT_NON_DIAGRAM_TOPICS = new Set<string>([
-  'permutations and combinations',
-  'permutations & combinations',
-  'binomial theorem',
-  'mathematical reasoning',
-  'statistics',
-  'matrices',
-  'determinants',
-  'principle of mathematical induction',
-  'units and dimensions',
-  'units and measurements',
-]);
-
-export function isTopicDiagramCompatible(subject: Subject, topic: string): boolean {
-  if (subject === 'Botany' || subject === 'Zoology') return true;
-  if (subject === 'Physics') {
-    return !topic.toLowerCase().includes('units');
-  }
-  if (subject === 'Chemistry') {
-    return true;
-  }
-  // For Mathematics: check abstract topics
-  const normalized = topic.trim().toLowerCase();
-  for (const nonDiag of ABSTRACT_NON_DIAGRAM_TOPICS) {
-    if (normalized.includes(nonDiag)) return false;
-  }
-  return true;
-}
+import { ABSTRACT_NON_DIAGRAM_TOPICS, isTopicDiagramCompatible } from '../utils/deepseekPrompts';
+export { ABSTRACT_NON_DIAGRAM_TOPICS, isTopicDiagramCompatible };
 
 function buildPaperSlots(input: CreateFacultyPaperInput): PaperSlot[] {
   const sortedSelections = [...input.selections].sort(

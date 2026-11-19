@@ -129,10 +129,12 @@ export class FacultyPdfService {
       items,
     };
 
-    const modeTitle = mode === 'key' ? 'Answer-Key' : mode === 'solutions' ? 'Solutions' : 'Question-Paper';
+    const isPsychometric = raw.examType === 'Psychometric';
+    const effectiveMode = isPsychometric ? 'questions' : mode;
+    const modeTitle = effectiveMode === 'key' ? 'Answer-Key' : effectiveMode === 'solutions' ? 'Solutions' : 'Question-Paper';
     const filename = `${paperCode}-${modeTitle}.pdf`;
 
-    const html = this.buildHtml(paper, mode);
+    const html = this.buildHtml(paper, effectiveMode);
 
     const systemChrome = getSystemChromePath();
     const launchOptions: any = {
@@ -187,8 +189,19 @@ export class FacultyPdfService {
 
   private buildHtml(paper: any, mode: PdfMode): string {
     const katexCss = getKatexCss();
-    const examLabel = paper.examType === 'NEET' ? 'NEET-UG' : `JEE ${paper.examType}`;
-    const modeLabel = mode === 'key' ? 'Answer Key' : mode === 'solutions' ? 'Question Paper & Detailed Solutions' : 'Question Paper';
+    const isPsychometric = paper.examType === 'Psychometric';
+    const examLabel = isPsychometric
+      ? 'Psychometric Assessment'
+      : paper.examType === 'NEET'
+      ? 'NEET-UG'
+      : `JEE ${paper.examType}`;
+    const modeLabel = isPsychometric
+      ? 'Psychometric & Behavioral Question Paper'
+      : mode === 'key'
+      ? 'Answer Key'
+      : mode === 'solutions'
+      ? 'Question Paper & Detailed Solutions'
+      : 'Question Paper';
 
     let contentHtml = '';
 
@@ -216,7 +229,7 @@ export class FacultyPdfService {
                 <div class="options-grid">
                   ${options.map((opt, idx) => {
                     const letter = LETTERS[idx] || String(idx + 1);
-                    const isCorrect = mode === 'solutions' && isCorrectOption(item.correctAnswer, letter);
+                    const isCorrect = mode === 'solutions' && !isPsychometric && isCorrectOption(item.correctAnswer, letter);
                     const textHtml = formatLatexToHtml(stripOptionPrefix(opt));
                     return `
                       <div class="option-item ${isCorrect ? 'correct-option' : ''}">
@@ -244,7 +257,7 @@ export class FacultyPdfService {
             }
 
             let solutionHtml = '';
-            if (mode === 'solutions') {
+            if (mode === 'solutions' && !isPsychometric) {
               solutionHtml = `
                 <div class="solution-box">
                   <div class="solution-header">

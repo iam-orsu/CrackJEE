@@ -7,6 +7,7 @@ import { QuestionService } from './QuestionService';
 import { DeepSeekService, deepSeekService as defaultDeepSeek } from './DeepSeekService';
 import { MockDataService } from './MockDataService';
 import { fillSlotsFromBank, normalizeQuestionText, slotKey, type SlotKey } from './mockBankFill';
+import { isTopicDiagramCompatible } from '../utils/deepseekPrompts';
 import { fullTopicList } from './mockTopicPlan';
 import { fisherYatesShuffle } from '../utils/questionUtils';
 import { runOnce } from '../utils/distributedOnce';
@@ -101,11 +102,13 @@ export class MockGeneratorService {
       let diagramsAssigned = 0;
       for (const { type, count } of typePlan) {
         for (let i = 0; i < count; i++) {
-          const requiresDiagram = (type === 'mcq_single' || type === 'mcq_multi') && diagramsAssigned < diagramQuotaPerSubject;
+          const topic = allocatedTopics[cursor++]!;
+          const canHaveDiagram = (type === 'mcq_single' || type === 'mcq_multi') && isTopicDiagramCompatible(subject, topic);
+          const requiresDiagram = canHaveDiagram && diagramsAssigned < diagramQuotaPerSubject;
           if (requiresDiagram) diagramsAssigned++;
           slots.push({
             subject,
-            topic: allocatedTopics[cursor++]!,
+            topic,
             difficulty: this.pickDifficulty(examType, Math.random(), difficultyMode),
             examType,
             questionType: type,
@@ -129,13 +132,15 @@ export class MockGeneratorService {
       const topicList = topicsBySubject[subject] ?? [];
       let diagramsAssigned = 0;
       for (let i = 0; i < topicList.length; i++) {
+        const topic = topicList[i]!;
         // Guarantee 2 matrix match questions per subject in NEET
         const questionType: QuestionType = i >= topicList.length - 2 ? 'matrix_match' : 'mcq_single';
-        const requiresDiagram = questionType === 'mcq_single' && diagramsAssigned < diagramQuotaPerSubject;
+        const canHaveDiagram = questionType === 'mcq_single' && isTopicDiagramCompatible(subject, topic);
+        const requiresDiagram = canHaveDiagram && diagramsAssigned < diagramQuotaPerSubject;
         if (requiresDiagram) diagramsAssigned++;
         slots.push({
           subject,
-          topic: topicList[i]!,
+          topic,
           difficulty: this.pickDifficulty('Main', Math.random(), difficultyMode),
           examType: 'NEET',
           questionType,
@@ -190,9 +195,17 @@ export class MockGeneratorService {
       throw new Error(`Cannot generate mock paper: DeepSeek AI is required for mock questions. Practice bank questions (mockOnly=false) are strictly isolated and never used in mocks.`);
     }
 
+    const currentPaperSeenTexts = new Set<string>(seenTexts);
+    for (const q of fromBank) {
+      if (q.questionText) currentPaperSeenTexts.add(normalizeQuestionText(q.questionText));
+    }
+
     const generated: PaperQuestion[] = missingSlots.length > 0 && canGenerateWithAi
-      ? await this.questionService.generateFreshMockBatch(missingSlots, 4, seenTexts)
+      ? await this.questionService.generateFreshMockBatch(missingSlots, 4, currentPaperSeenTexts)
       : [];
+    for (const q of generated) {
+      if (q.questionText) currentPaperSeenTexts.add(normalizeQuestionText(q.questionText));
+    }
     let questions: PaperQuestion[] = [...fromBank, ...generated];
 
     const expected = this.expectedPerSubject(examType);
@@ -213,10 +226,28 @@ export class MockGeneratorService {
         if (topUpSlots.length === 0) break;
 
         logger.info({ round: round + 1, slots: topUpSlots.length }, '[mockPool] Top-up: generating replacements via DeepSeek');
-        const extras = await this.questionService.generateFreshMockBatch(topUpSlots, 4, seenTexts);
+        const extras = await this.questionService.generateFreshMockBatch(topUpSlots, 4, currentPaperSeenTexts);
+        for (const q of extras) {
+          if (q.questionText) currentPaperSeenTexts.add(normalizeQuestionText(q.questionText));
+        }
         questions = [...questions, ...extras];
       }
     }
+
+    // Strictly deduplicate questions by ID and normalized text before assembling final subjects
+    const uniqueQuestions: PaperQuestion[] = [];
+    const finalSeenIds = new Set<string>();
+    const finalSeenTexts = new Set<string>();
+    for (const q of questions) {
+      const norm = q.questionText ? normalizeQuestionText(q.questionText) : '';
+      if (finalSeenIds.has(q.id) || (norm && finalSeenTexts.has(norm))) {
+        continue;
+      }
+      finalSeenIds.add(q.id);
+      if (norm) finalSeenTexts.add(norm);
+      uniqueQuestions.push(q);
+    }
+    questions = uniqueQuestions;
 
     const subjectsNeeded: string[] = examType === 'NEET' ? [...NEET_SUBJECTS] : ['Physics', 'Chemistry', 'Mathematics'];
     for (const subject of subjectsNeeded) {
@@ -246,19 +277,26 @@ export class MockGeneratorService {
     topicId: string,
     count = 5,
     excludeQuestionIds?: Set<string>,
+    excludeQuestionTexts?: Set<string>,
   ): Promise<MockPoolItem[]> {
     const questionType: QuestionType = 'mcq_single';
     const seen = excludeQuestionIds ?? (await this.mockData.loadSeenQuestionIds(userId, examType));
+    const seenTexts = excludeQuestionTexts ?? (await this.mockData.loadSeenQuestionHistory(userId, examType)).texts;
     const existing = await this.questionRepo.findMockBankSlots(examType, [
       { subject, topic, difficulty: 'intermediate', questionType },
       { subject, topic, difficulty: 'beginner', questionType },
       { subject, topic, difficulty: 'advanced', questionType },
     ]);
-    const available = existing.filter((q) => !seen.has(q.id));
+    const available = existing.filter((q) => {
+      if (seen.has(q.id)) return false;
+      const norm = q.questionText ? normalizeQuestionText(q.questionText) : '';
+      return !norm || !seenTexts.has(norm);
+    });
 
     if (available.length >= count) {
       return available.slice(0, count).map((q) => ({
         questionId: q.id,
+        questionText: q.questionText,
         subject: q.subject as Subject,
         questionType: q.questionType,
         topic: q.topic,
@@ -277,7 +315,11 @@ export class MockGeneratorService {
           { subject, topic, difficulty: 'beginner', questionType },
           { subject, topic, difficulty: 'advanced', questionType },
         ]);
-        const unread = fresh.filter((q) => !seen.has(q.id));
+        const unread = fresh.filter((q) => {
+          if (seen.has(q.id)) return false;
+          const norm = q.questionText ? normalizeQuestionText(q.questionText) : '';
+          return !norm || !seenTexts.has(norm);
+        });
         return unread.length >= count ? (unread as unknown as Question[]) : null;
       },
       produce: async () => {
@@ -291,26 +333,40 @@ export class MockGeneratorService {
         if (!this.deepSeek.isAvailable()) {
           return [];
         }
-        return this.questionService.generateFreshMockBatch(slots, 2);
+        return this.questionService.generateFreshMockBatch(slots, 2, seenTexts);
       },
     });
 
     const combined: MockPoolItem[] = [
       ...available.map((q) => ({
         questionId: q.id,
+        questionText: q.questionText,
         subject: q.subject as Subject,
         questionType: q.questionType,
         topic: q.topic,
       })),
       ...generated.map((q) => ({
         questionId: q.id,
+        questionText: q.questionText,
         subject: q.subject as Subject,
         questionType: q.questionType,
         topic: q.topic,
       })),
     ];
 
-    return combined.slice(0, count);
+    const uniqueCombined: MockPoolItem[] = [];
+    const usedIds = new Set<string>();
+    const usedTexts = new Set<string>();
+    for (const item of combined) {
+      if (usedIds.has(item.questionId)) continue;
+      const norm = item.questionText ? normalizeQuestionText(item.questionText) : '';
+      if (norm && usedTexts.has(norm)) continue;
+      usedIds.add(item.questionId);
+      if (norm) usedTexts.add(norm);
+      uniqueCombined.push(item);
+    }
+
+    return uniqueCombined.slice(0, count);
   }
 
   private async assignExamQuestions(
@@ -437,16 +493,29 @@ export class MockGeneratorService {
       this.mockData.findStoredPaper(
         examType,
         planKey,
-        (items) =>
-          items.length === expectedTotal &&
-          items.some((i) => i.questionType === 'matrix_match') &&
-          items.some((i) => i.hasDiagram) &&
-          items.every((i) => {
+        (items) => {
+          if (items.length !== expectedTotal) return false;
+          if (!items.some((i) => i.questionType === 'matrix_match')) return false;
+          if (!items.some((i) => i.hasDiagram)) return false;
+          const paperIds = new Set<string>();
+          const paperTexts = new Set<string>();
+          for (const i of items) {
             const qId = i.questionId || (i as unknown as { id?: string }).id;
             const text = (i as unknown as { questionText?: string }).questionText;
-            const norm = text ? normalizeQuestionText(text) : '';
-            return !!qId && !seen.has(qId) && (!norm || !seenTexts.has(norm));
-          }),
+            if (!qId || seen.has(qId) || paperIds.has(qId)) return false;
+            paperIds.add(qId);
+            if (text) {
+              const norm = normalizeQuestionText(text);
+              if (paperTexts.has(norm)) return false;
+              paperTexts.add(norm);
+              if (seenTexts.size > 0 && seenTexts.has(norm)) return false;
+            } else if (seenTexts.size > 0) {
+              // Legacy stored papers without questionText cannot guarantee uniqueness for returning students
+              return false;
+            }
+          }
+          return true;
+        },
       );
 
     let poolItems = await reuse();
@@ -499,6 +568,10 @@ export class MockGeneratorService {
 
         if (topWeak?.topic && subjects.includes(topWeak.topic.subject as Subject)) {
           const weakSubject = topWeak.topic.subject as Subject;
+          const poolTexts = new Set<string>(seenTexts);
+          for (const p of poolItems) {
+            if (p.questionText) poolTexts.add(normalizeQuestionText(p.questionText));
+          }
           weakItems = await this.getOrGenerateWeakQuestions(
             userId,
             examType,
@@ -507,6 +580,7 @@ export class MockGeneratorService {
             topWeak.topic.id,
             5,
             new Set([...seen, ...poolItems.map((p) => p.questionId)]),
+            poolTexts,
           );
           if (weakItems.length > 0) {
             logger.info(

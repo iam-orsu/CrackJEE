@@ -336,9 +336,17 @@ describe('FacultyPaperService slot allocation and rules', () => {
     assert.equal(isTopicDiagramCompatible('Mathematics', 'Permutations and Combinations'), false);
     assert.equal(isTopicDiagramCompatible('Mathematics', 'Binomial Theorem'), false);
     assert.equal(isTopicDiagramCompatible('Mathematics', 'Matrices'), false);
+    assert.equal(isTopicDiagramCompatible('Mathematics', 'Mathematical Reasoning'), false);
+    assert.equal(isTopicDiagramCompatible('Mathematics', 'Statistics'), false);
+    assert.equal(isTopicDiagramCompatible('Mathematics', 'Probability'), false);
+    assert.equal(isTopicDiagramCompatible('Mathematics', 'Sequences and Series'), false);
     assert.equal(isTopicDiagramCompatible('Mathematics', 'Coordinate Geometry'), true);
+    assert.equal(isTopicDiagramCompatible('Mathematics', 'Circles'), true);
     assert.equal(isTopicDiagramCompatible('Physics', 'Kinematics'), true);
     assert.equal(isTopicDiagramCompatible('Physics', 'Current Electricity'), true);
+    assert.equal(isTopicDiagramCompatible('Physics', 'Units and Dimensions'), false);
+    assert.equal(isTopicDiagramCompatible('Physics', 'Units and Measurements'), false);
+    assert.equal(isTopicDiagramCompatible('Physics', 'Physical World and Measurement'), false);
     assert.equal(isTopicDiagramCompatible('Chemistry', 'Hydrocarbons'), true);
     assert.equal(isTopicDiagramCompatible('Botany', 'Plant Kingdom'), true);
   });

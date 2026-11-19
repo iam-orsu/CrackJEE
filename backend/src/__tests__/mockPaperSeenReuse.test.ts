@@ -123,3 +123,50 @@ test('Mock paper reuse: rejects stored papers when items format uses id field an
 
   assert.equal(result, null, 'Legacy stored paper with seen questions must be rejected');
 });
+
+test('Mock paper reuse: rejects legacy stored paper missing questionText when returning student has seen texts', async () => {
+  // Legacy paper where questionText was not stored
+  const legacyItemsWithoutText = Array.from({ length: 75 }, (_, i) => ({
+    questionId: `legacy_no_text_q${i + 1}`,
+    subject: i < 25 ? 'Physics' : i < 50 ? 'Chemistry' : 'Mathematics',
+    questionType: i === 0 ? 'matrix_match' : 'mcq_single',
+    topic: 'Sets and Relations',
+    hasDiagram: i === 0,
+    // questionText is undefined
+  }));
+
+  const mockRepo = {
+    findStoredPapersByPlanKey: async () => [
+      { id: 'stored_legacy_no_text', examType: 'Main', planKey: 'ladder:paper:1', items: legacyItemsWithoutText },
+    ],
+  };
+
+  const service = new MockDataService(mockRepo as any);
+  const seen = new Set<string>(); // ID is not seen
+  const seenTexts = new Set<string>(['inasurveyof150students90liketea']); // Text WAS seen
+
+  const result = await service.findStoredPaper('Main', 'ladder:paper:1', (items) => {
+    if (items.length !== 75) return false;
+    if (!items.some((i) => i.questionType === 'matrix_match')) return false;
+    if (!items.some((i) => i.hasDiagram)) return false;
+    const paperIds = new Set<string>();
+    const paperTexts = new Set<string>();
+    for (const i of items) {
+      const qId = i.questionId || (i as any).id;
+      const text = (i as any).questionText;
+      if (!qId || seen.has(qId) || paperIds.has(qId)) return false;
+      paperIds.add(qId);
+      if (text) {
+        const norm = text.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 120);
+        if (paperTexts.has(norm)) return false;
+        paperTexts.add(norm);
+        if (seenTexts.size > 0 && seenTexts.has(norm)) return false;
+      } else if (seenTexts.size > 0) {
+        return false; // Cannot guarantee uniqueness without text
+      }
+    }
+    return true;
+  });
+
+  assert.equal(result, null, 'Legacy paper without questionText must be rejected for returning student');
+});
