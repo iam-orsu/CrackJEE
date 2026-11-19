@@ -828,16 +828,21 @@ export default function FacultyPage() {
                             <div>
                               {/* Exam Goal Prompt Box */}
                               <div className={FIELD}>
-                                <label className={LABEL} htmlFor="paper-goal">
-                                  Exam Goal / Evaluation Target <span className="font-normal text-[#5A6B8C]">(AI Calibration Focus)</span>
-                                </label>
+                                <div className="flex items-center justify-between">
+                                  <label className={LABEL} htmlFor="paper-goal">
+                                    Exam Goal / Evaluation Target <span className="font-normal text-[#5A6B8C]">(AI Calibration Focus)</span>
+                                  </label>
+                                  <span className="text-[11px] font-semibold text-[#5A6B8C]">
+                                    {examGoal.length} / 3000
+                                  </span>
+                                </div>
                                 <textarea
                                   id="paper-goal"
-                                  className="min-h-[96px] w-full resize-none rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2.5 text-[14px] font-semibold leading-relaxed text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-normal placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] custom-scrollbar"
+                                  className="min-h-[160px] w-full resize-y rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2.5 text-[14px] font-semibold leading-relaxed text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-normal placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] custom-scrollbar"
                                   placeholder="e.g. Assess students' Computer Science aptitude and Entrepreneurship mindset, technical problem-solving attitude, and risk-taking preferences"
                                   value={examGoal}
                                   onChange={(e) => setExamGoal(e.target.value)}
-                                  maxLength={500}
+                                  maxLength={3000}
                                 />
                                 <p className="mt-1 text-[11.5px] text-[#5A6B8C]">
                                   The AI engine calibrates cognitive logic puzzles, situational dilemmas, emotional traits, and career inclinations directly to this goal. Generates questions without rigid right/wrong answers and flags radical responses for student batch analytics.

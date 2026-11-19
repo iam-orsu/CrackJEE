@@ -37,7 +37,7 @@ const createPaperSchema = z.object({
   title: z.string().trim().max(120).optional(),
   organization: z.string().trim().max(120).optional(),
   examType: z.enum(['Main', 'Advanced', 'NEET', 'Psychometric']),
-  examGoal: z.string().trim().max(1000).optional(),
+  examGoal: z.string().trim().max(4000).optional(),
   targetProfile: z
     .object({
       studentLevel: z.string().trim().max(100).optional(),
