@@ -467,6 +467,8 @@ describe('Faculty Exam Assignment & Student Delivery Integrity', () => {
     const psyCsv = await assignmentService.exportAssignmentResultsCsv('psy-assign', 'fac-1');
     assert.ok(psyCsv.filename.includes('Psychometric-Results.csv'));
     assert.ok(psyCsv.csv.includes('Total Alignment Score'));
+    assert.ok(psyCsv.csv.includes('Predicted Best-Fit Role'));
+    assert.ok(psyCsv.csv.includes('Role Fit Reason (1-2 lines)'));
     assert.ok(psyCsv.csv.includes('Rahul Verma'));
   });
 });

@@ -68,6 +68,8 @@ export class FacultyAssignmentService {
         startTime: a.startTime?.toISOString() ?? null,
         endTime: a.endTime?.toISOString() ?? null,
         showSolutions: a.showSolutions,
+        showGoalToStudents: Boolean(a.instructions?.includes('<!--showGoal:true-->')),
+        instructions: (a.instructions || '').replace('<!--showGoal:true-->', '').trim() || null,
         status: a.status,
         createdAt: a.createdAt.toISOString(),
         paper: a.paper,
@@ -109,20 +111,26 @@ export class FacultyAssignmentService {
     const totalEnrolled = assignment.batch.students.length;
 
     // Calculate rank list
-    const rankList = submissions.map((s, idx) => ({
-      rank: idx + 1,
-      studentId: s.student.id,
-      name: s.student.name,
-      rollNumber: s.student.rollNumber,
-      totalScore: s.totalScore,
-      maxScore: isPsychometric ? 100 : s.maxScore,
-      timeTakenSeconds: s.timeTakenSeconds,
-      correctCount: isPsychometric ? 0 : s.correctCount,
-      incorrectCount: isPsychometric ? 0 : s.incorrectCount,
-      unattemptedCount: s.unattemptedCount,
-      submittedAt: s.submittedAt?.toISOString() ?? null,
-      resultBreakdown: s.resultBreakdown,
-    }));
+    const rankList = submissions.map((s, idx) => {
+      const breakdown = (s.resultBreakdown as Record<string, any>) || {};
+      const psy = breakdown.psychometricReport || {};
+      return {
+        rank: idx + 1,
+        studentId: s.student.id,
+        name: s.student.name,
+        rollNumber: s.student.rollNumber,
+        totalScore: s.totalScore,
+        maxScore: isPsychometric ? 100 : s.maxScore,
+        timeTakenSeconds: s.timeTakenSeconds,
+        correctCount: isPsychometric ? 0 : s.correctCount,
+        incorrectCount: isPsychometric ? 0 : s.incorrectCount,
+        unattemptedCount: s.unattemptedCount,
+        submittedAt: s.submittedAt?.toISOString() ?? null,
+        resultBreakdown: s.resultBreakdown,
+        predictedRole: psy.predictedRole || psy.archetype || null,
+        roleReason: psy.roleReason || null,
+      };
+    });
 
     const scores = submissions.map((s) => s.totalScore);
     const highestScore = scores.length > 0 ? Math.max(...scores) : 0;
@@ -661,6 +669,8 @@ export class FacultyAssignmentService {
           'Rank',
           'Roll Number',
           'Student Name',
+          'Predicted Best-Fit Role',
+          'Role Fit Reason (1-2 lines)',
           'Total Alignment Score',
           'Max Score',
           'Behavioral Archetype',
@@ -679,15 +689,21 @@ export class FacultyAssignmentService {
       submissions.forEach((s, idx) => {
         const bd = (s.resultBreakdown as Record<string, any>) || {};
         const psy = bd.psychometricReport || {};
+        const predictedRole = psy.predictedRole || psy.archetype || 'Evaluating Mindset';
+        const roleReason = psy.roleReason || 'Demonstrated steady decision-making, systematic follow-through, and practical ownership of assigned tasks.';
         const archetype = psy.archetype || 'Evaluating Mindset';
-        const strengths = Array.isArray(psy.strengths) && psy.strengths.length > 0
-          ? psy.strengths.slice(0, 2).join('; ')
-          : 'Collaborative problem-solving';
-        const guidance = Array.isArray(psy.guidance) && psy.guidance.length > 0
-          ? psy.guidance.slice(0, 2).map((g: string) => g.replace(/^Mentoring recommendation:\s*/i, '')).join('; ')
-          : 'Structured practice in foundational concepts';
+        const strengths = Array.isArray(psy.keyStrengths) && psy.keyStrengths.length > 0
+          ? psy.keyStrengths.slice(0, 2).join('; ')
+          : Array.isArray(psy.strengths) && psy.strengths.length > 0
+            ? psy.strengths.slice(0, 2).join('; ')
+            : 'Collaborative problem-solving';
+        const guidance = Array.isArray(psy.growthAreas) && psy.growthAreas.length > 0
+          ? psy.growthAreas.slice(0, 2).join('; ')
+          : Array.isArray(psy.guidance) && psy.guidance.length > 0
+            ? psy.guidance.slice(0, 2).map((g: string) => g.replace(/^Mentoring recommendation:\s*/i, '')).join('; ')
+            : 'Structured practice in foundational concepts';
         const domainBreakdown = Array.isArray(psy.domainBreakdown) && psy.domainBreakdown.length > 0
-          ? psy.domainBreakdown.map((d: any) => `${d.domain}: ${d.score}% (${d.status})`).join('; ')
+          ? psy.domainBreakdown.map((d: any) => `${d.domain}: ${d.scorePct || d.score || 0}% (${d.traitLabel || d.status || ''})`).join('; ')
           : 'N/A';
         const timeMins = Math.round(s.timeTakenSeconds / 60);
         const attempted = Math.max(0, totalQuestionCount - s.unattemptedCount);
@@ -697,6 +713,8 @@ export class FacultyAssignmentService {
             idx + 1,
             s.student.rollNumber,
             s.student.name,
+            predictedRole,
+            roleReason,
             s.totalScore,
             100,
             archetype,

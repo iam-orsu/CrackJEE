@@ -39,6 +39,7 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
   const [showSolutions, setShowSolutions] = useState(true);
+  const [showGoalToStudents, setShowGoalToStudents] = useState(false);
   const [assignSubmitting, setAssignSubmitting] = useState(false);
 
   const loadData = useCallback(async () => {
@@ -82,10 +83,12 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
         startTime: startTime ? new Date(startTime).toISOString() : null,
         endTime: endTime ? new Date(endTime).toISOString() : null,
         showSolutions,
+        showGoalToStudents,
       });
       setAssignModalOpen(false);
       setTitle('');
       setInstructions('');
+      setShowGoalToStudents(false);
       await loadData();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to assign exam');
@@ -358,6 +361,18 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
                 />
                 <span>Allow students to view detailed step-by-step solutions after submission</span>
               </label>
+
+              {readyPapers.find((p) => p.id === selectedPaperId)?.examType === 'Psychometric' && (
+                <label className="flex cursor-pointer items-center gap-2 rounded-xl border border-[#803688]/30 bg-[#FDF8FF] p-3 text-[13px] font-medium text-[#803688]">
+                  <input
+                    type="checkbox"
+                    checked={showGoalToStudents}
+                    onChange={(e) => setShowGoalToStudents(e.target.checked)}
+                    className="h-4 w-4 rounded accent-[#803688]"
+                  />
+                  <span>Show Evaluation Target / Professor Goal to students in their results</span>
+                </label>
+              )}
 
               <div className="mt-3 flex justify-end gap-2.5">
                 <button

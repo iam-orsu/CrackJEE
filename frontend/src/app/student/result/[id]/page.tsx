@@ -178,7 +178,8 @@ export default function StudentExamResultPage() {
     const attemptedCount = scorecard.attemptedCount ?? ((solutions?.length || 0) - scorecard.unattemptedCount);
     const totalQuestions = solutions?.length || 0;
     const report = scorecard.psychometricReport;
-    const goalText = assignment.examGoal || report?.goal || assignment.title;
+    const shouldShowGoal = Boolean(assignment.showGoalToStudents && (assignment.examGoal || report?.goal));
+    const goalText = shouldShowGoal ? (assignment.examGoal || report?.goal) : null;
 
     const filteredPsySolutions = (solutions || []).filter((q) => {
       if (psyFilter === 'answered') return Boolean(q.studentAnswer);
@@ -254,27 +255,35 @@ export default function StudentExamResultPage() {
                     {submitted && ` · Evaluated on ${submitted}`}
                   </p>
 
-                  {/* Professor Goal Callout */}
-                  <div className="mt-4 rounded-2xl border-[1.5px] border-[#803688]/25 bg-[#FBF5FC] p-3.5 sm:p-4">
-                    <div className="flex items-center gap-2">
-                      <span className="rounded-md bg-[#803688] px-2 py-0.5 text-[10.5px] font-extrabold uppercase tracking-wider text-white">
-                        Evaluation Target / Professor Goal
-                      </span>
+                  {/* Professor Goal Callout (Only visible when faculty enabled showGoalToStudents) */}
+                  {goalText && (
+                    <div className="mt-4 rounded-2xl border-[1.5px] border-[#803688]/25 bg-[#FBF5FC] p-3.5 sm:p-4">
+                      <div className="flex items-center gap-2">
+                        <span className="rounded-md bg-[#803688] px-2 py-0.5 text-[10.5px] font-extrabold uppercase tracking-wider text-white">
+                          Evaluation Target / Professor Goal
+                        </span>
+                      </div>
+                      <p className="mt-1.5 text-[14px] font-semibold italic leading-relaxed text-[#003366]">
+                        &ldquo;{goalText}&rdquo;
+                      </p>
                     </div>
-                    <p className="mt-1.5 text-[14px] font-semibold italic leading-relaxed text-[#003366]">
-                      &ldquo;{goalText}&rdquo;
-                    </p>
-                  </div>
+                  )}
 
                   <div className="mt-5 grid grid-cols-3 gap-3 max-sm:grid-cols-1">
                     <div className="dz-pop rounded-2xl border border-[#003366]/10 bg-[rgba(238,242,255,.72)] px-4 py-3 backdrop-blur">
-                      <p className="text-[12px] font-semibold text-[#7A87A0]">Alignment Level</p>
-                      <p className={`${HEAD} mt-1 text-[20px] font-extrabold text-[#803688]`}>
-                        {report?.alignmentLevel || 'High Alignment'}
+                      <p className="text-[12px] font-semibold text-[#7A87A0]">Predicted Best-Fit Role</p>
+                      <p className={`${HEAD} mt-1 text-[17px] font-extrabold text-[#803688]`}>
+                        {report?.predictedRole || report?.archetype || 'Evaluating Mindset'}
                       </p>
-                      <p className="mt-1 text-[11.5px] font-medium text-[#5A6B8C] truncate" title={report?.archetype}>
-                        {report?.archetype || 'Practical Problem Solver'}
-                      </p>
+                      {report?.roleReason ? (
+                        <p className="mt-1 text-[11.5px] font-medium leading-snug text-[#475569]">
+                          {report.roleReason}
+                        </p>
+                      ) : (
+                        <p className="mt-1 text-[11.5px] font-medium text-[#5A6B8C] truncate" title={report?.archetype}>
+                          {report?.alignmentLevel || 'High Alignment'}
+                        </p>
+                      )}
                     </div>
 
                     <div className="dz-pop rounded-2xl border border-[#003366]/10 bg-[rgba(238,242,255,.72)] px-4 py-3 backdrop-blur" style={{ animationDelay: '120ms' }}>
@@ -314,9 +323,21 @@ export default function StudentExamResultPage() {
                   <span className="rounded-md bg-[#803688]/15 px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wide text-[#803688]">
                     AI Evaluation Synthesis
                   </span>
-                  <h2 className={`${h2c} mt-2 text-[20px]`}>Mindset &amp; Behavioral Analysis</h2>
-                  <p className="mt-1 text-[13px] text-[#5A6B8C]">
-                    Detailed evaluation of candidate responses calibrated directly to the professor&apos;s goal.
+                  <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
+                    <h2 className={`${h2c} text-[20px]`}>Mindset &amp; Behavioral Analysis</h2>
+                    {report?.predictedRole && (
+                      <span className="rounded-full bg-[#803688] px-3 py-1 text-[12px] font-extrabold text-white">
+                        {report.predictedRole}
+                      </span>
+                    )}
+                  </div>
+                  {report?.roleReason && (
+                    <div className="mt-2.5 rounded-xl border border-[#803688]/20 bg-[#FDF8FF] p-3 text-[13px] font-medium leading-relaxed text-[#334155]">
+                      <strong className="text-[#803688]">Why this role: </strong>{report.roleReason}
+                    </div>
+                  )}
+                  <p className="mt-2 text-[13px] text-[#5A6B8C]">
+                    Detailed evaluation of candidate responses calibrated directly to the evaluation target.
                   </p>
                 </div>
 

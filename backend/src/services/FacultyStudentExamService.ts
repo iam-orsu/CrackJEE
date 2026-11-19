@@ -126,7 +126,7 @@ export class FacultyStudentExamService {
       return {
         id: a.id,
         title: a.title,
-        instructions: a.instructions,
+        instructions: (a.instructions || '').replace('<!--showGoal:true-->', '').trim() || null,
         durationMinutes: a.durationMinutes,
         startTime: a.startTime?.toISOString() ?? null,
         endTime: a.endTime?.toISOString() ?? null,
@@ -199,7 +199,7 @@ export class FacultyStudentExamService {
       examSessionId: examSession.id,
       assignmentId: assignment.id,
       title: assignment.title,
-      instructions: assignment.instructions,
+      instructions: (assignment.instructions || '').replace('<!--showGoal:true-->', '').trim() || null,
       durationMinutes: assignment.durationMinutes,
       examType: assignment.paper.examType,
       questionCount: assignment.paper.questionCount,
@@ -512,6 +512,8 @@ export class FacultyStudentExamService {
         };
       });
 
+      const showGoal = Boolean(assignment.instructions?.includes('<!--showGoal:true-->'));
+
       return {
         assignment: {
           id: assignment.id,
@@ -520,7 +522,8 @@ export class FacultyStudentExamService {
           showSolutions: assignment.showSolutions,
           batchName: assignment.batch.name,
           facultyName: assignment.faculty.name,
-          examGoal: professorGoal,
+          examGoal: showGoal ? professorGoal : null,
+          showGoalToStudents: showGoal,
         },
         scorecard: {
           rank,

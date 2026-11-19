@@ -132,6 +132,7 @@ const createAssignmentSchema = z.object({
   startTime: z.string().nullable().optional(),
   endTime: z.string().nullable().optional(),
   showSolutions: z.boolean().default(true),
+  showGoalToStudents: z.boolean().optional().default(false),
 });
 
 function parseQuestionNumber(raw: unknown): number {
@@ -527,11 +528,16 @@ export class FacultyController {
       if (!parsed.success) {
         throw new AppError(400, parsed.error.issues[0]?.message ?? 'Invalid assignment details');
       }
+      const showGoal = parsed.data.showGoalToStudents;
+      let finalInstructions = parsed.data.instructions?.trim() || '';
+      if (showGoal) {
+        finalInstructions = `<!--showGoal:true-->${finalInstructions}`;
+      }
       const assignment = await this.assignmentService.createAssignment(req.faculty!.facultyId, {
         paperId: parsed.data.paperId,
         batchId: parsed.data.batchId,
         title: parsed.data.title,
-        instructions: parsed.data.instructions,
+        instructions: finalInstructions,
         durationMinutes: parsed.data.durationMinutes,
         startTime: parsed.data.startTime,
         endTime: parsed.data.endTime,

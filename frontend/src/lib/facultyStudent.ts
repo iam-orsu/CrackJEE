@@ -26,6 +26,7 @@ export interface StudentExamCard {
   startTime: string | null;
   endTime: string | null;
   showSolutions: boolean;
+  showGoalToStudents?: boolean;
   paper: {
     id: string;
     title: string;
@@ -86,6 +87,8 @@ export interface PsychometricReportPayload {
   alignmentScore: number;
   alignmentLevel: string;
   archetype: string;
+  predictedRole?: string;
+  roleReason?: string;
   summary: string;
   domainBreakdown: Array<{
     domain: string;
@@ -104,6 +107,7 @@ export interface StudentExamResultData {
     title: string;
     examType: string;
     showSolutions: boolean;
+    showGoalToStudents?: boolean;
     batchName: string;
     facultyName: string;
     examGoal?: string;

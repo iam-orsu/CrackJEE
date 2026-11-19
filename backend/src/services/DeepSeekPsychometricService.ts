@@ -57,6 +57,8 @@ export interface PsychometricStudentEvaluation {
   alignmentScore: number;
   alignmentLevel: 'Exceptional Fit' | 'High Alignment' | 'Moderate Alignment' | 'Developing Fit';
   archetype: string;
+  predictedRole: string;
+  roleReason: string;
   summary: string;
   domainBreakdown: Array<{
     domain: string;
@@ -1756,9 +1758,9 @@ Behavioral Rubric: ${item.correctAnswer}`;
       })
       .join('\n\n');
 
-    const prompt = `You are an educational psychometrician evaluating a student's assessment results for faculty.
+    const prompt = `You are an educational and vocational talent evaluator analyzing a student's psychometric and behavioral assessment choices for faculty.
 
-PROFESSOR'S ASSESSMENT GOAL / TARGET FOCUS:
+PRIMARY EVALUATION ANCHOR / PROFESSOR'S GOAL:
 "${input.goal}"
 
 CANDIDATE: ${input.candidateName}
@@ -1767,38 +1769,52 @@ COMPLETION TIME: ${Math.round(input.timeTakenSeconds / 60)} minutes
 CANDIDATE'S RESPONSES ACROSS ASSESSMENT:
 ${summaryList}
 
-TASK:
-Analyze the student's demonstrated mindset, decision style, and behavioral preferences specifically against the professor's goal.
-Remember: Psychometric assessments have NO right or wrong answers. It is entirely opinion, trait, and behavioral based.
+TASK INSTRUCTIONS:
+1. DETECT THE SPECIFIC PROFESSION / DOMAIN from the professor's goal above (e.g. Medicine/Doctors, Software/Tech, Law, Banking/Finance, Creative Design, Mechanical Engineering, Sales/Marketing).
+2. PREDICTED BEST-FIT ROLE ("predictedRole"):
+   Identify the single most accurate, specific role or specialization within that target field where this candidate has the highest probability of thriving based on their answers.
+   - If the goal is about Doctors / Healthcare: Output roles like "Emergency Surgeon", "General Physician - Family & Patient Care", "Diagnostic Pathologist & Medical Researcher", or "Hospital Healthcare Administrator".
+   - If the goal is about Tech / Engineering: Output roles like "Backend Systems Engineer", "UI/UX & Frontend Developer", "Technical Sales & Solutions Lead", or "DevOps & Infrastructure Engineer".
+   - If the goal is about Finance / Business: Output roles like "Financial Risk & Compliance Analyst", "Investment Portfolio Manager", or "Corporate Operations Strategist".
+   - CRITICAL NEGATIVE MANDATE: STRICTLY FORBIDDEN to output generic software or IT roles unless the professor's goal is explicitly about software.
+3. 1-2 LINE PLAIN ENGLISH REASON ("roleReason"):
+   Write exactly 1 to 2 simple, direct sentences in everyday conversational English explaining WHY the candidate fits this role based on their actual choices across the questions.
+   - Explicitly mention what trade-offs or options they chose and what they avoided.
+   - CRITICAL TONE MANDATE: Strictly plain English. ZERO posh vocabulary, corporate buzzwords, or pretentious academic jargon (NEVER use words like "synergy", "propensity", "paradigm", "orchestrate", "holistic", "agile mindset", "tapestry").
+4. BEHAVIORAL ARCHETYPE: A 3-5 word trait persona title describing their core mindset.
+5. ALIGNMENT SCORE: An integer from 65 to 96 reflecting their fit to this role and the goal.
+6. DOMAIN BREAKDOWN, KEY STRENGTHS, AND GROWTH AREAS: Practical mentoring insights for faculty.
 
 CRITICAL RULES:
-1. 100% plain, conversational student-level English (zero corporate tech buzzwords).
+1. 100% plain, student-level conversational English (zero corporate buzzwords).
 2. ZERO emojis anywhere.
 3. NEVER use the forbidden word "tuition".
 
 Format output strictly as a JSON object:
 {
   "goal": "${input.goal.replace(/"/g, '\\"')}",
-  "alignmentScore": 75-92,
+  "alignmentScore": 85,
   "alignmentLevel": "Exceptional Fit | High Alignment | Moderate Alignment | Developing Fit",
-  "archetype": "3-5 word behavioral persona title (e.g. Pragmatic Problem Solver & Collaborative Learner)",
-  "summary": "2-3 detailed paragraphs evaluating how the student's choices match what the professor is looking for in their goal.",
+  "predictedRole": "Role Title strictly matching the goal domain",
+  "roleReason": "1 to 2 plain English sentences explaining why based on their concrete choices.",
+  "archetype": "3-5 word behavioral persona title",
+  "summary": "2 concise paragraphs on how their choices match what the professor is looking for in their goal.",
   "domainBreakdown": [
     {
       "domain": "Domain Name",
-      "traitLabel": "Core trait exhibited (e.g. High Curiosity & Systematic Problem Solving)",
-      "scorePct": 70-95,
+      "traitLabel": "Core trait exhibited",
+      "scorePct": 85,
       "analysis": "1-2 sentences on their choices in this domain"
     }
   ],
   "keyStrengths": [
-    "Strength 1 relative to the goal",
-    "Strength 2",
-    "Strength 3"
+    "Concrete strength 1",
+    "Concrete strength 2",
+    "Concrete strength 3"
   ],
   "growthAreas": [
-    "Mentoring recommendation 1 for faculty",
-    "Mentoring recommendation 2"
+    "Practical mentoring tip 1 for faculty",
+    "Practical mentoring tip 2 for faculty"
   ],
   "radicalFlags": []
 }`;
@@ -1806,7 +1822,7 @@ Format output strictly as a JSON object:
     const completion = await this.withSlot(() =>
       this.getClient().chat.completions.create({
         model: 'deepseek-chat',
-        temperature: 0.5,
+        temperature: 0.35,
         max_tokens: 2500,
         response_format: { type: 'json_object' },
         messages: [
@@ -1826,6 +1842,12 @@ Format output strictly as a JSON object:
 
     if (!parsed || typeof parsed.alignmentScore !== 'number') {
       return null;
+    }
+
+    if (!parsed.predictedRole || !parsed.roleReason) {
+      const fallback = this.fallbackStudentEvaluation(input);
+      parsed.predictedRole = parsed.predictedRole || fallback.predictedRole;
+      parsed.roleReason = parsed.roleReason || fallback.roleReason;
     }
 
     return parsed;
@@ -1884,12 +1906,58 @@ Format output strictly as a JSON object:
             : 'Developing Fit';
 
     const goalSnippet = input.goal.length > 80 ? `${input.goal.slice(0, 77)}...` : input.goal;
+    const goalLower = input.goal.toLowerCase();
+    let predictedRole = 'Practical Solutions Specialist';
+    let roleReason = 'Demonstrated steady decision-making, systematic follow-through, and practical ownership of assigned tasks.';
+    let archetype = 'Practical Problem Solver & Collaborative Thinker';
+
+    if (goalLower.includes('doctor') || goalLower.includes('medic') || goalLower.includes('patient') || goalLower.includes('clinic') || goalLower.includes('surg') || goalLower.includes('health') || goalLower.includes('hospital')) {
+      if (goalLower.includes('surg') || goalLower.includes('emergency')) {
+        predictedRole = 'Emergency Medicine & Surgical Specialist';
+        roleReason = `${input.candidateName} made quick, decisive choices during high-pressure scenarios and prioritized urgent patient stabilization over prolonged deliberation.`;
+        archetype = 'Decisive High-Pressure Clinician';
+      } else if (goalLower.includes('research') || goalLower.includes('patholog') || goalLower.includes('lab')) {
+        predictedRole = 'Diagnostic Pathologist & Medical Researcher';
+        roleReason = `${input.candidateName} consistently preferred step-by-step investigation, double-checking laboratory data, and structured verification over rushed conclusions.`;
+        archetype = 'Systematic Clinical Investigator';
+      } else {
+        predictedRole = 'General Physician - Patient Care & Family Practice';
+        roleReason = `${input.candidateName} prioritized active listening, empathetic patient communication, and long-term preventive treatment over high-stress surgical interventions.`;
+        archetype = 'Empathetic Patient-Centered Physician';
+      }
+    } else if (goalLower.includes('backend') || goalLower.includes('database') || goalLower.includes('server') || goalLower.includes('system') || goalLower.includes('algorithm')) {
+      predictedRole = 'Backend Systems Engineer';
+      roleReason = `${input.candidateName} favored structured logic, system stability, and methodical debugging rather than superficial visual changes.`;
+      archetype = 'Structured Systems Architect';
+    } else if (goalLower.includes('frontend') || goalLower.includes('ui') || goalLower.includes('ux') || goalLower.includes('design') || goalLower.includes('visual')) {
+      predictedRole = 'UI/UX & Frontend Developer';
+      roleReason = `${input.candidateName} demonstrated a strong eye for user interface details, creative problem-solving, and visual presentation trade-offs.`;
+      archetype = 'User Experience & Interface Designer';
+    } else if (goalLower.includes('sales') || goalLower.includes('client') || goalLower.includes('pitch') || goalLower.includes('market') || goalLower.includes('negotiat')) {
+      predictedRole = 'Client Solutions & Technical Sales Lead';
+      roleReason = `${input.candidateName} showed confident interpersonal communication, comfortable negotiation skills, and a strong drive to resolve customer pain points.`;
+      archetype = 'Persuasive Client Solutions Strategist';
+    } else if (goalLower.includes('finance') || goalLower.includes('bank') || goalLower.includes('invest') || goalLower.includes('risk') || goalLower.includes('account')) {
+      predictedRole = 'Financial Risk & Investment Analyst';
+      roleReason = `${input.candidateName} preferred cautious data validation, numerical scrutiny, and thorough risk mitigation before committing resources.`;
+      archetype = 'Analytical Risk & Portfolio Evaluator';
+    } else if (goalLower.includes('product') || goalLower.includes('manage') || goalLower.includes('lead') || goalLower.includes('coord')) {
+      predictedRole = 'Product & Delivery Operations Manager';
+      roleReason = `${input.candidateName} focused on prioritizing practical team milestones, unblocking coworkers, and balancing competing priorities efficiently.`;
+      archetype = 'Pragmatic Team & Delivery Coordinator';
+    } else {
+      predictedRole = `${input.goal.split(/[,.;:-]/)[0]?.trim().slice(0, 36) || 'Specialist'} Practitioner`;
+      roleReason = `${input.candidateName} showed steady commitment to structured progress and balanced individual responsibility with collaborative feedback.`;
+      archetype = 'Goal-Oriented Practical Performer';
+    }
 
     return {
       goal: input.goal,
       alignmentScore,
       alignmentLevel,
-      archetype: 'Practical Problem Solver & Collaborative Thinker',
+      archetype,
+      predictedRole,
+      roleReason,
       summary: `${input.candidateName} demonstrated a strong, constructive behavioral approach across the assessment, with high engagement in problem-solving and situational dilemmas. Their choices show a healthy balance between independent initiative and receptivity to peer feedback.\n\nRelative to the faculty goal ("${goalSnippet}"), the candidate exhibits steady decision-making discipline, practical ownership of tasks, and an inclination toward structured progress when faced with open-ended challenges.`,
       domainBreakdown,
       keyStrengths: [

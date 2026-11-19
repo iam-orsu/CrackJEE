@@ -303,7 +303,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                             {isPsychometric ? (
                               <>
                                 <th className="px-3 py-2.5 text-center">Goal Alignment</th>
-                                <th className="px-3 py-2.5">Behavioral Archetype</th>
+                                <th className="px-3 py-2.5">Predicted Best-Fit Role &amp; Summary</th>
                                 <th className="px-3 py-2.5 text-center">Attempted / Skipped</th>
                               </>
                             ) : (
@@ -327,7 +327,15 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                             const psyReport = (st.resultBreakdown as Record<string, unknown> | null)?.psychometricReport as
                               | Record<string, unknown>
                               | undefined;
-                            const archetype = (psyReport?.archetype as string) || 'Evaluating Mindset';
+                            const predictedRole =
+                              (st as { predictedRole?: string }).predictedRole ||
+                              (psyReport?.predictedRole as string) ||
+                              (psyReport?.archetype as string) ||
+                              'Evaluating Mindset';
+                            const roleReason =
+                              (st as { roleReason?: string }).roleReason ||
+                              (psyReport?.roleReason as string) ||
+                              null;
                             const attemptedCount = Math.max(0, report.questionAnalytics.length - st.unattemptedCount);
 
                             return (
@@ -364,10 +372,17 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                                         {st.totalScore}%
                                       </span>
                                     </td>
-                                    <td className="px-3 py-3">
-                                      <span className="rounded-full bg-[#803688]/10 px-2.5 py-0.5 text-[11.5px] font-bold text-[#803688]">
-                                        {archetype}
-                                      </span>
+                                    <td className="px-3 py-3 max-w-[340px]">
+                                      <div className="flex flex-col gap-1">
+                                        <span className="inline-block w-fit rounded-full bg-[#803688]/15 px-2.5 py-0.5 text-[11.5px] font-extrabold text-[#803688]">
+                                          {predictedRole}
+                                        </span>
+                                        {roleReason && (
+                                          <p className="text-[12px] font-normal leading-relaxed text-[#475569]">
+                                            {roleReason}
+                                          </p>
+                                        )}
+                                      </div>
                                     </td>
                                     <td className="px-3 py-3 text-center text-[12px]">
                                       <span className="font-semibold text-[#003366]">{attemptedCount}</span>
@@ -950,6 +965,30 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                       </div>
                     </div>
                   </div>
+
+                  {isSubPsychometric && (
+                    (() => {
+                      const psy = activeSubmission.score.psychometricReport as { predictedRole?: string; roleReason?: string; archetype?: string } | undefined;
+                      const role = psy?.predictedRole || psy?.archetype;
+                      const reason = psy?.roleReason;
+                      if (!role && !reason) return null;
+                      return (
+                        <div className="flex flex-col gap-1.5 rounded-2xl border border-[#803688]/20 bg-[#FDF8FF] p-4">
+                          <div className="flex items-center gap-2">
+                            <span className="text-[11.5px] font-bold uppercase tracking-wider text-[#803688]">Predicted Best-Fit Role:</span>
+                            <span className="rounded-full bg-[#803688] px-2.5 py-0.5 text-[11.5px] font-extrabold text-white">
+                              {role}
+                            </span>
+                          </div>
+                          {reason && (
+                            <p className="text-[13px] leading-relaxed text-[#334155]">
+                              {reason}
+                            </p>
+                          )}
+                        </div>
+                      );
+                    })()
+                  )}
 
                   {/* Filter Submissions Tabs */}
                   <div className="flex items-center justify-between gap-3 border-b border-[#003366]/10 pb-3">

@@ -322,6 +322,7 @@ export interface FacultyAssignmentSummary {
   startTime: string | null;
   endTime: string | null;
   showSolutions: boolean;
+  showGoalToStudents?: boolean;
   status: string;
   createdAt: string;
   paper: {
@@ -369,6 +370,16 @@ export interface FacultyStudentSubmission {
     unattemptedCount: number;
     timeTakenSeconds: number;
     submittedAt: string | null;
+    psychometricReport?: {
+      predictedRole?: string;
+      roleReason?: string;
+      archetype?: string;
+      alignmentScore?: number;
+      alignmentLevel?: string;
+      summary?: string;
+      keyStrengths?: string[];
+      growthAreas?: string[];
+    } | null;
   };
   questions: Array<{
     number: number;
@@ -567,6 +578,7 @@ export async function facultyCreateAssignment(input: {
   startTime?: string | null;
   endTime?: string | null;
   showSolutions?: boolean;
+  showGoalToStudents?: boolean;
 }) {
   return facultyFetch<{ assignment: Record<string, unknown> }>('/assignments', {
     method: 'POST',
