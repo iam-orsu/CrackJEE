@@ -40,7 +40,7 @@ export function createApp(): express.Express {
   app.use(requestIdMiddleware);
   app.use(helmet(helmetOptions));
   app.use(cors(buildCorsOptions()));
-  app.use(express.json({ limit: '2mb' }));
+  app.use(express.json({ limit: '10mb' }));
   app.use(apiLimiter);
 
   app.use((req, res, next) => {

@@ -354,5 +354,92 @@ describe('Fault Tolerance, Auth Lifecycle & Active Exam Resilience', () => {
       const result = await mockService.submitMock('stud-2', 'mock-exam-1');
       assert.equal(result.resultId, 'mock-res-555');
     });
+
+    it('handles 20 concurrent duplicate submitExam requests safely without throwing or duplicating state', async () => {
+      const mockSession = {
+        id: 'sess-concurrent-1',
+        assignmentId: 'asg-conc',
+        studentId: 'stud-conc',
+        status: 'submitted',
+        totalScore: 240,
+        maxScore: 300,
+        correctCount: 60,
+        partialCount: 0,
+        incorrectCount: 0,
+        unattemptedCount: 15,
+      };
+
+      const fakeExamRepo: any = {
+        findByAssignmentAndStudent: async () => mockSession,
+      };
+
+      const service = new FacultyStudentExamService(
+        {} as any,
+        {} as any,
+        fakeExamRepo,
+      );
+
+      // Launch 20 concurrent submissions
+      const submissions = Array.from({ length: 20 }, () =>
+        service.submitExam('asg-conc', 'stud-conc', { '1': 'B' }, 3500)
+      );
+
+      const results = await Promise.all(submissions);
+      assert.equal(results.length, 20);
+      for (const res of results) {
+        assert.equal(res.success, true);
+        assert.equal(res.alreadySubmitted, true);
+        assert.equal(res.totalScore, 240);
+      }
+    });
+
+    it('verifies token refresh session age boundary: accepts 6.9 days old session, rejects 7.1 days old session', async () => {
+      const mockUserRepo: any = {
+        existsById: async () => true,
+      };
+
+      // 6.9 days old session
+      const validAgeToken = jwt.sign(
+        { userId: 'student-valid-age', sessionStart: Date.now() - (6.9 * 24 * 60 * 60 * 1000) },
+        TEST_SECRET,
+        { algorithm: 'HS256', expiresIn: -60 },
+      );
+
+      let nextCalledValid = false;
+      const reqValid: any = { headers: { authorization: `Bearer ${validAgeToken}` } };
+      const resValid: any = { status: () => resValid, json: () => {} };
+
+      await new Promise<void>((resolve, reject) => {
+        requireRefreshableAuth(reqValid, resValid, (err?: any) => {
+          if (err) reject(err);
+          else {
+            nextCalledValid = true;
+            resolve();
+          }
+        }, mockUserRepo);
+      });
+      assert.equal(nextCalledValid, true);
+
+      // 7.1 days old session
+      const tooOldToken = jwt.sign(
+        { userId: 'student-too-old', sessionStart: Date.now() - (7.1 * 24 * 60 * 60 * 1000) },
+        TEST_SECRET,
+        { algorithm: 'HS256', expiresIn: -60 },
+      );
+
+      let statusOld = 0;
+      let jsonOld: any = null;
+      let nextCalledOld = false;
+      const reqOld: any = { headers: { authorization: `Bearer ${tooOldToken}` } };
+      const resOld: any = {
+        status: (code: number) => { statusOld = code; return resOld; },
+        json: (data: any) => { jsonOld = data; },
+      };
+
+      requireRefreshableAuth(reqOld, resOld, () => { nextCalledOld = true; }, mockUserRepo);
+      assert.equal(nextCalledOld, false);
+      assert.equal(statusOld, 401);
+      assert.equal(jsonOld.error, 'Session expired, please log in again');
+    });
   });
 });
