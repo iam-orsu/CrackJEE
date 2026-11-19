@@ -1048,6 +1048,29 @@ Format as JSON:
       age?: number;
     },
   ): Promise<FacultyPsychometricItem[] | null> {
+    const THEMATIC_PERSPECTIVES = [
+      {
+        title: 'Core Problem-Solving & Analytical Instincts',
+        focus: `Explore candidate natural instincts when facing fundamental challenges related to: "${examGoal}". Do they prefer step-by-step logic, finding root causes, and rigorous analysis vs quick surface fixes?`,
+      },
+      {
+        title: 'Craftsmanship, Attention to Detail & End-User / Client Experience',
+        focus: `Explore how candidate observes details, craftsmanship, visual or operational presentation, and the experience of users/patients/clients in scenarios related to: "${examGoal}".`,
+      },
+      {
+        title: 'Explaining Ideas, Communication & People Empathy',
+        focus: `Explore how candidate communicates, explains complex specialized matters in simple terms, listens actively, and handles customer/patient/peer dilemmas in scenarios related to: "${examGoal}".`,
+      },
+      {
+        title: 'Planning, Delivering Complete Outcomes & Coordination',
+        focus: `Explore how candidate coordinates tasks, manages deadlines, builds complete end-to-end solutions, and takes personal ownership in scenarios related to: "${examGoal}".`,
+      },
+      {
+        title: 'Practical Curiosity, Self-Driven Exploration & Handling Setbacks',
+        focus: `Explore candidate genuine curiosity, eagerness to explore new methods, and perseverance when encountering unexpected hurdles related to: "${examGoal}".`,
+      },
+    ];
+
     const CHUNK_SIZE = 8;
     const chunkCounts: number[] = [];
     let rem = questionCount;
@@ -1057,37 +1080,101 @@ Format as JSON:
       rem -= take;
     }
 
-    const chunkPromises = chunkCounts.map((count, idx) =>
-      this.callFacultyAiChunk(
+    const collected: FacultyPsychometricItem[] = [];
+
+    const computeTokenOverlap = (text1: string, text2: string): number => {
+      const normalize = (t: string) =>
+        new Set(
+          t
+            .toLowerCase()
+            .replace(/[^a-z0-9\s]/g, '')
+            .split(/\s+/)
+            .filter(
+              (w) =>
+                w.length > 3 &&
+                ![
+                  'when',
+                  'what',
+                  'which',
+                  'would',
+                  'your',
+                  'this',
+                  'that',
+                  'with',
+                  'from',
+                  'have',
+                  'project',
+                  'student',
+                  'about',
+                  'their',
+                  'there',
+                  'they',
+                  'them',
+                  'some',
+                ].includes(w),
+            ),
+        );
+      const words1 = normalize(text1);
+      const words2 = normalize(text2);
+      if (words1.size === 0 || words2.size === 0) return 0;
+      let matches = 0;
+      for (const w of words1) {
+        if (words2.has(w)) matches++;
+      }
+      const union = new Set([...words1, ...words2]).size;
+      return union > 0 ? matches / union : 0;
+    };
+
+    const isDuplicateItem = (item: FacultyPsychometricItem): boolean => {
+      const itemQ = item.questionText.trim().toLowerCase();
+      return collected.some((existing) => {
+        const existQ = existing.questionText.trim().toLowerCase();
+        if (existQ === itemQ) return true;
+        if (computeTokenOverlap(existing.questionText, item.questionText) > 0.35) return true;
+        if (existing.scenarioText && item.scenarioText && computeTokenOverlap(existing.scenarioText, item.scenarioText) > 0.38) return true;
+        return false;
+      });
+    };
+
+    for (let idx = 0; idx < chunkCounts.length; idx++) {
+      const count = chunkCounts[idx]!;
+      const theme = THEMATIC_PERSPECTIVES[idx % THEMATIC_PERSPECTIVES.length]!;
+      const previousQuestions = collected.map((item) => ({
+        questionText: item.questionText,
+        scenarioText: item.scenarioText,
+      }));
+
+      const chunk = await this.callFacultyAiChunk(
         idx,
         chunkCounts.length,
         count,
         domains,
         examGoal,
         targetProfile,
-      ),
-    );
+        theme,
+        previousQuestions,
+      );
 
-    const chunkResults = await Promise.all(chunkPromises);
-    const collected: FacultyPsychometricItem[] = [];
-    const seenTexts = new Set<string>();
-
-    for (const chunk of chunkResults) {
-      if (!chunk) continue;
-      for (const item of chunk) {
-        const normalized = item.questionText.trim().toLowerCase();
-        if (!seenTexts.has(normalized)) {
-          seenTexts.add(normalized);
-          collected.push(item);
+      if (chunk) {
+        for (const item of chunk) {
+          if (!isDuplicateItem(item) && collected.length < questionCount) {
+            collected.push(item);
+          }
         }
       }
     }
 
-    // If slightly short due to duplicate filtering, make quick supplementary calls to top up
+    // If slightly short due to duplicate filtering, make supplementary calls with distinct theme & previous question exclusion
     let attempts = 0;
     while (collected.length < questionCount && attempts < 2) {
       attempts++;
       const needed = questionCount - collected.length;
+      const theme = THEMATIC_PERSPECTIVES[(chunkCounts.length + attempts) % THEMATIC_PERSPECTIVES.length]!;
+      const previousQuestions = collected.map((item) => ({
+        questionText: item.questionText,
+        scenarioText: item.scenarioText,
+      }));
+
       try {
         const supplement = await this.callFacultyAiChunk(
           chunkCounts.length + attempts,
@@ -1096,12 +1183,12 @@ Format as JSON:
           domains,
           examGoal,
           targetProfile,
+          theme,
+          previousQuestions,
         );
         if (supplement && supplement.length > 0) {
           for (const item of supplement) {
-            const normalized = item.questionText.trim().toLowerCase();
-            if (!seenTexts.has(normalized) && collected.length < questionCount) {
-              seenTexts.add(normalized);
+            if (!isDuplicateItem(item) && collected.length < questionCount) {
               collected.push(item);
             }
           }
@@ -1121,9 +1208,7 @@ Format as JSON:
     if (collected.length < questionCount) {
       const fallbackItems = this.generateFacultyPsychometricFallback(domains, examGoal, questionCount);
       for (const item of fallbackItems) {
-        const normalized = item.questionText.trim().toLowerCase();
-        if (!seenTexts.has(normalized) && collected.length < questionCount) {
-          seenTexts.add(normalized);
+        if (!isDuplicateItem(item) && collected.length < questionCount) {
           collected.push(item);
         }
       }
@@ -1148,16 +1233,27 @@ Format as JSON:
       ageGroup?: string;
       age?: number;
     },
+    thematicAngle?: {
+      title: string;
+      focus: string;
+    },
+    previousQuestions?: Array<{ questionText: string; scenarioText?: string | null }>,
   ): Promise<FacultyPsychometricItem[] | null> {
+    const theme = thematicAngle || {
+      title: 'General Mindset & Problem-Solving',
+      focus: `Explore candidate natural instincts, passion, and problem-solving preferences in relation to: "${examGoal}".`,
+    };
+
     const cohortInfo = targetProfile
       ? `\nTARGET CANDIDATE AUDIENCE COHORT:
-- Target Education / Level: ${targetProfile.studentLevel || 'Intermediate / Higher Secondary'} ${targetProfile.schoolClass ? `(${targetProfile.schoolClass})` : ''}
-- What They Are Studying (Stream / Branch / Subject): ${targetProfile.stream || 'General'}
-- Target Age Group: ${targetProfile.ageGroup || (targetProfile.age ? `${targetProfile.age} years old` : '16-18 years')}
+- Target Education / Level: ${targetProfile.studentLevel || 'Student / Early Career'} ${targetProfile.schoolClass ? `(${targetProfile.schoolClass})` : ''}
+- Stream / Branch / Specialization: ${targetProfile.stream || 'General'}
+- Target Age Group: ${targetProfile.ageGroup || (targetProfile.age ? `${targetProfile.age} years old` : 'College / Early Career')}
 
-COHORT & STREAM CALIBRATION:
-- CRITICAL: Generate questions, situational dilemmas, and reasoning puzzles directly calibrated around what they are studying ("${targetProfile.stream || 'General'}"). If Medical, use healthcare, biology, clinical curiosity, lab measurements. If Science, use physics/chemistry experiments, observation logic. If Computer Science, use beginner coding logic, simple website for school club, debugging steps. If Commerce, use budgeting, resource dividing, student business stall.
-- Calibrate language and dilemma maturity to the target age group ("${targetProfile.ageGroup || '16-18 years'}"). Keep scenarios age-appropriate without corporate jargon.\n`
+COHORT CALIBRATION:
+- Calibrate scenarios and questions to the candidate level (${targetProfile.studentLevel || 'Student'}).
+- If candidates are beginners or early-year students, do NOT assume advanced industry tooling or professional framework experience.
+- Base questions on fundamental principles, everyday technology/services, practical group situations, or relatable problem-solving challenges.\n`
       : '';
 
     const hasCognitive = domains.some((d) => {
@@ -1167,49 +1263,99 @@ COHORT & STREAM CALIBRATION:
 
     const modelDiversityText = hasCognitive
       ? `   - "COGNITIVE_MCQ": Objective problem-solving or practical reasoning puzzle with 4 options (specify correct key in "correctAnswer")
-   - "SCENARIO_ACTION_MCQ": Vivid 2-3 sentence realistic dilemma with 4 behavioral choices
-   - "AGREEMENT_LIKERT": 5 options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"]
-   - "FREQUENCY_SCALE": 5 options: ["Never", "Rarely", "Sometimes", "Often", "Always"]
-   - "PASSION_SCALE": 4 options: ["Not Interested", "Slightly Interested", "Interested", "Passionate"]`
-      : `   - "SCENARIO_ACTION_MCQ": Vivid 2-3 sentence realistic dilemma with 4 behavioral choices
-   - "AGREEMENT_LIKERT": 5 options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"]
-   - "FREQUENCY_SCALE": 5 options: ["Never", "Rarely", "Sometimes", "Often", "Always"]
-   - "PASSION_SCALE": 4 options: ["Not Interested", "Slightly Interested", "Interested", "Passionate"]
-   - DO NOT generate "COGNITIVE_MCQ" or objective math/science/circuit tests because Cognitive Ability Tests was NOT selected by the professor.`;
+   - "SCENARIO_ACTION_MCQ": Relatable 2-3 sentence dilemma directly reflecting "${examGoal}" with 4 distinct action choices (A, B, C, D) representing distinct behavioral paths or mindsets relevant to "${examGoal}"
+   - "AGREEMENT_LIKERT": In-depth self-reflective statement based on "${examGoal}" with 5 options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"]
+   - "FREQUENCY_SCALE": In-depth inquiry into natural habits based on "${examGoal}" with 5 options: ["Never", "Rarely", "Sometimes", "Often", "Always"]
+   - "PASSION_SCALE": In-depth inquiry into genuine excitement with 4 options: ["Not Interested", "Slightly Interested", "Interested", "Passionate"]`
+      : `   - "SCENARIO_ACTION_MCQ": Relatable 2-3 sentence dilemma directly reflecting "${examGoal}" with 4 distinct action choices (A, B, C, D) representing distinct behavioral paths or mindsets relevant to "${examGoal}"
+   - "AGREEMENT_LIKERT": In-depth self-reflective statement based on "${examGoal}" with 5 options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"]
+   - "FREQUENCY_SCALE": In-depth inquiry into natural habits based on "${examGoal}" with 5 options: ["Never", "Rarely", "Sometimes", "Often", "Always"]
+   - "PASSION_SCALE": In-depth inquiry into genuine excitement with 4 options: ["Not Interested", "Slightly Interested", "Interested", "Passionate"]
+   - DO NOT generate "COGNITIVE_MCQ" or objective math/science tests because Cognitive was NOT selected by the professor.`;
 
-    const prompt = `You are an educational talent evaluator and practical psychometrician creating questions for a faculty test paper.
+    const previousExclusionBlock =
+      previousQuestions && previousQuestions.length > 0
+        ? `\nPREVIOUSLY GENERATED QUESTIONS IN THIS EXAM (STRICTLY FORBIDDEN TO REPEAT OR DUPLICATE ANY OF THESE SCENARIOS OR THEMES):
+${previousQuestions
+  .map(
+    (q, i) =>
+      `  ${i + 1}. [Question] "${q.questionText}"${q.scenarioText ? ` | [Scenario] "${q.scenarioText.slice(0, 100)}..."` : ''}`,
+  )
+  .join('\n')}
+CRITICAL: Every question you generate in this section MUST explore a completely different dilemma, situation, and choice set from all the questions listed above.\n`
+        : '';
 
-EVALUATION GOAL / FACULTY TARGET:
+    const prompt = `You are an expert talent evaluator and psychometric assessor designing deep, introspective evaluation questions for candidates.
+
+PROFESSOR'S SPECIFIC EVALUATION GOAL:
 "${examGoal}"
 ${cohortInfo}
 DOMAINS TO COVER:
 ${domains.map((d, i) => `${i + 1}. ${d}`).join('\n')}
 
-BATCH: Section ${chunkIndex + 1} of ${totalChunks}
-GENERATE EXACTLY ${count} 100% ORIGINAL, UNIQUE QUESTIONS.
+SECTION ${chunkIndex + 1} OF ${totalChunks}:
+SPECIFIC THEME FOR THIS SECTION: "${theme.title}"
+THEMATIC INSTRUCTIONS:
+${theme.focus}
+${previousExclusionBlock}
+GENERATE EXACTLY ${count} 100% ORIGINAL, UNIQUE QUESTIONS FOR THIS SECTION.
 
-CRITICAL RULES AND REQUIREMENTS:
-1. QUESTION MODEL DIVERSITY:
+STRICT FRAMING & VOCABULARY RULES:
+1. 100% DYNAMIC TO PROFESSOR'S GOAL:
+   - Carefully read the professor's goal: "${examGoal}".
+   - Detect the exact industry, discipline, or field implied by this goal (e.g. Medicine/Healthcare, Engineering/Software, Commerce/Business, Arts/Design, Aviation, Law, etc.).
+   - Dynamically identify the distinct career tracks, mindsets, skill dimensions, or behavioral paths relevant to this goal.
+   - Every scenario, question, dilemma, and option choice MUST be directly relevant to "${examGoal}".
+   - ZERO HARDCODING: Do NOT assume or default to software, coding, sales, or IT unless the professor's goal explicitly asks for it! If medical, use medical and patient care situations. If commerce, use business and client dilemmas. If engineering, use practical engineering challenges.
+
+2. ZEAL & INTROSPECTIVE DEPTH (NO LAZY ONE-LINERS):
+   - Questions must have energy and probe what genuinely excites the candidate and how their mind works.
+   - Questions should feel like an honest, engaging self-discovery conversation with an inspiring mentor.
+   - STRICTLY FORBIDDEN: NEVER generate lazy, shallow, generic one-line fillers like:
+     * "How often do you check your work for small errors?"
+     * "I prefer clear instructions."
+     * "I like working with computers."
+   - INSTEAD, craft questions that explore genuine passion, real dilemmas, and deep thinking habits. Examples of the energy and tone desired:
+     * "When given a new problem in this field, what do you naturally prefer doing first?"
+     * "When using or examining an application, service, or system, what grabs your attention first?"
+     * "How comfortable are you explaining a specialized or technical concept to someone with no background in it?"
+     * "If given 30 days to build or investigate anything from scratch in this field, what would you choose to do and why?"
+     * "Would you prefer working deeply on one specialized challenge or coordinating different parts to build a complete outcome?"
+
+3. ZERO POSH OR FANCY VOCABULARY:
+   - STRICTLY FORBIDDEN: Do NOT use posh, pretentious, or academic words like "instinctively", "clunky", "gravitate", "dichotomy", "aesthetic", "juxtaposition", "tapestry", "paradigm", "plethora", "propensity", "nuanced".
+   - Use simple, grounded, everyday spoken English that any student or beginner understands immediately.
+
+4. COHORT-APPROPRIATE (NO ADVANCED PROFESSIONAL JARGON):
+   - Beginners have NOT learned advanced professional frameworks or tooling.
+   - STRICTLY FORBIDDEN: Do NOT write "JavaScript framework", "asymptotic complexity", "microservices", "refactoring", "SQL database joins", "sprint retrospective", "production bugs" unless explicitly specified in the goal.
+
+5. PRESERVE MANDATORY QUESTION FORMATS:
    Distribute these question models across the ${count} questions:
 ${modelDiversityText}
 
-CRITICAL DOMAIN RESTRICTIONS:
-- You must generate questions ONLY for the selected domains:
-${domains.map((d, i) => `  ${i + 1}. ${d}`).join('\n')}
-- Every question's "domain" field MUST match one of the exact domains above.
-${!hasCognitive ? '- STRICT EXCLUSION: Do NOT generate any Cognitive Ability, math puzzles, circuit puzzles, or logic problem questions. Cognitive was NOT selected by the professor.\n' : ''}
+   - For "SCENARIO_ACTION_MCQ":
+     Provide a relatable 2-3 sentence situation directly reflecting "${examGoal}".
+     Provide 4 distinct action choices (A, B, C, D) representing distinct behavioral paths or mindsets relevant to "${examGoal}".
+     Every option must represent a realistic, authentic decision that a candidate might take.
+   - For "AGREEMENT_LIKERT":
+     The questionText must be an in-depth, self-reflective statement probing a genuine personal attitude, working preference, or mindset related to "${examGoal}".
+     The options MUST BE strictly:
+     ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"]
+   - For "FREQUENCY_SCALE":
+     The questionText must be an in-depth inquiry into how often the candidate naturally engages in a specific thinking habit, learning behavior, or problem-solving practice related to "${examGoal}".
+     The options MUST BE strictly:
+     ["Never", "Rarely", "Sometimes", "Often", "Always"]
+   - For "PASSION_SCALE":
+     The questionText must explore genuine passion and excitement for an activity, challenge, or area related to "${examGoal}".
+     The options MUST BE strictly:
+     ["Not Interested", "Slightly Interested", "Interested", "Passionate"]
 
-2. 100% STUDENT-LEVEL SITUATIONS & CONVERSATIONAL VOCABULARY:
-   - ZERO corporate or senior tech buzzwords (NEVER write "microservices", "throughput", "infrastructure cost", "sprint retrospective", "database schema under peak load", "asymptotic complexity", "KPIs", "refactoring", "angel investors", "stakeholders").
-   - Frame scenarios around student experiences: school/college lab experiments, simple beginner code or student club websites, group project assignments, exam schedules, study habits, peer teamwork, broken lab equipment, or practical logic puzzles.
-   - Any 12–18 year old student must easily understand every word without asking an adult or checking a dictionary.
+6. STRICT NON-REPETITION:
+   - Every single question in this section must explore a unique dilemma, scenario, or habit.
+   - Do NOT repeat questions, rephrase previous dilemmas, or reuse the same core scenario.
 
-3. CONCISE RUBRIC & EXPLANATION:
-   - In "explanation", write 1-2 concise sentences explaining what option choices indicate for the goal ("${examGoal}").
-   - In "radicalFeedbackNote", write a sharp, single-sentence diagnostic note for outlier choices.
-   - In "correctAnswer", provide the key for cognitive MCQ, or the Trait Rubric summary for opinion questions (e.g. "Trait Rubric: A=Bold Initiative, B=Cautious Mitigation, C=Consensus, D=Avoidance").
-
-4. ZERO EMOJIS. NEVER use the forbidden word "tuition".
+7. ZERO EMOJIS. NEVER use the forbidden word "tuition".
 
 Format output strictly as a JSON object:
 {
@@ -1217,8 +1363,8 @@ Format output strictly as a JSON object:
     {
       "domain": "Domain Name",
       "questionModel": "COGNITIVE_MCQ | SCENARIO_ACTION_MCQ | AGREEMENT_LIKERT | FREQUENCY_SCALE | PASSION_SCALE",
-      "scenarioText": "Vivid 2-3 sentence realistic story, or null if direct statement",
-      "questionText": "Question or statement in plain student English",
+      "scenarioText": "Relatable 2-3 sentence situation, or null if direct statement",
+      "questionText": "Question or statement in simple everyday student English",
       "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
       "correctAnswer": "Trait Rubric or Correct Key",
       "explanation": "Concise 1-2 sentence rubric explanation",
@@ -1239,7 +1385,7 @@ Format output strictly as a JSON object:
             {
               role: 'system',
               content:
-                'You are an educational psychometric assessment assistant. You generate unique student-friendly psychometric questions. Output MUST be ONLY a valid JSON object matching the requested schema.',
+                'You are an educational psychometric assessment assistant. You generate deep, engaging, student-friendly psychometric questions tailored specifically to the professor goal. Output MUST be ONLY a valid JSON object matching the requested schema.',
             },
             { role: 'user', content: prompt },
           ],
@@ -1273,18 +1419,28 @@ Format output strictly as a JSON object:
           d.toLowerCase().includes((item.domain || '').toLowerCase())
         ) || domains[idx % domains.length] || domains[0];
 
-        const model = (!hasCognitive && item.questionModel === 'COGNITIVE_MCQ')
-          ? 'SCENARIO_ACTION_MCQ'
-          : (item.questionModel || 'SCENARIO_ACTION_MCQ');
+        let model = item.questionModel || 'SCENARIO_ACTION_MCQ';
+        if (!hasCognitive && model === 'COGNITIVE_MCQ') {
+          model = 'SCENARIO_ACTION_MCQ';
+        }
+
+        let options = Array.isArray(item.options) && item.options.length > 0 ? item.options : [];
+        if (model === 'AGREEMENT_LIKERT') {
+          options = ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'];
+        } else if (model === 'FREQUENCY_SCALE') {
+          options = ['Never', 'Rarely', 'Sometimes', 'Often', 'Always'];
+        } else if (model === 'PASSION_SCALE') {
+          options = ['Not Interested', 'Slightly Interested', 'Interested', 'Passionate'];
+        } else if (options.length < 4) {
+          options = options.length >= 2 ? options : ['Option A', 'Option B', 'Option C', 'Option D'];
+        }
 
         return {
           ...item,
           number: idx + 1,
           domain: matchingDomain,
           questionModel: model,
-          options: Array.isArray(item.options) && item.options.length > 0
-            ? item.options
-            : ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'],
+          options,
           correctAnswer: item.correctAnswer || 'Trait Rubric: Evaluated holistically based on candidate choice',
           explanation: item.explanation || 'Evaluates behavioral orientation toward target goals.',
           traitPersonaMapping: item.traitPersonaMapping || matchingDomain,

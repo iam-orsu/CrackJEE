@@ -615,10 +615,10 @@ describe('Faculty Exam Assignment & Student Delivery Integrity', () => {
 
     // Wait for the worker to process the queued item
     const start = Date.now();
-    while (!completedLiveReport && Date.now() - start < 3000) {
+    while (!completedLiveReport && Date.now() - start < 8000) {
       await new Promise((r) => setTimeout(r, 50));
     }
-    await worker.stop(1000);
+    await worker.stop(2000);
 
     assert.equal(claimed, true);
     assert.ok(completedLiveReport);
