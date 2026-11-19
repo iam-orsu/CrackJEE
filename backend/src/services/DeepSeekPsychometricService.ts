@@ -1050,24 +1050,20 @@ Format as JSON:
   ): Promise<FacultyPsychometricItem[] | null> {
     const THEMATIC_PERSPECTIVES = [
       {
-        title: 'Core Problem-Solving & Analytical Instincts',
-        focus: `Explore candidate natural instincts when facing fundamental challenges related to: "${examGoal}". Do they prefer step-by-step logic, finding root causes, and rigorous analysis vs quick surface fixes?`,
+        title: 'Core Intellectual Curiosity & Problem-Solving Archetype',
+        focus: `Assess how candidates naturally tackle complex, unmapped problems: Do they isolate root causes and mechanical logic (Investigative), simplify and design the human experience (Artistic/UX), persuade and align stakeholders (Enterprising), or coordinate end-to-end delivery (Organizing/Product)?`,
       },
       {
-        title: 'Craftsmanship, Attention to Detail & End-User / Client Experience',
-        focus: `Explore how candidate observes details, craftsmanship, visual or operational presentation, and the experience of users/patients/clients in scenarios related to: "${examGoal}".`,
+        title: 'Situational Judgment, Interpersonal Conflict & Risk Trade-Offs',
+        focus: `Assess how candidates navigate high-stakes dilemmas: Dealing with skeptical stakeholders, balancing perfectionism vs delivery deadlines, handling peer disagreement, and making ethical calls when discrepancies occur.`,
       },
       {
-        title: 'Explaining Ideas, Communication & People Empathy',
-        focus: `Explore how candidate communicates, explains complex specialized matters in simple terms, listens actively, and handles customer/patient/peer dilemmas in scenarios related to: "${examGoal}".`,
+        title: 'Intrinsic Motivation, Work-Values & Autonomy',
+        focus: `Assess what deeply drives the candidate: Intellectual mastery and solving hard puzzles, empathy for human ergonomics and visual craftsmanship, commercial impact and winning trust, or entrepreneurial autonomy and venture building.`,
       },
       {
-        title: 'Planning, Delivering Complete Outcomes & Coordination',
-        focus: `Explore how candidate coordinates tasks, manages deadlines, builds complete end-to-end solutions, and takes personal ownership in scenarios related to: "${examGoal}".`,
-      },
-      {
-        title: 'Practical Curiosity, Self-Driven Exploration & Handling Setbacks',
-        focus: `Explore candidate genuine curiosity, eagerness to explore new methods, and perseverance when encountering unexpected hurdles related to: "${examGoal}".`,
+        title: 'Execution Velocity, Adaptability & Team Ownership',
+        focus: `Assess candidate execution style: Methodical planning vs rapid agile pivoting, meticulous attention to detail vs high-velocity shipping, deep independent focus vs collaborative consensus, and resilience when an initiative encounters unexpected roadblocks.`,
       },
     ];
 
@@ -1240,8 +1236,8 @@ Format as JSON:
     previousQuestions?: Array<{ questionText: string; scenarioText?: string | null }>,
   ): Promise<FacultyPsychometricItem[] | null> {
     const theme = thematicAngle || {
-      title: 'General Mindset & Problem-Solving',
-      focus: `Explore candidate natural instincts, passion, and problem-solving preferences in relation to: "${examGoal}".`,
+      title: 'Core Intellectual Curiosity & Problem-Solving Archetype',
+      focus: `Assess how candidates naturally tackle complex, unmapped problems in relation to: "${examGoal}".`,
     };
 
     const cohortInfo = targetProfile
@@ -1252,8 +1248,7 @@ Format as JSON:
 
 COHORT CALIBRATION:
 - Calibrate scenarios and questions to the candidate level (${targetProfile.studentLevel || 'Student'}).
-- If candidates are beginners or early-year students, do NOT assume advanced industry tooling or professional framework experience.
-- Base questions on fundamental principles, everyday technology/services, practical group situations, or relatable problem-solving challenges.\n`
+- Frame situations in terms of accessible, relatable intellectual and organizational problem-solving without requiring specialized industry jargon unless requested in the goal.\n`
       : '';
 
     const hasCognitive = domains.some((d) => {
@@ -1263,15 +1258,26 @@ COHORT CALIBRATION:
 
     const modelDiversityText = hasCognitive
       ? `   - "COGNITIVE_MCQ": Objective problem-solving or practical reasoning puzzle with 4 options (specify correct key in "correctAnswer")
-   - "SCENARIO_ACTION_MCQ": Relatable 2-3 sentence dilemma directly reflecting "${examGoal}" with 4 distinct action choices (A, B, C, D) representing distinct behavioral paths or mindsets relevant to "${examGoal}"
-   - "AGREEMENT_LIKERT": In-depth self-reflective statement based on "${examGoal}" with 5 options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"]
-   - "FREQUENCY_SCALE": In-depth inquiry into natural habits based on "${examGoal}" with 5 options: ["Never", "Rarely", "Sometimes", "Often", "Always"]
+   - "SCENARIO_ACTION_MCQ": Realistic 2-3 sentence dilemma directly reflecting "${examGoal}" with 4 distinct action choices (A, B, C, D) representing distinct behavioral paths or mindsets
+   - "AGREEMENT_LIKERT": In-depth self-reflective statement based on the scenario with 5 options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"]
+   - "FREQUENCY_SCALE": In-depth inquiry into natural habits based on the scenario with 5 options: ["Never", "Rarely", "Sometimes", "Often", "Always"]
    - "PASSION_SCALE": In-depth inquiry into genuine excitement with 4 options: ["Not Interested", "Slightly Interested", "Interested", "Passionate"]`
-      : `   - "SCENARIO_ACTION_MCQ": Relatable 2-3 sentence dilemma directly reflecting "${examGoal}" with 4 distinct action choices (A, B, C, D) representing distinct behavioral paths or mindsets relevant to "${examGoal}"
-   - "AGREEMENT_LIKERT": In-depth self-reflective statement based on "${examGoal}" with 5 options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"]
-   - "FREQUENCY_SCALE": In-depth inquiry into natural habits based on "${examGoal}" with 5 options: ["Never", "Rarely", "Sometimes", "Often", "Always"]
+      : `   - "SCENARIO_ACTION_MCQ": Realistic 2-3 sentence dilemma directly reflecting "${examGoal}" with 4 distinct action choices (A, B, C, D) representing distinct behavioral paths or mindsets
+   - "AGREEMENT_LIKERT": In-depth self-reflective statement based on the scenario with 5 options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"]
+   - "FREQUENCY_SCALE": In-depth inquiry into natural habits based on the scenario with 5 options: ["Never", "Rarely", "Sometimes", "Often", "Always"]
    - "PASSION_SCALE": In-depth inquiry into genuine excitement with 4 options: ["Not Interested", "Slightly Interested", "Interested", "Passionate"]
    - DO NOT generate "COGNITIVE_MCQ" or objective math/science tests because Cognitive was NOT selected by the professor.`;
+
+    const domainDetails = domains
+      .map((domainName) => {
+        const def = findCardDef(domainName);
+        if (!def) return `• **${domainName}**: Assess core psychological, behavioral, and cognitive dimensions.`;
+        return `• **${def.name}** (Category: ${def.badge}):
+   - Scientific Focus: ${def.description}
+   - Key Dimensions to Evaluate: ${def.subtopics.join(', ')}
+   - Validated Frameworks: ${def.frameworks.join(', ')}`;
+      })
+      .join('\n\n');
 
     const previousExclusionBlock =
       previousQuestions && previousQuestions.length > 0
@@ -1285,83 +1291,79 @@ ${previousQuestions
 CRITICAL: Every question you generate in this section MUST explore a completely different dilemma, situation, and choice set from all the questions listed above.\n`
         : '';
 
-    const prompt = `You are an expert talent evaluator and psychometric assessor designing cool, deep, introspective evaluation questions for candidates.
+    const prompt = `You are an expert psychometrician and occupational psychologist designing a scientifically rigorous, engaging psychometric assessment.
 
-PROFESSOR'S SPECIFIC EVALUATION GOAL:
+PROFESSOR'S STRATEGIC EVALUATION GOAL:
 "${examGoal}"
 ${cohortInfo}
-DOMAINS TO COVER:
-${domains.map((d, i) => `${i + 1}. ${d}`).join('\n')}
+SELECTED PSYCHOMETRIC DOMAINS (EVERY QUESTION MUST STRICTLY BELONG TO ONE OF THESE):
+${domainDetails}
 
 SECTION ${chunkIndex + 1} OF ${totalChunks}:
-SPECIFIC THEME FOR THIS SECTION: "${theme.title}"
+THEMATIC PERSPECTIVE FOR THIS SECTION: "${theme.title}"
 THEMATIC INSTRUCTIONS:
 ${theme.focus}
 ${previousExclusionBlock}
-GENERATE EXACTLY ${count} 100% ORIGINAL, UNIQUE QUESTIONS FOR THIS SECTION.
+GENERATE EXACTLY ${count} 100% ORIGINAL, SCIENTIFICALLY SOUND PSYCHOMETRIC QUESTIONS FOR THIS SECTION.
 
-CRITICAL RULES FOR COOL, ENGAGING QUESTIONS:
-1. 100% DYNAMIC TO PROFESSOR'S GOAL:
-   - Carefully read the professor's goal: "${examGoal}".
-   - Detect the exact industry, discipline, or field implied by this goal (e.g. Medicine/Healthcare, Engineering/Software, Commerce/Business, Arts/Design, Aviation, Law, etc.).
-   - Dynamically identify the distinct career tracks, mindsets, skill dimensions, or behavioral paths relevant to this goal.
-   - Every scenario, question, dilemma, and option choice MUST be directly relevant to "${examGoal}".
-   - ZERO HARDCODING: Do NOT assume or default to software, coding, sales, or IT unless the professor's goal explicitly asks for it! If medical, use medical and patient care situations. If commerce, use business and client dilemmas. If engineering, use practical engineering challenges.
+CRITICAL MANDATES FOR AUTHENTIC PSYCHOMETRICS:
+1. STRICT NEGATIVE BAN ON NARROW CODING CHORES & APP-BUILDING CLICHÉS:
+   - STRICTLY FORBIDDEN: NEVER write scenarios about literal programming chores, like:
+     * "You are building a college fest app..."
+     * "You are designing a registration page or website..."
+     * "You are helping a shop with an online order form..."
+     * "You are building a calculator app..."
+     * "You notice a bug in the code or database..."
+     * "A teammate suggests a new framework or library..."
+   - A psychometric test filled with repetitive app-building questions is a failure of psychometrics. Candidates are taking a psychological assessment, not a junior web dev quiz.
 
-2. MANDATORY RICH SCENARIO PREMISE (ZERO NAKED ONE-LINERS):
-   - STRICTLY FORBIDDEN: NEVER generate a lazy, naked 1-line question or statement!
-   - "scenarioText" is MANDATORY FOR EVERY QUESTION. It must NEVER be null, empty, or a single vague sentence.
-   - For every question, write a vivid, realistic 2-3 sentence situation, project dilemma, team challenge, client interaction, or thought experiment based directly on "${examGoal}".
-   - Then "questionText" poses the specific decision, inquiry, or reflection based on that situation.
+2. REAL-WORLD HUMAN, ORGANIZATIONAL & INTELLECTUAL DILEMMAS:
+   Ground scenarios in realistic, relatable situations:
+   - Deep intellectual curiosity and problem-solving styles (e.g. dissecting underlying root causes vs managing surface symptoms)
+   - High-stakes team trade-offs (e.g. uncompromising quality vs tight deadlines, challenging a dominant peer vs preserving group harmony)
+   - Stakeholder & interpersonal communication (e.g. explaining complex specialized insights to skeptical non-experts without jargon, reading unspoken hesitation in meetings)
+   - Personal accountability & ethics (e.g. discovering a subtle flaw that others missed, admitting an oversight vs hiding it)
+   - Strategic initiative & ambiguity (e.g. navigating completely open-ended projects where there is no manual or established roadmap)
 
-3. QUESTION MODEL BALANCE & ENERGY:
-   - At least 60% of the questions generated MUST be "SCENARIO_ACTION_MCQ" featuring vivid dilemmas with 4 distinct, rich behavioral actions (A, B, C, D) representing distinct paths/mindsets in this field.
-   - The remaining questions may be "AGREEMENT_LIKERT", "FREQUENCY_SCALE", or "PASSION_SCALE", but they MUST STILL have the mandatory 2-3 sentence "scenarioText" setting up the premise!
-   - Example of a cool question:
-     * scenarioText: "Your team is building an open-ended project for an exhibition in two weeks. You have a solid working base, but you uncover a subtle edge case that could either be solved by redesigning the underlying system logic or masked with a quick visual adjustment."
-     * questionText (for SCENARIO_ACTION_MCQ): "What would you naturally prefer doing in this situation?"
-     * options: [
-         "Dive deep into the root cause and rebuild the core logic so the foundation is solid.",
-         "Redesign the user interaction flow so users never hit the edge case in the first place.",
-         "Explain the trade-off honestly to the team and audience as a known limitation in the live demo.",
-         "Coordinate a step-by-step milestone plan with the team to fix what is possible without risking the deadline."
-       ]
-   - Notice: No lazy one-liners, no generic textbook surveys. It feels like a real, cool problem-solving dilemma!
+3. HOW TO EVALUATE CAREER PATHS PSYCHOLOGICALLY (MAPPING TO PROFESSOR'S GOAL):
+   Instead of asking about programming languages, evaluate the underlying psychological traits that predict success:
+   - Systems & Analytical Logic (Backend / Deep Tech):
+     * High Investigative curiosity (RIASEC) and Conscientiousness (Big Five).
+     * Prefers deep focused solitude, rigorous root-cause logic, mechanical understanding, and diagnosing systemic failure modes over quick cosmetic fixes.
+   - User Experience & Human Ergonomics (Frontend / UI / UX):
+     * High Artistic sensitivity (RIASEC) and Acute Empathy (EI).
+     * Deeply attuned to human emotion, observes points of friction in everyday tools/spaces, values craftsmanship, presentation, and seamless ergonomics.
+   - Influence, Solutions & Stakeholder Alignment (Technical Sales / Consulting):
+     * High Enterprising drive (RIASEC), Extraversion, and Social Intelligence.
+     * Persuasive verbal communicator, active listener who connects complex capabilities to real human pain points, resilient when facing rejection or skepticism.
+   - Venture Building & Product Coordination (Product Management / Entrepreneurship):
+     * High Autonomy (Work Values), High Tolerance for Ambiguity, and Big-Picture Synthesis.
+     * Natural coordinator who aligns competing priorities, manages risk, takes personal ownership of outcomes, and moves initiatives from chaotic ideas into operational reality.
 
-4. ZERO POSH OR FANCY VOCABULARY:
-   - STRICTLY FORBIDDEN: Do NOT use posh, pretentious, or academic words like "instinctively", "clunky", "gravitate", "dichotomy", "aesthetic", "juxtaposition", "tapestry", "paradigm", "plethora", "propensity", "nuanced".
-   - Use simple, grounded, everyday spoken English that any student or beginner understands immediately.
+4. STRICT DOMAIN FIDELITY:
+   Every question's "domain" field MUST match one of the professor's selected domains:
+   - "Personality Tests": Probes stable behavioral traits (Big Five: Conscientiousness, Openness to Experience, Agreeableness, Extraversion, Emotional Stability).
+   - "Situational Judgment Tests (SJT)": Must be a realistic multi-person dilemma with conflicting priorities or delicate trade-offs.
+   - "Motivation and Work-Values Tests": Probes intrinsic psychological drivers (Autonomy, Mastery, Commercial Achievement, Human Impact, Recognition).
+   - "Behavioral and Work-Style Assessments": Probes execution habits (methodical planning vs agility, micro-precision vs velocity, structured routine vs independent improvisation).
+   - "Emotional Intelligence (EI) Tests": Probes emotional awareness, empathy, active listening, and composure under social tension.
 
-5. COHORT-APPROPRIATE (NO ADVANCED PROFESSIONAL JARGON):
-   - Beginners have NOT learned advanced professional frameworks or tooling.
-   - STRICTLY FORBIDDEN: Do NOT write "JavaScript framework", "asymptotic complexity", "microservices", "refactoring", "SQL database joins", "sprint retrospective", "production bugs" unless explicitly specified in the goal.
-
-6. FORMAT & OPTION SPECIFICATIONS:
-   Distribute these question models across the ${count} questions:
-${modelDiversityText}
-
-   - For "SCENARIO_ACTION_MCQ":
-     "scenarioText": Vivid 2-3 sentence dilemma directly reflecting "${examGoal}".
-     "questionText": Engaging question asking how the candidate would respond.
-     "options": 4 distinct, concrete behavioral choices representing different approaches to the goal.
+5. MANDATORY QUESTION STRUCTURE:
+   - "scenarioText": MANDATORY 2-3 sentence realistic situation, thought experiment, or team dilemma (NEVER null or empty).
+   - "questionText": Clear, compelling question or reflective inquiry.
+   - For "SCENARIO_ACTION_MCQ" (at least 60% of questions):
+     Provide 4 distinct behavioral choices (A, B, C, D) representing distinct valid psychological approaches to the dilemma (e.g. analytical root-cause vs empathetic user resolution vs persuasive negotiation vs pragmatic operational compromise).
    - For "AGREEMENT_LIKERT":
-     "scenarioText": Vivid 2-3 sentence setup.
-     "questionText": In-depth self-reflective statement based on that setup.
-     "options": strictly ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"]
+     In-depth self-reflective statement based on the scenario. Options strictly: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"].
    - For "FREQUENCY_SCALE":
-     "scenarioText": Vivid 2-3 sentence setup.
-     "questionText": In-depth inquiry into how often they take that specific initiative in situations like this.
-     "options": strictly ["Never", "Rarely", "Sometimes", "Often", "Always"]
+     In-depth inquiry into how often they adopt that specific mindset or initiative. Options strictly: ["Never", "Rarely", "Sometimes", "Often", "Always"].
    - For "PASSION_SCALE":
-     "scenarioText": Vivid 2-3 sentence description of a specialized area or challenge.
-     "questionText": Inquiry into how passionate they feel about diving into this area.
-     "options": strictly ["Not Interested", "Slightly Interested", "Interested", "Passionate"]
+     Options strictly: ["Not Interested", "Slightly Interested", "Interested", "Passionate"].
 
-7. STRICT NON-REPETITION:
-   - Every single question in this section must explore a unique dilemma, scenario, or habit.
-   - Do NOT repeat questions, rephrase previous dilemmas, or reuse the same core scenario.
-
-8. ZERO EMOJIS. NEVER use the forbidden word "tuition".
+6. VOCABULARY & TONE:
+   - Use simple, grounded, everyday spoken English.
+   - NO posh or pretentious words (NEVER use "instinctively", "clunky", "gravitate", "dichotomy", "aesthetic", "juxtaposition", "tapestry", "paradigm", "plethora", "propensity", "nuanced").
+   - ZERO EMOJIS. NEVER use the forbidden word "tuition".
 
 Format output strictly as a JSON object:
 {
@@ -1391,7 +1393,7 @@ Format output strictly as a JSON object:
             {
               role: 'system',
               content:
-                'You are an educational psychometric assessment assistant. You generate deep, engaging, student-friendly psychometric questions tailored specifically to the professor goal. Output MUST be ONLY a valid JSON object matching the requested schema.',
+                'You are an expert psychometrician and occupational psychologist. You design sophisticated, engaging psychometric assessments based on validated psychological frameworks (Big Five, Holland RIASEC, Situational Judgment, Schwartz Work Values). Every question must probe deep behavioral habits, cognitive instincts, or human trade-offs. NEVER write junior programming chores, code debugging exercises, or app-building clichés.',
             },
             { role: 'user', content: prompt },
           ],
@@ -1501,7 +1503,7 @@ Format output strictly as a JSON object:
       {
         domain: 'Situational Judgment Tests (SJT)',
         questionModel: 'SCENARIO_ACTION_MCQ',
-        scenarioText: 'Your team has to present your working computer project at the college exhibition tomorrow. Tonight, you notice a small optional feature sometimes crashes, but fixing it properly would take two full days of work.',
+        scenarioText: 'Your team has to present your working initiative or project at an exhibition tomorrow. Tonight, you notice an optional feature has an issue, but fixing it properly would take two full days of work.',
         questionText: 'What is your best course of action?',
         options: [
           'Postpone participating in the exhibition until everything is completely bug-free.',
@@ -1567,7 +1569,7 @@ Format output strictly as a JSON object:
         domain: 'Career Interest Tests',
         questionModel: 'PASSION_SCALE',
         scenarioText: null,
-        questionText: 'Building a working electronic gadget, science apparatus, or computer program from scratch to solve an everyday problem.',
+        questionText: 'Building a working physical mechanism, experimental apparatus, or functional model from scratch to solve an everyday challenge.',
         options: [
           'Not Interested',
           'Slightly Interested',
@@ -1699,7 +1701,7 @@ Format output strictly as a JSON object:
         domain: 'Career Interest Tests',
         questionModel: 'AGREEMENT_LIKERT',
         scenarioText: null,
-        questionText: 'I enjoy discovering how natural systems, machines, or computer algorithms work under the hood by experimenting on my own.',
+        questionText: 'I enjoy discovering how complex natural systems, mechanisms, or functional frameworks work under the hood by experimenting on my own.',
         options: [
           'Strongly Disagree',
           'Disagree',
