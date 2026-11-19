@@ -491,9 +491,18 @@ export default function MockExamPage() {
         document.exitFullscreen?.().catch(() => {});
       }
       router.replace(`/mock/${examId}/result`);
-    } catch (e) {
+    } catch (e: unknown) {
+      const message = e instanceof Error ? e.message : 'Submission failed';
+      if (message.toLowerCase().includes('already submitted')) {
+        try { localStorage.removeItem(`mock_answers_${examId}`); } catch {}
+        if (typeof document !== 'undefined' && document.fullscreenElement) {
+          document.exitFullscreen?.().catch(() => {});
+        }
+        router.replace(`/mock/${examId}/result`);
+        return;
+      }
       submittingRef.current = false;
-      setErrorMsg(e instanceof Error ? e.message : 'Submission failed');
+      setErrorMsg(message);
       setPageStatus('exam');
     }
   }

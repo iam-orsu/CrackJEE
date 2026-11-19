@@ -62,6 +62,32 @@ export class FacultyStudentExamController {
     res.json({ success: true });
   };
 
+  public readonly refresh = async (
+    req: FacultyStudentAuthRequest,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
+    try {
+      if (!req.facultyStudent) {
+        throw new AppError(401, 'Student login required');
+      }
+      const result = this.examService.refreshSession(
+        req.facultyStudent.studentId,
+        req.facultyStudent.facultyId,
+        req.facultyStudent.batchId,
+      );
+      setFacultyStudentCookie(res, result.token);
+      res.json({
+        success: true,
+        token: result.token,
+        student: req.facultyStudent,
+        expiresAt: result.expiresAt,
+      });
+    } catch (err) {
+      next(err);
+    }
+  };
+
   public readonly me = async (
     req: FacultyStudentAuthRequest,
     res: Response,

@@ -11,20 +11,33 @@ class ApiError extends Error {
   }
 }
 
-let _refreshing = false;
+let _refreshPromise: Promise<boolean> | null = null;
+
+async function getOrInitRefresh(): Promise<boolean> {
+  if (_refreshPromise) return _refreshPromise;
+  _refreshPromise = (async () => {
+    try {
+      const res = await requestRaw<{ expiresAt: string }>('/auth/refresh', { method: 'POST' });
+      if (res?.expiresAt) {
+        setSessionExpiry(res.expiresAt);
+      }
+      return true;
+    } catch {
+      return false;
+    } finally {
+      _refreshPromise = null;
+    }
+  })();
+  return _refreshPromise;
+}
 
 async function request<T>(
   path: string,
   options: RequestInit = {},
 ): Promise<T> {
-  // Silent background session renewal — skips for the refresh endpoint itself. The server sets a new cookie.
-  if (!_refreshing && path !== '/auth/refresh' && shouldRefresh()) {
-    _refreshing = true;
-    // Fire-and-forget: renew in the background without blocking the current request
-    requestRaw<{ expiresAt: string }>('/auth/refresh', { method: 'POST' })
-      .then(({ expiresAt }) => setSessionExpiry(expiresAt))
-      .catch(() => {})
-      .finally(() => { _refreshing = false; });
+  // Silent proactive session renewal when approaching expiration
+  if (!_refreshPromise && path !== '/auth/refresh' && shouldRefresh()) {
+    void getOrInitRefresh();
   }
 
   const headers: Record<string, string> = {
@@ -33,14 +46,28 @@ async function request<T>(
   };
 
   // Same-origin request: the browser sends the HttpOnly session cookie by itself
-  const res = await fetch(`${API_URL}${path}`, { ...options, headers, credentials: 'same-origin' });
+  let res = await fetch(`${API_URL}${path}`, { ...options, headers, credentials: 'same-origin' });
 
-  // Session expired or token rejected — clear and redirect to login.
-  // Login/register return 401 for a wrong password, so those errors must reach the form.
+  // If 401 occurs, attempt single-flight refresh and retry
   if (res.status === 401 && !path.startsWith('/auth/')) {
-    clearSession();
-    if (typeof window !== 'undefined') {
-      window.location.href = '/login';
+    const refreshed = await getOrInitRefresh();
+    if (refreshed) {
+      res = await fetch(`${API_URL}${path}`, { ...options, headers, credentials: 'same-origin' });
+    }
+  }
+
+  // Session expired or token rejected — clear and redirect to login unless actively in an examination
+  if (res.status === 401 && !path.startsWith('/auth/')) {
+    const isExamSession = typeof window !== 'undefined' && (
+      window.location.pathname.includes('/mock/') ||
+      window.location.pathname.includes('/student/exam/')
+    );
+
+    if (!isExamSession) {
+      clearSession();
+      if (typeof window !== 'undefined') {
+        window.location.href = '/login';
+      }
     }
     throw new ApiError(401, 'Session expired. Please log in again.');
   }

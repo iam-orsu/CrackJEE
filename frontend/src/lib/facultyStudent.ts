@@ -139,21 +139,89 @@ export class StudentApiError extends Error {
   }
 }
 
+let _studentRefreshPromise: Promise<boolean> | null = null;
+
+export async function studentRefresh(): Promise<boolean> {
+  if (_studentRefreshPromise) return _studentRefreshPromise;
+  _studentRefreshPromise = (async () => {
+    try {
+      const existingToken = typeof window !== 'undefined' ? localStorage.getItem('faculty_student_token') : null;
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (existingToken) headers['Authorization'] = `Bearer ${existingToken}`;
+
+      const res = await fetch(`${API_URL}/faculty-student/refresh`, {
+        method: 'POST',
+        headers,
+        credentials: 'include',
+      });
+      const data = await res.json().catch(() => ({ success: false }));
+      if (res.ok && data.success && data.token) {
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('faculty_student_token', data.token);
+        }
+        return true;
+      }
+      return false;
+    } catch {
+      return false;
+    } finally {
+      _studentRefreshPromise = null;
+    }
+  })();
+  return _studentRefreshPromise;
+}
+
 export async function studentFetch<T extends object>(path: string, init: RequestInit = {}): Promise<T> {
-  const token = typeof window !== 'undefined' ? localStorage.getItem('faculty_student_token') : null;
-  const headers: Record<string, string> = {
-    'Content-Type': 'application/json',
-    ...(init.headers as Record<string, string> | undefined),
+  const getToken = () => (typeof window !== 'undefined' ? localStorage.getItem('faculty_student_token') : null);
+
+  const buildHeaders = (): Record<string, string> => {
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+      ...(init.headers as Record<string, string> | undefined),
+    };
+    const token = getToken();
+    if (token) headers['Authorization'] = `Bearer ${token}`;
+    return headers;
   };
-  if (token) {
-    headers['Authorization'] = `Bearer ${token}`;
+
+  let res: Response;
+  try {
+    res = await fetch(`${API_URL}/faculty-student${path}`, {
+      ...init,
+      headers: buildHeaders(),
+      credentials: 'include',
+    });
+  } catch {
+    // Network retry with 300ms backoff
+    await new Promise((r) => setTimeout(r, 300));
+    res = await fetch(`${API_URL}/faculty-student${path}`, {
+      ...init,
+      headers: buildHeaders(),
+      credentials: 'include',
+    });
   }
 
-  const res = await fetch(`${API_URL}/faculty-student${path}`, {
-    ...init,
-    headers,
-    credentials: 'include',
-  });
+  // Intercept 401 session expiration and single-flight refresh
+  if (res.status === 401 && path !== '/login' && path !== '/refresh') {
+    const refreshed = await studentRefresh();
+    if (refreshed) {
+      res = await fetch(`${API_URL}/faculty-student${path}`, {
+        ...init,
+        headers: buildHeaders(),
+        credentials: 'include',
+      });
+    }
+  }
+
+  // Handle transient 503 database / server backoff
+  if (res.status === 503) {
+    await new Promise((r) => setTimeout(r, 500));
+    res = await fetch(`${API_URL}/faculty-student${path}`, {
+      ...init,
+      headers: buildHeaders(),
+      credentials: 'include',
+    });
+  }
 
   const json = (await res.json().catch(() => ({ success: false, error: `HTTP ${res.status}` }))) as T & {
     success?: boolean;

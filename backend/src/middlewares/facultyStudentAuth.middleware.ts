@@ -94,3 +94,66 @@ export function requireFacultyStudent(repo: FacultyStudentRepository = defaultSt
     }
   };
 }
+
+/** Middleware allowing expired student tokens to refresh if cryptographic signature is valid and within 7-day hard window. */
+export function requireRefreshableFacultyStudent(repo: FacultyStudentRepository = defaultStudentRepo) {
+  return async (req: FacultyStudentAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    const token = studentTokenFrom(req);
+    if (!token) {
+      res.status(401).json({ success: false, error: 'Student login required' });
+      return;
+    }
+
+    const secret = process.env.JWT_SECRET;
+    if (!secret) {
+      res.status(500).json({ success: false, error: 'Server misconfiguration' });
+      return;
+    }
+
+    let payload: { studentId?: string; facultyId?: string; batchId?: string; role?: string; iat?: number };
+    try {
+      payload = jwt.verify(token, secret, {
+        algorithms: ['HS256'],
+        ignoreExpiration: true,
+      }) as {
+        studentId?: string;
+        facultyId?: string;
+        batchId?: string;
+        role?: string;
+        iat?: number;
+      };
+    } catch {
+      res.status(401).json({ success: false, error: 'Invalid or tampered student session' });
+      return;
+    }
+
+    if (payload.role !== 'faculty_student' || !payload.studentId) {
+      res.status(403).json({ success: false, error: 'Student portal access only' });
+      return;
+    }
+
+    // Hard 7-day session cutoff (even for refresh)
+    if (payload.iat && Date.now() - payload.iat * 1000 > 7 * 24 * 60 * 60 * 1000) {
+      res.status(401).json({ success: false, error: 'Student session expired, please log in again' });
+      return;
+    }
+
+    try {
+      const student = await repo.findByIdGlobal(payload.studentId);
+      if (!student || !student.isActive) {
+        res.status(403).json({ success: false, error: 'Student account is inactive or not found' });
+        return;
+      }
+      req.facultyStudent = {
+        studentId: student.id,
+        facultyId: student.facultyId,
+        batchId: student.batchId,
+        name: student.name,
+        rollNumber: student.rollNumber,
+      };
+      next();
+    } catch (err) {
+      next(err);
+    }
+  };
+}

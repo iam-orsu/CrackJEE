@@ -88,6 +88,28 @@ export class FacultyStudentExamService {
     };
   }
 
+  public refreshSession(studentId: string, facultyId: string, batchId: string) {
+    const secret = process.env.JWT_SECRET;
+    if (!secret) throw new AppError(500, 'Server misconfiguration');
+
+    const token = jwt.sign(
+      {
+        studentId,
+        facultyId,
+        batchId,
+        role: 'faculty_student',
+      },
+      secret,
+      { algorithm: 'HS256', expiresIn: `${AUTH_CONSTANTS.FACULTY_STUDENT_COOKIE_MAX_AGE_S}s` },
+    );
+
+    const expiresAt = new Date(
+      Date.now() + AUTH_CONSTANTS.FACULTY_STUDENT_COOKIE_MAX_AGE_S * 1000,
+    ).toISOString();
+
+    return { token, expiresAt };
+  }
+
   public async getStudentProfile(studentId: string) {
     const student = await this.studentRepo.findByIdGlobal(studentId);
     if (!student) {

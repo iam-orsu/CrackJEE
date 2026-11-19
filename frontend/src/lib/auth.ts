@@ -60,21 +60,27 @@ function expiryTime(): number | null {
   }
 }
 
+const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
+
 export function isAuthenticated(): boolean {
   // Sessions from older builds have no expiry time, so they are treated as signed out and must sign in again
   const exp = expiryTime();
-  if (exp === null || exp <= Date.now()) {
+  if (exp === null) {
+    clearSession();
+    return false;
+  }
+  // Hard logout only after the 7-day renewal grace period has elapsed
+  if (Date.now() - exp > SEVEN_DAYS_MS) {
     clearSession();
     return false;
   }
   return getUser() !== null;
 }
 
-/** True when the session is within an hour of expiring, so the page should renew it. */
+/** True when the session is within an hour of expiring or in the refresh grace window, so the page renews it. */
 export function shouldRefresh(): boolean {
   const exp = expiryTime();
   if (exp === null) return false;
   const now = Date.now();
-  if (exp <= now) return false;
-  return exp < now + 60 * 60 * 1000;
+  return exp < now + 60 * 60 * 1000 && (now - exp < SEVEN_DAYS_MS);
 }

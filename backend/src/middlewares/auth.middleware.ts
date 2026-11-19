@@ -52,7 +52,7 @@ async function isRevoked(jti: string | undefined): Promise<boolean> {
 }
 
 /** Middleware requiring a valid, non-revoked student session JWT. */
-export function requireAuth(req: AuthRequest, res: Response, next: NextFunction): void {
+export function requireAuth(req: AuthRequest, res: Response, next: NextFunction, repo: Pick<UserRepository, 'existsById'> = userRepo): void {
   const token = sessionTokenFrom(req);
   if (!token) {
     res.status(401).json({ success: false, error: 'Missing token' });
@@ -88,9 +88,61 @@ export function requireAuth(req: AuthRequest, res: Response, next: NextFunction)
       res.status(401).json({ success: false, error: 'Session expired, please log in again' });
       return;
     }
-    const user = await userRepo.existsById(payload.userId);
+    const user = await repo.existsById(payload.userId);
     if (!user) {
       res.status(401).json({ success: false, error: 'Session expired, please log in again' });
+      return;
+    }
+    req.user = payload;
+    next();
+  })().catch((err: unknown) => {
+    next(err instanceof Error ? err : new Error('Auth check failed'));
+  });
+}
+
+/** Middleware requiring an authentic student JWT that is still refreshable (within hard 7-day session window). */
+export function requireRefreshableAuth(req: AuthRequest, res: Response, next: NextFunction, repo: Pick<UserRepository, 'existsById'> = userRepo): void {
+  const token = sessionTokenFrom(req);
+  if (!token) {
+    res.status(401).json({ success: false, error: 'Missing token' });
+    return;
+  }
+
+  const secret = process.env.JWT_SECRET;
+  if (!secret) {
+    res.status(500).json({ success: false, error: 'Server misconfiguration' });
+    return;
+  }
+
+  let payload: AuthPayload & { iat?: number };
+  try {
+    payload = jwt.verify(token, secret, {
+      algorithms: ['HS256'],
+      ignoreExpiration: true,
+    }) as AuthPayload & { iat?: number };
+  } catch {
+    res.status(401).json({ success: false, error: 'Invalid or tampered token' });
+    return;
+  }
+
+  if (typeof payload.userId !== 'string' || payload.userId === '') {
+    res.status(401).json({ success: false, error: 'Invalid token payload' });
+    return;
+  }
+
+  if (isSessionTooOld(sessionStartOf(payload))) {
+    res.status(401).json({ success: false, error: 'Session expired, please log in again' });
+    return;
+  }
+
+  (async (): Promise<void> => {
+    if (await isRevoked(payload.jti)) {
+      res.status(401).json({ success: false, error: 'Session revoked, please log in again' });
+      return;
+    }
+    const user = await repo.existsById(payload.userId);
+    if (!user) {
+      res.status(401).json({ success: false, error: 'User no longer exists' });
       return;
     }
     req.user = payload;

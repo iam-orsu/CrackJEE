@@ -126,8 +126,11 @@ export class AuthController {
         req.user!.userId,
         req.user!.sessionStart,
       );
+      if (req.user?.jti) {
+        await this.authService.logout(req.user.jti);
+      }
       setSessionCookie(res, token);
-      res.json({ success: true, data: { expiresAt } });
+      res.json({ success: true, data: { token, expiresAt } });
     } catch (err) {
       next(err);
     }

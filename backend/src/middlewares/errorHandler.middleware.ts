@@ -11,6 +11,11 @@ export function errorHandlerMiddleware(
   res: Response,
   _next: NextFunction,
 ): void {
+  if (res.headersSent) {
+    _next(err as Error);
+    return;
+  }
+
   if (err instanceof AppError) {
     res.status(err.statusCode).json({ success: false, error: err.message });
     return;
@@ -34,14 +39,28 @@ export function errorHandlerMiddleware(
     return;
   }
 
+  const errCode = (err as { code?: string })?.code;
+
+  // Handle Prisma connection and timeout errors gracefully (503 Service Unavailable with Retry-After)
+  if (errCode && ['P1000', 'P1001', 'P1002', 'P1008', 'P1017'].includes(errCode)) {
+    logger.warn({ errCode }, 'Database connection or timeout failure');
+    res.setHeader('Retry-After', '2');
+    res.status(503).json({
+      success: false,
+      error: 'Database temporarily unavailable, please retry shortly',
+      retryAfterSeconds: 2,
+    });
+    return;
+  }
+
   // Handle Prisma unique constraint violations (P2002)
-  if ((err as { code?: string })?.code === 'P2002') {
+  if (errCode === 'P2002') {
     res.status(409).json({ success: false, error: 'A duplicate record with this identifier already exists' });
     return;
   }
 
   // Handle Prisma record not found errors (P2025)
-  if ((err as { code?: string })?.code === 'P2025') {
+  if (errCode === 'P2025') {
     res.status(404).json({ success: false, error: 'The requested resource was not found' });
     return;
   }

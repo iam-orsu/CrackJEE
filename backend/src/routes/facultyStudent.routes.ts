@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { FacultyStudentExamController } from '../controllers/FacultyStudentExamController';
-import { requireFacultyStudent } from '../middlewares/facultyStudentAuth.middleware';
+import { requireFacultyStudent, requireRefreshableFacultyStudent } from '../middlewares/facultyStudentAuth.middleware';
 import { authLimiter } from '../middlewares/rateLimiter.middleware';
 
 /** Mounts `/api/v1/faculty-student/*` routes for students enrolled under an institute faculty. */
@@ -10,6 +10,7 @@ export function createFacultyStudentRoutes(controller = new FacultyStudentExamCo
 
   router.post('/login', authLimiter, controller.login);
   router.post('/logout', controller.logout);
+  router.post('/refresh', requireRefreshableFacultyStudent(), controller.refresh);
   router.get('/me', guard, controller.me);
 
   router.get('/exams', guard, controller.listExams);

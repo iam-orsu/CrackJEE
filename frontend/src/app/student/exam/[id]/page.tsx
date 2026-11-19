@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -58,12 +58,29 @@ export default function StudentExamCbtPage() {
   timeTakenRef.current = timeTakenSeconds;
   const finalSubmitRef = useRef<() => void>(() => {});
 
-  // Load exam session
+  const updateLocalAnswers = useCallback((nextAnswers: Record<string, string>) => {
+    try {
+      localStorage.setItem(`faculty_student_exam_answers_${examId}`, JSON.stringify(nextAnswers));
+    } catch {}
+  }, [examId]);
+
+  // Load exam session with offline local storage cache merge
   useEffect(() => {
     studentStartExam(examId)
       .then((data) => {
         setSession(data);
-        setAnswers(data.savedAnswers || {});
+        let initialAnswers = { ...(data.savedAnswers || {}) };
+        try {
+          const local = localStorage.getItem(`faculty_student_exam_answers_${examId}`);
+          if (local) {
+            const parsed = JSON.parse(local);
+            if (parsed && typeof parsed === 'object') {
+              initialAnswers = { ...initialAnswers, ...parsed };
+            }
+          }
+        } catch {}
+        setAnswers(initialAnswers);
+        updateLocalAnswers(initialAnswers);
         const totalDuration = data.durationMinutes * 60;
         const elapsed = data.timeTakenSeconds || 0;
         setTimeTakenSeconds(elapsed);
@@ -80,7 +97,18 @@ export default function StudentExamCbtPage() {
       .finally(() => {
         setLoading(false);
       });
-  }, [examId, router]);
+  }, [examId, router, updateLocalAnswers]);
+
+  // Flush answers on window close / navigation
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      if (session && !submitting) {
+        studentSaveAnswers(examId, answersRef.current, timeTakenRef.current).catch(() => {});
+      }
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, [session, examId, submitting]);
 
   // Live timer countdown with wall-clock drift compensation (handles background tab throttling)
   useEffect(() => {
@@ -141,7 +169,11 @@ export default function StudentExamCbtPage() {
   function handleSingleSelect(letter: string) {
     if (!activeQuestion) return;
     const qNum = String(activeQuestion.number);
-    setAnswers((prev) => ({ ...prev, [qNum]: letter }));
+    setAnswers((prev) => {
+      const next = { ...prev, [qNum]: letter };
+      updateLocalAnswers(next);
+      return next;
+    });
   }
 
   function handleMultiSelect(letter: string) {
@@ -155,13 +187,21 @@ export default function StudentExamCbtPage() {
       set.add(letter);
     }
     const sorted = Array.from(set).sort().join(',');
-    setAnswers((prev) => ({ ...prev, [qNum]: sorted }));
+    setAnswers((prev) => {
+      const next = { ...prev, [qNum]: sorted };
+      updateLocalAnswers(next);
+      return next;
+    });
   }
 
   function handleIntegerChange(val: string) {
     if (!activeQuestion) return;
     const qNum = String(activeQuestion.number);
-    setAnswers((prev) => ({ ...prev, [qNum]: val }));
+    setAnswers((prev) => {
+      const next = { ...prev, [qNum]: val };
+      updateLocalAnswers(next);
+      return next;
+    });
   }
 
   function handleClearResponse() {
@@ -170,6 +210,7 @@ export default function StudentExamCbtPage() {
     setAnswers((prev) => {
       const copy = { ...prev };
       delete copy[qNum];
+      updateLocalAnswers(copy);
       return copy;
     });
   }
@@ -190,9 +231,20 @@ export default function StudentExamCbtPage() {
     setSubmitting(true);
     try {
       await studentSubmitExam(examId, answersRef.current, timeTakenRef.current);
+      try {
+        localStorage.removeItem(`faculty_student_exam_answers_${examId}`);
+      } catch {}
       router.replace(`/student/result/${examId}`);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Submission failed');
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Submission failed';
+      if (message.includes('already submitted')) {
+        try {
+          localStorage.removeItem(`faculty_student_exam_answers_${examId}`);
+        } catch {}
+        router.replace(`/student/result/${examId}`);
+        return;
+      }
+      setError(`${message}. Your answers are preserved locally. Please click Submit again.`);
       setSubmitting(false);
       setConfirmModalOpen(false);
     }
