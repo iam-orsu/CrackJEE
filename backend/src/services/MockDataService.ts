@@ -109,8 +109,16 @@ export class MockDataService {
     examType: 'Main' | 'Advanced' | 'NEET',
     excludeExamId?: string,
   ): Promise<Set<string>> {
-    const rows = await this.mockRepo.findSeenQuestionIds(userId, examType, excludeExamId);
-    return new Set(rows.map((r) => r.questionId));
+    const history = await this.mockRepo.findSeenQuestionHistory(userId, examType, excludeExamId);
+    return history.ids;
+  }
+
+  public async loadSeenQuestionHistory(
+    userId: string,
+    examType: 'Main' | 'Advanced' | 'NEET',
+    excludeExamId?: string,
+  ): Promise<{ ids: Set<string>; texts: Set<string> }> {
+    return this.mockRepo.findSeenQuestionHistory(userId, examType, excludeExamId);
   }
 
   private recordsFromExams(

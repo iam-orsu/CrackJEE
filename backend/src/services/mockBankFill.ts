@@ -13,7 +13,15 @@ export interface SlotKey {
 
 export interface BankQuestion extends SlotKey {
   id: string;
+  questionText?: string;
   diagram?: unknown;
+}
+
+export function normalizeQuestionText(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '')
+    .slice(0, 120);
 }
 
 export function slotKey(s: SlotKey): string {
@@ -22,7 +30,7 @@ export function slotKey(s: SlotKey): string {
 
 /**
  * For each slot, in order, pick a bank question with the same key that is not excluded (already seen by
- * the student, or already used in this paper). If requiresDiagram is true, only pick bank questions with
+ * the student by ID or text, or already used in this paper). If requiresDiagram is true, only pick bank questions with
  * diagram != null. Returns the chosen question id per slot, or null when the bank cannot cover that slot.
  */
 export function fillSlotsFromBank(
@@ -30,20 +38,26 @@ export function fillSlotsFromBank(
   bank: BankQuestion[],
   exclude: Set<string>,
   random: () => number = Math.random,
+  excludeTexts?: Set<string>,
 ): Array<string | null> {
-  const byKey = new Map<string, Array<{ id: string; hasDiagram: boolean }>>();
+  const byKey = new Map<string, Array<{ id: string; hasDiagram: boolean; normText: string }>>();
   for (const q of bank) {
     if (exclude.has(q.id)) continue;
+    const norm = q.questionText ? normalizeQuestionText(q.questionText) : '';
+    if (norm && excludeTexts && excludeTexts.has(norm)) continue;
     const key = slotKey(q);
     if (!byKey.has(key)) byKey.set(key, []);
     const hasDiagram = q.diagram !== null && q.diagram !== undefined;
-    byKey.get(key)!.push({ id: q.id, hasDiagram });
+    byKey.get(key)!.push({ id: q.id, hasDiagram, normText: norm });
   }
 
   const used = new Set<string>();
+  const usedTexts = new Set<string>();
   return slots.map((slot) => {
     const key = slotKey(slot);
-    const allCandidates = (byKey.get(key) ?? []).filter((item) => !used.has(item.id));
+    const allCandidates = (byKey.get(key) ?? []).filter(
+      (item) => !used.has(item.id) && (!item.normText || !usedTexts.has(item.normText)),
+    );
     let candidates = allCandidates;
 
     if (slot.requiresDiagram) {
@@ -59,6 +73,7 @@ export function fillSlotsFromBank(
     if (candidates.length === 0) return null;
     const chosen = candidates[Math.floor(random() * candidates.length)]!;
     used.add(chosen.id);
+    if (chosen.normText) usedTexts.add(chosen.normText);
     return chosen.id;
   });
 }

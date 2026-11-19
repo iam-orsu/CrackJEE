@@ -538,6 +538,7 @@ ${DIAGRAM_SPEC}
   ${questionType === 'integer' ? '- Answer MUST be a whole number (not a fraction or decimal)' : ''}
   ${questionType === 'matrix_match' ? '- For matrix_match: List I MUST have exactly 4 items (A, B, C, D) and List II MUST have at least 4 items (P, Q, R, S). Options must map all 4 items (e.g. A-P, B-R, C-S, D-Q). NEVER generate 2x2 or 3x3 matrix matches.' : ''}
   ${requiresDiagram ? '- "diagram" MUST NOT be null! It must be a valid template object matching the physical problem setup.' : ''}
+  - CRITICAL UNIQUENESS: Every question MUST be 100% original, novel, and uniquely crafted with fresh numerical parameters and distinct scenarios. STRICTLY FORBIDDEN to generate cliché textbook problems (such as surveys of students with tea and coffee, hypothetical units with alpha/beta/gamma, or standard two bulbs in series).
   - Use LaTeX delimiters ($...$) for all mathematical content
   - NEVER copy or paraphrase any NCERT example, textbook exercise, or rote school-board definition
   - Do NOT use out-of-syllabus concepts

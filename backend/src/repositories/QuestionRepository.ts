@@ -148,7 +148,7 @@ export class QuestionRepository {
           ...(difficulty !== 'mixed' ? { difficulty } : {}),
         })),
       },
-      select: { id: true, subject: true, topic: true, difficulty: true, questionType: true, diagram: true },
+      select: { id: true, questionText: true, subject: true, topic: true, difficulty: true, questionType: true, diagram: true },
       orderBy: { id: 'asc' },
     });
   }
@@ -187,7 +187,7 @@ export class QuestionRepository {
         examType,
         OR: slotOrConditions,
       },
-      select: { id: true, subject: true, topic: true, difficulty: true, questionType: true, diagram: true },
+      select: { id: true, questionText: true, subject: true, topic: true, difficulty: true, questionType: true, diagram: true },
     });
   }
 

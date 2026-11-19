@@ -1,6 +1,7 @@
 import { Prisma, type PrismaClient } from '@prisma/client';
 import { prisma as defaultPrisma } from '../config/database';
 import { MOCK_CONSTANTS } from '../config/constants';
+import { normalizeQuestionText } from '../services/mockBankFill';
 
 export interface MockPoolItem {
   questionId: string;
@@ -332,6 +333,15 @@ export class MockExamRepository {
   }
 
   public async findSeenQuestionIds(userId: string, examType?: string, excludeExamId?: string) {
+    const history = await this.findSeenQuestionHistory(userId, examType, excludeExamId);
+    return Array.from(history.ids).map((questionId) => ({ questionId }));
+  }
+
+  public async findSeenQuestionHistory(
+    userId: string,
+    examType?: string,
+    excludeExamId?: string,
+  ): Promise<{ ids: Set<string>; texts: Set<string> }> {
     const [mockQuestions, attempts] = await Promise.all([
       this.prisma.mockExamQuestion.findMany({
         where: {
@@ -341,20 +351,25 @@ export class MockExamRepository {
             ...(excludeExamId ? { id: { not: excludeExamId } } : {}),
           },
         },
-        select: { questionId: true },
-        distinct: ['questionId'],
+        select: { questionId: true, question: { select: { questionText: true } } },
       }),
       this.prisma.studentAttempt.findMany({
         where: { userId },
-        select: { questionId: true },
-        distinct: ['questionId'],
+        select: { questionId: true, question: { select: { questionText: true } } },
       }),
     ]);
 
-    const seenIds = new Set<string>();
-    for (const r of mockQuestions) seenIds.add(r.questionId);
-    for (const r of attempts) seenIds.add(r.questionId);
-    return Array.from(seenIds).map((questionId) => ({ questionId }));
+    const ids = new Set<string>();
+    const texts = new Set<string>();
+    for (const r of mockQuestions) {
+      ids.add(r.questionId);
+      if (r.question?.questionText) texts.add(normalizeQuestionText(r.question.questionText));
+    }
+    for (const r of attempts) {
+      ids.add(r.questionId);
+      if (r.question?.questionText) texts.add(normalizeQuestionText(r.question.questionText));
+    }
+    return { ids, texts };
   }
 
   public findSubmittedForInsights(userId: string, take: number) {

@@ -6,7 +6,7 @@ import { TopicRepository } from '../repositories/TopicRepository';
 import { MockExamRepository } from '../repositories/MockExamRepository';
 import { CacheService, cacheService as defaultCache } from './CacheService';
 import { DeepSeekService, deepSeekService as defaultDeepSeek } from './DeepSeekService';
-import { fillPracticeSlotsWithFallbacks, type PracticePoolCandidate } from './mockBankFill';
+import { fillPracticeSlotsWithFallbacks, normalizeQuestionText, type PracticePoolCandidate } from './mockBankFill';
 import { AppError } from '../utils/AppError';
 import { logger } from '../utils/logger';
 import { incCounter } from '../utils/metrics';
@@ -840,6 +840,7 @@ export class QuestionService {
       requiresDiagram?: boolean;
     }>,
     concurrency = 4,
+    seenTexts?: Set<string>,
   ): Promise<Question[]> {
     const neededByTopic = new Map<string, number>();
     const groups = new Map<
@@ -919,9 +920,19 @@ export class QuestionService {
             plan: job.plan,
           });
           const verdicts = await this.deepSeek.verifyQuestionBatch(results.map((r) => r.question));
-          const verified = results.filter((_, i) => verdicts[i]);
+          let verified = results.filter((_, i) => verdicts[i]);
           if (verified.length < results.length) {
             logger.info({ dropped: results.length - verified.length }, '[mockPool] Dropped questions that failed the answer check');
+          }
+          if (seenTexts && seenTexts.size > 0) {
+            const beforeTextCheck = verified.length;
+            verified = verified.filter(({ question }) => {
+              const norm = normalizeQuestionText(question.question);
+              return !seenTexts.has(norm);
+            });
+            if (verified.length < beforeTextCheck) {
+              logger.info({ dropped: beforeTextCheck - verified.length }, '[mockPool] Dropped questions that matched student seen text');
+            }
           }
           if (verified.length === 0) continue;
 

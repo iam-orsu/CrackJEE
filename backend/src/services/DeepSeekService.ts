@@ -212,7 +212,7 @@ export class DeepSeekService {
       const response = await this.callChat({
         model: 'deepseek-chat',
         messages: [{ role: 'user', content: prompt }],
-        temperature: 0.5,
+        temperature: 0.75,
         max_tokens: Math.min(total * 850 + 500, 8000),
         response_format: { type: 'json_object' },
       });

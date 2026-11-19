@@ -6,7 +6,7 @@ import { TopicRepository } from '../repositories/TopicRepository';
 import { QuestionService } from './QuestionService';
 import { DeepSeekService, deepSeekService as defaultDeepSeek } from './DeepSeekService';
 import { MockDataService } from './MockDataService';
-import { fillSlotsFromBank, slotKey, type SlotKey } from './mockBankFill';
+import { fillSlotsFromBank, normalizeQuestionText, slotKey, type SlotKey } from './mockBankFill';
 import { fullTopicList } from './mockTopicPlan';
 import { fisherYatesShuffle } from '../utils/questionUtils';
 import { runOnce } from '../utils/distributedOnce';
@@ -22,7 +22,7 @@ type SlotInput = {
   requiresDiagram?: boolean;
 };
 
-type PaperQuestion = { id: string; subject: string; topic: string; questionType: string; diagram?: unknown };
+type PaperQuestion = { id: string; subject: string; topic: string; questionType: string; questionText?: string; diagram?: unknown };
 
 export class MockGeneratorService {
   private readonly activeGenerations = new Set<Promise<void>>();
@@ -165,6 +165,7 @@ export class MockGeneratorService {
     difficultyMode: 'easy' | 'medium' | 'hard',
     topicsBySubject: Record<string, string[]>,
     seen: Set<string>,
+    seenTexts?: Set<string>,
   ): Promise<MockPoolItem[]> {
     const slots = examType === 'NEET'
       ? this.buildNEETSlots(difficultyMode, topicsBySubject)
@@ -178,7 +179,7 @@ export class MockGeneratorService {
       requiresDiagram: s.requiresDiagram,
     }));
     const bank = await this.loadMockBank(examType, slots);
-    const picks = fillSlotsFromBank(slotKeys, bank, seen);
+    const picks = fillSlotsFromBank(slotKeys, bank, seen, Math.random, seenTexts);
     const bankById = new Map(bank.map((q) => [q.id, q]));
     const fromBank: PaperQuestion[] = picks.flatMap((id) => (id ? [bankById.get(id)!] : []));
     let missingSlots = slots.filter((_, i) => picks[i] === null);
@@ -190,7 +191,7 @@ export class MockGeneratorService {
     }
 
     const generated: PaperQuestion[] = missingSlots.length > 0 && canGenerateWithAi
-      ? await this.questionService.generateFreshMockBatch(missingSlots, 4)
+      ? await this.questionService.generateFreshMockBatch(missingSlots, 4, seenTexts)
       : [];
     let questions: PaperQuestion[] = [...fromBank, ...generated];
 
@@ -212,7 +213,7 @@ export class MockGeneratorService {
         if (topUpSlots.length === 0) break;
 
         logger.info({ round: round + 1, slots: topUpSlots.length }, '[mockPool] Top-up: generating replacements via DeepSeek');
-        const extras = await this.questionService.generateFreshMockBatch(topUpSlots, 4);
+        const extras = await this.questionService.generateFreshMockBatch(topUpSlots, 4, seenTexts);
         questions = [...questions, ...extras];
       }
     }
@@ -229,6 +230,7 @@ export class MockGeneratorService {
 
     return questions.map((q) => ({
       questionId: q.id,
+      questionText: q.questionText,
       subject: q.subject,
       questionType: q.questionType,
       topic: q.topic,
@@ -422,7 +424,9 @@ export class MockGeneratorService {
     difficultyMode: 'easy' | 'medium' | 'hard',
     paperNumber?: number,
   ): Promise<void> {
-    const seen = await this.mockData.loadSeenQuestionIds(userId, examType, examId);
+    const seenHistory = await this.mockData.loadSeenQuestionHistory(userId, examType, examId);
+    const seen = seenHistory.ids;
+    const seenTexts = seenHistory.texts;
     const completedMocks = await this.mockRepo.countSubmittedForUser(userId, examType);
     const resolvedPaperNumber = paperNumber ?? ((completedMocks % 50) + 1);
     const planKey = `ladder:paper:${resolvedPaperNumber}`;
@@ -439,7 +443,9 @@ export class MockGeneratorService {
           items.some((i) => i.hasDiagram) &&
           items.every((i) => {
             const qId = i.questionId || (i as unknown as { id?: string }).id;
-            return !!qId && !seen.has(qId);
+            const text = (i as unknown as { questionText?: string }).questionText;
+            const norm = text ? normalizeQuestionText(text) : '';
+            return !!qId && !seen.has(qId) && (!norm || !seenTexts.has(norm));
           }),
       );
 
@@ -459,7 +465,7 @@ export class MockGeneratorService {
         produce: async () => {
           const stored = await reuse();
           if (stored) return stored;
-          const fresh = await this.generateFreshPaper(examType, difficultyMode, topicsBySubject, seen);
+          const fresh = await this.generateFreshPaper(examType, difficultyMode, topicsBySubject, seen, seenTexts);
           try {
             await this.mockData.saveStoredPaper(examType, difficultyMode, fresh, planKey);
           } catch (saveErr) {

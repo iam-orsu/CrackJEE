@@ -82,3 +82,27 @@ test('fillPracticeSlotsWithFallbacks preserves index alignment and relaxes withi
   assert.equal(picks[1]?.id, 'p1'); // Exact match for Kinematics, skipping excluded
   assert.equal(picks[2]?.id, 'p2'); // Relaxed fallback within Physics, without reusing p1
 });
+
+test('fillSlotsFromBank skips bank questions whose normalized text has already been seen', () => {
+  const normBank: BankQuestion[] = [
+    { id: 'q_duplicate_text', ...slotA, questionText: 'In a survey of 150 students, 90 like tea...' },
+    { id: 'q_fresh_text', ...slotA, questionText: 'A car starts from rest with acceleration a...' },
+  ];
+  // Student saw q_duplicate_text in a previous attempt, but under a DIFFERENT id!
+  const seenTexts = new Set(['inasurveyof150students90liketea']);
+
+  const picks = fillSlotsFromBank([slotA], normBank, new Set(), () => 0, seenTexts);
+  assert.deepEqual(picks, ['q_fresh_text'], 'Duplicate question text must be skipped even if ID is new');
+});
+
+test('fillSlotsFromBank ensures two slots in the same paper never receive the same question text', () => {
+  const normBank: BankQuestion[] = [
+    { id: 'q_copy1', ...slotA, questionText: 'Identical problem text across bank entries' },
+    { id: 'q_copy2', ...slotA, questionText: 'Identical problem text across bank entries' },
+    { id: 'q_unique', ...slotA, questionText: 'Completely different problem text' },
+  ];
+
+  const picks = fillSlotsFromBank([slotA, slotA], normBank, new Set(), () => 0);
+  assert.equal(picks[0], 'q_copy1');
+  assert.equal(picks[1], 'q_unique', 'Second slot must not pick copy2 since it shares identical text with copy1');
+});
