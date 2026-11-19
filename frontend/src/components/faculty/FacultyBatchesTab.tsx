@@ -9,13 +9,18 @@ import {
   Eye,
   EyeOff,
   FolderOpen,
+  KeyRound,
+  Pencil,
   User,
   Users,
   X,
 } from 'lucide-react';
 import {
   facultyCreateBatch,
+  facultyUpdateBatch,
   facultyCreateStudent,
+  facultyUpdateStudent,
+  facultyResetStudentPassword,
   facultyBulkCreateStudents,
   facultyDeleteBatch,
   facultyDeleteStudent,
@@ -138,6 +143,31 @@ export function FacultyBatchesTab() {
   const [showCredentialsPassword, setShowCredentialsPassword] = useState(false);
   const [copied, setCopied] = useState(false);
 
+  // Edit Batch modal
+  const [editBatchModalOpen, setEditBatchModalOpen] = useState(false);
+  const [editingBatchId, setEditingBatchId] = useState('');
+  const [editBatchName, setEditBatchName] = useState('');
+  const [editBatchCode, setEditBatchCode] = useState('');
+  const [editBatchDesc, setEditBatchDesc] = useState('');
+  const [editBatchSubmitting, setEditBatchSubmitting] = useState(false);
+
+  // Edit Student modal
+  const [editStudentModalOpen, setEditStudentModalOpen] = useState(false);
+  const [editingStudentId, setEditingStudentId] = useState('');
+  const [editStudentName, setEditStudentName] = useState('');
+  const [editStudentRoll, setEditStudentRoll] = useState('');
+  const [editStudentEmail, setEditStudentEmail] = useState('');
+  const [editStudentBatchId, setEditStudentBatchId] = useState('');
+  const [editStudentSubmitting, setEditStudentSubmitting] = useState(false);
+
+  // Reset Student Password modal
+  const [resetPasswordModalOpen, setResetPasswordModalOpen] = useState(false);
+  const [resetStudentId, setResetStudentId] = useState('');
+  const [resetStudentName, setResetStudentName] = useState('');
+  const [resetStudentRoll, setResetStudentRoll] = useState('');
+  const [customNewPassword, setCustomNewPassword] = useState('');
+  const [resetPasswordSubmitting, setResetPasswordSubmitting] = useState(false);
+
   const loadData = useCallback(async () => {
     setLoading(true);
     setError('');
@@ -235,6 +265,93 @@ export function FacultyBatchesTab() {
       await loadData();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to remove student');
+    }
+  }
+
+  function openEditBatch(b: FacultyBatch) {
+    setEditingBatchId(b.id);
+    setEditBatchName(b.name);
+    setEditBatchCode(b.code);
+    setEditBatchDesc(b.description || '');
+    setEditBatchModalOpen(true);
+  }
+
+  async function handleUpdateBatch(e: React.FormEvent) {
+    e.preventDefault();
+    if (!editBatchName.trim() || !editBatchCode.trim()) return;
+    setEditBatchSubmitting(true);
+    setError('');
+    try {
+      await facultyUpdateBatch(editingBatchId, {
+        name: editBatchName.trim(),
+        code: editBatchCode.trim(),
+        description: editBatchDesc.trim() || null,
+      });
+      setEditBatchModalOpen(false);
+      await loadData();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to update batch');
+    } finally {
+      setEditBatchSubmitting(false);
+    }
+  }
+
+  function openEditStudent(s: FacultyStudent) {
+    setEditingStudentId(s.id);
+    setEditStudentName(s.name);
+    setEditStudentRoll(s.rollNumber);
+    setEditStudentEmail(s.email || '');
+    setEditStudentBatchId(s.batchId);
+    setEditStudentModalOpen(true);
+  }
+
+  async function handleUpdateStudent(e: React.FormEvent) {
+    e.preventDefault();
+    if (!editStudentName.trim() || !editStudentRoll.trim() || !editStudentBatchId) return;
+    setEditStudentSubmitting(true);
+    setError('');
+    try {
+      await facultyUpdateStudent(editingStudentId, {
+        name: editStudentName.trim(),
+        rollNumber: editStudentRoll.trim(),
+        email: editStudentEmail.trim() || null,
+        batchId: editStudentBatchId,
+      });
+      setEditStudentModalOpen(false);
+      await loadData();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to update student profile');
+    } finally {
+      setEditStudentSubmitting(false);
+    }
+  }
+
+  function openResetPassword(s: FacultyStudent) {
+    setResetStudentId(s.id);
+    setResetStudentName(s.name);
+    setResetStudentRoll(s.rollNumber);
+    setCustomNewPassword('');
+    setResetPasswordModalOpen(true);
+  }
+
+  async function handleResetPassword(e: React.FormEvent) {
+    e.preventDefault();
+    setResetPasswordSubmitting(true);
+    setError('');
+    try {
+      const res = await facultyResetStudentPassword(resetStudentId, customNewPassword.trim() || undefined);
+      setCreatedCredentials({
+        name: resetStudentName,
+        rollNumber: res.rollNumber,
+        email: null,
+        password: res.newPassword,
+      });
+      setShowCredentialsPassword(true);
+      setResetPasswordModalOpen(false);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to reset student password');
+    } finally {
+      setResetPasswordSubmitting(false);
     }
   }
 
@@ -405,17 +522,30 @@ export function FacultyBatchesTab() {
                       <span className="rounded-md bg-accent-50 px-2 py-0.5 text-[11px] font-bold tracking-[0.04em] text-accent">
                         {b.code}
                       </span>
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleDeleteBatch(b.id, b.name);
-                        }}
-                        className="cursor-pointer rounded-md border-0 bg-transparent px-1.5 py-0.5 text-[#C8202F] transition-colors duration-150 hover:bg-[#FDF3F4] motion-reduce:transition-none"
-                        title="Delete Batch"
-                      >
-                        <X className="h-[13px] w-[13px]" aria-hidden />
-                      </button>
+                      <div className="flex items-center gap-1">
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openEditBatch(b);
+                          }}
+                          className="cursor-pointer rounded-md border-0 bg-transparent px-1.5 py-0.5 text-[#5A6B8C] transition-colors duration-150 hover:bg-ice hover:text-[#003366] motion-reduce:transition-none"
+                          title="Edit Batch"
+                        >
+                          <Pencil className="h-[13px] w-[13px]" aria-hidden />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleDeleteBatch(b.id, b.name);
+                          }}
+                          className="cursor-pointer rounded-md border-0 bg-transparent px-1.5 py-0.5 text-[#C8202F] transition-colors duration-150 hover:bg-[#FDF3F4] motion-reduce:transition-none"
+                          title="Delete Batch"
+                        >
+                          <X className="h-[13px] w-[13px]" aria-hidden />
+                        </button>
+                      </div>
                     </div>
                     <div className="mt-2 text-[15px] font-bold text-[#003366]">
                       {b.name}
@@ -510,13 +640,33 @@ export function FacultyBatchesTab() {
                       </span>
                     </td>
                     <td className="px-3 py-3 text-right">
-                      <button
-                        type="button"
-                        onClick={() => handleDeleteStudent(s.id, s.name)}
-                        className="cursor-pointer rounded-md border-0 bg-transparent px-1.5 py-0.5 text-[12px] text-[#C8202F] transition-colors duration-150 hover:bg-[#FDF3F4] motion-reduce:transition-none"
-                      >
-                        Remove
-                      </button>
+                      <div className="flex items-center justify-end gap-1.5">
+                        <button
+                          type="button"
+                          onClick={() => openEditStudent(s)}
+                          className="inline-flex cursor-pointer items-center gap-1 rounded-md border-0 bg-transparent px-2 py-1 text-[12px] font-semibold text-[#003366] transition-colors duration-150 hover:bg-ice motion-reduce:transition-none"
+                          title="Edit Student Profile"
+                        >
+                          <Pencil className="h-[12px] w-[12px] shrink-0" aria-hidden />
+                          Edit
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => openResetPassword(s)}
+                          className="inline-flex cursor-pointer items-center gap-1 rounded-md border-0 bg-transparent px-2 py-1 text-[12px] font-semibold text-[#803688] transition-colors duration-150 hover:bg-[#FBF5FC] motion-reduce:transition-none"
+                          title="Reset Student Password"
+                        >
+                          <KeyRound className="h-[12px] w-[12px] shrink-0" aria-hidden />
+                          Reset Pass
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleDeleteStudent(s.id, s.name)}
+                          className="cursor-pointer rounded-md border-0 bg-transparent px-2 py-1 text-[12px] font-semibold text-[#C8202F] transition-colors duration-150 hover:bg-[#FDF3F4] motion-reduce:transition-none"
+                        >
+                          Remove
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))}
@@ -850,6 +1000,189 @@ export function FacultyBatchesTab() {
                 </div>
               </form>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Modal: Edit Batch */}
+      {editBatchModalOpen && (
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-[#0F172A]/45 p-5" onClick={() => setEditBatchModalOpen(false)}>
+          <div className="w-full max-w-[440px] max-h-[90vh] overflow-y-auto rounded-[22px] border border-[#003366]/10 bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.12)] sm:px-7" onClick={(e) => e.stopPropagation()}>
+            <h3 className="mb-4 font-display text-[18px] font-extrabold text-[#003366]">
+              Edit Batch
+            </h3>
+            <form onSubmit={handleUpdateBatch} className="flex flex-col gap-3.5">
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Batch Name</label>
+                <input
+                  type="text"
+                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                  placeholder="e.g. JEE 2026 Achievers"
+                  value={editBatchName}
+                  onChange={(e) => setEditBatchName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Batch Code (Identifier)</label>
+                <input
+                  type="text"
+                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold uppercase text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                  placeholder="e.g. JEE-26-ACH"
+                  value={editBatchCode}
+                  onChange={(e) => setEditBatchCode(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Description (Optional)</label>
+                <textarea
+                  className="w-full rounded-xl border-[2.5px] border-[#003366] bg-white p-3 text-[14px] font-medium text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                  rows={2}
+                  placeholder="e.g. Morning 8am cohort for top-tier rankers"
+                  value={editBatchDesc}
+                  onChange={(e) => setEditBatchDesc(e.target.value)}
+                />
+              </div>
+              <div className="mt-2.5 flex justify-end gap-2.5">
+                <button
+                  type="button"
+                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                  onClick={() => setEditBatchModalOpen(false)}
+                  disabled={editBatchSubmitting}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                  disabled={editBatchSubmitting}
+                >
+                  {editBatchSubmitting ? 'Saving...' : 'Save Changes'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Modal: Edit Student Profile */}
+      {editStudentModalOpen && (
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-[#0F172A]/45 p-5" onClick={() => setEditStudentModalOpen(false)}>
+          <div className="w-full max-w-[440px] max-h-[90vh] overflow-y-auto rounded-[22px] border border-[#003366]/10 bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.12)] sm:px-7" onClick={(e) => e.stopPropagation()}>
+            <h3 className="mb-4 font-display text-[18px] font-extrabold text-[#003366]">
+              Edit Student Profile
+            </h3>
+            <form onSubmit={handleUpdateStudent} className="flex flex-col gap-3.5">
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Assign Batch</label>
+                <select
+                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                  value={editStudentBatchId}
+                  onChange={(e) => setEditStudentBatchId(e.target.value)}
+                  required
+                >
+                  {batches.map((b) => (
+                    <option key={b.id} value={b.id}>
+                      {b.name} ({b.code})
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Student Name</label>
+                <input
+                  type="text"
+                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                  value={editStudentName}
+                  onChange={(e) => setEditStudentName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Roll Number</label>
+                <input
+                  type="text"
+                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold uppercase text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                  value={editStudentRoll}
+                  onChange={(e) => setEditStudentRoll(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">Email Address</label>
+                <input
+                  type="email"
+                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                  placeholder="student@example.com"
+                  value={editStudentEmail}
+                  onChange={(e) => setEditStudentEmail(e.target.value)}
+                />
+              </div>
+              <div className="mt-2.5 flex justify-end gap-2.5">
+                <button
+                  type="button"
+                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                  onClick={() => setEditStudentModalOpen(false)}
+                  disabled={editStudentSubmitting}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                  disabled={editStudentSubmitting}
+                >
+                  {editStudentSubmitting ? 'Saving...' : 'Save Profile'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Modal: Reset Student Password */}
+      {resetPasswordModalOpen && (
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-[#0F172A]/45 p-5" onClick={() => setResetPasswordModalOpen(false)}>
+          <div className="w-full max-w-[440px] max-h-[90vh] overflow-y-auto rounded-[22px] border border-[#003366]/10 bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.12)] sm:px-7" onClick={(e) => e.stopPropagation()}>
+            <h3 className="mb-2 font-display text-[18px] font-extrabold text-[#003366]">
+              Reset Student Password
+            </h3>
+            <p className="mb-4 text-[13px] text-[#5A6B8C]">
+              Reset credentials for <strong>{resetStudentName}</strong> (<code>{resetStudentRoll}</code>).
+            </p>
+            <form onSubmit={handleResetPassword} className="flex flex-col gap-3.5">
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">New Password</label>
+                <input
+                  type="text"
+                  className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                  placeholder={`Leave empty to default to roll number (${resetStudentRoll})`}
+                  value={customNewPassword}
+                  onChange={(e) => setCustomNewPassword(e.target.value)}
+                />
+                <span className="text-[11.5px] text-[#5A6B8C]">
+                  If left empty, the password will be reset to the student&apos;s Roll Number.
+                </span>
+              </div>
+              <div className="mt-2.5 flex justify-end gap-2.5">
+                <button
+                  type="button"
+                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                  onClick={() => setResetPasswordModalOpen(false)}
+                  disabled={resetPasswordSubmitting}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                  disabled={resetPasswordSubmitting}
+                >
+                  {resetPasswordSubmitting ? 'Resetting...' : 'Confirm Reset Password'}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}

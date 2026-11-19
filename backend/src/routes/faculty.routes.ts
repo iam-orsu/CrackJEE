@@ -30,12 +30,15 @@ export function createFacultyRoutes(controller = new FacultyController()): Route
   // Batches
   router.get('/batches', guard, controller.listBatches);
   router.post('/batches', guard, controller.createBatch);
+  router.patch('/batches/:id', guard, controller.updateBatch);
   router.delete('/batches/:id', guard, controller.deleteBatch);
 
   // Students
   router.get('/students', guard, controller.listStudents);
   router.post('/students', guard, controller.createStudent);
   router.post('/students/bulk', guard, controller.bulkCreateStudents);
+  router.patch('/students/:id', guard, controller.updateStudent);
+  router.post('/students/:id/reset-password', guard, controller.resetStudentPassword);
   router.delete('/students/:id', guard, controller.deleteStudent);
 
   // Assignments & Reports

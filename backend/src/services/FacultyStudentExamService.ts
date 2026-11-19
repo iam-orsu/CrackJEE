@@ -9,6 +9,7 @@ import { scoringService } from './ScoringService';
 import { gradingService } from './GradingService';
 import { deepSeekPsychometricService } from './DeepSeekPsychometricService';
 import { psychometricEvaluationWorker } from './PsychometricEvaluationWorker';
+import { logger } from '../utils/logger';
 import { AppError } from '../utils/AppError';
 
 export class FacultyStudentExamService {
@@ -313,7 +314,7 @@ export class FacultyStudentExamService {
       let aiStatus: 'pending' | 'completed' = 'pending';
 
       // Attempt fast live AI evaluation with a 3.5s race timeout so student lands directly on completed results
-      if (deepSeekPsychometricService.hasApiKey() && deepSeekPsychometricService.getCircuitState() !== 'open') {
+      if (deepSeekPsychometricService.isAvailable()) {
         try {
           const aiPromise = deepSeekPsychometricService.callAiStudentEvaluation({
             goal: professorGoal,

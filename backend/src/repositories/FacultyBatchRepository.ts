@@ -57,6 +57,21 @@ export class FacultyBatchRepository {
     });
   }
 
+  public async update(
+    id: string,
+    facultyId: string,
+    data: { name?: string; code?: string; description?: string | null },
+  ) {
+    return database.client.facultyBatch.update({
+      where: { id },
+      data: {
+        ...(data.name !== undefined ? { name: data.name.trim() } : {}),
+        ...(data.code !== undefined ? { code: data.code.trim().toUpperCase() } : {}),
+        ...(data.description !== undefined ? { description: data.description?.trim() || null } : {}),
+      },
+    });
+  }
+
   public async delete(id: string, facultyId: string) {
     return database.client.facultyBatch.deleteMany({
       where: { id, facultyId },

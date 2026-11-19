@@ -100,11 +100,28 @@ const createBatchSchema = z.object({
   description: z.string().trim().max(300).optional(),
 });
 
+const updateBatchSchema = z.object({
+  name: z.string().trim().min(1, 'Batch name is required').max(100).optional(),
+  code: z.string().trim().min(1, 'Batch code is required').max(50).optional(),
+  description: z.string().trim().max(300).nullable().optional(),
+});
+
 const createStudentSchema = z.object({
   batchId: z.string().min(1, 'Batch is required'),
   name: z.string().trim().min(1, 'Student name is required').max(100),
   rollNumber: z.string().trim().min(1, 'Roll number is required').max(50),
   email: z.string().trim().email().optional().or(z.literal('')),
+  password: z.string().min(4, 'Password must be at least 4 characters').optional().or(z.literal('')),
+});
+
+const updateStudentSchema = z.object({
+  batchId: z.string().min(1, 'Batch is required').optional(),
+  name: z.string().trim().min(1, 'Student name is required').max(100).optional(),
+  rollNumber: z.string().trim().min(1, 'Roll number is required').max(50).optional(),
+  email: z.string().trim().email('Invalid email address').nullable().optional().or(z.literal('')),
+});
+
+const resetStudentPasswordSchema = z.object({
   password: z.string().min(4, 'Password must be at least 4 characters').optional().or(z.literal('')),
 });
 
@@ -447,6 +464,19 @@ export class FacultyController {
     }
   };
 
+  public readonly updateBatch = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const parsed = updateBatchSchema.safeParse(req.body);
+      if (!parsed.success) {
+        throw new AppError(400, parsed.error.issues[0]?.message ?? 'Invalid batch details');
+      }
+      const batch = await this.batchService.updateBatch(String(req.params.id), req.faculty!.facultyId, parsed.data);
+      res.json({ success: true, batch });
+    } catch (err) {
+      next(err);
+    }
+  };
+
   public readonly deleteBatch = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
       await this.batchService.deleteBatch(String(req.params.id), req.faculty!.facultyId);
@@ -498,6 +528,41 @@ export class FacultyController {
         parsed.data.batchId,
       );
       res.status(201).json({ success: true, ...result });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly updateStudent = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const parsed = updateStudentSchema.safeParse(req.body);
+      if (!parsed.success) {
+        throw new AppError(400, parsed.error.issues[0]?.message ?? 'Invalid student details');
+      }
+      const student = await this.batchService.updateStudent(String(req.params.id), req.faculty!.facultyId, {
+        name: parsed.data.name,
+        rollNumber: parsed.data.rollNumber,
+        email: parsed.data.email !== undefined ? (parsed.data.email || null) : undefined,
+        batchId: parsed.data.batchId,
+      });
+      res.json({ success: true, student });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly resetStudentPassword = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const parsed = resetStudentPasswordSchema.safeParse(req.body);
+      if (!parsed.success) {
+        throw new AppError(400, parsed.error.issues[0]?.message ?? 'Invalid password details');
+      }
+      const result = await this.batchService.resetStudentPassword(
+        String(req.params.id),
+        req.faculty!.facultyId,
+        parsed.data.password || undefined,
+      );
+      res.json(result);
     } catch (err) {
       next(err);
     }

@@ -119,8 +119,12 @@ export class DeepSeekPsychometricService {
     cooldownMs: Number(process.env.DEEPSEEK_CIRCUIT_COOLDOWN_MS ?? 5 * 60 * 1000),
   });
 
-  private hasApiKey(): boolean {
+  public hasApiKey(): boolean {
     return (process.env.DEEPSEEK_API_KEY ?? '').trim().length >= 8;
+  }
+
+  public isAvailable(): boolean {
+    return this.hasApiKey() && this.breaker.canAttempt();
   }
 
   private getClient(): OpenAI {

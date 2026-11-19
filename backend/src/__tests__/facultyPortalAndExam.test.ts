@@ -93,6 +93,86 @@ describe('Faculty Batch & Student Management', () => {
       (err: any) => err.statusCode === 409,
     );
   });
+
+  test('updates batch details and validates code uniqueness', async () => {
+    const batches: any[] = [
+      { id: 'b-1', facultyId: 'fac-1', name: 'Batch One', code: 'B1', description: 'Desc 1' },
+      { id: 'b-2', facultyId: 'fac-1', name: 'Batch Two', code: 'B2', description: 'Desc 2' },
+    ];
+    const mockBatchRepo: any = {
+      findById: async (id: string, facultyId: string) =>
+        batches.find((b) => b.id === id && b.facultyId === facultyId) || null,
+      findByCode: async (facultyId: string, code: string) =>
+        batches.find((b) => b.facultyId === facultyId && b.code === code) || null,
+      update: async (id: string, facultyId: string, data: any) => {
+        const item = batches.find((b) => b.id === id && b.facultyId === facultyId);
+        Object.assign(item, data);
+        return item;
+      },
+    };
+
+    const service = new FacultyBatchService(mockBatchRepo, {} as any);
+
+    const updated = await service.updateBatch('b-1', 'fac-1', {
+      name: 'Batch One Renamed',
+      description: 'Updated description',
+    });
+    assert.equal(updated.name, 'Batch One Renamed');
+    assert.equal(updated.description, 'Updated description');
+
+    // Reject conflicting code
+    await assert.rejects(
+      async () => {
+        await service.updateBatch('b-1', 'fac-1', { code: 'b2' });
+      },
+      (err: any) => err.statusCode === 409,
+    );
+  });
+
+  test('updates student profile email and resets student password', async () => {
+    let student = {
+      id: 'stu-1',
+      facultyId: 'fac-1',
+      batchId: 'batch-1',
+      name: 'Old Name',
+      rollNumber: 'ROLL-1',
+      email: 'old@example.com',
+      passwordHash: 'hash',
+    };
+    const mockStudentRepo: any = {
+      findById: async (id: string, facultyId: string) =>
+        student.id === id && student.facultyId === facultyId ? student : null,
+      findByRollNumber: async () => null,
+      update: async (id: string, facultyId: string, data: any) => {
+        student = { ...student, ...data };
+        return student;
+      },
+      updatePassword: async (id: string, facultyId: string, hash: string) => {
+        student.passwordHash = hash;
+        return student;
+      },
+    };
+
+    const service = new FacultyBatchService({} as any, mockStudentRepo);
+
+    // Update email and name
+    const updated = await service.updateStudent('stu-1', 'fac-1', {
+      name: 'New Name',
+      email: 'new@example.com',
+    });
+    assert.equal(updated.name, 'New Name');
+    assert.equal(updated.email, 'new@example.com');
+
+    // Reset password with custom password
+    const reset1 = await service.resetStudentPassword('stu-1', 'fac-1', 'SecretPass@123');
+    assert.equal(reset1.newPassword, 'SecretPass@123');
+    assert.ok(await bcrypt.compare('SecretPass@123', student.passwordHash));
+
+    // Reset password without specifying defaults to roll number
+    const reset2 = await service.resetStudentPassword('stu-1', 'fac-1');
+    assert.equal(reset2.newPassword, 'ROLL-1');
+    assert.ok(await bcrypt.compare('ROLL-1', student.passwordHash));
+  });
 });
 
 describe('Faculty Exam Assignment & Student Delivery Integrity', () => {

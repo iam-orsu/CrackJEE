@@ -525,6 +525,16 @@ export async function facultyDeleteBatch(id: string) {
   return facultyFetch<Record<string, never>>(`/batches/${encodeURIComponent(id)}`, { method: 'DELETE' });
 }
 
+export async function facultyUpdateBatch(
+  id: string,
+  input: { name?: string; code?: string; description?: string | null },
+) {
+  return facultyFetch<{ batch: FacultyBatch }>(`/batches/${encodeURIComponent(id)}`, {
+    method: 'PATCH',
+    body: JSON.stringify(input),
+  });
+}
+
 // ── Student API ──
 export async function facultyListStudents(batchId?: string) {
   const query = batchId ? `?batchId=${encodeURIComponent(batchId)}` : '';
@@ -570,6 +580,36 @@ export async function facultyBulkCreateStudents(input: {
 
 export async function facultyDeleteStudent(id: string) {
   return facultyFetch<Record<string, never>>(`/students/${encodeURIComponent(id)}`, { method: 'DELETE' });
+}
+
+export async function facultyUpdateStudent(
+  id: string,
+  input: {
+    name?: string;
+    rollNumber?: string;
+    email?: string | null;
+    batchId?: string;
+  },
+) {
+  return facultyFetch<{ student: FacultyStudent }>(`/students/${encodeURIComponent(id)}`, {
+    method: 'PATCH',
+    body: JSON.stringify(input),
+  });
+}
+
+export async function facultyResetStudentPassword(
+  id: string,
+  newPassword?: string,
+) {
+  return facultyFetch<{
+    success: boolean;
+    studentId: string;
+    rollNumber: string;
+    newPassword: string;
+  }>(`/students/${encodeURIComponent(id)}/reset-password`, {
+    method: 'POST',
+    body: JSON.stringify({ password: newPassword || '' }),
+  });
 }
 
 // ── Exam Assignments & Reports API ──

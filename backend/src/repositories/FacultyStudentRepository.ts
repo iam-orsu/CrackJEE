@@ -128,6 +128,43 @@ export class FacultyStudentRepository {
     });
   }
 
+  public async update(
+    id: string,
+    facultyId: string,
+    data: {
+      name?: string;
+      rollNumber?: string;
+      email?: string | null;
+      batchId?: string;
+    },
+  ) {
+    return database.client.facultyStudent.update({
+      where: { id },
+      data: {
+        ...(data.name !== undefined ? { name: data.name.trim() } : {}),
+        ...(data.rollNumber !== undefined ? { rollNumber: data.rollNumber.trim().toUpperCase() } : {}),
+        ...(data.email !== undefined ? { email: data.email?.trim().toLowerCase() || null } : {}),
+        ...(data.batchId !== undefined ? { batchId: data.batchId } : {}),
+      },
+      include: {
+        batch: {
+          select: {
+            id: true,
+            name: true,
+            code: true,
+          },
+        },
+      },
+    });
+  }
+
+  public async updatePassword(id: string, facultyId: string, passwordHash: string) {
+    return database.client.facultyStudent.update({
+      where: { id },
+      data: { passwordHash },
+    });
+  }
+
   public async delete(id: string, facultyId: string) {
     return database.client.facultyStudent.deleteMany({
       where: { id, facultyId },
