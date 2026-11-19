@@ -1285,7 +1285,7 @@ ${previousQuestions
 CRITICAL: Every question you generate in this section MUST explore a completely different dilemma, situation, and choice set from all the questions listed above.\n`
         : '';
 
-    const prompt = `You are an expert talent evaluator and psychometric assessor designing deep, introspective evaluation questions for candidates.
+    const prompt = `You are an expert talent evaluator and psychometric assessor designing cool, deep, introspective evaluation questions for candidates.
 
 PROFESSOR'S SPECIFIC EVALUATION GOAL:
 "${examGoal}"
@@ -1300,7 +1300,7 @@ ${theme.focus}
 ${previousExclusionBlock}
 GENERATE EXACTLY ${count} 100% ORIGINAL, UNIQUE QUESTIONS FOR THIS SECTION.
 
-STRICT FRAMING & VOCABULARY RULES:
+CRITICAL RULES FOR COOL, ENGAGING QUESTIONS:
 1. 100% DYNAMIC TO PROFESSOR'S GOAL:
    - Carefully read the professor's goal: "${examGoal}".
    - Detect the exact industry, discipline, or field implied by this goal (e.g. Medicine/Healthcare, Engineering/Software, Commerce/Business, Arts/Design, Aviation, Law, etc.).
@@ -1308,64 +1308,70 @@ STRICT FRAMING & VOCABULARY RULES:
    - Every scenario, question, dilemma, and option choice MUST be directly relevant to "${examGoal}".
    - ZERO HARDCODING: Do NOT assume or default to software, coding, sales, or IT unless the professor's goal explicitly asks for it! If medical, use medical and patient care situations. If commerce, use business and client dilemmas. If engineering, use practical engineering challenges.
 
-2. ZEAL & INTROSPECTIVE DEPTH (NO LAZY ONE-LINERS):
-   - Questions must have energy and probe what genuinely excites the candidate and how their mind works.
-   - Questions should feel like an honest, engaging self-discovery conversation with an inspiring mentor.
-   - STRICTLY FORBIDDEN: NEVER generate lazy, shallow, generic one-line fillers like:
-     * "How often do you check your work for small errors?"
-     * "I prefer clear instructions."
-     * "I like working with computers."
-   - INSTEAD, craft questions that explore genuine passion, real dilemmas, and deep thinking habits. Examples of the energy and tone desired:
-     * "When given a new problem in this field, what do you naturally prefer doing first?"
-     * "When using or examining an application, service, or system, what grabs your attention first?"
-     * "How comfortable are you explaining a specialized or technical concept to someone with no background in it?"
-     * "If given 30 days to build or investigate anything from scratch in this field, what would you choose to do and why?"
-     * "Would you prefer working deeply on one specialized challenge or coordinating different parts to build a complete outcome?"
+2. MANDATORY RICH SCENARIO PREMISE (ZERO NAKED ONE-LINERS):
+   - STRICTLY FORBIDDEN: NEVER generate a lazy, naked 1-line question or statement!
+   - "scenarioText" is MANDATORY FOR EVERY QUESTION. It must NEVER be null, empty, or a single vague sentence.
+   - For every question, write a vivid, realistic 2-3 sentence situation, project dilemma, team challenge, client interaction, or thought experiment based directly on "${examGoal}".
+   - Then "questionText" poses the specific decision, inquiry, or reflection based on that situation.
 
-3. ZERO POSH OR FANCY VOCABULARY:
+3. QUESTION MODEL BALANCE & ENERGY:
+   - At least 60% of the questions generated MUST be "SCENARIO_ACTION_MCQ" featuring vivid dilemmas with 4 distinct, rich behavioral actions (A, B, C, D) representing distinct paths/mindsets in this field.
+   - The remaining questions may be "AGREEMENT_LIKERT", "FREQUENCY_SCALE", or "PASSION_SCALE", but they MUST STILL have the mandatory 2-3 sentence "scenarioText" setting up the premise!
+   - Example of a cool question:
+     * scenarioText: "Your team is building an open-ended project for an exhibition in two weeks. You have a solid working base, but you uncover a subtle edge case that could either be solved by redesigning the underlying system logic or masked with a quick visual adjustment."
+     * questionText (for SCENARIO_ACTION_MCQ): "What would you naturally prefer doing in this situation?"
+     * options: [
+         "Dive deep into the root cause and rebuild the core logic so the foundation is solid.",
+         "Redesign the user interaction flow so users never hit the edge case in the first place.",
+         "Explain the trade-off honestly to the team and audience as a known limitation in the live demo.",
+         "Coordinate a step-by-step milestone plan with the team to fix what is possible without risking the deadline."
+       ]
+   - Notice: No lazy one-liners, no generic textbook surveys. It feels like a real, cool problem-solving dilemma!
+
+4. ZERO POSH OR FANCY VOCABULARY:
    - STRICTLY FORBIDDEN: Do NOT use posh, pretentious, or academic words like "instinctively", "clunky", "gravitate", "dichotomy", "aesthetic", "juxtaposition", "tapestry", "paradigm", "plethora", "propensity", "nuanced".
    - Use simple, grounded, everyday spoken English that any student or beginner understands immediately.
 
-4. COHORT-APPROPRIATE (NO ADVANCED PROFESSIONAL JARGON):
+5. COHORT-APPROPRIATE (NO ADVANCED PROFESSIONAL JARGON):
    - Beginners have NOT learned advanced professional frameworks or tooling.
    - STRICTLY FORBIDDEN: Do NOT write "JavaScript framework", "asymptotic complexity", "microservices", "refactoring", "SQL database joins", "sprint retrospective", "production bugs" unless explicitly specified in the goal.
 
-5. PRESERVE MANDATORY QUESTION FORMATS:
+6. FORMAT & OPTION SPECIFICATIONS:
    Distribute these question models across the ${count} questions:
 ${modelDiversityText}
 
    - For "SCENARIO_ACTION_MCQ":
-     Provide a relatable 2-3 sentence situation directly reflecting "${examGoal}".
-     Provide 4 distinct action choices (A, B, C, D) representing distinct behavioral paths or mindsets relevant to "${examGoal}".
-     Every option must represent a realistic, authentic decision that a candidate might take.
+     "scenarioText": Vivid 2-3 sentence dilemma directly reflecting "${examGoal}".
+     "questionText": Engaging question asking how the candidate would respond.
+     "options": 4 distinct, concrete behavioral choices representing different approaches to the goal.
    - For "AGREEMENT_LIKERT":
-     The questionText must be an in-depth, self-reflective statement probing a genuine personal attitude, working preference, or mindset related to "${examGoal}".
-     The options MUST BE strictly:
-     ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"]
+     "scenarioText": Vivid 2-3 sentence setup.
+     "questionText": In-depth self-reflective statement based on that setup.
+     "options": strictly ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"]
    - For "FREQUENCY_SCALE":
-     The questionText must be an in-depth inquiry into how often the candidate naturally engages in a specific thinking habit, learning behavior, or problem-solving practice related to "${examGoal}".
-     The options MUST BE strictly:
-     ["Never", "Rarely", "Sometimes", "Often", "Always"]
+     "scenarioText": Vivid 2-3 sentence setup.
+     "questionText": In-depth inquiry into how often they take that specific initiative in situations like this.
+     "options": strictly ["Never", "Rarely", "Sometimes", "Often", "Always"]
    - For "PASSION_SCALE":
-     The questionText must explore genuine passion and excitement for an activity, challenge, or area related to "${examGoal}".
-     The options MUST BE strictly:
-     ["Not Interested", "Slightly Interested", "Interested", "Passionate"]
+     "scenarioText": Vivid 2-3 sentence description of a specialized area or challenge.
+     "questionText": Inquiry into how passionate they feel about diving into this area.
+     "options": strictly ["Not Interested", "Slightly Interested", "Interested", "Passionate"]
 
-6. STRICT NON-REPETITION:
+7. STRICT NON-REPETITION:
    - Every single question in this section must explore a unique dilemma, scenario, or habit.
    - Do NOT repeat questions, rephrase previous dilemmas, or reuse the same core scenario.
 
-7. ZERO EMOJIS. NEVER use the forbidden word "tuition".
+8. ZERO EMOJIS. NEVER use the forbidden word "tuition".
 
 Format output strictly as a JSON object:
 {
   "items": [
     {
       "domain": "Domain Name",
-      "questionModel": "COGNITIVE_MCQ | SCENARIO_ACTION_MCQ | AGREEMENT_LIKERT | FREQUENCY_SCALE | PASSION_SCALE",
-      "scenarioText": "Relatable 2-3 sentence situation, or null if direct statement",
-      "questionText": "Question or statement in simple everyday student English",
-      "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+      "questionModel": "SCENARIO_ACTION_MCQ | AGREEMENT_LIKERT | FREQUENCY_SCALE | PASSION_SCALE | COGNITIVE_MCQ",
+      "scenarioText": "Vivid, realistic 2-3 sentence situation or dilemma (NEVER null or empty)",
+      "questionText": "Engaging question or reflective statement in simple everyday student English",
+      "options": ["Option A", "Option B", "Option C", "Option D"],
       "correctAnswer": "Trait Rubric or Correct Key",
       "explanation": "Concise 1-2 sentence rubric explanation",
       "traitPersonaMapping": "Core trait evaluated",

@@ -18,7 +18,7 @@ import {
   type FacultyQuestionType,
 } from '@/lib/faculty';
 
-const LETTERS = ['A', 'B', 'C', 'D'];
+const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
 type ClassValue = string | false | null | undefined;
 const cx = (...parts: ClassValue[]) => parts.filter(Boolean).join(' ');
@@ -37,7 +37,7 @@ function QuestionContent({ item }: { item: FacultyPaperItem }) {
 
   return (
     <>
-      <div className="text-[14px] leading-[1.65] text-[#0F172A]">
+      <div className="text-[14px] leading-[1.65] text-[#0F172A] whitespace-pre-line">
         {item.questionType === 'matrix_match' || parseMatchQuestion(cleanPrompt) ? (
           <MatchListTable questionText={cleanPrompt} />
         ) : (
