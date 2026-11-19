@@ -302,14 +302,36 @@ export class FacultyStudentExamService {
       const attemptedCount = items.filter((item) => Boolean(answers[String(item.number)]?.trim())).length;
       const unattemptedCount = items.length - attemptedCount;
 
-      // Generate instant baseline heuristic evaluation (< 2ms) so student submit returns in ~15ms
-      const psychometricReport = deepSeekPsychometricService.generateInitialStudentEvaluation({
+      // Generate instant baseline heuristic evaluation (< 2ms) as fallback
+      let psychometricReport = deepSeekPsychometricService.generateInitialStudentEvaluation({
         goal: professorGoal,
         candidateName: studentName,
         items,
         answers,
         timeTakenSeconds,
       });
+      let aiStatus: 'pending' | 'completed' = 'pending';
+
+      // Attempt fast live AI evaluation with a 3.5s race timeout so student lands directly on completed results
+      if (deepSeekPsychometricService.hasApiKey() && deepSeekPsychometricService.getCircuitState() !== 'open') {
+        try {
+          const aiPromise = deepSeekPsychometricService.callAiStudentEvaluation({
+            goal: professorGoal,
+            candidateName: studentName,
+            items,
+            answers,
+            timeTakenSeconds,
+          });
+          const timeoutPromise = new Promise<null>((resolve) => setTimeout(() => resolve(null), 3500));
+          const maybeAiReport = await Promise.race([aiPromise, timeoutPromise]);
+          if (maybeAiReport) {
+            psychometricReport = maybeAiReport;
+            aiStatus = 'completed';
+          }
+        } catch (err) {
+          logger.warn({ err, sessionId: session.id }, 'Synchronous AI evaluation race failed, falling back to background worker');
+        }
+      }
 
       const itemResults: Record<
         number,
@@ -331,8 +353,9 @@ export class FacultyStudentExamService {
         attemptedCount,
         unattemptedCount,
         goal: professorGoal,
-        aiStatus: 'pending',
+        aiStatus,
         queuedAt: new Date().toISOString(),
+        ...(aiStatus === 'completed' ? { completedAt: new Date().toISOString() } : {}),
       };
 
       await this.examRepo.submit(session.id, {
@@ -349,8 +372,10 @@ export class FacultyStudentExamService {
         resultBreakdown,
       });
 
-      // Wake background worker immediately to process without polling delay
-      psychometricEvaluationWorker.notify();
+      if (aiStatus === 'pending') {
+        // Wake background worker immediately to process without polling delay
+        psychometricEvaluationWorker.notify();
+      }
 
       return {
         success: true,
@@ -361,7 +386,7 @@ export class FacultyStudentExamService {
         incorrectCount: 0,
         unattemptedCount,
         psychometricReport,
-        aiStatus: 'pending',
+        aiStatus,
       };
     }
 

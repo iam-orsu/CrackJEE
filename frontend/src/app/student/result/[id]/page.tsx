@@ -102,6 +102,28 @@ export default function StudentExamResultPage() {
       .finally(() => setLoading(false));
   }, [examId]);
 
+  // Auto-poll result every 2s while AI evaluation is refining in background
+  useEffect(() => {
+    const isRefining =
+      data?.scorecard?.aiStatus === 'pending' || data?.scorecard?.aiStatus === 'processing';
+    if (!isRefining) return;
+
+    const interval = setInterval(() => {
+      studentGetResult(examId)
+        .then((res) => {
+          if (res) {
+            setData(res);
+            if (res.scorecard?.aiStatus === 'completed') {
+              clearInterval(interval);
+            }
+          }
+        })
+        .catch(() => {});
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [examId, data?.scorecard?.aiStatus]);
+
   function formatTime(seconds: number) {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
@@ -178,6 +200,7 @@ export default function StudentExamResultPage() {
     const attemptedCount = scorecard.attemptedCount ?? ((solutions?.length || 0) - scorecard.unattemptedCount);
     const totalQuestions = solutions?.length || 0;
     const report = scorecard.psychometricReport;
+    const isRefining = scorecard.aiStatus === 'pending' || scorecard.aiStatus === 'processing';
     const shouldShowGoal = Boolean(assignment.showGoalToStudents && (assignment.examGoal || report?.goal));
     const goalText = shouldShowGoal ? (assignment.examGoal || report?.goal) : null;
 
@@ -225,13 +248,17 @@ export default function StudentExamResultPage() {
               </div>
 
               <div className="relative grid items-center gap-8 lg:grid-cols-[auto_minmax(0,1fr)_auto]">
-                <Ring pct={scorecard.totalScore} color="#803688" size={156} stroke={15} track="rgba(128,54,136,.12)">
+                <Ring pct={isRefining ? 100 : scorecard.totalScore} color="#803688" size={156} stroke={15} track="rgba(128,54,136,.12)">
                   <div className="text-center">
                     <div className={`${HEAD} text-[36px] font-extrabold leading-none tabular-nums text-[#803688]`}>
-                      {scorecard.totalScore}%
+                      {isRefining ? (
+                        <span className="inline-block animate-pulse text-[28px]">...</span>
+                      ) : (
+                        `${scorecard.totalScore}%`
+                      )}
                     </div>
                     <div className="mt-1 text-[11px] font-bold uppercase tracking-wider text-[#5A6B8C]">
-                      Goal Alignment
+                      {isRefining ? 'Evaluating' : 'Goal Alignment'}
                     </div>
                   </div>
                 </Ring>
@@ -273,16 +300,20 @@ export default function StudentExamResultPage() {
                     <div className="dz-pop rounded-2xl border border-[#003366]/10 bg-[rgba(238,242,255,.72)] px-4 py-3 backdrop-blur">
                       <div className="flex items-center justify-between gap-1">
                         <p className="text-[12px] font-semibold text-[#7A87A0]">Predicted Best-Fit Role</p>
-                        {(scorecard.aiStatus === 'pending' || scorecard.aiStatus === 'processing') && (
+                        {isRefining && (
                           <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[9.5px] font-bold text-amber-800 animate-pulse">
-                            Refining...
+                            AI Evaluating...
                           </span>
                         )}
                       </div>
                       <p className={`${HEAD} mt-1 text-[17px] font-extrabold text-[#803688]`}>
-                        {report?.predictedRole || report?.archetype || 'Evaluating Mindset'}
+                        {isRefining ? 'AI Evaluating Mindset...' : (report?.predictedRole || report?.archetype || 'Evaluating Mindset')}
                       </p>
-                      {report?.roleReason ? (
+                      {isRefining ? (
+                        <p className="mt-1 text-[11.5px] font-medium leading-snug text-[#475569] animate-pulse">
+                          Analyzing candidate responses against the evaluation target...
+                        </p>
+                      ) : report?.roleReason ? (
                         <p className="mt-1 text-[11.5px] font-medium leading-snug text-[#475569]">
                           {report.roleReason}
                         </p>
@@ -332,30 +363,44 @@ export default function StudentExamResultPage() {
                   </span>
                   <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
                     <h2 className={`${h2c} text-[20px]`}>Mindset &amp; Behavioral Analysis</h2>
-                    {report?.predictedRole && (
+                    {!isRefining && report?.predictedRole && (
                       <span className="rounded-full bg-[#803688] px-3 py-1 text-[12px] font-extrabold text-white">
                         {report.predictedRole}
                       </span>
                     )}
                   </div>
-                  {report?.roleReason && (
+                  {!isRefining && report?.roleReason && (
                     <div className="mt-2.5 rounded-xl border border-[#803688]/20 bg-[#FDF8FF] p-3 text-[13px] font-medium leading-relaxed text-[#334155]">
                       <strong className="text-[#803688]">Why this role: </strong>{report.roleReason}
                     </div>
                   )}
                   <p className="mt-2 text-[13px] text-[#5A6B8C]">
-                    Detailed evaluation of candidate responses calibrated directly to the evaluation target.
+                    {isRefining
+                      ? 'AI is currently analyzing candidate situational choices. Live report will update automatically.'
+                      : 'Detailed evaluation of candidate responses calibrated directly to the evaluation target.'}
                   </p>
                 </div>
 
                 <div className="flex-1 space-y-3.5 text-[14px] leading-relaxed text-[#1E2B45]">
-                  {(report?.summary || 'The student demonstrated consistent decision-making patterns across situational and cognitive scenarios, with strong engagement in problem-solving and peer collaboration.')
-                    .split('\n\n')
-                    .map((para, pIdx) => (
-                      <p key={pIdx} className="rounded-2xl border border-[#003366]/10 bg-[#F7F9FF] p-4 text-[#1E2B45]">
-                        {para}
+                  {isRefining ? (
+                    <div className="rounded-2xl border border-dashed border-[#803688]/30 bg-[#FDF8FF] p-6 text-center">
+                      <div className="inline-block h-6 w-6 animate-spin rounded-full border-2 border-[#803688] border-t-transparent" />
+                      <p className="mt-2 text-[14px] font-semibold text-[#803688]">
+                        AI evaluation in progress
                       </p>
-                    ))}
+                      <p className="mt-1 text-[12px] text-[#5A6B8C]">
+                        Analyzing situational choices against target behavioral attributes...
+                      </p>
+                    </div>
+                  ) : (
+                    (report?.summary || 'The student demonstrated consistent decision-making patterns across situational and cognitive scenarios, with strong engagement in problem-solving and peer collaboration.')
+                      .split('\n\n')
+                      .map((para, pIdx) => (
+                        <p key={pIdx} className="rounded-2xl border border-[#003366]/10 bg-[#F7F9FF] p-4 text-[#1E2B45]">
+                          {para}
+                        </p>
+                      ))
+                  )}
                 </div>
               </section>
 

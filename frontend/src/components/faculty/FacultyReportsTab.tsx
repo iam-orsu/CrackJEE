@@ -285,21 +285,21 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                       <div className="text-[12px] text-[#5A6B8C]">
                         {report.summary.aiEvaluationStats.pending > 0
                           ? `${report.summary.aiEvaluationStats.pending} in queued processing`
-                          : '100% evaluated with live DeepSeek AI'}
+                          : '100% evaluated with live AI'}
                       </div>
                     </div>
                   )}
                 </div>
 
-                {/* Student Leaderboard Table with Eye Icon */}
+                {/* Candidate Evaluations & Behavioral Profiles Table with Eye Icon */}
                 <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
                   <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2.5 font-display text-[17px] font-extrabold text-[#003366]">
                     <span>
-                      {isPsychometric ? 'Batch Psychometric Leaderboard' : 'Batch Leaderboard & Rankings'} ({report.rankList.length})
+                      {isPsychometric ? 'Candidate Evaluations & Behavioral Profiles' : 'Batch Leaderboard & Rankings'} ({report.rankList.length})
                     </span>
                     <span className="inline-flex items-center gap-1.5 text-[12px] font-normal text-[#5A6B8C]">
                       {isPsychometric
-                        ? 'Ranked by Goal Alignment Descending • Click Eye to inspect student choices'
+                        ? 'Sorted by Goal Alignment • Click Eye to inspect student choices'
                         : 'Ranked by Total Marks Descending • Click Eye to inspect student response sheet'}
                     </span>
                   </div>
@@ -313,7 +313,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                       <table className="w-full border-collapse text-[13px]">
                         <thead>
                           <tr className="border-b-2 border-[#003366]/10 text-left text-[#5A6B8C]">
-                            <th className="w-[50px] px-3 py-2.5">Rank</th>
+                            {!isPsychometric && <th className="w-[50px] px-3 py-2.5">Rank</th>}
                             <th className="px-3 py-2.5">Roll Number</th>
                             <th className="px-3 py-2.5">Student Name</th>
                             {isPsychometric ? (
@@ -356,16 +356,18 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
 
                             return (
                               <tr key={st.studentId} className="border-b border-[#003366]/10 transition-colors hover:bg-[#F8FAFF]">
-                                <td className="px-3 py-3 text-[14px] font-bold text-[#003366]">
-                                  {onPodium ? (
-                                    <span className="inline-flex items-center gap-1.5">
-                                      <Medal className="h-[14px] w-[14px] shrink-0" aria-hidden />
-                                      #{st.rank}
-                                    </span>
-                                  ) : (
-                                    `#${st.rank}`
-                                  )}
-                                </td>
+                                {!isPsychometric && (
+                                  <td className="px-3 py-3 text-[14px] font-bold text-[#003366]">
+                                    {onPodium ? (
+                                      <span className="inline-flex items-center gap-1.5">
+                                        <Medal className="h-[14px] w-[14px] shrink-0" aria-hidden />
+                                        #{st.rank}
+                                      </span>
+                                    ) : (
+                                      `#${st.rank}`
+                                    )}
+                                  </td>
+                                )}
                                 <td className="px-3 py-3 font-semibold text-accent">{st.rollNumber}</td>
                                 <td className="px-3 py-3 font-medium text-[#003366]">
                                   <div className="flex items-center gap-2">
