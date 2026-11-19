@@ -125,6 +125,7 @@ export interface StudentExamResultData {
     submittedAt: string | null;
     resultBreakdown: Record<string, unknown> | null;
     psychometricReport?: PsychometricReportPayload | null;
+    aiStatus?: 'pending' | 'processing' | 'completed' | 'failed' | string;
   };
   solutions: StudentExamSolutionItem[] | null;
 }

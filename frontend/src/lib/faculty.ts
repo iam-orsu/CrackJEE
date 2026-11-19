@@ -416,6 +416,11 @@ export interface FacultyAssignmentReport {
     highestScore: number;
     lowestScore: number;
     avgScore: number;
+    aiEvaluationStats?: {
+      total: number;
+      completed: number;
+      pending: number;
+    } | null;
   };
   rankList: Array<{
     rank: number;
@@ -430,6 +435,9 @@ export interface FacultyAssignmentReport {
     unattemptedCount: number;
     submittedAt: string | null;
     resultBreakdown: Record<string, unknown> | null;
+    predictedRole?: string | null;
+    roleReason?: string | null;
+    aiStatus?: string;
     personalWeakTopics?: Array<{ topic: string; mistakes: number }>;
   }>;
   questionAnalytics: Array<{

@@ -4,6 +4,7 @@ import { cacheService } from './services/CacheService';
 import { MockExamService } from './services/MockExamService';
 import { mockGeneratorService } from './services/MockGeneratorService';
 import { facultyPaperService } from './services/FacultyPaperService';
+import { psychometricEvaluationWorker } from './services/PsychometricEvaluationWorker';
 import { createApp } from './app';
 import { logger } from './utils/logger';
 
@@ -28,6 +29,8 @@ async function start(): Promise<void> {
     logger.warn({ count: facultyInterrupted }, 'Marked stuck faculty generations as error');
   }
 
+  void psychometricEvaluationWorker.start();
+
   const app = createApp();
   const server = app.listen(env.PORT, '0.0.0.0', () => {
     logger.info(`Backend listening on :${env.PORT} [${env.NODE_ENV}]`);
@@ -42,6 +45,10 @@ async function start(): Promise<void> {
       const facultySwept = await facultyPaperService.sweepStuckGenerating();
       if (facultySwept > 0) {
         logger.warn({ count: facultySwept }, 'Periodic sweep: marked stuck faculty generations as error');
+      }
+      const psychometricSwept = await psychometricEvaluationWorker.recoverStuckJobs();
+      if (psychometricSwept > 0) {
+        logger.warn({ count: psychometricSwept }, 'Periodic sweep: recovered stuck psychometric evaluations');
       }
     } catch (err) {
       logger.error({ err }, 'Periodic sweep failed');
@@ -62,6 +69,7 @@ async function start(): Promise<void> {
     await Promise.all([
       mockGeneratorService.waitForActiveGenerations(12_000),
       facultyPaperService.waitForActiveGenerations(12_000),
+      psychometricEvaluationWorker.stop(5_000),
     ]);
     await database.disconnect();
     await cacheService.disconnect();

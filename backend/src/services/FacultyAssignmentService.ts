@@ -129,6 +129,7 @@ export class FacultyAssignmentService {
         resultBreakdown: s.resultBreakdown,
         predictedRole: psy.predictedRole || psy.archetype || null,
         roleReason: psy.roleReason || null,
+        aiStatus: (breakdown?.aiStatus as string) || (psy.predictedRole ? 'completed' : 'pending'),
       };
     });
 
@@ -350,6 +351,19 @@ export class FacultyAssignmentService {
         highestScore: Math.round(highestScore * 10) / 10,
         lowestScore: Math.round(lowestScore * 10) / 10,
         avgScore: Math.round(avgScore * 10) / 10,
+        aiEvaluationStats: isPsychometric
+          ? {
+              total: submissions.length,
+              completed: submissions.filter((s) => {
+                const b = s.resultBreakdown as Record<string, unknown> | null;
+                return b?.aiStatus === 'completed' || (!b?.aiStatus && b?.psychometricReport);
+              }).length,
+              pending: submissions.filter((s) => {
+                const b = s.resultBreakdown as Record<string, unknown> | null;
+                return b?.aiStatus === 'pending' || b?.aiStatus === 'processing';
+              }).length,
+            }
+          : null,
       },
       rankList: enhancedRankList,
       questionAnalytics,

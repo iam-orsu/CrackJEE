@@ -273,6 +273,22 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                         : '—'}
                     </div>
                   </div>
+
+                  {isPsychometric && report.summary.aiEvaluationStats && (
+                    <div className="rounded-[28px] border border-[#803688]/20 bg-[#FDF8FF] p-5 text-center shadow-[0_24px_56px_-36px_rgba(128,54,136,.3)] sm:p-6">
+                      <div className="text-[12px] font-semibold uppercase text-[#803688]">
+                        AI Career Processing
+                      </div>
+                      <div className="my-2 font-display text-[28px] font-extrabold text-[#803688]">
+                        {report.summary.aiEvaluationStats.completed} / {report.summary.aiEvaluationStats.total}
+                      </div>
+                      <div className="text-[12px] text-[#5A6B8C]">
+                        {report.summary.aiEvaluationStats.pending > 0
+                          ? `${report.summary.aiEvaluationStats.pending} in queued processing`
+                          : '100% evaluated with live DeepSeek AI'}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Student Leaderboard Table with Eye Icon */}
@@ -374,9 +390,16 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                                     </td>
                                     <td className="px-3 py-3 max-w-[340px]">
                                       <div className="flex flex-col gap-1">
-                                        <span className="inline-block w-fit rounded-full bg-[#803688]/15 px-2.5 py-0.5 text-[11.5px] font-extrabold text-[#803688]">
-                                          {predictedRole}
-                                        </span>
+                                        <div className="flex items-center gap-1.5 flex-wrap">
+                                          <span className="inline-block w-fit rounded-full bg-[#803688]/15 px-2.5 py-0.5 text-[11.5px] font-extrabold text-[#803688]">
+                                            {predictedRole}
+                                          </span>
+                                          {(st.aiStatus === 'pending' || st.aiStatus === 'processing') && (
+                                            <span className="inline-block rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold text-amber-800 animate-pulse">
+                                              Refining via AI...
+                                            </span>
+                                          )}
+                                        </div>
                                         {roleReason && (
                                           <p className="text-[12px] font-normal leading-relaxed text-[#475569]">
                                             {roleReason}

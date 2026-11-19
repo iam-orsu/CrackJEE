@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken';
 import { FacultyBatchService } from '../services/FacultyBatchService';
 import { FacultyAssignmentService } from '../services/FacultyAssignmentService';
 import { FacultyStudentExamService } from '../services/FacultyStudentExamService';
+import { PsychometricEvaluationWorker } from '../services/PsychometricEvaluationWorker';
 import { scoringService } from '../services/ScoringService';
 import { gradingService } from '../services/GradingService';
 
@@ -470,5 +471,78 @@ describe('Faculty Exam Assignment & Student Delivery Integrity', () => {
     assert.ok(psyCsv.csv.includes('Predicted Best-Fit Role'));
     assert.ok(psyCsv.csv.includes('Role Fit Reason (1-2 lines)'));
     assert.ok(psyCsv.csv.includes('Rahul Verma'));
+  });
+
+  test('Psychometric worker recovers interrupted jobs, claims pending exams atomically, and paces evaluation', async () => {
+    let recoveredCount = 0;
+    const exams = [
+      {
+        id: 'exam-pending-1',
+        answers: { '1': 'A' },
+        timeTakenSeconds: 120,
+        assignment: {
+          paper: {
+            examType: 'Psychometric',
+            items: [
+              {
+                number: 1,
+                subject: 'Psychometric',
+                topic: 'Situational Judgment & Workplace Scenarios',
+                questionText: 'A high-load database outage occurs during peak traffic.',
+                options: ['Investigate root cause', 'Wait for restart'],
+                correctAnswer: 'A',
+                explanation: 'Take initiative and ownership.',
+              },
+            ],
+            title: 'Systems Engineering Readiness',
+            customInstructions: 'Evaluate candidate aptitude for Backend Infrastructure Engineer',
+          },
+        },
+        student: {
+          id: 'st-worker-1',
+          name: 'Ananya Roy',
+          rollNumber: 'ROLL-WORKER-1',
+        },
+      },
+    ];
+
+    let claimed = false;
+    let completedLiveReport: any = null;
+
+    const mockExamRepo: any = {
+      recoverStuckPsychometricJobs: async () => {
+        recoveredCount += 3;
+        return 3;
+      },
+      findPendingPsychometricExams: async () => {
+        if (claimed) return [];
+        return exams;
+      },
+      claimPendingPsychometricExam: async (id: string) => {
+        if (claimed) return false;
+        claimed = true;
+        return true;
+      },
+      completeAiEvaluation: async (id: string, report: any) => {
+        completedLiveReport = report;
+      },
+      markEvaluationFailedOrRetry: async () => {},
+    };
+
+    const worker = new PsychometricEvaluationWorker(mockExamRepo, 10);
+    await worker.start();
+    assert.equal(recoveredCount, 3);
+
+    // Wait for the worker to process the queued item
+    const start = Date.now();
+    while (!completedLiveReport && Date.now() - start < 3000) {
+      await new Promise((r) => setTimeout(r, 50));
+    }
+    await worker.stop(1000);
+
+    assert.equal(claimed, true);
+    assert.ok(completedLiveReport);
+    assert.ok(completedLiveReport.predictedRole);
+    assert.ok(completedLiveReport.roleReason);
   });
 });

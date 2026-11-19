@@ -8,6 +8,7 @@ import { type FacultyPaperItem } from '../repositories/FacultyRepository';
 import { scoringService } from './ScoringService';
 import { gradingService } from './GradingService';
 import { deepSeekPsychometricService } from './DeepSeekPsychometricService';
+import { psychometricEvaluationWorker } from './PsychometricEvaluationWorker';
 import { AppError } from '../utils/AppError';
 
 export class FacultyStudentExamService {
@@ -279,7 +280,8 @@ export class FacultyStudentExamService {
       const attemptedCount = items.filter((item) => Boolean(answers[String(item.number)]?.trim())).length;
       const unattemptedCount = items.length - attemptedCount;
 
-      const psychometricReport = await deepSeekPsychometricService.evaluateStudentPsychometricSubmission({
+      // Generate instant baseline heuristic evaluation (< 2ms) so student submit returns in ~15ms
+      const psychometricReport = deepSeekPsychometricService.generateInitialStudentEvaluation({
         goal: professorGoal,
         candidateName: studentName,
         items,
@@ -307,6 +309,8 @@ export class FacultyStudentExamService {
         attemptedCount,
         unattemptedCount,
         goal: professorGoal,
+        aiStatus: 'pending',
+        queuedAt: new Date().toISOString(),
       };
 
       await this.examRepo.submit(session.id, {
@@ -323,6 +327,9 @@ export class FacultyStudentExamService {
         resultBreakdown,
       });
 
+      // Wake background worker immediately to process without polling delay
+      psychometricEvaluationWorker.notify();
+
       return {
         success: true,
         totalScore: psychometricReport.alignmentScore,
@@ -332,6 +339,7 @@ export class FacultyStudentExamService {
         incorrectCount: 0,
         unattemptedCount,
         psychometricReport,
+        aiStatus: 'pending',
       };
     }
 
@@ -480,7 +488,7 @@ export class FacultyStudentExamService {
       let psychometricReport = (rawBreakdown.psychometricReport as any) || null;
 
       if (!psychometricReport) {
-        psychometricReport = await deepSeekPsychometricService.evaluateStudentPsychometricSubmission({
+        psychometricReport = deepSeekPsychometricService.generateInitialStudentEvaluation({
           goal: professorGoal,
           candidateName: session.student?.name || 'Student',
           items,
@@ -528,7 +536,7 @@ export class FacultyStudentExamService {
         scorecard: {
           rank,
           totalCandidates,
-          totalScore: psychometricReport.alignmentScore,
+          totalScore: (session.totalScore as number) || psychometricReport.alignmentScore,
           maxScore: 100,
           correctCount: 0,
           partialCount: 0,
@@ -539,6 +547,7 @@ export class FacultyStudentExamService {
           submittedAt: session.submittedAt?.toISOString() ?? null,
           resultBreakdown: rawBreakdown,
           psychometricReport,
+          aiStatus: (rawBreakdown.aiStatus as string) || 'completed',
         },
         solutions,
       };

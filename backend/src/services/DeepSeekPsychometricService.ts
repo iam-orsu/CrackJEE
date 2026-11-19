@@ -1732,7 +1732,29 @@ Format output strictly as a JSON object:
     return this.fallbackStudentEvaluation(input);
   }
 
-  private async callAiStudentEvaluation(input: {
+  /**
+   * Generates an immediate local heuristic evaluation in < 2ms without calling external APIs.
+   * Used for instant submission response, offline fallback, and baseline persona scoring.
+   */
+  public generateInitialStudentEvaluation(input: {
+    goal: string;
+    candidateName: string;
+    items: Array<{
+      number: number;
+      subject: string;
+      topic: string;
+      questionText: string;
+      options: string[];
+      correctAnswer: string;
+      explanation: string;
+    }>;
+    answers: Record<string, string>;
+    timeTakenSeconds: number;
+  }): PsychometricStudentEvaluation {
+    return this.fallbackStudentEvaluation(input);
+  }
+
+  public async callAiStudentEvaluation(input: {
     goal: string;
     candidateName: string;
     items: Array<{
@@ -1747,6 +1769,10 @@ Format output strictly as a JSON object:
     answers: Record<string, string>;
     timeTakenSeconds: number;
   }): Promise<PsychometricStudentEvaluation | null> {
+    if (!this.hasApiKey() || !this.breaker.canAttempt()) {
+      return null;
+    }
+
     const summaryList = input.items
       .map((item) => {
         const chosen = input.answers[String(item.number)]?.trim() || 'Skipped';
@@ -1819,38 +1845,44 @@ Format output strictly as a JSON object:
   "radicalFlags": []
 }`;
 
-    const completion = await this.withSlot(() =>
-      this.getClient().chat.completions.create({
-        model: 'deepseek-chat',
-        temperature: 0.35,
-        max_tokens: 2500,
-        response_format: { type: 'json_object' },
-        messages: [
-          {
-            role: 'system',
-            content:
-              'You are an educational psychometric evaluation expert. Output MUST be ONLY a valid JSON object matching the requested schema.',
-          },
-          { role: 'user', content: prompt },
-        ],
-      }),
-    );
+    try {
+      const completion = await this.withSlot(() =>
+        this.getClient().chat.completions.create({
+          model: 'deepseek-chat',
+          temperature: 0.35,
+          max_tokens: 2500,
+          response_format: { type: 'json_object' },
+          messages: [
+            {
+              role: 'system',
+              content:
+                'You are an educational psychometric evaluation expert. Output MUST be ONLY a valid JSON object matching the requested schema.',
+            },
+            { role: 'user', content: prompt },
+          ],
+        }),
+      );
 
-    const raw = completion.choices[0]?.message?.content ?? '';
-    const cleaned = raw.trim().replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '').trim();
-    const parsed = JSON.parse(cleaned) as PsychometricStudentEvaluation;
+      const raw = completion.choices[0]?.message?.content ?? '';
+      const cleaned = raw.trim().replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '').trim();
+      const parsed = JSON.parse(cleaned) as PsychometricStudentEvaluation;
 
-    if (!parsed || typeof parsed.alignmentScore !== 'number') {
+      if (!parsed || typeof parsed.alignmentScore !== 'number') {
+        return null;
+      }
+
+      if (!parsed.predictedRole || !parsed.roleReason) {
+        const fallback = this.fallbackStudentEvaluation(input);
+        parsed.predictedRole = parsed.predictedRole || fallback.predictedRole;
+        parsed.roleReason = parsed.roleReason || fallback.roleReason;
+      }
+
+      this.breaker.recordSuccess();
+      return parsed;
+    } catch (err) {
+      logger.warn({ err }, 'DeepSeek callAiStudentEvaluation failed');
       return null;
     }
-
-    if (!parsed.predictedRole || !parsed.roleReason) {
-      const fallback = this.fallbackStudentEvaluation(input);
-      parsed.predictedRole = parsed.predictedRole || fallback.predictedRole;
-      parsed.roleReason = parsed.roleReason || fallback.roleReason;
-    }
-
-    return parsed;
   }
 
   private fallbackStudentEvaluation(input: {

@@ -271,7 +271,14 @@ export default function StudentExamResultPage() {
 
                   <div className="mt-5 grid grid-cols-3 gap-3 max-sm:grid-cols-1">
                     <div className="dz-pop rounded-2xl border border-[#003366]/10 bg-[rgba(238,242,255,.72)] px-4 py-3 backdrop-blur">
-                      <p className="text-[12px] font-semibold text-[#7A87A0]">Predicted Best-Fit Role</p>
+                      <div className="flex items-center justify-between gap-1">
+                        <p className="text-[12px] font-semibold text-[#7A87A0]">Predicted Best-Fit Role</p>
+                        {(scorecard.aiStatus === 'pending' || scorecard.aiStatus === 'processing') && (
+                          <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[9.5px] font-bold text-amber-800 animate-pulse">
+                            Refining...
+                          </span>
+                        )}
+                      </div>
                       <p className={`${HEAD} mt-1 text-[17px] font-extrabold text-[#803688]`}>
                         {report?.predictedRole || report?.archetype || 'Evaluating Mindset'}
                       </p>
