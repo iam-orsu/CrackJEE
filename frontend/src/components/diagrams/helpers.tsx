@@ -3,7 +3,9 @@ import React from 'react';
 /* ── LaTeX → plain Unicode (for SVG text labels) ──────────── */
 export function latexToPlain(s: string): string {
   return s
+    .replace(/\\(?:text|mathrm|mathbf|mathit)\{([^}]+)\}/g, '$1')
     .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '$1/$2')
+    .replace(/\^\{\s*\\?(?:circ|degree)\s*\}|\^\\?(?:circ|degree)|\^°/g, '°')
     .replace(/\^\{([^}]+)\}/g, (_: string, e: string) => e === '2' ? '²' : e === '3' ? '³' : e === 'n' ? 'ⁿ' : `^${e}`)
     .replace(/\^2/g, '²').replace(/\^3/g, '³').replace(/\^n/g, 'ⁿ')
     .replace(/_\{([^}]*)\}/g, (_, s: string) => s.replace(/\d/g, (d) => '₀₁₂₃₄₅₆₇₈₉'[+d] ?? d).replace(/[a-z]/g, (c) => ({i:'ᵢ',n:'ₙ',a:'ₐ',e:'ₑ',x:'ₓ',k:'ₖ',l:'ₗ',m:'ₘ',p:'ₚ',s:'ₛ',t:'ₜ'}[c] ?? c)))
@@ -13,9 +15,19 @@ export function latexToPlain(s: string): string {
     .replace(/\\sqrt\{([^}]+)\}/g, '√($1)').replace(/\\sqrt/g, '√')
     .replace(/\\cdot/g, '·').replace(/\\times/g, '×').replace(/\\div/g, '÷')
     .replace(/\\leq/g, '≤').replace(/\\geq/g, '≥').replace(/\\neq/g, '≠')
+    .replace(/\\approx/g, '≈').replace(/\\propto/g, '∝')
     .replace(/\\infty/g, '∞').replace(/\\pi/g, 'π').replace(/\\theta/g, 'θ')
     .replace(/\\alpha/g, 'α').replace(/\\beta/g, 'β').replace(/\\gamma/g, 'γ')
     .replace(/\\delta/g, 'δ').replace(/\\lambda/g, 'λ').replace(/\\mu/g, 'μ')
+    .replace(/\\Omega/g, 'Ω').replace(/\\omega/g, 'ω')
+    .replace(/\\Delta\s*([A-Za-z])/g, 'Δ$1').replace(/\\Delta/g, 'Δ')
+    .replace(/\\\s+/g, ' ').replace(/~/g, ' ').replace(/\\varepsilon|\\epsilon/g, 'ε')
+    .replace(/\\rho/g, 'ρ').replace(/\\sigma/g, 'σ').replace(/\\Sigma/g, 'Σ')
+    .replace(/\\phi|\\varphi/g, 'φ').replace(/\\Phi/g, 'Φ')
+    .replace(/\\tau/g, 'τ').replace(/\\eta/g, 'η').replace(/\\nu/g, 'ν')
+    .replace(/\\psi/g, 'ψ').replace(/\\Psi/g, 'Ψ').replace(/\\hbar/g, 'ℏ')
+    .replace(/\\circ|\\degree/g, '°').replace(/\\prime/g, '′')
+    .replace(/\\to|\\rightarrow/g, '→').replace(/\\leftarrow/g, '←')
     .replace(/\\left[\(\[{|]/g, '').replace(/\\right[\)\]{|]/g, '')
     .replace(/\\[a-zA-Z]+/g, '').replace(/[{}]/g, '')
     .normalize('NFD').replace(/[̀-ͯ]/g, '');

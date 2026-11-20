@@ -472,6 +472,60 @@ export function MolecGeometry({ p }: { p: MolecGeometryParams }) {
       {angleLbl && <text x={cx+BL+24} y={cy+4} fill="#6366f1" fontSize="11" fontWeight="600" dominantBaseline="middle">{latexToPlain(angleLbl)}</text>}
     </svg>;
   }
+  if (shape === 'square_planar') {
+    const pos = [[cx-BL,cy],[cx+BL,cy],[cx,cy-BL*0.8],[cx,cy+BL*0.8]];
+    return <svg viewBox={`0 0 ${VW} ${VH}`} style={{width:'100%',height:'auto',display:'block'}}>
+      {pos.map((q) => solidLine(cx,cy,q[0]!,q[1]!))}
+      {pos.map((q,i) => ligAtom(q[0]!,q[1]!,i))}{centralAtomEl}
+      {/* Lone pairs: one above, one below */}
+      <circle cx={cx} cy={cy-36} r="2.5" fill="#6366f1"/>
+      <circle cx={cx} cy={cy-44} r="2.5" fill="#6366f1"/>
+      <circle cx={cx} cy={cy+36} r="2.5" fill="#6366f1"/>
+      <circle cx={cx} cy={cy+44} r="2.5" fill="#6366f1"/>
+      {angleLbl && <text x={cx+BL*0.7} y={cy-BL*0.5} fill="#6366f1" fontSize="11" fontWeight="600">{latexToPlain(angleLbl ?? '90°')}</text>}
+    </svg>;
+  }
+  if (shape === 'trigonal_pyramidal') {
+    const left = [cx-BL*0.82, cy+BL*0.65], mid = [cx, cy+BL*0.9], right = [cx+BL*0.82, cy+BL*0.65];
+    return <svg viewBox={`0 0 ${VW} ${VH}`} style={{width:'100%',height:'auto',display:'block'}}>
+      {solidLine(cx,cy,left[0]!,left[1]!)}
+      {wedge(cx,cy,mid[0]!,mid[1]!)}
+      {dashed(cx,cy,right[0]!,right[1]!)}
+      {ligAtom(left[0]!,left[1]!,0)}{ligAtom(mid[0]!,mid[1]!,1)}{ligAtom(right[0]!,right[1]!,2)}{centralAtomEl}
+      {/* Lone pair at apex */}
+      <ellipse cx={cx} cy={cy-26} rx="9" ry="14" fill="rgba(99,102,241,0.12)" stroke="#6366f1" strokeWidth="1.2" strokeDasharray="3,2"/>
+      <circle cx={cx} cy={cy-22} r="2.5" fill="#6366f1"/>
+      <circle cx={cx} cy={cy-30} r="2.5" fill="#6366f1"/>
+      {angleLbl && <text x={cx+48} y={cy+36} fill="#6366f1" fontSize="11" fontWeight="600">{latexToPlain(angleLbl ?? '107°')}</text>}
+    </svg>;
+  }
+  if (shape === 'see_saw' || shape === 'seesaw') {
+    const axT = [cx, cy-BL], axB = [cx, cy+BL];
+    const eq1 = [cx+BL*0.85, cy-BL*0.28], eq2 = [cx+BL*0.85, cy+BL*0.28];
+    return <svg viewBox={`0 0 ${VW} ${VH}`} style={{width:'100%',height:'auto',display:'block'}}>
+      {solidLine(cx,cy,axT[0]!,axT[1]!)}{solidLine(cx,cy,axB[0]!,axB[1]!)}
+      {solidLine(cx,cy,eq1[0]!,eq1[1]!)}{solidLine(cx,cy,eq2[0]!,eq2[1]!)}
+      {ligAtom(axT[0]!,axT[1]!,0)}{ligAtom(axB[0]!,axB[1]!,1)}
+      {ligAtom(eq1[0]!,eq1[1]!,2)}{ligAtom(eq2[0]!,eq2[1]!,3)}{centralAtomEl}
+      {/* Lone pair on left equatorial side */}
+      <ellipse cx={cx-26} cy={cy} rx="14" ry="9" fill="rgba(99,102,241,0.12)" stroke="#6366f1" strokeWidth="1.2" strokeDasharray="3,2"/>
+      {angleLbl && <text x={cx+BL+16} y={cy} fill="#6366f1" fontSize="11" fontWeight="600" dominantBaseline="middle">{latexToPlain(angleLbl)}</text>}
+    </svg>;
+  }
+  if (shape === 't_shaped' || shape === 't_shape' || shape === 't-shape') {
+    const axT = [cx, cy-BL], axB = [cx, cy+BL], eq = [cx+BL, cy];
+    return <svg viewBox={`0 0 ${VW} ${VH}`} style={{width:'100%',height:'auto',display:'block'}}>
+      {solidLine(cx,cy,axT[0]!,axT[1]!)}{solidLine(cx,cy,axB[0]!,axB[1]!)}
+      {solidLine(cx,cy,eq[0]!,eq[1]!)}
+      {ligAtom(axT[0]!,axT[1]!,0)}{ligAtom(axB[0]!,axB[1]!,1)}{ligAtom(eq[0]!,eq[1]!,2)}{centralAtomEl}
+      {/* 2 lone pairs on left */}
+      <circle cx={cx-26} cy={cy-16} r="2.5" fill="#6366f1"/>
+      <circle cx={cx-34} cy={cy-16} r="2.5" fill="#6366f1"/>
+      <circle cx={cx-26} cy={cy+16} r="2.5" fill="#6366f1"/>
+      <circle cx={cx-34} cy={cy+16} r="2.5" fill="#6366f1"/>
+      {angleLbl && <text x={cx+BL*0.5} y={cy-16} fill="#6366f1" fontSize="11" fontWeight="600">{latexToPlain(angleLbl ?? '86°')}</text>}
+    </svg>;
+  }
   // tetrahedral (default) and trigonal_bipyramidal
   if (shape === 'trigonal_bipyramidal') {
     const eqPos = [0,120,240].map(d => [cx+BL*Math.cos(d*Math.PI/180), cy+BL*Math.sin(d*Math.PI/180)]);
@@ -497,7 +551,15 @@ export function MolecGeometry({ p }: { p: MolecGeometryParams }) {
 /* ── TEMPLATE 16: MO Diagram ─────────────────────────────────── */
 export function MoDiagram({ p }: { p: MoDiagramParams }) {
   const molRaw = (p.molecule ?? 'N2');
-  const mol = molRaw.replace(/₂/g,'2').replace(/⁺/g,'+').replace(/⁻/g,'-').toUpperCase();
+  const mol = molRaw
+    .replace(/₂/g,'2')
+    .replace(/⁺/g,'+')
+    .replace(/⁻/g,'-')
+    .replace(/²⁺/g,'2+')
+    .replace(/²⁻/g,'2-')
+    .replace(/\^\{\s*([0-9]*[\+\-])\s*\}/g, '$1')
+    .replace(/\^([0-9]*[\+\-])/g, '$1')
+    .toUpperCase();
 
   type MOLevel = { label:string; ab:boolean; deg:boolean; cap:number };
   const lt7Levels: MOLevel[] = [
@@ -511,11 +573,15 @@ export function MoDiagram({ p }: { p: MoDiagramParams }) {
     {label:'π*(2p)',ab:true, deg:true, cap:4},{label:'σ*(2p)',ab:true, deg:false,cap:2},
   ];
   const molDb: Record<string,{order:'lt7'|'gt7';val:number}> = {
+    'H2':{order:'lt7',val:2},'HE2':{order:'lt7',val:4},
     'LI2':{order:'lt7',val:2},'BE2':{order:'lt7',val:4},'B2':{order:'lt7',val:6},
-    'C2':{order:'lt7',val:8},'N2':{order:'lt7',val:10},'N2+':{order:'lt7',val:9},
-    'O2':{order:'gt7',val:12},'O2+':{order:'gt7',val:11},'O2-':{order:'gt7',val:13},
+    'C2':{order:'lt7',val:8},'C2-':{order:'lt7',val:9},'C22-':{order:'lt7',val:10},
+    'N2':{order:'lt7',val:10},'N2+':{order:'lt7',val:9},'N2-':{order:'lt7',val:11},'N22-':{order:'lt7',val:12},
+    'O2':{order:'gt7',val:12},'O2+':{order:'gt7',val:11},'O2-':{order:'gt7',val:13},'O22-':{order:'gt7',val:14},'O2--':{order:'gt7',val:14},
     'F2':{order:'gt7',val:14},'NE2':{order:'gt7',val:16},
-    'NO':{order:'gt7',val:11},'CO':{order:'lt7',val:10},'CN-':{order:'lt7',val:10},
+    'NO':{order:'gt7',val:11},'NO+':{order:'gt7',val:10},'NO-':{order:'gt7',val:12},
+    'CO':{order:'lt7',val:10},'CO+':{order:'lt7',val:9},
+    'CN':{order:'lt7',val:9},'CN-':{order:'lt7',val:10},
   };
   const mdata = molDb[mol] ?? {order:'lt7' as const, val:+(p.valence_electrons ?? 10)};
   const levels = mdata.order === 'lt7' ? lt7Levels : gt7Levels;

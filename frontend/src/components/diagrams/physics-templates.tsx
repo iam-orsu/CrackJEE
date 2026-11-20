@@ -73,46 +73,51 @@ export function compSymbol(
   x: number, y: number, type: string, label: string | undefined, horiz: boolean,
 ): React.ReactNode {
   const T = (type ?? '').toLowerCase();
+  const plainLabel = label ? latexToPlain(label) : undefined;
 
   if (T === 'battery') return horiz ? (
     <g key={`${x}${y}`}>
-      <line x1={x - 10} y1={y - 13} x2={x - 10} y2={y + 13} stroke="#1e293b" strokeWidth="2.5" />
-      <line x1={x + 10} y1={y - 7}  x2={x + 10} y2={y + 7}  stroke="#1e293b" strokeWidth="1.5" />
-      <text x={x - 10} y={y - 18} fill="#374151" fontSize="10" textAnchor="middle">+</text>
-      {label && <text x={x} y={y - 24} fill="#374151" fontSize="11" textAnchor="middle">{label}</text>}
+      <rect x={x - 14} y={y - 15} width={28} height={30} fill="white" stroke="none" />
+      <line x1={x - 8} y1={y - 13} x2={x - 8} y2={y + 13} stroke="#1e293b" strokeWidth="2.5" />
+      <line x1={x + 8} y1={y - 7}  x2={x + 8} y2={y + 7}  stroke="#1e293b" strokeWidth="1.5" />
+      <text x={x - 8} y={y - 18} fill="#374151" fontSize="10" textAnchor="middle">+</text>
+      {plainLabel && <text x={x} y={y - 24} fill="#374151" fontSize="11" textAnchor="middle">{plainLabel}</text>}
     </g>
   ) : (
     <g key={`${x}${y}`}>
-      <line x1={x - 13} y1={y - 10} x2={x + 13} y2={y - 10} stroke="#1e293b" strokeWidth="2.5" />
-      <line x1={x - 7}  y1={y + 10} x2={x + 7}  y2={y + 10} stroke="#1e293b" strokeWidth="1.5" />
-      <text x={x + 20} y={y - 10} fill="#374151" fontSize="10" dominantBaseline="middle">+</text>
-      {label && <text x={x + 20} y={y + 4} fill="#374151" fontSize="10">{label}</text>}
+      <rect x={x - 15} y={y - 14} width={30} height={28} fill="white" stroke="none" />
+      <line x1={x - 13} y1={y - 8} x2={x + 13} y2={y - 8} stroke="#1e293b" strokeWidth="2.5" />
+      <line x1={x - 7}  y1={y + 8} x2={x + 7}  y2={y + 8} stroke="#1e293b" strokeWidth="1.5" />
+      <text x={x + 20} y={y - 8} fill="#374151" fontSize="10" dominantBaseline="middle">+</text>
+      {plainLabel && <text x={x + 20} y={y + 6} fill="#374151" fontSize="10">{plainLabel}</text>}
     </g>
   );
 
   if (T === 'resistor') return horiz ? (
     <g key={`${x}${y}`}>
       <rect x={x - 20} y={y - 9} width="40" height="18" fill="white" stroke="#1e293b" strokeWidth="1.5" rx="2" />
-      {label && <text x={x} y={y - 16} fill="#374151" fontSize="11" textAnchor="middle">{label}</text>}
+      {plainLabel && <text x={x} y={y - 16} fill="#374151" fontSize="11" textAnchor="middle">{plainLabel}</text>}
     </g>
   ) : (
     <g key={`${x}${y}`}>
       <rect x={x - 9} y={y - 20} width="18" height="40" fill="white" stroke="#1e293b" strokeWidth="1.5" rx="2" />
-      {label && <text x={x + 16} y={y} fill="#374151" fontSize="11" dominantBaseline="middle">{label}</text>}
+      {plainLabel && <text x={x + 16} y={y} fill="#374151" fontSize="11" dominantBaseline="middle">{plainLabel}</text>}
     </g>
   );
 
   if (T === 'capacitor') return horiz ? (
     <g key={`${x}${y}`}>
+      <rect x={x - 14} y={y - 15} width={28} height={30} fill="white" stroke="none" />
       <line x1={x - 5} y1={y - 13} x2={x - 5} y2={y + 13} stroke="#1e293b" strokeWidth="2.5" />
       <line x1={x + 5} y1={y - 13} x2={x + 5} y2={y + 13} stroke="#1e293b" strokeWidth="2.5" />
-      {label && <text x={x} y={y - 20} fill="#374151" fontSize="11" textAnchor="middle">{label}</text>}
+      {plainLabel && <text x={x} y={y - 20} fill="#374151" fontSize="11" textAnchor="middle">{plainLabel}</text>}
     </g>
   ) : (
     <g key={`${x}${y}`}>
+      <rect x={x - 15} y={y - 14} width={30} height={28} fill="white" stroke="none" />
       <line x1={x - 13} y1={y - 5} x2={x + 13} y2={y - 5} stroke="#1e293b" strokeWidth="2.5" />
       <line x1={x - 13} y1={y + 5} x2={x + 13} y2={y + 5} stroke="#1e293b" strokeWidth="2.5" />
-      {label && <text x={x + 20} y={y} fill="#374151" fontSize="11" dominantBaseline="middle">{label}</text>}
+      {plainLabel && <text x={x + 20} y={y} fill="#374151" fontSize="11" dominantBaseline="middle">{plainLabel}</text>}
     </g>
   );
 
@@ -123,36 +128,39 @@ export function compSymbol(
         <circle cx={x} cy={y} r={r} fill="white" stroke="#1e293b" strokeWidth="1.5" />
         <line x1={x - 8} y1={y - 8} x2={x + 8} y2={y + 8} stroke="#1e293b" strokeWidth="1.5" />
         <line x1={x + 8} y1={y - 8} x2={x - 8} y2={y + 8} stroke="#1e293b" strokeWidth="1.5" />
-        {label && <text x={x} y={y - r - 7} fill="#374151" fontSize="11" textAnchor="middle">{label}</text>}
+        {plainLabel && <text x={x} y={y - r - 7} fill="#374151" fontSize="11" textAnchor="middle">{plainLabel}</text>}
       </g>
     );
   }
 
   if (T === 'inductor') return horiz ? (
     <g key={`${x}${y}`}>
+      <rect x={x - 18} y={y - 12} width={36} height={20} fill="white" stroke="none" />
       {[-14, -4.5, 5].map((dx, i) => (
         <path key={i} d={`M ${x + dx},${y} A 4.5,5 0 0,1 ${x + dx + 9},${y}`} fill="none" stroke="#1e293b" strokeWidth="1.5" />
       ))}
-      {label && <text x={x} y={y - 16} fill="#374151" fontSize="11" textAnchor="middle">{label}</text>}
+      {plainLabel && <text x={x} y={y - 16} fill="#374151" fontSize="11" textAnchor="middle">{plainLabel}</text>}
     </g>
   ) : (
     <g key={`${x}${y}`}>
+      <rect x={x - 12} y={y - 18} width={20} height={36} fill="white" stroke="none" />
       {[-14, -4.5, 5].map((dy, i) => (
         <path key={i} d={`M ${x},${y + dy} A 5,4.5 0 0,0 ${x},${y + dy + 9}`} fill="none" stroke="#1e293b" strokeWidth="1.5" />
       ))}
-      {label && <text x={x + 20} y={y} fill="#374151" fontSize="11" dominantBaseline="middle">{label}</text>}
+      {plainLabel && <text x={x + 20} y={y} fill="#374151" fontSize="11" dominantBaseline="middle">{plainLabel}</text>}
     </g>
   );
 
   if (T === 'switch') return (
     <g key={`${x}${y}`}>
+      <rect x={horiz ? x - 18 : x - 12} y={horiz ? y - 14 : y - 18} width={horiz ? 36 : 24} height={horiz ? 28 : 36} fill="white" stroke="none" />
       <circle cx={horiz ? x - 14 : x} cy={horiz ? y : y - 14} r="3" fill="#1e293b" />
       <circle cx={horiz ? x + 14 : x} cy={horiz ? y : y + 14} r="3" fill="#1e293b" />
       {horiz
         ? <line x1={x - 11} y1={y} x2={x + 12} y2={y - 10} stroke="#1e293b" strokeWidth="1.5" />
         : <line x1={x} y1={y - 11} x2={x + 10} y2={y + 12} stroke="#1e293b" strokeWidth="1.5" />}
-      {label && <text x={horiz ? x : x + 20} y={horiz ? y - 20 : y} fill="#374151" fontSize="11"
-        textAnchor={horiz ? 'middle' : 'start'} dominantBaseline="middle">{label}</text>}
+      {plainLabel && <text x={horiz ? x : x + 20} y={horiz ? y - 20 : y} fill="#374151" fontSize="11"
+        textAnchor={horiz ? 'middle' : 'start'} dominantBaseline="middle">{plainLabel}</text>}
     </g>
   );
 
@@ -164,8 +172,8 @@ export function compSymbol(
       <text x={x} y={y + 4} textAnchor="middle" fill="#374151" fontSize="11" fontWeight="600">
         {T[0]?.toUpperCase() ?? '?'}
       </text>
-      {label && <text x={horiz ? x : x + 16} y={horiz ? y - 16 : y}
-        fill="#374151" fontSize="11" textAnchor={horiz ? 'middle' : 'start'} dominantBaseline="middle">{label}</text>}
+      {plainLabel && <text x={horiz ? x : x + 16} y={horiz ? y - 16 : y}
+        fill="#374151" fontSize="11" textAnchor={horiz ? 'middle' : 'start'} dominantBaseline="middle">{plainLabel}</text>}
     </g>
   );
 }

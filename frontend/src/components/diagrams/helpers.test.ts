@@ -1,5 +1,15 @@
 import { describe, it, expect } from 'vitest';
-import { clampNum, finiteNum, safeRange } from './helpers';
+import { clampNum, finiteNum, latexToPlain, safeRange } from './helpers';
+
+describe('latexToPlain', () => {
+  it('converts common JEE and NEET physics and chemistry LaTeX expressions', () => {
+    expect(latexToPlain('10\\ \\Omega')).toContain('Ω');
+    expect(latexToPlain('\\Delta E = 1.88 \\times 10^9\\ \\text{J}')).toContain('ΔE');
+    expect(latexToPlain('\\omega t + \\phi')).toContain('ω');
+    expect(latexToPlain('30^\\circ')).toBe('30°');
+    expect(latexToPlain('\\mu = 0.4')).toContain('μ');
+  });
+});
 
 describe('safeRange (diagram params come from the database)', () => {
   it('accepts a sensible axis range', () => {

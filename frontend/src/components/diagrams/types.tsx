@@ -69,7 +69,7 @@ export interface CapacitorFieldParams {
 }
 
 export interface PvDiagramParams {
-  process?: 'isothermal' | 'adiabatic' | 'isobaric' | 'isochoric' | 'carnot';
+  process?: 'isothermal' | 'adiabatic' | 'isobaric' | 'isochoric' | 'carnot' | 'cyclic';
   labels?: Record<string, string>;
 }
 
@@ -124,7 +124,7 @@ export interface ArgandPlaneParams {
 
 export interface MolecLigand { label?: string; }
 export interface MolecGeometryParams {
-  shape?: 'linear' | 'bent' | 'trigonal_planar' | 'tetrahedral' | 'octahedral' | 'trigonal_bipyramidal';
+  shape?: 'linear' | 'bent' | 'trigonal_planar' | 'tetrahedral' | 'octahedral' | 'trigonal_bipyramidal' | 'trigonal_pyramidal' | 'square_planar' | 'see_saw' | 't_shaped';
   central_atom?: string;
   ligands?: MolecLigand[];
   bond_angle?: number;

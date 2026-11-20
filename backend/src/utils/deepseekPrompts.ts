@@ -210,7 +210,7 @@ export const DIAGRAM_SPEC = `
   TEMPLATE "capacitor_field": { "template": "capacitor_field", "params": { "num_field_lines": 5, "show_battery": false, "labels": { "field": "E", "charge_left": "+Q", "charge_right": "−Q", "separation": "d" } }}
 
   TEMPLATE "pv_diagram": { "template": "pv_diagram", "params": { "process": "isothermal", "labels": { "state_a": "A", "state_b": "B", "process": "T = const" } }}
-  Allowed: "isothermal"|"adiabatic"|"isobaric"|"isochoric"|"carnot"
+  Allowed: "isothermal"|"adiabatic"|"isobaric"|"isochoric"|"carnot"|"cyclic"
 
   TEMPLATE "triangle": { "template": "triangle", "params": { "angles": { "A": 60, "B": 60, "C": 60 }, "labels": { "vertex_A": "A", "vertex_B": "B", "vertex_C": "C", "a": "a", "b": "b", "c": "c" }, "show_incircle": false, "show_circumcircle": false }}
 
@@ -226,10 +226,10 @@ export const DIAGRAM_SPEC = `
   TEMPLATE "argand_plane": { "template": "argand_plane", "params": { "points": [{ "re": 3, "im": 4, "label": "z = 3+4i", "show_modulus": true, "show_argument": true }] }}
 
   TEMPLATE "molecular_geometry": { "template": "molecular_geometry", "params": { "shape": "tetrahedral", "central_atom": "C", "ligands": [{"label":"H"},{"label":"H"},{"label":"H"},{"label":"H"}], "bond_angle": 109.5, "labels": { "bond_angle": "109.5°" } }}
-  Shapes: "linear"|"bent"|"trigonal_planar"|"tetrahedral"|"octahedral"|"trigonal_bipyramidal"
+  Shapes: "linear"|"bent"|"trigonal_planar"|"tetrahedral"|"octahedral"|"trigonal_bipyramidal"|"trigonal_pyramidal"|"square_planar"|"see_saw"|"t_shaped"
 
   TEMPLATE "mo_diagram": { "template": "mo_diagram", "params": { "molecule": "N2" }}
-  Supported: N2, O2, F2, B2, C2, Li2, Be2, Ne2, NO, CO, O2+, O2-, N2+, CN-
+  Supported: N2, O2, F2, B2, C2, Li2, Be2, Ne2, NO, CO, O2+, O2-, O2^2-, N2+, N2-, CN, CN-
 
   TEMPLATE "crystal_structure": { "template": "crystal_structure", "params": { "type": "fcc", "labels": { "formula": "Cu", "title": "FCC" } }}
   Allowed: "scc"|"bcc"|"fcc"|"nacl"

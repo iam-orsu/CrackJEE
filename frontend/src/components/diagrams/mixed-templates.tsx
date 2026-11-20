@@ -68,7 +68,9 @@ export function CoordGeometry({ p }: { p: CoordGeometryParams }) {
 
   const sx = (x: number) => PL + ((x - xMin) / (xMax - xMin)) * plotW;
   const sy = (y: number) => VH - PB - ((y - yMin) / (yMax - yMin)) * plotH;
-  const axX = sx(0), axY = sy(0);
+  const rawAxX = sx(0), rawAxY = sy(0);
+  const axX = Math.max(PL, Math.min(VW - PR, rawAxX));
+  const axY = Math.max(PT, Math.min(VH - PB, rawAxY));
 
   const xTicks = Array.from({ length: xMax - xMin - 1 }, (_, i) => xMin + i + 1);
   const yTicks = Array.from({ length: yMax - yMin - 1 }, (_, i) => yMin + i + 1);
@@ -86,10 +88,10 @@ export function CoordGeometry({ p }: { p: CoordGeometryParams }) {
       <text x={VW - PR + 4} y={axY + 4} fill="#94a3b8" fontSize="11">x</text>
       <text x={axX + 4}     y={PT - 4}  fill="#94a3b8" fontSize="11">y</text>
       {xTicks.filter((x) => x !== 0).map((x) => (
-        <text key={`tx${x}`} x={sx(x)} y={axY + 13} fill="#94a3b8" fontSize="9" textAnchor="middle">{x}</text>
+        <text key={`tx${x}`} x={sx(x)} y={Math.min(VH - PB + 13, axY + 13)} fill="#94a3b8" fontSize="9" textAnchor="middle">{x}</text>
       ))}
       {yTicks.filter((y) => y !== 0).map((y) => (
-        <text key={`ty${y}`} x={axX - 6} y={sy(y) + 4} fill="#94a3b8" fontSize="9" textAnchor="end">{y}</text>
+        <text key={`ty${y}`} x={Math.max(PL - 6, axX - 6)} y={sy(y) + 4} fill="#94a3b8" fontSize="9" textAnchor="end">{y}</text>
       ))}
       {(p.lines ?? []).map((line: GLine, i: number) => (
         line.arrow === true ? (
@@ -646,16 +648,22 @@ export function CapacitorField({ p }: { p: CapacitorFieldParams }) {
       {/* Battery (optional) */}
       {showBattery && (
         <g>
-          <line x1={leftX} y1={plateBot + 46} x2={leftX} y2={plateBot + 56} stroke="#374151" strokeWidth="1.5" />
-          <line x1={rightX} y1={plateBot + 46} x2={rightX} y2={plateBot + 56} stroke="#374151" strokeWidth="1.5" />
-          <line x1={leftX} y1={plateBot + 56} x2={(leftX + rightX) / 2 - 10} y2={plateBot + 56} stroke="#374151" strokeWidth="1.5" />
-          <line x1={(leftX + rightX) / 2 + 10} y1={plateBot + 56} x2={rightX} y2={plateBot + 56} stroke="#374151" strokeWidth="1.5" />
-          <line x1={(leftX + rightX) / 2 - 10} y1={plateBot + 49} x2={(leftX + rightX) / 2 + 10} y2={plateBot + 49}
+          {/* Connecting wire from plates down to battery rail */}
+          <line x1={leftX} y1={plateBot + 14} x2={leftX} y2={plateBot + 45} stroke="#374151" strokeWidth="1.5" />
+          <line x1={rightX} y1={plateBot + 14} x2={rightX} y2={plateBot + 45} stroke="#374151" strokeWidth="1.5" />
+          {/* Horizontal rails to battery terminals */}
+          <line x1={leftX} y1={plateBot + 45} x2={(leftX + rightX) / 2 - 10} y2={plateBot + 45} stroke="#374151" strokeWidth="1.5" />
+          <line x1={(leftX + rightX) / 2 + 10} y1={plateBot + 45} x2={rightX} y2={plateBot + 45} stroke="#374151" strokeWidth="1.5" />
+          {/* Positive terminal (long vertical line, left) */}
+          <line x1={(leftX + rightX) / 2 - 10} y1={plateBot + 34} x2={(leftX + rightX) / 2 - 10} y2={plateBot + 56}
             stroke="#1e293b" strokeWidth="2.5" />
-          <line x1={(leftX + rightX) / 2 - 5} y1={plateBot + 56} x2={(leftX + rightX) / 2 + 5} y2={plateBot + 56}
-            stroke="#1e293b" strokeWidth="1.5" />
+          <text x={(leftX + rightX) / 2 - 10} y={plateBot + 29} fill="#2563eb" fontSize="10" fontWeight="700" textAnchor="middle">+</text>
+          {/* Negative terminal (short thick vertical line, right) */}
+          <line x1={(leftX + rightX) / 2 + 10} y1={plateBot + 38} x2={(leftX + rightX) / 2 + 10} y2={plateBot + 52}
+            stroke="#1e293b" strokeWidth="3.5" />
+          <text x={(leftX + rightX) / 2 + 10} y={plateBot + 29} fill="#dc2626" fontSize="10" fontWeight="700" textAnchor="middle">−</text>
           {lbl.voltage && (
-            <text x={(leftX + rightX) / 2} y={plateBot + 70}
+            <text x={(leftX + rightX) / 2} y={plateBot + 62}
               fill="#374151" fontSize="11" textAnchor="middle">{latexToPlain(lbl.voltage)}</text>
           )}
         </g>
@@ -692,6 +700,52 @@ export function PvDiagram({ p }: { p: PvDiagramParams }) {
       A: [175, 162], B: [175, 62], color: '#d97706',
     },
   };
+
+  if (process === 'cyclic' || process === 'cycle' || process === 'heat_engine') {
+    const A: [number, number] = [110, 70];
+    const B: [number, number] = [285, 70];
+    const C: [number, number] = [285, 155];
+    const D: [number, number] = [110, 155];
+    return (
+      <svg viewBox="0 0 380 235" style={{ width: '100%', height: 'auto', display: 'block' }}>
+        <Arr x1={ox} y1={oy} x2={ox} y2={yTop} color="#94a3b8" />
+        <Arr x1={ox} y1={oy} x2={xEnd} y2={oy} color="#94a3b8" />
+        <text x={ox - 14} y={yTop + 2} fill="#94a3b8" fontSize="11">P</text>
+        <text x={xEnd + 4} y={oy + 4} fill="#94a3b8" fontSize="11">V</text>
+
+        {/* Shaded enclosed area (Net Work) */}
+        <polygon points={`${A[0]},${A[1]} ${B[0]},${B[1]} ${C[0]},${C[1]} ${D[0]},${D[1]}`}
+          fill="rgba(99,102,241,0.08)" stroke="#6366f1" strokeWidth="2" strokeLinejoin="round" />
+        <text x={(A[0] + B[0]) / 2} y={(A[1] + C[1]) / 2 + 4} fill="#4f46e5" fontSize="11" fontWeight="700" textAnchor="middle">
+          {latexToPlain(lbl.work ?? 'W_net')}
+        </text>
+
+        {/* Process direction arrows */}
+        <Arr x1={A[0]} y1={A[1]} x2={(A[0] + B[0]) / 2 + 10} y2={A[1]} color="#6366f1" sw={2} />
+        <Arr x1={B[0]} y1={B[1]} x2={B[0]} y2={(B[1] + C[1]) / 2 + 10} color="#6366f1" sw={2} />
+        <Arr x1={C[0]} y1={C[1]} x2={(C[0] + D[0]) / 2 - 10} y2={C[1]} color="#6366f1" sw={2} />
+        <Arr x1={D[0]} y1={D[1]} x2={D[0]} y2={(D[1] + A[1]) / 2 - 10} color="#6366f1" sw={2} />
+
+        {/* States 1, 2, 3, 4 */}
+        {[A, B, C, D].map(([x, y], i) => (
+          <g key={i}>
+            <circle cx={x} cy={y} r="4.5" fill="white" stroke="#374151" strokeWidth="1.5" />
+            <text x={x + (i === 0 || i === 3 ? -12 : 12)} y={y + (i < 2 ? -6 : 12)}
+              fill="#374151" fontSize="11" fontWeight="700" textAnchor="middle">
+              {['1', '2', '3', '4'][i]}
+            </text>
+          </g>
+        ))}
+
+        {/* Labels */}
+        {lbl.process && (
+          <text x={(A[0] + B[0]) / 2} y={35} fill="#374151" fontSize="11" fontWeight="600" textAnchor="middle">
+            {latexToPlain(lbl.process)}
+          </text>
+        )}
+      </svg>
+    );
+  }
 
   if (process === 'carnot') {
     // 4-process closed loop: A→B (hot isotherm), B→C (adiabatic), C→D (cold isotherm), D→A (adiabatic)
@@ -782,11 +836,18 @@ export function PvDiagram({ p }: { p: PvDiagramParams }) {
         </text>
       )}
 
-      {/* Work done shading */}
-      <path d={`${proc.path} L ${proc.B[0]},${oy} L ${proc.A[0]},${oy} Z`}
-        fill={proc.color} opacity="0.06" />
-      <text x={(proc.A[0] + proc.B[0]) / 2} y={oy - 10}
-        fill={proc.color} fontSize="10" textAnchor="middle" opacity="0.7">W</text>
+      {/* Work done shading: only when volume changes (for isochoric, dV = 0 => W = 0) */}
+      {process !== 'isochoric' ? (
+        <>
+          <path d={`${proc.path} L ${proc.B[0]},${oy} L ${proc.A[0]},${oy} Z`}
+            fill={proc.color} opacity="0.06" />
+          <text x={(proc.A[0] + proc.B[0]) / 2} y={oy - 10}
+            fill={proc.color} fontSize="10" textAnchor="middle" opacity="0.7">W</text>
+        </>
+      ) : (
+        <text x={proc.A[0] + 16} y={(proc.A[1] + proc.B[1]) / 2}
+          fill="#d97706" fontSize="10" textAnchor="start" fontWeight="600">W = 0 (ΔV = 0)</text>
+      )}
     </svg>
   );
 }
