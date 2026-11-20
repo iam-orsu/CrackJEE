@@ -249,71 +249,91 @@ export default function StudentPortalPage() {
                 </div>
               ) : (
                 <div className="grid grid-cols-[repeat(auto-fill,minmax(340px,1fr))] gap-5">
-                  {completedExams.map((exam) => (
-                    <article key={exam.id} className={cx(CARD_INTERACTIVE, 'flex flex-col justify-between gap-5')}>
-                      <div>
-                        <div className="mb-3 flex items-center justify-between gap-2">
-                          <span className={CHIP_READY}>Completed</span>
-                          {exam.result?.submittedAt && (
-                            <span className="text-[12px] font-medium text-[#5A6B8C]">
-                              {new Date(exam.result.submittedAt).toLocaleDateString('en-IN', {
-                                day: 'numeric',
-                                month: 'short',
-                              })}
+                  {completedExams.map((exam) => {
+                    const releaseMode =
+                      exam.resultReleaseMode ||
+                      (exam.result?.isLocked ? 'locked' : exam.showSolutions ? 'full' : 'responses_only');
+
+                    return (
+                      <article key={exam.id} className={cx(CARD_INTERACTIVE, 'flex flex-col justify-between gap-5')}>
+                        <div>
+                          <div className="mb-3 flex items-center justify-between gap-2">
+                            <span className={CHIP_READY}>
+                              {releaseMode === 'locked' ? 'Submitted' : 'Completed'}
                             </span>
+                            {exam.result?.submittedAt && (
+                              <span className="text-[12px] font-medium text-[#5A6B8C]">
+                                {new Date(exam.result.submittedAt).toLocaleDateString('en-IN', {
+                                  day: 'numeric',
+                                  month: 'short',
+                                })}
+                              </span>
+                            )}
+                          </div>
+
+                          <h3 className="text-[16.5px] font-extrabold leading-snug text-[#003366]">{exam.title}</h3>
+
+                          {exam.result && (
+                            releaseMode === 'locked' ? (
+                              <div className="mt-4 rounded-[16px] border border-[#803688]/20 bg-[#FDF8FF] px-4 py-3 text-center">
+                                <div className="text-[12.5px] font-extrabold text-[#803688]">Submission Recorded</div>
+                                <div className="mt-0.5 text-[11.5px] text-[#5A6B8C]">Results &amp; answers locked by faculty</div>
+                              </div>
+                            ) : releaseMode === 'responses_only' ? (
+                              <div className="mt-4 rounded-[16px] border border-[#003366]/15 bg-ice px-4 py-3 text-center">
+                                <div className="text-[12.5px] font-extrabold text-[#003366]">Responses Recorded</div>
+                                <div className="mt-0.5 text-[11.5px] text-[#5A6B8C]">Score &amp; answer key hidden by faculty</div>
+                              </div>
+                            ) : exam.paper.examType === 'Psychometric' ? (
+                              <div className="mt-4 grid grid-cols-2 gap-2 rounded-[16px] border border-[#803688]/15 bg-[#FBF5FC] px-3 py-3 text-center">
+                                <div>
+                                  <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#803688]">Goal Alignment</div>
+                                  <div className="mt-0.5 text-[17px] font-extrabold tabular-nums text-[#803688]">
+                                    {exam.result.totalScore}%
+                                  </div>
+                                </div>
+                                <div>
+                                  <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#803688]">Assessment Status</div>
+                                  <div className="mt-0.5 text-[14px] font-extrabold text-[#003366]">Evaluated</div>
+                                </div>
+                              </div>
+                            ) : (
+                              <div className="mt-4 grid grid-cols-3 gap-2 rounded-[16px] border border-[#003366]/10 bg-ice px-3 py-3 text-center">
+                                <div>
+                                  <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#5A6B8C]">Score</div>
+                                  <div className={cx('mt-0.5 text-[17px] font-extrabold tabular-nums', exam.result.totalScore >= 0 ? 'text-[#003366]' : 'text-[#C8202F]')}>
+                                    {exam.result.totalScore}
+                                    <span className="text-[12px] font-semibold text-[#5A6B8C]"> / {exam.result.maxScore}</span>
+                                  </div>
+                                </div>
+                                <div>
+                                  <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#5A6B8C]">Correct</div>
+                                  <div className="mt-0.5 text-[17px] font-extrabold tabular-nums text-[#15803D]">+{exam.result.correctCount}</div>
+                                </div>
+                                <div>
+                                  <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#5A6B8C]">Wrong</div>
+                                  <div className="mt-0.5 text-[17px] font-extrabold tabular-nums text-[#C8202F]">-{exam.result.incorrectCount}</div>
+                                </div>
+                              </div>
+                            )
                           )}
                         </div>
 
-                        <h3 className="text-[16.5px] font-extrabold leading-snug text-[#003366]">{exam.title}</h3>
-
-                        {exam.result && (
-                          exam.paper.examType === 'Psychometric' ? (
-                            <div className="mt-4 grid grid-cols-2 gap-2 rounded-[16px] border border-[#803688]/15 bg-[#FBF5FC] px-3 py-3 text-center">
-                              <div>
-                                <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#803688]">Goal Alignment</div>
-                                <div className="mt-0.5 text-[17px] font-extrabold tabular-nums text-[#803688]">
-                                  {exam.result.totalScore}%
-                                </div>
-                              </div>
-                              <div>
-                                <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#803688]">Assessment Status</div>
-                                <div className="mt-0.5 text-[14px] font-extrabold text-[#003366]">Evaluated</div>
-                              </div>
-                            </div>
-                          ) : (
-                            <div className="mt-4 grid grid-cols-3 gap-2 rounded-[16px] border border-[#003366]/10 bg-ice px-3 py-3 text-center">
-                              <div>
-                                <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#5A6B8C]">Score</div>
-                                <div className={cx('mt-0.5 text-[17px] font-extrabold tabular-nums', exam.result.totalScore >= 0 ? 'text-[#003366]' : 'text-[#C8202F]')}>
-                                  {exam.result.totalScore}
-                                  <span className="text-[12px] font-semibold text-[#5A6B8C]"> / {exam.result.maxScore}</span>
-                                </div>
-                              </div>
-                              <div>
-                                <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#5A6B8C]">Correct</div>
-                                <div className="mt-0.5 text-[17px] font-extrabold tabular-nums text-[#15803D]">+{exam.result.correctCount}</div>
-                              </div>
-                              <div>
-                                <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#5A6B8C]">Wrong</div>
-                                <div className="mt-0.5 text-[17px] font-extrabold tabular-nums text-[#C8202F]">-{exam.result.incorrectCount}</div>
-                              </div>
-                            </div>
-                          )
-                        )}
-                      </div>
-
-                      <Link
-                        href={`/student/result/${exam.id}`}
-                        className={cx(BUTTON_SECONDARY, 'w-full', FOCUS_RING)}
-                      >
-                        {exam.paper.examType === 'Psychometric'
-                          ? 'View behavioral report & fit'
-                          : exam.showSolutions
-                            ? 'View scorecard and solutions'
-                            : 'View scorecard (Key hidden by faculty)'}
-                      </Link>
-                    </article>
-                  ))}
+                        <Link
+                          href={`/student/result/${exam.id}`}
+                          className={cx(BUTTON_SECONDARY, 'w-full', FOCUS_RING)}
+                        >
+                          {releaseMode === 'locked'
+                            ? 'View submission status'
+                            : releaseMode === 'responses_only'
+                              ? 'Review your responses'
+                              : exam.paper.examType === 'Psychometric'
+                                ? 'View behavioral report & fit'
+                                : 'View scorecard and solutions'}
+                        </Link>
+                      </article>
+                    );
+                  })}
                 </div>
               )}
             </section>

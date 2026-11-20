@@ -11,6 +11,7 @@ import { deepSeekPsychometricService } from './DeepSeekPsychometricService';
 import { psychometricEvaluationWorker } from './PsychometricEvaluationWorker';
 import { logger } from '../utils/logger';
 import { AppError } from '../utils/AppError';
+import { extractReleaseMode, cleanMetadataFromInstructions } from './FacultyAssignmentService';
 
 export class FacultyStudentExamService {
   constructor(
@@ -147,14 +148,18 @@ export class FacultyStudentExamService {
       const isUpcoming = a.startTime && new Date(a.startTime) > now;
       const isExpired = a.endTime && new Date(a.endTime) < now;
 
+      const releaseMode = extractReleaseMode(a.instructions, a.showSolutions);
+      const isLocked = releaseMode === 'locked';
+
       return {
         id: a.id,
         title: a.title,
-        instructions: (a.instructions || '').replace('<!--showGoal:true-->', '').trim() || null,
+        instructions: cleanMetadataFromInstructions(a.instructions),
         durationMinutes: a.durationMinutes,
         startTime: a.startTime?.toISOString() ?? null,
         endTime: a.endTime?.toISOString() ?? null,
         showSolutions: a.showSolutions,
+        resultReleaseMode: releaseMode,
         paper: {
           id: a.paper.id,
           title: a.paper.title,
@@ -169,11 +174,12 @@ export class FacultyStudentExamService {
         result:
           examSession && examSession.status === 'submitted'
             ? {
-                totalScore: examSession.totalScore,
+                isLocked,
+                totalScore: isLocked ? 0 : examSession.totalScore,
                 maxScore: examSession.maxScore,
-                correctCount: examSession.correctCount,
-                incorrectCount: examSession.incorrectCount,
-                unattemptedCount: examSession.unattemptedCount,
+                correctCount: isLocked ? 0 : examSession.correctCount,
+                incorrectCount: isLocked ? 0 : examSession.incorrectCount,
+                unattemptedCount: isLocked ? 0 : examSession.unattemptedCount,
                 submittedAt: examSession.submittedAt?.toISOString() ?? null,
               }
             : null,
@@ -515,6 +521,38 @@ export class FacultyStudentExamService {
       throw new AppError(404, 'Assignment not found');
     }
 
+    const releaseMode = extractReleaseMode(assignment.instructions, assignment.showSolutions);
+    if (releaseMode === 'locked') {
+      return {
+        assignment: {
+          id: assignment.id,
+          title: assignment.title,
+          examType: assignment.paper.examType,
+          showSolutions: false,
+          resultReleaseMode: 'locked',
+          batchName: assignment.batch.name,
+          facultyName: assignment.faculty.name,
+        },
+        isLocked: true,
+        message: 'Your exam submission has been recorded. Results and answer sheets are locked by your faculty.',
+        scorecard: {
+          rank: null,
+          totalCandidates: null,
+          totalScore: null,
+          maxScore: session.maxScore,
+          correctCount: 0,
+          partialCount: 0,
+          incorrectCount: 0,
+          attemptedCount: 0,
+          unattemptedCount: 0,
+          timeTakenSeconds: session.timeTakenSeconds,
+          submittedAt: session.submittedAt?.toISOString() ?? null,
+          resultBreakdown: null,
+        },
+        solutions: null,
+      };
+    }
+
     // High performance O(1) rank lookup using indexed composite count query
     const [higherCount, totalCandidates] = await Promise.all([
       typeof this.examRepo.countStudentsScoredHigher === 'function'
@@ -576,6 +614,7 @@ export class FacultyStudentExamService {
           title: assignment.title,
           examType: 'Psychometric',
           showSolutions: assignment.showSolutions,
+          resultReleaseMode: releaseMode,
           batchName: assignment.batch.name,
           facultyName: assignment.faculty.name,
           examGoal: showGoal ? professorGoal : null,
@@ -675,6 +714,7 @@ export class FacultyStudentExamService {
         title: assignment.title,
         examType: assignment.paper.examType,
         showSolutions: assignment.showSolutions,
+        resultReleaseMode: releaseMode,
         batchName: assignment.batch.name,
         facultyName: assignment.faculty.name,
       },

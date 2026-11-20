@@ -1,17 +1,18 @@
 'use client';
 
 import React, { useCallback, useEffect, useState } from 'react';
-import { ChartColumn, Clock, Eye, EyeOff } from 'lucide-react';
+import { ChartColumn, Clock, Eye, Lock, CheckSquare } from 'lucide-react';
 import {
   facultyCreateAssignment,
   facultyDeleteAssignment,
   facultyListAssignments,
   facultyListBatches,
   facultyListPapers,
-  facultyToggleAssignmentSolutions,
+  facultyUpdateAssignmentReleaseMode,
   type FacultyAssignmentSummary,
   type FacultyBatch,
   type FacultyPaperSummary,
+  type ResultReleaseMode,
 } from '@/lib/faculty';
 
 const BTN_PRIMARY =
@@ -39,7 +40,7 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
   const [durationMinutes, setDurationMinutes] = useState<number | ''>(60);
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
-  const [showSolutions, setShowSolutions] = useState(true);
+  const [resultReleaseMode, setResultReleaseMode] = useState<ResultReleaseMode>('full');
   const [showGoalToStudents, setShowGoalToStudents] = useState(false);
   const [assignSubmitting, setAssignSubmitting] = useState(false);
 
@@ -87,12 +88,14 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
         durationMinutes: typeof durationMinutes === 'number' && durationMinutes >= 10 ? durationMinutes : 60,
         startTime: startTime ? new Date(startTime).toISOString() : null,
         endTime: endTime ? new Date(endTime).toISOString() : null,
-        showSolutions,
+        showSolutions: resultReleaseMode === 'full',
+        resultReleaseMode,
         showGoalToStudents,
       });
       setAssignModalOpen(false);
       setTitle('');
       setInstructions('');
+      setResultReleaseMode('full');
       setShowGoalToStudents(false);
       await loadData();
     } catch (err) {
@@ -114,19 +117,23 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
     }
   }
 
-  const [togglingId, setTogglingId] = useState<string | null>(null);
+  const [updatingModeId, setUpdatingModeId] = useState<string | null>(null);
 
-  async function handleToggleSolutions(id: string, currentShowSolutions: boolean) {
-    setTogglingId(id);
+  async function handleUpdateReleaseMode(id: string, newMode: ResultReleaseMode) {
+    setUpdatingModeId(id);
     try {
-      const res = await facultyToggleAssignmentSolutions(id, !currentShowSolutions);
+      const res = await facultyUpdateAssignmentReleaseMode(id, newMode);
       setAssignments((prev) =>
-        prev.map((a) => (a.id === id ? { ...a, showSolutions: res.showSolutions } : a))
+        prev.map((a) =>
+          a.id === id
+            ? { ...a, showSolutions: res.showSolutions, resultReleaseMode: res.resultReleaseMode }
+            : a,
+        ),
       );
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to update key visibility');
+      setError(err instanceof Error ? err.message : 'Failed to update result release mode');
     } finally {
-      setTogglingId(null);
+      setUpdatingModeId(null);
     }
   }
 
@@ -199,30 +206,40 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
                       <Clock className="h-[13px] w-[13px] shrink-0" aria-hidden />
                       {a.durationMinutes} mins
                     </span>
-                    <span
-                      className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] font-bold border ${
-                        a.showSolutions
-                          ? 'border-[#15803D]/25 bg-[#F0FDF4] text-[#15803D]'
-                          : 'border-[#C2410C]/25 bg-[#FFF7ED] text-[#C2410C]'
-                      }`}
-                      title={
-                        a.showSolutions
-                          ? 'Students can view full answer key and step-by-step solutions after submission'
-                          : 'Answer key and solutions are hidden from students'
+                    {(() => {
+                      const mode: ResultReleaseMode = a.resultReleaseMode || (a.showSolutions ? 'full' : 'responses_only');
+                      if (mode === 'locked') {
+                        return (
+                          <span
+                            className="inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] font-bold border border-[#803688]/25 bg-[#FDF8FF] text-[#803688]"
+                            title="Complete Lock: Students only see submission confirmation; score, answers, and solutions are locked."
+                          >
+                            <Lock className="h-3 w-3" />
+                            Results: Locked
+                          </span>
+                        );
                       }
-                    >
-                      {a.showSolutions ? (
-                        <>
+                      if (mode === 'responses_only') {
+                        return (
+                          <span
+                            className="inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] font-bold border border-[#003366]/25 bg-[#EEF2FF] text-[#003366]"
+                            title="Student Responses Only: Students see their marked choices; answer key and solutions are locked."
+                          >
+                            <CheckSquare className="h-3 w-3" />
+                            Results: Responses Only
+                          </span>
+                        );
+                      }
+                      return (
+                        <span
+                          className="inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] font-bold border border-[#15803D]/25 bg-[#F0FDF4] text-[#15803D]"
+                          title="Full Solutions: Students see full scorecard, correct answers, and step-by-step solutions."
+                        >
                           <Eye className="h-3 w-3" />
-                          Key: Visible
-                        </>
-                      ) : (
-                        <>
-                          <EyeOff className="h-3 w-3" />
-                          Key: Hidden
-                        </>
-                      )}
-                    </span>
+                          Results: Full Solutions
+                        </span>
+                      );
+                    })()}
                   </div>
 
                   <h3 className="text-[16px] font-bold text-[#003366]">
@@ -271,25 +288,23 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
 
                 {/* Actions */}
                 <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2px] border-[#003366]/20 bg-white px-3 py-2 text-[12px] font-bold text-[#003366] shadow-[0_2px_0_#C6D2F8] transition-all hover:bg-[#F8FAFF] active:translate-y-[1px] disabled:opacity-50"
-                    onClick={() => handleToggleSolutions(a.id, a.showSolutions)}
-                    disabled={togglingId === a.id}
-                    title={a.showSolutions ? 'Click to hide answer key from students' : 'Click to release answer key to students'}
-                  >
-                    {a.showSolutions ? (
-                      <>
-                        <EyeOff className="h-3.5 w-3.5 text-[#C2410C]" />
-                        <span>{togglingId === a.id ? 'Updating...' : 'Hide Key'}</span>
-                      </>
-                    ) : (
-                      <>
-                        <Eye className="h-3.5 w-3.5 text-[#15803D]" />
-                        <span>{togglingId === a.id ? 'Updating...' : 'Release Key'}</span>
-                      </>
+                  <div className="flex items-center gap-1.5 rounded-xl border border-[#003366]/20 bg-white px-2.5 py-1.5 shadow-[0_2px_0_#C6D2F8]">
+                    <span className="text-[11.5px] font-extrabold text-[#5A6B8C]">Release:</span>
+                    <select
+                      value={a.resultReleaseMode || (a.showSolutions ? 'full' : 'responses_only')}
+                      onChange={(e) => handleUpdateReleaseMode(a.id, e.target.value as ResultReleaseMode)}
+                      disabled={updatingModeId === a.id}
+                      className="cursor-pointer rounded-lg border-0 bg-transparent py-0.5 text-[12px] font-bold text-[#003366] outline-none hover:bg-ice"
+                      title="Switch student result release mode"
+                    >
+                      <option value="locked">1. Locked (Skip Result)</option>
+                      <option value="responses_only">2. Responses Only</option>
+                      <option value="full">3. Full Solutions</option>
+                    </select>
+                    {updatingModeId === a.id && (
+                      <span className="text-[11px] font-semibold text-[#803688] animate-pulse">...</span>
                     )}
-                  </button>
+                  </div>
                   <button
                     type="button"
                     className={BTN_PRIMARY}
@@ -444,23 +459,65 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
                 />
               </div>
 
-              <div className="rounded-xl border-[2px] border-[#003366]/20 bg-[#F8FAFF] p-3.5">
-                <label className="flex cursor-pointer items-start gap-3 text-[13px]">
-                  <input
-                    type="checkbox"
-                    checked={showSolutions}
-                    onChange={(e) => setShowSolutions(e.target.checked)}
-                    className="mt-0.5 h-4 w-4 cursor-pointer rounded accent-[#003366]"
-                  />
-                  <div className="flex-1">
-                    <span className="font-extrabold text-[#003366]">
-                      Release Answer Key &amp; Solutions to students upon submission
-                    </span>
-                    <p className="mt-1 text-[12px] font-medium leading-relaxed text-[#5A6B8C]">
-                      When checked, students can review the full answer key and step-by-step solutions after submitting. When unchecked, the key stays hidden until you release it from the assignment list.
-                    </p>
-                  </div>
+              <div className="flex flex-col gap-2 rounded-xl border-[2px] border-[#003366]/20 bg-[#F8FAFF] p-4">
+                <label className="text-[13px] font-extrabold text-[#003366]">
+                  Student Result Release Mode
                 </label>
+                <p className="text-[11.5px] font-medium text-[#5A6B8C]">
+                  Choose what students see immediately upon exam submission. You can change this anytime from the assignment list.
+                </p>
+                <div className="mt-1 flex flex-col gap-2">
+                  <label className={`flex cursor-pointer items-start gap-3 rounded-lg border p-3 transition-colors ${resultReleaseMode === 'locked' ? 'border-[#803688] bg-[#FDF8FF]' : 'border-[#003366]/15 bg-white'}`}>
+                    <input
+                      type="radio"
+                      name="releaseMode"
+                      value="locked"
+                      checked={resultReleaseMode === 'locked'}
+                      onChange={() => setResultReleaseMode('locked')}
+                      className="mt-0.5 h-4 w-4 accent-[#803688]"
+                    />
+                    <div className="flex-1">
+                      <span className="font-bold text-[13px] text-[#003366]">1. Complete Lock (Skip Result)</span>
+                      <p className="mt-0.5 text-[11.5px] text-[#5A6B8C]">
+                        Students only see &quot;Thank you for submitting&quot;. Scores, rank, submitted responses, and answer keys are locked.
+                      </p>
+                    </div>
+                  </label>
+
+                  <label className={`flex cursor-pointer items-start gap-3 rounded-lg border p-3 transition-colors ${resultReleaseMode === 'responses_only' ? 'border-[#003366] bg-[#EEF2FF]' : 'border-[#003366]/15 bg-white'}`}>
+                    <input
+                      type="radio"
+                      name="releaseMode"
+                      value="responses_only"
+                      checked={resultReleaseMode === 'responses_only'}
+                      onChange={() => setResultReleaseMode('responses_only')}
+                      className="mt-0.5 h-4 w-4 accent-[#003366]"
+                    />
+                    <div className="flex-1">
+                      <span className="font-bold text-[13px] text-[#003366]">2. Student Responses Only</span>
+                      <p className="mt-0.5 text-[11.5px] text-[#5A6B8C]">
+                        Students can review questions and their marked choices. Correct answer keys, scores, and step-by-step solutions remain locked.
+                      </p>
+                    </div>
+                  </label>
+
+                  <label className={`flex cursor-pointer items-start gap-3 rounded-lg border p-3 transition-colors ${resultReleaseMode === 'full' ? 'border-[#15803D] bg-[#F0FDF4]' : 'border-[#003366]/15 bg-white'}`}>
+                    <input
+                      type="radio"
+                      name="releaseMode"
+                      value="full"
+                      checked={resultReleaseMode === 'full'}
+                      onChange={() => setResultReleaseMode('full')}
+                      className="mt-0.5 h-4 w-4 accent-[#15803D]"
+                    />
+                    <div className="flex-1">
+                      <span className="font-bold text-[13px] text-[#003366]">3. Full Solutions Release</span>
+                      <p className="mt-0.5 text-[11.5px] text-[#5A6B8C]">
+                        Students see their full scorecard, their marked choices, the correct answer keys, and detailed solutions.
+                      </p>
+                    </div>
+                  </label>
+                </div>
               </div>
 
               {readyPapers.find((p) => p.id === selectedPaperId)?.examType === 'Psychometric' && (

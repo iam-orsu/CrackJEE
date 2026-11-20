@@ -183,4 +183,22 @@ export class FacultyAssignmentRepository {
       data: { showSolutions },
     });
   }
+
+  public async updateInstructionsAndSolutions(
+    id: string,
+    facultyId: string,
+    instructions: string,
+    showSolutions: boolean,
+  ) {
+    const existing = await database.client.facultyExamAssignment.findFirst({
+      where: { id, facultyId },
+    });
+    if (!existing) {
+      return null;
+    }
+    return database.client.facultyExamAssignment.update({
+      where: { id },
+      data: { instructions, showSolutions },
+    });
+  }
 }

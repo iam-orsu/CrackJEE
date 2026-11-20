@@ -3,6 +3,29 @@ import { FacultyBatchRepository } from '../repositories/FacultyBatchRepository';
 import { FacultyRepository, type FacultyPaperItem } from '../repositories/FacultyRepository';
 import { AppError } from '../utils/AppError';
 
+export type ResultReleaseMode = 'locked' | 'responses_only' | 'full';
+
+export function extractReleaseMode(instructions?: string | null, showSolutions?: boolean): ResultReleaseMode {
+  if (instructions?.includes('<!--releaseMode:locked-->')) return 'locked';
+  if (instructions?.includes('<!--releaseMode:responses_only-->')) return 'responses_only';
+  if (instructions?.includes('<!--releaseMode:full-->')) return 'full';
+  return showSolutions ? 'full' : 'responses_only';
+}
+
+export function applyReleaseModeToInstructions(instructions: string, mode: ResultReleaseMode): string {
+  const cleaned = instructions.replace(/<!--releaseMode:(locked|responses_only|full)-->/g, '').trim();
+  return `<!--releaseMode:${mode}-->${cleaned ? ' ' + cleaned : ''}`.trim();
+}
+
+export function cleanMetadataFromInstructions(instructions?: string | null): string | null {
+  if (!instructions) return null;
+  const cleaned = instructions
+    .replace('<!--showGoal:true-->', '')
+    .replace(/<!--releaseMode:(locked|responses_only|full)-->/g, '')
+    .trim();
+  return cleaned || null;
+}
+
 export class FacultyAssignmentService {
   constructor(
     private readonly assignmentRepo: FacultyAssignmentRepository = new FacultyAssignmentRepository(),
@@ -21,6 +44,7 @@ export class FacultyAssignmentService {
       startTime?: string | null;
       endTime?: string | null;
       showSolutions?: boolean;
+      resultReleaseMode?: ResultReleaseMode;
     },
   ) {
     const paper = await this.facultyRepo.findPaperById(input.paperId);
@@ -40,16 +64,20 @@ export class FacultyAssignmentService {
       throw new AppError(400, 'End window must be after start window');
     }
 
+    const releaseMode: ResultReleaseMode =
+      input.resultReleaseMode || (input.showSolutions === false ? 'responses_only' : 'full');
+    const finalInstructions = applyReleaseModeToInstructions(input.instructions?.trim() || '', releaseMode);
+
     return this.assignmentRepo.create({
       facultyId,
       paperId: input.paperId,
       batchId: input.batchId,
       title: input.title,
-      instructions: input.instructions,
+      instructions: finalInstructions,
       durationMinutes: input.durationMinutes || 180,
       startTime: input.startTime ? new Date(input.startTime) : null,
       endTime: input.endTime ? new Date(input.endTime) : null,
-      showSolutions: input.showSolutions ?? true,
+      showSolutions: releaseMode === 'full',
       status: 'active',
     });
   }
@@ -65,6 +93,7 @@ export class FacultyAssignmentService {
         .map((e) => e.totalScore);
       const avgScore = scores.length > 0 ? scores.reduce((sum, s) => sum + s, 0) / scores.length : 0;
 
+      const releaseMode = extractReleaseMode(a.instructions, a.showSolutions);
       return {
         id: a.id,
         title: a.title,
@@ -72,8 +101,9 @@ export class FacultyAssignmentService {
         startTime: a.startTime?.toISOString() ?? null,
         endTime: a.endTime?.toISOString() ?? null,
         showSolutions: a.showSolutions,
+        resultReleaseMode: releaseMode,
         showGoalToStudents: Boolean(a.instructions?.includes('<!--showGoal:true-->')),
-        instructions: (a.instructions || '').replace('<!--showGoal:true-->', '').trim() || null,
+        instructions: cleanMetadataFromInstructions(a.instructions),
         status: a.status,
         createdAt: a.createdAt.toISOString(),
         paper: a.paper,
@@ -757,19 +787,40 @@ export class FacultyAssignmentService {
     };
   }
 
-  public async updateSolutionsVisibility(assignmentId: string, facultyId: string, showSolutions?: boolean) {
+  public async updateReleaseMode(assignmentId: string, facultyId: string, mode: ResultReleaseMode) {
     const assignment = await this.assignmentRepo.findById(assignmentId, facultyId);
     if (!assignment) {
       throw new AppError(404, 'Assignment not found');
     }
-    const nextState = typeof showSolutions === 'boolean' ? showSolutions : !assignment.showSolutions;
-    const updated = await this.assignmentRepo.updateShowSolutions(assignmentId, facultyId, nextState);
+    const currentInstructions = assignment.instructions || '';
+    const updatedInstructions = applyReleaseModeToInstructions(currentInstructions, mode);
+    const showSolutions = mode === 'full';
+
+    const updated = typeof this.assignmentRepo.updateInstructionsAndSolutions === 'function'
+      ? await this.assignmentRepo.updateInstructionsAndSolutions(
+          assignmentId,
+          facultyId,
+          updatedInstructions,
+          showSolutions,
+        )
+      : await this.assignmentRepo.updateShowSolutions(assignmentId, facultyId, showSolutions);
     if (!updated) {
       throw new AppError(404, 'Failed to update assignment settings');
     }
     return {
       id: updated.id,
       showSolutions: updated.showSolutions,
+      resultReleaseMode: mode,
     };
+  }
+
+  public async updateSolutionsVisibility(assignmentId: string, facultyId: string, showSolutions?: boolean) {
+    const assignment = await this.assignmentRepo.findById(assignmentId, facultyId);
+    if (!assignment) {
+      throw new AppError(404, 'Assignment not found');
+    }
+    const nextState = typeof showSolutions === 'boolean' ? showSolutions : !assignment.showSolutions;
+    const mode: ResultReleaseMode = nextState ? 'full' : 'responses_only';
+    return this.updateReleaseMode(assignmentId, facultyId, mode);
   }
 }

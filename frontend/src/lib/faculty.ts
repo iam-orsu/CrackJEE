@@ -316,6 +316,8 @@ export interface FacultyStudent {
   };
 }
 
+export type ResultReleaseMode = 'locked' | 'responses_only' | 'full';
+
 export interface FacultyAssignmentSummary {
   id: string;
   title: string;
@@ -323,6 +325,7 @@ export interface FacultyAssignmentSummary {
   startTime: string | null;
   endTime: string | null;
   showSolutions: boolean;
+  resultReleaseMode?: ResultReleaseMode;
   showGoalToStudents?: boolean;
   status: string;
   createdAt: string;
@@ -627,6 +630,7 @@ export async function facultyCreateAssignment(input: {
   startTime?: string | null;
   endTime?: string | null;
   showSolutions?: boolean;
+  resultReleaseMode?: ResultReleaseMode;
   showGoalToStudents?: boolean;
 }) {
   return facultyFetch<{ assignment: Record<string, unknown> }>('/assignments', {
@@ -640,10 +644,23 @@ export async function facultyDeleteAssignment(id: string) {
 }
 
 export async function facultyToggleAssignmentSolutions(id: string, showSolutions?: boolean) {
-  return facultyFetch<{ id: string; showSolutions: boolean }>(`/assignments/${encodeURIComponent(id)}/solutions`, {
-    method: 'PATCH',
-    body: JSON.stringify({ showSolutions }),
-  });
+  return facultyFetch<{ id: string; showSolutions: boolean; resultReleaseMode?: ResultReleaseMode }>(
+    `/assignments/${encodeURIComponent(id)}/solutions`,
+    {
+      method: 'PATCH',
+      body: JSON.stringify({ showSolutions }),
+    },
+  );
+}
+
+export async function facultyUpdateAssignmentReleaseMode(id: string, mode: ResultReleaseMode) {
+  return facultyFetch<{ id: string; showSolutions: boolean; resultReleaseMode: ResultReleaseMode }>(
+    `/assignments/${encodeURIComponent(id)}/release-mode`,
+    {
+      method: 'PATCH',
+      body: JSON.stringify({ mode }),
+    },
+  );
 }
 
 export async function facultyGetAssignmentReport(id: string) {

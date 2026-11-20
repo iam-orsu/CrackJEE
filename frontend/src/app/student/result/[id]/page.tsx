@@ -158,32 +158,126 @@ export default function StudentExamResultPage() {
   }
 
   const { scorecard, assignment, solutions } = data;
-  const rank = scorecard.rank;
+  const isLocked = Boolean(data.isLocked || assignment.resultReleaseMode === 'locked');
+  const releaseMode = assignment.resultReleaseMode || (isLocked ? 'locked' : assignment.showSolutions ? 'full' : 'responses_only');
 
-  const totalAttempted = scorecard.correctCount + scorecard.incorrectCount;
-  const accuracyPct = totalAttempted > 0 ? Math.round((scorecard.correctCount / totalAttempted) * 100) : 0;
+  const submitted = scorecard?.submittedAt
+    ? new Date(scorecard.submittedAt).toLocaleString('en-IN', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+      })
+    : '';
+
+  if (isLocked) {
+    return (
+      <div className="min-h-screen bg-[#FBFCFE] bg-page-wash font-dm text-[#003366]">
+        <Style />
+        <header className="sticky top-0 z-20 border-b border-[#003366]/10 bg-[#FBFCFE]/85 backdrop-blur">
+          <div className="mx-auto flex w-full max-w-[1160px] items-center justify-between gap-4 px-4 py-1.5 sm:px-6 sm:py-2">
+            <Link href="/" aria-label="JEENEET.ai home" className="shrink-0 rounded-xl">
+              <Image src="/logo.png" alt="JEENEET.ai" width={118} height={48} priority className="block h-12 w-auto sm:h-14" />
+            </Link>
+            <Link href="/student" className={SECONDARY_BTN}>
+              <ArrowLeftIcon />
+              Dashboard
+            </Link>
+          </div>
+        </header>
+
+        <div className="px-4 py-12 sm:px-6 sm:py-16">
+          <div className="mx-auto w-full max-w-[620px]">
+            <div className={`${glass} dz-rise p-8 text-center sm:p-10 shadow-[0_12px_32px_rgba(0,51,102,.08)]`}>
+              <div className="mx-auto mb-4 grid h-16 w-16 place-items-center rounded-full bg-[#EAF7EF] text-[#146C33] shadow-inner">
+                <CheckCircleIcon className="h-9 w-9 text-[#146C33]" />
+              </div>
+
+              <h1 className={`${HEAD} text-[26px] font-extrabold text-[#003366] sm:text-[30px]`}>
+                Thank You for Submitting!
+              </h1>
+              <p className="mt-2 text-[14px] font-medium leading-relaxed text-[#5A6B8C]">
+                Your exam responses have been securely received and recorded in the system.
+              </p>
+
+              <div className="my-6 rounded-2xl border-[1.5px] border-[#803688]/25 bg-[#FBF5FC] p-4 text-left">
+                <div className="flex items-center gap-2 text-[#803688]">
+                  <KeyRoundIcon className="h-5 w-5 shrink-0" />
+                  <strong className="text-[13.5px] font-extrabold text-[#803688]">Results &amp; Answers are Currently Locked</strong>
+                </div>
+                <p className="mt-1.5 text-[12.5px] font-medium leading-relaxed text-[#5A6B8C]">
+                  Your faculty has configured this exam to keep results, scores, and answer keys locked while evaluations are underway. Your scorecard and solutions will become viewable once released by your faculty.
+                </p>
+              </div>
+
+              <div className="mb-6 rounded-2xl border border-[#003366]/10 bg-white p-4 text-left space-y-2.5 text-[13px]">
+                <div className="flex justify-between border-b border-[rgba(0,51,102,.08)] pb-2">
+                  <span className="font-semibold text-[#5A6B8C]">Exam</span>
+                  <span className="font-extrabold text-[#003366]">{assignment.title}</span>
+                </div>
+                <div className="flex justify-between border-b border-[rgba(0,51,102,.08)] pb-2">
+                  <span className="font-semibold text-[#5A6B8C]">Batch</span>
+                  <span className="font-bold text-[#003366]">{assignment.batchName}</span>
+                </div>
+                <div className="flex justify-between border-b border-[rgba(0,51,102,.08)] pb-2">
+                  <span className="font-semibold text-[#5A6B8C]">Faculty</span>
+                  <span className="font-bold text-[#003366]">{assignment.facultyName}</span>
+                </div>
+                {submitted && (
+                  <div className="flex justify-between border-b border-[rgba(0,51,102,.08)] pb-2">
+                    <span className="font-semibold text-[#5A6B8C]">Submitted at</span>
+                    <span className="font-bold text-[#003366]">{submitted}</span>
+                  </div>
+                )}
+                <div className="flex justify-between">
+                  <span className="font-semibold text-[#5A6B8C]">Time taken</span>
+                  <span className="font-bold text-[#003366]">{formatTime(scorecard.timeTakenSeconds)}</span>
+                </div>
+              </div>
+
+              <Link href="/student" className={`${btn} w-full justify-center text-[14px]`}>
+                <ArrowLeftIcon />
+                Back to student dashboard
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const rank = scorecard.rank ?? 1;
+  const attemptedCountFromSolutions = solutions ? solutions.filter((q) => Boolean(q.studentAnswer?.trim())).length : 0;
+  const totalAttempted = releaseMode === 'full'
+    ? scorecard.correctCount + scorecard.incorrectCount
+    : (scorecard.attemptedCount ?? attemptedCountFromSolutions);
+  const accuracyPct = (releaseMode === 'full' && totalAttempted > 0)
+    ? Math.round((scorecard.correctCount / totalAttempted) * 100)
+    : 0;
   const scorePct =
-    scorecard.maxScore > 0
+    scorecard.maxScore > 0 && scorecard.totalScore !== null
       ? Math.max(0, Math.min(100, Math.round((scorecard.totalScore / scorecard.maxScore) * 100)))
       : 0;
   const tone = toneColor(scorePct);
 
   const aheadPct =
-    scorecard.totalCandidates > 1
+    scorecard.totalCandidates && scorecard.totalCandidates > 1 && rank
       ? Math.max(0, Math.min(100, Math.round(((scorecard.totalCandidates - rank) / (scorecard.totalCandidates - 1)) * 100)))
       : 100;
 
-  const filterCounts = {
-    all: solutions?.length ?? 0,
-    correct: assignment.showSolutions ? scorecard.correctCount : totalAttempted,
-    incorrect: assignment.showSolutions ? scorecard.incorrectCount : 0,
-    skipped: scorecard.unattemptedCount,
-  };
-
-  const totalQuestions = Math.max(1, scorecard.correctCount + scorecard.incorrectCount + scorecard.unattemptedCount);
+  const totalQuestions = solutions?.length || Math.max(1, scorecard.correctCount + scorecard.incorrectCount + scorecard.unattemptedCount);
+  const unattemptedQuestions = Math.max(0, totalQuestions - totalAttempted);
   const pctOf = (n: number) => Math.round((n / totalQuestions) * 100);
 
-  const currentFilterTabs = assignment.showSolutions
+  const filterCounts = {
+    all: solutions?.length ?? 0,
+    correct: releaseMode === 'full' ? scorecard.correctCount : totalAttempted,
+    incorrect: releaseMode === 'full' ? scorecard.incorrectCount : 0,
+    skipped: releaseMode === 'full' ? scorecard.unattemptedCount : unattemptedQuestions,
+  };
+
+  const currentFilterTabs = releaseMode === 'full'
     ? FILTER_TABS
     : ([
         { value: 'all', label: 'All Questions' },
@@ -192,7 +286,7 @@ export default function StudentExamResultPage() {
       ] as const);
 
   const filteredSolutions = (solutions || []).filter((q) => {
-    if (assignment.showSolutions) {
+    if (releaseMode === 'full') {
       if (filterType === 'correct') return q.isCorrect;
       if (filterType === 'incorrect') return !q.isCorrect && q.studentAnswer;
       if (filterType === 'skipped') return !q.studentAnswer;
@@ -202,15 +296,6 @@ export default function StudentExamResultPage() {
     if (filterType === 'skipped') return !q.studentAnswer;
     return true;
   });
-
-  const submitted = scorecard.submittedAt
-    ? new Date(scorecard.submittedAt).toLocaleString('en-IN', {
-        day: 'numeric',
-        month: 'short',
-        hour: '2-digit',
-        minute: '2-digit',
-      })
-    : '';
 
   const isPsychometric =
     assignment.examType === 'Psychometric' ||
@@ -268,13 +353,13 @@ export default function StudentExamResultPage() {
               </div>
 
               <div className="relative grid items-center gap-8 lg:grid-cols-[auto_minmax(0,1fr)_auto]">
-                <Ring pct={isRefining ? 100 : scorecard.totalScore} color="#803688" size={156} stroke={15} track="rgba(128,54,136,.12)">
+                <Ring pct={isRefining ? 100 : (scorecard.totalScore ?? 0)} color="#803688" size={156} stroke={15} track="rgba(128,54,136,.12)">
                   <div className="text-center">
                     <div className={`${HEAD} text-[36px] font-extrabold leading-none tabular-nums text-[#803688]`}>
                       {isRefining ? (
                         <span className="inline-block animate-pulse text-[28px]">...</span>
                       ) : (
-                        `${scorecard.totalScore}%`
+                        `${scorecard.totalScore ?? 0}%`
                       )}
                     </div>
                     <div className="mt-1 text-[11px] font-bold uppercase tracking-wider text-[#5A6B8C]">
@@ -643,141 +728,213 @@ export default function StudentExamResultPage() {
       <div className="px-4 pb-16 pt-5 sm:px-6 sm:pb-[72px] sm:pt-6">
         <div className="mx-auto flex w-full max-w-[1160px] flex-col gap-6">
 
-          {/* Hero: the score, who sat it, and the three facts that matter */}
-          <section className="dz-rise relative overflow-hidden rounded-[36px] border border-[#003366]/10 bg-white p-6 text-[#003366] sm:p-8 xl:p-10">
-            <div aria-hidden className="pointer-events-none absolute inset-0">
-              <svg viewBox="0 0 900 700" preserveAspectRatio="xMaxYMax slice" className="absolute bottom-[-10%] right-0 h-[76%] w-[min(66%,700px)]">
-                <defs>
-                  <linearGradient id="result-hero-blob" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="1" stopColor="#803688" stopOpacity="0.20" />
-                    <stop offset="0.5" stopColor="#803688" stopOpacity="0.12" />
-                    <stop offset="1" stopColor="#B98CBE" stopOpacity="0.18" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M1000 700 L1000 150 C946 92 862 62 772 78 C668 97 596 172 528 246 C462 318 396 378 310 414 C214 455 132 508 84 578 C52 626 30 668 24 700 Z"
-                  fill="url(#result-hero-blob)"
-                />
-              </svg>
-            </div>
+          {releaseMode === 'responses_only' ? (
+            <section className="dz-rise relative overflow-hidden rounded-[36px] border border-[#003366]/10 bg-white p-6 text-[#003366] sm:p-8 xl:p-10">
+              <div aria-hidden className="pointer-events-none absolute inset-0">
+                <svg viewBox="0 0 900 700" preserveAspectRatio="xMaxYMax slice" className="absolute bottom-[-10%] right-0 h-[76%] w-[min(66%,700px)]">
+                  <defs>
+                    <linearGradient id="result-hero-blob-responses" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="1" stopColor="#003366" stopOpacity="0.12" />
+                      <stop offset="0.5" stopColor="#31407F" stopOpacity="0.08" />
+                      <stop offset="1" stopColor="#EEF2FF" stopOpacity="0.10" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M1000 700 L1000 150 C946 92 862 62 772 78 C668 97 596 172 528 246 C462 318 396 378 310 414 C214 455 132 508 84 578 C52 626 30 668 24 700 Z"
+                    fill="url(#result-hero-blob-responses)"
+                  />
+                </svg>
+              </div>
 
-            <div className="relative grid items-center gap-8 lg:grid-cols-[auto_minmax(0,1fr)_auto]">
-              <Ring pct={scorePct} color={tone} size={156} stroke={15} track="rgba(0,51,102,.1)">
-                <div className="text-center">
-                  <div className={`${HEAD} text-[36px] font-extrabold leading-none tabular-nums`} style={{ color: scorecard.totalScore < 0 ? BAD : NAVY }}>
-                    {scorecard.totalScore}
+              <div className="relative flex flex-col gap-6">
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div>
+                    <p className={kicker}>Candidate Responses Recorded · {assignment.batchName}</p>
+                    <h1 className={`${HEAD} mt-1 text-[clamp(24px,2.8vw,36px)] font-extrabold leading-tight tracking-[-0.02em] text-[#003366]`}>
+                      {assignment.title}
+                    </h1>
+                    <p className="mt-1.5 text-[13px] text-[#5A6B8C]">
+                      {assignment.facultyName}
+                      {submitted && ` · Submitted ${submitted}`}
+                    </p>
                   </div>
-                  <div className="mt-1 text-[11px] font-semibold text-[#7A87A0]">of {scorecard.maxScore}</div>
+
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <a href="#solutions" className={btn}>
+                      Review your responses
+                    </a>
+                    <Link href="/student" className={SECONDARY_BTN}>
+                      Back to dashboard
+                    </Link>
+                  </div>
                 </div>
-              </Ring>
 
-              <div className="min-w-0">
-                <p className={kicker}>Scorecard · {assignment.batchName}</p>
-                <h1 className={`${HEAD} mt-1 text-[clamp(24px,2.8vw,38px)] font-extrabold leading-tight tracking-[-0.02em] text-[#003366]`}>
-                  {assignment.title}
-                </h1>
-                <p className="mt-2 text-[13px] text-[#5A6B8C]">
-                  {assignment.facultyName}
-                  {submitted && ` · Submitted ${submitted}`}
-                </p>
+                <div className="grid grid-cols-3 gap-3 max-sm:grid-cols-1">
+                  <div className="rounded-2xl border border-[#003366]/10 bg-[rgba(238,242,255,.72)] px-4 py-3.5 backdrop-blur">
+                    <p className="text-[12px] font-semibold text-[#7A87A0]">Questions attempted</p>
+                    <p className={`${HEAD} mt-1 text-[26px] font-extrabold text-[#003366] tabular-nums`}>
+                      {totalAttempted} <span className="text-[15px] font-normal text-[#5A6B8C]">/ {totalQuestions}</span>
+                    </p>
+                    <p className="mt-1 text-[12px] text-[#5A6B8C]">
+                      {unattemptedQuestions} skipped
+                    </p>
+                  </div>
 
-                <div className="mt-5 grid grid-cols-3 gap-3 max-sm:grid-cols-1">
-                  {[
-                    { label: 'Batch rank', value: `#${rank}`, sub: `of ${scorecard.totalCandidates} candidate${scorecard.totalCandidates === 1 ? '' : 's'}` },
-                    { label: 'Accuracy', value: `${accuracyPct}%`, sub: `on ${totalAttempted} attempted` },
-                    { label: 'Time taken', value: formatTime(scorecard.timeTakenSeconds), sub: `${scorePct}% of maximum` },
-                  ].map((stat, i) => (
-                    <div
-                      key={stat.label}
-                      className="dz-pop rounded-2xl border border-[#003366]/10 bg-[rgba(238,242,255,.72)] px-4 py-3 backdrop-blur transition-transform hover:-translate-y-1"
-                      style={{ animationDelay: `${300 + i * 120}ms` }}
-                    >
-                      <p className="text-[12px] font-semibold text-[#7A87A0]">{stat.label}</p>
-                      <p className={`${HEAD} mt-1 text-[26px] font-extrabold leading-none tabular-nums text-[#003366]`}>{stat.value}</p>
-                      <p className="mt-1 text-[12px] text-[#5A6B8C]">{stat.sub}</p>
+                  <div className="rounded-2xl border border-[#003366]/10 bg-[rgba(238,242,255,.72)] px-4 py-3.5 backdrop-blur">
+                    <p className="text-[12px] font-semibold text-[#7A87A0]">Time taken</p>
+                    <p className={`${HEAD} mt-1 text-[26px] font-extrabold text-[#003366] tabular-nums`}>
+                      {formatTime(scorecard.timeTakenSeconds)}
+                    </p>
+                    <p className="mt-1 text-[12px] text-[#5A6B8C]">Recorded completion time</p>
+                  </div>
+
+                  <div className="rounded-2xl border border-[#803688]/20 bg-[#FDF8FF] px-4 py-3.5 backdrop-blur">
+                    <p className="text-[12px] font-semibold text-[#803688]">Answer key &amp; solutions</p>
+                    <p className={`${HEAD} mt-1 text-[18px] font-extrabold text-[#803688]`}>Locked by faculty</p>
+                    <p className="mt-1 text-[12px] text-[#5A6B8C]">Releases when faculty unlocks</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          ) : (
+            <>
+              {/* Hero: the score, who sat it, and the three facts that matter */}
+              <section className="dz-rise relative overflow-hidden rounded-[36px] border border-[#003366]/10 bg-white p-6 text-[#003366] sm:p-8 xl:p-10">
+                <div aria-hidden className="pointer-events-none absolute inset-0">
+                  <svg viewBox="0 0 900 700" preserveAspectRatio="xMaxYMax slice" className="absolute bottom-[-10%] right-0 h-[76%] w-[min(66%,700px)]">
+                    <defs>
+                      <linearGradient id="result-hero-blob" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="1" stopColor="#803688" stopOpacity="0.20" />
+                        <stop offset="0.5" stopColor="#803688" stopOpacity="0.12" />
+                        <stop offset="1" stopColor="#B98CBE" stopOpacity="0.18" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M1000 700 L1000 150 C946 92 862 62 772 78 C668 97 596 172 528 246 C462 318 396 378 310 414 C214 455 132 508 84 578 C52 626 30 668 24 700 Z"
+                      fill="url(#result-hero-blob)"
+                    />
+                  </svg>
+                </div>
+
+                <div className="relative grid items-center gap-8 lg:grid-cols-[auto_minmax(0,1fr)_auto]">
+                  <Ring pct={scorePct} color={tone} size={156} stroke={15} track="rgba(0,51,102,.1)">
+                    <div className="text-center">
+                      <div className={`${HEAD} text-[36px] font-extrabold leading-none tabular-nums`} style={{ color: (scorecard.totalScore ?? 0) < 0 ? BAD : NAVY }}>
+                        {scorecard.totalScore ?? 0}
+                      </div>
+                      <div className="mt-1 text-[11px] font-semibold text-[#7A87A0]">of {scorecard.maxScore}</div>
                     </div>
-                  ))}
-                </div>
-              </div>
+                  </Ring>
 
-              <div className="flex flex-col gap-2.5">
-                <a href="#solutions" className={btn}>
-                  {assignment.showSolutions ? 'Step-by-step solutions' : 'Review your responses'}
-                </a>
-                <Link href="/student" className={SECONDARY_BTN}>Back to dashboard</Link>
-              </div>
-            </div>
-          </section>
+                  <div className="min-w-0">
+                    <p className={kicker}>Scorecard · {assignment.batchName}</p>
+                    <h1 className={`${HEAD} mt-1 text-[clamp(24px,2.8vw,38px)] font-extrabold leading-tight tracking-[-0.02em] text-[#003366]`}>
+                      {assignment.title}
+                    </h1>
+                    <p className="mt-2 text-[13px] text-[#5A6B8C]">
+                      {assignment.facultyName}
+                      {submitted && ` · Submitted ${submitted}`}
+                    </p>
 
-          {/* Answer breakdown + batch standing */}
-          <div className="grid gap-5 xl:grid-cols-12 xl:gap-6">
-            <section className={`${glass} flex flex-col p-5 sm:p-6 xl:col-span-7`}>
-              <Head
-                title="Answer breakdown"
-                sub={`${plural(totalAttempted, 'question')} attempted, ${scorecard.unattemptedCount} skipped`}
-                right={
-                  <div className="flex items-center gap-4 text-[12px] font-semibold text-[#5A6B8C]">
-                    <span className="inline-flex items-center gap-1.5"><i className="h-2 w-2 rounded-full" style={{ background: GOOD }} />Correct</span>
-                    <span className="inline-flex items-center gap-1.5"><i className="h-2 w-2 rounded-full" style={{ background: BAD }} />Incorrect</span>
-                    <span className="inline-flex items-center gap-1.5"><i className="h-2 w-2 rounded-full" style={{ background: FAINT }} />Skipped</span>
+                    <div className="mt-5 grid grid-cols-3 gap-3 max-sm:grid-cols-1">
+                      {[
+                        { label: 'Batch rank', value: `#${rank}`, sub: `of ${scorecard.totalCandidates} candidate${scorecard.totalCandidates === 1 ? '' : 's'}` },
+                        { label: 'Accuracy', value: `${accuracyPct}%`, sub: `on ${totalAttempted} attempted` },
+                        { label: 'Time taken', value: formatTime(scorecard.timeTakenSeconds), sub: `${scorePct}% of maximum` },
+                      ].map((stat, i) => (
+                        <div
+                          key={stat.label}
+                          className="dz-pop rounded-2xl border border-[#003366]/10 bg-[rgba(238,242,255,.72)] px-4 py-3 backdrop-blur transition-transform hover:-translate-y-1"
+                          style={{ animationDelay: `${300 + i * 120}ms` }}
+                        >
+                          <p className="text-[12px] font-semibold text-[#7A87A0]">{stat.label}</p>
+                          <p className={`${HEAD} mt-1 text-[26px] font-extrabold leading-none tabular-nums text-[#003366]`}>{stat.value}</p>
+                          <p className="mt-1 text-[12px] text-[#5A6B8C]">{stat.sub}</p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                }
-              />
 
-              <div className="mt-2 flex h-4 w-full overflow-hidden rounded-full bg-[#EEF2FF]">
-                {scorecard.correctCount > 0 && (
-                  <span style={{ width: `${pctOf(scorecard.correctCount)}%`, background: GOOD }} className="dz-pop h-full" />
-                )}
-                {scorecard.incorrectCount > 0 && (
-                  <span style={{ width: `${pctOf(scorecard.incorrectCount)}%`, background: BAD }} className="h-full" />
-                )}
-                {scorecard.unattemptedCount > 0 && (
-                  <span style={{ width: `${pctOf(scorecard.unattemptedCount)}%`, background: FAINT, opacity: 0.55 }} className="h-full" />
-                )}
-              </div>
-
-              <div className="mt-5 flex flex-1 flex-col gap-2">
-                {[
-                  { label: 'Correct', count: scorecard.correctCount, pct: pctOf(scorecard.correctCount), color: GOOD, sign: '+' },
-                  { label: 'Incorrect', count: scorecard.incorrectCount, pct: pctOf(scorecard.incorrectCount), color: BAD, sign: '-' },
-                  { label: 'Skipped', count: scorecard.unattemptedCount, pct: pctOf(scorecard.unattemptedCount), color: FAINT, sign: '' },
-                ].map((row) => (
-                  <div key={row.label} className="grid grid-cols-[92px_1fr_76px] items-center gap-3 border-t border-[rgba(0,51,102,.08)] py-2 text-[12.5px] first:border-t-0">
-                    <span className="font-semibold text-[#5A6B8C]">{row.label}</span>
-                    <span className="h-1.5 overflow-hidden rounded-full bg-[rgba(0,51,102,.08)]">
-                      <span className="block h-full rounded-full" style={{ width: `${row.pct}%`, background: row.color }} />
-                    </span>
-                    <span className="text-right font-bold tabular-nums text-[#003366]">
-                      {row.sign}{row.count} <span className="text-[#7A87A0]">({row.pct}%)</span>
-                    </span>
+                  <div className="flex flex-col gap-2.5">
+                    <a href="#solutions" className={btn}>
+                      Step-by-step solutions
+                    </a>
+                    <Link href="/student" className={SECONDARY_BTN}>Back to dashboard</Link>
                   </div>
-                ))}
-              </div>
-            </section>
-
-            <section className={`${glass} flex flex-col p-5 sm:p-6 xl:col-span-5`}>
-              <Head title="Batch standing" sub="Where this paper placed you in the batch" />
-
-              <div className="flex flex-1 flex-col justify-center">
-                <p className={`${HEAD} text-[56px] font-extrabold leading-none tracking-[-0.03em] tabular-nums text-[#003366]`}>
-                  #{rank}
-                </p>
-                <p className="mt-2 text-[13px] font-semibold text-[#5A6B8C]">
-                  of {scorecard.totalCandidates} candidate{scorecard.totalCandidates === 1 ? '' : 's'} · ahead of{' '}
-                  <b className="text-[#003366]">{aheadPct}%</b>
-                </p>
-
-                <div className="relative mt-6 h-3 rounded-full bg-[#EEF2FF]">
-                  <div className="dz-pop h-full rounded-full bg-[#003366]" style={{ width: `${aheadPct}%` }} />
-                  <div className="absolute -top-[3px] h-[18px] w-[18px] -translate-x-1/2 rounded-full border-[3px] border-white bg-[#803688] shadow" style={{ left: `${aheadPct}%` }} />
                 </div>
-                <div className="mt-2 flex justify-between text-[11px] font-bold text-[#5A6B8C]">
-                  <span>Last</span>
-                  <span>Top of batch</span>
-                </div>
+              </section>
+
+              {/* Answer breakdown + batch standing */}
+              <div className="grid gap-5 xl:grid-cols-12 xl:gap-6">
+                <section className={`${glass} flex flex-col p-5 sm:p-6 xl:col-span-7`}>
+                  <Head
+                    title="Answer breakdown"
+                    sub={`${plural(totalAttempted, 'question')} attempted, ${scorecard.unattemptedCount} skipped`}
+                    right={
+                      <div className="flex items-center gap-4 text-[12px] font-semibold text-[#5A6B8C]">
+                        <span className="inline-flex items-center gap-1.5"><i className="h-2 w-2 rounded-full" style={{ background: GOOD }} />Correct</span>
+                        <span className="inline-flex items-center gap-1.5"><i className="h-2 w-2 rounded-full" style={{ background: BAD }} />Incorrect</span>
+                        <span className="inline-flex items-center gap-1.5"><i className="h-2 w-2 rounded-full" style={{ background: FAINT }} />Skipped</span>
+                      </div>
+                    }
+                  />
+
+                  <div className="mt-2 flex h-4 w-full overflow-hidden rounded-full bg-[#EEF2FF]">
+                    {scorecard.correctCount > 0 && (
+                      <span style={{ width: `${pctOf(scorecard.correctCount)}%`, background: GOOD }} className="dz-pop h-full" />
+                    )}
+                    {scorecard.incorrectCount > 0 && (
+                      <span style={{ width: `${pctOf(scorecard.incorrectCount)}%`, background: BAD }} className="h-full" />
+                    )}
+                    {scorecard.unattemptedCount > 0 && (
+                      <span style={{ width: `${pctOf(scorecard.unattemptedCount)}%`, background: FAINT, opacity: 0.55 }} className="h-full" />
+                    )}
+                  </div>
+
+                  <div className="mt-5 flex flex-1 flex-col gap-2">
+                    {[
+                      { label: 'Correct', count: scorecard.correctCount, pct: pctOf(scorecard.correctCount), color: GOOD, sign: '+' },
+                      { label: 'Incorrect', count: scorecard.incorrectCount, pct: pctOf(scorecard.incorrectCount), color: BAD, sign: '-' },
+                      { label: 'Skipped', count: scorecard.unattemptedCount, pct: pctOf(scorecard.unattemptedCount), color: FAINT, sign: '' },
+                    ].map((row) => (
+                      <div key={row.label} className="grid grid-cols-[92px_1fr_76px] items-center gap-3 border-t border-[rgba(0,51,102,.08)] py-2 text-[12.5px] first:border-t-0">
+                        <span className="font-semibold text-[#5A6B8C]">{row.label}</span>
+                        <span className="h-1.5 overflow-hidden rounded-full bg-[rgba(0,51,102,.08)]">
+                          <span className="block h-full rounded-full" style={{ width: `${row.pct}%`, background: row.color }} />
+                        </span>
+                        <span className="text-right font-bold tabular-nums text-[#003366]">
+                          {row.sign}{row.count} <span className="text-[#7A87A0]">({row.pct}%)</span>
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                <section className={`${glass} flex flex-col p-5 sm:p-6 xl:col-span-5`}>
+                  <Head title="Batch standing" sub="Where this paper placed you in the batch" />
+
+                  <div className="flex flex-1 flex-col justify-center">
+                    <p className={`${HEAD} text-[56px] font-extrabold leading-none tracking-[-0.03em] tabular-nums text-[#003366]`}>
+                      #{rank}
+                    </p>
+                    <p className="mt-2 text-[13px] font-semibold text-[#5A6B8C]">
+                      of {scorecard.totalCandidates} candidate{scorecard.totalCandidates === 1 ? '' : 's'} · ahead of{' '}
+                      <b className="text-[#003366]">{aheadPct}%</b>
+                    </p>
+
+                    <div className="relative mt-6 h-3 rounded-full bg-[#EEF2FF]">
+                      <div className="dz-pop h-full rounded-full bg-[#003366]" style={{ width: `${aheadPct}%` }} />
+                      <div className="absolute -top-[3px] h-[18px] w-[18px] -translate-x-1/2 rounded-full border-[3px] border-white bg-[#803688] shadow" style={{ left: `${aheadPct}%` }} />
+                    </div>
+                    <div className="mt-2 flex justify-between text-[11px] font-bold text-[#5A6B8C]">
+                      <span>Last</span>
+                      <span>Top of batch</span>
+                    </div>
+                  </div>
+                </section>
               </div>
-            </section>
-          </div>
+            </>
+          )}
 
           {/* Solutions / Candidate Responses */}
           <section id="solutions" className="scroll-mt-24">

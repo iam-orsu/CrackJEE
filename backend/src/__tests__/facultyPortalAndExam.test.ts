@@ -410,16 +410,22 @@ describe('Faculty Exam Assignment & Student Delivery Integrity', () => {
 
   test('faculty can toggle answer key and solutions visibility for an assigned exam', async () => {
     let storedShowSolutions = false;
+    let storedInstructions = '';
     const mockRepo: any = {
       findById: async (id: string, facultyId: string) => {
         if (id === 'asg-1' && facultyId === 'fac-1') {
-          return { id: 'asg-1', facultyId: 'fac-1', showSolutions: storedShowSolutions };
+          return { id: 'asg-1', facultyId: 'fac-1', showSolutions: storedShowSolutions, instructions: storedInstructions };
         }
         return null;
       },
       updateShowSolutions: async (id: string, facultyId: string, nextState: boolean) => {
         storedShowSolutions = nextState;
         return { id, showSolutions: storedShowSolutions };
+      },
+      updateInstructionsAndSolutions: async (id: string, facultyId: string, instructions: string, showSolutions: boolean) => {
+        storedInstructions = instructions;
+        storedShowSolutions = showSolutions;
+        return { id, instructions: storedInstructions, showSolutions: storedShowSolutions };
       },
     };
 
@@ -432,12 +438,20 @@ describe('Faculty Exam Assignment & Student Delivery Integrity', () => {
     // Toggle from false to true
     const res1 = await assignmentService.updateSolutionsVisibility('asg-1', 'fac-1', true);
     assert.equal(res1.showSolutions, true);
+    assert.equal(res1.resultReleaseMode, 'full');
     assert.equal(storedShowSolutions, true);
 
     // Toggle without explicit parameter toggles state
     const res2 = await assignmentService.updateSolutionsVisibility('asg-1', 'fac-1');
     assert.equal(res2.showSolutions, false);
+    assert.equal(res2.resultReleaseMode, 'responses_only');
     assert.equal(storedShowSolutions, false);
+
+    // Switch explicitly to locked mode
+    const res3 = await assignmentService.updateReleaseMode('asg-1', 'fac-1', 'locked');
+    assert.equal(res3.resultReleaseMode, 'locked');
+    assert.equal(res3.showSolutions, false);
+    assert.ok(storedInstructions.includes('<!--releaseMode:locked-->'));
   });
 
   test('supports disambiguated student login via optional batchCode', async () => {

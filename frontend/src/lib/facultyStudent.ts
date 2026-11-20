@@ -26,6 +26,7 @@ export interface StudentExamCard {
   startTime: string | null;
   endTime: string | null;
   showSolutions: boolean;
+  resultReleaseMode?: 'locked' | 'responses_only' | 'full';
   showGoalToStudents?: boolean;
   paper: {
     id: string;
@@ -39,6 +40,7 @@ export interface StudentExamCard {
   isUpcoming?: boolean;
   isExpired?: boolean;
   result?: {
+    isLocked?: boolean;
     totalScore: number;
     maxScore: number;
     correctCount: number;
@@ -75,11 +77,11 @@ export interface StudentExamSession {
 
 export interface StudentExamSolutionItem extends StudentExamQuestion {
   studentAnswer: string | null;
-  correctAnswer: string;
-  explanation: string;
-  isCorrect: boolean;
-  score: number;
-  maxScore: number;
+  correctAnswer: string | null;
+  explanation: string | null;
+  isCorrect: boolean | null;
+  score: number | null;
+  maxScore: number | null;
 }
 
 export interface PsychometricReportPayload {
@@ -107,15 +109,18 @@ export interface StudentExamResultData {
     title: string;
     examType: string;
     showSolutions: boolean;
+    resultReleaseMode?: 'locked' | 'responses_only' | 'full';
     showGoalToStudents?: boolean;
     batchName: string;
     facultyName: string;
-    examGoal?: string;
+    examGoal?: string | null;
   };
+  isLocked?: boolean;
+  message?: string;
   scorecard: {
-    rank: number;
-    totalCandidates: number;
-    totalScore: number;
+    rank: number | null;
+    totalCandidates: number | null;
+    totalScore: number | null;
     maxScore: number;
     correctCount: number;
     incorrectCount: number;

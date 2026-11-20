@@ -151,6 +151,7 @@ const createAssignmentSchema = z.object({
   startTime: z.string().nullable().optional(),
   endTime: z.string().nullable().optional(),
   showSolutions: z.boolean().default(true),
+  resultReleaseMode: z.enum(['locked', 'responses_only', 'full']).optional(),
   showGoalToStudents: z.boolean().optional().default(false),
 });
 
@@ -609,6 +610,7 @@ export class FacultyController {
         startTime: parsed.data.startTime,
         endTime: parsed.data.endTime,
         showSolutions: parsed.data.showSolutions,
+        resultReleaseMode: parsed.data.resultReleaseMode,
       });
       res.status(201).json({ success: true, assignment });
     } catch (err) {
@@ -662,6 +664,20 @@ export class FacultyController {
       const assignmentId = String(req.params.id);
       const showSolutions = typeof req.body?.showSolutions === 'boolean' ? req.body.showSolutions : undefined;
       const updated = await this.assignmentService.updateSolutionsVisibility(assignmentId, req.faculty!.facultyId, showSolutions);
+      res.json({ success: true, ...updated });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly updateAssignmentReleaseMode = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const assignmentId = String(req.params.id);
+      const mode = req.body?.mode;
+      if (mode !== 'locked' && mode !== 'responses_only' && mode !== 'full') {
+        throw new AppError(400, 'Invalid resultReleaseMode: must be locked, responses_only, or full');
+      }
+      const updated = await this.assignmentService.updateReleaseMode(assignmentId, req.faculty!.facultyId, mode);
       res.json({ success: true, ...updated });
     } catch (err) {
       next(err);

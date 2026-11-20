@@ -45,6 +45,7 @@ export function createFacultyRoutes(controller = new FacultyController()): Route
   router.get('/assignments', guard, controller.listAssignments);
   router.post('/assignments', guard, controller.createAssignment);
   router.patch('/assignments/:id/solutions', guard, controller.toggleAssignmentSolutions);
+  router.patch('/assignments/:id/release-mode', guard, controller.updateAssignmentReleaseMode);
   router.delete('/assignments/:id', guard, controller.deleteAssignment);
   router.get('/assignments/:id/report', guard, controller.getAssignmentReport);
   router.get('/assignments/:id/csv', guard, controller.downloadAssignmentResultsCsv);
