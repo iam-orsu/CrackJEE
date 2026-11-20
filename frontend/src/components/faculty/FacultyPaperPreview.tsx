@@ -543,6 +543,41 @@ function FacultyQuestionCard({
             </div>
           )}
 
+          {/tower|cliff|building|vertical tower/i.test(draftText) && (
+            <div className="mb-3.5 flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                className="inline-flex cursor-pointer items-center gap-1.5 rounded-xl border border-[#0284C7] bg-[#F0F9FF] px-3 py-1.5 text-[12.5px] font-bold text-[#0284C7] shadow-sm hover:bg-[#E0F2FE]"
+                onClick={() => {
+                  setRemoveDiagram(false);
+                  setDiagramOverride({
+                    template: 'projectile_motion',
+                    params: {
+                      from_tower: true,
+                      angle_deg: 30,
+                      tower_height: 'h',
+                      labels: {
+                        v0: 'u = 20 m/s',
+                        angle: '30°',
+                        tower_height: 'h',
+                        height: 'h',
+                        range: '40 m',
+                      },
+                    },
+                  });
+                }}
+              >
+                Set Tower Projectile Diagram
+              </button>
+              {diagramOverride?.template === 'projectile_motion' &&
+                (diagramOverride.params as Record<string, unknown>)?.from_tower === true && (
+                  <span className="text-[12px] font-bold text-[#15803D]">
+                    ✓ Tower projectile diagram selected
+                  </span>
+                )}
+            </div>
+          )}
+
           <div className="flex flex-wrap gap-1.5">
             <button type="submit" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" disabled={saving}>
               {saving ? 'Saving…' : 'Save Question'}

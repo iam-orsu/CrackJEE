@@ -51,10 +51,16 @@ export function isValidDiagramTemplate(diagram: unknown): diagram is DiagramTemp
     if (p.r1 !== undefined && (!Number.isFinite(Number(p.r1)) || Number(p.r1) <= 0)) return false;
     if (p.r2 !== undefined && (!Number.isFinite(Number(p.r2)) || Number(p.r2) <= 0)) return false;
   }
-  if (obj.template === 'inclined_plane' || obj.template === 'projectile_motion') {
+  if (obj.template === 'inclined_plane') {
     if (p.angle_deg !== undefined) {
       const deg = Number(p.angle_deg);
       if (!Number.isFinite(deg) || deg <= 0 || deg >= 89) return false;
+    }
+  }
+  if (obj.template === 'projectile_motion') {
+    if (p.angle_deg !== undefined) {
+      const deg = Number(p.angle_deg);
+      if (!Number.isFinite(deg) || deg < -75 || deg >= 89) return false;
     }
   }
   if (obj.template === 'lens_mirror') {
@@ -193,7 +199,8 @@ export const DIAGRAM_SPEC = `
 
   TEMPLATE "coordinate_geometry": { "template": "coordinate_geometry", "params": { "x_range": [-4, 4], "y_range": [-4, 4], "points": [{ "x": 1, "y": 2, "label": "P(1,2)" }], "lines": [], "circles": [] }}
 
-  TEMPLATE "projectile_motion": { "template": "projectile_motion", "params": { "angle_deg": 45, "show_components": true, "labels": { "v0": "v₀", "angle": "45°", "height": "H", "range": "R" } }}
+  TEMPLATE "projectile_motion": { "template": "projectile_motion", "params": { "angle_deg": 45, "show_components": true, "from_tower": false, "labels": { "v0": "v₀", "angle": "45°", "height": "H", "range": "R" } }}
+  CRITICAL FOR PROJECTILES FROM TOWER / CLIFF / ELEVATION: When a projectile is thrown, launched, or fired from the top of a tower, cliff, building, or elevated platform, you MUST set "from_tower": true and "tower_height": "h" (or value) in params! Mark "labels": { "v0": "20 m/s", "angle": "30°", "tower_height": "h", "height": "h", "range": "40 m" }. The diagram renders a vertical tower of height h at the launch point with the ball launching from its top and landing on the ground at distance R from the tower base. NEVER use a ground-launch diagram for a tower projectile!
 
   TEMPLATE "pulley_system": { "template": "pulley_system", "params": { "type": "atwood", "masses": [{ "value": "m₁" }, { "value": "m₂" }], "labels": { "tension": "T", "accel": "a" } }}
 

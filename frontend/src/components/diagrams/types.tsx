@@ -43,6 +43,9 @@ export interface CoordGeometryParams {
 export interface ProjectileMotionParams {
   angle_deg?: number;
   show_components?: boolean;
+  from_tower?: boolean;
+  tower_height?: number | string;
+  initial_height?: number;
   labels?: Record<string, string>;
 }
 

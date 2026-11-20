@@ -39,6 +39,29 @@ export function DiagramRenderer({ descriptor, context }: Props) {
     };
   }
 
+  // Auto-detect projectile launched from a tower / cliff / building / elevation
+  if (
+    template === 'projectile_motion' &&
+    context &&
+    /tower|cliff|building|roof|top of a|base of the|foot of the/i.test(context.questionText || '')
+  ) {
+    const existingParams = (params as Record<string, unknown>) || {};
+    const existingLabels = ((existingParams.labels as Record<string, string>) || {});
+    params = {
+      ...existingParams,
+      from_tower: true,
+      tower_height: existingLabels.tower_height || existingLabels.height || 'h',
+      labels: {
+        v0: 'u = 20 m/s',
+        angle: '30°',
+        range: '40 m',
+        tower_height: 'h',
+        height: 'h',
+        ...existingLabels,
+      },
+    };
+  }
+
   let inner: React.ReactNode = null;
   switch (template) {
     case 'inclined_plane':       inner = <InclinedPlane p={params as InclinedPlaneParams} />;        break;

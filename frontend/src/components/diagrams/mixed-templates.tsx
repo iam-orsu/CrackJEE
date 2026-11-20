@@ -134,10 +134,176 @@ export function CoordGeometry({ p }: { p: CoordGeometryParams }) {
 
 /* ── TEMPLATE 6: Projectile Motion ──────────────────────────── */
 export function ProjectileMotion({ p }: { p: ProjectileMotionParams }) {
-  const angle = clampNum(p.angle_deg, 10, 80, 45);
-  const θ = (angle * Math.PI) / 180;
   const lbl = p.labels ?? {};
   const showComponents: boolean = p.show_components !== false;
+  const isFromTower =
+    p.from_tower === true ||
+    p.tower_height !== undefined ||
+    p.initial_height !== undefined ||
+    lbl.tower_height !== undefined ||
+    lbl.tower !== undefined;
+
+  if (isFromTower) {
+    const angle = clampNum(p.angle_deg, -60, 80, 30);
+    const θ = (angle * Math.PI) / 180;
+
+    const yg = 195;
+    const xt0 = 46, xt1 = 92;
+    const towerW = xt1 - xt0; // 46 px
+    const yt = 110;
+    const x0 = xt1, y0 = yt;
+    const Rpx = 276;
+    const xEnd = x0 + Rpx; // 368
+    const deltaY = yg - y0; // 85 px
+
+    // Trajectory equation: y(X) = y0 - tan(θ)*X + C*X^2, where X = x - x0
+    // With y(Rpx) = yg: C = (deltaY + tan(θ)*Rpx) / (Rpx^2)
+    const C = (deltaY + Math.tan(θ) * Rpx) / (Rpx * Rpx);
+
+    // Sample smooth parabolic path
+    const numSteps = 40;
+    const pathD = Array.from({ length: numSteps + 1 }, (_, i) => {
+      const t = i / numSteps;
+      const X = t * Rpx;
+      const x = x0 + X;
+      const y = y0 - Math.tan(θ) * X + C * X * X;
+      return `${i === 0 ? 'M' : 'L'} ${x.toFixed(1)},${y.toFixed(1)}`;
+    }).join(' ');
+
+    const vLen = 54;
+    const vx2 = x0 + Math.cos(θ) * vLen;
+    const vy2 = y0 - Math.sin(θ) * vLen;
+
+    const AR = 26;
+    const arcEndX = x0 + Math.cos(θ) * AR;
+    const arcEndY = y0 - Math.sin(θ) * AR;
+
+    const xDim = 26;
+    const yRange = yg + 20;
+
+    return (
+      <svg viewBox="0 0 450 248" style={{ width: '100%', height: 'auto', display: 'block' }}>
+        {/* Ground */}
+        <line x1="16" y1={yg} x2="434" y2={yg} stroke="#94a3b8" strokeWidth="1.5" />
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((i) => (
+          <line key={i} x1={22 + i * 26} y1={yg} x2={14 + i * 26} y2={yg + 8} stroke="#cbd5e1" strokeWidth="1.2" />
+        ))}
+
+        {/* Vertical Tower Structure */}
+        <rect
+          x={xt0}
+          y={yt}
+          width={towerW}
+          height={yg - yt}
+          fill="rgba(241, 245, 249, 0.95)"
+          stroke="#334155"
+          strokeWidth="1.8"
+          rx="2"
+        />
+        {/* Tower masonry accent lines */}
+        <line x1={xt0} y1={yt + 28} x2={xt1} y2={yt + 28} stroke="#cbd5e1" strokeWidth="1" strokeDasharray="3,3" />
+        <line x1={xt0} y1={yt + 56} x2={xt1} y2={yt + 56} stroke="#cbd5e1" strokeWidth="1" strokeDasharray="3,3" />
+        <text x={(xt0 + xt1) / 2} y={yt + 44} fill="#64748b" fontSize="10" fontWeight="600" textAnchor="middle">
+          Tower
+        </text>
+
+        {/* Tower height dimension line labeled h */}
+        <line x1="20" y1={yt} x2="32" y2={yt} stroke="#0284c7" strokeWidth="1.2" />
+        <line x1="20" y1={yg} x2="32" y2={yg} stroke="#0284c7" strokeWidth="1.2" />
+        <line x1="32" y1={yt} x2={xt0} y2={yt} stroke="#94a3b8" strokeWidth="1" strokeDasharray="3,3" />
+        <line x1="32" y1={yg} x2={xt0} y2={yg} stroke="#94a3b8" strokeWidth="1" strokeDasharray="3,3" />
+        <line x1={xDim} y1={yt} x2={xDim} y2={yg} stroke="#0284c7" strokeWidth="1.6" />
+        <polygon points={`${xDim},${yt} ${xDim - 4},${yt + 8} ${xDim + 4},${yt + 8}`} fill="#0284c7" />
+        <polygon points={`${xDim},${yg} ${xDim - 4},${yg - 8} ${xDim + 4},${yg - 8}`} fill="#0284c7" />
+        <text
+          x={xDim - 8}
+          y={(yt + yg) / 2}
+          fill="#0284c7"
+          fontSize="13"
+          fontWeight="700"
+          textAnchor="end"
+          dominantBaseline="middle"
+        >
+          {latexToPlain(lbl.tower_height ?? lbl.height ?? 'h')}
+        </text>
+
+        {/* Parabolic Trajectory */}
+        <path d={pathD} fill="none" stroke="#4f46e5" strokeWidth="2.2" strokeLinecap="round" />
+
+        {/* Launch dot at top edge of tower */}
+        <circle cx={x0} cy={y0} r="4" fill="#2563eb" stroke="#1d4ed8" strokeWidth="1.5" />
+
+        {/* Landing dot on ground */}
+        <circle cx={xEnd} cy={yg} r="4" fill="#2563eb" stroke="#1d4ed8" strokeWidth="1.5" />
+
+        {/* Horizontal reference line at launch */}
+        <line x1={x0} y1={y0} x2={x0 + 68} y2={y0} stroke="#94a3b8" strokeWidth="1.2" strokeDasharray="4,3" />
+
+        {/* Velocity vector */}
+        <Arr
+          x1={x0}
+          y1={y0}
+          x2={vx2}
+          y2={vy2}
+          color="#2563eb"
+          label={lbl.v0 ?? 'u = 20 m/s'}
+          lx={vx2 + 8}
+          ly={vy2 - 6}
+          anchor="start"
+        />
+
+        {/* Optional components */}
+        {showComponents && (
+          <g stroke="#94a3b8" strokeWidth="1.2" strokeDasharray="3,2">
+            <line x1={x0} y1={y0} x2={vx2} y2={y0} />
+            <line x1={vx2} y1={y0} x2={vx2} y2={vy2} />
+          </g>
+        )}
+
+        {/* Angle arc */}
+        {Math.abs(angle) >= 5 && (
+          <>
+            <path
+              d={`M ${x0 + AR},${y0} A ${AR},${AR} 0 0,${angle < 0 ? 1 : 0} ${arcEndX},${arcEndY}`}
+              fill="none"
+              stroke="#6366f1"
+              strokeWidth="1.4"
+            />
+            <text
+              x={x0 + AR + 8}
+              y={angle < 0 ? y0 + 14 : y0 - 6}
+              fill="#4f46e5"
+              fontSize="11"
+              fontWeight="600"
+            >
+              {latexToPlain(lbl.angle ?? `${angle}°`)}
+            </text>
+          </>
+        )}
+
+        {/* Range dimension line from tower base to landing point */}
+        <line x1={x0} y1={yg} x2={x0} y2={yRange + 4} stroke="#94a3b8" strokeWidth="1" strokeDasharray="3,3" />
+        <line x1={xEnd} y1={yg} x2={xEnd} y2={yRange + 4} stroke="#94a3b8" strokeWidth="1" strokeDasharray="3,3" />
+        <line x1={x0} y1={yRange} x2={xEnd} y2={yRange} stroke="#dc2626" strokeWidth="1.6" />
+        <polygon points={`${x0},${yRange} ${x0 + 8},${yRange - 4} ${x0 + 8},${yRange + 4}`} fill="#dc2626" />
+        <polygon points={`${xEnd},${yRange} ${xEnd - 8},${yRange - 4} ${xEnd - 8},${yRange + 4}`} fill="#dc2626" />
+        <text
+          x={(x0 + xEnd) / 2}
+          y={yRange + 15}
+          fill="#dc2626"
+          fontSize="12"
+          fontWeight="700"
+          textAnchor="middle"
+        >
+          {latexToPlain(lbl.range ?? '40 m')}
+        </text>
+      </svg>
+    );
+  }
+
+  // Standard Ground-to-Ground Projectile Launch
+  const angle = clampNum(p.angle_deg, 10, 80, 45);
+  const θ = (angle * Math.PI) / 180;
 
   const x0 = 55, yg = 182, R = 308, xm = x0 + R / 2, xEnd = x0 + R;
   // For symmetric projectile: H/R = tan(θ)/4
