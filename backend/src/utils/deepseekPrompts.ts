@@ -29,6 +29,7 @@ export const ALLOWED_DIAGRAM_TEMPLATES = new Set<string>([
   'electrochemical_cell',
   'organic_structure',
   'satellite_orbits',
+  'rotating_rod',
 ]);
 
 /** Validates diagram payload against the 19 supported templates and finite numeric bounds. */
@@ -50,6 +51,11 @@ export function isValidDiagramTemplate(diagram: unknown): diagram is DiagramTemp
   if (obj.template === 'satellite_orbits') {
     if (p.r1 !== undefined && (!Number.isFinite(Number(p.r1)) || Number(p.r1) <= 0)) return false;
     if (p.r2 !== undefined && (!Number.isFinite(Number(p.r2)) || Number(p.r2) <= 0)) return false;
+  }
+  if (obj.template === 'rotating_rod') {
+    if (p.length !== undefined && (!Number.isFinite(Number(p.length)) || Number(p.length) <= 0)) return false;
+    if (p.m1 !== undefined && typeof p.m1 === 'number' && p.m1 <= 0) return false;
+    if (p.m2 !== undefined && typeof p.m2 === 'number' && p.m2 <= 0) return false;
   }
   if (obj.template === 'inclined_plane') {
     if (p.angle_deg !== undefined) {
@@ -83,7 +89,7 @@ export function isValidDiagramTemplate(diagram: unknown): diagram is DiagramTemp
 
 export function getSubjectDiagramTemplates(subject: string): string[] {
   if (subject === 'Physics') {
-    return ['simple_circuit', 'inclined_plane', 'lens_mirror', 'projectile_motion', 'pulley_system', 'wave_diagram', 'capacitor_field', 'pv_diagram', 'satellite_orbits', 'circle_geometry'];
+    return ['simple_circuit', 'inclined_plane', 'lens_mirror', 'projectile_motion', 'pulley_system', 'wave_diagram', 'capacitor_field', 'pv_diagram', 'satellite_orbits', 'rotating_rod', 'circle_geometry'];
   }
   if (subject === 'Mathematics') {
     return ['coordinate_geometry', 'triangle', 'circle_geometry', 'conic_section', 'argand_plane'];
@@ -216,6 +222,9 @@ export const DIAGRAM_SPEC = `
 
   TEMPLATE "satellite_orbits": { "template": "satellite_orbits", "params": { "central_body": "Earth", "r1": 65, "r2": 102, "labels": { "body": "Earth", "r1": "r₁ = 8000 km", "r2": "r₂ = 12800 km", "s1": "Orbit 1 (h₁ = 1600 km)", "s2": "Orbit 2 (h₂ = 6400 km)" } }}
   CRITICAL FOR SATELLITE / ORBIT QUESTIONS: For gravitation, orbital transfers, planetary satellite orbits, ALWAYS use "satellite_orbits" or "circle_geometry" with "subtype": "satellite_orbits" or "concentric". Both orbits MUST be concentric circular paths sharing the exact center of Earth. NEVER use two offset circles with different centers for planetary orbits!
+
+  TEMPLATE "rotating_rod": { "template": "rotating_rod", "params": { "m1": 3, "m2": 1, "length": 4, "omega": 2, "pivot": "cm", "labels": { "m1": "3 kg", "m2": "1 kg", "length": "Total length L = 4 m", "omega": "ω = 2 rad/s", "pivot": "CM", "r1": "r₁ = 1 m", "r2": "r₂ = 3 m" } }}
+  CRITICAL FOR ROTATIONAL MOTION / RIGID ROD / CENTER OF MASS: For questions involving a rotating rigid rod with masses at the ends, rotation about the centre of mass (CM) or one end, moment of inertia, or angular velocity, ALWAYS use "rotating_rod". NEVER use "circle_geometry" for rotating rod problems! The rotating_rod template accurately positions the center of mass, draws the continuous rigid rod, renders concentric circular trajectory paths for the unequal masses, and neatly separates all dimension lines and labels so text never collides.
 
   TEMPLATE "circle_geometry": { "template": "circle_geometry", "params": { "subtype": "single", "cx": 190, "cy": 120, "r": 80, "labels": { "center": "O", "radius": "r" }, "points": [] }}
   Subtypes: "single"|"two_circles"|"tangent_from_point"|"concentric"|"satellite_orbits"

@@ -4,8 +4,8 @@ import React from 'react';
 import type { DiagramTemplate } from '@/types';
 import { CapacitorField, CoordGeometry, EnergyProfile, ProjectileMotion, PulleySystem, PvDiagram, WaveDiagram } from './diagrams/mixed-templates';
 import { DiagramErrorBoundary, ArgandPlane, CircleGeom, ConicSection, CrystalStruct, ElectrochemCell, MoDiagram, MolecGeometry, OrganicStruct, TriangleDiagram } from './diagrams/math-chem-templates';
-import type { ArgandPlaneParams, CapacitorFieldParams, CircleGeomParams, ConicSectionParams, CoordGeometryParams, CrystalStructParams, ElectrochemCellParams, EnergyProfileParams, InclinedPlaneParams, LensMirrorParams, MoDiagramParams, MolecGeometryParams, OrganicStructParams, ProjectileMotionParams, PulleySystemParams, PvDiagramParams, SatelliteOrbitsParams, SimpleCircuitParams, TriangleParams, WaveDiagramParams } from './diagrams/types';
-import { InclinedPlane, LensMirror, SatelliteOrbits, SimpleCircuit } from './diagrams/physics-templates';
+import type { ArgandPlaneParams, CapacitorFieldParams, CircleGeomParams, ConicSectionParams, CoordGeometryParams, CrystalStructParams, ElectrochemCellParams, EnergyProfileParams, InclinedPlaneParams, LensMirrorParams, MoDiagramParams, MolecGeometryParams, OrganicStructParams, ProjectileMotionParams, PulleySystemParams, PvDiagramParams, RotatingRodParams, SatelliteOrbitsParams, SimpleCircuitParams, TriangleParams, WaveDiagramParams } from './diagrams/types';
+import { InclinedPlane, LensMirror, RotatingRod, SatelliteOrbits, SimpleCircuit } from './diagrams/physics-templates';
 
 /* ── Main component ─────────────────────────────────────────── */
 interface Props {
@@ -62,6 +62,98 @@ export function DiagramRenderer({ descriptor, context }: Props) {
     };
   }
 
+  // Auto-detect rotating rod / center of mass rotational motion if circle_geometry or generic template was assigned
+  const qText = context?.questionText || '';
+  const currentParams = (params as Record<string, unknown>) || {};
+  const currentLabels = (currentParams.labels as Record<string, string>) || {};
+  const currentPoints = (currentParams.points as Array<{ label?: string }>) || [];
+
+  const isRotationalRodContext =
+    template === 'rotating_rod' ||
+    ((template === 'circle_geometry' || template === 'coordinate_geometry') &&
+      (context?.topic === 'Rotational Motion' ||
+        /rigid rod|centre of mass|center of mass|rotation about.*axis|rotat(?:ing|ion).*rod|blocks of masses.*rod|fixed at the.*ends.*rod|moment of inertia.*rod/i.test(qText) ||
+        currentLabels.center === 'CM' ||
+        /rod/i.test(currentLabels.radius || '') ||
+        currentPoints.some((pt) => /kg|mass/i.test(pt.label || ''))));
+
+  if (isRotationalRodContext) {
+    template = 'rotating_rod';
+
+    // Parse m1 and m2
+    let m1Val: number | string = (currentParams.m1 as (number | string)) || 3;
+    let m2Val: number | string = (currentParams.m2 as (number | string)) || 1;
+    const massMatch =
+      qText.match(/masses\s+([0-9]+(?:\.[0-9]+)?)\s*(?:kg|g)?\s*(?:and|&|,)\s*([0-9]+(?:\.[0-9]+)?)\s*(?:kg|g)?/i) ||
+      qText.match(/([0-9]+(?:\.[0-9]+)?)\s*kg\s*(?:and|&|,)\s*([0-9]+(?:\.[0-9]+)?)\s*kg/i);
+    if (massMatch) {
+      m1Val = parseFloat(massMatch[1]);
+      m2Val = parseFloat(massMatch[2]);
+    } else if (currentPoints.length >= 2) {
+      const p1m = currentPoints[0]?.label?.match(/([0-9]+(?:\.[0-9]+)?)/);
+      const p2m = currentPoints[1]?.label?.match(/([0-9]+(?:\.[0-9]+)?)/);
+      if (p1m) m1Val = parseFloat(p1m[1]);
+      if (p2m) m2Val = parseFloat(p2m[1]);
+    }
+
+    // Parse length L
+    let lengthVal: number | string = (currentParams.length as (number | string)) || 4;
+    const lenMatch =
+      qText.match(/(?:rod of length|length)\s+([0-9]+(?:\.[0-9]+)?)\s*(?:m|cm|meters)?/i) ||
+      currentLabels.radius?.match(/L\s*=\s*([0-9]+(?:\.[0-9]+)?)/i) ||
+      qText.match(/L\s*=\s*([0-9]+(?:\.[0-9]+)?)/i);
+    if (lenMatch) {
+      lengthVal = parseFloat(lenMatch[1]);
+    }
+
+    // Parse omega
+    let omegaVal: number | string = (currentParams.omega as (number | string)) || 2;
+    const omegaMatch =
+      qText.match(/angular (?:speed|velocity)\s+([0-9]+(?:\.[0-9]+)?)/i) ||
+      qText.match(/([0-9]+(?:\.[0-9]+)?)\s*rad\s*s\^?-1/i) ||
+      qText.match(/([0-9]+(?:\.[0-9]+)?)\s*rad\/s/i);
+    if (omegaMatch) {
+      omegaVal = parseFloat(omegaMatch[1]);
+    }
+
+    // Parse pivot
+    let pivotVal: 'cm' | 'end' | 'midpoint' = (currentParams.pivot as ('cm' | 'end' | 'midpoint')) || 'cm';
+    if (/pivot.*one end|about.*one end|hinged at.*end/i.test(qText)) {
+      pivotVal = 'end';
+    } else if (/midpoint|geometric center/i.test(qText)) {
+      pivotVal = 'midpoint';
+    }
+
+    const n1 = typeof m1Val === 'number' ? m1Val : 3;
+    const n2 = typeof m2Val === 'number' ? m2Val : 1;
+    const L = typeof lengthVal === 'number' ? lengthVal : 4;
+    const r1 = +((n2 / (n1 + n2)) * L).toFixed(2);
+    const r2 = +((n1 / (n1 + n2)) * L).toFixed(2);
+
+    const cleanLabels = { ...currentLabels };
+    delete cleanLabels.center;
+    delete cleanLabels.radius;
+
+    params = {
+      ...currentParams,
+      m1: m1Val,
+      m2: m2Val,
+      length: lengthVal,
+      omega: omegaVal,
+      pivot: pivotVal,
+      labels: {
+        ...cleanLabels,
+        m1: cleanLabels.m1 || `${m1Val} kg`,
+        m2: cleanLabels.m2 || `${m2Val} kg`,
+        omega: cleanLabels.omega || `ω = ${omegaVal} rad/s`,
+        length: cleanLabels.length || `Total rod length L = ${lengthVal} m`,
+        r1: cleanLabels.r1 || `r₁ = ${r1} m`,
+        r2: cleanLabels.r2 || `r₂ = ${r2} m`,
+        pivot: cleanLabels.pivot || (pivotVal === 'cm' ? 'CM' : 'Pivot'),
+      },
+    };
+  }
+
   let inner: React.ReactNode = null;
   switch (template) {
     case 'inclined_plane':       inner = <InclinedPlane p={params as InclinedPlaneParams} />;        break;
@@ -75,6 +167,7 @@ export function DiagramRenderer({ descriptor, context }: Props) {
     case 'capacitor_field':      inner = <CapacitorField p={params as CapacitorFieldParams} />;      break;
     case 'pv_diagram':           inner = <PvDiagram p={params as PvDiagramParams} />;                break;
     case 'satellite_orbits':     inner = <SatelliteOrbits p={params as SatelliteOrbitsParams} />;    break;
+    case 'rotating_rod':         inner = <RotatingRod p={params as RotatingRodParams} />;            break;
     case 'triangle':             inner = <TriangleDiagram p={params as TriangleParams} />;           break;
     case 'circle_geometry':      inner = <CircleGeom p={params as CircleGeomParams} />;              break;
     case 'conic_section':        inner = <ConicSection p={params as ConicSectionParams} />;          break;

@@ -524,6 +524,8 @@ Available templates:
 | `wave_diagram` | Physics | Transverse or standing wave |
 | `capacitor_field` | Physics | Parallel plate capacitor |
 | `pv_diagram` | Physics | Thermodynamic P-V diagram |
+| `satellite_orbits` | Physics | Concentric planetary satellite orbits & transfer |
+| `rotating_rod` | Physics | Rotating rigid rod with masses about center of mass |
 | `energy_profile` | Chemistry | Reaction coordinate diagram |
 | `coordinate_geometry` | Mathematics | Points, lines, circles on axes |
 | `triangle` | Mathematics | Triangle with angles and optional incircle/circumcircle |

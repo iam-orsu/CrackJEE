@@ -23,6 +23,8 @@ describe('facultyPrompts math and diagram validators', () => {
     assert.equal(isValidDiagramTemplate({ template: 'inclined_plane', params: { angle_deg: 95 } }), false);
     assert.equal(isValidDiagramTemplate({ template: 'organic_structure', params: { smiles: 'CCO' } }), true);
     assert.equal(isValidDiagramTemplate({ template: 'organic_structure', params: { smiles: '' } }), false);
+    assert.equal(isValidDiagramTemplate({ template: 'rotating_rod', params: { m1: 3, m2: 1, length: 4, omega: 2 } }), true);
+    assert.equal(isValidDiagramTemplate({ template: 'rotating_rod', params: { length: -5 } }), false);
     assert.equal(isValidDiagramTemplate({ template: 'unknown_shape', params: {} }), false);
   });
 });

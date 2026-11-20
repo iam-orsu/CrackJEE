@@ -122,6 +122,17 @@ export interface ArgandPlaneParams {
   points?: ArgandPoint[];
 }
 
+export interface RotatingRodParams {
+  m1?: number | string;
+  m2?: number | string;
+  length?: number | string;
+  omega?: number | string;
+  pivot?: 'cm' | 'end' | 'midpoint';
+  r1?: number | string;
+  r2?: number | string;
+  labels?: Record<string, string>;
+}
+
 export interface MolecLigand { label?: string; }
 export interface MolecGeometryParams {
   shape?: 'linear' | 'bent' | 'trigonal_planar' | 'tetrahedral' | 'octahedral' | 'trigonal_bipyramidal' | 'trigonal_pyramidal' | 'square_planar' | 'see_saw' | 't_shaped';

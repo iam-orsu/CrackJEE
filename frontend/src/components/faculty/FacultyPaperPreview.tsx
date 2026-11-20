@@ -578,6 +578,44 @@ function FacultyQuestionCard({
             </div>
           )}
 
+          {/rigid rod|rotation about|centre of mass|center of mass|angular speed|moment of inertia|blocks of masses.*rod/i.test(draftText) && (
+            <div className="mb-3.5 flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                className="inline-flex cursor-pointer items-center gap-1.5 rounded-xl border border-[#4338CA] bg-[#EEF2FF] px-3 py-1.5 text-[12.5px] font-bold text-[#4338CA] shadow-sm hover:bg-[#E0E7FF]"
+                onClick={() => {
+                  setRemoveDiagram(false);
+                  setDiagramOverride({
+                    template: 'rotating_rod',
+                    params: {
+                      m1: 3,
+                      m2: 1,
+                      length: 4,
+                      omega: 2,
+                      pivot: 'cm',
+                      labels: {
+                        m1: '3 kg',
+                        m2: '1 kg',
+                        omega: 'ω = 2 rad/s',
+                        length: 'Total length L = 4 m',
+                        r1: 'r₁ = 1 m',
+                        r2: 'r₂ = 3 m',
+                        pivot: 'CM',
+                      },
+                    },
+                  });
+                }}
+              >
+                Set Rotating Rod (Center of Mass) Diagram
+              </button>
+              {diagramOverride?.template === 'rotating_rod' && (
+                <span className="text-[12px] font-bold text-[#15803D]">
+                  ✓ Rotating rod diagram selected
+                </span>
+              )}
+            </div>
+          )}
+
           <div className="flex flex-wrap gap-1.5">
             <button type="submit" className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none" disabled={saving}>
               {saving ? 'Saving…' : 'Save Question'}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Arr, clampNum, latexToPlain } from './helpers';
-import type { InclinedPlaneParams, LensMirrorParams, SatelliteOrbitsParams, SimpleCircuitParams } from './types';
+import type { InclinedPlaneParams, LensMirrorParams, RotatingRodParams, SatelliteOrbitsParams, SimpleCircuitParams } from './types';
 
 /* ── TEMPLATE 1: Inclined Plane ─────────────────────────────── */
 export function InclinedPlane({ p }: { p: InclinedPlaneParams }) {
@@ -542,6 +542,291 @@ export function SatelliteOrbits({ p }: { p: SatelliteOrbitsParams }) {
       />
       <text x={cx} y={cy + (r1 + r2) / 2 + 14} textAnchor="middle" fill="#803688" fontSize="11" fontWeight="700">
         Transfer Orbit (ΔE)
+      </text>
+    </svg>
+  );
+}
+
+/* ── TEMPLATE 20: Rotating Rod (Center of Mass & Rotational Motion) ── */
+function extractPositiveNum(val: unknown, fallback: number): number {
+  if (typeof val === 'number' && Number.isFinite(val) && val > 0) return val;
+  if (typeof val === 'string') {
+    const match = val.match(/([0-9]+(?:\.[0-9]+)?)/);
+    if (match) {
+      const parsed = parseFloat(match[1]);
+      if (Number.isFinite(parsed) && parsed > 0) return parsed;
+    }
+  }
+  return fallback;
+}
+
+export function RotatingRod({ p }: { p: RotatingRodParams }) {
+  const lbl = p.labels ?? {};
+  const VW = 460, VH = 260;
+  const pivotType = p.pivot ?? 'cm';
+
+  const n1 = extractPositiveNum(p.m1, 3);
+  const n2 = extractPositiveNum(p.m2, 1);
+  const lengthVal = extractPositiveNum(p.length, 4);
+  const omegaVal = extractPositiveNum(p.omega, 2);
+
+  const lblM1 = latexToPlain(lbl.m1 ?? `${n1} kg`);
+  const lblM2 = latexToPlain(lbl.m2 ?? `${n2} kg`);
+  const lblOmega = latexToPlain(lbl.omega ?? `ω = ${omegaVal} rad/s`);
+  const lblLength = latexToPlain(lbl.length ?? `Total rod length L = ${lengthVal} m`);
+  const lblPivot = latexToPlain(lbl.pivot ?? (pivotType === 'cm' ? 'CM' : 'Pivot'));
+
+  // If pivot is at one end
+  if (pivotType === 'end') {
+    const cx = 90, cy = 135;
+    const rodPx = 250;
+    const endX = cx + rodPx;
+    const rm = Math.max(10, Math.min(18, 9 + n2 * 2));
+
+    return (
+      <svg viewBox={`0 0 ${VW} ${VH}`} style={{ width: '100%', height: 'auto', display: 'block' }}>
+        <defs>
+          <linearGradient id="rod-grad-end" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#e2e8f0" />
+            <stop offset="50%" stopColor="#94a3b8" />
+            <stop offset="100%" stopColor="#64748b" />
+          </linearGradient>
+          <marker id="rot-arrow-end" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto">
+            <path d="M 0 0 L 6 3 L 0 6 z" fill="#dc2626" />
+          </marker>
+        </defs>
+
+        {/* Pivot Wall / Fixed Support */}
+        <line x1={cx - 16} y1={cy - 25} x2={cx - 16} y2={cy + 25} stroke="#334155" strokeWidth="2.5" />
+        {[-20, -10, 0, 10, 20].map((dy) => (
+          <line key={dy} x1={cx - 16} y1={cy + dy} x2={cx - 24} y2={cy + dy + 6} stroke="#64748b" strokeWidth="1.5" />
+        ))}
+        {/* Support hinge triangle */}
+        <polygon points={`${cx},${cy} ${cx - 16},${cy - 12} ${cx - 16},${cy + 12}`} fill="#94a3b8" stroke="#334155" strokeWidth="1.5" />
+
+        {/* Trajectory Arc */}
+        <path
+          d={`M ${cx} ${cy - rodPx} A ${rodPx} ${rodPx} 0 0 1 ${endX} ${cy}`}
+          fill="none"
+          stroke="#0284c7"
+          strokeWidth="1.6"
+          strokeDasharray="5,3"
+        />
+
+        {/* Rigid Rod */}
+        <rect x={cx} y={cy - 4} width={rodPx} height={8} rx={4} fill="url(#rod-grad-end)" stroke="#475569" strokeWidth="1.5" />
+
+        {/* Pivot Point */}
+        <circle cx={cx} cy={cy} r={4.5} fill="#dc2626" stroke="#ffffff" strokeWidth="1.5" />
+        <text x={cx} y={cy - 18} textAnchor="middle" fill="#dc2626" fontSize="11" fontWeight="700">{lblPivot}</text>
+
+        {/* Mass at end */}
+        <circle cx={endX} cy={cy} r={rm} fill="#0284c7" stroke="#0369a1" strokeWidth="2" />
+        <text x={endX} y={cy - rm - 6} textAnchor="middle" fill="#0369a1" fontSize="12" fontWeight="700">{lblM2}</text>
+
+        {/* Omega rotation indicator */}
+        <path
+          d={`M ${cx + 36} ${cy - 18} A 40 40 0 0 0 ${cx + 18} ${cy - 36}`}
+          fill="none"
+          stroke="#dc2626"
+          strokeWidth="1.8"
+          markerEnd="url(#rot-arrow-end)"
+        />
+        <text x={cx + 38} y={cy - 30} fill="#b91c1c" fontSize="11" fontWeight="700">{lblOmega}</text>
+
+        {/* Dimension Line */}
+        <line x1={cx} y1={cy + 30} x2={endX} y2={cy + 30} stroke="#475569" strokeWidth="1.2" />
+        <line x1={cx} y1={cy + 25} x2={cx} y2={cy + 35} stroke="#475569" strokeWidth="1.2" />
+        <line x1={endX} y1={cy + 25} x2={endX} y2={cy + 35} stroke="#475569" strokeWidth="1.2" />
+        <text x={(cx + endX) / 2} y={cy + 46} textAnchor="middle" fill="#334155" fontSize="11" fontWeight="700">{lblLength}</text>
+      </svg>
+    );
+  }
+
+  // Rotation about Centre of Mass (CM) or Midpoint
+  const cx = 210, cy = 124;
+
+  // Mass fractions determining CM location
+  const isMidpoint = pivotType === 'midpoint';
+  const f1 = isMidpoint ? 0.5 : n2 / (n1 + n2);
+  const f2 = isMidpoint ? 0.5 : n1 / (n1 + n2);
+
+  // Exact physics distances from CM
+  const numR1 = +(f1 * lengthVal).toFixed(2);
+  const numR2 = +(f2 * lengthVal).toFixed(2);
+
+  const lblR1 = latexToPlain(lbl.r1 ?? `r₁ = ${numR1} m`);
+  const lblR2 = latexToPlain(lbl.r2 ?? `r₂ = ${numR2} m`);
+
+  // Visual radii scaled proportionally and clamped to fit SVG cleanly
+  const Rtotal = 148;
+  const R1 = Math.round(Math.max(34, Math.min(108, Rtotal * f1)));
+  const R2 = Math.round(Math.max(34, Math.min(108, Rtotal * f2)));
+
+  const x1 = cx - R1;
+  const x2 = cx + R2;
+
+  // Proportional mass radius
+  const rm1 = Math.max(9, Math.min(17, 8 + n1 * 2));
+  const rm2 = Math.max(8, Math.min(16, 8 + n2 * 2));
+
+  return (
+    <svg viewBox={`0 0 ${VW} ${VH}`} style={{ width: '100%', height: 'auto', display: 'block' }}>
+      <defs>
+        <linearGradient id="rod-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#f1f5f9" />
+          <stop offset="50%" stopColor="#94a3b8" />
+          <stop offset="100%" stopColor="#475569" />
+        </linearGradient>
+        <radialGradient id="m1-grad" cx="35%" cy="35%" r="65%">
+          <stop offset="0%" stopColor="#93c5fd" />
+          <stop offset="60%" stopColor="#3b82f6" />
+          <stop offset="100%" stopColor="#1d4ed8" />
+        </radialGradient>
+        <radialGradient id="m2-grad" cx="35%" cy="35%" r="65%">
+          <stop offset="0%" stopColor="#7dd3fc" />
+          <stop offset="60%" stopColor="#0284c7" />
+          <stop offset="100%" stopColor="#0369a1" />
+        </radialGradient>
+        <marker id="vel-arrow-m1" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto">
+          <path d="M 0 0 L 6 3 L 0 6 z" fill="#6366f1" />
+        </marker>
+        <marker id="vel-arrow-m2" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto">
+          <path d="M 0 0 L 6 3 L 0 6 z" fill="#0284c7" />
+        </marker>
+        <marker id="omega-arrow" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto">
+          <path d="M 0 0 L 6 3 L 0 6 z" fill="#dc2626" />
+        </marker>
+      </defs>
+
+      {/* Axis crosshair guides (subtle dashed reference lines) */}
+      <line x1={cx - R2 - 16} y1={cy} x2={cx + R2 + 16} y2={cy} stroke="#f1f5f9" strokeWidth="1" strokeDasharray="3,3" />
+      <line x1={cx} y1={cy - R2 - 12} x2={cx} y2={cy + R2 + 12} stroke="#f1f5f9" strokeWidth="1" strokeDasharray="3,3" />
+
+      {/* Outer Orbit (Trajectory of m2, radius R2) */}
+      <circle
+        cx={cx}
+        cy={cy}
+        r={R2}
+        fill="rgba(2,132,199,0.02)"
+        stroke="#0284c7"
+        strokeWidth="1.5"
+        strokeDasharray="5,3"
+      />
+
+      {/* Inner Orbit (Trajectory of m1, radius R1) */}
+      <circle
+        cx={cx}
+        cy={cy}
+        r={R1}
+        fill="rgba(99,102,241,0.03)"
+        stroke="#6366f1"
+        strokeWidth="1.5"
+        strokeDasharray="4,2"
+      />
+
+      {/* Trajectory path labels */}
+      {R1 !== R2 ? (
+        <>
+          <text x={cx} y={cy - R2 - 4} textAnchor="middle" fill="#0284c7" fontSize="9.5" fontWeight="600">
+            Path of m₂ (circle, r₂ = {numR2} m)
+          </text>
+          <text x={cx - R1 - 8} y={cy - R1 - 2} textAnchor="end" fill="#6366f1" fontSize="9" fontWeight="600">
+            Path of m₁ (r₁ = {numR1} m)
+          </text>
+        </>
+      ) : (
+        <text x={cx} y={cy - R1 - 4} textAnchor="middle" fill="#0284c7" fontSize="9.5" fontWeight="600">
+          Circular rotation path (r = {numR1} m)
+        </text>
+      )}
+
+      {/* Tangential velocity vector for m1 (downward) */}
+      <line x1={x1} y1={cy} x2={x1} y2={cy + 24} stroke="#6366f1" strokeWidth="1.5" markerEnd="url(#vel-arrow-m1)" />
+      <text x={x1 - 6} y={cy + 26} textAnchor="end" fill="#4338ca" fontSize="10" fontWeight="700">v₁</text>
+
+      {/* Tangential velocity vector for m2 (upward) */}
+      <line x1={x2} y1={cy} x2={x2} y2={cy - 24} stroke="#0284c7" strokeWidth="1.5" markerEnd="url(#vel-arrow-m2)" />
+      <text x={x2 + 8} y={cy - 20} textAnchor="start" fill="#0369a1" fontSize="10" fontWeight="700">v₂</text>
+
+      {/* Rigid Continuous Rod */}
+      <rect
+        x={x1}
+        y={cy - 4}
+        width={R1 + R2}
+        height={8}
+        rx={4}
+        fill="url(#rod-grad)"
+        stroke="#475569"
+        strokeWidth="1.5"
+      />
+
+      {/* Mass 1 Block/Sphere */}
+      <g>
+        <circle cx={x1} cy={cy} r={rm1} fill="url(#m1-grad)" stroke="#1d4ed8" strokeWidth="2" />
+        <circle cx={x1 - 2} cy={cy - 2} r={rm1 * 0.35} fill="rgba(255,255,255,0.4)" />
+        <text x={x1} y={cy - rm1 - 6} textAnchor="middle" fill="#1e40af" fontSize="12" fontWeight="800">
+          {lblM1}
+        </text>
+      </g>
+
+      {/* Mass 2 Block/Sphere */}
+      <g>
+        <circle cx={x2} cy={cy} r={rm2} fill="url(#m2-grad)" stroke="#0369a1" strokeWidth="2" />
+        <circle cx={x2 - 2} cy={cy - 2} r={rm2 * 0.35} fill="rgba(255,255,255,0.4)" />
+        <text x={x2} y={cy - rm2 - 6} textAnchor="middle" fill="#0369a1" fontSize="12" fontWeight="800">
+          {lblM2}
+        </text>
+      </g>
+
+      {/* Perpendicular Rotation Axis through Center of Mass */}
+      <line x1={cx} y1={cy - 46} x2={cx} y2={cy + 42} stroke="#dc2626" strokeWidth="1.4" strokeDasharray="4,2" />
+      {/* Axis arrow top */}
+      <path d={`M ${cx - 4} ${cy - 40} L ${cx} ${cy - 48} L ${cx + 4} ${cy - 40}`} fill="none" stroke="#dc2626" strokeWidth="1.6" />
+      <text x={cx} y={cy - 52} textAnchor="middle" fill="#b91c1c" fontSize="9.5" fontWeight="700">
+        Axis (⊥ rod)
+      </text>
+
+      {/* CM Pivot Marker */}
+      <circle cx={cx} cy={cy} r={4.5} fill="#dc2626" stroke="#ffffff" strokeWidth="1.5" />
+      <text x={cx - 8} y={cy - 7} textAnchor="end" fill="#dc2626" fontSize="12" fontWeight="800">
+        {lblPivot}
+      </text>
+
+      {/* Curved Angular Velocity Arrow ω */}
+      <path
+        d={`M ${cx - 14} ${cy - 26} C ${cx - 8} ${cy - 33}, ${cx + 8} ${cy - 33}, ${cx + 14} ${cy - 26}`}
+        fill="none"
+        stroke="#dc2626"
+        strokeWidth="1.8"
+        markerEnd="url(#omega-arrow)"
+      />
+      <text x={cx + 18} y={cy - 27} textAnchor="start" fill="#b91c1c" fontSize="11" fontWeight="800">
+        {lblOmega}
+      </text>
+
+      {/* Dimension Line 1: Segment r1 (from m1 to CM) */}
+      <line x1={x1} y1={cy + 22} x2={cx} y2={cy + 22} stroke="#6366f1" strokeWidth="1.2" />
+      <line x1={x1} y1={cy + 17} x2={x1} y2={cy + 27} stroke="#6366f1" strokeWidth="1.2" />
+      <line x1={cx} y1={cy + 17} x2={cx} y2={cy + 27} stroke="#6366f1" strokeWidth="1.2" />
+      <text x={(x1 + cx) / 2} y={cy + 34} textAnchor="middle" fill="#4338ca" fontSize="10.5" fontWeight="700">
+        {lblR1}
+      </text>
+
+      {/* Dimension Line 2: Segment r2 (from CM to m2) */}
+      <line x1={cx} y1={cy + 22} x2={x2} y2={cy + 22} stroke="#0284c7" strokeWidth="1.2" />
+      <line x1={cx} y1={cy + 17} x2={cx} y2={cy + 27} stroke="#0284c7" strokeWidth="1.2" />
+      <line x1={x2} y1={cy + 17} x2={x2} y2={cy + 27} stroke="#0284c7" strokeWidth="1.2" />
+      <text x={(cx + x2) / 2} y={cy + 34} textAnchor="middle" fill="#0369a1" fontSize="10.5" fontWeight="700">
+        {lblR2}
+      </text>
+
+      {/* Dimension Line 3: Total Rod Length L */}
+      <line x1={x1} y1={cy + 48} x2={x2} y2={cy + 48} stroke="#475569" strokeWidth="1.2" />
+      <line x1={x1} y1={cy + 43} x2={x1} y2={cy + 53} stroke="#475569" strokeWidth="1.2" />
+      <line x1={x2} y1={cy + 43} x2={x2} y2={cy + 53} stroke="#475569" strokeWidth="1.2" />
+      <text x={(x1 + x2) / 2} y={cy + 61} textAnchor="middle" fill="#334155" fontSize="10.5" fontWeight="700">
+        {lblLength}
       </text>
     </svg>
   );
