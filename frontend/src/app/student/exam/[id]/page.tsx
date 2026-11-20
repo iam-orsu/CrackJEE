@@ -385,7 +385,7 @@ export default function StudentExamCbtPage() {
           {/* Diagram if available */}
           {activeQuestion.diagram && (
             <div className="rounded-[18px] border border-[#003366]/10 bg-white p-3">
-              <DiagramRenderer descriptor={activeQuestion.diagram} />
+              <DiagramRenderer descriptor={activeQuestion.diagram} context={{ topic: activeQuestion.topic, questionText: activeQuestion.questionText }} />
             </div>
           )}
 

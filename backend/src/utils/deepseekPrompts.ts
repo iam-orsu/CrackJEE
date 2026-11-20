@@ -28,6 +28,7 @@ export const ALLOWED_DIAGRAM_TEMPLATES = new Set<string>([
   'crystal_structure',
   'electrochemical_cell',
   'organic_structure',
+  'satellite_orbits',
 ]);
 
 /** Validates diagram payload against the 19 supported templates and finite numeric bounds. */
@@ -45,6 +46,10 @@ export function isValidDiagramTemplate(diagram: unknown): diagram is DiagramTemp
   }
   if (obj.template === 'mo_diagram') {
     return typeof p.molecule === 'string' && p.molecule.trim().length > 0;
+  }
+  if (obj.template === 'satellite_orbits') {
+    if (p.r1 !== undefined && (!Number.isFinite(Number(p.r1)) || Number(p.r1) <= 0)) return false;
+    if (p.r2 !== undefined && (!Number.isFinite(Number(p.r2)) || Number(p.r2) <= 0)) return false;
   }
   if (obj.template === 'inclined_plane' || obj.template === 'projectile_motion') {
     if (p.angle_deg !== undefined) {
@@ -72,7 +77,7 @@ export function isValidDiagramTemplate(diagram: unknown): diagram is DiagramTemp
 
 export function getSubjectDiagramTemplates(subject: string): string[] {
   if (subject === 'Physics') {
-    return ['simple_circuit', 'inclined_plane', 'lens_mirror', 'projectile_motion', 'pulley_system', 'wave_diagram', 'capacitor_field', 'pv_diagram'];
+    return ['simple_circuit', 'inclined_plane', 'lens_mirror', 'projectile_motion', 'pulley_system', 'wave_diagram', 'capacitor_field', 'pv_diagram', 'satellite_orbits', 'circle_geometry'];
   }
   if (subject === 'Mathematics') {
     return ['coordinate_geometry', 'triangle', 'circle_geometry', 'conic_section', 'argand_plane'];
@@ -202,8 +207,11 @@ export const DIAGRAM_SPEC = `
 
   TEMPLATE "triangle": { "template": "triangle", "params": { "angles": { "A": 60, "B": 60, "C": 60 }, "labels": { "vertex_A": "A", "vertex_B": "B", "vertex_C": "C", "a": "a", "b": "b", "c": "c" }, "show_incircle": false, "show_circumcircle": false }}
 
+  TEMPLATE "satellite_orbits": { "template": "satellite_orbits", "params": { "central_body": "Earth", "r1": 65, "r2": 102, "labels": { "body": "Earth", "r1": "r₁ = 8000 km", "r2": "r₂ = 12800 km", "s1": "Orbit 1 (h₁ = 1600 km)", "s2": "Orbit 2 (h₂ = 6400 km)" } }}
+  CRITICAL FOR SATELLITE / ORBIT QUESTIONS: For gravitation, orbital transfers, planetary satellite orbits, ALWAYS use "satellite_orbits" or "circle_geometry" with "subtype": "satellite_orbits" or "concentric". Both orbits MUST be concentric circular paths sharing the exact center of Earth. NEVER use two offset circles with different centers for planetary orbits!
+
   TEMPLATE "circle_geometry": { "template": "circle_geometry", "params": { "subtype": "single", "cx": 190, "cy": 120, "r": 80, "labels": { "center": "O", "radius": "r" }, "points": [] }}
-  Subtypes: "single"|"two_circles"|"tangent_from_point"
+  Subtypes: "single"|"two_circles"|"tangent_from_point"|"concentric"|"satellite_orbits"
 
   TEMPLATE "conic_section": { "template": "conic_section", "params": { "type": "parabola", "a": 2, "show_focus": true, "show_directrix": true, "labels": { "focus": "F(a,0)", "directrix": "x = −a", "equation": "y² = 4ax" } }}
   Allowed: "parabola"|"ellipse"|"hyperbola"

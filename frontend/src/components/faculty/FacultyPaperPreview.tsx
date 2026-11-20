@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import type { DiagramTemplate } from '@/types';
 import { ArrowLeft, Check, Landmark, Sparkles, Target } from 'lucide-react';
 import { DiagramRenderer } from '@/components/DiagramRenderer';
 import { MathText, stripOptionPrefix } from '@/lib/math';
@@ -47,7 +48,7 @@ function QuestionContent({ item }: { item: FacultyPaperItem }) {
 
       {item.diagram && (
         <div className="my-3 max-w-[440px]">
-          <DiagramRenderer descriptor={item.diagram} />
+          <DiagramRenderer descriptor={item.diagram} context={{ topic: item.topic, questionText: item.questionText }} />
         </div>
       )}
 
@@ -328,6 +329,7 @@ function FacultyQuestionCard({
   const [draftAnswer, setDraftAnswer] = useState(item.correctAnswer);
   const [draftExplain, setDraftExplain] = useState(item.explanation);
   const [removeDiagram, setRemoveDiagram] = useState(false);
+  const [diagramOverride, setDiagramOverride] = useState<DiagramTemplate | null | undefined>(undefined);
 
   function openEdit() {
     setDraftText(item.questionText);
@@ -335,6 +337,7 @@ function FacultyQuestionCard({
     setDraftAnswer(item.correctAnswer);
     setDraftExplain(item.explanation);
     setRemoveDiagram(false);
+    setDiagramOverride(undefined);
     setSparkleOpen(false);
     setEditing(true);
   }
@@ -349,7 +352,7 @@ function FacultyQuestionCard({
         ...(item.questionType !== 'integer' ? { options: draftOptions } : {}),
         correctAnswer: draftAnswer,
         explanation: draftExplain,
-        ...(removeDiagram ? { removeDiagram: true } : {}),
+        ...(removeDiagram ? { removeDiagram: true } : diagramOverride ? { diagram: diagramOverride } : {}),
       };
       const res = await facultyUpdateQuestion(paperId, item.number, payload);
       onPaperUpdated(res.paper);
@@ -497,10 +500,47 @@ function FacultyQuestionCard({
               <input
                 type="checkbox"
                 checked={removeDiagram}
-                onChange={(e) => setRemoveDiagram(e.target.checked)}
+                onChange={(e) => {
+                  setRemoveDiagram(e.target.checked);
+                  if (e.target.checked) setDiagramOverride(null);
+                }}
               />
               <span>Remove attached diagram from this question</span>
             </label>
+          )}
+
+          {(item.topic === 'Gravitation' || /satellite|circular orbit/i.test(draftText)) && (
+            <div className="mb-3.5 flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                className="inline-flex cursor-pointer items-center gap-1.5 rounded-xl border border-[#0284C7] bg-[#F0F9FF] px-3 py-1.5 text-[12.5px] font-bold text-[#0284C7] shadow-sm hover:bg-[#E0F2FE]"
+                onClick={() => {
+                  setRemoveDiagram(false);
+                  setDiagramOverride({
+                    template: 'satellite_orbits',
+                    params: {
+                      central_body: 'Earth',
+                      r1: 65,
+                      r2: 102,
+                      labels: {
+                        body: 'Earth',
+                        r1: 'r₁ = 8,000 km',
+                        r2: 'r₂ = 12,800 km',
+                        s1: 'Orbit 1 (h₁ = 1600 km)',
+                        s2: 'Orbit 2 (h₂ = 6400 km)',
+                      },
+                    },
+                  });
+                }}
+              >
+                Set Concentric Earth Orbits Diagram
+              </button>
+              {diagramOverride?.template === 'satellite_orbits' && (
+                <span className="text-[12px] font-bold text-[#15803D]">
+                  ✓ Concentric orbits diagram selected
+                </span>
+              )}
+            </div>
           )}
 
           <div className="flex flex-wrap gap-1.5">

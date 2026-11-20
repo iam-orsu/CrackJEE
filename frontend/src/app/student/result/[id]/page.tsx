@@ -809,7 +809,7 @@ export default function StudentExamResultPage() {
 
                       {q.diagram && (
                         <div className="rounded-[18px] border border-[#003366]/10 bg-white p-3">
-                          <DiagramRenderer descriptor={q.diagram} />
+                          <DiagramRenderer descriptor={q.diagram} context={{ topic: q.topic, questionText: q.questionText }} />
                         </div>
                       )}
 

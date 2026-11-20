@@ -1,6 +1,6 @@
 import React from 'react';
 import { Arr, clampNum, latexToPlain } from './helpers';
-import type { InclinedPlaneParams, LensMirrorParams, SimpleCircuitParams } from './types';
+import type { InclinedPlaneParams, LensMirrorParams, SatelliteOrbitsParams, SimpleCircuitParams } from './types';
 
 /* ── TEMPLATE 1: Inclined Plane ─────────────────────────────── */
 export function InclinedPlane({ p }: { p: InclinedPlaneParams }) {
@@ -383,6 +383,158 @@ export function LensMirror({ p }: { p: LensMirrorParams }) {
           <line x1={objX} y1={objTop} x2={imgX} y2={imgTop} />
         </g>
       )}
+    </svg>
+  );
+}
+
+/* ── TEMPLATE 4: Satellite Orbits (Concentric Orbits around Earth/Planet) ── */
+export function SatelliteOrbits({ p }: { p: SatelliteOrbitsParams }) {
+  const lbl = p.labels ?? {};
+  const VW = 380, VH = 240;
+  const cx = 190, cy = 120;
+
+  // Visual Earth radius
+  const rEarth = 30;
+  // Visual orbit radii (clamped within viewbox)
+  const r1 = clampNum(p.r1, 52, 78, 65);
+  const r2 = clampNum(p.r2, r1 + 22, 108, 102);
+
+  const bodyName = latexToPlain(lbl.body ?? p.central_body ?? 'Earth');
+  const lblR1 = latexToPlain(lbl.r1 ?? 'r₁ = 8,000 km');
+  const lblR2 = latexToPlain(lbl.r2 ?? 'r₂ = 12,800 km');
+  const lblS1 = latexToPlain(lbl.s1 ?? 'Orbit 1 (h₁ = 1600 km)');
+  const lblS2 = latexToPlain(lbl.s2 ?? 'Orbit 2 (h₂ = 6400 km)');
+
+  // Satellite positions on orbits
+  const angle1 = -Math.PI / 4; // 45 deg upper-right
+  const s1x = cx + r1 * Math.cos(angle1);
+  const s1y = cy + r1 * Math.sin(angle1);
+
+  const angle2 = Math.PI * 0.75; // 135 deg upper-left
+  const s2x = cx + r2 * Math.cos(angle2);
+  const s2y = cy + r2 * Math.sin(angle2);
+
+  return (
+    <svg viewBox={`0 0 ${VW} ${VH}`} style={{ width: '100%', height: 'auto', display: 'block' }}>
+      <defs>
+        <radialGradient id="earth-body-grad" cx="40%" cy="35%" r="65%">
+          <stop offset="0%" stopColor="#93C5FD" />
+          <stop offset="55%" stopColor="#2563EB" />
+          <stop offset="100%" stopColor="#1E3A8A" />
+        </radialGradient>
+        <marker id="transfer-arrowhead" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto">
+          <path d="M 0 0 L 6 3 L 0 6 z" fill="#803688" />
+        </marker>
+      </defs>
+
+      {/* Axis cross-guides (dotted center reference lines) */}
+      <line x1={cx - r2 - 14} y1={cy} x2={cx + r2 + 14} y2={cy} stroke="#E2E8F0" strokeWidth="1" strokeDasharray="3,3" />
+      <line x1={cx} y1={cy - r2 - 14} x2={cx} y2={cy + r2 + 14} stroke="#E2E8F0" strokeWidth="1" strokeDasharray="3,3" />
+
+      {/* Outer Orbit (Circle 2, radius r2) */}
+      <circle
+        cx={cx}
+        cy={cy}
+        r={r2}
+        fill="rgba(2,132,199,0.03)"
+        stroke="#0284C7"
+        strokeWidth="1.8"
+        strokeDasharray="5,3"
+      />
+
+      {/* Inner Orbit (Circle 1, radius r1) */}
+      <circle
+        cx={cx}
+        cy={cy}
+        r={r1}
+        fill="rgba(99,102,241,0.04)"
+        stroke="#6366F1"
+        strokeWidth="1.8"
+        strokeDasharray="4,2"
+      />
+
+      {/* Central Planet (Earth) - Concentric at (cx, cy) */}
+      <circle
+        cx={cx}
+        cy={cy}
+        r={rEarth}
+        fill="url(#earth-body-grad)"
+        stroke="#1D4ED8"
+        strokeWidth="2"
+      />
+
+      {/* Continental swirls on Earth */}
+      <path
+        d={`M ${cx - 15} ${cy - 10} Q ${cx - 5} ${cy - 18} ${cx + 8} ${cy - 9} Q ${cx + 17} ${cy - 1} ${cx + 11} ${cy + 13}`}
+        fill="none"
+        stroke="rgba(255,255,255,0.45)"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+      />
+      <path
+        d={`M ${cx - 18} ${cy + 7} Q ${cx - 7} ${cy + 16} ${cx + 4} ${cy + 20}`}
+        fill="none"
+        stroke="rgba(255,255,255,0.35)"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+
+      {/* Center of Earth Marker */}
+      <circle cx={cx} cy={cy} r="2.5" fill="#FFFFFF" />
+      <text
+        x={cx}
+        y={cy + 4}
+        textAnchor="middle"
+        fill="#FFFFFF"
+        fontSize="10"
+        fontWeight="800"
+        style={{ letterSpacing: '0.04em', textShadow: '0 1px 2px rgba(0,0,0,0.6)' }}
+      >
+        {bodyName}
+      </text>
+
+      {/* Radius Vector r1 line and label */}
+      <line x1={cx} y1={cy} x2={cx - r1} y2={cy} stroke="#6366F1" strokeWidth="1.3" strokeDasharray="3,2" />
+      <text x={cx - r1 / 2} y={cy - 6} textAnchor="middle" fill="#4338CA" fontSize="11" fontWeight="700">
+        {lblR1}
+      </text>
+
+      {/* Radius Vector r2 line and label */}
+      <line x1={cx} y1={cy} x2={cx} y2={cy - r2} stroke="#0284C7" strokeWidth="1.3" strokeDasharray="3,2" />
+      <text x={cx + 6} y={cy - r2 / 2 - 2} fill="#0369A1" fontSize="11" fontWeight="700">
+        {lblR2}
+      </text>
+
+      {/* Orbit 1 Satellite Icon & Label */}
+      <g>
+        <circle cx={s1x} cy={s1y} r="5" fill="#6366F1" stroke="#FFFFFF" strokeWidth="1.5" />
+        <line x1={s1x - 8} y1={s1y} x2={s1x + 8} y2={s1y} stroke="#6366F1" strokeWidth="2.5" strokeLinecap="round" />
+        <text x={s1x + 10} y={s1y - 6} fill="#4338CA" fontSize="11" fontWeight="700">
+          {lblS1}
+        </text>
+      </g>
+
+      {/* Orbit 2 Satellite Icon & Label */}
+      <g>
+        <circle cx={s2x} cy={s2y} r="5.5" fill="#0284C7" stroke="#FFFFFF" strokeWidth="1.5" />
+        <line x1={s2x - 9} y1={s2y} x2={s2x + 9} y2={s2y} stroke="#0284C7" strokeWidth="2.5" strokeLinecap="round" />
+        <text x={s2x - 12} y={s2y - 8} textAnchor="end" fill="#0369A1" fontSize="11" fontWeight="700">
+          {lblS2}
+        </text>
+      </g>
+
+      {/* Elliptical Transfer Trajectory (Hohmann Transfer Orbit connecting Orbit 1 to Orbit 2) */}
+      <path
+        d={`M ${cx + r1} ${cy} A ${(r1 + r2) / 2} ${(r1 + r2) / 2} 0 0 1 ${cx - r2} ${cy}`}
+        fill="none"
+        stroke="#803688"
+        strokeWidth="1.8"
+        strokeDasharray="4,3"
+        markerEnd="url(#transfer-arrowhead)"
+      />
+      <text x={cx} y={cy + (r1 + r2) / 2 + 14} textAnchor="middle" fill="#803688" fontSize="11" fontWeight="700">
+        Transfer Orbit (ΔE)
+      </text>
     </svg>
   );
 }

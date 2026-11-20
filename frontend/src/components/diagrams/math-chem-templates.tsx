@@ -1,6 +1,7 @@
 import React from 'react';
 import { Arr, clampNum, finiteNum, latexToPlain } from './helpers';
 import type { ArgandPlaneParams, CircleGeomParams, ConicSectionParams, CrystalStructParams, ElectrochemCellParams, MoDiagramParams, MolecGeometryParams, OrganicStructParams, TriangleParams } from './types';
+import { SatelliteOrbits } from './physics-templates';
 
 /* ── TEMPLATE 11: Triangle ───────────────────────────────────── */
 export function TriangleDiagram({ p }: { p: TriangleParams }) {
@@ -96,6 +97,59 @@ export function CircleGeom({ p }: { p: CircleGeomParams }) {
   const sub = (p.subtype ?? 'single').toLowerCase().replace(/[-\s]/g, '_');
   const VW = 380, VH = 240;
   const cx1 = +(p.cx ?? p.cx1 ?? 190), cy1 = +(p.cy ?? p.cy1 ?? 120), r1 = +(p.r ?? p.r1 ?? 80);
+
+  // If this circle represents planetary orbits, gravitation, or Earth satellites
+  if (
+    sub === 'satellite_orbits' ||
+    Boolean(lbl.body) ||
+    Boolean(lbl.center?.toLowerCase().includes('earth')) ||
+    Boolean(lbl.c1?.toLowerCase().includes('orbit')) ||
+    Boolean(lbl.c2?.toLowerCase().includes('orbit')) ||
+    Boolean(lbl.r1?.toLowerCase().includes('orbit'))
+  ) {
+    return (
+      <SatelliteOrbits
+        p={{
+          central_body: lbl.body ?? lbl.center ?? 'Earth',
+          r1: +(p.r1 ?? 65),
+          r2: +(p.r2 ?? 102),
+          labels: lbl,
+        }}
+      />
+    );
+  }
+
+  // Geometric concentric circles (sharing the same center)
+  if (sub === 'concentric' || Boolean(p.concentric) || (sub === 'two_circles' && p.cx2 !== undefined && p.cx2 === cx1 && p.cy2 === cy1)) {
+    const rSmall = Math.min(r1, +(p.r2 ?? 50));
+    const rLarge = Math.max(r1, +(p.r2 ?? 50));
+    const pad = rLarge * 0.22;
+    const mn = -rLarge - pad, mx = rLarge + pad;
+    const sc = Math.min(VW / (mx - mn), VH / (mx - mn));
+    const tx = (x: number) => VW / 2 + x * sc;
+    const ty = (y: number) => VH / 2 - y * sc;
+
+    return (
+      <svg viewBox={`0 0 ${VW} ${VH}`} style={{ width: '100%', height: 'auto', display: 'block' }}>
+        <circle cx={tx(0)} cy={ty(0)} r={rLarge * sc} fill="rgba(37,99,235,0.04)" stroke="#2563eb" strokeWidth="1.8" strokeDasharray="5,3" />
+        <circle cx={tx(0)} cy={ty(0)} r={rSmall * sc} fill="rgba(99,102,241,0.06)" stroke="#6366f1" strokeWidth="1.8" />
+        <circle cx={tx(0)} cy={ty(0)} r="3.5" fill="#1e293b" />
+        <text x={tx(0) + 8} y={ty(0) + 12} fill="#1e293b" fontSize="11" fontWeight="700">
+          {latexToPlain(lbl.center ?? 'O')}
+        </text>
+
+        <line x1={tx(0)} y1={ty(0)} x2={tx(rSmall)} y2={ty(0)} stroke="#6366f1" strokeWidth="1.2" strokeDasharray="3,2" />
+        <text x={tx(rSmall / 2)} y={ty(0) - 6} fill="#4f46e5" fontSize="11" fontWeight="600" textAnchor="middle">
+          {lbl.r1 ? latexToPlain(lbl.r1) : `r₁`}
+        </text>
+
+        <line x1={tx(0)} y1={ty(0)} x2={tx(0)} y2={ty(rLarge)} stroke="#2563eb" strokeWidth="1.2" strokeDasharray="3,2" />
+        <text x={tx(0) + 6} y={ty(rLarge / 2)} fill="#2563eb" fontSize="11" fontWeight="600">
+          {lbl.r2 ? latexToPlain(lbl.r2) : `r₂`}
+        </text>
+      </svg>
+    );
+  }
 
   if (sub === 'two_circles') {
     const cx2 = +(p.cx2 ?? cx1 + r1 + 50), cy2 = +(p.cy2 ?? cy1), r2 = +(p.r2 ?? 55);

@@ -440,7 +440,7 @@ export function QuestionCard({ question, questionNum, onSubmit, onNext, initialR
         <div className="qpaper-main">
           <div className="qpaper-main-scroll">
             <div className="qpaper-content">
-              {question.diagram && <DiagramRenderer descriptor={question.diagram} />}
+              {question.diagram && <DiagramRenderer descriptor={question.diagram} context={{ topic: question.topic, questionText: question.questionText }} />}
 
               <div className="qpaper-q">
                 <span className="qpaper-qnum">{questionNum}.</span>

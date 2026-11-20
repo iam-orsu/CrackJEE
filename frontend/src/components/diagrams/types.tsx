@@ -80,10 +80,21 @@ export interface TriangleParams {
   show_circumcircle?: boolean;
 }
 
+export interface SatelliteOrbitsParams {
+  central_body?: string;
+  r1?: number;
+  r2?: number;
+  h1?: number;
+  h2?: number;
+  show_transfer?: boolean;
+  labels?: Record<string, string>;
+}
+
 export interface CircleChord { x1?: number; y1?: number; x2?: number; y2?: number; label?: string; }
 export interface CirclePointSpec { x: number; y: number; label?: string; }
 export interface CircleGeomParams {
-  subtype?: 'single' | 'two_circles' | 'tangent_from_point';
+  subtype?: 'single' | 'two_circles' | 'tangent_from_point' | 'concentric' | 'satellite_orbits';
+  concentric?: boolean;
   cx?: number; cy?: number; r?: number;
   cx1?: number; cy1?: number; r1?: number;
   cx2?: number; cy2?: number; r2?: number;

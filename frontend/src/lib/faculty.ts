@@ -217,6 +217,7 @@ export async function facultyUpdateQuestion(
     correctAnswer?: string;
     explanation?: string;
     removeDiagram?: boolean;
+    diagram?: DiagramTemplate | null;
   },
 ) {
   return facultyFetch<{ paper: FacultyPaper }>(`/papers/${encodeURIComponent(paperId)}/questions/${number}`, {

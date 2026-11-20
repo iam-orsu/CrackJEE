@@ -1,6 +1,6 @@
 import type { Response, NextFunction } from 'express';
 import { z } from 'zod';
-import { facultyPaperService, type FacultyPaperService } from '../services/FacultyPaperService';
+import { facultyPaperService, type FacultyPaperService, type UpdateFacultyQuestionInput } from '../services/FacultyPaperService';
 import { FacultyBatchService } from '../services/FacultyBatchService';
 import { FacultyAssignmentService } from '../services/FacultyAssignmentService';
 import { FacultyPdfService } from '../services/FacultyPdfService';
@@ -62,17 +62,19 @@ const createPaperSchema = z.object({
 
 const updateQuestionSchema = z.object({
   questionText: z.string().min(1).max(4000).optional(),
-  options: z.array(z.string().min(1).max(1000)).length(4).optional(),
+  options: z.array(z.string().min(1).max(1000)).min(4).max(6).optional(),
   correctAnswer: z.string().min(1).max(1000).optional(),
   explanation: z.string().max(4000).optional(),
   removeDiagram: z.boolean().optional(),
+  diagram: z.any().nullable().optional(),
 }).refine(
   (v) =>
     v.questionText !== undefined ||
     v.options !== undefined ||
     v.correctAnswer !== undefined ||
     v.explanation !== undefined ||
-    v.removeDiagram !== undefined,
+    v.removeDiagram !== undefined ||
+    v.diagram !== undefined,
   { message: 'Provide at least one field to update' },
 );
 
@@ -328,7 +330,7 @@ export class FacultyController {
         req.faculty!.facultyId,
         String(req.params.id),
         questionNumber,
-        parsed.data,
+        parsed.data as UpdateFacultyQuestionInput,
       );
       res.json({ success: true, paper });
     } catch (err) {

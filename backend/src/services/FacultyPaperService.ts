@@ -41,6 +41,7 @@ export interface UpdateFacultyQuestionInput {
   correctAnswer?: string;
   explanation?: string;
   removeDiagram?: boolean;
+  diagram?: DiagramTemplate | null;
 }
 
 export interface AcceptDraftQuestionInput {
@@ -486,7 +487,7 @@ export class FacultyPaperService {
       options: current.questionType === 'integer' ? [] : nextOptions,
       correctAnswer: canonicalAnswer,
       explanation: nextExplanation,
-      diagram: patch.removeDiagram ? null : current.diagram,
+      diagram: patch.removeDiagram ? null : patch.diagram !== undefined ? patch.diagram : current.diagram,
       verified: true,
       editedByFaculty: true,
     };

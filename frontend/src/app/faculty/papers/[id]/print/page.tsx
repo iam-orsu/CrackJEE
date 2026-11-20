@@ -249,7 +249,7 @@ function FacultyPrintContent() {
 
                       {item.diagram && (
                         <div className="my-3 max-w-[440px]">
-                          <DiagramRenderer descriptor={item.diagram} />
+                          <DiagramRenderer descriptor={item.diagram} context={{ topic: item.topic, questionText: item.questionText }} />
                         </div>
                       )}
 
