@@ -538,7 +538,7 @@ export function TopicBreakdownConfig({
                               max={MAX_TOPIC_QUESTIONS}
                               value={topicTotal}
                               onChange={(e) => {
-                                const val = parseInt(e.target.value, 10);
+                                const val = e.target.value === '' ? 0 : parseInt(e.target.value, 10);
                                 if (!isNaN(val)) {
                                   setTopicTotalExact(key, val);
                                 }

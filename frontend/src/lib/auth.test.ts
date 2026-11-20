@@ -14,10 +14,14 @@ describe('session storage', () => {
     expect(everything).not.toMatch(/eyJ|token/i);
   });
 
-  it('is authenticated only while the expiry is in the future', () => {
+  it('is authenticated while within the 7-day refresh grace period, and logged out beyond it', () => {
     setSession(user as never, inHours(24));
     expect(isAuthenticated()).toBe(true);
+    // 1 hour past token expiry is still within 7-day refresh grace window
     setSession(user as never, inHours(-1));
+    expect(isAuthenticated()).toBe(true);
+    // 8 days past expiry is beyond the 7-day grace period
+    setSession(user as never, inHours(-192));
     expect(isAuthenticated()).toBe(false);
   });
 
@@ -51,8 +55,10 @@ describe('renewal', () => {
     expect(shouldRefresh()).toBe(false);
   });
 
-  it('does not renew a session that has already expired', () => {
+  it('renews a session within the 7-day grace period, but not after 7 days', () => {
     setSessionExpiry(inHours(-1));
+    expect(shouldRefresh()).toBe(true);
+    setSessionExpiry(inHours(-192));
     expect(shouldRefresh()).toBe(false);
   });
 });

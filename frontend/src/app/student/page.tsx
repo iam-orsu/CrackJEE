@@ -207,7 +207,7 @@ export default function StudentPortalPage() {
                         href={`/student/exam/${exam.id}`}
                         className={cx(BUTTON_PRIMARY, 'w-full', FOCUS_RING)}
                       >
-                        {exam.status === 'in_progress' ? 'Resume exam' : 'Start mock exam'}
+                        {exam.status === 'in_progress' ? 'Resume exam' : exam.paper.examType === 'Psychometric' ? 'Start assessment' : 'Start mock exam'}
                       </Link>
                     </article>
                   ))}
@@ -267,23 +267,38 @@ export default function StudentPortalPage() {
                         <h3 className="text-[16.5px] font-extrabold leading-snug text-[#003366]">{exam.title}</h3>
 
                         {exam.result && (
-                          <div className="mt-4 grid grid-cols-3 gap-2 rounded-[16px] border border-[#003366]/10 bg-ice px-3 py-3 text-center">
-                            <div>
-                              <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#5A6B8C]">Score</div>
-                              <div className={cx('mt-0.5 text-[17px] font-extrabold tabular-nums', exam.result.totalScore >= 0 ? 'text-[#003366]' : 'text-[#C8202F]')}>
-                                {exam.result.totalScore}
-                                <span className="text-[12px] font-semibold text-[#5A6B8C]"> / {exam.result.maxScore}</span>
+                          exam.paper.examType === 'Psychometric' ? (
+                            <div className="mt-4 grid grid-cols-2 gap-2 rounded-[16px] border border-[#803688]/15 bg-[#FBF5FC] px-3 py-3 text-center">
+                              <div>
+                                <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#803688]">Goal Alignment</div>
+                                <div className="mt-0.5 text-[17px] font-extrabold tabular-nums text-[#803688]">
+                                  {exam.result.totalScore}%
+                                </div>
+                              </div>
+                              <div>
+                                <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#803688]">Assessment Status</div>
+                                <div className="mt-0.5 text-[14px] font-extrabold text-[#003366]">Evaluated</div>
                               </div>
                             </div>
-                            <div>
-                              <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#5A6B8C]">Correct</div>
-                              <div className="mt-0.5 text-[17px] font-extrabold tabular-nums text-[#15803D]">+{exam.result.correctCount}</div>
+                          ) : (
+                            <div className="mt-4 grid grid-cols-3 gap-2 rounded-[16px] border border-[#003366]/10 bg-ice px-3 py-3 text-center">
+                              <div>
+                                <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#5A6B8C]">Score</div>
+                                <div className={cx('mt-0.5 text-[17px] font-extrabold tabular-nums', exam.result.totalScore >= 0 ? 'text-[#003366]' : 'text-[#C8202F]')}>
+                                  {exam.result.totalScore}
+                                  <span className="text-[12px] font-semibold text-[#5A6B8C]"> / {exam.result.maxScore}</span>
+                                </div>
+                              </div>
+                              <div>
+                                <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#5A6B8C]">Correct</div>
+                                <div className="mt-0.5 text-[17px] font-extrabold tabular-nums text-[#15803D]">+{exam.result.correctCount}</div>
+                              </div>
+                              <div>
+                                <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#5A6B8C]">Wrong</div>
+                                <div className="mt-0.5 text-[17px] font-extrabold tabular-nums text-[#C8202F]">-{exam.result.incorrectCount}</div>
+                              </div>
                             </div>
-                            <div>
-                              <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#5A6B8C]">Wrong</div>
-                              <div className="mt-0.5 text-[17px] font-extrabold tabular-nums text-[#C8202F]">-{exam.result.incorrectCount}</div>
-                            </div>
-                          </div>
+                          )
                         )}
                       </div>
 
@@ -291,7 +306,7 @@ export default function StudentPortalPage() {
                         href={`/student/result/${exam.id}`}
                         className={cx(BUTTON_SECONDARY, 'w-full', FOCUS_RING)}
                       >
-                        View scorecard and solutions
+                        {exam.paper.examType === 'Psychometric' ? 'View behavioral report & fit' : 'View scorecard and solutions'}
                       </Link>
                     </article>
                   ))}

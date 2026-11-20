@@ -36,6 +36,10 @@ export class FacultyAssignmentService {
       throw new AppError(404, 'Batch not found');
     }
 
+    if (input.startTime && input.endTime && new Date(input.startTime) >= new Date(input.endTime)) {
+      throw new AppError(400, 'End window must be after start window');
+    }
+
     return this.assignmentRepo.create({
       facultyId,
       paperId: input.paperId,

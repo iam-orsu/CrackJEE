@@ -32,6 +32,9 @@ describe('stripOptionPrefix', () => {
   it('removes the A) / B. prefixes from option text', () => {
     expect(stripOptionPrefix('A) $5$ m')).toBe('$5$ m');
     expect(stripOptionPrefix('c. 10')).toBe('10');
+    expect(stripOptionPrefix('E) Strongly Agree')).toBe('Strongly Agree');
+    expect(stripOptionPrefix('5) Strongly Agree')).toBe('Strongly Agree');
+    expect(stripOptionPrefix('(E) Passionate')).toBe('Passionate');
     expect(stripOptionPrefix('no prefix')).toBe('no prefix');
   });
 });

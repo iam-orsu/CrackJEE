@@ -1946,7 +1946,7 @@ Format output strictly as a JSON object:
         const chosen = input.answers[String(item.number)]?.trim() || 'Skipped';
         return `Q${item.number} [Domain: ${item.topic}]:
 Question: ${item.questionText.slice(0, 160)}
-Options: ${item.options.slice(0, 4).join(' | ')}
+Options: ${item.options.join(' | ')}
 Candidate Selected Choice: ${chosen}
 Behavioral Rubric: ${item.correctAnswer}`;
       })

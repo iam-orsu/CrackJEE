@@ -71,6 +71,10 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
   async function handleAssignSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!selectedPaperId || !selectedBatchId || !title.trim()) return;
+    if (startTime && endTime && new Date(startTime) >= new Date(endTime)) {
+      setError('End window must be after start window');
+      return;
+    }
     setAssignSubmitting(true);
     setError('');
     try {
@@ -130,6 +134,10 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
             if (batches.length === 0) {
               alert('Please create at least one batch first in Batches & Students.');
               return;
+            }
+            const defaultPaper = readyPapers.find((p) => p.id === selectedPaperId) || readyPapers[0];
+            if (defaultPaper && !title.trim()) {
+              setTitle(defaultPaper.title);
             }
             setAssignModalOpen(true);
           }}
@@ -258,7 +266,14 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
                 <select
                   className="h-[46px] w-full cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-3 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
                   value={selectedPaperId}
-                  onChange={(e) => setSelectedPaperId(e.target.value)}
+                  onChange={(e) => {
+                    const nextId = e.target.value;
+                    setSelectedPaperId(nextId);
+                    const matched = readyPapers.find((p) => p.id === nextId);
+                    if (matched && (!title.trim() || readyPapers.some((p) => p.title === title.trim()))) {
+                      setTitle(matched.title);
+                    }
+                  }}
                   required
                 >
                   {readyPapers.map((p) => (

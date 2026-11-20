@@ -8,7 +8,7 @@ import { formatPaperCode } from './FacultyPaperService';
 
 export type PdfMode = 'questions' | 'solutions' | 'key';
 
-const LETTERS = ['A', 'B', 'C', 'D'];
+const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
 function escapeHtml(s: string): string {
   if (!s) return '';
@@ -21,7 +21,10 @@ function escapeHtml(s: string): string {
 }
 
 function stripOptionPrefix(opt: string): string {
-  return opt.replace(/^[A-Da-d][.)]\s*/, '').replace(/^\([A-Da-d]\)\s*/, '');
+  return opt
+    .replace(/^(?:[A-Fa-f]|[1-9])[.)]\s*/, '')
+    .replace(/^\((?:[A-Fa-f]|[1-9])\)\s*/, '')
+    .trim();
 }
 
 function isCorrectOption(answer: string, letter: string): boolean {
@@ -228,7 +231,7 @@ export class FacultyPdfService {
               optionsHtml = `
                 <div class="options-grid">
                   ${options.map((opt, idx) => {
-                    const letter = LETTERS[idx] || String(idx + 1);
+                    const letter = LETTERS[idx] || String.fromCharCode(65 + idx);
                     const isCorrect = mode === 'solutions' && !isPsychometric && isCorrectOption(item.correctAnswer, letter);
                     const textHtml = formatLatexToHtml(stripOptionPrefix(opt));
                     return `

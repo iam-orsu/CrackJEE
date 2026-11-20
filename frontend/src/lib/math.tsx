@@ -503,5 +503,8 @@ export function MathText({
 }
 
 export function stripOptionPrefix(opt: string): string {
-  return opt.replace(/^[A-Da-d][).]\s*/, '').trim();
+  return opt
+    .replace(/^(?:[A-Fa-f]|[1-9])[.)]\s*/, '')
+    .replace(/^\((?:[A-Fa-f]|[1-9])\)\s*/, '')
+    .trim();
 }
