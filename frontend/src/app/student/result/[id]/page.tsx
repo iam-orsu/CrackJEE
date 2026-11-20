@@ -335,6 +335,63 @@ export default function StudentExamResultPage() {
           <div className="mx-auto flex w-full max-w-[1160px] flex-col gap-6">
 
             {/* Hero Card: Psychometric Goal Alignment */}
+            {releaseMode === 'responses_only' ? (
+              <section className="dz-rise relative overflow-hidden rounded-[36px] border border-[#803688]/20 bg-white p-6 text-[#003366] sm:p-8 xl:p-10 shadow-[0_12px_32px_rgba(128,54,136,.06)]">
+                <div className="relative flex flex-col gap-6">
+                  <div className="flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="rounded-full bg-[#803688]/15 px-3 py-1 text-[11.5px] font-extrabold text-[#803688]">
+                          Psychometric &amp; Behavioral Assessment
+                        </span>
+                        <span className="text-[12px] font-semibold text-[#5A6B8C]">
+                          · {assignment.batchName}
+                        </span>
+                      </div>
+                      <h1 className={`${HEAD} mt-2 text-[clamp(24px,2.8vw,36px)] font-extrabold leading-tight tracking-[-0.02em] text-[#003366]`}>
+                        {assignment.title}
+                      </h1>
+                      <p className="mt-1.5 text-[13px] text-[#5A6B8C]">
+                        {assignment.facultyName}
+                        {submitted && ` · Evaluated on ${submitted}`}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      <a href="#review" className={btn}>Review Responses</a>
+                      <Link href="/student" className={SECONDARY_BTN}>Back to dashboard</Link>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-3 max-sm:grid-cols-1">
+                    <div className="rounded-2xl border border-[#003366]/10 bg-[rgba(238,242,255,.72)] px-4 py-3.5 backdrop-blur">
+                      <p className="text-[12px] font-semibold text-[#7A87A0]">Questions Answered</p>
+                      <p className={`${HEAD} mt-1 text-[26px] font-extrabold text-[#003366] tabular-nums`}>
+                        {attemptedCount} <span className="text-[14px] font-normal text-[#5A6B8C]">/ {totalQuestions}</span>
+                      </p>
+                      <p className="mt-1 text-[11.5px] text-[#5A6B8C]">
+                        {scorecard.unattemptedCount} skipped · 100% trait-based
+                      </p>
+                    </div>
+
+                    <div className="rounded-2xl border border-[#003366]/10 bg-[rgba(238,242,255,.72)] px-4 py-3.5 backdrop-blur">
+                      <p className="text-[12px] font-semibold text-[#7A87A0]">Completion Time</p>
+                      <p className={`${HEAD} mt-1 text-[26px] font-extrabold text-[#003366] tabular-nums`}>
+                        {formatTime(scorecard.timeTakenSeconds)}
+                      </p>
+                      <p className="mt-1 text-[11.5px] text-[#5A6B8C]">Recorded completion time</p>
+                    </div>
+
+                    <div className="rounded-2xl border border-[#803688]/20 bg-[#FDF8FF] px-4 py-3.5 backdrop-blur">
+                      <p className="text-[12px] font-semibold text-[#803688]">AI Evaluation &amp; Fit</p>
+                      <p className={`${HEAD} mt-1 text-[18px] font-extrabold text-[#803688]`}>Locked by faculty</p>
+                      <p className="mt-1 text-[12px] text-[#5A6B8C]">Releases when faculty unlocks</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            ) : (
+              <>
             <section className="dz-rise relative overflow-hidden rounded-[36px] border border-[#803688]/20 bg-white p-6 text-[#003366] sm:p-8 xl:p-10 shadow-[0_12px_32px_rgba(128,54,136,.06)]">
               <div aria-hidden className="pointer-events-none absolute inset-0">
                 <svg viewBox="0 0 900 700" preserveAspectRatio="xMaxYMax slice" className="absolute bottom-[-10%] right-0 h-[76%] w-[min(66%,700px)]">
@@ -578,6 +635,8 @@ export default function StudentExamResultPage() {
                 </div>
               </section>
             )}
+              </>
+            )}
 
             {/* Candidate Response Review (No right/wrong answers) */}
             <section id="review" className="scroll-mt-24">
@@ -591,7 +650,7 @@ export default function StudentExamResultPage() {
                   </p>
                 </div>
 
-                {assignment.showSolutions && solutions && solutions.length > 0 && (
+                {solutions && solutions.length > 0 && (
                   <div role="tablist" className="flex max-w-full gap-1 overflow-x-auto rounded-full border border-[#003366]/10 bg-white/85 p-1 backdrop-blur-xl">
                     {[
                       { value: 'all', label: 'All Questions', count: totalQuestions },
@@ -616,19 +675,7 @@ export default function StudentExamResultPage() {
                 )}
               </div>
 
-              {!assignment.showSolutions ? (
-                <div className={`${glass} p-8 text-center sm:p-10`}>
-                  <div className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-2xl bg-[#FDF8FF] text-[#803688]">
-                    <KeyRoundIcon className="h-6 w-6 text-[#803688]" />
-                  </div>
-                  <h3 className={`${HEAD} text-[19px] font-extrabold text-[#803688]`}>
-                    Question responses hidden by your faculty
-                  </h3>
-                  <p className="mx-auto mt-2 max-w-[48ch] text-[13.5px] leading-relaxed text-[#5A6B8C]">
-                    Your faculty has configured this assessment to keep the question breakdown hidden until results are fully released.
-                  </p>
-                </div>
-              ) : filteredPsySolutions.length === 0 ? (
+              {filteredPsySolutions.length === 0 ? (
                 <div className={`${glass} p-7 sm:p-9`}>
                   <Empty>No questions under this filter.</Empty>
                 </div>
