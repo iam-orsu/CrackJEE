@@ -323,8 +323,8 @@ describe('Faculty Exam Assignment & Student Delivery Integrity', () => {
     assert.ok(report.solutions);
     assert.equal(report.solutions.length, 2);
     // Solutions are included with explanations when showSolutions is true
-    assert.equal(report.solutions[0].correctAnswer, 'B');
-    assert.ok(report.solutions[0].explanation.includes('Using v = u + at'));
+    assert.equal(report.solutions![0]!.correctAnswer, 'B');
+    assert.ok(report.solutions![0]!.explanation?.includes('Using v = u + at'));
   });
 
   test('enforces server-side time limit on saving answers', async () => {
@@ -394,7 +394,13 @@ describe('Faculty Exam Assignment & Student Delivery Integrity', () => {
     const examService = new FacultyStudentExamService({} as any, mockAssignmentRepo, mockExamRepo);
     const report = await examService.getExamResult('assign-1', 'stu-3');
 
-    assert.equal(report.solutions, null, 'Solutions array must be null when showSolutions is false');
+    assert.ok(Array.isArray(report.solutions), 'Solutions array must be returned for response review');
+    const firstSol = (report.solutions as any[])[0];
+    assert.equal(firstSol.studentAnswer, 'B');
+    assert.equal(firstSol.correctAnswer, null, 'correctAnswer must be null when showSolutions is false');
+    assert.equal(firstSol.explanation, null, 'explanation must be null when showSolutions is false');
+    assert.equal(firstSol.isCorrect, null, 'isCorrect must be null when showSolutions is false');
+    assert.equal(firstSol.score, null, 'score must be null when showSolutions is false');
     const breakdown = report.scorecard.resultBreakdown as any;
     assert.ok(breakdown?.itemResults['1']);
     assert.equal(breakdown.itemResults['1'].submitted, 'B');

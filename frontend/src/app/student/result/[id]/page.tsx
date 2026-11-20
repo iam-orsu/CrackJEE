@@ -175,17 +175,30 @@ export default function StudentExamResultPage() {
 
   const filterCounts = {
     all: solutions?.length ?? 0,
-    correct: scorecard.correctCount,
-    incorrect: scorecard.incorrectCount,
+    correct: assignment.showSolutions ? scorecard.correctCount : totalAttempted,
+    incorrect: assignment.showSolutions ? scorecard.incorrectCount : 0,
     skipped: scorecard.unattemptedCount,
   };
 
   const totalQuestions = Math.max(1, scorecard.correctCount + scorecard.incorrectCount + scorecard.unattemptedCount);
   const pctOf = (n: number) => Math.round((n / totalQuestions) * 100);
 
+  const currentFilterTabs = assignment.showSolutions
+    ? FILTER_TABS
+    : ([
+        { value: 'all', label: 'All Questions' },
+        { value: 'correct', label: 'Attempted' },
+        { value: 'skipped', label: 'Skipped' },
+      ] as const);
+
   const filteredSolutions = (solutions || []).filter((q) => {
-    if (filterType === 'correct') return q.isCorrect;
-    if (filterType === 'incorrect') return !q.isCorrect && q.studentAnswer;
+    if (assignment.showSolutions) {
+      if (filterType === 'correct') return q.isCorrect;
+      if (filterType === 'incorrect') return !q.isCorrect && q.studentAnswer;
+      if (filterType === 'skipped') return !q.studentAnswer;
+      return true;
+    }
+    if (filterType === 'correct') return Boolean(q.studentAnswer);
     if (filterType === 'skipped') return !q.studentAnswer;
     return true;
   });
@@ -688,14 +701,9 @@ export default function StudentExamResultPage() {
               </div>
 
               <div className="flex flex-col gap-2.5">
-                {assignment.showSolutions ? (
-                  <a href="#solutions" className={btn}>Step-by-step solutions</a>
-                ) : (
-                  <a href="#solutions" className="inline-flex items-center justify-center gap-1.5 rounded-full border border-[#003366]/20 bg-[#EEF2FF] px-5 py-2.5 text-[13px] font-extrabold text-[#5A6B8C] no-underline">
-                    <KeyRoundIcon className="h-4 w-4" />
-                    Answer key hidden
-                  </a>
-                )}
+                <a href="#solutions" className={btn}>
+                  {assignment.showSolutions ? 'Step-by-step solutions' : 'Review your responses'}
+                </a>
                 <Link href="/student" className={SECONDARY_BTN}>Back to dashboard</Link>
               </div>
             </div>
@@ -771,54 +779,56 @@ export default function StudentExamResultPage() {
             </section>
           </div>
 
-          {/* Solutions */}
+          {/* Solutions / Candidate Responses */}
           <section id="solutions" className="scroll-mt-24">
             <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
               <div>
                 <h2 className={`${HEAD} text-[24px] font-extrabold tracking-[-0.02em] text-[#003366]`}>
-                  {assignment.showSolutions ? 'Step-by-step solutions' : 'Answer Key Status'}
+                  {assignment.showSolutions ? 'Step-by-step solutions' : 'Candidate Response Review'}
                 </h2>
                 <p className="mt-1 text-[13px] text-[#5A6B8C]">
                   {assignment.showSolutions
                     ? 'Answer key with the reasoning behind every option.'
-                    : 'Solutions and answer key are currently restricted by faculty.'}
+                    : 'Review the questions and your marked choices. Correct answer key is locked by faculty.'}
                 </p>
               </div>
 
-              {assignment.showSolutions && solutions && solutions.length > 0 && (
+              {solutions && solutions.length > 0 && (
                 <div role="tablist" className="flex max-w-full gap-1 overflow-x-auto rounded-full border border-[#003366]/10 bg-white/85 p-1 backdrop-blur-xl">
-                  {FILTER_TABS.map((tab) => (
+                  {currentFilterTabs.map((tab) => (
                     <button
                       key={tab.value}
                       type="button"
                       role="tab"
                       aria-selected={filterType === tab.value}
-                      onClick={() => setFilterType(tab.value)}
+                      onClick={() => setFilterType(tab.value as typeof filterType)}
                       className={`shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-[13px] font-bold transition-all duration-200 ${
                         filterType === tab.value ? 'bg-[#003366] text-white shadow-md' : 'text-[#5A6B8C] hover:bg-[#EEF2FF]'
                       }`}
                     >
                       {tab.label}
-                      <span className={`ml-1.5 tabular-nums ${filterType === tab.value ? 'opacity-70' : 'opacity-60'}`}>{filterCounts[tab.value]}</span>
+                      <span className={`ml-1.5 tabular-nums ${filterType === tab.value ? 'opacity-70' : 'opacity-60'}`}>
+                        {filterCounts[tab.value as keyof typeof filterCounts] ?? 0}
+                      </span>
                     </button>
                   ))}
                 </div>
               )}
             </div>
 
-            {!assignment.showSolutions ? (
-              <div className={`${glass} p-8 text-center sm:p-10`}>
-                <div className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-2xl bg-[#EEF2FF] text-[#003366]">
-                  <KeyRoundIcon className="h-6 w-6 text-[#003366]" />
+            {!assignment.showSolutions && (
+              <div className="mb-5 flex items-center gap-3.5 rounded-2xl border-[1.5px] border-[#003366]/15 bg-[#EEF2FF] p-4 text-[#003366]">
+                <KeyRoundIcon className="h-5 w-5 shrink-0 text-[#003366]" />
+                <div className="flex-1 text-[13px] leading-relaxed">
+                  <strong className="text-[#003366]">Answer key and step-by-step solutions are hidden by your faculty.</strong>
+                  <span className="ml-1 text-[#5A6B8C]">
+                    Your marked responses are displayed below for your review. Correct answers, question scores, and solutions will become viewable once released by your faculty.
+                  </span>
                 </div>
-                <h3 className={`${HEAD} text-[19px] font-extrabold text-[#003366]`}>
-                  Answer key &amp; solutions are hidden by your faculty
-                </h3>
-                <p className="mx-auto mt-2 max-w-[48ch] text-[13.5px] leading-relaxed text-[#5A6B8C]">
-                  Your faculty has configured this exam to keep the answer key and explanations hidden. They will become accessible once your faculty releases them.
-                </p>
               </div>
-            ) : filteredSolutions.length === 0 ? (
+            )}
+
+            {filteredSolutions.length === 0 ? (
               <div className={`${glass} p-7 sm:p-9`}>
                 <Empty>No questions under this filter.</Empty>
               </div>
@@ -841,9 +851,15 @@ export default function StudentExamResultPage() {
                           </span>
                         </div>
 
-                        <span className={isCorrect ? CHIP_CORRECT : isSkipped ? CHIP_SKIPPED : CHIP_WRONG}>
-                          {isCorrect ? 'Correct' : isSkipped ? 'Unattempted' : `Incorrect (${q.score})`}
-                        </span>
+                        {assignment.showSolutions ? (
+                          <span className={isCorrect ? CHIP_CORRECT : isSkipped ? CHIP_SKIPPED : CHIP_WRONG}>
+                            {isCorrect ? 'Correct' : isSkipped ? 'Unattempted' : `Incorrect (${q.score})`}
+                          </span>
+                        ) : (
+                          <span className={isSkipped ? CHIP_SKIPPED : 'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-bold tracking-[0.03em] bg-[#EEF2FF] text-[#003366]'}>
+                            {isSkipped ? 'Unattempted' : 'Response Recorded'}
+                          </span>
+                        )}
                       </div>
 
                       {q.diagram && (
@@ -862,27 +878,38 @@ export default function StudentExamResultPage() {
                           {q.options.map((opt, idx) => {
                             const letter = String.fromCharCode(65 + idx);
                             const isStudentSelected = (q.studentAnswer || '').split(',').includes(letter);
-                            const isCorrectOption = (q.correctAnswer || '').split(',').includes(letter);
+                            const isCorrectOption = assignment.showSolutions && (q.correctAnswer || '').split(',').includes(letter);
 
                             return (
                               <div
                                 key={letter}
                                 className={`flex items-center gap-3 rounded-[14px] border-[1.5px] px-3.5 py-2.5 text-[14px] ${
-                                  isCorrectOption
-                                    ? 'border-[#15803D] bg-[#EAF7EF]'
+                                  assignment.showSolutions
+                                    ? isCorrectOption
+                                      ? 'border-[#15803D] bg-[#EAF7EF]'
+                                      : isStudentSelected
+                                        ? 'border-[#C8202F] bg-[#FDE6E8]'
+                                        : 'border-[#CBD5F3] bg-white'
                                     : isStudentSelected
-                                      ? 'border-[#C8202F] bg-[#FDE6E8]'
-                                      : 'border-[#CBD5F3] bg-white'
+                                      ? 'border-[#003366] bg-[#EEF2FF] font-semibold text-[#003366] shadow-sm'
+                                      : 'border-[#CBD5F3] bg-white text-[#5A6B8C]'
                                 }`}
                               >
-                                <span className="min-w-[20px] font-extrabold text-[#003366]">{letter}.</span>
+                                <span className={`min-w-[20px] font-extrabold ${isStudentSelected ? 'text-[#003366]' : 'text-[#5A6B8C]'}`}>{letter}.</span>
                                 <span
                                   className="flex-1"
                                   dangerouslySetInnerHTML={{ __html: renderMathHtml(stripOptionPrefix(opt)) }}
                                 />
-                                {isCorrectOption && <span className="text-[11px] font-extrabold text-[#146C33]">Correct</span>}
-                                {isStudentSelected && !isCorrectOption && (
+                                {assignment.showSolutions && isCorrectOption && (
+                                  <span className="text-[11px] font-extrabold text-[#146C33]">Correct</span>
+                                )}
+                                {assignment.showSolutions && isStudentSelected && !isCorrectOption && (
                                   <span className="text-[11px] font-extrabold text-[#C8202F]">Your choice</span>
+                                )}
+                                {!assignment.showSolutions && isStudentSelected && (
+                                  <span className="rounded-full bg-[#003366] px-2.5 py-0.5 text-[11px] font-extrabold text-white">
+                                    Your Response
+                                  </span>
                                 )}
                               </div>
                             );
@@ -892,18 +919,25 @@ export default function StudentExamResultPage() {
                         <div className="flex flex-wrap gap-x-6 gap-y-2 rounded-[14px] border border-[#003366]/10 bg-[#EEF2FF] px-4 py-3 text-[13px]">
                           <div>
                             <span className="font-medium text-[#5A6B8C]">Your answer: </span>
-                            <strong className={isCorrect ? 'text-[#146C33]' : 'text-[#C8202F]'}>
+                            <strong className={assignment.showSolutions ? (isCorrect ? 'text-[#146C33]' : 'text-[#C8202F]') : 'text-[#003366]'}>
                               {q.studentAnswer || 'Unattempted'}
                             </strong>
                           </div>
-                          <div>
-                            <span className="font-medium text-[#5A6B8C]">Correct answer: </span>
-                            <strong className="text-[#146C33]">{q.correctAnswer}</strong>
-                          </div>
+                          {assignment.showSolutions ? (
+                            <div>
+                              <span className="font-medium text-[#5A6B8C]">Correct answer: </span>
+                              <strong className="text-[#146C33]">{q.correctAnswer}</strong>
+                            </div>
+                          ) : (
+                            <div>
+                              <span className="font-medium text-[#5A6B8C]">Answer key: </span>
+                              <span className="text-[12px] font-bold text-[#7A87A0]">Hidden by faculty</span>
+                            </div>
+                          )}
                         </div>
                       )}
 
-                      {q.explanation && (
+                      {assignment.showSolutions && q.explanation && (
                         <div className="rounded-[16px] border-l-[5px] border-[#803688] bg-[#FBF5FC] px-4 py-3.5">
                           <p className="mb-2 text-[11px] font-extrabold uppercase tracking-[0.06em] text-[#803688]">
                             Explanation

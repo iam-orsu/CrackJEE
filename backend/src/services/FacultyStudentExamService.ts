@@ -548,28 +548,25 @@ export class FacultyStudentExamService {
       const attemptedCount = items.filter((q) => Boolean(submittedAnswers[String(q.number)]?.trim())).length;
       const unattemptedCount = items.length - attemptedCount;
 
-      let solutions = null;
-      if (assignment.showSolutions) {
-        solutions = items.map((q) => {
-          const studentAns = submittedAnswers[String(q.number)] || null;
-          return {
-            number: q.number,
-            subject: q.subject,
-            topic: q.topic,
-            difficulty: q.difficulty,
-            questionType: q.questionType,
-            questionText: q.questionText,
-            options: q.options,
-            diagram: q.diagram,
-            studentAnswer: studentAns,
-            correctAnswer: q.correctAnswer,
-            explanation: q.explanation,
-            isCorrect: null,
-            score: null,
-            maxScore: null,
-          };
-        });
-      }
+      const solutions = items.map((q) => {
+        const studentAns = submittedAnswers[String(q.number)] || null;
+        return {
+          number: q.number,
+          subject: q.subject,
+          topic: q.topic,
+          difficulty: q.difficulty,
+          questionType: q.questionType,
+          questionText: q.questionText,
+          options: q.options,
+          diagram: q.diagram,
+          studentAnswer: studentAns,
+          correctAnswer: assignment.showSolutions ? q.correctAnswer : null,
+          explanation: assignment.showSolutions ? q.explanation : null,
+          isCorrect: null,
+          score: null,
+          maxScore: null,
+        };
+      });
 
       const showGoal = Boolean(assignment.instructions?.includes('<!--showGoal:true-->'));
 
@@ -604,12 +601,9 @@ export class FacultyStudentExamService {
       };
     }
 
-    let solutions = null;
-    let sanitizedBreakdown = session.resultBreakdown as Record<string, unknown> | null;
-
-    if (assignment.showSolutions) {
-      solutions = items.map((q) => {
-        const studentAns = submittedAnswers[String(q.number)] || null;
+    const solutions = items.map((q) => {
+      const studentAns = submittedAnswers[String(q.number)] || null;
+      if (assignment.showSolutions) {
         const isCorrect = studentAns ? gradingService.checkAnswer(q.questionType, studentAns, q.correctAnswer) : false;
         const score = scoringService.scoreQuestion(
           assignment.paper.examType,
@@ -634,8 +628,31 @@ export class FacultyStudentExamService {
           score,
           maxScore: scoringService.getMaxMarkPerQuestion(assignment.paper.examType, q.questionType),
         };
-      });
-    } else if (sanitizedBreakdown && typeof sanitizedBreakdown === 'object') {
+      }
+
+      // When answer key is hidden by faculty:
+      // Return question text, options, diagram, and student's submitted answer ONLY.
+      // correctAnswer, explanation, isCorrect, and score details are completely stripped.
+      return {
+        number: q.number,
+        subject: q.subject,
+        topic: q.topic,
+        difficulty: q.difficulty,
+        questionType: q.questionType,
+        questionText: q.questionText,
+        options: q.options,
+        diagram: q.diagram,
+        studentAnswer: studentAns,
+        correctAnswer: null,
+        explanation: null,
+        isCorrect: null,
+        score: null,
+        maxScore: null,
+      };
+    });
+
+    let sanitizedBreakdown = session.resultBreakdown as Record<string, unknown> | null;
+    if (!assignment.showSolutions && sanitizedBreakdown && typeof sanitizedBreakdown === 'object') {
       // Strip isCorrect and score details so answers are not leaked before faculty permits
       const rawItems = (sanitizedBreakdown as Record<string, unknown>).itemResults;
       if (rawItems && typeof rawItems === 'object') {
