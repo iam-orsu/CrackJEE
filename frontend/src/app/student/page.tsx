@@ -306,7 +306,11 @@ export default function StudentPortalPage() {
                         href={`/student/result/${exam.id}`}
                         className={cx(BUTTON_SECONDARY, 'w-full', FOCUS_RING)}
                       >
-                        {exam.paper.examType === 'Psychometric' ? 'View behavioral report & fit' : 'View scorecard and solutions'}
+                        {exam.paper.examType === 'Psychometric'
+                          ? 'View behavioral report & fit'
+                          : exam.showSolutions
+                            ? 'View scorecard and solutions'
+                            : 'View scorecard (Key hidden by faculty)'}
                       </Link>
                     </article>
                   ))}

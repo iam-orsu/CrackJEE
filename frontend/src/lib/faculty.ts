@@ -639,6 +639,13 @@ export async function facultyDeleteAssignment(id: string) {
   return facultyFetch<Record<string, never>>(`/assignments/${encodeURIComponent(id)}`, { method: 'DELETE' });
 }
 
+export async function facultyToggleAssignmentSolutions(id: string, showSolutions?: boolean) {
+  return facultyFetch<{ id: string; showSolutions: boolean }>(`/assignments/${encodeURIComponent(id)}/solutions`, {
+    method: 'PATCH',
+    body: JSON.stringify({ showSolutions }),
+  });
+}
+
 export async function facultyGetAssignmentReport(id: string) {
   return facultyFetch<{ report: FacultyAssignmentReport }>(`/assignments/${encodeURIComponent(id)}/report`);
 }

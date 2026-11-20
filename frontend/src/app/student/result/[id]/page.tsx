@@ -47,6 +47,13 @@ const CompassIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const KeyRoundIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden className={className ?? 'h-4 w-4'}>
+    <path d="M2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2l1.4-1.4a6.5 6.5 0 1 0-4-4Z" />
+    <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" />
+  </svg>
+);
+
 const FILTER_TABS = [
   { value: 'all', label: 'All' },
   { value: 'correct', label: 'Correct' },
@@ -486,30 +493,44 @@ export default function StudentExamResultPage() {
                   </p>
                 </div>
 
-                <div role="tablist" className="flex max-w-full gap-1 overflow-x-auto rounded-full border border-[#003366]/10 bg-white/85 p-1 backdrop-blur-xl">
-                  {[
-                    { value: 'all', label: 'All Questions', count: totalQuestions },
-                    { value: 'answered', label: 'Answered', count: attemptedCount },
-                    { value: 'skipped', label: 'Skipped', count: scorecard.unattemptedCount },
-                  ].map((tab) => (
-                    <button
-                      key={tab.value}
-                      type="button"
-                      role="tab"
-                      aria-selected={psyFilter === tab.value}
-                      onClick={() => setPsyFilter(tab.value as typeof psyFilter)}
-                      className={`shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-[13px] font-bold transition-all duration-200 ${
-                        psyFilter === tab.value ? 'bg-[#803688] text-white shadow-md' : 'text-[#5A6B8C] hover:bg-[#EEF2FF]'
-                      }`}
-                    >
-                      {tab.label}
-                      <span className={`ml-1.5 tabular-nums ${psyFilter === tab.value ? 'opacity-70' : 'opacity-60'}`}>{tab.count}</span>
-                    </button>
-                  ))}
-                </div>
+                {assignment.showSolutions && solutions && solutions.length > 0 && (
+                  <div role="tablist" className="flex max-w-full gap-1 overflow-x-auto rounded-full border border-[#003366]/10 bg-white/85 p-1 backdrop-blur-xl">
+                    {[
+                      { value: 'all', label: 'All Questions', count: totalQuestions },
+                      { value: 'answered', label: 'Answered', count: attemptedCount },
+                      { value: 'skipped', label: 'Skipped', count: scorecard.unattemptedCount },
+                    ].map((tab) => (
+                      <button
+                        key={tab.value}
+                        type="button"
+                        role="tab"
+                        aria-selected={psyFilter === tab.value}
+                        onClick={() => setPsyFilter(tab.value as typeof psyFilter)}
+                        className={`shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-[13px] font-bold transition-all duration-200 ${
+                          psyFilter === tab.value ? 'bg-[#803688] text-white shadow-md' : 'text-[#5A6B8C] hover:bg-[#EEF2FF]'
+                        }`}
+                      >
+                        {tab.label}
+                        <span className={`ml-1.5 tabular-nums ${psyFilter === tab.value ? 'opacity-70' : 'opacity-60'}`}>{tab.count}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
 
-              {filteredPsySolutions.length === 0 ? (
+              {!assignment.showSolutions ? (
+                <div className={`${glass} p-8 text-center sm:p-10`}>
+                  <div className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-2xl bg-[#FDF8FF] text-[#803688]">
+                    <KeyRoundIcon className="h-6 w-6 text-[#803688]" />
+                  </div>
+                  <h3 className={`${HEAD} text-[19px] font-extrabold text-[#803688]`}>
+                    Question responses hidden by your faculty
+                  </h3>
+                  <p className="mx-auto mt-2 max-w-[48ch] text-[13.5px] leading-relaxed text-[#5A6B8C]">
+                    Your faculty has configured this assessment to keep the question breakdown hidden until results are fully released.
+                  </p>
+                </div>
+              ) : filteredPsySolutions.length === 0 ? (
                 <div className={`${glass} p-7 sm:p-9`}>
                   <Empty>No questions under this filter.</Empty>
                 </div>
@@ -667,7 +688,14 @@ export default function StudentExamResultPage() {
               </div>
 
               <div className="flex flex-col gap-2.5">
-                <a href="#solutions" className={btn}>Step-by-step solutions</a>
+                {assignment.showSolutions ? (
+                  <a href="#solutions" className={btn}>Step-by-step solutions</a>
+                ) : (
+                  <a href="#solutions" className="inline-flex items-center justify-center gap-1.5 rounded-full border border-[#003366]/20 bg-[#EEF2FF] px-5 py-2.5 text-[13px] font-extrabold text-[#5A6B8C] no-underline">
+                    <KeyRoundIcon className="h-4 w-4" />
+                    Answer key hidden
+                  </a>
+                )}
                 <Link href="/student" className={SECONDARY_BTN}>Back to dashboard</Link>
               </div>
             </div>
@@ -747,8 +775,14 @@ export default function StudentExamResultPage() {
           <section id="solutions" className="scroll-mt-24">
             <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
               <div>
-                <h2 className={`${HEAD} text-[24px] font-extrabold tracking-[-0.02em] text-[#003366]`}>Step-by-step solutions</h2>
-                <p className="mt-1 text-[13px] text-[#5A6B8C]">Answer key with the reasoning behind every option.</p>
+                <h2 className={`${HEAD} text-[24px] font-extrabold tracking-[-0.02em] text-[#003366]`}>
+                  {assignment.showSolutions ? 'Step-by-step solutions' : 'Answer Key Status'}
+                </h2>
+                <p className="mt-1 text-[13px] text-[#5A6B8C]">
+                  {assignment.showSolutions
+                    ? 'Answer key with the reasoning behind every option.'
+                    : 'Solutions and answer key are currently restricted by faculty.'}
+                </p>
               </div>
 
               {assignment.showSolutions && solutions && solutions.length > 0 && (
@@ -773,10 +807,15 @@ export default function StudentExamResultPage() {
             </div>
 
             {!assignment.showSolutions ? (
-              <div className={`${glass} p-7 text-center sm:p-9`}>
-                <p className={`${HEAD} text-[17px] font-extrabold text-[#003366]`}>Solutions are hidden by your faculty</p>
-                <p className="mx-auto mt-2 max-w-[46ch] text-[13px] leading-relaxed text-[#5A6B8C]">
-                  The answer key opens once every student in the batch has submitted this exam.
+              <div className={`${glass} p-8 text-center sm:p-10`}>
+                <div className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-2xl bg-[#EEF2FF] text-[#003366]">
+                  <KeyRoundIcon className="h-6 w-6 text-[#003366]" />
+                </div>
+                <h3 className={`${HEAD} text-[19px] font-extrabold text-[#003366]`}>
+                  Answer key &amp; solutions are hidden by your faculty
+                </h3>
+                <p className="mx-auto mt-2 max-w-[48ch] text-[13.5px] leading-relaxed text-[#5A6B8C]">
+                  Your faculty has configured this exam to keep the answer key and explanations hidden. They will become accessible once your faculty releases them.
                 </p>
               </div>
             ) : filteredSolutions.length === 0 ? (

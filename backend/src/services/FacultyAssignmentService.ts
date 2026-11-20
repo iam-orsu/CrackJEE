@@ -756,4 +756,20 @@ export class FacultyAssignmentService {
       filename: `${safeTitle}-${examType}-Results.csv`,
     };
   }
+
+  public async updateSolutionsVisibility(assignmentId: string, facultyId: string, showSolutions?: boolean) {
+    const assignment = await this.assignmentRepo.findById(assignmentId, facultyId);
+    if (!assignment) {
+      throw new AppError(404, 'Assignment not found');
+    }
+    const nextState = typeof showSolutions === 'boolean' ? showSolutions : !assignment.showSolutions;
+    const updated = await this.assignmentRepo.updateShowSolutions(assignmentId, facultyId, nextState);
+    if (!updated) {
+      throw new AppError(404, 'Failed to update assignment settings');
+    }
+    return {
+      id: updated.id,
+      showSolutions: updated.showSolutions,
+    };
+  }
 }

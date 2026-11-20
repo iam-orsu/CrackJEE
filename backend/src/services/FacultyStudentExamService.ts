@@ -548,25 +548,28 @@ export class FacultyStudentExamService {
       const attemptedCount = items.filter((q) => Boolean(submittedAnswers[String(q.number)]?.trim())).length;
       const unattemptedCount = items.length - attemptedCount;
 
-      const solutions = items.map((q) => {
-        const studentAns = submittedAnswers[String(q.number)] || null;
-        return {
-          number: q.number,
-          subject: q.subject,
-          topic: q.topic,
-          difficulty: q.difficulty,
-          questionType: q.questionType,
-          questionText: q.questionText,
-          options: q.options,
-          diagram: q.diagram,
-          studentAnswer: studentAns,
-          correctAnswer: q.correctAnswer,
-          explanation: q.explanation,
-          isCorrect: null,
-          score: null,
-          maxScore: null,
-        };
-      });
+      let solutions = null;
+      if (assignment.showSolutions) {
+        solutions = items.map((q) => {
+          const studentAns = submittedAnswers[String(q.number)] || null;
+          return {
+            number: q.number,
+            subject: q.subject,
+            topic: q.topic,
+            difficulty: q.difficulty,
+            questionType: q.questionType,
+            questionText: q.questionText,
+            options: q.options,
+            diagram: q.diagram,
+            studentAnswer: studentAns,
+            correctAnswer: q.correctAnswer,
+            explanation: q.explanation,
+            isCorrect: null,
+            score: null,
+            maxScore: null,
+          };
+        });
+      }
 
       const showGoal = Boolean(assignment.instructions?.includes('<!--showGoal:true-->'));
 

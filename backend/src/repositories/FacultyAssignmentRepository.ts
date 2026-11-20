@@ -170,4 +170,17 @@ export class FacultyAssignmentRepository {
       where: { id, facultyId },
     });
   }
+
+  public async updateShowSolutions(id: string, facultyId: string, showSolutions: boolean) {
+    const existing = await database.client.facultyExamAssignment.findFirst({
+      where: { id, facultyId },
+    });
+    if (!existing) {
+      return null;
+    }
+    return database.client.facultyExamAssignment.update({
+      where: { id },
+      data: { showSolutions },
+    });
+  }
 }

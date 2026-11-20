@@ -402,6 +402,38 @@ describe('Faculty Exam Assignment & Student Delivery Integrity', () => {
     assert.equal(breakdown.itemResults['1'].score, undefined, 'score must be stripped from individual items');
   });
 
+  test('faculty can toggle answer key and solutions visibility for an assigned exam', async () => {
+    let storedShowSolutions = false;
+    const mockRepo: any = {
+      findById: async (id: string, facultyId: string) => {
+        if (id === 'asg-1' && facultyId === 'fac-1') {
+          return { id: 'asg-1', facultyId: 'fac-1', showSolutions: storedShowSolutions };
+        }
+        return null;
+      },
+      updateShowSolutions: async (id: string, facultyId: string, nextState: boolean) => {
+        storedShowSolutions = nextState;
+        return { id, showSolutions: storedShowSolutions };
+      },
+    };
+
+    const assignmentService = new FacultyAssignmentService(
+      mockRepo,
+      {} as any,
+      {} as any,
+    );
+
+    // Toggle from false to true
+    const res1 = await assignmentService.updateSolutionsVisibility('asg-1', 'fac-1', true);
+    assert.equal(res1.showSolutions, true);
+    assert.equal(storedShowSolutions, true);
+
+    // Toggle without explicit parameter toggles state
+    const res2 = await assignmentService.updateSolutionsVisibility('asg-1', 'fac-1');
+    assert.equal(res2.showSolutions, false);
+    assert.equal(storedShowSolutions, false);
+  });
+
   test('supports disambiguated student login via optional batchCode', async () => {
     const hash = await bcrypt.hash('secret123', 10);
     const mockStudentRepo: any = {

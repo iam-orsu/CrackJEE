@@ -656,4 +656,15 @@ export class FacultyController {
       next(err);
     }
   };
+
+  public readonly toggleAssignmentSolutions = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const assignmentId = String(req.params.id);
+      const showSolutions = typeof req.body?.showSolutions === 'boolean' ? req.body.showSolutions : undefined;
+      const updated = await this.assignmentService.updateSolutionsVisibility(assignmentId, req.faculty!.facultyId, showSolutions);
+      res.json({ success: true, ...updated });
+    } catch (err) {
+      next(err);
+    }
+  };
 }

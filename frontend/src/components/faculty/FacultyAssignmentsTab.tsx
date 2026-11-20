@@ -1,13 +1,14 @@
 'use client';
 
 import React, { useCallback, useEffect, useState } from 'react';
-import { ChartColumn, Clock } from 'lucide-react';
+import { ChartColumn, Clock, Eye, EyeOff } from 'lucide-react';
 import {
   facultyCreateAssignment,
   facultyDeleteAssignment,
   facultyListAssignments,
   facultyListBatches,
   facultyListPapers,
+  facultyToggleAssignmentSolutions,
   type FacultyAssignmentSummary,
   type FacultyBatch,
   type FacultyPaperSummary,
@@ -113,6 +114,22 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
     }
   }
 
+  const [togglingId, setTogglingId] = useState<string | null>(null);
+
+  async function handleToggleSolutions(id: string, currentShowSolutions: boolean) {
+    setTogglingId(id);
+    try {
+      const res = await facultyToggleAssignmentSolutions(id, !currentShowSolutions);
+      setAssignments((prev) =>
+        prev.map((a) => (a.id === id ? { ...a, showSolutions: res.showSolutions } : a))
+      );
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to update key visibility');
+    } finally {
+      setTogglingId(null);
+    }
+  }
+
   return (
     <div className="flex flex-col gap-6">
       {/* Top Action Bar */}
@@ -182,6 +199,30 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
                       <Clock className="h-[13px] w-[13px] shrink-0" aria-hidden />
                       {a.durationMinutes} mins
                     </span>
+                    <span
+                      className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] font-bold border ${
+                        a.showSolutions
+                          ? 'border-[#15803D]/25 bg-[#F0FDF4] text-[#15803D]'
+                          : 'border-[#C2410C]/25 bg-[#FFF7ED] text-[#C2410C]'
+                      }`}
+                      title={
+                        a.showSolutions
+                          ? 'Students can view full answer key and step-by-step solutions after submission'
+                          : 'Answer key and solutions are hidden from students'
+                      }
+                    >
+                      {a.showSolutions ? (
+                        <>
+                          <Eye className="h-3 w-3" />
+                          Key: Visible
+                        </>
+                      ) : (
+                        <>
+                          <EyeOff className="h-3 w-3" />
+                          Key: Hidden
+                        </>
+                      )}
+                    </span>
                   </div>
 
                   <h3 className="text-[16px] font-bold text-[#003366]">
@@ -230,6 +271,25 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
 
                 {/* Actions */}
                 <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2px] border-[#003366]/20 bg-white px-3 py-2 text-[12px] font-bold text-[#003366] shadow-[0_2px_0_#C6D2F8] transition-all hover:bg-[#F8FAFF] active:translate-y-[1px] disabled:opacity-50"
+                    onClick={() => handleToggleSolutions(a.id, a.showSolutions)}
+                    disabled={togglingId === a.id}
+                    title={a.showSolutions ? 'Click to hide answer key from students' : 'Click to release answer key to students'}
+                  >
+                    {a.showSolutions ? (
+                      <>
+                        <EyeOff className="h-3.5 w-3.5 text-[#C2410C]" />
+                        <span>{togglingId === a.id ? 'Updating...' : 'Hide Key'}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Eye className="h-3.5 w-3.5 text-[#15803D]" />
+                        <span>{togglingId === a.id ? 'Updating...' : 'Release Key'}</span>
+                      </>
+                    )}
+                  </button>
                   <button
                     type="button"
                     className={BTN_PRIMARY}
@@ -384,14 +444,24 @@ export function FacultyAssignmentsTab({ onViewReport }: FacultyAssignmentsTabPro
                 />
               </div>
 
-              <label className="flex cursor-pointer items-center gap-2 text-[13px]">
-                <input
-                  type="checkbox"
-                  checked={showSolutions}
-                  onChange={(e) => setShowSolutions(e.target.checked)}
-                />
-                <span>Allow students to view detailed step-by-step solutions after submission</span>
-              </label>
+              <div className="rounded-xl border-[2px] border-[#003366]/20 bg-[#F8FAFF] p-3.5">
+                <label className="flex cursor-pointer items-start gap-3 text-[13px]">
+                  <input
+                    type="checkbox"
+                    checked={showSolutions}
+                    onChange={(e) => setShowSolutions(e.target.checked)}
+                    className="mt-0.5 h-4 w-4 cursor-pointer rounded accent-[#003366]"
+                  />
+                  <div className="flex-1">
+                    <span className="font-extrabold text-[#003366]">
+                      Release Answer Key &amp; Solutions to students upon submission
+                    </span>
+                    <p className="mt-1 text-[12px] font-medium leading-relaxed text-[#5A6B8C]">
+                      When checked, students can review the full answer key and step-by-step solutions after submitting. When unchecked, the key stays hidden until you release it from the assignment list.
+                    </p>
+                  </div>
+                </label>
+              </div>
 
               {readyPapers.find((p) => p.id === selectedPaperId)?.examType === 'Psychometric' && (
                 <label className="flex cursor-pointer items-center gap-2 rounded-xl border border-[#803688]/30 bg-[#FDF8FF] p-3 text-[13px] font-medium text-[#803688]">
