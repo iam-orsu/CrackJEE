@@ -103,18 +103,31 @@ To prevent port conflicts and ensure `git pull` never breaks either server:
    - Completely removed the circular percentage gauge (`Ring` with `65% GOAL ALIGNMENT`).
    - Replaced with a clean **Career Path** showcase card featuring the Compass emblem, target role, and behavioral profile analysis without any percentages or score alignment.
    - Dashboard card shows `Psychometric Assessment: Evaluated · View Career Insights` instead of a percentage.
-5. Zero-Attempt Evaluation Guard (`DeepSeekPsychometricService.ts` & `/student/result/[id]`):
-   - Prevented the engine from hallucinating a career role (such as "AI/ML Research Engineer") when `attemptedCount === 0`.
-   - When all questions are skipped, the system clearly displays "Insufficient Responses to Evaluate", suppresses predicted role tags, and informs the student and faculty that active responses are required to identify behavioral traits and career fit.
+5. 80%+ Psychometric Completion Threshold & Evaluation Guard:
+   - Behavioral evaluations require at least 80%+ of questions to be answered for statistical validity and vocational fit.
+   - Exact Question Submission Tracking: The system tracks and displays `{attemptedCount} / {totalQuestions}` (e.g. `0 / 24`, `1 / 24`, `2 / 24`, `3 / 24`).
+   - If completion rate is `< 80%` (e.g. 0 to 19 questions answered out of 24):
+     * The system strictly suppresses career role predictions (such as "AI/ML Research Engineer").
+     * Role title displays: `Insufficient Responses to Evaluate` (or `Insufficient Responses` in badges).
+     * Reason card explicitly informs: `Only X of Y questions (Z%) were answered. At least 80% completion is required to evaluate behavioral traits and determine career fit.`
+     * Career emblem card displays: `Assessment Status: Assessment Incomplete` (or `No Responses` if 0) with `{attemptedCount} of {totalQuestions} Answered`.
+     * Synthesis badge displays: `Incomplete Assessment (Z%)`.
+     * Strengths and Faculty Mentoring Guidance sections clarify that at least 80% completion is mandatory before personal strengths can be reliably measured.
+     * Synchronous AI evaluation race is skipped when `< 80%` to conserve tokens, and background worker stores the insufficient responses state.
+     * Existing student submissions with `< 80%` completion are automatically re-evaluated dynamically on fetch so stale or misleading cached roles are never displayed.
+     * Faculty dashboard rank list and CSV exports also display `Insufficient Responses to Evaluate` with the exact answered count and completion percentage.
 
 ---
 
 ## 5. Verification Status
 
-- Backend Vitest Suite: 235 passed, 0 failed.
+- Backend Vitest Suite: 254 passed, 0 failed.
 - Frontend Vitest Suite: 40 passed, 0 failed.
 - Next.js Production Build: Successfully generated all 18 routes with zero type or lint errors.
-- Live HTTP Status: Returning `200 OK` on `http://137.59.52.114:7000`.
+- Backend TypeScript Build: `prisma generate && tsc` completed with 0 errors.
+- Proctorview Production Remote: Pushed to `gouseferoz/jeeneet.git` (`boss/main`).
+- Staging Remote: Pushed to `iam-orsu/CrackJEE.git` (`origin/main` and `origin/vamsi`).
+- Note: `progress_to_ai.md` is strictly maintained only in `iam-orsu/CrackJEE.git` and excluded from `gouseferoz/jeeneet.git`.
 
 ---
 
