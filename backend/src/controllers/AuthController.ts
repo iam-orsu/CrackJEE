@@ -2,9 +2,12 @@ import type { Request, Response, NextFunction } from 'express';
 import { z } from 'zod';
 import { AUTH_CONSTANTS } from '../config/constants';
 import { AuthService } from '../services/AuthService';
+import { OtpService } from '../services/OtpService';
 import { setSessionCookie, clearSessionCookie } from '../middlewares/auth.middleware';
 import { AppError } from '../utils/AppError';
+import { normalizeMobile } from '../utils/mobile';
 import type { AuthRequest } from '../types/index';
+import { registrationSubject } from './OtpController';
 
 const registerSchema = z.object({
   name: z.string().min(2).max(100).trim(),
@@ -14,6 +17,7 @@ const registerSchema = z.object({
   targetExam: z.enum(['Main', 'Advanced', 'Both', 'NEET', 'Psychometric']),
   hasPsychometric: z.boolean().optional().default(false),
   currentLevel: z.enum(['beginner', 'intermediate', 'advanced']).default('beginner'),
+  mobile: z.string().trim().min(6).max(20),
 });
 
 const loginSchema = z.object({
@@ -36,7 +40,10 @@ const onboardingSchema = z.object({
 });
 
 export class AuthController {
-  constructor(private readonly authService: AuthService = new AuthService()) {}
+  constructor(
+    private readonly authService: AuthService = new AuthService(),
+    private readonly otpService: OtpService = new OtpService(),
+  ) {}
 
   public readonly register = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
@@ -45,7 +52,21 @@ export class AuthController {
         throw new AppError(400, body.error.errors[0]?.message ?? 'Validation error');
       }
 
-      const { token, user, expiresAt } = await this.authService.register(body.data);
+      const mobile = normalizeMobile(body.data.mobile);
+      if (!mobile) {
+        throw new AppError(400, 'Enter a valid 10-digit mobile number.');
+      }
+
+      const verified = await this.otpService.isVerified(registrationSubject(mobile), mobile);
+      if (!verified) {
+        throw new AppError(400, 'Verify your mobile number before creating the account.');
+      }
+
+      const { token, user, expiresAt } = await this.authService.register({
+        ...body.data,
+        mobile,
+        mobileVerified: true,
+      });
       setSessionCookie(res, token);
       res.status(201).json({ success: true, data: { user, expiresAt } });
     } catch (err) {

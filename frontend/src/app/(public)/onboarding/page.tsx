@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { api } from '@/lib/api';
 import { getUser, setSession } from '@/lib/auth';
+import MobileVerify from '@/components/MobileVerify';
 
 const CLASSES = [
   { value: '11', label: 'Class 11', hint: 'Just finished 10th' },
@@ -26,7 +27,9 @@ const LEVELS = [
   { value: 'advanced', label: 'Advanced', hint: 'Only the tricky bits left' },
 ] as const;
 
-const TOTAL_STEPS = 4;
+const TOTAL_STEPS = 5;
+const MOBILE_STEP = 3;
+const PSYCHOMETRIC_STEP = 4;
 
 const Sparkle = ({ className }: { className: string }) => (
   <svg className={`ob-spark ${className}`} viewBox="0 0 24 24" aria-hidden>
@@ -44,6 +47,9 @@ export default function OnboardingPage() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
 
+  const [mobileVerified, setMobileVerified] = useState(false);
+  const [initialMobile, setInitialMobile] = useState('');
+
   useEffect(() => {
     const user = getUser();
     if (!user) {
@@ -58,6 +64,10 @@ export default function OnboardingPage() {
     setExamValue(user.targetExam);
     setLevelValue(user.currentLevel);
     setPsychometric(Boolean(user.hasPsychometric));
+    if (user.mobileVerified && user.mobile) {
+      setInitialMobile(user.mobile.slice(-10));
+      setMobileVerified(true);
+    }
   }, [router]);
 
   async function handleFinish() {
@@ -101,6 +111,9 @@ export default function OnboardingPage() {
   ];
 
   const current = steps[step];
+  const isOptionStep = step < steps.length;
+  const isMobileStep = step === MOBILE_STEP;
+  const isPsychometricStep = step === PSYCHOMETRIC_STEP;
 
   return (
     <div className="ob-root">
@@ -124,8 +137,20 @@ export default function OnboardingPage() {
         <main className="ob-box">
           <header className="ob-head">
             <p className="ob-step">Step {Math.min(step + 1, TOTAL_STEPS)} of {TOTAL_STEPS}</p>
-            <h1>{step < steps.length ? current.title : 'One last thing'}</h1>
-            <p>{step < steps.length ? current.copy : 'An optional diagnostic that maps your strengths and study habits.'}</p>
+            <h1>
+              {isOptionStep
+                ? current.title
+                : isMobileStep
+                  ? 'Verify your mobile number'
+                  : 'One last thing'}
+            </h1>
+            <p>
+              {isOptionStep
+                ? current.copy
+                : isMobileStep
+                  ? 'We text a 4-digit code to your phone so your account stays reachable and mock reminders reach you.'
+                  : 'An optional diagnostic that maps your strengths and study habits.'}
+            </p>
           </header>
 
           <div className="ob-bar" role="progressbar" aria-valuemin={1} aria-valuemax={TOTAL_STEPS} aria-valuenow={step + 1}>
@@ -134,7 +159,7 @@ export default function OnboardingPage() {
 
           {error && <p role="alert" className="ob-error">{error}</p>}
 
-          {step < steps.length ? (
+          {isOptionStep ? (
             <div className="ob-options">
               {current.options.map((option, index) => (
                 <button
@@ -158,6 +183,21 @@ export default function OnboardingPage() {
                 </button>
               ))}
             </div>
+          ) : isMobileStep ? (
+            <MobileVerify
+              initialMobile={initialMobile}
+              alreadyVerified={mobileVerified}
+              sendCode={(m) => api.otp.send({ mobile: m })}
+              verifyCode={(m, code) => api.otp.verify({ mobile: m, otp: code })}
+              onVerified={(user) => {
+                setMobileVerified(true);
+                const current = getUser();
+                setSession(
+                  { ...(current ?? user), ...user } as import('@/types').User,
+                  new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
+                );
+              }}
+            />
           ) : (
             <div className="ob-options">
               <button
@@ -190,13 +230,18 @@ export default function OnboardingPage() {
               <span />
             )}
 
-            {step < steps.length ? (
-              <button type="button" className="ob-next" onClick={() => setStep((s) => s + 1)}>
-                Continue
-              </button>
-            ) : (
+            {isPsychometricStep ? (
               <button type="button" className="ob-next" onClick={handleFinish} disabled={saving}>
                 {saving ? 'Setting up...' : 'Start preparing'}
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="ob-next"
+                onClick={() => setStep((s) => s + 1)}
+                disabled={isMobileStep && !mobileVerified}
+              >
+                Continue
               </button>
             )}
           </div>

@@ -37,6 +37,8 @@ export class AuthService {
     targetExam: 'Main' | 'Advanced' | 'Both' | 'NEET' | 'Psychometric';
     hasPsychometric?: boolean;
     currentLevel: 'beginner' | 'intermediate' | 'advanced';
+    mobile?: string | null;
+    mobileVerified?: boolean;
   }) {
     const existing = await this.users.findByEmailForAuth(input.email);
     if (existing) {
@@ -55,6 +57,8 @@ export class AuthService {
       targetExam: input.targetExam,
       hasPsychometric: input.hasPsychometric ?? false,
       currentLevel: input.currentLevel,
+      mobile: input.mobile ?? null,
+      mobileVerified: input.mobileVerified ?? false,
       isOnboarded: true,
     });
 
@@ -149,6 +153,23 @@ export class AuthService {
     if (patch.hasPsychometric !== undefined) data.hasPsychometric = patch.hasPsychometric;
 
     return this.users.updateProfile(userId, data);
+  }
+
+  public async isMobileTaken(mobile: string, userId: string): Promise<boolean> {
+    const owner = await this.users.findByMobile(mobile);
+    return Boolean(owner && owner.id !== userId);
+  }
+
+  public async verifyMobile(userId: string, mobile: string) {
+    const existing = await this.users.findSafeById(userId);
+    if (!existing) throw new AppError(404, 'User not found');
+
+    const owner = await this.users.findByMobile(mobile);
+    if (owner && owner.id !== userId) {
+      throw new AppError(409, 'This number is already linked to another account.');
+    }
+
+    return this.users.updateProfile(userId, { mobile, mobileVerified: true });
   }
 
   public async completeOnboarding(

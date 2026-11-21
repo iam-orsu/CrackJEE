@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { api } from '@/lib/api';
 import { setSession, isAuthenticated } from '@/lib/auth';
+import MobileVerify from '@/components/MobileVerify';
 
 type FormState = {
   name: string;
@@ -36,6 +37,16 @@ const LEVELS = [
   ['advanced', 'Advanced', 'Revision & mock tests'],
 ] as const;
 
+const PENDING_MOBILE_KEY = 'jee_pending_mobile';
+
+function sanitizeMobile(value: string): string {
+  const digits = value.replace(/\D/g, '');
+  if (digits.length <= 10) return digits;
+  if (digits.length === 12 && digits.startsWith('91')) return digits.slice(2);
+  if (digits.length === 11 && digits.startsWith('0')) return digits.slice(1);
+  return digits.slice(-10);
+}
+
 const Sparkle = ({ className }: { className: string }) => (
   <svg className={`rg-spark ${className}`} viewBox="0 0 24 24" aria-hidden>
     <path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" />
@@ -55,7 +66,15 @@ export default function RegisterPage() {
   const router = useRouter();
 
   useEffect(() => {
-    if (isAuthenticated()) router.replace('/dashboard');
+    if (isAuthenticated()) {
+      router.replace('/dashboard');
+      return;
+    }
+    const pending = sessionStorage.getItem(PENDING_MOBILE_KEY);
+    if (pending) {
+      setMobile(pending);
+      setStage('verify');
+    }
   }, [router]);
 
   const [form, setForm] = useState<FormState>({
@@ -72,6 +91,9 @@ export default function RegisterPage() {
   const [googleBusy, setGoogleBusy] = useState(false);
   const [mode, setMode] = useState<'choose' | 'manual'>('choose');
   const [showPwd, setShowPwd] = useState(false);
+  const [mobile, setMobile] = useState('');
+  const [stage, setStage] = useState<'form' | 'verify'>('form');
+  const [mobileVerified, setMobileVerified] = useState(false);
 
   function handleGoogleSignIn() {
     setGoogleBusy(true);
@@ -90,16 +112,42 @@ export default function RegisterPage() {
       setError('Password must be at least 8 characters');
       return;
     }
+    if (mobile.length !== 10) {
+      setError('Enter a valid 10-digit mobile number');
+      return;
+    }
+    if (mobileVerified) {
+      await createAccount();
+      return;
+    }
+    sessionStorage.setItem(PENDING_MOBILE_KEY, mobile);
+    setStage('verify');
+  }
+
+  async function createAccount() {
     setLoading(true);
     try {
-      const { user, expiresAt } = await api.auth.register(form);
+      const { user, expiresAt } = await api.auth.register({ ...form, mobile });
+      sessionStorage.removeItem(PENDING_MOBILE_KEY);
       setSession(user, expiresAt);
       router.push('/dashboard');
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Registration failed');
+      const message = err instanceof Error ? err.message : 'Registration failed';
+      if (/verify your mobile/i.test(message)) {
+        setMobileVerified(false);
+        setStage('verify');
+      } else {
+        setStage('form');
+      }
+      setError(message);
     } finally {
       setLoading(false);
     }
+  }
+
+  async function handleVerified() {
+    setMobileVerified(true);
+    await createAccount();
   }
 
   const pwdPct = Math.min(form.password.length / 8, 1) * 100;
@@ -124,7 +172,7 @@ export default function RegisterPage() {
           <Link href="/" className="rg-logo">
             <Image src="/logo.png" alt="JEENEET.ai" width={150} height={62} className="site-logo" priority />
           </Link>
-          <Link href="/login" className="rg-nav-btn">Sign in</Link>
+          {stage !== 'verify' && <Link href="/login" className="rg-nav-btn">Sign in</Link>}
         </nav>
 
         {/* ── Hero text ── */}
@@ -141,8 +189,12 @@ export default function RegisterPage() {
         <section className="rg-stage">
           <main className="rg-box">
             <header className="rg-head">
-              <h1>Create your account</h1>
-              <p>One account for practice, mocks and your progress dashboard.</p>
+              <h1>{stage === 'verify' ? 'Verify your mobile' : 'Create your account'}</h1>
+              <p>
+                {stage === 'verify'
+                  ? 'Enter the 4-digit code we texted to your phone to finish setting up.'
+                  : 'One account for practice, mocks and your progress dashboard.'}
+              </p>
             </header>
 
             {mode === 'choose' ? (
@@ -171,6 +223,15 @@ export default function RegisterPage() {
                   With Google your name and photo come across automatically — you pick your class and target exam next.
                 </p>
               </div>
+            ) : stage === 'verify' ? (
+              <MobileVerify
+                initialMobile={mobile}
+                autoSend
+                verifyLabel="Verify & create account"
+                sendCode={(m) => api.otp.sendForRegistration({ mobile: m })}
+                verifyCode={(m, code) => api.otp.verifyForRegistration({ mobile: m, otp: code })}
+                onVerified={handleVerified}
+              />
             ) : (
               <>
             <button type="button" className="rg-back" onClick={() => setMode('choose')}>
@@ -259,6 +320,31 @@ export default function RegisterPage() {
                   <i className={pwdOk ? 'rg-ok' : ''} style={{ width: `${pwdPct}%` }} />
                 </div>
                 <p className="rg-hint">{pwdOk ? 'Good to go' : `${form.password.length}/8 characters`}</p>
+              </div>
+
+              <div className="rg-field">
+                <label htmlFor="mobile">Mobile number</label>
+                <div className="rg-input rg-input-prefix">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                  </svg>
+                  <span className="rg-cc">+91</span>
+                  <input
+                    id="mobile"
+                    type="tel"
+                    inputMode="numeric"
+                    autoComplete="tel-national"
+                    placeholder="98765 43210"
+                    value={mobile}
+                    onChange={(e) => {
+                      setMobile(sanitizeMobile(e.target.value));
+                      setError('');
+                    }}
+                    maxLength={10}
+                    required
+                  />
+                </div>
+                <p className="rg-hint">We text a 4-digit code to confirm the number.</p>
               </div>
 
               <div className="rg-row-2">
@@ -390,7 +476,11 @@ export default function RegisterPage() {
             )}
 
             <p className="rg-link">
-              Already have an account? <Link href="/login">Sign in</Link>
+              {stage === 'verify' ? (
+                <>Verification is required to finish setting up your account.</>
+              ) : (
+                <>Already have an account? <Link href="/login">Sign in</Link></>
+              )}
             </p>
           </main>
 
@@ -507,7 +597,7 @@ const css = `
 @media(max-width:720px){.rg-row-2{grid-template-columns:1fr}}
 .rg-field label,.rg-label{display:block;font-weight:800;font-size:13px;margin-bottom:8px;color:var(--blue)}
 .rg-input{position:relative}
-.rg-input>svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--blue);opacity:.7;pointer-events:none}
+.rg-input>svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--blue);opacity:.7;pointer-events:none;z-index:1}
 .rg-input input{
   width:100%;height:54px;padding:0 16px 0 44px;font:inherit;font-weight:600;font-size:15px;color:var(--ink);
   background:#fff;border:2.5px solid var(--blue);border-radius:14px;outline:none;
@@ -517,6 +607,8 @@ const css = `
 .rg-input input::placeholder{color:#97A3D4;font-weight:500}
 .rg-input input:focus{border-color:var(--purple);transform:translateY(-2px);box-shadow:0 7px 0 #E3C9E6}
 .rg-input input.rg-err{border-color:var(--err)}
+.rg-input-prefix input{padding-left:88px}
+.rg-cc{position:absolute;left:46px;top:50%;transform:translateY(-50%);font-weight:800;font-size:15px;color:var(--muted);z-index:1}
 .rg-eye{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:44px;height:44px;display:grid;place-items:center;background:none;border:0;border-radius:10px;color:var(--blue);cursor:pointer}
 .rg-eye:hover{background:var(--ice)}
 

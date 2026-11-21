@@ -20,6 +20,8 @@ model User {
   hasPsychometric Boolean  @default(false)
   currentLevel String   @default("beginner")
   isOnboarded  Boolean  @default(false)
+  mobile        String?  @unique
+  mobileVerified Boolean @default(false)
   createdAt    DateTime @default(now())
 
   attempts       StudentAttempt[]

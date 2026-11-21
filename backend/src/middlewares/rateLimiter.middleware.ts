@@ -75,3 +75,35 @@ export const answerLimiter = createRateLimiter({
   keyBy: 'user',
   message: 'Answer submission limit reached. Please wait a moment.',
 });
+
+export const otpSendLimiter = createRateLimiter({
+  name: 'otpsend',
+  windowSeconds: 15 * 60,
+  max: 5,
+  keyBy: 'user',
+  message: 'Too many code requests. Please try again in 15 minutes.',
+});
+
+export const otpVerifyLimiter = createRateLimiter({
+  name: 'otpverify',
+  windowSeconds: 15 * 60,
+  max: 20,
+  keyBy: 'user',
+  message: 'Too many verification attempts. Please try again in 15 minutes.',
+});
+
+export const otpPublicSendLimiter = createRateLimiter({
+  name: 'otppubsend',
+  windowSeconds: 15 * 60,
+  max: 5,
+  keyBy: 'ip',
+  message: 'Too many code requests. Please try again in 15 minutes.',
+});
+
+export const otpPublicVerifyLimiter = createRateLimiter({
+  name: 'otppubverify',
+  windowSeconds: 15 * 60,
+  max: 20,
+  keyBy: 'ip',
+  message: 'Too many verification attempts. Please try again in 15 minutes.',
+});

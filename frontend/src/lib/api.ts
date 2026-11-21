@@ -102,6 +102,7 @@ export const api = {
       targetExam: string;
       hasPsychometric?: boolean;
       currentLevel: string;
+      mobile: string;
     }) => request<{ user: import('@/types').User; expiresAt: string }>('/auth/register', {
       method: 'POST',
       body: JSON.stringify(body),
@@ -142,6 +143,32 @@ export const api = {
 
     // Revokes the session on the server and clears the cookie
     logout: () => request<void>('/auth/logout', { method: 'POST' }),
+  },
+
+  otp: {
+    send: (body: { mobile: string }) =>
+      request<{ sent: boolean; expiresIn: number; cooldownSeconds: number }>('/auth/otp/send', {
+        method: 'POST',
+        body: JSON.stringify(body),
+      }),
+
+    verify: (body: { mobile: string; otp: string }) =>
+      request<import('@/types').User>('/auth/otp/verify', {
+        method: 'POST',
+        body: JSON.stringify(body),
+      }),
+
+    sendForRegistration: (body: { mobile: string }) =>
+      request<{ sent: boolean; expiresIn: number; cooldownSeconds: number }>('/auth/register/otp/send', {
+        method: 'POST',
+        body: JSON.stringify(body),
+      }),
+
+    verifyForRegistration: (body: { mobile: string; otp: string }) =>
+      request<{ verified: boolean; mobile: string }>('/auth/register/otp/verify', {
+        method: 'POST',
+        body: JSON.stringify(body),
+      }),
   },
 
   psychometric: {

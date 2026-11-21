@@ -8,6 +8,8 @@ export interface User {
   currentLevel: 'beginner' | 'intermediate' | 'advanced';
   avatarUrl?: string | null;
   isOnboarded?: boolean;
+  mobile?: string | null;
+  mobileVerified?: boolean;
   createdAt?: string;
 }
 

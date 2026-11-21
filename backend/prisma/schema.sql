@@ -15,12 +15,16 @@ CREATE TABLE `User` (
     `avatarUrl` TEXT NULL,
     `class` VARCHAR(191) NOT NULL,
     `targetExam` VARCHAR(191) NOT NULL,
+    `hasPsychometric` BOOLEAN NOT NULL DEFAULT false,
     `currentLevel` VARCHAR(191) NOT NULL DEFAULT 'beginner',
     `isOnboarded` BOOLEAN NOT NULL DEFAULT false,
+    `mobile` VARCHAR(191) NULL,
+    `mobileVerified` BOOLEAN NOT NULL DEFAULT false,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
     UNIQUE INDEX `User_email_key`(`email`),
     UNIQUE INDEX `User_googleSub_key`(`googleSub`),
+    UNIQUE INDEX `User_mobile_key`(`mobile`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

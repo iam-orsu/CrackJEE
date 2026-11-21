@@ -1,43 +1,68 @@
 import type { PrismaClient } from '@prisma/client';
 import { prisma as defaultPrisma } from '../config/database';
 
+/** Full auth-facing row: includes the password hash and the Google subject. */
+const AUTH_USER_SELECT = {
+  id: true,
+  name: true,
+  email: true,
+  class: true,
+  targetExam: true,
+  hasPsychometric: true,
+  currentLevel: true,
+  passwordHash: true,
+  googleSub: true,
+  avatarUrl: true,
+  isOnboarded: true,
+  mobile: true,
+  mobileVerified: true,
+} as const;
+
+/** Row returned once a Google account is linked — no password hash. */
+const LINKED_USER_SELECT = {
+  id: true,
+  name: true,
+  email: true,
+  class: true,
+  targetExam: true,
+  hasPsychometric: true,
+  currentLevel: true,
+  googleSub: true,
+  avatarUrl: true,
+  isOnboarded: true,
+  mobile: true,
+  mobileVerified: true,
+} as const;
+
+/** Row safe to hand back to the client — no credentials of any kind. */
+const SAFE_USER_SELECT = {
+  id: true,
+  name: true,
+  email: true,
+  class: true,
+  targetExam: true,
+  hasPsychometric: true,
+  currentLevel: true,
+  avatarUrl: true,
+  isOnboarded: true,
+  mobile: true,
+  mobileVerified: true,
+} as const;
+
 export class UserRepository {
   constructor(private readonly prisma: PrismaClient = defaultPrisma) {}
 
   public findByEmailForAuth(email: string) {
     return this.prisma.user.findUnique({
       where: { email },
-      select: {
-        id: true,
-        name: true,
-        email: true,
-        class: true,
-        targetExam: true,
-        hasPsychometric: true,
-        currentLevel: true,
-        passwordHash: true,
-        googleSub: true,
-        avatarUrl: true,
-        isOnboarded: true,
-      },
+      select: AUTH_USER_SELECT,
     });
   }
 
   public findByGoogleSub(googleSub: string) {
     return this.prisma.user.findUnique({
       where: { googleSub },
-      select: {
-        id: true,
-        name: true,
-        email: true,
-        class: true,
-        targetExam: true,
-        hasPsychometric: true,
-        currentLevel: true,
-        googleSub: true,
-        avatarUrl: true,
-        isOnboarded: true,
-      },
+      select: AUTH_USER_SELECT,
     });
   }
 
@@ -45,18 +70,7 @@ export class UserRepository {
     return this.prisma.user.update({
       where: { id },
       data: { googleSub, ...(avatarUrl ? { avatarUrl } : {}) },
-      select: {
-        id: true,
-        name: true,
-        email: true,
-        class: true,
-        targetExam: true,
-        hasPsychometric: true,
-        currentLevel: true,
-        googleSub: true,
-        avatarUrl: true,
-        isOnboarded: true,
-      },
+      select: LINKED_USER_SELECT,
     });
   }
 
@@ -68,28 +82,27 @@ export class UserRepository {
       currentLevel?: string;
       hasPsychometric?: boolean;
       isOnboarded?: boolean;
+      mobile?: string | null;
+      mobileVerified?: boolean;
     },
   ) {
     return this.prisma.user.update({
       where: { id },
       data,
-      select: {
-        id: true,
-        name: true,
-        email: true,
-        class: true,
-        targetExam: true,
-        hasPsychometric: true,
-        currentLevel: true,
-        avatarUrl: true,
-        isOnboarded: true,
-      },
+      select: SAFE_USER_SELECT,
     });
   }
 
   public existsByEmail(email: string) {
     return this.prisma.user.findUnique({
       where: { email },
+      select: { id: true },
+    });
+  }
+
+  public findByMobile(mobile: string) {
+    return this.prisma.user.findUnique({
+      where: { mobile },
       select: { id: true },
     });
   }
@@ -105,6 +118,8 @@ export class UserRepository {
     googleSub?: string | null;
     avatarUrl?: string | null;
     isOnboarded?: boolean;
+    mobile?: string | null;
+    mobileVerified?: boolean;
   }) {
     return this.prisma.user.create({
       data: {
@@ -113,18 +128,10 @@ export class UserRepository {
         googleSub: data.googleSub ?? null,
         avatarUrl: data.avatarUrl ?? null,
         isOnboarded: data.isOnboarded ?? false,
+        mobile: data.mobile ?? null,
+        mobileVerified: data.mobileVerified ?? false,
       },
-      select: {
-        id: true,
-        name: true,
-        email: true,
-        class: true,
-        targetExam: true,
-        hasPsychometric: true,
-        currentLevel: true,
-        avatarUrl: true,
-        isOnboarded: true,
-      },
+      select: SAFE_USER_SELECT,
     });
   }
 
@@ -132,15 +139,7 @@ export class UserRepository {
     return this.prisma.user.findUnique({
       where: { id },
       select: {
-        id: true,
-        name: true,
-        email: true,
-        class: true,
-        targetExam: true,
-        hasPsychometric: true,
-        currentLevel: true,
-        avatarUrl: true,
-        isOnboarded: true,
+        ...SAFE_USER_SELECT,
         createdAt: true,
       },
     });
@@ -155,7 +154,7 @@ export class UserRepository {
 
   public findAllForAdmin() {
     return this.prisma.user.findMany({
-      select: { id: true, name: true, email: true, class: true, targetExam: true, createdAt: true },
+      select: { id: true, name: true, email: true, class: true, targetExam: true, mobile: true, createdAt: true },
       orderBy: { createdAt: 'desc' },
     });
   }
