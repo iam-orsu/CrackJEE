@@ -285,17 +285,9 @@ export default function StudentPortalPage() {
                                 <div className="mt-0.5 text-[11.5px] text-[#5A6B8C]">Score &amp; answer key hidden by faculty</div>
                               </div>
                             ) : exam.paper.examType === 'Psychometric' ? (
-                              <div className="mt-4 grid grid-cols-2 gap-2 rounded-[16px] border border-[#803688]/15 bg-[#FBF5FC] px-3 py-3 text-center">
-                                <div>
-                                  <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#803688]">Goal Alignment</div>
-                                  <div className="mt-0.5 text-[17px] font-extrabold tabular-nums text-[#803688]">
-                                    {exam.result.totalScore}%
-                                  </div>
-                                </div>
-                                <div>
-                                  <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#803688]">Assessment Status</div>
-                                  <div className="mt-0.5 text-[14px] font-extrabold text-[#003366]">Evaluated</div>
-                                </div>
+                              <div className="mt-4 rounded-[16px] border border-[#803688]/15 bg-[#FBF5FC] px-3 py-3 text-center">
+                                <div className="text-[11px] font-bold uppercase tracking-[0.04em] text-[#803688]">Psychometric Assessment</div>
+                                <div className="mt-0.5 text-[14px] font-extrabold text-[#003366]">Evaluated · View Career Insights</div>
                               </div>
                             ) : (
                               <div className="mt-4 grid grid-cols-3 gap-2 rounded-[16px] border border-[#003366]/10 bg-ice px-3 py-3 text-center">

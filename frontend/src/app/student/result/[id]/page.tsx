@@ -370,7 +370,7 @@ export default function StudentExamResultPage() {
                         {attemptedCount} <span className="text-[14px] font-normal text-[#5A6B8C]">/ {totalQuestions}</span>
                       </p>
                       <p className="mt-1 text-[11.5px] text-[#5A6B8C]">
-                        {scorecard.unattemptedCount} skipped · 100% trait-based
+                        {scorecard.unattemptedCount} skipped · Trait-based behavioral assessment
                       </p>
                     </div>
 
@@ -410,20 +410,21 @@ export default function StudentExamResultPage() {
               </div>
 
               <div className="relative grid items-center gap-8 lg:grid-cols-[auto_minmax(0,1fr)_auto]">
-                <Ring pct={isRefining ? 100 : (scorecard.totalScore ?? 0)} color="#803688" size={156} stroke={15} track="rgba(128,54,136,.12)">
-                  <div className="text-center">
-                    <div className={`${HEAD} text-[36px] font-extrabold leading-none tabular-nums text-[#803688]`}>
-                      {isRefining ? (
-                        <span className="inline-block animate-pulse text-[28px]">...</span>
-                      ) : (
-                        `${scorecard.totalScore ?? 0}%`
-                      )}
-                    </div>
-                    <div className="mt-1 text-[11px] font-bold uppercase tracking-wider text-[#5A6B8C]">
-                      {isRefining ? 'Evaluating' : 'Goal Alignment'}
-                    </div>
+                <div className="flex flex-col items-center justify-center rounded-[28px] border-[2px] border-[#803688]/20 bg-[#FDF8FF] p-5 text-center shadow-[0_4px_16px_rgba(128,54,136,.06)] min-w-[170px]">
+                  <div className="grid h-16 w-16 place-items-center rounded-2xl bg-[#803688] text-white shadow-[0_6px_14px_rgba(128,54,136,.25)]">
+                    <CompassIcon className="h-8 w-8 text-white" />
                   </div>
-                </Ring>
+                  <div className="mt-3 text-[11px] font-extrabold uppercase tracking-wider text-[#803688]">
+                    Career Path
+                  </div>
+                  <div className={`${HEAD} mt-1 text-[16px] font-extrabold text-[#003366] max-w-[160px] leading-snug`}>
+                    {isRefining ? (
+                      <span className="inline-block animate-pulse text-[#803688]">Evaluating Mindset...</span>
+                    ) : (
+                      report?.predictedRole || report?.archetype || 'Mindset Profile'
+                    )}
+                  </div>
+                </div>
 
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
@@ -481,7 +482,7 @@ export default function StudentExamResultPage() {
                         </p>
                       ) : (
                         <p className="mt-1 text-[11.5px] font-medium text-[#5A6B8C] truncate" title={report?.archetype}>
-                          {report?.alignmentLevel || 'High Alignment'}
+                          {report?.alignmentLevel ? 'Career Match Profile' : 'Profile Evaluated'}
                         </p>
                       )}
                     </div>
@@ -492,7 +493,7 @@ export default function StudentExamResultPage() {
                         {attemptedCount} <span className="text-[14px] font-normal text-[#5A6B8C]">/ {totalQuestions}</span>
                       </p>
                       <p className="mt-1 text-[11.5px] text-[#5A6B8C]">
-                        {scorecard.unattemptedCount} skipped · 100% trait-based
+                        {scorecard.unattemptedCount} skipped · Trait-based behavioral assessment
                       </p>
                     </div>
 
