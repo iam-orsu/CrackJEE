@@ -103,6 +103,9 @@ To prevent port conflicts and ensure `git pull` never breaks either server:
    - Completely removed the circular percentage gauge (`Ring` with `65% GOAL ALIGNMENT`).
    - Replaced with a clean **Career Path** showcase card featuring the Compass emblem, target role, and behavioral profile analysis without any percentages or score alignment.
    - Dashboard card shows `Psychometric Assessment: Evaluated · View Career Insights` instead of a percentage.
+5. Zero-Attempt Evaluation Guard (`DeepSeekPsychometricService.ts` & `/student/result/[id]`):
+   - Prevented the engine from hallucinating a career role (such as "AI/ML Research Engineer") when `attemptedCount === 0`.
+   - When all questions are skipped, the system clearly displays "Insufficient Responses to Evaluate", suppresses predicted role tags, and informs the student and faculty that active responses are required to identify behavioral traits and career fit.
 
 ---
 
