@@ -78,6 +78,10 @@ The server hosts multiple applications. Ports 7000 and 7001 are assigned specifi
 3. `frontend/src/app/(app)/mock/[id]/page.tsx`:
    - Conditioned `<ExamPalette>` on `!isPsychometric` so that any psychometric mock test adheres to sequential navigation.
    - JEE and NEET keep full palettes and question numbering.
+4. `frontend/src/app/student/result/[id]/page.tsx` & `frontend/src/app/student/page.tsx`:
+   - Completely removed the circular percentage gauge (`Ring` with `65% GOAL ALIGNMENT`).
+   - Replaced with a clean **Career Path** showcase card featuring the Compass emblem, target role, and behavioral profile analysis without any percentages or score alignment.
+   - Dashboard card shows `Psychometric Assessment: Evaluated · View Career Insights` instead of a percentage.
 
 ---
 
