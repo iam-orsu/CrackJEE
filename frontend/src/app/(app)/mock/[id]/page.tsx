@@ -548,6 +548,7 @@ export default function MockExamPage() {
   if (!exam || !currentQ) return null;
 
   const questions = exam.questions;
+  const isPsychometric = (exam.examType as string) === 'Psychometric' || questions.some((q) => q.subject === 'Psychometric');
   const isNEET = exam.examType === 'NEET';
   const subjects = isNEET
     ? (['Physics', 'Chemistry', 'Botany', 'Zoology'] as const)
@@ -688,9 +689,15 @@ export default function MockExamPage() {
 
           {/* Question header */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
-            <span style={{ fontSize: 15, fontWeight: 700, color: EX.ink, marginRight: 4 }}>
-              Question {currentQ.questionNumber} <span style={{ fontWeight: 500, color: EX.mute }}>of {total}</span>
-            </span>
+            {isPsychometric ? (
+              <span style={{ fontSize: 15, fontWeight: 700, color: EX.ink, marginRight: 4 }}>
+                Assessment Question
+              </span>
+            ) : (
+              <span style={{ fontSize: 15, fontWeight: 700, color: EX.ink, marginRight: 4 }}>
+                Question {currentQ.questionNumber} <span style={{ fontWeight: 500, color: EX.mute }}>of {total}</span>
+              </span>
+            )}
             <span style={TAG}>{currentQ.subject}</span>
             <span style={TAG}>{qtypeLabel}</span>
             <span style={TAG}>{currentQ.difficulty}</span>
@@ -798,28 +805,32 @@ export default function MockExamPage() {
 
           {/* Action buttons */}
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center', paddingBottom: 24 }}>
-            <button
-              onClick={() => saveAndNext(false)}
-              className="exa-btn exa-primary"
-              style={{ padding: '10px 22px', borderRadius: 3, fontSize: 12.5, fontWeight: 600 }}
-            >
-              Save &amp; Next
-            </button>
-            <button
-              onClick={markForReview}
-              className="exa-btn exa-outline"
-              style={{ padding: '10px 22px', borderRadius: 3, fontSize: 12.5, fontWeight: 600 }}
-            >
-              Mark for Review &amp; Next
-            </button>
-            <button
-              onClick={clearResponse}
-              className="exa-btn exa-danger"
-              style={{ padding: '10px 22px', borderRadius: 3, fontSize: 12.5, fontWeight: 600 }}
-            >
-              Clear Response
-            </button>
-            <div style={{ flex: 1 }} />
+            {!isPsychometric && (
+              <>
+                <button
+                  onClick={() => saveAndNext(false)}
+                  className="exa-btn exa-primary"
+                  style={{ padding: '10px 22px', borderRadius: 3, fontSize: 12.5, fontWeight: 600 }}
+                >
+                  Save &amp; Next
+                </button>
+                <button
+                  onClick={markForReview}
+                  className="exa-btn exa-outline"
+                  style={{ padding: '10px 22px', borderRadius: 3, fontSize: 12.5, fontWeight: 600 }}
+                >
+                  Mark for Review &amp; Next
+                </button>
+                <button
+                  onClick={clearResponse}
+                  className="exa-btn exa-danger"
+                  style={{ padding: '10px 22px', borderRadius: 3, fontSize: 12.5, fontWeight: 600 }}
+                >
+                  Clear Response
+                </button>
+                <div style={{ flex: 1 }} />
+              </>
+            )}
             <button
               onClick={() => currentIdx > 0 && goTo(currentIdx - 1)}
               disabled={currentIdx === 0}
@@ -832,40 +843,48 @@ export default function MockExamPage() {
               ← Back
             </button>
             <button
-              onClick={() => currentIdx < total - 1 && goTo(currentIdx + 1)}
-              disabled={currentIdx === total - 1}
-              className="exa-btn exa-ghost"
+              onClick={() => {
+                if (currentIdx < total - 1) {
+                  goTo(currentIdx + 1);
+                } else if (isPsychometric) {
+                  setShowSubmitModal(true);
+                }
+              }}
+              disabled={!isPsychometric && currentIdx === total - 1}
+              className={isPsychometric && currentIdx === total - 1 ? "exa-btn exa-primary" : "exa-btn exa-ghost"}
               style={{
                 padding: '10px 18px', borderRadius: 3, fontSize: 12.5, fontWeight: 600,
-                ...(currentIdx === total - 1 ? { color: EX.faint, borderColor: EX.lineSoft } : null),
+                ...(!isPsychometric && currentIdx === total - 1 ? { color: EX.faint, borderColor: EX.lineSoft } : null),
               }}
             >
-              Next →
+              {isPsychometric ? (currentIdx < total - 1 ? 'Next →' : 'Submit') : 'Next →'}
             </button>
           </div>
 
           {errorMsg && <div style={{ color: EX.danger, fontSize: 13 }}>{errorMsg}</div>}
         </div>
 
-        {/* ── Question Palette ── */}
-        <div className="exa-palette" style={{
-          width: 284, flexShrink: 0, background: EX.paper, borderLeft: `1px solid ${EX.line}`,
-          overflowY: 'auto', padding: '20px 16px', display: 'flex', flexDirection: 'column', gap: 18,
-        }}>
-          <ExamPalette
-            totalAnswered={totalAnswered}
-            totalMarked={totalMarked}
-            statusCounts={statusCounts}
-            subjects={subjects}
-            bySubject={bySubject}
-            questions={questions}
-            answers={answers}
-            marked={marked}
-            visited={visited}
-            currentIdx={currentIdx}
-            goTo={goTo}
-          />
-        </div>
+        {/* ── Question Palette (hidden for psychometric sequential flow) ── */}
+        {!isPsychometric && (
+          <div className="exa-palette" style={{
+            width: 284, flexShrink: 0, background: EX.paper, borderLeft: `1px solid ${EX.line}`,
+            overflowY: 'auto', padding: '20px 16px', display: 'flex', flexDirection: 'column', gap: 18,
+          }}>
+            <ExamPalette
+              totalAnswered={totalAnswered}
+              totalMarked={totalMarked}
+              statusCounts={statusCounts}
+              subjects={subjects}
+              bySubject={bySubject}
+              questions={questions}
+              answers={answers}
+              marked={marked}
+              visited={visited}
+              currentIdx={currentIdx}
+              goTo={goTo}
+            />
+          </div>
+        )}
       </div>
 
       {/* ── Submit confirmation modal ── */}

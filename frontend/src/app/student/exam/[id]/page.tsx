@@ -278,6 +278,9 @@ export default function StudentExamCbtPage() {
   const currentAnswer = answers[String(activeQuestion.number)] || '';
   const isMarkedReview = reviewMarked.has(activeQuestion.number);
   const timerCritical = secondsRemaining < 300;
+  const isPsychometric =
+    session.examType === 'Psychometric' ||
+    session.questions.some((q) => q.subject === 'Psychometric');
 
   return (
     <div className="flex h-screen flex-col overflow-hidden bg-[#FBFCFE] font-dm text-[#003366]">
@@ -285,51 +288,53 @@ export default function StudentExamCbtPage() {
       <header className="z-10 flex flex-wrap items-center justify-between gap-4 border-b-[3px] border-[#5A2560] bg-[#003366] px-4 py-3 text-white sm:px-6">
         <div className="flex min-w-0 items-center gap-3">
           <span className="shrink-0 rounded-md bg-grad px-2 py-0.5 text-[11px] font-extrabold tracking-[0.04em] text-white">
-            {session.examType === 'Psychometric' || session.questions.some((q) => q.subject === 'Psychometric')
+            {isPsychometric
               ? 'Psychometric Assessment'
               : `${session.examType} CBT`}
           </span>
           <h1 className="truncate text-[15.5px] font-extrabold">{session.title}</h1>
         </div>
 
-        {/* Subject navigation tabs */}
-        <div className="flex flex-wrap items-center gap-1.5">
-          <button
-            type="button"
-            onClick={() => setSelectedSubject('All')}
-            aria-pressed={selectedSubject === 'All'}
-            className={cx(
-              SUBJECT_PILL,
-              selectedSubject === 'All'
-                ? 'border-white bg-white text-[#003366]'
-                : 'border-white/25 bg-white/10 text-white hover:bg-white/20',
-              FOCUS_RING,
-            )}
-          >
-            All subjects
-          </button>
-          {subjects.map((subj) => (
+        {/* Subject navigation tabs (hidden for psychometric sequential flow) */}
+        {!isPsychometric && (
+          <div className="flex flex-wrap items-center gap-1.5">
             <button
-              key={subj}
               type="button"
-              onClick={() => {
-                setSelectedSubject(subj);
-                const firstInSubject = session.questions.findIndex((q) => q.subject === subj);
-                if (firstInSubject !== -1) setCurrentIndex(firstInSubject);
-              }}
-              aria-pressed={selectedSubject === subj}
+              onClick={() => setSelectedSubject('All')}
+              aria-pressed={selectedSubject === 'All'}
               className={cx(
                 SUBJECT_PILL,
-                selectedSubject === subj
+                selectedSubject === 'All'
                   ? 'border-white bg-white text-[#003366]'
                   : 'border-white/25 bg-white/10 text-white hover:bg-white/20',
                 FOCUS_RING,
               )}
             >
-              {subj}
+              All subjects
             </button>
-          ))}
-        </div>
+            {subjects.map((subj) => (
+              <button
+                key={subj}
+                type="button"
+                onClick={() => {
+                  setSelectedSubject(subj);
+                  const firstInSubject = session.questions.findIndex((q) => q.subject === subj);
+                  if (firstInSubject !== -1) setCurrentIndex(firstInSubject);
+                }}
+                aria-pressed={selectedSubject === subj}
+                className={cx(
+                  SUBJECT_PILL,
+                  selectedSubject === subj
+                    ? 'border-white bg-white text-[#003366]'
+                    : 'border-white/25 bg-white/10 text-white hover:bg-white/20',
+                  FOCUS_RING,
+                )}
+              >
+                {subj}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Live timer & submit */}
         <div className="flex items-center gap-3">
@@ -365,7 +370,7 @@ export default function StudentExamCbtPage() {
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#003366]/10 pb-3">
             <div className="flex flex-wrap items-center gap-3">
               <h2 className="font-display text-[18px] font-extrabold text-[#003366]">
-                Question {activeQuestion.number} of {session.questions.length}
+                {isPsychometric ? 'Assessment Question' : `Question ${activeQuestion.number} of ${session.questions.length}`}
               </h2>
               <span className="rounded-md bg-ice px-2 py-0.5 text-[11.5px] font-bold text-[#31407F]">
                 {activeQuestion.subject} · {activeQuestion.topic}
@@ -474,22 +479,26 @@ export default function StudentExamCbtPage() {
           {/* Bottom actions bar */}
           <div className="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-[#003366]/10 pt-5">
             <div className="flex flex-wrap gap-2.5">
-              <button
-                type="button"
-                className={cx(
-                  BUTTON_SECONDARY,
-                  isMarkedReview && 'border-accent text-accent shadow-[0_4px_0_#E2C2F0]',
-                  FOCUS_RING,
-                )}
-                onClick={toggleMarkForReview}
-                aria-pressed={isMarkedReview}
-              >
-                {isMarkedReview ? 'Marked for review' : 'Mark for review'}
-              </button>
-              {currentAnswer && (
-                <button type="button" className={cx(BUTTON_SECONDARY, FOCUS_RING)} onClick={handleClearResponse}>
-                  Clear response
-                </button>
+              {!isPsychometric && (
+                <>
+                  <button
+                    type="button"
+                    className={cx(
+                      BUTTON_SECONDARY,
+                      isMarkedReview && 'border-accent text-accent shadow-[0_4px_0_#E2C2F0]',
+                      FOCUS_RING,
+                    )}
+                    onClick={toggleMarkForReview}
+                    aria-pressed={isMarkedReview}
+                  >
+                    {isMarkedReview ? 'Marked for review' : 'Mark for review'}
+                  </button>
+                  {currentAnswer && (
+                    <button type="button" className={cx(BUTTON_SECONDARY, FOCUS_RING)} onClick={handleClearResponse}>
+                      Clear response
+                    </button>
+                  )}
+                </>
               )}
             </div>
 
@@ -513,74 +522,76 @@ export default function StudentExamCbtPage() {
                   }
                 }}
               >
-                {currentIndex < session.questions.length - 1 ? 'Save and next' : 'Review and submit'}
+                {currentIndex < session.questions.length - 1 ? (isPsychometric ? 'Next' : 'Save and next') : (isPsychometric ? 'Submit assessment' : 'Review and submit')}
               </button>
             </div>
           </div>
         </main>
 
-        {/* Right: question palette */}
-        <aside className="hidden w-[320px] shrink-0 flex-col gap-5 overflow-y-auto border-l border-[#003366]/10 bg-white p-5 lg:flex">
-          <div>
-            <h3 className="mb-3 font-display text-[15px] font-extrabold text-[#003366]">Question palette</h3>
-            <ul className="grid gap-2 text-[12.5px] font-semibold text-[#31407F]">
-              <li className="flex items-center gap-2.5">
-                <span aria-hidden className="h-3.5 w-3.5 rounded-[4px] bg-[#15803D]" />
-                <strong className="tabular-nums">{answeredCount}</strong> answered
-              </li>
-              <li className="flex items-center gap-2.5">
-                <span aria-hidden className="h-3.5 w-3.5 rounded-[4px] bg-accent" />
-                <strong className="tabular-nums">{reviewCount}</strong> marked for review
-              </li>
-              <li className="flex items-center gap-2.5">
-                <span aria-hidden className="h-3.5 w-3.5 rounded-[4px] border border-[#003366]/20 bg-white" />
-                <strong className="tabular-nums">{unattemptedCount}</strong> not answered
-              </li>
-            </ul>
-          </div>
-
-          <div className="border-t border-[#003366]/10 pt-4">
-            <div className="grid grid-cols-5 gap-2">
-              {session.questions.map((q, idx) => {
-                const isCurrent = idx === currentIndex;
-                const isAnswered = !!answers[String(q.number)];
-                const isReview = reviewMarked.has(q.number);
-
-                return (
-                  <button
-                    key={q.number}
-                    type="button"
-                    aria-label={`Go to question ${q.number}`}
-                    aria-current={isCurrent ? 'true' : undefined}
-                    className={cx(
-                      'grid aspect-square cursor-pointer place-items-center rounded-[10px] border text-[12.5px] font-bold tabular-nums transition-colors duration-150 motion-reduce:transition-none',
-                      isAnswered
-                        ? 'border-[#15803D] bg-[#15803D] text-white'
-                        : isReview
-                          ? 'border-accent bg-accent text-white'
-                          : 'border-[#003366]/15 bg-white text-[#003366] hover:bg-ice',
-                      isCurrent && 'outline outline-[3px] outline-offset-1 outline-accent',
-                      FOCUS_RING,
-                    )}
-                    onClick={() => setCurrentIndex(idx)}
-                  >
-                    {q.number}
-                  </button>
-                );
-              })}
+        {/* Right: question palette (hidden for psychometric sequential flow) */}
+        {!isPsychometric && (
+          <aside className="hidden w-[320px] shrink-0 flex-col gap-5 overflow-y-auto border-l border-[#003366]/10 bg-white p-5 lg:flex">
+            <div>
+              <h3 className="mb-3 font-display text-[15px] font-extrabold text-[#003366]">Question palette</h3>
+              <ul className="grid gap-2 text-[12.5px] font-semibold text-[#31407F]">
+                <li className="flex items-center gap-2.5">
+                  <span aria-hidden className="h-3.5 w-3.5 rounded-[4px] bg-[#15803D]" />
+                  <strong className="tabular-nums">{answeredCount}</strong> answered
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <span aria-hidden className="h-3.5 w-3.5 rounded-[4px] bg-accent" />
+                  <strong className="tabular-nums">{reviewCount}</strong> marked for review
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <span aria-hidden className="h-3.5 w-3.5 rounded-[4px] border border-[#003366]/20 bg-white" />
+                  <strong className="tabular-nums">{unattemptedCount}</strong> not answered
+                </li>
+              </ul>
             </div>
-          </div>
 
-          <div className="mt-auto border-t border-[#003366]/10 pt-4">
-            <button
-              type="button"
-              className={cx(BUTTON_PRIMARY, 'w-full', FOCUS_RING)}
-              onClick={() => setConfirmModalOpen(true)}
-            >
-              Submit test
-            </button>
-          </div>
-        </aside>
+            <div className="border-t border-[#003366]/10 pt-4">
+              <div className="grid grid-cols-5 gap-2">
+                {session.questions.map((q, idx) => {
+                  const isCurrent = idx === currentIndex;
+                  const isAnswered = !!answers[String(q.number)];
+                  const isReview = reviewMarked.has(q.number);
+
+                  return (
+                    <button
+                      key={q.number}
+                      type="button"
+                      aria-label={`Go to question ${q.number}`}
+                      aria-current={isCurrent ? 'true' : undefined}
+                      className={cx(
+                        'grid aspect-square cursor-pointer place-items-center rounded-[10px] border text-[12.5px] font-bold tabular-nums transition-colors duration-150 motion-reduce:transition-none',
+                        isAnswered
+                          ? 'border-[#15803D] bg-[#15803D] text-white'
+                          : isReview
+                            ? 'border-accent bg-accent text-white'
+                            : 'border-[#003366]/15 bg-white text-[#003366] hover:bg-ice',
+                        isCurrent && 'outline outline-[3px] outline-offset-1 outline-accent',
+                        FOCUS_RING,
+                      )}
+                      onClick={() => setCurrentIndex(idx)}
+                    >
+                      {q.number}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="mt-auto border-t border-[#003366]/10 pt-4">
+              <button
+                type="button"
+                className={cx(BUTTON_PRIMARY, 'w-full', FOCUS_RING)}
+                onClick={() => setConfirmModalOpen(true)}
+              >
+                Submit test
+              </button>
+            </div>
+          </aside>
+        )}
       </div>
 
       {/* ── Submit confirmation modal ── */}

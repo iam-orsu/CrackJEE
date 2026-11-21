@@ -531,9 +531,6 @@ export default function PsychometricPage() {
     }
   }
 
-  const answeredCount = Object.keys(answers).length;
-  const isAllAnswered = currentQuestions.length > 0 && answeredCount >= currentQuestions.length;
-
   const schoolClassLabel = useMemo(() => {
     const map: Record<string, string> = {
       class_4: 'Class 4',
@@ -726,7 +723,7 @@ export default function PsychometricPage() {
             </span>
             <div className="mt-1 flex items-center gap-2">
               <span className="text-lg font-bold text-slate-900">
-                Question {activeQIdx + 1} <span className="text-sm font-normal text-slate-400">of {totalQ}</span>
+                Psychometric Assessment
               </span>
               {savingStatus && (
                 <span className="text-xs font-semibold text-emerald-600 transition-opacity">
@@ -764,31 +761,6 @@ export default function PsychometricPage() {
             className="h-full bg-blue-600 transition-all duration-300"
             style={{ width: `${progressPct}%` }}
           />
-        </div>
-
-        {/* Quick Question Navigation Palette */}
-        <div className="mt-4 flex flex-wrap items-center gap-1.5">
-          {currentQuestions.map((q, idx) => {
-            const isAnswered = Boolean(answers[q.id]);
-            const isCurrent = idx === activeQIdx;
-            return (
-              <button
-                key={q.id || idx}
-                type="button"
-                onClick={() => handleJumpToQuestion(idx)}
-                className={`flex h-7 w-7 items-center justify-center rounded-lg text-xs font-bold transition ${
-                  isCurrent
-                    ? 'bg-blue-600 text-white ring-2 ring-blue-400 ring-offset-1'
-                    : isAnswered
-                    ? 'border border-emerald-300 bg-emerald-100 text-emerald-800 hover:bg-emerald-200'
-                    : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
-                }`}
-                title={`Question ${idx + 1}: ${isAnswered ? 'Answered' : 'Not answered'}`}
-              >
-                {idx + 1}
-              </button>
-            );
-          })}
         </div>
 
         {/* Question Card */}
@@ -962,15 +934,6 @@ export default function PsychometricPage() {
             </button>
           ) : (
             <div className="flex items-center gap-3">
-              {isAllAnswered ? (
-                <span className="text-xs font-semibold text-emerald-600">
-                  All {totalQ} answered
-                </span>
-              ) : (
-                <span className="text-xs text-amber-700 font-medium">
-                  {answeredCount} of {totalQ} answered
-                </span>
-              )}
               <button
                 type="button"
                 disabled={loading}
