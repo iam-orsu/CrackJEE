@@ -1,3 +1,10 @@
+const os = require('os');
+const isProctorview = os.hostname() === 'proctorview';
+
+const backendPort = process.env.PORT ? Number(process.env.PORT) : (isProctorview ? 7001 : 3001);
+const frontendPort = process.env.FRONTEND_PORT ? Number(process.env.FRONTEND_PORT) : (isProctorview ? 7000 : 3000);
+const backendUrl = process.env.BACKEND_URL || `http://127.0.0.1:${backendPort}`;
+
 module.exports = {
   apps: [
     {
@@ -15,7 +22,7 @@ module.exports = {
       wait_ready: false,
       env: {
         NODE_ENV: 'production',
-        PORT: 7001,
+        PORT: backendPort,
         UV_THREADPOOL_SIZE: '16',
       },
     },
@@ -33,8 +40,8 @@ module.exports = {
       max_memory_restart: '1G',
       env: {
         NODE_ENV: 'production',
-        PORT: 7000,
-        BACKEND_URL: 'http://127.0.0.1:7001',
+        PORT: frontendPort,
+        BACKEND_URL: backendUrl,
       },
     },
   ],
