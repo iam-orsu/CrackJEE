@@ -1941,6 +1941,11 @@ Format output strictly as a JSON object:
       return null;
     }
 
+    const answeredItems = input.items.filter((item) => Boolean(input.answers[String(item.number)]?.trim()));
+    if (answeredItems.length === 0) {
+      return this.fallbackStudentEvaluation(input);
+    }
+
     const summaryList = input.items
       .map((item) => {
         const chosen = input.answers[String(item.number)]?.trim() || 'Skipped';
@@ -2071,6 +2076,35 @@ Format output strictly as a JSON object:
     const totalItems = input.items.length || 1;
     const answeredItems = input.items.filter((item) => Boolean(input.answers[String(item.number)]?.trim()));
     const attemptedCount = answeredItems.length;
+
+    if (attemptedCount === 0) {
+      const distinctDomains = Array.from(new Set(input.items.map((i) => i.topic || 'General Aptitude')));
+      return {
+        goal: input.goal,
+        alignmentScore: 0,
+        alignmentLevel: 'Unassessed',
+        archetype: 'Unassessed Profile',
+        predictedRole: 'Insufficient Responses to Evaluate',
+        roleReason: `${input.candidateName} skipped all questions in this assessment. Concrete responses are required to evaluate behavioral style and career fit.`,
+        summary: `No questions were answered by ${input.candidateName}. Psychometric assessment requires student responses to analyze decision-making patterns, situational judgment, and vocational fit.`,
+        domainBreakdown: distinctDomains.map((domain) => ({
+          domain,
+          traitLabel: 'Unassessed',
+          scorePct: 0,
+          analysis: 'No responses recorded for this domain.',
+        })),
+        keyStrengths: [
+          'No responses recorded to identify individual strengths.',
+          'Please complete the assessment questions to reveal behavioral strengths.'
+        ],
+        growthAreas: [
+          'Encourage the student to re-take and attempt the questions to receive meaningful career guidance.',
+          'Review whether the student faced technical or time hurdles during the test.'
+        ],
+        radicalFlags: [],
+      };
+    }
+
     const attemptRate = attemptedCount / totalItems;
 
     // Group items by domain

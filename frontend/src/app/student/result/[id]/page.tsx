@@ -303,6 +303,7 @@ export default function StudentExamResultPage() {
 
   if (isPsychometric) {
     const attemptedCount = scorecard.attemptedCount ?? ((solutions?.length || 0) - scorecard.unattemptedCount);
+    const hasZeroAttempts = attemptedCount === 0;
     const totalQuestions = solutions?.length || 0;
     const report = scorecard.psychometricReport;
     const isRefining = scorecard.aiStatus === 'pending' || scorecard.aiStatus === 'processing';
@@ -415,14 +416,17 @@ export default function StudentExamResultPage() {
                     <CompassIcon className="h-8 w-8 text-white" />
                   </div>
                   <div className="mt-3 text-[11px] font-extrabold uppercase tracking-wider text-[#803688]">
-                    Career Path
+                    {hasZeroAttempts ? 'Assessment Status' : 'Career Path'}
                   </div>
                   <div className={`${HEAD} mt-1 text-[16px] font-extrabold text-[#003366] max-w-[160px] leading-snug`}>
-                    {isRefining ? (
-                      <span className="inline-block animate-pulse text-[#803688]">Evaluating Mindset...</span>
-                    ) : (
-                      report?.predictedRole || report?.archetype || 'Mindset Profile'
-                    )}
+                    {hasZeroAttempts
+                      ? 'No Responses'
+                      : isRefining
+                        ? (
+                          <span className="inline-block animate-pulse text-[#803688]">Evaluating Mindset...</span>
+                        ) : (
+                          report?.predictedRole || report?.archetype || 'Mindset Profile'
+                        )}
                   </div>
                 </div>
 
@@ -462,17 +466,27 @@ export default function StudentExamResultPage() {
                   <div className="mt-5 grid grid-cols-3 gap-3 max-sm:grid-cols-1">
                     <div className="dz-pop rounded-2xl border border-[#003366]/10 bg-[rgba(238,242,255,.72)] px-4 py-3 backdrop-blur">
                       <div className="flex items-center justify-between gap-1">
-                        <p className="text-[12px] font-semibold text-[#7A87A0]">Predicted Best-Fit Role</p>
-                        {isRefining && (
+                        <p className="text-[12px] font-semibold text-[#7A87A0]">
+                          {hasZeroAttempts ? 'Evaluation Status' : 'Predicted Best-Fit Role'}
+                        </p>
+                        {isRefining && !hasZeroAttempts && (
                           <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[9.5px] font-bold text-amber-800 animate-pulse">
                             AI Evaluating...
                           </span>
                         )}
                       </div>
                       <p className={`${HEAD} mt-1 text-[17px] font-extrabold text-[#803688]`}>
-                        {isRefining ? 'AI Evaluating Mindset...' : (report?.predictedRole || report?.archetype || 'Evaluating Mindset')}
+                        {hasZeroAttempts
+                          ? 'Insufficient Responses'
+                          : isRefining
+                            ? 'AI Evaluating Mindset...'
+                            : (report?.predictedRole || report?.archetype || 'Evaluating Mindset')}
                       </p>
-                      {isRefining ? (
+                      {hasZeroAttempts ? (
+                        <p className="mt-1 text-[11.5px] font-medium leading-snug text-[#475569]">
+                          All questions were skipped. A behavioral profile and career path can only be evaluated after completing the assessment questions.
+                        </p>
+                      ) : isRefining ? (
                         <p className="mt-1 text-[11.5px] font-medium leading-snug text-[#475569] animate-pulse">
                           Analyzing candidate responses against the evaluation target...
                         </p>
@@ -526,26 +540,37 @@ export default function StudentExamResultPage() {
                   </span>
                   <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
                     <h2 className={`${h2c} text-[20px]`}>Mindset &amp; Behavioral Analysis</h2>
-                    {!isRefining && report?.predictedRole && (
+                    {!hasZeroAttempts && !isRefining && report?.predictedRole && (
                       <span className="rounded-full bg-[#803688] px-3 py-1 text-[12px] font-extrabold text-white">
                         {report.predictedRole}
                       </span>
                     )}
+                    {hasZeroAttempts && (
+                      <span className="rounded-full bg-slate-200 px-3 py-1 text-[12px] font-extrabold text-slate-700">
+                        Incomplete Assessment
+                      </span>
+                    )}
                   </div>
-                  {!isRefining && report?.roleReason && (
+                  {!hasZeroAttempts && !isRefining && report?.roleReason && (
                     <div className="mt-2.5 rounded-xl border border-[#803688]/20 bg-[#FDF8FF] p-3 text-[13px] font-medium leading-relaxed text-[#334155]">
                       <strong className="text-[#803688]">Why this role: </strong>{report.roleReason}
                     </div>
                   )}
                   <p className="mt-2 text-[13px] text-[#5A6B8C]">
-                    {isRefining
-                      ? 'AI is currently analyzing candidate situational choices. Live report will update automatically.'
-                      : 'Detailed evaluation of candidate responses calibrated directly to the evaluation target.'}
+                    {hasZeroAttempts
+                      ? 'Candidate skipped all questions during this assessment session.'
+                      : isRefining
+                        ? 'AI is currently analyzing candidate situational choices. Live report will update automatically.'
+                        : 'Detailed evaluation of candidate responses calibrated directly to the evaluation target.'}
                   </p>
                 </div>
 
                 <div className="flex-1 space-y-3.5 text-[14px] leading-relaxed text-[#1E2B45]">
-                  {isRefining ? (
+                  {hasZeroAttempts ? (
+                    <p className="rounded-2xl border border-[#003366]/10 bg-[#F7F9FF] p-4 text-[#1E2B45]">
+                      No questions were answered during this assessment session. Psychometric evaluation requires active candidate responses across situational and behavioral prompts to determine vocational orientation, decision patterns, and cognitive style.
+                    </p>
+                  ) : isRefining ? (
                     <div className="rounded-2xl border border-dashed border-[#803688]/30 bg-[#FDF8FF] p-6 text-center">
                       <div className="inline-block h-6 w-6 animate-spin rounded-full border-2 border-[#803688] border-t-transparent" />
                       <p className="mt-2 text-[14px] font-semibold text-[#803688]">
@@ -575,7 +600,12 @@ export default function StudentExamResultPage() {
                     <h3 className={`${HEAD} text-[16px] font-extrabold text-[#003366]`}>Demonstrated Strengths</h3>
                   </div>
                   <ul className="mt-3.5 space-y-2.5">
-                    {(report?.keyStrengths || [
+                    {hasZeroAttempts ? (
+                      <li className="flex items-start gap-2.5 text-[13px] leading-relaxed text-[#5A6B8C]">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
+                        <span>No responses were recorded. Attempt the assessment questions to evaluate your behavioral strengths.</span>
+                      </li>
+                    ) : (report?.keyStrengths || [
                       'Practical task ownership and initiative in overcoming project hurdles',
                       'Active listening and collaborative attitude during group interactions',
                       'Calculated decision discipline when facing unexpected setbacks'
@@ -594,7 +624,12 @@ export default function StudentExamResultPage() {
                     <h3 className={`${HEAD} text-[16px] font-extrabold text-[#003366]`}>Faculty Mentoring Guidance</h3>
                   </div>
                   <ul className="mt-3.5 space-y-2.5">
-                    {(report?.growthAreas || [
+                    {hasZeroAttempts ? (
+                      <li className="flex items-start gap-2.5 text-[13px] leading-relaxed text-[#1E2B45]">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#803688]" />
+                        <span>Encourage the candidate to retake the assessment with adequate time and complete the questions to receive meaningful career guidance.</span>
+                      </li>
+                    ) : (report?.growthAreas || [
                       'Provide safe spaces for autonomous design experiments with room for iterative trials',
                       'Encourage sharing original ideas with the entire group early in discussions'
                     ]).map((growth, idx) => (
