@@ -6,13 +6,23 @@ This document serves as an operational and architectural reference for AI assist
 
 ## 1. Environment & Infrastructure Topology
 
-### VPS Host (Application Server)
+### Production VPS Host (Proctorview Server)
 - Hostname: `proctorview`
 - IP Address: `137.59.52.114`
-- OS: Ubuntu 24.04.3 LTS (GNU/Linux 6.8.0-53-generic x86_64)
-- Path on Server: `/root/CrackJEE`
-- Current Direct Access URL: `http://137.59.52.114:7000`
+- User & Path: `root@proctorview:~/CrackJEE`
+- Git Remote Tracked: `gouseferoz/jeeneet.git` (`boss/main`)
+- Operating System: Ubuntu 24.04.3 LTS (GNU/Linux 6.8.0-53-generic x86_64)
+- Direct Access Preview: `http://137.59.52.114:7000`
 - Target Production Domain: `jeeneet.ai` and `www.jeeneet.ai`
+- Internal Ports: Frontend `7000`, Backend `7001` (to prevent collision with other applications running on this server)
+
+### Staging VPS Host (Staging Server)
+- Hostname: `ip-172-31-8-120`
+- IP Address: `3.106.213.95`
+- User & Path: `jee@ip-172-31-8-120:~/CrackJEE`
+- Git Remote Tracked: `iam-orsu/CrackJEE.git` (`origin/main`)
+- Operating System: Ubuntu
+- Internal Ports: Frontend `3000`, Backend `3001`
 
 ### Remote Database Server (MySQL)
 - Host: `167.104.222.218`
@@ -24,36 +34,47 @@ This document serves as an operational and architectural reference for AI assist
 
 ---
 
-## 2. Process Management (PM2)
+## 2. Process Management (PM2) & Dynamic Port Auto-Detection
 
-Both application layers run under PM2 using `/root/CrackJEE/ecosystem.config.cjs`:
+Both application layers run under PM2 using `/root/CrackJEE/ecosystem.config.cjs`.
 
-| App Name | Port | Directory | Mode | Script / Command |
-|---|---|---|---|---|
-| `jeeneet-backend` | 7001 | `./backend` | fork | `dist/server.js` |
-| `jeeneet-frontend` | 7000 | `./frontend` | fork | `npm run start` |
+To prevent port conflicts and ensure `git pull` never breaks either server:
+`ecosystem.config.cjs` automatically detects `os.hostname()`:
+- When running on `proctorview` (`137.59.52.114`): Automatically assigns Backend port `7001`, Frontend port `7000`, and `BACKEND_URL=http://127.0.0.1:7001`.
+- When running on `staging` (`3.106.213.95`) or local: Automatically assigns Backend port `3001`, Frontend port `3000`, and `BACKEND_URL=http://127.0.0.1:3001`.
+
+| App Name | Proctorview Port | Staging Port | Script / Command |
+|---|---|---|---|
+| `jeeneet-backend` | 7001 | 3001 | `dist/server.js` |
+| `jeeneet-frontend` | 7000 | 3000 | `npm run start` |
 
 ### Key Operational Commands
-- Restart/Reload: `cd /root/CrackJEE && pm2 reload ecosystem.config.cjs --update-env`
+- Restart/Reload: `pm2 reload ecosystem.config.cjs --update-env`
 - Save State: `pm2 save`
 - Health Checks:
-  - Backend: `curl -I http://127.0.0.1:7001/health`
-  - Frontend: `curl -I http://127.0.0.1:7000`
+  - Proctorview Backend: `curl -I http://127.0.0.1:7001/health`
+  - Proctorview Frontend: `curl -I http://127.0.0.1:7000`
+  - Staging Backend: `curl -I http://127.0.0.1:3001/health`
+  - Staging Frontend: `curl -I http://127.0.0.1:3000`
 
 ---
 
 ## 3. Reverse Proxy & Nginx Setup
 
-The server hosts multiple applications. Ports 7000 and 7001 are assigned specifically to JEENEET to avoid collisions with other running projects.
+### Staging Nginx (`3.106.213.95`)
+- Server Config File: `/etc/nginx/sites-available/jeeneet.conf`
+- Repository Template: `nginx/jeeneet.conf`
+- Reverse Proxies To:
+  - `jeeneet_frontend` -> `127.0.0.1:3000`
+  - `jeeneet_backend` -> `127.0.0.1:3001`
 
-- Config Location on Server: `/etc/nginx/sites-available/jeeneet.ai.conf`
-- Symlink: `/etc/nginx/sites-enabled/jeeneet.ai.conf`
-- Git Repo Template: `nginx/jeeneet.ai.conf`
-- Routing Map:
-  - `/api/` -> `http://127.0.0.1:7001`
-  - `/health` -> `http://127.0.0.1:7001/health`
-  - `/` -> `http://127.0.0.1:7000`
-- Next.js Internal Proxy: `frontend/next.config.ts` has built-in rewrites forwarding `/api/:path*` to `process.env.BACKEND_URL` (`http://127.0.0.1:7001`), ensuring that direct port access (`http://137.59.52.114:7000`) works seamlessly without Nginx dependency.
+### Proctorview Production Nginx (`137.59.52.114`)
+- Server Config File: `/etc/nginx/sites-available/jeeneet.ai.conf`
+- Repository Template: `nginx/jeeneet.ai.conf`
+- Reverse Proxies To:
+  - `jeeneet_frontend` -> `127.0.0.1:7000`
+  - `jeeneet_backend` -> `127.0.0.1:7001`
+- Next.js Internal Proxy: `frontend/next.config.ts` has built-in rewrites forwarding `/api/:path*` to `process.env.BACKEND_URL`, ensuring that direct port access works seamlessly without Nginx dependency.
 
 ---
 
