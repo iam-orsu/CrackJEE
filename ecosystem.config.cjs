@@ -15,7 +15,7 @@ module.exports = {
       wait_ready: false,
       env: {
         NODE_ENV: 'production',
-        PORT: 3001,
+        PORT: 7001,
         UV_THREADPOOL_SIZE: '16',
       },
     },
@@ -33,8 +33,8 @@ module.exports = {
       max_memory_restart: '1G',
       env: {
         NODE_ENV: 'production',
-        PORT: 3000,
-        BACKEND_URL: 'http://127.0.0.1:3001',
+        PORT: 7000,
+        BACKEND_URL: 'http://127.0.0.1:7001',
       },
     },
   ],
