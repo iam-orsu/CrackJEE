@@ -343,16 +343,23 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                             const psyReport = (st.resultBreakdown as Record<string, unknown> | null)?.psychometricReport as
                               | Record<string, unknown>
                               | undefined;
-                            const predictedRole =
-                              (st as { predictedRole?: string }).predictedRole ||
-                              (psyReport?.predictedRole as string) ||
-                              (psyReport?.archetype as string) ||
-                              'Evaluating Mindset';
-                            const roleReason =
-                              (st as { roleReason?: string }).roleReason ||
-                              (psyReport?.roleReason as string) ||
-                              null;
-                            const attemptedCount = Math.max(0, report.questionAnalytics.length - st.unattemptedCount);
+                            const totalQuestions = report.questionAnalytics.length;
+                            const attemptedCount = Math.max(0, totalQuestions - st.unattemptedCount);
+                            const completionRate = totalQuestions > 0 ? attemptedCount / totalQuestions : 0;
+                            const isInsufficient = isPsychometric && completionRate < 0.8;
+                            const predictedRole = isInsufficient
+                              ? 'Insufficient Responses'
+                              : ((st as { predictedRole?: string }).predictedRole ||
+                                 (psyReport?.predictedRole as string) ||
+                                 (psyReport?.archetype as string) ||
+                                 'Evaluating Mindset');
+                            const roleReason = isInsufficient
+                              ? (attemptedCount === 0
+                                  ? 'All questions skipped (<80% completion required).'
+                                  : `Only ${attemptedCount} of ${totalQuestions} answered (${Math.round(completionRate * 100)}%, <80% required).`)
+                              : ((st as { roleReason?: string }).roleReason ||
+                                 (psyReport?.roleReason as string) ||
+                                 null);
 
                             return (
                               <tr key={st.studentId} className="border-b border-[#003366]/10 transition-colors hover:bg-[#F8FAFF]">
@@ -994,14 +1001,21 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                   {isSubPsychometric && (
                     (() => {
                       const psy = activeSubmission.score.psychometricReport as { predictedRole?: string; roleReason?: string; archetype?: string } | undefined;
-                      const role = psy?.predictedRole || psy?.archetype;
-                      const reason = psy?.roleReason;
+                      const totalQ = activeSubmission.questions?.length || 1;
+                      const attempted = Math.max(0, totalQ - (activeSubmission.score.unattemptedCount ?? 0));
+                      const isSubInsufficient = totalQ > 0 && (attempted / totalQ) < 0.8;
+                      const role = isSubInsufficient ? 'Insufficient Responses to Evaluate' : (psy?.predictedRole || psy?.archetype);
+                      const reason = isSubInsufficient
+                        ? (attempted === 0
+                            ? 'All questions were skipped. At least 80% completion is required to evaluate behavioral traits.'
+                            : `Only ${attempted} of ${totalQ} questions (${Math.round((attempted / totalQ) * 100)}%) were answered. At least 80% completion is required to evaluate behavioral traits.`)
+                        : psy?.roleReason;
                       if (!role && !reason) return null;
                       return (
                         <div className="flex flex-col gap-1.5 rounded-2xl border border-[#803688]/20 bg-[#FDF8FF] p-4">
                           <div className="flex items-center gap-2">
                             <span className="text-[11.5px] font-bold uppercase tracking-wider text-[#803688]">Predicted Best-Fit Role:</span>
-                            <span className="rounded-full bg-[#803688] px-2.5 py-0.5 text-[11.5px] font-extrabold text-white">
+                            <span className={`rounded-full px-2.5 py-0.5 text-[11.5px] font-extrabold ${isSubInsufficient ? 'bg-slate-200 text-slate-800' : 'bg-[#803688] text-white'}`}>
                               {role}
                             </span>
                           </div>

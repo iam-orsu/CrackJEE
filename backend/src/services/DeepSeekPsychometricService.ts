@@ -55,7 +55,7 @@ export interface FacultyPsychometricItem {
 export interface PsychometricStudentEvaluation {
   goal: string;
   alignmentScore: number;
-  alignmentLevel: 'Exceptional Fit' | 'High Alignment' | 'Moderate Alignment' | 'Developing Fit';
+  alignmentLevel: 'Exceptional Fit' | 'High Alignment' | 'Moderate Alignment' | 'Developing Fit' | 'Unassessed';
   archetype: string;
   predictedRole: string;
   roleReason: string;
@@ -1941,8 +1941,10 @@ Format output strictly as a JSON object:
       return null;
     }
 
+    const totalItems = input.items.length || 1;
     const answeredItems = input.items.filter((item) => Boolean(input.answers[String(item.number)]?.trim()));
-    if (answeredItems.length === 0) {
+    const completionRate = answeredItems.length / totalItems;
+    if (completionRate < 0.8) {
       return this.fallbackStudentEvaluation(input);
     }
 
@@ -2077,35 +2079,40 @@ Format output strictly as a JSON object:
     const answeredItems = input.items.filter((item) => Boolean(input.answers[String(item.number)]?.trim()));
     const attemptedCount = answeredItems.length;
 
-    if (attemptedCount === 0) {
+    const attemptRate = attemptedCount / totalItems;
+
+    if (attemptRate < 0.8) {
       const distinctDomains = Array.from(new Set(input.items.map((i) => i.topic || 'General Aptitude')));
+      const pct = Math.round(attemptRate * 100);
       return {
         goal: input.goal,
         alignmentScore: 0,
         alignmentLevel: 'Unassessed',
-        archetype: 'Unassessed Profile',
+        archetype: 'Incomplete Assessment Profile',
         predictedRole: 'Insufficient Responses to Evaluate',
-        roleReason: `${input.candidateName} skipped all questions in this assessment. Concrete responses are required to evaluate behavioral style and career fit.`,
-        summary: `No questions were answered by ${input.candidateName}. Psychometric assessment requires student responses to analyze decision-making patterns, situational judgment, and vocational fit.`,
+        roleReason: attemptedCount === 0
+          ? `${input.candidateName} skipped all questions in this assessment. At least 80% of questions must be answered to evaluate behavioral style and career fit.`
+          : `${input.candidateName} answered only ${attemptedCount} of ${totalItems} questions (${pct}%). At least 80% completion is required to evaluate behavioral traits and career fit.`,
+        summary: attemptedCount === 0
+          ? `No questions were answered by ${input.candidateName}. Psychometric assessment requires student responses to analyze decision-making patterns, situational judgment, and vocational fit.`
+          : `Only ${attemptedCount} of ${totalItems} questions (${pct}%) were answered by ${input.candidateName}. Psychometric assessment requires at least 80% response completion to generate accurate vocational insights and behavioral profiles.`,
         domainBreakdown: distinctDomains.map((domain) => ({
           domain,
-          traitLabel: 'Unassessed',
+          traitLabel: 'Insufficient Data',
           scorePct: 0,
-          analysis: 'No responses recorded for this domain.',
+          analysis: 'Insufficient responses recorded for this domain (<80% completion).',
         })),
         keyStrengths: [
-          'No responses recorded to identify individual strengths.',
-          'Please complete the assessment questions to reveal behavioral strengths.'
+          `Only ${attemptedCount} of ${totalItems} questions answered. At least 80% completion is required to identify behavioral strengths.`,
+          'Please complete the assessment to reveal strengths and career recommendations.'
         ],
         growthAreas: [
-          'Encourage the student to re-take and attempt the questions to receive meaningful career guidance.',
-          'Review whether the student faced technical or time hurdles during the test.'
+          'Encourage the student to re-take the assessment and complete at least 80% of the questions.',
+          'Review whether the student faced technical, reading, or time hurdles during the test.'
         ],
         radicalFlags: [],
       };
     }
-
-    const attemptRate = attemptedCount / totalItems;
 
     // Group items by domain
     const domainMap = new Map<string, typeof input.items>();

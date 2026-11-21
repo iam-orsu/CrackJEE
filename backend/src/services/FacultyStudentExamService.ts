@@ -308,6 +308,7 @@ export class FacultyStudentExamService {
       const studentName = session.student?.name || 'Student';
       const attemptedCount = items.filter((item) => Boolean(answers[String(item.number)]?.trim())).length;
       const unattemptedCount = items.length - attemptedCount;
+      const completionRate = items.length > 0 ? attemptedCount / items.length : 0;
 
       // Generate instant baseline heuristic evaluation (< 2ms) as fallback
       let psychometricReport = deepSeekPsychometricService.generateInitialStudentEvaluation({
@@ -317,10 +318,10 @@ export class FacultyStudentExamService {
         answers,
         timeTakenSeconds,
       });
-      let aiStatus: 'pending' | 'completed' = 'pending';
+      let aiStatus: 'pending' | 'completed' = completionRate < 0.8 ? 'completed' : 'pending';
 
       // Attempt fast live AI evaluation with a 3.5s race timeout so student lands directly on completed results
-      if (deepSeekPsychometricService.isAvailable()) {
+      if (completionRate >= 0.8 && deepSeekPsychometricService.isAvailable()) {
         try {
           const aiPromise = deepSeekPsychometricService.callAiStudentEvaluation({
             goal: professorGoal,
@@ -573,7 +574,11 @@ export class FacultyStudentExamService {
       const rawBreakdown = (session.resultBreakdown as Record<string, unknown>) || {};
       let psychometricReport = (rawBreakdown.psychometricReport as any) || null;
 
-      if (!psychometricReport) {
+      const attemptedCount = items.filter((q) => Boolean(submittedAnswers[String(q.number)]?.trim())).length;
+      const unattemptedCount = items.length - attemptedCount;
+      const completionRate = items.length > 0 ? attemptedCount / items.length : 0;
+
+      if (!psychometricReport || (completionRate < 0.8 && psychometricReport.predictedRole !== 'Insufficient Responses to Evaluate')) {
         psychometricReport = deepSeekPsychometricService.generateInitialStudentEvaluation({
           goal: professorGoal,
           candidateName: session.student?.name || 'Student',
@@ -582,9 +587,6 @@ export class FacultyStudentExamService {
           timeTakenSeconds: session.timeTakenSeconds,
         });
       }
-
-      const attemptedCount = items.filter((q) => Boolean(submittedAnswers[String(q.number)]?.trim())).length;
-      const unattemptedCount = items.length - attemptedCount;
 
       const solutions = items.map((q) => {
         const studentAns = submittedAnswers[String(q.number)] || null;

@@ -148,6 +148,18 @@ export class FacultyAssignmentService {
     const rankList = submissions.map((s, idx) => {
       const breakdown = (s.resultBreakdown as Record<string, any>) || {};
       const psy = breakdown.psychometricReport || {};
+      const totalQuestions = assignment.paper.questionCount || 1;
+      const attempted = Math.max(0, totalQuestions - s.unattemptedCount);
+      const isInsufficient = isPsychometric && totalQuestions > 0 && (attempted / totalQuestions) < 0.8;
+      const predictedRole = isInsufficient
+        ? 'Insufficient Responses to Evaluate'
+        : (psy.predictedRole || psy.archetype || null);
+      const roleReason = isInsufficient
+        ? (attempted === 0
+            ? `${s.student.name} skipped all questions. At least 80% completion is required.`
+            : `${s.student.name} answered only ${attempted} of ${totalQuestions} questions (${Math.round((attempted / totalQuestions) * 100)}%). At least 80% completion is required.`)
+        : (psy.roleReason || null);
+
       return {
         rank: idx + 1,
         studentId: s.student.id,
@@ -161,9 +173,9 @@ export class FacultyAssignmentService {
         unattemptedCount: s.unattemptedCount,
         submittedAt: s.submittedAt?.toISOString() ?? null,
         resultBreakdown: s.resultBreakdown,
-        predictedRole: psy.predictedRole || psy.archetype || null,
-        roleReason: psy.roleReason || null,
-        aiStatus: (breakdown?.aiStatus as string) || (psy.predictedRole ? 'completed' : 'pending'),
+        predictedRole,
+        roleReason,
+        aiStatus: isInsufficient ? 'completed' : ((breakdown?.aiStatus as string) || (psy.predictedRole ? 'completed' : 'pending')),
       };
     });
 
@@ -737,9 +749,17 @@ export class FacultyAssignmentService {
       submissions.forEach((s, idx) => {
         const bd = (s.resultBreakdown as Record<string, any>) || {};
         const psy = bd.psychometricReport || {};
-        const predictedRole = psy.predictedRole || psy.archetype || 'Evaluating Mindset';
-        const roleReason = psy.roleReason || 'Demonstrated steady decision-making, systematic follow-through, and practical ownership of assigned tasks.';
-        const archetype = psy.archetype || 'Evaluating Mindset';
+        const attempted = Math.max(0, totalQuestionCount - s.unattemptedCount);
+        const isInsufficient = totalQuestionCount > 0 && (attempted / totalQuestionCount) < 0.8;
+        const predictedRole = isInsufficient
+          ? 'Insufficient Responses to Evaluate'
+          : (psy.predictedRole || psy.archetype || 'Evaluating Mindset');
+        const roleReason = isInsufficient
+          ? (attempted === 0
+              ? `${s.student.name} skipped all questions. At least 80% completion is required.`
+              : `${s.student.name} answered only ${attempted} of ${totalQuestionCount} questions (${Math.round((attempted / totalQuestionCount) * 100)}%). At least 80% completion is required.`)
+          : (psy.roleReason || 'Demonstrated steady decision-making, systematic follow-through, and practical ownership of assigned tasks.');
+        const archetype = isInsufficient ? 'Incomplete Assessment Profile' : (psy.archetype || 'Evaluating Mindset');
         const strengths = Array.isArray(psy.keyStrengths) && psy.keyStrengths.length > 0
           ? psy.keyStrengths.slice(0, 2).join('; ')
           : Array.isArray(psy.strengths) && psy.strengths.length > 0
@@ -754,7 +774,6 @@ export class FacultyAssignmentService {
           ? psy.domainBreakdown.map((d: any) => `${d.domain}: ${d.scorePct || d.score || 0}% (${d.traitLabel || d.status || ''})`).join('; ')
           : 'N/A';
         const timeMins = Math.round(s.timeTakenSeconds / 60);
-        const attempted = Math.max(0, totalQuestionCount - s.unattemptedCount);
 
         lines.push(
           [

@@ -302,11 +302,20 @@ export default function StudentExamResultPage() {
     (Boolean(solutions?.length) && solutions?.some((q) => q.subject === 'Psychometric'));
 
   if (isPsychometric) {
-    const attemptedCount = scorecard.attemptedCount ?? ((solutions?.length || 0) - scorecard.unattemptedCount);
-    const hasZeroAttempts = attemptedCount === 0;
-    const totalQuestions = solutions?.length || 0;
+    const totalQuestions = solutions?.length || (scorecard.attemptedCount ?? 0) + (scorecard.unattemptedCount ?? 0) || 1;
+    const attemptedCount = solutions
+      ? solutions.filter((q) => Boolean(q.studentAnswer?.trim())).length
+      : (scorecard.attemptedCount ?? 0);
+    const unattemptedQuestions = Math.max(0, totalQuestions - attemptedCount);
+    const completionRate = totalQuestions > 0 ? attemptedCount / totalQuestions : 0;
+    const hasInsufficientData = completionRate < 0.8;
+    const completionPct = Math.round(completionRate * 100);
     const report = scorecard.psychometricReport;
-    const isRefining = scorecard.aiStatus === 'pending' || scorecard.aiStatus === 'processing';
+    const isInsufficient =
+      hasInsufficientData ||
+      report?.predictedRole === 'Insufficient Responses to Evaluate' ||
+      report?.predictedRole === 'Unassessed';
+    const isRefining = !isInsufficient && (scorecard.aiStatus === 'pending' || scorecard.aiStatus === 'processing');
     const shouldShowGoal = Boolean(assignment.showGoalToStudents && (assignment.examGoal || report?.goal));
     const goalText = shouldShowGoal ? (assignment.examGoal || report?.goal) : null;
 
@@ -371,7 +380,7 @@ export default function StudentExamResultPage() {
                         {attemptedCount} <span className="text-[14px] font-normal text-[#5A6B8C]">/ {totalQuestions}</span>
                       </p>
                       <p className="mt-1 text-[11.5px] text-[#5A6B8C]">
-                        {scorecard.unattemptedCount} skipped · Trait-based behavioral assessment
+                        {unattemptedQuestions} skipped · {hasInsufficientData ? 'At least 80% required to evaluate' : 'Trait-based behavioral assessment'}
                       </p>
                     </div>
 
@@ -416,11 +425,11 @@ export default function StudentExamResultPage() {
                     <CompassIcon className="h-8 w-8 text-white" />
                   </div>
                   <div className="mt-3 text-[11px] font-extrabold uppercase tracking-wider text-[#803688]">
-                    {hasZeroAttempts ? 'Assessment Status' : 'Career Path'}
+                    {isInsufficient ? 'Assessment Status' : 'Career Path'}
                   </div>
-                  <div className={`${HEAD} mt-1 text-[16px] font-extrabold text-[#003366] max-w-[160px] leading-snug`}>
-                    {hasZeroAttempts
-                      ? 'No Responses'
+                  <div className={`${HEAD} mt-1 text-[15px] font-extrabold text-[#003366] max-w-[160px] leading-snug`}>
+                    {isInsufficient
+                      ? (attemptedCount === 0 ? 'No Responses' : 'Assessment Incomplete')
                       : isRefining
                         ? (
                           <span className="inline-block animate-pulse text-[#803688]">Evaluating Mindset...</span>
@@ -428,6 +437,11 @@ export default function StudentExamResultPage() {
                           report?.predictedRole || report?.archetype || 'Mindset Profile'
                         )}
                   </div>
+                  {isInsufficient && (
+                    <span className="mt-1.5 rounded-full bg-[#803688]/10 px-2 py-0.5 text-[10.5px] font-bold text-[#803688]">
+                      {attemptedCount} of {totalQuestions} Answered
+                    </span>
+                  )}
                 </div>
 
                 <div className="min-w-0">
@@ -467,24 +481,26 @@ export default function StudentExamResultPage() {
                     <div className="dz-pop rounded-2xl border border-[#003366]/10 bg-[rgba(238,242,255,.72)] px-4 py-3 backdrop-blur">
                       <div className="flex items-center justify-between gap-1">
                         <p className="text-[12px] font-semibold text-[#7A87A0]">
-                          {hasZeroAttempts ? 'Evaluation Status' : 'Predicted Best-Fit Role'}
+                          {isInsufficient ? 'Evaluation Status' : 'Predicted Best-Fit Role'}
                         </p>
-                        {isRefining && !hasZeroAttempts && (
+                        {isRefining && !isInsufficient && (
                           <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[9.5px] font-bold text-amber-800 animate-pulse">
                             AI Evaluating...
                           </span>
                         )}
                       </div>
                       <p className={`${HEAD} mt-1 text-[17px] font-extrabold text-[#803688]`}>
-                        {hasZeroAttempts
+                        {isInsufficient
                           ? 'Insufficient Responses'
                           : isRefining
                             ? 'AI Evaluating Mindset...'
                             : (report?.predictedRole || report?.archetype || 'Evaluating Mindset')}
                       </p>
-                      {hasZeroAttempts ? (
+                      {isInsufficient ? (
                         <p className="mt-1 text-[11.5px] font-medium leading-snug text-[#475569]">
-                          All questions were skipped. A behavioral profile and career path can only be evaluated after completing the assessment questions.
+                          {attemptedCount === 0
+                            ? 'All questions were skipped. At least 80% completion is required to evaluate behavioral traits and determine career fit.'
+                            : `Only ${attemptedCount} of ${totalQuestions} questions (${completionPct}%) were answered. At least 80% completion is required to evaluate behavioral traits and determine career fit.`}
                         </p>
                       ) : isRefining ? (
                         <p className="mt-1 text-[11.5px] font-medium leading-snug text-[#475569] animate-pulse">
@@ -507,7 +523,7 @@ export default function StudentExamResultPage() {
                         {attemptedCount} <span className="text-[14px] font-normal text-[#5A6B8C]">/ {totalQuestions}</span>
                       </p>
                       <p className="mt-1 text-[11.5px] text-[#5A6B8C]">
-                        {scorecard.unattemptedCount} skipped · Trait-based behavioral assessment
+                        {unattemptedQuestions} skipped · {hasInsufficientData ? 'At least 80% required to evaluate' : 'Trait-based behavioral assessment'}
                       </p>
                     </div>
 
@@ -540,25 +556,33 @@ export default function StudentExamResultPage() {
                   </span>
                   <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
                     <h2 className={`${h2c} text-[20px]`}>Mindset &amp; Behavioral Analysis</h2>
-                    {!hasZeroAttempts && !isRefining && report?.predictedRole && (
+                    {!isInsufficient && !isRefining && report?.predictedRole && (
                       <span className="rounded-full bg-[#803688] px-3 py-1 text-[12px] font-extrabold text-white">
                         {report.predictedRole}
                       </span>
                     )}
-                    {hasZeroAttempts && (
+                    {isInsufficient && (
                       <span className="rounded-full bg-slate-200 px-3 py-1 text-[12px] font-extrabold text-slate-700">
-                        Incomplete Assessment
+                        Incomplete Assessment ({completionPct}%)
                       </span>
                     )}
                   </div>
-                  {!hasZeroAttempts && !isRefining && report?.roleReason && (
+                  {!isInsufficient && !isRefining && report?.roleReason && (
                     <div className="mt-2.5 rounded-xl border border-[#803688]/20 bg-[#FDF8FF] p-3 text-[13px] font-medium leading-relaxed text-[#334155]">
                       <strong className="text-[#803688]">Why this role: </strong>{report.roleReason}
                     </div>
                   )}
+                  {isInsufficient && (
+                    <div className="mt-2.5 rounded-xl border border-amber-200 bg-amber-50/70 p-3 text-[13px] font-medium leading-relaxed text-amber-900">
+                      <strong className="text-amber-800">Assessment Incomplete: </strong>
+                      At least 80% of questions must be answered for valid psychometric analysis. Only {attemptedCount} of {totalQuestions} questions ({completionPct}%) were submitted.
+                    </div>
+                  )}
                   <p className="mt-2 text-[13px] text-[#5A6B8C]">
-                    {hasZeroAttempts
-                      ? 'Candidate skipped all questions during this assessment session.'
+                    {isInsufficient
+                      ? (attemptedCount === 0
+                          ? 'Candidate skipped all questions during this assessment session.'
+                          : `Candidate answered ${attemptedCount} of ${totalQuestions} questions (${completionPct}%).`)
                       : isRefining
                         ? 'AI is currently analyzing candidate situational choices. Live report will update automatically.'
                         : 'Detailed evaluation of candidate responses calibrated directly to the evaluation target.'}
@@ -566,9 +590,11 @@ export default function StudentExamResultPage() {
                 </div>
 
                 <div className="flex-1 space-y-3.5 text-[14px] leading-relaxed text-[#1E2B45]">
-                  {hasZeroAttempts ? (
+                  {isInsufficient ? (
                     <p className="rounded-2xl border border-[#003366]/10 bg-[#F7F9FF] p-4 text-[#1E2B45]">
-                      No questions were answered during this assessment session. Psychometric evaluation requires active candidate responses across situational and behavioral prompts to determine vocational orientation, decision patterns, and cognitive style.
+                      {attemptedCount === 0
+                        ? 'No questions were answered during this assessment session. Psychometric evaluation requires active candidate responses across situational and behavioral prompts to determine vocational orientation, decision patterns, and cognitive style.'
+                        : `Only ${attemptedCount} of ${totalQuestions} questions (${completionPct}%) were answered. Valid psychometric and vocational profiling requires at least 80% response completion to establish reliable behavioral traits and career alignment.`}
                     </p>
                   ) : isRefining ? (
                     <div className="rounded-2xl border border-dashed border-[#803688]/30 bg-[#FDF8FF] p-6 text-center">
@@ -600,11 +626,21 @@ export default function StudentExamResultPage() {
                     <h3 className={`${HEAD} text-[16px] font-extrabold text-[#003366]`}>Demonstrated Strengths</h3>
                   </div>
                   <ul className="mt-3.5 space-y-2.5">
-                    {hasZeroAttempts ? (
-                      <li className="flex items-start gap-2.5 text-[13px] leading-relaxed text-[#5A6B8C]">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
-                        <span>No responses were recorded. Attempt the assessment questions to evaluate your behavioral strengths.</span>
-                      </li>
+                    {isInsufficient ? (
+                      <>
+                        <li className="flex items-start gap-2.5 text-[13px] leading-relaxed text-[#5A6B8C]">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
+                          <span>
+                            {attemptedCount === 0
+                              ? 'No responses were recorded. Attempt at least 80% of assessment questions to evaluate your behavioral strengths.'
+                              : `Only ${attemptedCount} of ${totalQuestions} questions answered (${completionPct}%). At least 80% completion is required to evaluate behavioral strengths.`}
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2.5 text-[13px] leading-relaxed text-[#5A6B8C]">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
+                          <span>Please re-take the assessment and complete the questions to reveal career insights.</span>
+                        </li>
+                      </>
                     ) : (report?.keyStrengths || [
                       'Practical task ownership and initiative in overcoming project hurdles',
                       'Active listening and collaborative attitude during group interactions',
@@ -624,11 +660,17 @@ export default function StudentExamResultPage() {
                     <h3 className={`${HEAD} text-[16px] font-extrabold text-[#003366]`}>Faculty Mentoring Guidance</h3>
                   </div>
                   <ul className="mt-3.5 space-y-2.5">
-                    {hasZeroAttempts ? (
-                      <li className="flex items-start gap-2.5 text-[13px] leading-relaxed text-[#1E2B45]">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#803688]" />
-                        <span>Encourage the candidate to retake the assessment with adequate time and complete the questions to receive meaningful career guidance.</span>
-                      </li>
+                    {isInsufficient ? (
+                      <>
+                        <li className="flex items-start gap-2.5 text-[13px] leading-relaxed text-[#1E2B45]">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#803688]" />
+                          <span>Encourage the candidate to retake the assessment and complete at least 80% of questions to receive meaningful career guidance.</span>
+                        </li>
+                        <li className="flex items-start gap-2.5 text-[13px] leading-relaxed text-[#1E2B45]">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#803688]" />
+                          <span>Review whether the student faced technical, reading, or time hurdles during the test.</span>
+                        </li>
+                      </>
                     ) : (report?.growthAreas || [
                       'Provide safe spaces for autonomous design experiments with room for iterative trials',
                       'Encourage sharing original ideas with the entire group early in discussions'
@@ -691,7 +733,7 @@ export default function StudentExamResultPage() {
                     {[
                       { value: 'all', label: 'All Questions', count: totalQuestions },
                       { value: 'answered', label: 'Answered', count: attemptedCount },
-                      { value: 'skipped', label: 'Skipped', count: scorecard.unattemptedCount },
+                      { value: 'skipped', label: 'Skipped', count: unattemptedQuestions },
                     ].map((tab) => (
                       <button
                         key={tab.value}
