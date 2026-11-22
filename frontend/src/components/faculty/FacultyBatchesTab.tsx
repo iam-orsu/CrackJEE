@@ -207,6 +207,24 @@ function downloadSampleCsv() {
   URL.revokeObjectURL(url);
 }
 
+async function downloadSampleExcel() {
+  try {
+    const XLSX = await import('xlsx');
+    const rows = [
+      { name: 'Sumanth Varma', rollNumber: 'JEE-2026-001', email: 'sumanth@example.com', password: '', batchCode: 'COCDE' },
+      { name: 'Priya Sharma', rollNumber: 'JEE-2026-002', email: 'priya@example.com', password: 'Secret@123', batchCode: 'COCDE' },
+      { name: 'Rahul Reddy', rollNumber: 'JEE-2026-003', email: 'rahul@example.com', password: '', batchCode: 'COCDE' },
+    ];
+    const worksheet = XLSX.utils.json_to_sheet(rows);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Students');
+    XLSX.writeFile(workbook, 'students_bulk_template.xlsx');
+  } catch (err) {
+    console.error('Failed to generate Excel template:', err);
+    downloadSampleCsv();
+  }
+}
+
 export function FacultyBatchesTab() {
   const [batches, setBatches] = useState<FacultyBatch[]>([]);
   const [selectedBatchId, setSelectedBatchId] = useState<string>('all');
@@ -520,15 +538,65 @@ export function FacultyBatchesTab() {
     }
   }
 
-  function handleCsvFile(e: React.ChangeEvent<HTMLInputElement>) {
+  async function handleCsvFile(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
     setCsvFileName(file.name);
     setBulkResult(null);
     setCsvErrors([]);
+
+    const fileNameLower = file.name.toLowerCase();
+    const isExcelExtension = fileNameLower.endsWith('.xlsx') || fileNameLower.endsWith('.xls');
+
+    if (isExcelExtension) {
+      try {
+        const XLSX = await import('xlsx');
+        const buffer = await file.arrayBuffer();
+        const workbook = XLSX.read(buffer, { type: 'array' });
+        const firstSheetName = workbook.SheetNames[0];
+        if (!firstSheetName) {
+          setParsedStudents([]);
+          setCsvErrors(['The uploaded Excel workbook contains no sheets.']);
+          return;
+        }
+        const worksheet = workbook.Sheets[firstSheetName];
+        const csvText = XLSX.utils.sheet_to_csv(worksheet);
+        const { valid, errors } = parseStudentCsv(csvText);
+        setParsedStudents(valid);
+        setCsvErrors(errors);
+      } catch (err) {
+        setParsedStudents([]);
+        setCsvErrors(['Failed to read Excel file: ' + (err instanceof Error ? err.message : String(err))]);
+      }
+      return;
+    }
+
     const reader = new FileReader();
-    reader.onload = (event) => {
+    reader.onload = async (event) => {
       const text = String(event.target?.result || '');
+      if (
+        text.startsWith('PK\x03\x04') ||
+        text.includes('[Content_Types].xml') ||
+        (text.charCodeAt(0) === 0x50 && text.charCodeAt(1) === 0x4B)
+      ) {
+        try {
+          const XLSX = await import('xlsx');
+          const buffer = await file.arrayBuffer();
+          const workbook = XLSX.read(buffer, { type: 'array' });
+          const firstSheetName = workbook.SheetNames[0];
+          if (firstSheetName) {
+            const worksheet = workbook.Sheets[firstSheetName];
+            const csvText = XLSX.utils.sheet_to_csv(worksheet);
+            const { valid, errors } = parseStudentCsv(csvText);
+            setParsedStudents(valid);
+            setCsvErrors(errors);
+            return;
+          }
+        } catch {
+          // Fallback to text parsing errors if zip parsing fails
+        }
+      }
+
       const { valid, errors } = parseStudentCsv(text);
       setParsedStudents(valid);
       setCsvErrors(errors);
@@ -1138,28 +1206,38 @@ export function FacultyBatchesTab() {
                   </span>
                 </div>
 
-                {/* CSV Template Download Action */}
-                <div className="flex items-center justify-between rounded-xl border border-dashed border-[#003366]/25 bg-ice/40 p-3">
+                {/* Template Download Actions */}
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 rounded-xl border border-dashed border-[#003366]/25 bg-ice/40 p-3">
                   <div>
-                    <div className="text-[12.5px] font-bold text-[#003366]">Need the CSV format?</div>
+                    <div className="text-[12.5px] font-bold text-[#003366]">Need the template format?</div>
                     <div className="text-[11.5px] text-[#5A6B8C]">Columns: name, rollNumber, email, password, batchCode</div>
                   </div>
-                  <button
-                    type="button"
-                    onClick={downloadSampleCsv}
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-[#003366] bg-white px-2.5 py-1 text-[11.5px] font-extrabold text-[#003366] shadow-sm hover:bg-ice"
-                  >
-                    <Download className="h-[13px] w-[13px] shrink-0" aria-hidden />
-                    Download CSV Template
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={downloadSampleExcel}
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-[#15803D] bg-white px-2.5 py-1 text-[11.5px] font-extrabold text-[#15803D] shadow-sm hover:bg-[#F0FDF4]"
+                    >
+                      <Download className="h-[13px] w-[13px] shrink-0" aria-hidden />
+                      Excel Template (.xlsx)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={downloadSampleCsv}
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-[#003366] bg-white px-2.5 py-1 text-[11.5px] font-extrabold text-[#003366] shadow-sm hover:bg-ice"
+                    >
+                      <Download className="h-[13px] w-[13px] shrink-0" aria-hidden />
+                      CSV Template
+                    </button>
+                  </div>
                 </div>
 
                 {/* File Upload Box */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[12.5px] font-extrabold text-[#003366]">Upload CSV File</label>
+                  <label className="text-[12.5px] font-extrabold text-[#003366]">Upload Excel (.xlsx, .xls) or CSV File</label>
                   <input
                     type="file"
-                    accept=".csv,text/csv"
+                    accept=".csv, .xlsx, .xls, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, text/csv"
                     onChange={handleCsvFile}
                     className="block w-full text-[13px] text-[#5A6B8C] file:mr-3 file:cursor-pointer file:rounded-xl file:border-0 file:bg-[#003366] file:px-3 file:py-2 file:text-[12px] file:font-bold file:text-white hover:file:bg-[#002244]"
                   />
@@ -1174,15 +1252,15 @@ export function FacultyBatchesTab() {
                         <div className="rounded-xl border border-[#C8202F]/25 bg-[#FDF3F4] p-3 text-[12px] text-[#C8202F]">
                           <div className="font-extrabold">No valid student records found in {csvFileName}</div>
                           <div className="mt-0.5 text-[11.5px] text-[#991B1B]">
-                            Please check the missing fields below and update your CSV file:
+                            Please check the issues below and update your file:
                           </div>
                         </div>
                       )}
 
-                      {/* Explicit Error Messages explaining what is missing in CSV */}
+                      {/* Explicit Error Messages explaining what is missing */}
                       {csvErrors.length > 0 && (
                         <div className="rounded-xl border border-[#C8202F]/20 bg-[#FFF7F7] p-3 text-[12px] text-[#991B1B]">
-                          <div className="font-bold text-[#C8202F]">Missing Data / Issues in CSV ({csvErrors.length}):</div>
+                          <div className="font-bold text-[#C8202F]">Missing Data / Issues in File ({csvErrors.length}):</div>
                           <ul className="mt-1.5 max-h-[140px] list-disc overflow-y-auto pl-4 space-y-1 text-[11.5px]">
                             {csvErrors.map((err, idx) => (
                               <li key={idx}>{err}</li>
