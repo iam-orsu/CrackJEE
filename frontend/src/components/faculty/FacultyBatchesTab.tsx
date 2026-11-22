@@ -78,42 +78,92 @@ function cleanCsvValue(val?: string | null): string {
   return str.replace(/^["']|["']$/g, '').trim();
 }
 
-function parseStudentCsv(text: string): Array<{ name: string; rollNumber: string; email?: string; password?: string; batchCode?: string }> {
-  const lines = text.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
-  if (lines.length < 2) return [];
+interface ParsedStudentRow {
+  name: string;
+  rollNumber: string;
+  email?: string;
+  password?: string;
+  batchCode?: string;
+}
 
-  const header = parseCsvLine(lines[0]!).map((h) => cleanCsvValue(h).toLowerCase());
+interface CsvParseResult {
+  valid: ParsedStudentRow[];
+  errors: string[];
+}
+
+function parseStudentCsv(text: string): CsvParseResult {
+  const lines = text.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+  const errors: string[] = [];
+
+  if (lines.length === 0) {
+    return {
+      valid: [],
+      errors: ['The uploaded CSV file is empty. Please add student rows or download the template below.'],
+    };
+  }
+  if (lines.length < 2) {
+    return {
+      valid: [],
+      errors: ['CSV contains only a header line with no student rows. Please add student records under the header.'],
+    };
+  }
+
+  const rawHeader = parseCsvLine(lines[0]!);
+  const header = rawHeader.map((h) => cleanCsvValue(h).toLowerCase());
   const nameIdx = header.findIndex((h) => h.includes('name'));
   const rollIdx = header.findIndex((h) => h.includes('roll') || h.includes('id') || h.includes('user'));
   const emailIdx = header.findIndex((h) => h.includes('email') || h.includes('mail'));
   const passIdx = header.findIndex((h) => h.includes('pass'));
   const batchIdx = header.findIndex((h) => h.includes('batch'));
 
-  const results: Array<{ name: string; rollNumber: string; email?: string; password?: string; batchCode?: string }> = [];
+  if (nameIdx === -1) {
+    errors.push('Missing required column: "name" header was not found in your CSV. (Expected columns: name, rollNumber, email, password, batchCode)');
+  }
+  if (rollIdx === -1) {
+    errors.push('Missing required column: "rollNumber" (or "roll" / "id") header was not found in your CSV.');
+  }
+
+  if (nameIdx === -1 || rollIdx === -1) {
+    return { valid: [], errors };
+  }
+
+  const valid: ParsedStudentRow[] = [];
 
   for (let i = 1; i < lines.length; i++) {
     const rawLine = lines[i]!;
     const cells = parseCsvLine(rawLine);
     if (cells.length === 0 || (cells.length === 1 && !cells[0])) continue;
 
+    const rowNum = i + 1;
     const name = cleanCsvValue(nameIdx !== -1 ? cells[nameIdx] : cells[0]);
     const rollNumber = cleanCsvValue(rollIdx !== -1 ? cells[rollIdx] : cells[1]);
     const email = cleanCsvValue(emailIdx !== -1 ? cells[emailIdx] : cells[2]);
     const password = cleanCsvValue(passIdx !== -1 ? cells[passIdx] : cells[3]);
     const batchCode = cleanCsvValue(batchIdx !== -1 ? cells[batchIdx] : cells[4]);
 
-    if (name && rollNumber) {
-      results.push({
-        name,
-        rollNumber,
-        email: email || undefined,
-        password: password || undefined,
-        batchCode: batchCode || undefined,
-      });
+    if (!name && !rollNumber) {
+      errors.push(`Row ${rowNum}: Both student Name and Roll Number are missing.`);
+      continue;
     }
+    if (!name) {
+      errors.push(`Row ${rowNum}: Missing student Name for roll number "${rollNumber}". Please add the student's name.`);
+      continue;
+    }
+    if (!rollNumber) {
+      errors.push(`Row ${rowNum}: Missing Roll Number for student "${name}". Please add a roll number.`);
+      continue;
+    }
+
+    valid.push({
+      name,
+      rollNumber,
+      email: email || undefined,
+      password: password || undefined,
+      batchCode: batchCode || undefined,
+    });
   }
 
-  return results;
+  return { valid, errors };
 }
 
 function downloadSampleCsv() {
@@ -163,6 +213,7 @@ export function FacultyBatchesTab() {
   const [parsedStudents, setParsedStudents] = useState<
     Array<{ name: string; rollNumber: string; email?: string; password?: string; batchCode?: string }>
   >([]);
+  const [csvErrors, setCsvErrors] = useState<string[]>([]);
   const [bulkResult, setBulkResult] = useState<{
     total: number;
     createdCount: number;
@@ -450,11 +501,13 @@ export function FacultyBatchesTab() {
     if (!file) return;
     setCsvFileName(file.name);
     setBulkResult(null);
+    setCsvErrors([]);
     const reader = new FileReader();
     reader.onload = (event) => {
       const text = String(event.target?.result || '');
-      const parsed = parseStudentCsv(text);
-      setParsedStudents(parsed);
+      const { valid, errors } = parseStudentCsv(text);
+      setParsedStudents(valid);
+      setCsvErrors(errors);
     };
     reader.readAsText(file);
   }
@@ -1087,10 +1140,36 @@ export function FacultyBatchesTab() {
                     className="block w-full text-[13px] text-[#5A6B8C] file:mr-3 file:cursor-pointer file:rounded-xl file:border-0 file:bg-[#003366] file:px-3 file:py-2 file:text-[12px] file:font-bold file:text-white hover:file:bg-[#002244]"
                   />
                   {csvFileName && (
-                    <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-accent">
-                      <Check className="h-[13px] w-[13px] shrink-0" aria-hidden />
-                      Selected: {csvFileName} ({parsedStudents.length} valid students detected)
-                    </span>
+                    <div className="mt-1 flex flex-col gap-2">
+                      {parsedStudents.length > 0 ? (
+                        <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#15803D]">
+                          <Check className="h-[13px] w-[13px] shrink-0" aria-hidden />
+                          Selected: {csvFileName} ({parsedStudents.length} valid student{parsedStudents.length === 1 ? '' : 's'} detected)
+                        </span>
+                      ) : (
+                        <div className="rounded-xl border border-[#C8202F]/25 bg-[#FDF3F4] p-3 text-[12px] text-[#C8202F]">
+                          <div className="font-extrabold">No valid student records found in {csvFileName}</div>
+                          <div className="mt-0.5 text-[11.5px] text-[#991B1B]">
+                            Please check the missing fields below and update your CSV file:
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Explicit Error Messages explaining what is missing in CSV */}
+                      {csvErrors.length > 0 && (
+                        <div className="rounded-xl border border-[#C8202F]/20 bg-[#FFF7F7] p-3 text-[12px] text-[#991B1B]">
+                          <div className="font-bold text-[#C8202F]">Missing Data / Issues in CSV ({csvErrors.length}):</div>
+                          <ul className="mt-1.5 max-h-[140px] list-disc overflow-y-auto pl-4 space-y-1 text-[11.5px]">
+                            {csvErrors.map((err, idx) => (
+                              <li key={idx}>{err}</li>
+                            ))}
+                          </ul>
+                          <div className="mt-2 rounded-lg border border-[#003366]/10 bg-white p-2 text-[11px] text-[#003366]">
+                            <strong>Required format:</strong> Columns <code>name</code> and <code>rollNumber</code> are mandatory. <code>batchCode</code> is optional (if left blank, students will automatically be assigned to the Default Batch selected above).
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   )}
                 </div>
 
@@ -1156,6 +1235,7 @@ export function FacultyBatchesTab() {
                       setStudentModalOpen(false);
                       setBulkResult(null);
                       setParsedStudents([]);
+                      setCsvErrors([]);
                       setCsvFileName('');
                     }}
                     disabled={studentSubmitting}
@@ -1169,6 +1249,7 @@ export function FacultyBatchesTab() {
                       onClick={() => {
                         setBulkResult(null);
                         setParsedStudents([]);
+                        setCsvErrors([]);
                         setCsvFileName('');
                       }}
                     >
