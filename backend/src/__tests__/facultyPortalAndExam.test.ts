@@ -1,4 +1,4 @@
-import test, { describe } from 'node:test';
+import test, { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
@@ -174,7 +174,7 @@ describe('Faculty Batch & Student Management', () => {
     assert.ok(await bcrypt.compare('ROLL-1', student.passwordHash));
   });
 
-  it('resets passwords for all students in a single batch simultaneously', async () => {
+  test('resets passwords for all students in a single batch simultaneously', async () => {
     let batchUpdatedHash = '';
     const mockBatchRepo: any = {
       findById: async (id: string, facultyId: string) => {

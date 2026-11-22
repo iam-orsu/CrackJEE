@@ -40,11 +40,36 @@ const BTN_GHOST_SM =
 const SELECT_SM =
   'h-9 cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-2.5 text-[12px] font-semibold text-[#003366] shadow-[0_3px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_4px_0_#E3C9E6] motion-reduce:transition-none';
 
+function parseCsvLine(line: string): string[] {
+  const result: string[] = [];
+  let current = '';
+  let inQuotes = false;
+
+  for (let i = 0; i < line.length; i++) {
+    const char = line[i];
+    if (char === '"') {
+      if (inQuotes && line[i + 1] === '"') {
+        current += '"';
+        i++;
+      } else {
+        inQuotes = !inQuotes;
+      }
+    } else if (char === ',' && !inQuotes) {
+      result.push(current.trim());
+      current = '';
+    } else {
+      current += char;
+    }
+  }
+  result.push(current.trim());
+  return result;
+}
+
 function parseStudentCsv(text: string): Array<{ name: string; rollNumber: string; email?: string; password?: string; batchCode?: string }> {
   const lines = text.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
   if (lines.length < 2) return [];
 
-  const header = lines[0]!.toLowerCase().split(',').map((h) => h.trim().replace(/^["']|["']$/g, ''));
+  const header = parseCsvLine(lines[0]!).map((h) => h.toLowerCase().replace(/^["']|["']$/g, ''));
   const nameIdx = header.findIndex((h) => h.includes('name'));
   const rollIdx = header.findIndex((h) => h.includes('roll') || h.includes('id') || h.includes('user'));
   const emailIdx = header.findIndex((h) => h.includes('email') || h.includes('mail'));
@@ -55,10 +80,8 @@ function parseStudentCsv(text: string): Array<{ name: string; rollNumber: string
 
   for (let i = 1; i < lines.length; i++) {
     const rawLine = lines[i]!;
-    const cells = (rawLine.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || rawLine.split(',')).map((c) =>
-      c.trim().replace(/^["']|["']$/g, ''),
-    );
-    if (cells.length === 0) continue;
+    const cells = parseCsvLine(rawLine);
+    if (cells.length === 0 || (cells.length === 1 && !cells[0])) continue;
 
     const name = nameIdx !== -1 ? cells[nameIdx] : cells[0];
     const rollNumber = rollIdx !== -1 ? cells[rollIdx] : cells[1];
@@ -1126,13 +1149,27 @@ export function FacultyBatchesTab() {
                   >
                     Close
                   </button>
-                  <button
-                    type="submit"
-                    className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
-                    disabled={studentSubmitting || parsedStudents.length === 0}
-                  >
-                    {studentSubmitting ? 'Importing...' : `Import ${parsedStudents.length} Students`}
-                  </button>
+                  {bulkResult ? (
+                    <button
+                      type="button"
+                      className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                      onClick={() => {
+                        setBulkResult(null);
+                        setParsedStudents([]);
+                        setCsvFileName('');
+                      }}
+                    >
+                      Import New Students
+                    </button>
+                  ) : (
+                    <button
+                      type="submit"
+                      className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                      disabled={studentSubmitting || parsedStudents.length === 0}
+                    >
+                      {studentSubmitting ? 'Importing...' : `Import ${parsedStudents.length} Students`}
+                    </button>
+                  )}
                 </div>
               </form>
             )}
