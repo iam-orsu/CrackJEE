@@ -65,11 +65,24 @@ function parseCsvLine(line: string): string[] {
   return result;
 }
 
+function cleanCsvValue(val?: string | null): string {
+  if (!val) return '';
+  let str = val.trim();
+  const hyperlinkMatch = str.match(/^=HYPERLINK\s*\(\s*["']([^"']+)["']\s*(?:,\s*["']([^"']+)["'])?\s*\)/i);
+  if (hyperlinkMatch) {
+    str = (hyperlinkMatch[2] || hyperlinkMatch[1] || '').trim();
+  }
+  if (/^mailto:/i.test(str)) {
+    str = str.replace(/^mailto:/i, '').trim();
+  }
+  return str.replace(/^["']|["']$/g, '').trim();
+}
+
 function parseStudentCsv(text: string): Array<{ name: string; rollNumber: string; email?: string; password?: string; batchCode?: string }> {
   const lines = text.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
   if (lines.length < 2) return [];
 
-  const header = parseCsvLine(lines[0]!).map((h) => h.toLowerCase().replace(/^["']|["']$/g, ''));
+  const header = parseCsvLine(lines[0]!).map((h) => cleanCsvValue(h).toLowerCase());
   const nameIdx = header.findIndex((h) => h.includes('name'));
   const rollIdx = header.findIndex((h) => h.includes('roll') || h.includes('id') || h.includes('user'));
   const emailIdx = header.findIndex((h) => h.includes('email') || h.includes('mail'));
@@ -83,11 +96,11 @@ function parseStudentCsv(text: string): Array<{ name: string; rollNumber: string
     const cells = parseCsvLine(rawLine);
     if (cells.length === 0 || (cells.length === 1 && !cells[0])) continue;
 
-    const name = nameIdx !== -1 ? cells[nameIdx] : cells[0];
-    const rollNumber = rollIdx !== -1 ? cells[rollIdx] : cells[1];
-    const email = emailIdx !== -1 ? cells[emailIdx] : cells[2];
-    const password = passIdx !== -1 ? cells[passIdx] : cells[3];
-    const batchCode = batchIdx !== -1 ? cells[batchIdx] : cells[4];
+    const name = cleanCsvValue(nameIdx !== -1 ? cells[nameIdx] : cells[0]);
+    const rollNumber = cleanCsvValue(rollIdx !== -1 ? cells[rollIdx] : cells[1]);
+    const email = cleanCsvValue(emailIdx !== -1 ? cells[emailIdx] : cells[2]);
+    const password = cleanCsvValue(passIdx !== -1 ? cells[passIdx] : cells[3]);
+    const batchCode = cleanCsvValue(batchIdx !== -1 ? cells[batchIdx] : cells[4]);
 
     if (name && rollNumber) {
       results.push({

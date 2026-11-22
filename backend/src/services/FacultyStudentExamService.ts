@@ -36,7 +36,16 @@ export class FacultyStudentExamService {
 
     let matchedStudent = null;
     for (const cand of candidates) {
-      const match = await bcrypt.compare(password, cand.passwordHash);
+      let match = await bcrypt.compare(password, cand.passwordHash);
+      if (!match && !password.toLowerCase().startsWith('mailto:')) {
+        // Fallback for legacy imports where Excel may have prepended mailto: to the password
+        match = await bcrypt.compare(`mailto:${password}`, cand.passwordHash);
+        if (match) {
+          // Transparently re-hash to the clean password so subsequent logins do not need fallback
+          const cleanHash = await bcrypt.hash(password, AUTH_CONSTANTS.BCRYPT_ROUNDS);
+          await this.studentRepo.updatePassword(cand.id, cand.facultyId, cleanHash);
+        }
+      }
       if (match) {
         matchedStudent = cand;
         break;

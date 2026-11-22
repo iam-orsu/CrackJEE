@@ -4,6 +4,19 @@ import { FacultyBatchRepository } from '../repositories/FacultyBatchRepository';
 import { FacultyStudentRepository } from '../repositories/FacultyStudentRepository';
 import { AppError } from '../utils/AppError';
 
+function cleanCsvField(val?: string | null): string {
+  if (!val) return '';
+  let str = val.trim();
+  const hyperlinkMatch = str.match(/^=HYPERLINK\s*\(\s*["']([^"']+)["']\s*(?:,\s*["']([^"']+)["'])?\s*\)/i);
+  if (hyperlinkMatch) {
+    str = (hyperlinkMatch[2] || hyperlinkMatch[1] || '').trim();
+  }
+  if (/^mailto:/i.test(str)) {
+    str = str.replace(/^mailto:/i, '').trim();
+  }
+  return str.replace(/^["']|["']$/g, '').trim();
+}
+
 export class FacultyBatchService {
   constructor(
     private readonly batchRepo: FacultyBatchRepository = new FacultyBatchRepository(),
@@ -76,22 +89,23 @@ export class FacultyBatchService {
       throw new AppError(404, 'Selected batch does not exist');
     }
 
-    const rollNumber = input.rollNumber.trim().toUpperCase();
+    const rollNumber = cleanCsvField(input.rollNumber).toUpperCase();
     const existingRoll = await this.studentRepo.findByRollNumber(facultyId, rollNumber);
     if (existingRoll) {
       throw new AppError(409, `Student with Roll Number "${rollNumber}" already exists in your institute.`);
     }
 
     // Default password to roll number if not provided
-    const plainPassword = input.password?.trim() || rollNumber;
+    const cleanPassword = cleanCsvField(input.password);
+    const plainPassword = cleanPassword || rollNumber;
     const passwordHash = await bcrypt.hash(plainPassword, AUTH_CONSTANTS.BCRYPT_ROUNDS);
 
     const student = await this.studentRepo.create({
       facultyId,
       batchId: input.batchId,
-      name: input.name,
+      name: cleanCsvField(input.name),
       rollNumber,
-      email: input.email,
+      email: cleanCsvField(input.email) || undefined,
       passwordHash,
     });
 
@@ -132,8 +146,12 @@ export class FacultyBatchService {
       const s = students[i]!;
       const rowNum = i + 1;
       try {
-        const rawName = s.name?.trim();
-        const rawRoll = s.rollNumber?.trim();
+        const rawName = cleanCsvField(s.name);
+        const rawRoll = cleanCsvField(s.rollNumber);
+        const rawBatchCode = cleanCsvField(s.batchCode);
+        const rawBatchName = cleanCsvField(s.batchName);
+        const rawEmail = cleanCsvField(s.email);
+        const rawPassword = cleanCsvField(s.password);
 
         if (!rawName || !rawRoll) {
           errors.push({ row: rowNum, rollNumber: rawRoll, name: rawName, error: 'Name and Roll Number are required' });
@@ -142,11 +160,11 @@ export class FacultyBatchService {
 
         // Determine target batch
         let targetBatchId = s.batchId;
-        if (!targetBatchId && s.batchCode) {
-          targetBatchId = batchMapByCode.get(s.batchCode.toUpperCase().trim());
+        if (!targetBatchId && rawBatchCode) {
+          targetBatchId = batchMapByCode.get(rawBatchCode.toUpperCase().trim());
         }
-        if (!targetBatchId && s.batchName) {
-          targetBatchId = batchMapByName.get(s.batchName.toLowerCase().trim());
+        if (!targetBatchId && rawBatchName) {
+          targetBatchId = batchMapByName.get(rawBatchName.toLowerCase().trim());
         }
         if (!targetBatchId) {
           targetBatchId = defaultBatchId;
@@ -157,7 +175,7 @@ export class FacultyBatchService {
             row: rowNum,
             rollNumber: rawRoll,
             name: rawName,
-            error: `Target batch "${s.batchCode || s.batchName || 'unspecified'}" not found`,
+            error: `Target batch "${rawBatchCode || rawBatchName || 'unspecified'}" not found`,
           });
           continue;
         }
@@ -174,7 +192,7 @@ export class FacultyBatchService {
           continue;
         }
 
-        const plainPassword = s.password?.trim() || rollNumber;
+        const plainPassword = rawPassword || rollNumber;
         const passwordHash = await bcrypt.hash(plainPassword, AUTH_CONSTANTS.BCRYPT_ROUNDS);
 
         const newStudent = await this.studentRepo.create({
@@ -182,7 +200,7 @@ export class FacultyBatchService {
           batchId: targetBatchId,
           name: rawName,
           rollNumber,
-          email: s.email?.trim() || undefined,
+          email: rawEmail || undefined,
           passwordHash,
         });
 

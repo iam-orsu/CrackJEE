@@ -218,6 +218,36 @@ describe('Faculty Batch & Student Management', () => {
     assert.equal(result.newPassword, 'ClassPass@2026');
     assert.ok(await bcrypt.compare('ClassPass@2026', batchUpdatedHash));
   });
+
+  test('bulk student creation automatically strips Excel mailto: prefix from passwords and emails', async () => {
+    let createdPasswordHash = '';
+    let createdEmail = '';
+    const mockBatchRepo: any = {
+      listByFaculty: async () => [{ id: 'batch-1', code: 'COCDE', name: 'Cohort' }],
+    };
+    const mockStudentRepo: any = {
+      findByRollNumber: async () => null,
+      create: async (data: any) => {
+        createdPasswordHash = data.passwordHash;
+        createdEmail = data.email;
+        return { id: 'stu-new', ...data };
+      },
+    };
+    const service = new FacultyBatchService(mockBatchRepo, mockStudentRepo);
+    const res = await service.bulkCreateStudents('fac-1', [
+      {
+        name: 'Vamsi Krishna',
+        rollNumber: 'ROLL-101',
+        email: 'mailto:vamsi@example.com',
+        password: 'mailto:vamsi@123',
+        batchCode: 'COCDE',
+      },
+    ]);
+
+    assert.equal(res.createdCount, 1);
+    assert.equal(createdEmail, 'vamsi@example.com');
+    assert.ok(await bcrypt.compare('vamsi@123', createdPasswordHash));
+  });
 });
 
 describe('Faculty Exam Assignment & Student Delivery Integrity', () => {
