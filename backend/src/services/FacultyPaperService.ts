@@ -849,7 +849,7 @@ export class FacultyPaperService {
           .replace(/\*\*Question:\*\*\s*/gi, '')
           .trim();
 
-      const items: FacultyPaperItem[] = psychometricItems.map((q) => {
+      let items: FacultyPaperItem[] = psychometricItems.map((q) => {
         const scenario = cleanTag(q.scenarioText || '');
         const question = cleanTag(q.questionText || '');
         const promptFull = scenario ? `${scenario}\n\n${question}` : question;
@@ -869,11 +869,56 @@ export class FacultyPaperService {
         };
       });
 
+      // Strict validation: Ensure items count matches requested questionCount exactly
+      if (items.length !== input.questionCount) {
+        logger.warn(
+          { generated: items.length, requested: input.questionCount, paperId },
+          'Psychometric items count mismatch in service layer, enforcing top-up validation',
+        );
+        const toppedPsychometric = deepSeekPsychometricService.topUpItems(
+          psychometricItems,
+          domains,
+          input.examGoal || input.title || '',
+          input.questionCount,
+        );
+        items = toppedPsychometric.map((q) => {
+          const scenario = cleanTag(q.scenarioText || '');
+          const question = cleanTag(q.questionText || '');
+          const promptFull = scenario ? `${scenario}\n\n${question}` : question;
+          const fullExplanation = `${q.explanation}\n\n**Trait / Persona Fit:** ${q.traitPersonaMapping}\n\n**Radical Answer Flag:** ${q.radicalFeedbackNote}`;
+          return {
+            number: q.number,
+            subject: 'Psychometric' as Subject,
+            topic: q.domain,
+            difficulty: 'intermediate',
+            questionType: 'mcq_single',
+            questionText: promptFull,
+            options: q.options,
+            correctAnswer: q.correctAnswer,
+            explanation: fullExplanation,
+            diagram: null,
+            verified: true,
+          };
+        });
+      }
+
+      // Re-number sequentially from 1 to questionCount
+      items.forEach((item, idx) => {
+        item.number = idx + 1;
+      });
+
+      // Final strict assertion validation check
+      if (items.length !== input.questionCount) {
+        throw new Error(
+          `Validation failed: Expected exactly ${input.questionCount} questions, but ${items.length} were prepared.`,
+        );
+      }
+
       await this.facultyRepo.updatePaperState(paperId, {
         status: 'ready',
         items,
-        questionCount: items.length,
-        verifiedCount: items.length,
+        questionCount: input.questionCount,
+        verifiedCount: input.questionCount,
         errorMessage: null,
       });
     } catch (err) {

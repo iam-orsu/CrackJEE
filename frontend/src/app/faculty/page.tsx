@@ -511,11 +511,19 @@ export default function FacultyPage() {
         ? selectedPsychometricDomains
         : PSYCHOMETRIC_DOMAINS;
 
-      const selections: FacultyPaperSelection[] = activeDomains.map((domain) => ({
+      const basePerDomain = Math.floor(activeCount / activeDomains.length);
+      const remainder = activeCount % activeDomains.length;
+      const selections: FacultyPaperSelection[] = activeDomains.map((domain, idx) => ({
         subject: 'Psychometric' as Subject,
         topic: domain,
-        mcqCount: Math.max(1, Math.floor(activeCount / activeDomains.length)),
+        mcqCount: basePerDomain + (idx < remainder ? 1 : 0),
       }));
+
+      // Validation check: ensure total selected items strictly equals activeCount
+      const totalSelected = selections.reduce((sum, s) => sum + (s.mcqCount || 0), 0);
+      if (totalSelected !== activeCount && selections.length > 0) {
+        selections[0].mcqCount = (selections[0].mcqCount || 0) + (activeCount - totalSelected);
+      }
 
       setCreating(true);
       setError('');

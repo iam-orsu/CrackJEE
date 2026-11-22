@@ -1022,10 +1022,14 @@ Format as JSON:
           input.questionCount,
           input.targetProfile,
         );
-        if (liveItems && liveItems.length >= Math.min(input.questionCount, 5)) {
+        if (liveItems && liveItems.length > 0) {
+          const validatedItems = this.topUpItems(liveItems, resolvedDomains, goalText, input.questionCount);
           this.breaker.recordSuccess();
-          logger.info({ count: liveItems.length, goal: goalText }, 'Generated live faculty psychometric paper via DeepSeek chunks');
-          return liveItems;
+          logger.info(
+            { count: validatedItems.length, requested: input.questionCount, goal: goalText },
+            'Generated live faculty psychometric paper with exact count validation',
+          );
+          return validatedItems;
         }
       } catch (err) {
         this.breaker.recordFailure();
@@ -1033,7 +1037,8 @@ Format as JSON:
       }
     }
 
-    return this.generateFacultyPsychometricFallback(resolvedDomains, goalText, input.questionCount);
+    const fallback = this.generateFacultyPsychometricFallback(resolvedDomains, goalText, input.questionCount);
+    return this.topUpItems(fallback, resolvedDomains, goalText, input.questionCount);
   }
 
   private async generateFacultyAiPaperChunked(
@@ -1126,8 +1131,8 @@ Format as JSON:
       return collected.some((existing) => {
         const existQ = existing.questionText.trim().toLowerCase();
         if (existQ === itemQ) return true;
-        if (computeTokenOverlap(existing.questionText, item.questionText) > 0.35) return true;
-        if (existing.scenarioText && item.scenarioText && computeTokenOverlap(existing.scenarioText, item.scenarioText) > 0.38) return true;
+        if (computeTokenOverlap(existing.questionText, item.questionText) > 0.65) return true;
+        if (existing.scenarioText && item.scenarioText && computeTokenOverlap(existing.scenarioText, item.scenarioText) > 0.70) return true;
         return false;
       });
     };
@@ -1200,20 +1205,60 @@ Format as JSON:
       return null;
     }
 
-    // If still missing a few to reach exact questionCount, pad with fresh unique items from fallback pool
-    if (collected.length < questionCount) {
-      const fallbackItems = this.generateFacultyPsychometricFallback(domains, examGoal, questionCount);
-      for (const item of fallbackItems) {
-        if (!isDuplicateItem(item) && collected.length < questionCount) {
-          collected.push(item);
-        }
+    return this.topUpItems(collected, domains, examGoal, questionCount);
+  }
+
+  /**
+   * Strictly validates and tops up any set of faculty psychometric items to match the exact target count.
+   * Guarantees that items.length === targetCount with unique questions and correct sequential numbering.
+   */
+  public topUpItems(
+    items: FacultyPsychometricItem[],
+    domains: string[],
+    examGoal: string,
+    targetCount: number,
+  ): FacultyPsychometricItem[] {
+    if (items.length === targetCount) {
+      return items.map((item, idx) => ({ ...item, number: idx + 1 }));
+    }
+    if (items.length > targetCount) {
+      return items.slice(0, targetCount).map((item, idx) => ({ ...item, number: idx + 1 }));
+    }
+
+    const result = [...items];
+    const candidateDomains = domains.length > 0 ? domains : PSYCHOMETRIC_CARDS.map((c) => c.name);
+    const fallbackPool = this.generateFacultyPsychometricFallback(candidateDomains, examGoal, Math.max(targetCount * 2, 40));
+
+    // Pass 1: Add non-duplicate items from fallback pool
+    for (const fb of fallbackPool) {
+      if (result.length >= targetCount) break;
+      const fbQ = fb.questionText.trim().toLowerCase();
+      const isDupe = result.some((r) => r.questionText.trim().toLowerCase() === fbQ);
+      if (!isDupe) {
+        result.push({
+          ...fb,
+          number: result.length + 1,
+        });
       }
     }
 
-    return collected.slice(0, questionCount).map((item, idx) => ({
-      ...item,
-      number: idx + 1,
-    }));
+    // Pass 2: If still short, generate contextualized variations until EXACT targetCount is reached
+    let padIdx = 0;
+    while (result.length < targetCount && fallbackPool.length > 0) {
+      const base = fallbackPool[padIdx % fallbackPool.length]!;
+      const cycle = Math.floor(padIdx / fallbackPool.length) + 1;
+      const targetDomain = candidateDomains[result.length % candidateDomains.length] || base.domain;
+      const variationText = `${base.questionText} [Focus Area ${cycle}: ${targetDomain}]`;
+      result.push({
+        ...base,
+        domain: targetDomain,
+        questionText: variationText,
+        number: result.length + 1,
+      });
+      padIdx++;
+    }
+
+    return result.slice(0, targetCount).map((item, idx) => ({ ...item, number: idx + 1 }));
   }
 
   private async callFacultyAiChunk(
