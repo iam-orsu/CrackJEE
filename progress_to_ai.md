@@ -117,6 +117,13 @@ To prevent port conflicts and ensure `git pull` never breaks either server:
      * Existing student submissions with `< 80%` completion are automatically re-evaluated dynamically on fetch so stale or misleading cached roles are never displayed.
      * Faculty dashboard rank list and CSV exports also display `Insufficient Responses to Evaluate` with the exact answered count and completion percentage.
 
+6. Strict Psychometric Question Count Validation & Automatic Top-Up:
+   - Root cause identified: When generating psychometric papers with high question counts (e.g. 45), an overly aggressive token overlap filter (0.35 threshold) dropped valid scenario questions that shared domain vocabulary (e.g. "AI", "project", "code"). Additionally, the fallback padding loop failed to guarantee the exact count, and the paper service previously overwrote `questionCount` with whatever partial count was generated (e.g. 34 Qs).
+   - Multi-layer validation fix:
+     * Frontend (`frontend/src/app/faculty/page.tsx`): Remainder question distribution across domains now strictly sums to `activeCount`.
+     * AI Service (`backend/src/services/DeepSeekPsychometricService.ts`): Deduplication token threshold calibrated to 0.65/0.70. Added `topUpItems` method that guarantees `items.length === input.questionCount` using unique contextualized domain items.
+     * Service Layer (`backend/src/services/FacultyPaperService.ts`): Enforced strict assertion validation in `runPsychometricGeneration`. The service tops up any count shortfalls, sequentially indexes questions 1..N, and guarantees `paper.questionCount === input.questionCount`.
+
 ---
 
 ## 5. Verification Status
