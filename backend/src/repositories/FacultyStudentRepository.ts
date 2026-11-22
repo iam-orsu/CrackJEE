@@ -165,6 +165,13 @@ export class FacultyStudentRepository {
     });
   }
 
+  public async updatePasswordForBatch(batchId: string, facultyId: string, passwordHash: string) {
+    return database.client.facultyStudent.updateMany({
+      where: { batchId, facultyId },
+      data: { passwordHash },
+    });
+  }
+
   public async delete(id: string, facultyId: string) {
     return database.client.facultyStudent.deleteMany({
       where: { id, facultyId },

@@ -173,6 +173,51 @@ describe('Faculty Batch & Student Management', () => {
     assert.equal(reset2.newPassword, 'ROLL-1');
     assert.ok(await bcrypt.compare('ROLL-1', student.passwordHash));
   });
+
+  it('resets passwords for all students in a single batch simultaneously', async () => {
+    let batchUpdatedHash = '';
+    const mockBatchRepo: any = {
+      findById: async (id: string, facultyId: string) => {
+        if (id === 'batch-cse' && facultyId === 'fac-1') {
+          return { id: 'batch-cse', name: 'CSE 2026', code: 'CSE-A', facultyId: 'fac-1' };
+        }
+        return null;
+      },
+    };
+
+    const mockStudentRepo: any = {
+      updatePasswordForBatch: async (batchId: string, facultyId: string, hash: string) => {
+        if (batchId === 'batch-cse' && facultyId === 'fac-1') {
+          batchUpdatedHash = hash;
+          return { count: 42 };
+        }
+        return { count: 0 };
+      },
+    };
+
+    const service = new FacultyBatchService(mockBatchRepo, mockStudentRepo);
+
+    // Should reject passwords shorter than 4 characters
+    await assert.rejects(
+      () => service.resetBatchPasswords('batch-cse', 'fac-1', '123'),
+      /at least 4 characters/,
+    );
+
+    // Should reject if batch not found or unauthorized
+    await assert.rejects(
+      () => service.resetBatchPasswords('non-existent', 'fac-1', 'ValidPass@123'),
+      /Batch not found/,
+    );
+
+    // Should successfully update all students in the batch
+    const result = await service.resetBatchPasswords('batch-cse', 'fac-1', 'ClassPass@2026');
+    assert.equal(result.success, true);
+    assert.equal(result.batchId, 'batch-cse');
+    assert.equal(result.batchName, 'CSE 2026');
+    assert.equal(result.updatedCount, 42);
+    assert.equal(result.newPassword, 'ClassPass@2026');
+    assert.ok(await bcrypt.compare('ClassPass@2026', batchUpdatedHash));
+  });
 });
 
 describe('Faculty Exam Assignment & Student Delivery Integrity', () => {

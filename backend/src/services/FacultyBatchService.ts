@@ -274,6 +274,34 @@ export class FacultyBatchService {
     };
   }
 
+  public async resetBatchPasswords(
+    batchId: string,
+    facultyId: string,
+    newPassword: string,
+  ) {
+    const batch = await this.batchRepo.findById(batchId, facultyId);
+    if (!batch) {
+      throw new AppError(404, 'Batch not found');
+    }
+
+    const plainPassword = (newPassword || '').trim();
+    if (plainPassword.length < 4) {
+      throw new AppError(400, 'Password must be at least 4 characters long');
+    }
+
+    const passwordHash = await bcrypt.hash(plainPassword, AUTH_CONSTANTS.BCRYPT_ROUNDS);
+    const result = await this.studentRepo.updatePasswordForBatch(batchId, facultyId, passwordHash);
+
+    return {
+      success: true,
+      batchId: batch.id,
+      batchName: batch.name,
+      batchCode: batch.code,
+      updatedCount: result.count,
+      newPassword: plainPassword,
+    };
+  }
+
   public async deleteStudent(id: string, facultyId: string) {
     const student = await this.studentRepo.findById(id, facultyId);
     if (!student) {

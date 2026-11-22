@@ -21,6 +21,7 @@ import {
   facultyCreateStudent,
   facultyUpdateStudent,
   facultyResetStudentPassword,
+  facultyResetBatchPasswords,
   facultyBulkCreateStudents,
   facultyDeleteBatch,
   facultyDeleteStudent,
@@ -167,6 +168,25 @@ export function FacultyBatchesTab() {
   const [resetStudentRoll, setResetStudentRoll] = useState('');
   const [customNewPassword, setCustomNewPassword] = useState('');
   const [resetPasswordSubmitting, setResetPasswordSubmitting] = useState(false);
+
+  // Reset Batch Password modal
+  const [resetBatchPasswordModalOpen, setResetBatchPasswordModalOpen] = useState(false);
+  const [resetBatchTargetId, setResetBatchTargetId] = useState('');
+  const [resetBatchTargetName, setResetBatchTargetName] = useState('');
+  const [resetBatchTargetCode, setResetBatchTargetCode] = useState('');
+  const [resetBatchStudentCount, setResetBatchStudentCount] = useState(0);
+  const [batchNewPassword, setBatchNewPassword] = useState('');
+  const [showBatchNewPassword, setShowBatchNewPassword] = useState(false);
+  const [resetBatchSubmitting, setResetBatchSubmitting] = useState(false);
+
+  // Batch Password notification banner
+  const [batchPasswordNotice, setBatchPasswordNotice] = useState<{
+    batchName: string;
+    batchCode: string;
+    count: number;
+    password: string;
+  } | null>(null);
+  const [batchPasswordCopied, setBatchPasswordCopied] = useState(false);
 
   const loadData = useCallback(async () => {
     setLoading(true);
@@ -355,6 +375,40 @@ export function FacultyBatchesTab() {
     }
   }
 
+  function openResetBatchPassword(b: FacultyBatch) {
+    setResetBatchTargetId(b.id);
+    setResetBatchTargetName(b.name);
+    setResetBatchTargetCode(b.code);
+    setResetBatchStudentCount(b._count?.students || 0);
+    setBatchNewPassword('');
+    setShowBatchNewPassword(false);
+    setResetBatchPasswordModalOpen(true);
+  }
+
+  async function handleResetBatchPassword(e: React.FormEvent) {
+    e.preventDefault();
+    if (!resetBatchTargetId || !batchNewPassword.trim()) return;
+    setResetBatchSubmitting(true);
+    setError('');
+    try {
+      const res = await facultyResetBatchPasswords(resetBatchTargetId, batchNewPassword.trim());
+      setBatchPasswordNotice({
+        batchName: res.batchName || resetBatchTargetName,
+        batchCode: res.batchCode || resetBatchTargetCode,
+        count: res.updatedCount,
+        password: res.newPassword,
+      });
+      setBatchPasswordCopied(false);
+      setResetBatchPasswordModalOpen(false);
+      setBatchNewPassword('');
+      await loadData();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to update batch passwords');
+    } finally {
+      setResetBatchSubmitting(false);
+    }
+  }
+
   function handleCsvFile(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -494,6 +548,63 @@ export function FacultyBatchesTab() {
         </div>
       )}
 
+      {/* Batch Passwords Updated Notification */}
+      {batchPasswordNotice && (
+        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#9FD6B2] bg-[#EAF7EF] px-5 py-4">
+          <div>
+            <div className="flex items-center gap-1.5 text-[14px] font-bold text-[#146C33]">
+              <CircleCheckBig className="h-[15px] w-[15px] shrink-0" aria-hidden />
+              <span>Batch Passwords Updated Successfully</span>
+            </div>
+            <div className="mt-1 text-[13px] text-[#146C33]">
+              Batch <strong>{batchPasswordNotice.batchName}</strong> (<code>{batchPasswordNotice.batchCode}</code>) • Updated <strong>{batchPasswordNotice.count}</strong> student accounts.
+            </div>
+            <div className="mt-1 flex items-center gap-1.5 text-[13px] text-[#146C33]">
+              <span>New Uniform Password:</span>
+              <code className="rounded bg-white/80 px-2 py-0.5 font-mono font-bold text-[#003366]">
+                {batchPasswordNotice.password}
+              </code>
+            </div>
+            <div className="mt-0.5 text-[12px] text-[#15803D]">
+              All students in this batch can now sign in at <strong>/student</strong> using their Roll Number and this password.
+            </div>
+          </div>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              className={BTN_SECONDARY_SM}
+              onClick={() => {
+                navigator.clipboard.writeText(
+                  `Batch: ${batchPasswordNotice.batchName} (${batchPasswordNotice.batchCode})\nPassword: ${batchPasswordNotice.password}\nLogin Portal: /student`
+                );
+                setBatchPasswordCopied(true);
+                setTimeout(() => setBatchPasswordCopied(false), 2500);
+              }}
+            >
+              {batchPasswordCopied ? (
+                <>
+                  <Check className="h-3.5 w-3.5 text-[#15803D]" />
+                  <span>Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Download className="h-3.5 w-3.5" />
+                  <span>Copy Password Info</span>
+                </>
+              )}
+            </button>
+            <button
+              type="button"
+              className={BTN_GHOST_SM}
+              onClick={() => setBatchPasswordNotice(null)}
+              aria-label="Dismiss banner"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Batches Cards Grid */}
       <div>
         <h3 className="mb-3 text-[14px] font-bold text-[#31407F]">
@@ -523,6 +634,17 @@ export function FacultyBatchesTab() {
                         {b.code}
                       </span>
                       <div className="flex items-center gap-1">
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openResetBatchPassword(b);
+                          }}
+                          className="cursor-pointer rounded-md border-0 bg-transparent px-1.5 py-0.5 text-[#5A6B8C] transition-colors duration-150 hover:bg-accent-50 hover:text-accent motion-reduce:transition-none"
+                          title="Update All Passwords in Batch"
+                        >
+                          <KeyRound className="h-[13px] w-[13px]" aria-hidden />
+                        </button>
                         <button
                           type="button"
                           onClick={(e) => {
@@ -585,7 +707,21 @@ export function FacultyBatchesTab() {
               </button>
             )}
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            {selectedBatchId !== 'all' && batches.find((b) => b.id === selectedBatchId) && (
+              <button
+                type="button"
+                className={BTN_SECONDARY_SM}
+                onClick={() => {
+                  const b = batches.find((item) => item.id === selectedBatchId);
+                  if (b) openResetBatchPassword(b);
+                }}
+                title="Update passwords for all students in this batch"
+              >
+                <KeyRound className="h-3.5 w-3.5" aria-hidden />
+                <span>Update Batch Passwords</span>
+              </button>
+            )}
             <label className="text-[12px] text-[#5A6B8C]">Filter Batch:</label>
             <select
               className={SELECT_SM}
@@ -1180,6 +1316,69 @@ export function FacultyBatchesTab() {
                   disabled={resetPasswordSubmitting}
                 >
                   {resetPasswordSubmitting ? 'Resetting...' : 'Confirm Reset Password'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+      {/* Modal: Reset Batch Passwords */}
+      {resetBatchPasswordModalOpen && (
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-[#0F172A]/45 p-5" onClick={() => setResetBatchPasswordModalOpen(false)}>
+          <div className="w-full max-w-[460px] max-h-[90vh] overflow-y-auto rounded-[22px] border border-[#003366]/10 bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.12)] sm:px-7" onClick={(e) => e.stopPropagation()}>
+            <div className="mb-2 flex items-center gap-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent-50 text-accent">
+                <KeyRound className="h-4 w-4" />
+              </div>
+              <h3 className="font-display text-[18px] font-extrabold text-[#003366]">
+                Update Batch Passwords
+              </h3>
+            </div>
+            <p className="mb-4 text-[13px] text-[#5A6B8C]">
+              Set a uniform password for all <strong>{resetBatchStudentCount}</strong> student{resetBatchStudentCount === 1 ? '' : 's'} enrolled in batch{' '}
+              <strong className="text-[#003366]">{resetBatchTargetName}</strong> (<code>{resetBatchTargetCode}</code>).
+            </p>
+            <form onSubmit={handleResetBatchPassword} className="flex flex-col gap-3.5">
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[12.5px] font-extrabold text-[#003366]">New Password for All Students</label>
+                <div className="relative">
+                  <input
+                    type={showBatchNewPassword ? 'text' : 'password'}
+                    className="h-[46px] w-full rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 pr-10 text-[14px] font-semibold text-[#003366] shadow-[0_4px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 placeholder:font-medium placeholder:text-[#97A3D4] focus:border-accent focus:shadow-[0_6px_0_#E3C9E6] motion-reduce:transition-none"
+                    placeholder="e.g. Student@2026"
+                    value={batchNewPassword}
+                    onChange={(e) => setBatchNewPassword(e.target.value)}
+                    required
+                    minLength={4}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowBatchNewPassword((v) => !v)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 border-0 bg-transparent p-1 text-[#5A6B8C] hover:text-[#003366]"
+                    title={showBatchNewPassword ? 'Hide password' : 'Show password'}
+                  >
+                    {showBatchNewPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  </button>
+                </div>
+                <span className="text-[11.5px] text-[#5A6B8C]">
+                  Every student in this batch will immediately be able to log in at <code>/student</code> with their Roll Number and this password.
+                </span>
+              </div>
+              <div className="mt-2.5 flex justify-end gap-2.5">
+                <button
+                  type="button"
+                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#003366] bg-white px-3.5 py-2 text-[13px] font-extrabold text-[#003366] no-underline shadow-[0_4px_0_#C6D2F8] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#C6D2F8] active:translate-y-[3px] active:shadow-[0_1px_0_#C6D2F8] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                  onClick={() => setResetBatchPasswordModalOpen(false)}
+                  disabled={resetBatchSubmitting}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#5A2560] bg-grad px-4 py-2 text-[13px] font-extrabold text-white no-underline shadow-[0_4px_0_#5A2560] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_6px_0_#5A2560] active:translate-y-[3px] active:shadow-[0_1px_0_#5A2560] disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+                  disabled={resetBatchSubmitting || !batchNewPassword.trim()}
+                >
+                  {resetBatchSubmitting ? 'Updating...' : `Update All (${resetBatchStudentCount}) Passwords`}
                 </button>
               </div>
             </form>

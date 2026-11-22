@@ -616,6 +616,23 @@ export async function facultyResetStudentPassword(
   });
 }
 
+export async function facultyResetBatchPasswords(
+  batchId: string,
+  newPassword: string,
+) {
+  return facultyFetch<{
+    success: boolean;
+    batchId: string;
+    batchName: string;
+    batchCode: string;
+    updatedCount: number;
+    newPassword: string;
+  }>(`/batches/${encodeURIComponent(batchId)}/reset-passwords`, {
+    method: 'POST',
+    body: JSON.stringify({ password: newPassword }),
+  });
+}
+
 // ── Exam Assignments & Reports API ──
 export async function facultyListAssignments() {
   return facultyFetch<{ assignments: FacultyAssignmentSummary[] }>('/assignments');

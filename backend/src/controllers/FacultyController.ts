@@ -127,6 +127,10 @@ const resetStudentPasswordSchema = z.object({
   password: z.string().min(4, 'Password must be at least 4 characters').optional().or(z.literal('')),
 });
 
+const resetBatchPasswordsSchema = z.object({
+  password: z.string().trim().min(4, 'Password must be at least 4 characters long').max(100),
+});
+
 const bulkStudentItemSchema = z.object({
   batchId: z.string().optional(),
   batchCode: z.string().optional(),
@@ -484,6 +488,23 @@ export class FacultyController {
     try {
       await this.batchService.deleteBatch(String(req.params.id), req.faculty!.facultyId);
       res.json({ success: true });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly resetBatchPasswords = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const parsed = resetBatchPasswordsSchema.safeParse(req.body);
+      if (!parsed.success) {
+        throw new AppError(400, parsed.error.issues[0]?.message ?? 'Invalid password details');
+      }
+      const result = await this.batchService.resetBatchPasswords(
+        String(req.params.id),
+        req.faculty!.facultyId,
+        parsed.data.password,
+      );
+      res.json(result);
     } catch (err) {
       next(err);
     }
