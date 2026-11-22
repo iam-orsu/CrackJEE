@@ -40,7 +40,14 @@ const BTN_GHOST_SM =
 const SELECT_SM =
   'h-9 cursor-pointer rounded-xl border-[2.5px] border-[#003366] bg-white px-2.5 text-[12px] font-semibold text-[#003366] shadow-[0_3px_0_#C6D2F8] outline-none transition-[box-shadow,border-color] duration-150 focus:border-accent focus:shadow-[0_4px_0_#E3C9E6] motion-reduce:transition-none';
 
-function parseCsvLine(line: string): string[] {
+function parseCsvLine(line: string, explicitDelimiter?: string): string[] {
+  let delimiter = explicitDelimiter;
+  if (!delimiter) {
+    if (line.includes('\t') && !line.includes(',')) delimiter = '\t';
+    else if (line.includes(';') && !line.includes(',')) delimiter = ';';
+    else delimiter = ',';
+  }
+
   const result: string[] = [];
   let current = '';
   let inQuotes = false;
@@ -54,7 +61,7 @@ function parseCsvLine(line: string): string[] {
       } else {
         inQuotes = !inQuotes;
       }
-    } else if (char === ',' && !inQuotes) {
+    } else if (char === delimiter && !inQuotes) {
       result.push(current.trim());
       current = '';
     } else {
@@ -92,6 +99,19 @@ interface CsvParseResult {
 }
 
 function parseStudentCsv(text: string): CsvParseResult {
+  if (
+    text.startsWith('PK\x03\x04') ||
+    text.includes('[Content_Types].xml') ||
+    (text.charCodeAt(0) === 0x50 && text.charCodeAt(1) === 0x4B)
+  ) {
+    return {
+      valid: [],
+      errors: [
+        'The uploaded file is an Excel Workbook (.xlsx) saved with a .csv extension. Please open the file in Microsoft Excel, click File > Save As, and in the "Save as type" dropdown select "CSV (Comma delimited) (*.csv)".',
+      ],
+    };
+  }
+
   const lines = text.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
   const errors: string[] = [];
 
@@ -108,7 +128,11 @@ function parseStudentCsv(text: string): CsvParseResult {
     };
   }
 
-  const rawHeader = parseCsvLine(lines[0]!);
+  let delimiter = ',';
+  if (lines[0]!.includes('\t') && !lines[0]!.includes(',')) delimiter = '\t';
+  else if (lines[0]!.includes(';') && !lines[0]!.includes(',')) delimiter = ';';
+
+  const rawHeader = parseCsvLine(lines[0]!, delimiter);
   const header = rawHeader.map((h) => cleanCsvValue(h).toLowerCase());
   const nameIdx = header.findIndex((h) => h.includes('name'));
   const rollIdx = header.findIndex((h) => h.includes('roll') || h.includes('id') || h.includes('user'));
@@ -131,7 +155,7 @@ function parseStudentCsv(text: string): CsvParseResult {
 
   for (let i = 1; i < lines.length; i++) {
     const rawLine = lines[i]!;
-    const cells = parseCsvLine(rawLine);
+    const cells = parseCsvLine(rawLine, delimiter);
     if (cells.length === 0 || (cells.length === 1 && !cells[0])) continue;
 
     const rowNum = i + 1;
