@@ -197,4 +197,49 @@ describe('Psychometric Engine & Framework Coverage', () => {
       );
     }
   });
+
+  it('generates exactly 45 questions when requested by faculty without shortfall', async () => {
+    const selectedDomains = [
+      'Personality Tests',
+      'Situational Judgment Tests (SJT)',
+      'Motivation and Work-Values Tests',
+      'Cognitive Ability Tests',
+    ];
+
+    const items = await service.generateFacultyPsychometricPaper({
+      domains: selectedDomains,
+      questionCount: 45,
+      examGoal: 'Computer Science, AI and DS problem solving and team ethics',
+    });
+
+    assert.equal(items.length, 45, 'Must generate exactly 45 questions');
+    items.forEach((item, idx) => {
+      assert.equal(item.number, idx + 1, `Question ${idx + 1} must have matching sequence number`);
+      assert.ok(item.questionText && item.questionText.length > 5, 'Question text must not be empty');
+      assert.ok(Array.isArray(item.options) && item.options.length >= 2, 'Options must be present');
+    });
+  });
+
+  it('generates exactly 100 questions when requested by faculty without shortfall', async () => {
+    const selectedDomains = [
+      'Personality Tests',
+      'Situational Judgment Tests (SJT)',
+      'Motivation and Work-Values Tests',
+      'Emotional Intelligence (EI) Tests',
+      'Cognitive Ability Tests',
+    ];
+
+    const items = await service.generateFacultyPsychometricPaper({
+      domains: selectedDomains,
+      questionCount: 100,
+      examGoal: 'Comprehensive Engineering Mindset & Leadership Aptitude Evaluation',
+    });
+
+    assert.equal(items.length, 100, 'Must generate exactly 100 questions');
+    items.forEach((item, idx) => {
+      assert.equal(item.number, idx + 1, `Question ${idx + 1} must have matching sequence number`);
+      assert.ok(item.questionText && item.questionText.length > 5, 'Question text must not be empty');
+      assert.ok(Array.isArray(item.options) && item.options.length >= 2, 'Options must be present');
+    });
+  });
 });

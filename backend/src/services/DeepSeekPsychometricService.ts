@@ -1140,7 +1140,7 @@ Format as JSON:
     for (let idx = 0; idx < chunkCounts.length; idx++) {
       const count = chunkCounts[idx]!;
       const theme = THEMATIC_PERSPECTIVES[idx % THEMATIC_PERSPECTIVES.length]!;
-      const previousQuestions = collected.map((item) => ({
+      const previousQuestions = collected.slice(-15).map((item) => ({
         questionText: item.questionText,
         scenarioText: item.scenarioText,
       }));
@@ -1171,7 +1171,7 @@ Format as JSON:
       attempts++;
       const needed = questionCount - collected.length;
       const theme = THEMATIC_PERSPECTIVES[(chunkCounts.length + attempts) % THEMATIC_PERSPECTIVES.length]!;
-      const previousQuestions = collected.map((item) => ({
+      const previousQuestions = collected.slice(-15).map((item) => ({
         questionText: item.questionText,
         scenarioText: item.scenarioText,
       }));
@@ -1865,14 +1865,15 @@ Format output strictly as a JSON object:
     let poolIdx = 0;
     while (result.length < questionCount) {
       const candidate = candidatePool[poolIdx % candidatePool.length]!;
-      // Create unique variant if duplicated
-      const isDupe = result.some((r) => r.questionText === candidate.questionText);
-      const text = isDupe ? `${candidate.questionText} (Context: Applied to ${examGoal.slice(0, 40)})` : candidate.questionText;
+      const cycle = Math.floor(poolIdx / candidatePool.length) + 1;
       const matchingDomain = domains.find((d) =>
         d.toLowerCase() === candidate.domain.toLowerCase() ||
         candidate.domain.toLowerCase().includes(d.toLowerCase()) ||
         d.toLowerCase().includes(candidate.domain.toLowerCase())
       ) || domains[result.length % domains.length] || domains[0];
+      const text = cycle > 1
+        ? `${candidate.questionText} [Focus Dimension ${cycle}: ${matchingDomain}]`
+        : candidate.questionText;
 
       result.push({
         ...candidate,
