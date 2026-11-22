@@ -128,7 +128,7 @@ To prevent port conflicts and ensure `git pull` never breaks either server:
 
 ## 5. Verification Status
 
-- Backend Vitest Suite: 254 passed, 0 failed.
+- Backend Vitest Suite: 256 passed, 0 failed (includes automated tests for 45 and 100 questions exact count validation).
 - Frontend Vitest Suite: 40 passed, 0 failed.
 - Next.js Production Build: Successfully generated all 18 routes with zero type or lint errors.
 - Backend TypeScript Build: `prisma generate && tsc` completed with 0 errors.
