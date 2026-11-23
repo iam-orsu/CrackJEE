@@ -7,6 +7,10 @@ export interface FacultyStudentUser {
   name: string;
   rollNumber: string;
   email?: string | null;
+  emailVerified?: boolean;
+  mobile?: string | null;
+  mobileVerified?: boolean;
+  isOnboarded?: boolean;
   batch: {
     id: string;
     name: string;
@@ -265,6 +269,38 @@ export async function studentLogout() {
 
 export async function studentMe() {
   return studentFetch<{ student: FacultyStudentUser }>('/me');
+}
+
+export async function studentSendEmailOtp(email: string) {
+  return studentFetch<{ sent: boolean; cooldownSeconds: number }>('/onboarding/email/send', {
+    method: 'POST',
+    body: JSON.stringify({ email }),
+  });
+}
+
+export async function studentVerifyEmailOtp(email: string, otp: string) {
+  return studentFetch<{ emailVerified: boolean; email: string }>('/onboarding/email/verify', {
+    method: 'POST',
+    body: JSON.stringify({ email, otp }),
+  });
+}
+
+export async function studentSendMobileOtp(mobile: string) {
+  return studentFetch<{ sent: boolean; cooldownSeconds: number }>('/onboarding/mobile/send', {
+    method: 'POST',
+    body: JSON.stringify({ mobile }),
+  });
+}
+
+export async function studentVerifyMobileOtp(mobile: string, otp: string) {
+  return studentFetch<{ mobileVerified: boolean; mobile: string }>('/onboarding/mobile/verify', {
+    method: 'POST',
+    body: JSON.stringify({ mobile, otp }),
+  });
+}
+
+export async function studentCompleteOnboarding() {
+  return studentFetch<{ isOnboarded: boolean }>('/onboarding/complete', { method: 'POST' });
 }
 
 export async function studentListExams() {

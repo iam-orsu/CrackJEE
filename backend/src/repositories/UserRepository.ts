@@ -16,6 +16,7 @@ const AUTH_USER_SELECT = {
   isOnboarded: true,
   mobile: true,
   mobileVerified: true,
+  emailVerified: true,
 } as const;
 
 /** Row returned once a Google account is linked — no password hash. */
@@ -32,6 +33,7 @@ const LINKED_USER_SELECT = {
   isOnboarded: true,
   mobile: true,
   mobileVerified: true,
+  emailVerified: true,
 } as const;
 
 /** Row safe to hand back to the client — no credentials of any kind. */
@@ -47,6 +49,7 @@ const SAFE_USER_SELECT = {
   isOnboarded: true,
   mobile: true,
   mobileVerified: true,
+  emailVerified: true,
 } as const;
 
 export class UserRepository {
@@ -69,7 +72,7 @@ export class UserRepository {
   public linkGoogleSub(id: string, googleSub: string, avatarUrl?: string | null) {
     return this.prisma.user.update({
       where: { id },
-      data: { googleSub, ...(avatarUrl ? { avatarUrl } : {}) },
+      data: { googleSub, emailVerified: true, ...(avatarUrl ? { avatarUrl } : {}) },
       select: LINKED_USER_SELECT,
     });
   }
@@ -84,6 +87,7 @@ export class UserRepository {
       isOnboarded?: boolean;
       mobile?: string | null;
       mobileVerified?: boolean;
+      emailVerified?: boolean;
     },
   ) {
     return this.prisma.user.update({
@@ -120,6 +124,7 @@ export class UserRepository {
     isOnboarded?: boolean;
     mobile?: string | null;
     mobileVerified?: boolean;
+    emailVerified?: boolean;
   }) {
     return this.prisma.user.create({
       data: {
@@ -130,6 +135,7 @@ export class UserRepository {
         isOnboarded: data.isOnboarded ?? false,
         mobile: data.mobile ?? null,
         mobileVerified: data.mobileVerified ?? false,
+        emailVerified: data.emailVerified ?? false,
       },
       select: SAFE_USER_SELECT,
     });

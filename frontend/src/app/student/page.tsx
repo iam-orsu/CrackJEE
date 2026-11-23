@@ -91,6 +91,10 @@ export default function StudentPortalPage() {
   useEffect(() => {
     studentMe()
       .then((res) => {
+        if (!res.student.isOnboarded) {
+          router.replace('/student/onboarding');
+          return;
+        }
         setStudent(res.student);
         void loadExams();
       })
@@ -160,7 +164,16 @@ export default function StudentPortalPage() {
             <span className={CHIP_ACCENT}>Batch {student.batch?.code || '—'}</span>
           </header>
 
-          {error && <div className={cx(ERROR_BANNER, 'mb-5')} role="alert">{error}</div>}
+          {error && (
+            <div className={cx(ERROR_BANNER, 'mb-5')} role="alert">
+              <svg className="mt-px h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              <span className="min-w-0">{error}</span>
+            </div>
+          )}
 
           <main className="flex flex-col gap-9">
             {/* 1. Active and available exams */}

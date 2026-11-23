@@ -169,6 +169,36 @@ export const api = {
         method: 'POST',
         body: JSON.stringify(body),
       }),
+
+    sendEmailForRegistration: (body: { email: string }) =>
+      request<{ sent: boolean; expiresIn: number; cooldownSeconds: number }>('/auth/register/email-otp/send', {
+        method: 'POST',
+        body: JSON.stringify(body),
+      }),
+
+    verifyEmailForRegistration: (body: { email: string; otp: string }) =>
+      request<{ verified: boolean; email: string }>('/auth/register/email-otp/verify', {
+        method: 'POST',
+        body: JSON.stringify(body),
+      }),
+
+    registrationStatus: (body: { email: string; mobile: string }) =>
+      request<{ emailVerified: boolean; mobileVerified: boolean }>('/auth/register/status', {
+        method: 'POST',
+        body: JSON.stringify(body),
+      }),
+
+    sendEmail: (body: { email: string }) =>
+      request<{ sent: boolean; expiresIn: number; cooldownSeconds: number }>('/auth/email-otp/send', {
+        method: 'POST',
+        body: JSON.stringify(body),
+      }),
+
+    verifyEmail: (body: { email: string; otp: string }) =>
+      request<import('@/types').User>('/auth/email-otp/verify', {
+        method: 'POST',
+        body: JSON.stringify(body),
+      }),
   },
 
   psychometric: {

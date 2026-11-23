@@ -10,6 +10,7 @@ export interface User {
   isOnboarded?: boolean;
   mobile?: string | null;
   mobileVerified?: boolean;
+  emailVerified?: boolean;
   createdAt?: string;
 }
 

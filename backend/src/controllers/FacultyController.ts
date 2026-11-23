@@ -1,16 +1,28 @@
 import type { Response, NextFunction } from 'express';
 import { z } from 'zod';
 import { facultyPaperService, type FacultyPaperService, type UpdateFacultyQuestionInput } from '../services/FacultyPaperService';
+import { FacultyAuthService } from '../services/FacultyAuthService';
 import { FacultyBatchService } from '../services/FacultyBatchService';
 import { FacultyAssignmentService } from '../services/FacultyAssignmentService';
 import { FacultyPdfService } from '../services/FacultyPdfService';
+import { OtpService } from '../services/OtpService';
 import {
   clearFacultyCookie,
   type FacultyAuthRequest,
 } from '../middlewares/facultyAuth.middleware';
+import { normalizeMobile } from '../utils/mobile';
 import { getJeeTopicsForExam, NEET_TOPICS, type Subject } from '../types/index';
 import { findCardDef, PSYCHOMETRIC_CARDS } from '../data/psychometricCards';
 import { AppError } from '../utils/AppError';
+
+const facultyOtpSendSchema = z.object({
+  mobile: z.string().trim().min(6).max(20),
+});
+
+const facultyOtpVerifySchema = z.object({
+  mobile: z.string().trim().min(6).max(20),
+  otp: z.string().trim().regex(/^\d{4}$/, 'Enter the 4-digit code we sent you'),
+});
 
 const selectionSchema = z.object({
   subject: z.enum(['Physics', 'Chemistry', 'Mathematics', 'Botany', 'Zoology', 'Psychometric']),
@@ -174,6 +186,10 @@ function catalogForExam(examType: 'Main' | 'Advanced' | 'NEET' | 'Psychometric')
   return examType === 'NEET' ? NEET_TOPICS : getJeeTopicsForExam(examType);
 }
 
+function facultyOtpSubject(facultyId: string): string {
+  return `faculty:${facultyId}`;
+}
+
 /** Handles faculty portal authentication, topic lookup, paper creation, editing, and PDF data retrieval. */
 export class FacultyController {
   constructor(
@@ -181,10 +197,68 @@ export class FacultyController {
     private readonly batchService: FacultyBatchService = new FacultyBatchService(),
     private readonly assignmentService: FacultyAssignmentService = new FacultyAssignmentService(),
     private readonly pdfService: FacultyPdfService = new FacultyPdfService(),
+    private readonly authService: FacultyAuthService = new FacultyAuthService(),
+    private readonly otpService: OtpService = new OtpService(),
   ) {}
 
   public readonly me = (req: FacultyAuthRequest, res: Response): void => {
     res.json({ success: true, faculty: req.faculty });
+  };
+
+  public readonly sendOtp = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const parsed = facultyOtpSendSchema.safeParse(req.body);
+      if (!parsed.success) {
+        throw new AppError(400, parsed.error.issues[0]?.message ?? 'Enter a valid 10-digit mobile number');
+      }
+
+      const mobile = normalizeMobile(parsed.data.mobile);
+      if (!mobile) {
+        throw new AppError(400, 'Enter a valid 10-digit mobile number.');
+      }
+
+      await this.authService.assertMobileAvailable(req.faculty!.facultyId, mobile);
+
+      const { expiresIn, cooldownSeconds } = await this.otpService.requestOtp(
+        facultyOtpSubject(req.faculty!.facultyId),
+        mobile,
+      );
+      res.json({ success: true, data: { sent: true, expiresIn, cooldownSeconds } });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly verifyOtp = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const parsed = facultyOtpVerifySchema.safeParse(req.body);
+      if (!parsed.success) {
+        throw new AppError(400, parsed.error.issues[0]?.message ?? 'Enter the 4-digit code we sent you');
+      }
+
+      const mobile = normalizeMobile(parsed.data.mobile);
+      if (!mobile) {
+        throw new AppError(400, 'Enter a valid 10-digit mobile number.');
+      }
+
+      const subject = facultyOtpSubject(req.faculty!.facultyId);
+      await this.otpService.verifyOtp(subject, mobile, parsed.data.otp);
+      const faculty = await this.authService.verifyMobile(req.faculty!.facultyId, mobile);
+
+      res.json({
+        success: true,
+        data: {
+          id: faculty.id,
+          name: faculty.name,
+          email: faculty.email,
+          avatarUrl: faculty.avatarUrl ?? null,
+          mobile: faculty.mobile ?? null,
+          mobileVerified: faculty.mobileVerified,
+        },
+      });
+    } catch (err) {
+      next(err);
+    }
   };
 
   public readonly logout = (_req: FacultyAuthRequest, res: Response): void => {

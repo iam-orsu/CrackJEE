@@ -259,7 +259,14 @@ export default function StudentExamCbtPage() {
     return (
       <div className="grid min-h-screen place-items-center bg-[#FBFCFE] bg-page-wash p-5 font-dm">
         <div className="w-full max-w-[460px] rounded-[28px] border-[2.5px] border-[#003366] bg-white p-6 shadow-[7px_9px_0_#C6D2F8]">
-          <div className={ERROR_BANNER} role="alert">{error}</div>
+          <div className={ERROR_BANNER} role="alert">
+            <svg className="mt-px h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+            <span className="min-w-0">{error}</span>
+          </div>
           <Link href="/student" className={cx(BUTTON_SECONDARY, 'mt-4 w-full', FOCUS_RING)}>
             Back to dashboard
           </Link>
@@ -364,7 +371,16 @@ export default function StudentExamCbtPage() {
       <div className="flex flex-1 overflow-hidden">
         {/* Left: active question */}
         <main className="flex flex-1 flex-col gap-5 overflow-y-auto px-4 pb-20 pt-6 sm:px-8">
-          {error && <div className={ERROR_BANNER} role="alert">{error}</div>}
+          {error && (
+            <div className={ERROR_BANNER} role="alert">
+              <svg className="mt-px h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              <span className="min-w-0">{error}</span>
+            </div>
+          )}
 
           {/* Question header */}
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#003366]/10 pb-3">

@@ -86,6 +86,10 @@ export class FacultyStudentExamService {
         name: matchedStudent.name,
         rollNumber: matchedStudent.rollNumber,
         email: matchedStudent.email,
+        emailVerified: matchedStudent.emailVerified,
+        mobile: matchedStudent.mobile,
+        mobileVerified: matchedStudent.mobileVerified,
+        isOnboarded: matchedStudent.isOnboarded,
         batch: {
           id: matchedStudent.batch.id,
           name: matchedStudent.batch.name,
@@ -131,6 +135,10 @@ export class FacultyStudentExamService {
       name: student.name,
       rollNumber: student.rollNumber,
       email: student.email,
+      emailVerified: student.emailVerified,
+      mobile: student.mobile,
+      mobileVerified: student.mobileVerified,
+      isOnboarded: student.isOnboarded,
       batch: {
         id: student.batch.id,
         name: student.batch.name,

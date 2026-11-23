@@ -157,7 +157,16 @@ export default function OnboardingPage() {
             <i style={{ width: `${((step + 1) / TOTAL_STEPS) * 100}%` }} />
           </div>
 
-          {error && <p role="alert" className="ob-error">{error}</p>}
+          {error && (
+            <p role="alert" className="ob-error">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              <span>{error}</span>
+            </p>
+          )}
 
           {isOptionStep ? (
             <div className="ob-options">
@@ -340,9 +349,13 @@ const css = `
 .ob-addon.on .ob-tick{background:var(--purple);border-color:var(--purple);color:#fff}
 
 .ob-box .ob-error{
-  margin:0 0 18px;background:#FDE6E8;color:var(--err);border-left:5px solid var(--err);
-  border-radius:10px;padding:12px 14px;font-weight:700;font-size:14px;overflow-wrap:anywhere;
+  display:flex;align-items:flex-start;gap:10px;margin:0 0 18px;
+  background:#FFF5F6;color:var(--err);border:2px solid var(--err);border-radius:14px;
+  padding:11px 14px;box-shadow:0 4px 0 #F3C3C8;
+  font-weight:600;font-size:13.5px;line-height:1.45;overflow-wrap:anywhere;
 }
+.ob-box .ob-error svg{flex:none;width:16px;height:16px;margin-top:1px}
+.ob-box .ob-error span{min-width:0}
 
 .ob-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:26px}
 .ob-back{

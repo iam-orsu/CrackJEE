@@ -231,7 +231,7 @@ export default function FacultyPage() {
       .then((res) => {
         if (!active) return;
         setFaculty(res.faculty);
-        return loadWorkspace('Main');
+        if (res.faculty.mobileVerified) return loadWorkspace('Main');
       })
       .catch(() => {
         if (active) setFaculty(null);
@@ -246,6 +246,11 @@ export default function FacultyPage() {
   // the check has run — moves there instead of rendering a form inside the studio.
   useEffect(() => {
     if (authChecked && !faculty) router.replace('/faculty/login');
+  }, [authChecked, faculty, router]);
+
+  // A new mentor has to confirm their phone number before the studio opens.
+  useEffect(() => {
+    if (authChecked && faculty && !faculty.mobileVerified) router.replace('/faculty/onboarding');
   }, [authChecked, faculty, router]);
 
   async function handleExamTypeChange(nextExam: FacultyExamType) {
@@ -687,6 +692,18 @@ export default function FacultyPage() {
             {authChecked ? 'Taking you to sign in...' : 'Checking faculty session...'}
           </p>
         </div>
+      </div>
+    );
+  }
+
+  // A mentor reaches the studio only after their phone number is confirmed.
+  if (!faculty.mobileVerified) {
+    return (
+      <div className="grid min-h-screen place-items-center bg-[#FBFCFE] bg-page-wash font-dm">
+        <span
+          aria-hidden
+          className="h-7 w-7 animate-spin rounded-full border-[3px] border-[#C6D2F8] border-t-[#803688] motion-reduce:animate-none"
+        />
       </div>
     );
   }

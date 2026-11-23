@@ -17,6 +17,8 @@ interface FakeUser {
   currentLevel: string;
   hasPsychometric: boolean;
   isOnboarded: boolean;
+  mobile?: string | null;
+  emailVerified?: boolean;
 }
 
 function mockUserRepo(seed: Partial<FakeUser>[]) {
@@ -42,6 +44,7 @@ function mockUserRepo(seed: Partial<FakeUser>[]) {
     linkGoogleSub: async (id: string, googleSub: string, avatarUrl?: string | null) => {
       const row = rows.find((r) => r.id === id)!;
       row.googleSub = googleSub;
+      row.emailVerified = true;
       if (avatarUrl) row.avatarUrl = avatarUrl;
       return row;
     },
@@ -58,11 +61,13 @@ function mockUserRepo(seed: Partial<FakeUser>[]) {
         currentLevel: data.currentLevel,
         hasPsychometric: data.hasPsychometric ?? false,
         isOnboarded: data.isOnboarded ?? false,
+        emailVerified: data.emailVerified ?? false,
       };
       rows.push(row);
       return row;
     },
     existsByEmail: async (email: string) => rows.find((r) => r.email === email) ?? null,
+    findByMobile: async (mobile: string) => rows.find((r) => r.mobile === mobile) ?? null,
     findSafeById: async (id: string) => rows.find((r) => r.id === id) ?? null,
     updateProfile: async (id: string, data: any) => {
       const row = rows.find((r) => r.id === id)!;
@@ -110,6 +115,16 @@ describe('Student Google sign-in', () => {
     assert.equal(repo.rows[0]!.targetExam, 'Both');
     assert.equal(repo.rows[0]!.googleSub, 'google-sub-1');
     assert.equal(repo.rows[0]!.isOnboarded, false, 'Google sign-ups still need onboarding');
+    assert.equal(repo.rows[0]!.emailVerified, true, 'Google already proved the email address');
+  });
+
+  test('marks the email as verified when a Google identity is linked to an existing account', async () => {
+    const repo = mockUserRepo([{ email: 'student@example.com', googleSub: null, emailVerified: false }]);
+    const service = new AuthService(repo, cache);
+
+    await service.loginWithGoogle(googleProfile);
+
+    assert.equal(repo.rows[0]!.emailVerified, true);
   });
 
   test('manual registration counts as onboarded', async () => {
@@ -126,6 +141,23 @@ describe('Student Google sign-in', () => {
     });
     assert.equal(session.user.isOnboarded, true);
     assert.equal(repo.rows[0]!.isOnboarded, true);
+  });
+
+  test('manual registration stores the email verification flag', async () => {
+    const repo = mockUserRepo([]);
+    const service = new AuthService(repo, cache);
+
+    await service.register({
+      name: 'Aspirant Kumar',
+      email: 'student@example.com',
+      password: 'secret1234',
+      class: '12',
+      targetExam: 'Main',
+      currentLevel: 'intermediate',
+      emailVerified: true,
+    });
+
+    assert.equal(repo.rows[0]!.emailVerified, true);
   });
 
   test('manual registration is refused when the email already signs in with Google', async () => {
@@ -164,6 +196,26 @@ describe('Student Google sign-in', () => {
       (err: any) => err.statusCode === 409 && err.message.includes('already registered'),
     );
     assert.equal(repo.rows.length, 1);
+  });
+
+  test('manual registration is refused when the mobile number belongs to another account', async () => {
+    const repo = mockUserRepo([{ email: 'student@example.com', googleSub: null, mobile: '919876543210' }]);
+    const service = new AuthService(repo, cache);
+
+    await assert.rejects(
+      async () =>
+        service.register({
+          name: 'Aspirant Kumar',
+          email: 'other@example.com',
+          password: 'secret1234',
+          class: '12',
+          targetExam: 'Main',
+          currentLevel: 'beginner',
+          mobile: '919876543210',
+        }),
+      (err: any) => err.statusCode === 409 && err.message.includes('already linked to another account'),
+    );
+    assert.equal(repo.rows.length, 1, 'no duplicate row is created');
   });
 
   test('links a Google identity to an existing manual registration instead of duplicating it', async () => {

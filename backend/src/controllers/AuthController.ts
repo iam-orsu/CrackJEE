@@ -7,11 +7,11 @@ import { setSessionCookie, clearSessionCookie } from '../middlewares/auth.middle
 import { AppError } from '../utils/AppError';
 import { normalizeMobile } from '../utils/mobile';
 import type { AuthRequest } from '../types/index';
-import { registrationSubject } from './OtpController';
+import { registrationSubject, registrationEmailSubject } from './OtpController';
 
 const registerSchema = z.object({
   name: z.string().min(2).max(100).trim(),
-  email: z.string().email().toLowerCase().trim(),
+  email: z.string().trim().email().toLowerCase(),
   password: z.string().min(8).max(128),
   class: z.enum(['11', '12', 'Dropper']),
   targetExam: z.enum(['Main', 'Advanced', 'Both', 'NEET', 'Psychometric']),
@@ -62,10 +62,16 @@ export class AuthController {
         throw new AppError(400, 'Verify your mobile number before creating the account.');
       }
 
+      const emailVerified = await this.otpService.isVerified(registrationEmailSubject(body.data.email), body.data.email);
+      if (!emailVerified) {
+        throw new AppError(400, 'Verify your email address before creating the account.');
+      }
+
       const { token, user, expiresAt } = await this.authService.register({
         ...body.data,
         mobile,
         mobileVerified: true,
+        emailVerified: true,
       });
       setSessionCookie(res, token);
       res.status(201).json({ success: true, data: { user, expiresAt } });

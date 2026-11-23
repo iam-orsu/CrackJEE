@@ -202,7 +202,16 @@ export default function LoginPage() {
                 </div>
               </div>
 
-              {error && <p className="sn-error" role="alert">{error}</p>}
+              {error && (
+                <p className="sn-error" role="alert">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                  </svg>
+                  <span>{error}</span>
+                </p>
+              )}
 
               <button type="submit" className="sn-submit" disabled={loading}>
                 {loading ? (
@@ -388,7 +397,9 @@ const css = `
 .sn-input input.sn-err{border-color:var(--err)}
 .sn-eye{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:44px;height:44px;display:grid;place-items:center;background:none;border:0;border-radius:10px;color:var(--blue);cursor:pointer}
 .sn-eye:hover{background:var(--ice)}
-.sn-error{background:#FDE6E8;color:var(--err);border-left:5px solid var(--err);border-radius:10px;padding:12px 14px;font-weight:700;font-size:14px;overflow-wrap:anywhere}
+.sn-error{display:flex;align-items:flex-start;gap:10px;background:#FFF5F6;color:var(--err);border:2px solid var(--err);border-radius:14px;padding:11px 14px;box-shadow:0 4px 0 #F3C3C8;font-weight:600;font-size:13.5px;line-height:1.45;overflow-wrap:anywhere}
+.sn-error svg{flex:none;width:16px;height:16px;margin-top:1px}
+.sn-error span{min-width:0}
 
 .sn-submit{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;margin-top:6px;min-height:58px;width:100%;

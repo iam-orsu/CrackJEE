@@ -107,3 +107,27 @@ export const otpPublicVerifyLimiter = createRateLimiter({
   keyBy: 'ip',
   message: 'Too many verification attempts. Please try again in 15 minutes.',
 });
+
+export const emailOtpSendLimiter = createRateLimiter({
+  name: 'emailotpsend',
+  windowSeconds: 15 * 60,
+  max: 5,
+  keyBy: 'ip',
+  message: 'Too many code requests. Please try again in 15 minutes.',
+});
+
+export const emailOtpVerifyLimiter = createRateLimiter({
+  name: 'emailotpverify',
+  windowSeconds: 15 * 60,
+  max: 20,
+  keyBy: 'ip',
+  message: 'Too many verification attempts. Please try again in 15 minutes.',
+});
+
+export const registrationStatusLimiter = createRateLimiter({
+  name: 'regstatus',
+  windowSeconds: 15 * 60,
+  max: 30,
+  keyBy: 'ip',
+  message: 'Too many requests. Please try again in 15 minutes.',
+});
