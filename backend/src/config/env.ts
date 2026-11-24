@@ -35,8 +35,9 @@ export function loadDotEnv(): void {
       ) {
         val = val.slice(1, -1);
       }
+      val = val.replace(/\\\$/g, '$');
 
-      if (process.env[key] === undefined) {
+      if (process.env[key] === undefined || process.env[key] === '') {
         process.env[key] = val;
       }
     }
@@ -87,6 +88,9 @@ export const envSchema = z.object({
   SUPERADMIN_EMAIL: z.string().optional(),
   SUPERADMIN_PASSWORD_HASH: z.string().optional(),
   SUPERADMIN_PASSWORD: z.string().optional(),
+  RAZORPAY_KEY_ID: z.preprocess(emptyToUndefined, z.string().min(5).optional()),
+  RAZORPAY_KEY_SECRET: z.preprocess(emptyToUndefined, z.string().min(5).optional()),
+  RAZORPAY_WEBHOOK_SECRET: z.preprocess(emptyToUndefined, z.string().min(5).optional()),
 });
 
 export type AppEnv = z.infer<typeof envSchema>;

@@ -33,6 +33,8 @@ export const registrationSubject = (mobile: string): string => `reg:${mobile}`;
 
 export const registrationEmailSubject = (email: string): string => `email:${email}`;
 
+export const loginEmailSubject = (email: string): string => `login:${email}`;
+
 export class OtpController {
   constructor(
     private readonly otpService: OtpService = new OtpService(),

@@ -17,6 +17,7 @@ import {
 import { cutoffsFor } from './examCutoffs';
 import { isExamExpired } from '../utils/questionUtils';
 import { AppError } from '../utils/AppError';
+import { consumeExamCredit, refundExamCredit } from './quota';
 
 export class MockExamService {
   constructor(
@@ -60,6 +61,8 @@ export class MockExamService {
         throw new AppError(409, 'You have an exam in progress. Terminate it before starting a new one.');
       }
 
+      await consumeExamCredit(userId);
+
       const exam = await this.mockRepo.createExam(userId, examType, difficultyMode);
       return { exam, isNew: true };
     });
@@ -67,7 +70,9 @@ export class MockExamService {
     if (started.isNew) {
       const job = this.generator
         .runMockGeneration(started.exam.id, userId, examType, difficultyMode, paperNumber)
-        .catch(() => {});
+        .catch(() => {
+          void refundExamCredit(userId).catch(() => {});
+        });
       this.generator.trackGeneration(job);
     }
 

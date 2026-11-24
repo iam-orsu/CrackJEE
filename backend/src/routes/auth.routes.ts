@@ -19,6 +19,7 @@ export function createAuthRoutes(
   router.post('/register/email-otp/verify', emailOtpVerifyLimiter, otpController.verifyEmailForRegistration);
   router.post('/register/status', registrationStatusLimiter, otpController.registrationStatus);
   router.post('/login', authLimiter, controller.login);
+  router.post('/login/otp/verify', emailOtpVerifyLimiter, controller.loginVerify);
   router.get('/me', requireAuth, controller.me);
   router.get('/session', requireAuth, controller.session);
   router.patch('/profile', requireAuth, controller.updateProfile);

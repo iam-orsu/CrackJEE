@@ -75,7 +75,7 @@ export class AuthService {
     return { token, user, expiresAt: this.sessionExpiresAt() };
   }
 
-  public async login(email: string, password: string) {
+  public async authenticate(email: string, password: string) {
     const user = await this.users.findByEmailForAuth(email);
     if (!user) {
       // Constant-time dummy comparison prevents timing oracle on unknown emails
@@ -85,6 +85,14 @@ export class AuthService {
 
     const valid = await bcrypt.compare(password, user.passwordHash);
     if (!valid) throw new AppError(401, 'Invalid credentials');
+
+    const { passwordHash: _, ...safeUser } = user;
+    return safeUser;
+  }
+
+  public async issueSessionForEmail(email: string) {
+    const user = await this.users.findByEmailForAuth(email);
+    if (!user) throw new AppError(401, 'Invalid credentials');
 
     const { passwordHash: _, ...safeUser } = user;
     const token = this.signToken(user.id);

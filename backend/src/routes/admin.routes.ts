@@ -14,6 +14,11 @@ export function createAdminRoutes(controller = new AdminController()): Router {
   router.get('/faculty', requireAdmin, controller.listFaculty);
   router.post('/faculty', requireAdmin, controller.createFaculty);
   router.patch('/faculty/:id', requireAdmin, controller.updateFaculty);
+  router.get('/plans', requireAdmin, controller.listPlans);
+  router.post('/plans', requireAdmin, controller.createPlan);
+  router.patch('/plans/:id', requireAdmin, controller.updatePlan);
+  router.delete('/plans/:id', requireAdmin, controller.deletePlan);
+  router.get('/payments', requireAdmin, controller.listPayments);
 
   return router;
 }

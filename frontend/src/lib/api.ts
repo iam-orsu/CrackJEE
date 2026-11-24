@@ -109,7 +109,13 @@ export const api = {
     }),
 
     login: (body: { email: string; password: string }) =>
-      request<{ user: import('@/types').User; expiresAt: string }>('/auth/login', {
+      request<{ otpRequired: true; email: string; expiresIn: number; cooldownSeconds: number }>('/auth/login', {
+        method: 'POST',
+        body: JSON.stringify(body),
+      }),
+
+    loginVerify: (body: { email: string; otp: string }) =>
+      request<{ user: import('@/types').User; expiresAt: string }>('/auth/login/otp/verify', {
         method: 'POST',
         body: JSON.stringify(body),
       }),
@@ -557,6 +563,30 @@ export const api = {
 
     cancel: (id: string) =>
       request<void>(`/mock/${id}`, { method: 'DELETE' }),
+  },
+
+  subscription: {
+    plans: () => request<import('@/types').Plan[]>('/subscription/plans'),
+    me: () => request<import('@/types').SubscriptionStatus>('/subscription/me'),
+    createOrder: (planId: string) =>
+      request<{ orderId: string; amount: number; currency: string }>('/subscription/create-order', {
+        method: 'POST',
+        body: JSON.stringify({ planId }),
+      }),
+    verifyPayment: (body: { razorpay_order_id: string; razorpay_payment_id: string; razorpay_signature: string }) =>
+      request<{ planActivated: boolean }>('/subscription/verify-payment', {
+        method: 'POST',
+        body: JSON.stringify(body),
+      }),
+    paymentFailed: (razorpay_order_id: string) =>
+      request<void>('/subscription/payment-failed', {
+        method: 'POST',
+        body: JSON.stringify({ razorpay_order_id }),
+      }),
+    payments: () =>
+      request<Array<{ id: string; planId: string; amountPaise: number; currency: string; status: string; createdAt: string }>>(
+        '/subscription/payments',
+      ),
   },
 };
 
