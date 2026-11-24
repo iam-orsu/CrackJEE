@@ -95,6 +95,7 @@ export default function PricingPage() {
         amount: order.amount,
         currency: order.currency,
         name: 'JEENEET.ai',
+        image: `https://jeeneet.ai/logo.png`,
         description: plan.name,
         order_id: order.orderId,
         theme: { color: '#803688' },
