@@ -55,6 +55,8 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
   const [submissionError, setSubmissionError] = useState('');
   const [submissionFilter, setSubmissionFilter] = useState<'all' | 'incorrect' | 'correct' | 'skipped' | 'answered'>('all');
 
+  const [studentViewTab, setStudentViewTab] = useState<'submitted' | 'absentees'>('submitted');
+
   // Load assignments list for selector
   useEffect(() => {
     facultyListAssignments()
@@ -70,6 +72,7 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
     if (!selectedAssignmentId) return;
     setLoading(true);
     setError('');
+    setStudentViewTab('submitted');
     facultyGetAssignmentReport(selectedAssignmentId)
       .then((res) => {
         setReport(res.report);
@@ -86,14 +89,14 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
     return `${mins}m ${secs}s`;
   }
 
-  async function handleExportCsv() {
+  async function handleExportCsv(type: 'all' | 'absentees' = 'all') {
     if (!selectedAssignmentId) return;
     setExportingCsv(true);
     setError('');
     try {
-      await facultyDownloadAssignmentResultsCsv(selectedAssignmentId);
+      await facultyDownloadAssignmentResultsCsv(selectedAssignmentId, type);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to export student results CSV');
+      setError(err instanceof Error ? err.message : 'Failed to export CSV');
     } finally {
       setExportingCsv(false);
     }
@@ -187,15 +190,28 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
               ))}
             </select>
             {report && (
-              <button
-                type="button"
-                disabled={exportingCsv}
-                onClick={handleExportCsv}
-                className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#107C41] bg-white px-3.5 py-2 text-[12.5px] font-extrabold text-[#107C41] no-underline shadow-[0_3px_0_#A3D9B5] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_5px_0_#A3D9B5] active:translate-y-[2px] active:shadow-[0_1px_0_#A3D9B5] disabled:cursor-not-allowed disabled:opacity-45"
-              >
-                <Download className="h-4 w-4 shrink-0" aria-hidden />
-                {exportingCsv ? 'Exporting...' : 'Export Results (.csv)'}
-              </button>
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  disabled={exportingCsv}
+                  onClick={() => handleExportCsv('all')}
+                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#107C41] bg-white px-3.5 py-2 text-[12.5px] font-extrabold text-[#107C41] no-underline shadow-[0_3px_0_#A3D9B5] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_5px_0_#A3D9B5] active:translate-y-[2px] active:shadow-[0_1px_0_#A3D9B5] disabled:cursor-not-allowed disabled:opacity-45"
+                  title="Export results of all submitted students"
+                >
+                  <Download className="h-4 w-4 shrink-0" aria-hidden />
+                  {exportingCsv ? 'Exporting...' : 'Export Results (.csv)'}
+                </button>
+                <button
+                  type="button"
+                  disabled={exportingCsv}
+                  onClick={() => handleExportCsv('absentees')}
+                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2.5px] border-[#C8202F] bg-white px-3.5 py-2 text-[12.5px] font-extrabold text-[#C8202F] no-underline shadow-[0_3px_0_#F4C7C7] transition-[transform,box-shadow] duration-150 hover:-translate-y-[2px] hover:shadow-[0_5px_0_#F4C7C7] active:translate-y-[2px] active:shadow-[0_1px_0_#F4C7C7] disabled:cursor-not-allowed disabled:opacity-45"
+                  title="Export list of students who have not attempted or submitted this exam"
+                >
+                  <Download className="h-4 w-4 shrink-0" aria-hidden />
+                  Export Absentees (.csv)
+                </button>
+              </div>
             )}
           </div>
         )}
@@ -274,6 +290,22 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
                     </div>
                   </div>
 
+                  <button
+                    type="button"
+                    onClick={() => setStudentViewTab('absentees')}
+                    className="cursor-pointer rounded-[28px] border border-[#C8202F]/20 bg-[#FFFBFB] p-5 text-center shadow-[0_24px_56px_-36px_rgba(200,32,47,.2)] transition hover:-translate-y-0.5 sm:p-6"
+                  >
+                    <div className="text-[12px] font-semibold uppercase text-[#C8202F]">
+                      Absentees / Not Attempted
+                    </div>
+                    <div className="my-2 font-display text-[28px] font-extrabold text-[#C8202F]">
+                      {report.summary.absenteeCount ?? Math.max(0, report.summary.totalEnrolled - report.summary.submittedCount)}
+                    </div>
+                    <div className="text-[12px] font-bold text-[#C8202F]">
+                      Click to view absentees
+                    </div>
+                  </button>
+
                   {isPsychometric && report.summary.aiEvaluationStats && (
                     <div className="rounded-[28px] border border-[#803688]/20 bg-[#FDF8FF] p-5 text-center shadow-[0_24px_56px_-36px_rgba(128,54,136,.3)] sm:p-6">
                       <div className="text-[12px] font-semibold uppercase text-[#803688]">
@@ -293,18 +325,96 @@ export function FacultyReportsTab({ initialAssignmentId }: FacultyReportsTabProp
 
                 {/* Candidate Evaluations & Behavioral Profiles Table with Eye Icon */}
                 <div className="rounded-[28px] border border-[#003366]/10 bg-white p-5 shadow-[0_24px_56px_-36px_rgba(0,51,102,.45)] sm:p-6">
-                  <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2.5 font-display text-[17px] font-extrabold text-[#003366]">
-                    <span>
-                      {isPsychometric ? 'Candidate Evaluations & Behavioral Profiles' : 'Batch Leaderboard & Rankings'} ({report.rankList.length})
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 text-[12px] font-normal text-[#5A6B8C]">
-                      {isPsychometric
-                        ? 'Sorted by Goal Alignment • Click Eye to inspect student choices'
-                        : 'Ranked by Total Marks Descending • Click Eye to inspect student response sheet'}
-                    </span>
+                  {/* Tab Selector & Header */}
+                  <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-[#003366]/10 pb-3.5">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setStudentViewTab('submitted')}
+                        className={`cursor-pointer rounded-full px-4 py-1.5 text-[12.5px] font-extrabold transition ${
+                          studentViewTab === 'submitted'
+                            ? 'bg-[#003366] text-white shadow-sm'
+                            : 'bg-[#F1F5F9] text-[#5A6B8C] hover:bg-[#E2E8F0]'
+                        }`}
+                      >
+                        {isPsychometric ? 'Evaluated Candidates' : 'Rankings & Submissions'} ({report.rankList.length})
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setStudentViewTab('absentees')}
+                        className={`cursor-pointer rounded-full px-4 py-1.5 text-[12.5px] font-extrabold transition ${
+                          studentViewTab === 'absentees'
+                            ? 'bg-[#C8202F] text-white shadow-sm'
+                            : 'bg-[#FDF3F4] text-[#C8202F] hover:bg-[#FDE6E8]'
+                        }`}
+                      >
+                        Absentees / Not Attempted ({report.absentees?.length ?? Math.max(0, report.summary.totalEnrolled - report.summary.submittedCount)})
+                      </button>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      {studentViewTab === 'absentees' ? (
+                        <button
+                          type="button"
+                          disabled={exportingCsv}
+                          onClick={() => handleExportCsv('absentees')}
+                          className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border-[2px] border-[#C8202F] bg-white px-3 py-1.5 text-[12px] font-extrabold text-[#C8202F] no-underline shadow-[0_2px_0_#F4C7C7] transition hover:-translate-y-0.5"
+                        >
+                          <Download className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                          Export Absentees (.csv)
+                        </button>
+                      ) : (
+                        <span className="text-[12px] font-normal text-[#5A6B8C]">
+                          {isPsychometric
+                            ? 'Sorted by Goal Alignment • Click Eye to inspect student choices'
+                            : 'Ranked by Total Marks Descending • Click Eye to inspect student response sheet'}
+                        </span>
+                      )}
+                    </div>
                   </div>
 
-                  {report.rankList.length === 0 ? (
+                  {studentViewTab === 'absentees' ? (
+                    !report.absentees || report.absentees.length === 0 ? (
+                      <div className="rounded-3xl border border-dashed border-[#107C41]/30 bg-[#F4FBF7] px-5 py-9 text-center text-[13.5px] font-medium text-[#107C41]">
+                        All {report.summary.totalEnrolled} enrolled students in this batch have attempted and submitted this exam. Zero absentees.
+                      </div>
+                    ) : (
+                      <div className="overflow-x-auto">
+                        <table className="w-full border-collapse text-[13px]">
+                          <thead>
+                            <tr className="border-b-2 border-[#003366]/10 text-left text-[#5A6B8C]">
+                              <th className="w-[50px] px-3 py-2.5">S.No</th>
+                              <th className="px-3 py-2.5">Roll Number</th>
+                              <th className="px-3 py-2.5">Student Name</th>
+                              <th className="px-3 py-2.5">Email</th>
+                              <th className="px-3 py-2.5">Attendance Status</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {report.absentees.map((st, idx) => (
+                              <tr key={st.studentId} className="border-b border-[rgba(0,51,102,.05)] hover:bg-[#F8FAFC]">
+                                <td className="px-3 py-2.5 font-semibold text-[#5A6B8C]">{idx + 1}</td>
+                                <td className="px-3 py-2.5 font-mono font-bold text-[#003366]">{st.rollNumber}</td>
+                                <td className="px-3 py-2.5 font-bold text-[#003366]">{st.name}</td>
+                                <td className="px-3 py-2.5 text-[#5A6B8C]">{st.email || '—'}</td>
+                                <td className="px-3 py-2.5">
+                                  <span
+                                    className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[11px] font-bold ${
+                                      st.status === 'in_progress'
+                                        ? 'bg-amber-100 text-amber-800'
+                                        : 'bg-[#FDF3F4] text-[#C8202F]'
+                                    }`}
+                                  >
+                                    {st.status === 'in_progress' ? 'In Progress (Not Submitted)' : 'Absent (Not Attempted)'}
+                                  </span>
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    )
+                  ) : report.rankList.length === 0 ? (
                     <div className="rounded-3xl border border-dashed border-[#003366]/20 bg-white px-5 py-9 text-center text-[13.5px] font-medium text-[#5A6B8C]">
                       No student has submitted this exam yet. Students can take the test at <strong>/student</strong>.
                     </div>

@@ -417,6 +417,8 @@ export interface FacultyAssignmentReport {
     totalEnrolled: number;
     submittedCount: number;
     inProgressCount: number;
+    unattemptedCount?: number;
+    absenteeCount?: number;
     highestScore: number;
     lowestScore: number;
     avgScore: number;
@@ -443,6 +445,13 @@ export interface FacultyAssignmentReport {
     roleReason?: string | null;
     aiStatus?: string;
     personalWeakTopics?: Array<{ topic: string; mistakes: number }>;
+  }>;
+  absentees?: Array<{
+    studentId: string;
+    name: string;
+    rollNumber: string;
+    email: string | null;
+    status: 'in_progress' | 'unattempted';
   }>;
   questionAnalytics: Array<{
     questionNumber: number;
@@ -690,8 +699,12 @@ export async function facultyGetStudentSubmission(assignmentId: string, studentI
   );
 }
 
-export async function facultyDownloadAssignmentResultsCsv(assignmentId: string): Promise<void> {
-  const res = await fetch(`${API_URL}/faculty/assignments/${encodeURIComponent(assignmentId)}/csv`, {
+export async function facultyDownloadAssignmentResultsCsv(
+  assignmentId: string,
+  type: 'all' | 'absentees' = 'all',
+): Promise<void> {
+  const query = type === 'absentees' ? '?type=absentees' : '';
+  const res = await fetch(`${API_URL}/faculty/assignments/${encodeURIComponent(assignmentId)}/csv${query}`, {
     credentials: 'same-origin',
   });
   if (!res.ok) {
@@ -701,7 +714,7 @@ export async function facultyDownloadAssignmentResultsCsv(assignmentId: string):
   const blob = await res.blob();
   const disposition = res.headers.get('content-disposition') || '';
   const match = disposition.match(/filename="([^"]+)"/);
-  const filename = match?.[1] || `assignment-${assignmentId}-results.csv`;
+  const filename = match?.[1] || `assignment-${assignmentId}-${type === 'absentees' ? 'absentees' : 'results'}.csv`;
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;

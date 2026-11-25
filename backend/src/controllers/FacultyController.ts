@@ -660,7 +660,8 @@ export class FacultyController {
   public readonly downloadAssignmentResultsCsv = async (req: FacultyAuthRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
       const assignmentId = String(req.params.id);
-      const { csv, filename } = await this.assignmentService.exportAssignmentResultsCsv(assignmentId, req.faculty!.facultyId);
+      const type = (req.query.type as string) || 'all';
+      const { csv, filename } = await this.assignmentService.exportAssignmentResultsCsv(assignmentId, req.faculty!.facultyId, type);
       res.setHeader('Content-Type', 'text/csv; charset=utf-8');
       res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
       res.send(csv);

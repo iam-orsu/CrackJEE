@@ -143,6 +143,21 @@ export class FacultyAssignmentService {
     const items = (assignment.paper.items as unknown as FacultyPaperItem[]) || [];
     const submissions = assignment.studentExams.filter((e) => e.status === 'submitted');
     const totalEnrolled = assignment.batch.students.length;
+    const submittedStudentIds = new Set(submissions.map((s) => s.student.id));
+    const inProgressStudentIds = new Set(
+      assignment.studentExams.filter((e) => e.status === 'in_progress').map((e) => e.student.id),
+    );
+
+    const absentees = (assignment.batch.students || [])
+      .filter((st) => !submittedStudentIds.has(st.id))
+      .map((st) => ({
+        studentId: st.id,
+        name: st.name,
+        rollNumber: st.rollNumber,
+        email: (st as any).email || null,
+        status: inProgressStudentIds.has(st.id) ? ('in_progress' as const) : ('unattempted' as const),
+      }))
+      .sort((a, b) => a.rollNumber.localeCompare(b.rollNumber));
 
     // Calculate rank list
     const rankList = submissions.map((s, idx) => {
@@ -394,6 +409,8 @@ export class FacultyAssignmentService {
         totalEnrolled,
         submittedCount: submissions.length,
         inProgressCount: assignment.studentExams.filter((e) => e.status === 'in_progress').length,
+        unattemptedCount: absentees.filter((a) => a.status === 'unattempted').length,
+        absenteeCount: absentees.length,
         highestScore: Math.round(highestScore * 10) / 10,
         lowestScore: Math.round(lowestScore * 10) / 10,
         avgScore: Math.round(avgScore * 10) / 10,
@@ -412,6 +429,7 @@ export class FacultyAssignmentService {
           : null,
       },
       rankList: enhancedRankList,
+      absentees,
       questionAnalytics,
       topicAnalytics,
       revisionRecommendations: {
@@ -507,6 +525,7 @@ export class FacultyAssignmentService {
   public async exportAssignmentResultsCsv(
     assignmentId: string,
     facultyId: string,
+    type: string = 'all',
   ): Promise<{ csv: string; filename: string }> {
     const assignment = await this.assignmentRepo.findById(assignmentId, facultyId);
     if (!assignment) {
@@ -514,15 +533,85 @@ export class FacultyAssignmentService {
     }
 
     const examType = assignment.paper.examType;
-    const submissions = assignment.studentExams
-      .filter((e) => e.status === 'submitted')
-      .sort((a, b) => b.totalScore - a.totalScore);
 
     const escapeCsv = (val: unknown): string => {
       if (val === null || val === undefined) return '""';
       const str = String(val).replace(/"/g, '""');
       return `"${str}"`;
     };
+
+    if (type === 'absentees') {
+      const submittedStudentIds = new Set(
+        assignment.studentExams.filter((e) => e.status === 'submitted').map((s) => s.student.id),
+      );
+      const inProgressStudentIds = new Set(
+        assignment.studentExams.filter((e) => e.status === 'in_progress').map((e) => e.student.id),
+      );
+
+      const absentees = (assignment.batch.students || [])
+        .filter((st) => !submittedStudentIds.has(st.id))
+        .map((st) => ({
+          studentId: st.id,
+          name: st.name,
+          rollNumber: st.rollNumber,
+          email: (st as any).email || '',
+          status: inProgressStudentIds.has(st.id) ? 'In-Progress (Not Submitted)' : 'Absent (Not Attempted)',
+        }))
+        .sort((a, b) => a.rollNumber.localeCompare(b.rollNumber));
+
+      const lines: string[] = [];
+      lines.push('\uFEFF'); // UTF-8 BOM
+      lines.push(`Assignment:,${escapeCsv(assignment.title)}`);
+      lines.push(`Batch:,${escapeCsv(assignment.batch.name)} (${escapeCsv(assignment.batch.code)})`);
+      lines.push(`Exam Type:,${escapeCsv(examType)}`);
+      lines.push(`Paper Title:,${escapeCsv(assignment.paper.title)}`);
+      lines.push(`Total Batch Students:,${escapeCsv(assignment.batch.students.length)}`);
+      lines.push(`Total Submitted:,${escapeCsv(submittedStudentIds.size)}`);
+      lines.push(`Total Absentees / Not Attempted:,${escapeCsv(absentees.length)}`);
+      lines.push(`Exported At:,${escapeCsv(new Date().toISOString())}`);
+      lines.push('');
+
+      lines.push(
+        [
+          'S.No',
+          'Roll Number',
+          'Student Name',
+          'Email',
+          'Batch Name',
+          'Batch Code',
+          'Attendance Status',
+        ]
+          .map(escapeCsv)
+          .join(','),
+      );
+
+      absentees.forEach((st, idx) => {
+        lines.push(
+          [
+            idx + 1,
+            st.rollNumber,
+            st.name,
+            st.email,
+            assignment.batch.name,
+            assignment.batch.code,
+            st.status,
+          ]
+            .map(escapeCsv)
+            .join(','),
+        );
+      });
+
+      const safeBatch = assignment.batch.name.replace(/[^a-zA-Z0-9_-]/g, '_');
+      const safeTitle = assignment.title.replace(/[^a-zA-Z0-9_-]/g, '_');
+      return {
+        csv: lines.join('\n'),
+        filename: `${safeBatch}-Absentees-${safeTitle}.csv`,
+      };
+    }
+
+    const submissions = assignment.studentExams
+      .filter((e) => e.status === 'submitted')
+      .sort((a, b) => b.totalScore - a.totalScore);
 
     const lines: string[] = [];
     lines.push('\uFEFF'); // UTF-8 BOM

@@ -101,6 +101,7 @@ export class FacultyAssignmentRepository {
                 id: true,
                 name: true,
                 rollNumber: true,
+                email: true,
               },
             },
           },
