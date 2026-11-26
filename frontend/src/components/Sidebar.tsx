@@ -44,7 +44,7 @@ const ALL_LINKS = [
   { href: '/practice',      label: 'JEE Practice',      hint: 'Topic-wise questions', Icon: PracticeIcon, mode: 'jee'  as const },
   { href: '/neet/practice', label: 'NEET Practice',     hint: 'Topic-wise questions', Icon: PracticeIcon, mode: 'neet' as const },
   { href: '/mock',          label: 'Mock Test',         hint: 'Full-length exam',     Icon: MockIcon,     mode: 'all'  as const },
-  { href: '/psychometric',   label: 'Psychometric Test', hint: 'AI Behavior & Career', Icon: BrainIcon,    mode: 'all'  as const },
+  // { href: '/psychometric',   label: 'Psychometric Test', hint: 'AI Behavior & Career', Icon: BrainIcon,    mode: 'all'  as const },
   { href: '/pricing',        label: 'Plans & Pricing',   hint: 'Upgrade your plan',    Icon: TagIcon,      mode: 'all'  as const },
 ];
 
