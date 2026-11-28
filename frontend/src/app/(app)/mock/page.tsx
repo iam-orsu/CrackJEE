@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { StudySidebar } from '@/components/StudySidebar';
-import { api } from '@/lib/api';
+import { api, ApiError } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import type { MockHistoryItem, User } from '@/types';
 
@@ -246,6 +246,12 @@ export default function MockPage() {
       const { id } = await api.mock.start({ examType, difficultyMode, paperNumber });
       router.push(`/mock/${id}`);
     } catch (e) {
+      if (e instanceof ApiError && e.status === 402) {
+        setStartingKey(null);
+        if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+        router.push('/pricing');
+        return;
+      }
       setError(e instanceof Error ? e.message : 'Failed to start exam');
       setStartingKey(null);
       if (document.fullscreenElement) document.exitFullscreen().catch(() => {});

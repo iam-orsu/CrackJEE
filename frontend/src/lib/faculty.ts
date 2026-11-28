@@ -14,6 +14,8 @@ export interface FacultyUser {
   name: string;
   email: string;
   avatarUrl?: string | null;
+  mobile?: string | null;
+  mobileVerified?: boolean;
 }
 
 export interface FacultyPaperSelection {
@@ -112,6 +114,20 @@ export async function facultyLogout() {
 
 export async function facultyMe() {
   return facultyFetch<{ faculty: FacultyUser }>('/me');
+}
+
+export async function facultySendOtp(mobile: string) {
+  return facultyFetch<{ sent: boolean; expiresIn: number; cooldownSeconds: number }>('/otp/send', {
+    method: 'POST',
+    body: JSON.stringify({ mobile }),
+  });
+}
+
+export async function facultyVerifyOtp(mobile: string, otp: string) {
+  return facultyFetch<{ faculty: FacultyUser }>('/otp/verify', {
+    method: 'POST',
+    body: JSON.stringify({ mobile, otp }),
+  });
 }
 
 export async function facultyGetTopics(examType: FacultyExamType) {

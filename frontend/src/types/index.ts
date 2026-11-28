@@ -10,7 +10,31 @@ export interface User {
   isOnboarded?: boolean;
   mobile?: string | null;
   mobileVerified?: boolean;
+  emailVerified?: boolean;
+  plan?: string;
+  planExpiresAt?: string | null;
   createdAt?: string;
+}
+
+export interface Plan {
+  id: string;
+  name: string;
+  pricePaise: number;
+  originalPricePaise: number | null;
+  durationDays: number | null;
+  features: string[];
+  tagline?: string | null;
+  badge?: string | null;
+  featured?: boolean;
+}
+
+export interface SubscriptionStatus {
+  plan: string;
+  isActive: boolean;
+  expiresAt: string | null;
+  used: number;
+  limit: number | null;
+  remaining: number | null;
 }
 
 export interface DiagramTemplate {

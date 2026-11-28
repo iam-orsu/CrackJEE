@@ -79,10 +79,10 @@ export default function StudentPortalLoginPage() {
   const [busy, setBusy] = useState(false);
   const [checking, setChecking] = useState(true);
 
-  // Already signed in on this device? Go straight to the dashboard.
+  // Already signed in on this device? Go straight to the dashboard or finish onboarding.
   useEffect(() => {
     studentMe()
-      .then(() => router.replace('/student'))
+      .then((res) => router.replace(res.student.isOnboarded ? '/student' : '/student/onboarding'))
       .catch(() => setChecking(false));
   }, [router]);
 
@@ -91,8 +91,8 @@ export default function StudentPortalLoginPage() {
     setBusy(true);
     setError('');
     try {
-      await studentLogin(identifier, password);
-      router.replace('/student');
+      const res = await studentLogin(identifier, password);
+      router.replace(res.student.isOnboarded ? '/student' : '/student/onboarding');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Invalid roll number or password');
       setBusy(false);
@@ -189,7 +189,16 @@ export default function StudentPortalLoginPage() {
                 </p>
               </div>
 
-              {error && <div className={cx(ERROR_BANNER, 'mb-4')} role="alert">{error}</div>}
+              {error && (
+                <div className={cx(ERROR_BANNER, 'mb-4')} role="alert">
+                  <svg className="mt-px h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                  </svg>
+                  <span className="min-w-0">{error}</span>
+                </div>
+              )}
 
               <form onSubmit={handleSubmit} className="grid gap-4">
                 <div className="grid gap-1.5">

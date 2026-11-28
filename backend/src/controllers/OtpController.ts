@@ -15,7 +15,25 @@ const verifySchema = z.object({
   otp: z.string().trim().regex(/^\d{4}$/, 'Enter the 4-digit code we sent you'),
 });
 
+const emailSendSchema = z.object({
+  email: z.string().trim().email().toLowerCase(),
+});
+
+const emailVerifySchema = z.object({
+  email: z.string().trim().email().toLowerCase(),
+  otp: z.string().trim().regex(/^\d{4}$/, 'Enter the 4-digit code we sent you'),
+});
+
+const statusSchema = z.object({
+  email: z.string().trim().email().toLowerCase(),
+  mobile: z.string().trim().min(6).max(20),
+});
+
 export const registrationSubject = (mobile: string): string => `reg:${mobile}`;
+
+export const registrationEmailSubject = (email: string): string => `email:${email}`;
+
+export const loginEmailSubject = (email: string): string => `login:${email}`;
 
 export class OtpController {
   constructor(
@@ -80,6 +98,11 @@ export class OtpController {
         throw new AppError(400, 'Enter a valid 10-digit mobile number.');
       }
 
+      const mobileOwner = await this.authService.findMobileOwner(mobile);
+      if (mobileOwner) {
+        throw new AppError(409, 'This mobile number is already linked to another account.');
+      }
+
       const { expiresIn, cooldownSeconds } = await this.otpService.requestOtp(registrationSubject(mobile), mobile);
       res.json({ success: true, data: { sent: true, expiresIn, cooldownSeconds } });
     } catch (err) {
@@ -103,6 +126,91 @@ export class OtpController {
       await this.otpService.markVerified(registrationSubject(mobile), mobile);
 
       res.json({ success: true, data: { verified: true, mobile } });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly sendEmailForRegistration = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const body = emailSendSchema.safeParse(req.body);
+      if (!body.success) {
+        throw new AppError(400, body.error.errors[0]?.message ?? 'Enter a valid email address');
+      }
+
+      const email = body.data.email;
+      const { expiresIn, cooldownSeconds } = await this.otpService.requestEmailOtp(registrationEmailSubject(email), email);
+      res.json({ success: true, data: { sent: true, expiresIn, cooldownSeconds } });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly verifyEmailForRegistration = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const body = emailVerifySchema.safeParse(req.body);
+      if (!body.success) {
+        throw new AppError(400, body.error.errors[0]?.message ?? 'Invalid OTP');
+      }
+
+      const email = body.data.email;
+      await this.otpService.verifyOtp(registrationEmailSubject(email), email, body.data.otp, 'email address');
+      await this.otpService.markVerified(registrationEmailSubject(email), email);
+
+      res.json({ success: true, data: { verified: true, email } });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly sendEmail = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const body = emailSendSchema.safeParse(req.body);
+      if (!body.success) {
+        throw new AppError(400, body.error.errors[0]?.message ?? 'Enter a valid email address');
+      }
+
+      const email = body.data.email;
+      const { expiresIn, cooldownSeconds } = await this.otpService.requestEmailOtp(req.user!.userId, email);
+      res.json({ success: true, data: { sent: true, expiresIn, cooldownSeconds } });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly verifyEmail = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const body = emailVerifySchema.safeParse(req.body);
+      if (!body.success) {
+        throw new AppError(400, body.error.errors[0]?.message ?? 'Invalid OTP');
+      }
+
+      const email = body.data.email;
+      await this.otpService.verifyOtp(req.user!.userId, email, body.data.otp, 'email address');
+
+      const user = await this.authService.verifyEmail(req.user!.userId, email);
+      res.json({ success: true, data: user });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly registrationStatus = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const body = statusSchema.safeParse(req.body);
+      if (!body.success) {
+        throw new AppError(400, body.error.errors[0]?.message ?? 'Enter a valid email and mobile number');
+      }
+
+      const email = body.data.email;
+      const mobile = normalizeMobile(body.data.mobile);
+
+      const [emailVerified, mobileVerified] = await Promise.all([
+        this.otpService.isVerified(registrationEmailSubject(email), email),
+        mobile ? this.otpService.isVerified(registrationSubject(mobile), mobile) : Promise.resolve(false),
+      ]);
+
+      res.json({ success: true, data: { emailVerified, mobileVerified } });
     } catch (err) {
       next(err);
     }

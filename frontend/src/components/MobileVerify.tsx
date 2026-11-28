@@ -184,7 +184,16 @@ export default function MobileVerify<TResult>({
         </>
       )}
 
-      {error && <p role="alert" className="mv-error">{error}</p>}
+      {error && (
+        <p role="alert" className="mv-error">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <span>{error}</span>
+        </p>
+      )}
     </div>
   );
 }
@@ -231,9 +240,13 @@ const css = `
 .mv-link:hover:not(:disabled){color:#5A2560}
 .mv-link:disabled{color:#3C4A8A;opacity:.65;cursor:not-allowed;text-decoration:none}
 .mv-error{
-  background:#FDE6E8;color:#C0283A;border-left:5px solid #C0283A;border-radius:10px;
-  padding:11px 14px;font-weight:700;font-size:13.5px;overflow-wrap:anywhere;
+  display:flex;align-items:flex-start;gap:10px;
+  background:#FFF5F6;color:#C0283A;border:2px solid #C0283A;border-radius:14px;
+  padding:11px 14px;box-shadow:0 4px 0 #F3C3C8;
+  font-weight:600;font-size:13.5px;line-height:1.45;overflow-wrap:anywhere;
 }
+.mv-error svg{flex:none;width:16px;height:16px;margin-top:1px}
+.mv-error span{min-width:0}
 .mv-verified{
   display:flex;align-items:center;gap:13px;padding:15px 16px;border-radius:18px;
   background:#EEF2FF;border:2.5px solid #803688;

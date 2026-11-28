@@ -158,6 +158,34 @@ export class FacultyStudentRepository {
     });
   }
 
+  public async findByMobile(facultyId: string, mobile: string) {
+    return database.client.facultyStudent.findFirst({
+      where: { facultyId, mobile, isActive: true },
+    });
+  }
+
+  public async updateVerification(
+    id: string,
+    data: {
+      email?: string | null;
+      emailVerified?: boolean;
+      mobile?: string | null;
+      mobileVerified?: boolean;
+      isOnboarded?: boolean;
+    },
+  ) {
+    return database.client.facultyStudent.update({
+      where: { id },
+      data: {
+        ...(data.email !== undefined ? { email: data.email?.trim().toLowerCase() || null } : {}),
+        ...(data.emailVerified !== undefined ? { emailVerified: data.emailVerified } : {}),
+        ...(data.mobile !== undefined ? { mobile: data.mobile ?? null } : {}),
+        ...(data.mobileVerified !== undefined ? { mobileVerified: data.mobileVerified } : {}),
+        ...(data.isOnboarded !== undefined ? { isOnboarded: data.isOnboarded } : {}),
+      },
+    });
+  }
+
   public async updatePassword(id: string, facultyId: string, passwordHash: string) {
     return database.client.facultyStudent.update({
       where: { id },

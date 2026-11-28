@@ -38,4 +38,4 @@ export const CHIP_PROGRESS = `${CHIP} bg-[#FEF3C7] text-[#B45309]`;
 export const CHIP_SCHEDULED = `${CHIP} bg-ice text-[#31407F]`;
 
 export const ERROR_BANNER =
-  'rounded-[14px] border-l-[5px] border-[#C8202F] bg-[#FDE6E8] px-3.5 py-3 text-[13px] font-bold text-[#C8202F]';
+  'flex items-start gap-2.5 rounded-[14px] border-2 border-[#C8202F] bg-[#FFF5F6] px-3.5 py-3 text-[13px] font-semibold leading-[1.45] text-[#C8202F] shadow-[0_4px_0_#F3C3C8]';

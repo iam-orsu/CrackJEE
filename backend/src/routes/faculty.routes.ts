@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { FacultyController } from '../controllers/FacultyController';
 import { requireFaculty } from '../middlewares/facultyAuth.middleware';
+import { otpSendLimiter, otpVerifyLimiter } from '../middlewares/rateLimiter.middleware';
 
 /**
  * Mounts `/api/v1/faculty/*` mentor portal routes, isolated from student & admin auth.
@@ -13,6 +14,9 @@ export function createFacultyRoutes(controller = new FacultyController()): Route
   router.post('/logout', controller.logout);
   router.get('/me', guard, controller.me);
   router.get('/topics', guard, controller.getTopics);
+
+  router.post('/otp/send', guard, otpSendLimiter, controller.sendOtp);
+  router.post('/otp/verify', guard, otpVerifyLimiter, controller.verifyOtp);
 
   router.get('/papers', guard, controller.listPapers);
   router.post('/papers', guard, controller.createPaper);

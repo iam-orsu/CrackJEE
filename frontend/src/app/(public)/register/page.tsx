@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { api } from '@/lib/api';
 import { setSession, isAuthenticated } from '@/lib/auth';
-import MobileVerify from '@/components/MobileVerify';
+import VerifyField from '@/components/VerifyField';
 
 type FormState = {
   name: string;
@@ -37,14 +37,16 @@ const LEVELS = [
   ['advanced', 'Advanced', 'Revision & mock tests'],
 ] as const;
 
-const PENDING_MOBILE_KEY = 'jee_pending_mobile';
-
 function sanitizeMobile(value: string): string {
   const digits = value.replace(/\D/g, '');
   if (digits.length <= 10) return digits;
   if (digits.length === 12 && digits.startsWith('91')) return digits.slice(2);
   if (digits.length === 11 && digits.startsWith('0')) return digits.slice(1);
   return digits.slice(-10);
+}
+
+function isEmailValue(value: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 }
 
 const Sparkle = ({ className }: { className: string }) => (
@@ -68,12 +70,6 @@ export default function RegisterPage() {
   useEffect(() => {
     if (isAuthenticated()) {
       router.replace('/dashboard');
-      return;
-    }
-    const pending = sessionStorage.getItem(PENDING_MOBILE_KEY);
-    if (pending) {
-      setMobile(pending);
-      setStage('verify');
     }
   }, [router]);
 
@@ -92,8 +88,10 @@ export default function RegisterPage() {
   const [mode, setMode] = useState<'choose' | 'manual'>('choose');
   const [showPwd, setShowPwd] = useState(false);
   const [mobile, setMobile] = useState('');
-  const [stage, setStage] = useState<'form' | 'verify'>('form');
+  const [stage, setStage] = useState<'form' | 'email'>('form');
   const [mobileVerified, setMobileVerified] = useState(false);
+  const [emailVerified, setEmailVerified] = useState(false);
+  const [emailAttempt, setEmailAttempt] = useState(0);
 
   function handleGoogleSignIn() {
     setGoogleBusy(true);
@@ -104,6 +102,36 @@ export default function RegisterPage() {
   function set<K extends keyof FormState>(k: K, v: FormState[K]) {
     setForm((f) => ({ ...f, [k]: v }));
     setError('');
+    if (k === 'email') setEmailVerified(false);
+  }
+
+  function handleMobileChange(value: string) {
+    setMobile(sanitizeMobile(value));
+    setMobileVerified(false);
+    setError('');
+  }
+
+  async function refreshStatus() {
+    if (!isEmailValue(form.email) || mobile.length !== 10) return null;
+    try {
+      const status = await api.otp.registrationStatus({ email: form.email, mobile });
+      setEmailVerified(status.emailVerified);
+      setMobileVerified(status.mobileVerified);
+      return status;
+    } catch {
+      setEmailVerified(false);
+      setMobileVerified(false);
+      return null;
+    }
+  }
+
+  function handleEmailVerified() {
+    setEmailVerified(true);
+    void createAccount();
+  }
+
+  function handleMobileVerified() {
+    setMobileVerified(true);
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -112,31 +140,40 @@ export default function RegisterPage() {
       setError('Password must be at least 8 characters');
       return;
     }
-    if (mobile.length !== 10) {
-      setError('Enter a valid 10-digit mobile number');
+    if (!isEmailValue(form.email)) {
+      setError('Enter a valid email address');
+      document.getElementById('email')?.focus();
       return;
     }
-    if (mobileVerified) {
-      await createAccount();
+
+    const status = await refreshStatus();
+    if (!status?.mobileVerified) {
+      setError('Enter the code we texted to your number');
+      document.getElementById('mobile')?.focus();
       return;
     }
-    sessionStorage.setItem(PENDING_MOBILE_KEY, mobile);
-    setStage('verify');
+
+    setStage('email');
   }
 
   async function createAccount() {
     setLoading(true);
     try {
       const { user, expiresAt } = await api.auth.register({ ...form, mobile });
-      sessionStorage.removeItem(PENDING_MOBILE_KEY);
       setSession(user, expiresAt);
       router.push('/dashboard');
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Registration failed';
-      if (/verify your mobile/i.test(message)) {
+      if (/verify your email/i.test(message)) {
+        setEmailVerified(false);
+        setStage('email');
+        setEmailAttempt((n) => n + 1);
+      } else if (/verify your mobile/i.test(message)) {
         setMobileVerified(false);
-        setStage('verify');
-      } else {
+        setStage('form');
+      } else if (/already (linked|registered|uses google)/i.test(message)) {
+        setEmailVerified(false);
+        setMobileVerified(false);
         setStage('form');
       }
       setError(message);
@@ -145,13 +182,9 @@ export default function RegisterPage() {
     }
   }
 
-  async function handleVerified() {
-    setMobileVerified(true);
-    await createAccount();
-  }
-
   const pwdPct = Math.min(form.password.length / 8, 1) * 100;
   const pwdOk = form.password.length >= 8;
+  const canSubmit = isEmailValue(form.email) && mobile.length === 10;
 
   return (
     <div className="rg-root">
@@ -172,7 +205,7 @@ export default function RegisterPage() {
           <Link href="/" className="rg-logo">
             <Image src="/logo.png" alt="JEENEET.ai" width={150} height={62} className="site-logo" priority />
           </Link>
-          {stage !== 'verify' && <Link href="/login" className="rg-nav-btn">Sign in</Link>}
+          <Link href="/login" className="rg-nav-btn">Sign in</Link>
         </nav>
 
         {/* ── Hero text ── */}
@@ -189,10 +222,10 @@ export default function RegisterPage() {
         <section className="rg-stage">
           <main className="rg-box">
             <header className="rg-head">
-              <h1>{stage === 'verify' ? 'Verify your mobile' : 'Create your account'}</h1>
+              <h1>{stage === 'email' ? 'Verify your email' : 'Create your account'}</h1>
               <p>
-                {stage === 'verify'
-                  ? 'Enter the 4-digit code we texted to your phone to finish setting up.'
+                {stage === 'email'
+                  ? 'Enter the 4-digit code we emailed to you to finish setting up.'
                   : 'One account for practice, mocks and your progress dashboard.'}
               </p>
             </header>
@@ -223,15 +256,46 @@ export default function RegisterPage() {
                   With Google your name and photo come across automatically — you pick your class and target exam next.
                 </p>
               </div>
-            ) : stage === 'verify' ? (
-              <MobileVerify
-                initialMobile={mobile}
-                autoSend
-                verifyLabel="Verify & create account"
-                sendCode={(m) => api.otp.sendForRegistration({ mobile: m })}
-                verifyCode={(m, code) => api.otp.verifyForRegistration({ mobile: m, otp: code })}
-                onVerified={handleVerified}
-              />
+            ) : stage === 'email' ? (
+              <>
+                <button type="button" className="rg-back" onClick={() => { setStage('form'); setError(''); }}>
+                  ← Change email
+                </button>
+
+                <VerifyField
+                  key={`email-code-${emailAttempt}`}
+                  id="email-code"
+                  channel="email"
+                  variant="code"
+                  autoSend
+                  label={`Code sent to ${form.email}`}
+                  hint="We email a 4-digit code to confirm this address."
+                  value={form.email}
+                  valid={isEmailValue}
+                  verified={false}
+                  onVerified={handleEmailVerified}
+                  sendCode={(v) => api.otp.sendEmailForRegistration({ email: v })}
+                  verifyCode={(v, code) => api.otp.verifyEmailForRegistration({ email: v, otp: code })}
+                />
+
+                {error && (
+                  <p className="rg-error" role="alert">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="12" y1="8" x2="12" y2="12" />
+                      <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                    <span>{error}</span>
+                  </p>
+                )}
+
+                {loading && (
+                  <p className="rg-hint" style={{ textAlign: 'center' }} role="status">
+                    <span className="rg-spin" style={{ display: 'inline-block', borderTopColor: '#803688', borderColor: 'rgba(128,54,136,.25)' }} />
+                    Creating your account
+                  </p>
+                )}
+              </>
             ) : (
               <>
             <button type="button" className="rg-back" onClick={() => setMode('choose')}>
@@ -271,11 +335,15 @@ export default function RegisterPage() {
                       type="email"
                       placeholder="you@example.com"
                       value={form.email}
-                      onChange={(e) => set('email', e.target.value)}
+                      className={emailVerified ? 'rg-done' : ''}
+                      onChange={(e) => set('email', e.target.value.trim().toLowerCase())}
                       autoComplete="email"
                       required
                     />
                   </div>
+                  <p className={`rg-hint${emailVerified ? ' rg-hint-ok' : ''}`}>
+                    {emailVerified ? 'Address confirmed' : 'We email a 4-digit code to confirm this address.'}
+                  </p>
                 </div>
               </div>
 
@@ -322,30 +390,27 @@ export default function RegisterPage() {
                 <p className="rg-hint">{pwdOk ? 'Good to go' : `${form.password.length}/8 characters`}</p>
               </div>
 
-              <div className="rg-field">
-                <label htmlFor="mobile">Mobile number</label>
-                <div className="rg-input rg-input-prefix">
+              <VerifyField
+                id="mobile"
+                channel="mobile"
+                label="Mobile number"
+                hint="We text a 4-digit code to confirm the number."
+                placeholder="98765 43210"
+                prefix="+91"
+                icon={
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
                   </svg>
-                  <span className="rg-cc">+91</span>
-                  <input
-                    id="mobile"
-                    type="tel"
-                    inputMode="numeric"
-                    autoComplete="tel-national"
-                    placeholder="98765 43210"
-                    value={mobile}
-                    onChange={(e) => {
-                      setMobile(sanitizeMobile(e.target.value));
-                      setError('');
-                    }}
-                    maxLength={10}
-                    required
-                  />
-                </div>
-                <p className="rg-hint">We text a 4-digit code to confirm the number.</p>
-              </div>
+                }
+                value={mobile}
+                valid={(v) => v.length === 10}
+                verified={mobileVerified}
+                otpPlacement="inline"
+                onChange={handleMobileChange}
+                onVerified={handleMobileVerified}
+                sendCode={(v) => api.otp.sendForRegistration({ mobile: v })}
+                verifyCode={(v, code) => api.otp.verifyForRegistration({ mobile: v, otp: code })}
+              />
 
               <div className="rg-row-2">
                 <div className="rg-field">
@@ -459,28 +524,39 @@ export default function RegisterPage() {
                 </div>
               </div>
 
-              {error && <p className="rg-error" role="alert">{error}</p>}
+              {error && (
+                <p className="rg-error" role="alert">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                  </svg>
+                  <span>{error}</span>
+                </p>
+              )}
 
-              <button type="submit" className="rg-submit" disabled={loading}>
+              <button type="submit" className="rg-submit" disabled={loading || !canSubmit}>
                 {loading ? (
                   <>
                     <span className="rg-spin" />
                     Creating account...
                   </>
                 ) : (
-                  'Create account'
+                  'Continue'
                 )}
               </button>
+
+              {!mobileVerified && (
+                <p className="rg-hint" style={{ textAlign: 'center' }}>
+                  Confirm your mobile number to continue
+                </p>
+              )}
             </form>
               </>
             )}
 
             <p className="rg-link">
-              {stage === 'verify' ? (
-                <>Verification is required to finish setting up your account.</>
-              ) : (
-                <>Already have an account? <Link href="/login">Sign in</Link></>
-              )}
+              <>Already have an account? <Link href="/login">Sign in</Link></>
             </p>
           </main>
 
@@ -517,7 +593,7 @@ const css = `
   --blue:#003366; --blue-d:#00284F; --ink:#003366; --muted:#3C4A8A;
   --purple:#803688; --purple-d:#5A2560; --purple-2:#A24BA8;
   --grad:linear-gradient(135deg,#803688 0%,#A24BA8 100%);
-  --ice:#EEF2FF; --soft:#C6D2F8; --blob:#EDE3EF; --err:#C0283A;
+  --ice:#EEF2FF; --soft:#C6D2F8; --blob:#EDE3EF; --err:#C0283A; --ok:#12784A;
   position:relative; min-height:100vh; min-height:100dvh;
   overflow:hidden; overflow:clip; background:#fff;
   font-family:'DM Sans',system-ui,sans-serif; color:var(--ink);
@@ -607,6 +683,8 @@ const css = `
 .rg-input input::placeholder{color:#97A3D4;font-weight:500}
 .rg-input input:focus{border-color:var(--purple);transform:translateY(-2px);box-shadow:0 7px 0 #E3C9E6}
 .rg-input input.rg-err{border-color:var(--err)}
+.rg-input input.rg-done{border-color:var(--ok);box-shadow:0 5px 0 #C7E6D3}
+.rg-input input.rg-done:focus{border-color:var(--ok);box-shadow:0 7px 0 #C7E6D3}
 .rg-input-prefix input{padding-left:88px}
 .rg-cc{position:absolute;left:46px;top:50%;transform:translateY(-50%);font-weight:800;font-size:15px;color:var(--muted);z-index:1}
 .rg-eye{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:44px;height:44px;display:grid;place-items:center;background:none;border:0;border-radius:10px;color:var(--blue);cursor:pointer}
@@ -616,6 +694,7 @@ const css = `
 .rg-pmeter i{display:block;height:100%;background:var(--purple);border-radius:99px;transition:width .2s,background .2s}
 .rg-pmeter i.rg-ok{background:var(--blue)}
 .rg-hint{margin-top:6px;font-size:12px;font-weight:700;color:#5663A0}
+.rg-hint-ok{color:var(--ok)}
 
 /* Chips & level cards */
 .rg-chips{display:flex;flex-wrap:wrap;gap:10px}
@@ -639,7 +718,9 @@ const css = `
 .rg-level.on{background:var(--grad);border-color:var(--purple);color:#fff;box-shadow:0 4px 0 var(--purple-d);transform:translateY(0)}
 .rg-level.on small{color:rgba(255,255,255,.9)}
 
-.rg-error{background:#FDE6E8;color:var(--err);border-left:5px solid var(--err);border-radius:10px;padding:12px 14px;font-weight:700;font-size:14px;overflow-wrap:anywhere}
+.rg-error{display:flex;align-items:flex-start;gap:10px;background:#FFF5F6;color:var(--err);border:2px solid var(--err);border-radius:14px;padding:11px 14px;box-shadow:0 4px 0 #F3C3C8;font-weight:600;font-size:13.5px;line-height:1.45;overflow-wrap:anywhere}
+.rg-error svg{flex:none;width:16px;height:16px;margin-top:1px}
+.rg-error span{min-width:0}
 
 /* Sign-up options */
 .rg-choose{display:grid;gap:16px}

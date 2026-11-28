@@ -7,11 +7,11 @@ import { setSessionCookie, clearSessionCookie } from '../middlewares/auth.middle
 import { AppError } from '../utils/AppError';
 import { normalizeMobile } from '../utils/mobile';
 import type { AuthRequest } from '../types/index';
-import { registrationSubject } from './OtpController';
+import { registrationSubject, registrationEmailSubject, loginEmailSubject } from './OtpController';
 
 const registerSchema = z.object({
   name: z.string().min(2).max(100).trim(),
-  email: z.string().email().toLowerCase().trim(),
+  email: z.string().trim().email().toLowerCase(),
   password: z.string().min(8).max(128),
   class: z.enum(['11', '12', 'Dropper']),
   targetExam: z.enum(['Main', 'Advanced', 'Both', 'NEET', 'Psychometric']),
@@ -23,6 +23,11 @@ const registerSchema = z.object({
 const loginSchema = z.object({
   email: z.string().email().toLowerCase().trim(),
   password: z.string().min(1),
+});
+
+const emailVerifySchema = z.object({
+  email: z.string().trim().email().toLowerCase(),
+  otp: z.string().trim().regex(/^\d{4}$/, 'Enter the 4-digit code we sent you'),
 });
 
 const profileSchema = z.object({
@@ -62,10 +67,16 @@ export class AuthController {
         throw new AppError(400, 'Verify your mobile number before creating the account.');
       }
 
+      const emailVerified = await this.otpService.isVerified(registrationEmailSubject(body.data.email), body.data.email);
+      if (!emailVerified) {
+        throw new AppError(400, 'Verify your email address before creating the account.');
+      }
+
       const { token, user, expiresAt } = await this.authService.register({
         ...body.data,
         mobile,
         mobileVerified: true,
+        emailVerified: true,
       });
       setSessionCookie(res, token);
       res.status(201).json({ success: true, data: { user, expiresAt } });
@@ -81,7 +92,27 @@ export class AuthController {
         throw new AppError(400, 'Invalid credentials');
       }
 
-      const { token, user, expiresAt } = await this.authService.login(body.data.email, body.data.password);
+      const { email, password } = body.data;
+      await this.authService.authenticate(email, password);
+
+      const { expiresIn, cooldownSeconds } = await this.otpService.requestEmailOtp(loginEmailSubject(email), email);
+      res.json({ success: true, data: { otpRequired: true, email, expiresIn, cooldownSeconds } });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  public readonly loginVerify = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const body = emailVerifySchema.safeParse(req.body);
+      if (!body.success) {
+        throw new AppError(400, 'Invalid OTP');
+      }
+
+      const email = body.data.email;
+      await this.otpService.verifyOtp(loginEmailSubject(email), email, body.data.otp, 'email address');
+
+      const { token, user, expiresAt } = await this.authService.issueSessionForEmail(email);
       setSessionCookie(res, token);
       res.json({ success: true, data: { user, expiresAt } });
     } catch (err) {

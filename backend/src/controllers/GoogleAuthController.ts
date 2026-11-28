@@ -108,7 +108,10 @@ export class GoogleAuthController {
   private async completeFacultySignIn(res: Response, profile: GoogleProfile, redirectTo: string): Promise<void> {
     const session = await this.facultyAuthService.loginWithGoogle(profile);
     setFacultyCookie(res, session.token);
-    logger.info({ facultyId: session.faculty.id, email: session.faculty.email }, 'Faculty signed in with Google');
+    logger.info(
+      { facultyId: session.faculty.id, email: session.faculty.email, mobileVerified: session.faculty.mobileVerified },
+      'Faculty signed in with Google',
+    );
     res.redirect(302, `${frontendBaseUrl()}${redirectTo}`);
   }
 

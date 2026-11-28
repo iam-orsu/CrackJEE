@@ -47,7 +47,14 @@ export class FacultyRepository {
   public async findById(id: string) {
     return database.client.faculty.findUnique({
       where: { id },
-      select: { id: true, name: true, email: true, isActive: true, avatarUrl: true, createdAt: true },
+      select: { id: true, name: true, email: true, isActive: true, avatarUrl: true, mobile: true, mobileVerified: true, createdAt: true },
+    });
+  }
+
+  public async findByMobile(mobile: string) {
+    return database.client.faculty.findUnique({
+      where: { mobile },
+      select: { id: true, email: true },
     });
   }
 
@@ -65,6 +72,8 @@ export class FacultyRepository {
         isActive: true,
         googleSub: true,
         avatarUrl: true,
+        mobile: true,
+        mobileVerified: true,
         createdAt: true,
         _count: { select: { papers: true } },
       },
@@ -77,6 +86,7 @@ export class FacultyRepository {
     passwordHash: string;
     googleSub?: string | null;
     avatarUrl?: string | null;
+    mobile?: string | null;
   }) {
     return database.client.faculty.create({
       data: {
@@ -85,8 +95,9 @@ export class FacultyRepository {
         passwordHash: data.passwordHash,
         googleSub: data.googleSub ?? null,
         avatarUrl: data.avatarUrl ?? null,
+        mobile: data.mobile ?? null,
       },
-      select: { id: true, name: true, email: true, isActive: true, googleSub: true, avatarUrl: true, createdAt: true },
+      select: { id: true, name: true, email: true, isActive: true, googleSub: true, avatarUrl: true, mobile: true, mobileVerified: true, createdAt: true },
     });
   }
 
@@ -100,12 +111,12 @@ export class FacultyRepository {
 
   public async updateAccount(
     id: string,
-    data: { name?: string; isActive?: boolean; passwordHash?: string },
+    data: { name?: string; isActive?: boolean; passwordHash?: string; mobile?: string | null; mobileVerified?: boolean },
   ) {
     return database.client.faculty.update({
       where: { id },
       data,
-      select: { id: true, name: true, email: true, isActive: true, createdAt: true },
+      select: { id: true, name: true, email: true, isActive: true, avatarUrl: true, mobile: true, mobileVerified: true, createdAt: true },
     });
   }
 

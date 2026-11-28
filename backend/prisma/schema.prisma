@@ -22,6 +22,10 @@ model User {
   isOnboarded  Boolean  @default(false)
   mobile        String?  @unique
   mobileVerified Boolean @default(false)
+  emailVerified Boolean @default(false)
+  plan          String    @default("free")
+  planExpiresAt DateTime?
+  examsUsed    Int      @default(0)
   createdAt    DateTime @default(now())
 
   attempts       StudentAttempt[]
@@ -30,6 +34,7 @@ model User {
   mockExams      MockExam[]
   psychometricSessions PsychometricSession[]
   psychometricReports  PsychometricReport[]
+  payments     Payment[]
 }
 
 model Topic {
@@ -214,6 +219,8 @@ model Faculty {
   googleSub    String?        @unique
   avatarUrl    String?        @db.Text
   isActive     Boolean        @default(true)
+  mobile        String?       @unique
+  mobileVerified Boolean      @default(false)
   createdAt    DateTime       @default(now())
 
   papers       FacultyPaper[]
@@ -263,16 +270,20 @@ model FacultyBatch {
 }
 
 model FacultyStudent {
-  id           String   @id @default(cuid())
-  facultyId    String
-  batchId      String
-  name         String
-  rollNumber   String
-  email        String?
-  passwordHash String
-  isActive     Boolean  @default(true)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id             String   @id @default(cuid())
+  facultyId      String
+  batchId        String
+  name           String
+  rollNumber     String
+  email          String?
+  emailVerified  Boolean  @default(false)
+  mobile         String?
+  mobileVerified Boolean  @default(false)
+  isOnboarded    Boolean  @default(false)
+  passwordHash   String
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 
   faculty      Faculty              @relation(fields: [facultyId], references: [id], onDelete: Cascade)
   batch        FacultyBatch         @relation(fields: [batchId], references: [id], onDelete: Cascade)
@@ -283,6 +294,7 @@ model FacultyStudent {
   @@index([batchId])
   @@index([rollNumber])
   @@index([email])
+  @@index([mobile])
 }
 
 model FacultyExamAssignment {
@@ -427,3 +439,38 @@ model PsychometricReport {
   @@index([userId])
 }
 
+
+model Plan {
+  id                 String   @id
+  name               String
+  tagline            String?
+  pricePaise         Int
+  originalPricePaise Int?
+  durationDays       Int?
+  examLimit          Int?
+  features           Json
+  badge              String?
+  featured           Boolean  @default(false)
+  sortOrder          Int      @default(0)
+  isActive           Boolean  @default(true)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model Payment {
+  id            String   @id @default(cuid())
+  userId        String
+  planId        String
+  orderId       String   @unique
+  paymentId     String?
+  signature     String?
+  amountPaise   Int
+  currency      String   @default("INR")
+  status        String   @default("CREATED")
+  paymentMethod String?
+  createdAt     DateTime @default(now())
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([status])
+}

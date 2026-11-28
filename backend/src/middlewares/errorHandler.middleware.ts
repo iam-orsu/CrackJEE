@@ -55,7 +55,13 @@ export function errorHandlerMiddleware(
 
   // Handle Prisma unique constraint violations (P2002)
   if (errCode === 'P2002') {
-    res.status(409).json({ success: false, error: 'A duplicate record with this identifier already exists' });
+    const target = (err as { meta?: { target?: string } })?.meta?.target ?? '';
+    const message = target.includes('mobile')
+      ? 'This mobile number is already linked to another account.'
+      : target.includes('email')
+        ? 'Email already registered. Please sign in.'
+        : 'A duplicate record with this identifier already exists';
+    res.status(409).json({ success: false, error: message });
     return;
   }
 

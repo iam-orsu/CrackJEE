@@ -39,6 +39,7 @@ export class AuthService {
     currentLevel: 'beginner' | 'intermediate' | 'advanced';
     mobile?: string | null;
     mobileVerified?: boolean;
+    emailVerified?: boolean;
   }) {
     const existing = await this.users.findByEmailForAuth(input.email);
     if (existing) {
@@ -46,6 +47,13 @@ export class AuthService {
         throw new AppError(409, 'This email already uses Google sign-in. Please continue with Google.');
       }
       throw new AppError(409, 'Email already registered. Please sign in.');
+    }
+
+    if (input.mobile) {
+      const mobileOwner = await this.users.findByMobile(input.mobile);
+      if (mobileOwner) {
+        throw new AppError(409, 'This mobile number is already linked to another account.');
+      }
     }
 
     const passwordHash = await bcrypt.hash(input.password, AUTH_CONSTANTS.BCRYPT_ROUNDS);
@@ -59,6 +67,7 @@ export class AuthService {
       currentLevel: input.currentLevel,
       mobile: input.mobile ?? null,
       mobileVerified: input.mobileVerified ?? false,
+      emailVerified: input.emailVerified ?? false,
       isOnboarded: true,
     });
 
@@ -66,7 +75,7 @@ export class AuthService {
     return { token, user, expiresAt: this.sessionExpiresAt() };
   }
 
-  public async login(email: string, password: string) {
+  public async authenticate(email: string, password: string) {
     const user = await this.users.findByEmailForAuth(email);
     if (!user) {
       // Constant-time dummy comparison prevents timing oracle on unknown emails
@@ -76,6 +85,14 @@ export class AuthService {
 
     const valid = await bcrypt.compare(password, user.passwordHash);
     if (!valid) throw new AppError(401, 'Invalid credentials');
+
+    const { passwordHash: _, ...safeUser } = user;
+    return safeUser;
+  }
+
+  public async issueSessionForEmail(email: string) {
+    const user = await this.users.findByEmailForAuth(email);
+    if (!user) throw new AppError(401, 'Invalid credentials');
 
     const { passwordHash: _, ...safeUser } = user;
     const token = this.signToken(user.id);
@@ -130,6 +147,7 @@ export class AuthService {
           currentLevel: 'beginner',
           googleSub: profile.sub,
           avatarUrl: profile.picture,
+          emailVerified: true,
         });
         created = true;
       }
@@ -160,6 +178,10 @@ export class AuthService {
     return Boolean(owner && owner.id !== userId);
   }
 
+  public async findMobileOwner(mobile: string): Promise<{ id: string } | null> {
+    return this.users.findByMobile(mobile);
+  }
+
   public async verifyMobile(userId: string, mobile: string) {
     const existing = await this.users.findSafeById(userId);
     if (!existing) throw new AppError(404, 'User not found');
@@ -170,6 +192,18 @@ export class AuthService {
     }
 
     return this.users.updateProfile(userId, { mobile, mobileVerified: true });
+  }
+
+  public async verifyEmail(userId: string, email: string) {
+    const existing = await this.users.findSafeById(userId);
+    if (!existing) throw new AppError(404, 'User not found');
+
+    const owner = await this.users.findByEmailForAuth(email);
+    if (owner && owner.id !== userId) {
+      throw new AppError(409, 'This address is already linked to another account.');
+    }
+
+    return this.users.updateProfile(userId, { emailVerified: true });
   }
 
   public async completeOnboarding(

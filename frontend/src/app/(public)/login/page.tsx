@@ -33,8 +33,12 @@ const Sparkle = ({ className }: { className: string }) => (
 export default function LoginPage() {
   const router = useRouter();
   const [form, setForm] = useState({ email: '', password: '' });
+  const [step, setStep] = useState<'creds' | 'otp'>('creds');
+  const [otp, setOtp] = useState('');
+  const [cooldown, setCooldown] = useState(0);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [resending, setResending] = useState(false);
   const [googleBusy, setGoogleBusy] = useState(false);
   const [showPwd, setShowPwd] = useState(false);
   const [picked, setPicked] = useState<string | null>(null);
@@ -56,17 +60,54 @@ export default function LoginPage() {
     setError('');
   }
 
+  useEffect(() => {
+    if (cooldown <= 0) return;
+    const timer = setTimeout(() => setCooldown((c) => Math.max(0, c - 1)), 1000);
+    return () => clearTimeout(timer);
+  }, [cooldown]);
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (step === 'otp') {
+      await verifyOtp();
+      return;
+    }
     setLoading(true);
     try {
-      const { user, expiresAt } = await api.auth.login(form);
-      setSession(user, expiresAt);
-      router.replace('/dashboard');
+      const { cooldownSeconds } = await api.auth.login(form);
+      setCooldown(cooldownSeconds);
+      setOtp('');
+      setStep('otp');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Login failed');
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function verifyOtp() {
+    setLoading(true);
+    try {
+      const { user, expiresAt } = await api.auth.loginVerify({ email: form.email, otp });
+      setSession(user, expiresAt);
+      router.replace('/dashboard');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Verification failed');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function resendOtp() {
+    setResending(true);
+    setError('');
+    try {
+      const { cooldownSeconds } = await api.auth.login(form);
+      setCooldown(cooldownSeconds);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Could not resend the code');
+    } finally {
+      setResending(false);
     }
   }
 
@@ -122,11 +163,12 @@ export default function LoginPage() {
         <section className="sn-stage">
           <main className="sn-box">
             <header className="sn-head">
-              <h1>Welcome back</h1>
-              <p>Sign in to continue your preparation</p>
+              <h1>{step === 'creds' ? 'Welcome back' : 'Check your email'}</h1>
+              <p>{step === 'creds' ? 'Sign in to continue your preparation' : `Enter the 4-digit code sent to ${form.email}`}</p>
             </header>
 
             <form onSubmit={handleSubmit} className="sn-form">
+              {step === 'creds' && (<>
               <button type="button" className="sn-google" onClick={handleGoogleSignIn} disabled={loading || googleBusy}>
                 {googleBusy ? (
                   <>
@@ -201,24 +243,80 @@ export default function LoginPage() {
                   </button>
                 </div>
               </div>
+              </>)}
 
-              {error && <p className="sn-error" role="alert">{error}</p>}
+              {step === 'otp' && (
+                <div className="sn-field">
+                  <label htmlFor="otp">Verification code</label>
+                  <div className="sn-input">
+                    <input
+                      id="otp"
+                      className={`sn-otp ${error ? 'sn-err' : ''}`}
+                      type="text"
+                      inputMode="numeric"
+                      autoComplete="one-time-code"
+                      placeholder="0000"
+                      maxLength={4}
+                      value={otp}
+                      onChange={(e) => {
+                        setOtp(e.target.value.replace(/\D/g, ''));
+                        setError('');
+                      }}
+                      autoFocus
+                      required
+                    />
+                  </div>
+                  <div className="sn-otp-row">
+                    <button
+                      type="button"
+                      className="sn-resend"
+                      onClick={() => setStep('creds')}
+                      disabled={loading}
+                    >
+                      Use another email
+                    </button>
+                    <button
+                      type="button"
+                      className="sn-resend"
+                      onClick={resendOtp}
+                      disabled={resending || cooldown > 0}
+                    >
+                      {resending ? 'Sending...' : cooldown > 0 ? `Resend in ${cooldown}s` : 'Resend code'}
+                    </button>
+                  </div>
+                </div>
+              )}
 
-              <button type="submit" className="sn-submit" disabled={loading}>
+              {error && (
+                <p className="sn-error" role="alert">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                  </svg>
+                  <span>{error}</span>
+                </p>
+              )}
+
+              <button type="submit" className="sn-submit" disabled={loading || (step === 'otp' && otp.length < 4)}>
                 {loading ? (
                   <>
                     <span className="sn-spin" />
-                    Signing in...
+                    {step === 'otp' ? 'Verifying...' : 'Signing in...'}
                   </>
+                ) : step === 'otp' ? (
+                  'Verify & sign in'
                 ) : (
                   'Sign in with email'
                 )}
               </button>
             </form>
 
-            <p className="sn-link">
-              New to JEENEET.ai? <Link href="/register">Create a free account</Link>
-            </p>
+            {step === 'creds' && (
+              <p className="sn-link">
+                New to JEENEET.ai? <Link href="/register">Create a free account</Link>
+              </p>
+            )}
           </main>
 
           {/* Question card */}
@@ -388,7 +486,13 @@ const css = `
 .sn-input input.sn-err{border-color:var(--err)}
 .sn-eye{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:44px;height:44px;display:grid;place-items:center;background:none;border:0;border-radius:10px;color:var(--blue);cursor:pointer}
 .sn-eye:hover{background:var(--ice)}
-.sn-error{background:#FDE6E8;color:var(--err);border-left:5px solid var(--err);border-radius:10px;padding:12px 14px;font-weight:700;font-size:14px;overflow-wrap:anywhere}
+.sn-input input.sn-otp{text-align:center;font-size:24px;font-weight:800;letter-spacing:.5em;text-indent:.5em;padding-left:16px}
+.sn-otp-row{display:flex;justify-content:space-between;gap:12px;margin-top:10px}
+.sn-resend{background:none;border:0;padding:0;cursor:pointer;font:inherit;font-weight:800;font-size:13px;color:var(--purple);text-decoration:underline;text-underline-offset:3px}
+.sn-resend:disabled{color:#97A3D4;cursor:not-allowed;text-decoration:none}
+.sn-error{display:flex;align-items:flex-start;gap:10px;background:#FFF5F6;color:var(--err);border:2px solid var(--err);border-radius:14px;padding:11px 14px;box-shadow:0 4px 0 #F3C3C8;font-weight:600;font-size:13.5px;line-height:1.45;overflow-wrap:anywhere}
+.sn-error svg{flex:none;width:16px;height:16px;margin-top:1px}
+.sn-error span{min-width:0}
 
 .sn-submit{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;margin-top:6px;min-height:58px;width:100%;

@@ -136,6 +136,8 @@ export interface FacultyAccount {
   isActive: boolean;
   googleLinked: boolean;
   avatarUrl?: string | null;
+  mobile?: string | null;
+  mobileVerified?: boolean;
   paperCount: number;
   createdAt: string;
 }
@@ -144,7 +146,7 @@ export function listFacultyAccounts(): Promise<FacultyAccount[]> {
   return adminFetch<FacultyAccount[]>('/faculty');
 }
 
-export function createFacultyAccount(input: { name: string; email: string; password?: string }): Promise<FacultyAccount> {
+export function createFacultyAccount(input: { name: string; email: string; password?: string; mobile?: string }): Promise<FacultyAccount> {
   return adminFetch<FacultyAccount>('/faculty', {
     method: 'POST',
     body: JSON.stringify(input),
@@ -153,10 +155,78 @@ export function createFacultyAccount(input: { name: string; email: string; passw
 
 export function updateFacultyAccount(
   id: string,
-  input: { name?: string; isActive?: boolean; password?: string },
+  input: { name?: string; isActive?: boolean; password?: string; mobile?: string },
 ): Promise<FacultyAccount> {
   return adminFetch<FacultyAccount>(`/faculty/${encodeURIComponent(id)}`, {
     method: 'PATCH',
     body: JSON.stringify(input),
   });
+}
+
+export interface AdminPlan {
+  id: string;
+  name: string;
+  tagline: string | null;
+  pricePaise: number;
+  originalPricePaise: number | null;
+  durationDays: number | null;
+  examLimit: number | null;
+  features: string[];
+  badge: string | null;
+  featured: boolean;
+  sortOrder: number;
+  isActive: boolean;
+}
+
+export interface PlanInput {
+  name: string;
+  tagline?: string | null;
+  pricePaise: number;
+  originalPricePaise?: number | null;
+  durationDays?: number | null;
+  examLimit?: number | null;
+  features: string[];
+  badge?: string | null;
+  featured?: boolean;
+  isActive?: boolean;
+  sortOrder?: number;
+}
+
+export function listPlans(): Promise<AdminPlan[]> {
+  return adminFetch<AdminPlan[]>('/plans');
+}
+
+export function createPlan(input: PlanInput): Promise<AdminPlan> {
+  return adminFetch<AdminPlan>('/plans', {
+    method: 'POST',
+    body: JSON.stringify(input),
+  });
+}
+
+export function updatePlan(id: string, input: Partial<PlanInput>): Promise<AdminPlan> {
+  return adminFetch<AdminPlan>(`/plans/${encodeURIComponent(id)}`, {
+    method: 'PATCH',
+    body: JSON.stringify(input),
+  });
+}
+
+export function deletePlan(id: string): Promise<void> {
+  return adminFetch<void>(`/plans/${encodeURIComponent(id)}`, { method: 'DELETE' });
+}
+
+export interface AdminPayment {
+  id: string;
+  planId: string;
+  orderId: string;
+  paymentId: string | null;
+  amountPaise: number;
+  currency: string;
+  status: string;
+  paymentMethod: string | null;
+  createdAt: string;
+  user: { name: string; email: string };
+}
+
+export function listPayments(): Promise<AdminPayment[]> {
+  return adminFetch<AdminPayment[]>('/payments');
 }

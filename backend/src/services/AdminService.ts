@@ -8,6 +8,21 @@ import { MockExamRepository } from '../repositories/MockExamRepository';
 import { QuestionRepository } from '../repositories/QuestionRepository';
 import { AppError } from '../utils/AppError';
 import { logger } from '../utils/logger';
+import { prisma } from '../config/database';
+
+interface PlanInput {
+  name: string;
+  tagline?: string | null;
+  pricePaise: number;
+  originalPricePaise?: number | null;
+  durationDays?: number | null;
+  examLimit?: number | null;
+  features: string[];
+  badge?: string | null;
+  featured?: boolean;
+  isActive?: boolean;
+  sortOrder?: number;
+}
 
 function safeEqualStr(a: string, b: string): boolean {
   const left = createHash('sha256').update(a).digest();
@@ -231,5 +246,56 @@ export class AdminService {
         maxMarks: breakdown[q.id]?.maxMarks ?? null,
       })),
     };
+  }
+
+  public listPlans() {
+    return prisma.plan.findMany({ orderBy: { sortOrder: 'asc' } });
+  }
+
+  public async createPlan(input: PlanInput) {
+    const id = input.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    if (!id) throw new AppError(400, 'Plan name must contain letters or numbers');
+
+    const existing = await prisma.plan.findUnique({ where: { id } });
+    if (existing) throw new AppError(409, 'A plan with this name already exists');
+
+    return prisma.plan.create({
+      data: { ...input, id, sortOrder: input.sortOrder ?? (await prisma.plan.count()) },
+    });
+  }
+
+  public async updatePlan(id: string, patch: Partial<PlanInput>) {
+    const existing = await prisma.plan.findUnique({ where: { id } });
+    if (!existing) throw new AppError(404, 'Plan not found');
+
+    return prisma.plan.update({ where: { id }, data: patch });
+  }
+
+  public async deletePlan(id: string) {
+    if (id === 'free') throw new AppError(400, 'The Free plan cannot be deleted');
+
+    const existing = await prisma.plan.findUnique({ where: { id } });
+    if (!existing) throw new AppError(404, 'Plan not found');
+
+    await prisma.plan.delete({ where: { id } });
+  }
+
+  public listPayments() {
+    return prisma.payment.findMany({
+      orderBy: { createdAt: 'desc' },
+      take: 500,
+      select: {
+        id: true,
+        planId: true,
+        orderId: true,
+        paymentId: true,
+        amountPaise: true,
+        currency: true,
+        status: true,
+        paymentMethod: true,
+        createdAt: true,
+        user: { select: { name: true, email: true } },
+      },
+    });
   }
 }

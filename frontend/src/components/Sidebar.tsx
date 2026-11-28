@@ -33,13 +33,19 @@ const BrainIcon = () => (
     <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04" />
   </svg>
 );
+const TagIcon = () => (
+  <svg className="h-[22px] w-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <path d="M20.6 13.4L12 22l-9-9V3h10l7.6 7.6a2 2 0 0 1 0 2.8z" /><circle cx="7.5" cy="7.5" r="1.5" />
+  </svg>
+);
 
 const ALL_LINKS = [
   { href: '/dashboard',     label: 'Dashboard',         hint: 'Your progress',        Icon: DashIcon,     mode: 'all'  as const },
   { href: '/practice',      label: 'JEE Practice',      hint: 'Topic-wise questions', Icon: PracticeIcon, mode: 'jee'  as const },
   { href: '/neet/practice', label: 'NEET Practice',     hint: 'Topic-wise questions', Icon: PracticeIcon, mode: 'neet' as const },
   { href: '/mock',          label: 'Mock Test',         hint: 'Full-length exam',     Icon: MockIcon,     mode: 'all'  as const },
-  { href: '/psychometric',   label: 'Psychometric Test', hint: 'AI Behavior & Career', Icon: BrainIcon,    mode: 'all'  as const },
+  // { href: '/psychometric',   label: 'Psychometric Test', hint: 'AI Behavior & Career', Icon: BrainIcon,    mode: 'all'  as const },
+  { href: '/pricing',        label: 'Plans & Pricing',   hint: 'Upgrade your plan',    Icon: TagIcon,      mode: 'all'  as const },
 ];
 
 type NavLink = (typeof ALL_LINKS)[number];

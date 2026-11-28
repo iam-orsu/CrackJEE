@@ -9,12 +9,16 @@ import { createFacultyStudentRoutes } from './facultyStudent.routes';
 import { createGoogleRoutes } from './google.routes';
 import { createProgressRoutes } from './progress.routes';
 import { createPsychometricRoutes } from './psychometric.routes';
+import { createSubscriptionRoutes } from './subscription.routes';
+import { createWebhookRoutes } from './webhook.routes';
 
 /** Mounts all `/api/v1/*` domain routers onto a single parent router. */
 export function createApiV1Router(): Router {
   const router = Router();
 
   router.use('/auth', createAuthRoutes());
+  router.use('/subscription', createSubscriptionRoutes());
+  router.use('/webhooks', createWebhookRoutes());
   router.use('/questions', createQuestionRoutes());
   router.use('/answers', createAnswerRoutes());
   router.use('/mock', createMockRoutes());

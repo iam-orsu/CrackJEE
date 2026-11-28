@@ -8,7 +8,7 @@ import {
   type AdminStudentDetail,
 } from '@/lib/admin';
 import { MathText, stripOptionPrefix } from '@/lib/math';
-import styles from './superadmin.module.css';
+import styles from '@/app/superadmin/superadmin.module.css';
 import Loader from '@/components/loader';
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];

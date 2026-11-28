@@ -1,5 +1,6 @@
 import { describe, it, before, beforeEach, afterEach } from 'node:test';
 import assert from 'node:assert/strict';
+import nodemailer from 'nodemailer';
 import { AppError } from '../utils/AppError';
 import { normalizeMobile, maskMobile } from '../utils/mobile';
 import { OTP_CONSTANTS } from '../config/constants';
@@ -281,5 +282,78 @@ describe('Registration OTP flow', () => {
 
     assert.equal(await service.isVerified('reg:918341665060', '918341665060'), true);
     assert.equal(await service.isVerified('reg:919999999999', '919999999999'), false);
+  });
+});
+
+describe('Email OTP flow', () => {
+  const originalCreateTransport = nodemailer.createTransport;
+  let sent: Array<{ from?: string; to?: string; subject?: string; text?: string }> = [];
+
+  before(() => {
+    process.env.JWT_SECRET = TEST_SECRET;
+    process.env.REDIS_URL = '';
+    process.env.SMTP_USER = 'emailapikey';
+    process.env.SMTP_PASS = 'test-smtp-password';
+    process.env.SMTP_FROM = 'no-reply@jeeneet.ai';
+  });
+
+  beforeEach(() => {
+    process.env.REDIS_URL = '';
+    sent = [];
+    nodemailer.createTransport = (() => ({
+      sendMail: async (options: { from?: string; to?: string; subject?: string; text?: string }) => {
+        sent.push(options);
+        return { messageId: 'test-message' };
+      },
+    })) as unknown as typeof nodemailer.createTransport;
+  });
+
+  afterEach(() => {
+    nodemailer.createTransport = originalCreateTransport;
+  });
+
+  it('emails the code and marks the address as verified', async () => {
+    const service = new OtpService(new CacheService());
+    const subject = 'email:student@example.com';
+
+    assert.equal(await service.isVerified(subject, 'student@example.com'), false);
+
+    const result = await service.requestEmailOtp(subject, 'student@example.com');
+
+    assert.equal(result.expiresIn, OTP_CONSTANTS.TTL_SECONDS);
+    assert.equal(sent.length, 1);
+    assert.equal(sent[0].from, 'no-reply@jeeneet.ai');
+    assert.equal(sent[0].to, 'student@example.com');
+    assert.match(sent[0].text ?? '', /\d{4}/);
+
+    const code = (sent[0].text ?? '').match(/\d{4}/)?.[0] ?? '';
+    await service.verifyOtp(subject, 'student@example.com', code, 'email address');
+    await service.markVerified(subject, 'student@example.com');
+
+    assert.equal(await service.isVerified(subject, 'student@example.com'), true);
+  });
+
+  it('rejects a code sent to a different email address', async () => {
+    const service = new OtpService(new CacheService());
+    const subject = 'email:student@example.com';
+
+    await service.requestEmailOtp(subject, 'student@example.com');
+
+    await assert.rejects(
+      () => service.verifyOtp(subject, 'other@example.com', '1234', 'email address'),
+      (err: AppError) => err.statusCode === 400 && /different email address/i.test(err.message),
+    );
+  });
+
+  it('keeps email and mobile verification for the same account separate', async () => {
+    const service = new OtpService(new CacheService());
+
+    await service.requestEmailOtp('email:student@example.com', 'student@example.com');
+    await service.verifyOtp('email:student@example.com', 'student@example.com', '0000', 'email address').catch(() => undefined);
+    await service.markVerified('email:student@example.com', 'student@example.com');
+
+    assert.equal(await service.isVerified('email:student@example.com', 'student@example.com'), true);
+    assert.equal(await service.isVerified('reg:918341665060', 'student@example.com'), false);
+    assert.equal(await service.isVerified('email:student@example.com', 'other@example.com'), false);
   });
 });

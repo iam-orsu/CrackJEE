@@ -13,11 +13,15 @@ interface GoogleFacultyAccount {
   isActive: boolean;
   googleSub: string | null;
   avatarUrl: string | null;
+  mobile?: string | null;
+  mobileVerified?: boolean;
 }
 
 /** Handles faculty/mentor authentication and account provisioning. */
 export class FacultyAuthService {
-  constructor(private readonly facultyRepo: FacultyRepository = new FacultyRepository()) {}
+  constructor(
+    private readonly facultyRepo: FacultyRepository = new FacultyRepository(),
+  ) {}
 
   public async loginWithGoogle(profile: GoogleProfile) {
     if (!profile.emailVerified) {
@@ -77,7 +81,7 @@ export class FacultyAuthService {
     return process.env.GOOGLE_FACULTY_AUTO_PROVISION !== 'false';
   }
 
-  private issueSession(faculty: { id: string; name: string; email: string; avatarUrl?: string | null }) {
+  private issueSession(faculty: { id: string; name: string; email: string; avatarUrl?: string | null; mobile?: string | null; mobileVerified?: boolean }) {
     const secret = process.env.JWT_SECRET;
     if (!secret) throw new AppError(500, 'Server misconfiguration');
 
@@ -96,8 +100,26 @@ export class FacultyAuthService {
         name: faculty.name,
         email: faculty.email,
         avatarUrl: faculty.avatarUrl ?? null,
+        mobile: faculty.mobile ?? null,
+        mobileVerified: faculty.mobileVerified ?? false,
       },
     };
+  }
+
+  public async verifyMobile(facultyId: string, mobile: string) {
+    const existing = await this.facultyRepo.findById(facultyId);
+    if (!existing) throw new AppError(404, 'Faculty account not found');
+
+    await this.assertMobileAvailable(facultyId, mobile);
+
+    return this.facultyRepo.updateAccount(facultyId, { mobile, mobileVerified: true });
+  }
+
+  public async assertMobileAvailable(facultyId: string, mobile: string): Promise<void> {
+    const facultyOwner = await this.facultyRepo.findByMobile(mobile);
+    if (facultyOwner && facultyOwner.id !== facultyId) {
+      throw new AppError(409, 'This mobile number is already linked to another faculty account.');
+    }
   }
 
   public async listAccounts() {

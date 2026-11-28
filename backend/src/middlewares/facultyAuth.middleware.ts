@@ -13,6 +13,8 @@ export interface FacultyAuthRequest extends Request {
     name: string;
     email: string;
     avatarUrl?: string | null;
+    mobile?: string | null;
+    mobileVerified?: boolean;
   };
 }
 
@@ -82,6 +84,8 @@ export function requireFaculty(repo: FacultyRepository = defaultRepo) {
         name: account.name,
         email: account.email,
         avatarUrl: account.avatarUrl ?? null,
+        mobile: account.mobile ?? null,
+        mobileVerified: account.mobileVerified ?? false,
       };
       next();
     } catch (err) {

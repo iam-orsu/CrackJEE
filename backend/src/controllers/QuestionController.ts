@@ -2,6 +2,7 @@ import type { Response, NextFunction } from 'express';
 import { z } from 'zod';
 import { QuestionService } from '../services/QuestionService';
 import { AppError } from '../utils/AppError';
+import { consumeExamCredit } from '../services/quota';
 import {
   JEE_TOPICS,
   NEET_TOPICS,
@@ -198,6 +199,8 @@ export class QuestionController {
         }
       }
 
+      await consumeExamCredit(req.user!.userId);
+
       const questions = mode === 'practice'
         ? await this.questionService.getPracticeQuestionBatch(
             req.user!.userId,
@@ -290,6 +293,8 @@ export class QuestionController {
       if (topicIds.length === 0) {
         throw new AppError(400, 'topicId or topicIds query parameter is required');
       }
+
+      await consumeExamCredit(req.user!.userId);
 
       const questions = await this.questionService.getWeakTopicsBatch(req.user!.userId, topicIds);
       const safe = questions.map(({ answer: _, explanation: __, ...q }) => q);

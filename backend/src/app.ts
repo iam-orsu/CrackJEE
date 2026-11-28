@@ -40,7 +40,13 @@ export function createApp(): express.Express {
   app.use(requestIdMiddleware);
   app.use(helmet(helmetOptions));
   app.use(cors(buildCorsOptions()));
-  app.use(express.json({ limit: '10mb' }));
+  // `rawBody` keeps the exact bytes so webhook handlers can verify provider signatures.
+  app.use(express.json({
+    limit: '10mb',
+    verify: (req, _res, buf) => {
+      (req as express.Request & { rawBody?: Buffer }).rawBody = buf;
+    },
+  }));
   app.use(apiLimiter);
 
   app.use((req, res, next) => {

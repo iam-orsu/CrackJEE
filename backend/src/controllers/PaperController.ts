@@ -2,6 +2,7 @@ import type { Response, NextFunction } from 'express';
 import { z } from 'zod';
 import { PaperService, PAPER_PAGE_SIZE } from '../services/PaperService';
 import { AppError } from '../utils/AppError';
+import { consumeExamCredit, refundExamCredit } from '../services/quota';
 import { JEE_TOPICS, getTopicsForClass, type AuthRequest, type Subject } from '../types/index';
 
 const selectionSchema = z.object({
@@ -116,8 +117,11 @@ export class PaperController {
         throw new AppError(400, body.error.errors[0]?.message ?? 'Invalid input');
       }
 
+      await consumeExamCredit(req.user!.userId);
+
       const questions = await this.paperService.claimPaper(req.user!.userId, body.data.questionIds);
       if (questions.length === 0) {
+        await refundExamCredit(req.user!.userId);
         throw new AppError(404, 'None of these questions are available any more. Pick another paper.');
       }
 

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
-import { api } from '@/lib/api';
+import { api, ApiError } from '@/lib/api';
 import { isAuthenticated, getUser } from '@/lib/auth';
 import type { Question, AnswerResult, Subject, TopicProgress, PaperSet } from '@/types';
 import type { SplitTopics } from '@/lib/api';
@@ -574,6 +574,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
       setAppState('exam');
       sessionTimerRef.current = setInterval(() => setSessionSecs((s) => s + 1), 1000);
     } catch (e) {
+      if (e instanceof ApiError && e.status === 402) { window.location.href = '/pricing'; return; }
       setLoadError(e instanceof Error ? e.message : 'Could not start this paper');
       setAppState('wizard');
       loadPapers(paperPage);
@@ -639,6 +640,7 @@ export function PracticeSession({ config }: { config: PracticeExamConfig }) {
       sessionTimerRef.current = setInterval(() => setSessionSecs((s) => s + 1), 1000);
     } catch (e: unknown) {
       clearInterval(msgInterval);
+      if (e instanceof ApiError && e.status === 402) { window.location.href = '/pricing'; return; }
       setLoadError(e instanceof Error ? e.message : 'Failed to generate questions');
       setAppState('wizard');
     }
